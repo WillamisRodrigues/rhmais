@@ -1,4 +1,4 @@
-@extends('layout/app')
+@extends('layout/login')
 @section('titulo','RH MAIS')
 @section('conteudo')    
     <div>
@@ -9,31 +9,31 @@
         <div class="animate form login_form">
           <section class="login_content">
             <form>
-              <h1>Login Form</h1>
+              <h1>LOGIN RH MAIS</h1>
               <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
+                <input type="text" class="form-control" placeholder="Email *" required="" />
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
+                <input type="password" class="form-control" placeholder="Password *" required="" />
               </div>
               <div>
-                <a class="btn btn-default submit" href="index.html">Log in</a>
-                <a class="reset_pass" href="#">Lost your password?</a>
+                <a class="btn btn-primary submit" href="index.html">Entrar</a>
+                <a class="reset_pass" href="#">Esqueceu a senha?</a>
               </div>
 
               <div class="clearfix"></div>
 
               <div class="separator">
-                <p class="change_link">New to site?
-                  <a href="#signup" class="to_register"> Create Account </a>
+                <p class="change_link">Novo no sistema?
+                  <a href="#signup" class="to_register"> Criar Conta </a>
                 </p>
 
                 <div class="clearfix"></div>
                 <br />
 
                 <div>
-                  <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-                  <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                  <img src="{{asset('images/logo.png')}}" alt="" style="width:100px;">
+                  <p>©2019 RH MAIS Todos os direitos reservados</p>
                 </div>
               </div>
             </form>
@@ -43,9 +43,9 @@
         <div id="register" class="animate form registration_form">
           <section class="login_content">
             <form>
-              <h1>Create Account</h1>
+              <h1>Criar Conta</h1>
               <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
+                <input type="text" class="form-control" placeholder="Usuario" required="" />
               </div>
               <div>
                 <input type="email" class="form-control" placeholder="Email" required="" />
@@ -54,22 +54,22 @@
                 <input type="password" class="form-control" placeholder="Password" required="" />
               </div>
               <div>
-                <a class="btn btn-default submit" href="index.html">Submit</a>
+                <a class="btn btn-default submit" href="index.html">Criar</a>
               </div>
 
               <div class="clearfix"></div>
 
               <div class="separator">
-                <p class="change_link">Already a member ?
-                  <a href="#signin" class="to_register"> Log in </a>
+                <p class="change_link">Já Possue Conta ?
+                  <a href="#signin" class="to_register"> Entrar </a>
                 </p>
 
                 <div class="clearfix"></div>
                 <br />
 
                 <div>
-                  <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-                  <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                <img src="{{asset('images/logo.png')}}" alt="" style="width:100px;">
+                  <p>©2019 RH MAIS Todos os direitos reservados</p>
                 </div>
               </div>
             </form>
