@@ -1,5 +1,6 @@
 @extends('layout/app')
 @section('titulo','Home | RH MAIS')
+@section('conteudo')
    <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
@@ -688,14 +689,7 @@
           </div>
         </div>
         <!-- /page content -->
-
-        <!-- footer content -->
-        <footer>
-          <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
-        <!-- /footer content -->
+        @include('layout.footer')
       </div>
     </div>
+@endsection

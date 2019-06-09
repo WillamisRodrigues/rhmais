@@ -29,7 +29,7 @@
   </head>
 
   <body class="nav-md">
-    	
+    	@yield('conteudo')
   </body>
 
     <!-- jQuery -->
