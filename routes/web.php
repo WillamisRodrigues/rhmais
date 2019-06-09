@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('login/login');
 });
+
+Route::get('/home', function () {
+    return view('home/home');
+});
+
+Route::get('/cadastro_usuario', function () {
+    return view('cadastro/usuario');
+});
