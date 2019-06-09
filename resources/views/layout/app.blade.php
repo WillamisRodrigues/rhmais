@@ -37,6 +37,7 @@
     <!-- Bootstrap -->
     <script src="{{asset('vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
     <!-- FastClick -->
+    <script src="{{asset('vendors/validator/validator.js')}}"></script>
     <script src="{{asset('vendors/fastclick/lib/fastclick.js')}}"></script>
     <!-- NProgress -->
     <script src="{{asset('vendors/nprogress/nprogress.js')}}"></script>
