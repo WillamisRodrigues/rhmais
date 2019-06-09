@@ -7,8 +7,38 @@
                   <li><a><i class="fa fa-edit"></i> Cadastros <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="/cadastro_usuario">Usuarios</a></li>
-                      <li><a href="form_advanced.html">Instituição de Ensino</a></li>
-                      <li><a href="form_validation.html">Empresas Parceiras</a></li>
+                      <li><a href="">Instituição de Ensino</a></li>
+                      <li><a href="">Empresas Parceiras</a></li>
+                    </ul>
+                  </li>     
+                  <li><a><i class="fa fa-briefcase"></i> Contratos <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="">Usuarios</a></li>
+                    </ul>
+                  </li> 
+                  <li><a><i class="fa fa-book"></i> Recesso / Férias <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="">Usuarios</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-money"></i> Folha Pagamento <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="">Usuarios</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-graduation-cap"></i> Avaliações <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="">Usuarios</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-area-chart"></i> Relatórios <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="">Usuarios</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-cogs"></i> Configurações <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="">Usuarios</a></li>
                     </ul>
                   </li>                 
                 </ul>
