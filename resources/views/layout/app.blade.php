@@ -61,6 +61,9 @@
     <script src="{{asset('vendors/flot.orderbars/js/jquery.flot.orderBars.js')}}"></script>
     <script src="{{asset('vendors/flot-spline/js/jquery.flot.spline.min.js')}}"></script>
     <script src="{{asset('vendors/flot.curvedlines/curvedLines.js')}}"></script>
+     <!-- jQuery Smart Wizard -->
+     <script src="{{asset('vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js')}}"></script>
+    <!-- Custom Theme Scripts -->
     <!-- DateJS -->
     <script src="{{asset('vendors/DateJS/build/date.js')}}"></script>
     <!-- JQVMap -->
