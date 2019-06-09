@@ -41,6 +41,8 @@
     <script src="{{asset('vendors/fastclick/lib/fastclick.js')}}"></script>
     <!-- NProgress -->
     <script src="{{asset('vendors/nprogress/nprogress.js')}}"></script>
+    <script src="{{asset('vendors/raphael/raphael.min.js')}}"></script>
+    <script src="{{asset('vendors/morris.js/morris.min.js')}}"></script>
     <!-- Chart.js -->
     <script src="{{asset('vendors/Chart.js/dist/Chart.min.js')}}"></script>
     <!-- gauge.js -->
@@ -52,6 +54,7 @@
     <!-- Skycons -->
     <script src="{{asset('vendors/skycons/skycons.js')}}"></script>
     <!-- Flot -->
+    <script src="{{asset('vendors/echarts/dist/echarts.min.js')}}"></script>
     <script src="{{asset('vendors/Flot/jquery.flot.js')}}"></script>
     <script src="{{asset('vendors/Flot/jquery.flot.pie.js')}}"></script>
     <script src="{{asset('vendors/Flot/jquery.flot.time.js')}}"></script>
