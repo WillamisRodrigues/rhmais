@@ -1,5 +1,5 @@
 @extends('layout/app')
-@section('titulo','Cadastro Usuário | RH MAIS')
+@section('titulo','Cadastro Empresa | RH MAIS')
 @section('conteudo')
     <div class="container body">
       <div class="main_container">
@@ -23,7 +23,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Cadastro de Usuário</h2>
+                    <h2>Cadastro de Empresa</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>

@@ -22,3 +22,11 @@ Route::get('/home', function () {
 Route::get('/cadastro_usuario', function () {
     return view('cadastro/usuario');
 });
+
+Route::get('/cadastro_instituicao', function () {
+    return view('cadastro/instituicao');
+});
+
+Route::get('/cadastro_empresas', function () {
+    return view('cadastro/empresas');
+});
