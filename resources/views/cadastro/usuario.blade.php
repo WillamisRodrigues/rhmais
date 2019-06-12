@@ -150,7 +150,7 @@
                           </div>
                         </div>
                       </div>
-
+                      </form>
                     </div>
                     <!-- End SmartWizard Content -->
                   </div>
