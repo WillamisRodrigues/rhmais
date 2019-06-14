@@ -56,3 +56,10 @@
               </a>
             </div>
             <!-- /menu footer buttons -->
+            <script type="text/javascript">
+  window.onload = function(){
+    $(".child_menu").hide();
+    $("li").removeClass('active active-sm');
+}
+      
+  </script>
