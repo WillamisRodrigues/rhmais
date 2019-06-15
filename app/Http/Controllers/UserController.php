@@ -93,4 +93,5 @@ class UserController extends Controller
         }
         return $this->index()->with(['message' => $message,'users' =>User::all()]);
     }
+
 }
