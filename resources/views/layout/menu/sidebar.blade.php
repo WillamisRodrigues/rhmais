@@ -10,12 +10,12 @@
                       <li><a href="/cadastro_instituicao">Instituição de Ensino</a></li>
                       <li><a href="/cadastro_empresas">Empresas Parceiras</a></li>
                     </ul>
-                  </li>     
+                  </li>
                   <li><a><i class="fa fa-briefcase"></i> Contratos <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="">Usuarios</a></li>
                     </ul>
-                  </li> 
+                  </li>
                   <li><a><i class="fa fa-book"></i> Recesso / Férias <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="">Usuarios</a></li>
@@ -40,7 +40,7 @@
                     <ul class="nav child_menu">
                       <li><a href="">Usuarios</a></li>
                     </ul>
-                  </li>                 
+                  </li>
                 </ul>
               </div>
 
@@ -51,7 +51,10 @@
               <a data-toggle="tooltip" data-placement="top" title="Settings">
                 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="{{route('logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{csrf_field()}}
+                   </form>
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>
@@ -61,5 +64,5 @@
     $(".child_menu").hide();
     $("li").removeClass('active active-sm');
 }
-      
+
   </script>

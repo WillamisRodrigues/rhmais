@@ -20,9 +20,7 @@ Auth::routes();
      return view('auth/login');
  });
 
-//  Route::get('/home', function () {
-//      return view('home/home');
-//  });
+  Route::get('/auth/logout', 'Auth\AuthController@logout');
 
 /*users routes*/
 Route::get('/users', 'UserController@index')->name('users');
