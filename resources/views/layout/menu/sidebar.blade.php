@@ -13,32 +13,49 @@
                   </li>
                   <li><a><i class="fa fa-briefcase"></i> Contratos <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="">Usuarios</a></li>
+                      <li><a href="">TCE / Contrato(s)</a></li>
+                      <li><a href="">TCE / Aditivo(s)</a></li>
+                      <li><a href="">TCE / Rescição(ões)</a></li>
+                      <li><a href="">TCE / Rescindidido(s)</a></li>
+                      <li><a href="">CAU / Convênio A.I. e <br> Unid. Concedente</a></li>
+                      <li><a href="">CCE / Convênio A.I. e <br> Inst. Ensino</a></li>
+                      <li><a href="">Plano de Estágio</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-book"></i> Recesso / Férias <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="">Usuarios</a></li>
+                      <li><a href="">Termo de Recesso / Férias</a></li>
+                      <li><a href="">Lista de Recesso / Férias </a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-money"></i> Folha Pagamento <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="">Usuarios</a></li>
+                    <li><a href="">Gerar Folha Pagamento</a></li>
+                    <li><a href="">Gerar Folha de Resição</a></li>
+                    <li><a href="">Informe de Rendimentos</a></li>
+                    <li><a href="">Gerar Prévia de Resição</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-graduation-cap"></i> Avaliações <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="">Usuarios</a></li>
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-area-chart"></i> Relatórios <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="">Usuarios</a></li>
+                    <li><a href="">Auto-Avaliação <br> Estagiário(a)</a></li>
+                    <li><a href="">Lista Auto-Avaliação <br> Estagiário(a)</a></li>
+                    <li><a href="">Avaliação Supervisor(a)</a></li>
+                    <li><a href="">Lista Avaliação <br> Supervisor(a)</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-cogs"></i> Configurações <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="">Usuarios</a></li>
+                      <li><a href="">Cidades</a></li>
+                      <li><a href="">Cursos</a></li>
+                      <li><a href="">Motivos <br> Resição / Recesso</a></li>
+                      <li><a href="">Setores</a></li>
+                      <li><a href="">Atividades</a></li>
+                      <li><a href="">Benefícios</a></li>
+                      <li><a href="">Horários</a></li>
+                      <li><a href="">Orientador</a></li>
+                      <li><a href="">Seguro</a></li>
+                      <li><a href="">Supervisor</a></li>
                     </ul>
                   </li>
                 </ul>
