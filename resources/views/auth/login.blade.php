@@ -39,8 +39,9 @@
                             </div>
                        <div class="clearfix"></div>
               <div class="separator">
+                 <!-- criar conta dentro do sistema
                 <p class="change_link">Novo no sistema?
-                 <a href="/user-add"> Criar Conta </a>
+                  <a href="/user-add"> Criar Conta </a> -->
                 </p>
                 <div class="clearfix"></div>
                 <br />
