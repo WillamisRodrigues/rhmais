@@ -44,3 +44,11 @@ Route::get('/cadastro_instituicao', function () {
 Route::get('/cadastro_empresas', function () {
     return view('cadastro/empresas');
 });
+
+Route::get('/cadastro_usuario', function () {
+    return view('cadastro/usuario');
+});
+
+Route::get('/termo_recesso', function () {
+    return view('termo/lista-recesso');
+});
