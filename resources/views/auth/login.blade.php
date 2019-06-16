@@ -32,9 +32,9 @@
                                     {{ __('Logar') }}
                                 </button>
                                 @if (Route::has('password.request'))
-                                   - <a class="btn btn-link" href="{{ route('password.request') }}">
+                                   <!-- - <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Esqueceu sua senha?') }}
-                                    </a>
+                                    </a> -->
                                 @endif
                             </div>
                        <div class="clearfix"></div>

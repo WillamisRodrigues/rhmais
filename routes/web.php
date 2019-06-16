@@ -20,8 +20,6 @@ Auth::routes();
      return view('auth/login');
  });
 
-  Route::get('/auth/logout', 'Auth\AuthController@logout');
-
 /*users routes*/
 Route::get('/users', 'UserController@index')->name('users');
 Route::get('/user-edit/{id}', 'UserController@edit')->name('user-edit');
