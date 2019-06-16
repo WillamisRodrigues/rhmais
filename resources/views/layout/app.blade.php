@@ -81,10 +81,6 @@
     <!-- Custom Theme Scripts -->
     <script src="{{asset('build/js/custom.min.js')}}"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script>
-    $(document).ready(function() {
-    $('#example').DataTable();
-} );
-</script>
+    <script src="{{asset('vendors/script.js')}}"></script>
 
 </html>
