@@ -8,11 +8,11 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-              <form method="POST" action="{{ route('user-post') }}">
+              <form method="POST" action="{{ route('salvar') }}" enctype="multipart/form-data">
              {{csrf_field()}}
               <h1>Criar Conta</h1>
               <div>
-                <input type="text" class="form-control"  placeholder="Usuario" required="" />
+                <input id="name" type="text" class="form-control "  placeholder="Usuario" required="" name="name"/>
                 @if ($errors->has('name'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('name') }}</strong>
@@ -20,7 +20,7 @@
                                     @endif
               </div>
               <div>
-                <input type="email" class="form-control" placeholder="Email" required="required" />
+                <input id="email" type="email" class="form-control" placeholder="Email" required="required" name="email"/>
                                                     @if ($errors->has('email'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('email') }}</strong>
@@ -28,15 +28,19 @@
                                     @endif
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
+                <input id="password" type="password" class="form-control" placeholder="Senha" required="" name="password"/>
                 @if ($errors->has('password'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('password') }}</strong>
                                         </span>
                                     @endif
               </div>
+               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="password_confirmation">
+                            </label>
+              <input  type="password" class="form-control" placeholder="Confirmação de senha" required=""  name="password_confirmation"/>
               <div>
-                <a  id="send" type="submit" class="btn btn-default submit" href="index.html">Criar</a>
+               <button class="btn btn-default">Criar</button>
+                 <!-- <a  id="send" type="submit" class="btn btn-default submit" href="index.html">Criar</a> -->
               </div>
 
               <div class="clearfix"></div>

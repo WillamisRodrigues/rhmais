@@ -32,8 +32,9 @@ class UserController extends Controller
     {
         return view('user-add');
     }
-    public function store()
+  public function salvar()
     {
+
         if(request('id') == 0){
             $this->validate(request(), [
                 'name' => 'required',
@@ -64,11 +65,8 @@ class UserController extends Controller
             }
             DB::commit();
         }
-        return $this->index();
-        //auth()->login($user);
-
-
-    }
+      return redirect()->route('home');
+        }
 
     public function delete()
     {

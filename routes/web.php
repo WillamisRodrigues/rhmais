@@ -25,7 +25,7 @@ Route::get('/users', 'UserController@index')->name('users');
 Route::get('/user-edit/{id}', 'UserController@edit')->name('user-edit');
 Route::get('/user-delete/{id}', 'UserController@delete')->name('user-delete');
 Route::get('/user-add', 'UserController@add')->name('user-add');
-Route::post('/user-post', 'UserController@store')->name('user-post');
+Route::post('/salvar', 'UserController@salvar')->name('salvar');
 
  /*Empresas */
  Route::get('/empresas', 'EmpresaController@empresas')->name('empresas');
