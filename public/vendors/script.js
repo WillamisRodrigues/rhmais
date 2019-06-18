@@ -2,4 +2,6 @@
 $(document).ready(function() {
     $('#recesso').DataTable();
     $('#usuario').DataTable();
+    $('#instituicao').DataTable();
+    $('#empresas').DataTable();
 } );
