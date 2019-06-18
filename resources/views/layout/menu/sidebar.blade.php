@@ -6,9 +6,9 @@
                   <li><a href="/home"><i class="fa fa-home"></i> Home</a> </li>
                   <li><a><i class="fa fa-edit"></i> Cadastros <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="/cadastro_usuario">Usuarios</a></li>
-                      <li><a href="/cadastro_instituicao">Instituição de Ensino</a></li>
-                      <li><a href="/empresas">Empresas Parceiras</a></li>
+                      <li><a href="/usuario">Usuarios</a></li>
+                      <li><a href="/instituicao">Instituição de Ensino</a></li>
+                      <li><a href="/empresa">Empresas Parceiras</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-briefcase"></i> Contratos <span class="fa fa-chevron-down"></span></a>

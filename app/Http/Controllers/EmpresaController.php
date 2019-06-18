@@ -17,6 +17,11 @@ class EmpresaController extends Controller
         $this->middleware('auth');
     }
 
+    public function index()
+    {
+            return view('empresa/index');
+    }
+
   public function empresas()
     {
         $emp = Empresa::all();

@@ -8,85 +8,97 @@ use App\Usuario;
 
 class UsuarioController extends Controller
 {
-    public function pesquisar()
+    public function __construct()
     {
-        // Recebe o conteúdo elemento 'descricao' do formulário
-        $usuario = Input::get('nome');
-
-        // Busca produtos com o conteúdo da $descricao
-        $usuarios = Usuario::where('nome', 'like', '%'.$usuario.'%')->get();
-
-        // Chama a view produto.pesquisar e envia os produtos encontrados
-        return view('pesquisar')->with('usuarios', $usuarios);
+        $this->middleware('auth');
     }
 
-    public function mostrar_inserir()
+    public function index()
     {
-        return view('produto.inserir');
+        $usr = Usuario::all();
+        return view('usuario.index',compact('usuario',$usr));
+    }
+     /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('usuario.create');
     }
 
-    public function inserir()
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
-        // Criando um novo objeto do tipo Produto
-        $produto = new Usuario();
+        $request->validate([
+            'nome' => 'required|min:3',
+            'email' => 'required',
+        ]);
 
-        // Colocando os valores recebidos do formulário nos atributos do objeto $produto
-        $produto->descricao = Input::get('descricao');
-        $produto->quantidade = Input::get('quantidade');
-        $produto->valor = Input::get('valor');
-        $produto->data_vencimento = Input::get('data_vencimento');
-
-        // Salvando no banco de dados
-        $produto->save();
-
-        // Criado uma mensagem para o usuário
-        $mensagem = "Produto inserido com sucesso";
-
-        // Chamando a view produto.inserir e enviando a mensagem criada
-        return view('produto.inserir')->with('mensagem', $mensagem);
+        $usr = Usuario::create(['nome' => $request->nome,'email' => $request->email]);
+        return redirect('/usario/'.$usr->id);
     }
 
-    public function mostrar_alterar($id)
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Usuario  $usr
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Usuario $usr)
     {
-        // Busca no banco o registro com o id recebido
-        $produto = Usuario::find($id);
-
-        // Envia os dados deste registro a view produto.alterar
-        return view('produto.alterar')->with('produto', $produto);
+        return view('usuario.show',compact('usuario',$usr));
     }
 
-    public function alterar()
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Usuario  $usr
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Usuario $usr)
     {
-        $id = Input::get('id');
-        $p = Usuario::find($id);
-
-        $p->descricao = Input::get('descricao');
-        $p->quantidade = Input::get('quantidade');
-        $p->valor = Input::get('valor');
-        $p->data_vencimento = Input::get('data_vencimento');
-
-        $p->save();
-
-        $mensagem = "Produto alterado com sucesso!";
-        $produtos = Usuario::all();
-        return view('produto.pesquisar')->with('mensagem', $mensagem)->with('produtos', $produtos);
+        return view('usuario.edit',compact('usuario',$usr));
     }
 
-    public function excluir($id)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Usuario  $usr
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Usuario $usr)
     {
-        // Criando um objeto com o id recebido pela rota
-        $produto = Usuario::find($id);
+       //Validate
+        $request->validate([
+            'nome' => 'required|min:3',
+            'email' => 'required',
+        ]);
 
-        // Excluindo este objeto
-        $produto->delete();
+        $usr->nome = $request->nome;
+        $usr->email = $request->email;
+        $usr->save();
+        $request->session()->flash('message', 'Atualizado com sucesso!');
+        return redirect('usuario');
+    }
 
-        // Criando uma mensagem para ser enviada a view produto.pesquisar
-        $mensagem = "Produto excluído com sucesso!";
-
-        // Capturando objetos para enviar a view produto.pesquisar
-        $produtos = Usuario::all();
-
-        // Retornando a view produto.pesquisar
-        return view('produto.pesquisar')->with('mensagem', $mensagem)->with('produtos', $produtos);
-   }
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Usuario  $usr
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Usuario $usr)
+    {
+       $usr->delete();
+        $request->session()->flash('message', 'Removido com sucesso!');
+        return redirect('usuario');
+    }
 }
