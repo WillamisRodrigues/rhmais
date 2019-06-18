@@ -1,165 +1,72 @@
 @extends('layout/app')
-@section('titulo','Cadastro Usuário | RH MAIS')
+@section('titulo','Usuários do Sistema | RH MAIS')
 @section('conteudo')
-    <div class="container body">
+   <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
-          @include('layout.menu.menu')
-            <!-- /menu profile quick info -->
-
+            @include('layout.menu.menu')
             <br />
             @include('layout.menu.sidebar')
-            <!-- /sidebar menu -->
           </div>
         </div>
-        @include('layout.menu.menutop')
+            @include('layout.menu.menutop')
         <!-- page content -->
-        <div class="right_col" role="main">
+          <!-- page content -->
+          <div class="right_col" role="main">
+          <div class="">
+
             <div class="clearfix"></div>
 
             <div class="row">
-
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Cadastro de Usuário</h2>
+                  <a href="" class="btn btn-success pull-right"> <i class="fa fa-user"> </i> Adicionar Novo Usuário</a>
+                    <h2>Usuários do Sistema</h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
+                    <table id="usuario" class="table table-striped table-bordered">
+                      <thead>
+                        <tr>
+                          <th>Nome</th>
+                          <th>Unidade</th>
+                          <th>Tel.Celular</th>
+                          <th>CPF</th>
+                          <th>Cidade</th>
+                          <th>Data de Nascimento</th>
+                          <th>Escolaridade</th>
+                          <th>Termino Curso</th>
+                          <th>Ativo</th>
+                          <th>Ação</th>
+                        </tr>
+                      </thead>
 
 
-                    <!-- Smart Wizard -->
-                      <div id="wizard" class="form_wizard wizard_horizontal">
-                      <ul class="wizard_steps">
-                        <li>
-                          <a href="#step-1">
-                            <span class="step_no">1</span>
-                            <span class="step_descr">
-                                              Dados Pessoais<br />
-                                              <small>cadastro do usuario</small>
-                                          </span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#step-2">
-                            <span class="step_no">2</span>
-                            <span class="step_descr">
-                                              Dados de Endereço<br />
-                                              <small>cadastro do endereço</small>
-                                          </span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#step-3">
-                            <span class="step_no">3</span>
-                            <span class="step_descr">
-                                              Dados da Empresa<br />
-                                              <small>cadastro da empresa</small>
-                                          </span>
-                          </a>
-                        </li>
-                      </ul>
-                      <div id="step-1" style="overflow:hidden;">
-                      <form class="form-horizontal form-label-left input_mask">
-                        <div class="row" style="width:960px; margin: 0 auto;">
-                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Nome Completo">
-                            <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
-                          </div>
-
-                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control" id="inputSuccess3" placeholder="Email">
-                            <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
-                          </div>
-                        </div>
-                        <div class="row" style="width:960px; margin: 0 auto;">
-                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" id="inputSuccess4" placeholder="RG">
-                            <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
-                          </div>
-
-                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control" id="inputSuccess5" placeholder="CPF">
-                            <span class="fa fa-newspaper-o form-control-feedback right" aria-hidden="true"></span>
-                          </div>
-                        </div>
-                        <div class="row" style="width:960px; margin: 0 auto;">
-                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Telefone">
-                            <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
-                          </div>
-
-                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control" id="inputSuccess5" placeholder="Celular">
-                            <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
-                          </div>
-                        </div>
-                        <div class="row" style="width:960px; margin: 0 auto;">
-                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Data de Nascimento">
-                            <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
-                          </div>
-                        </div>
-                      </div>
-                      <div id="step-2">
-                      <div class="row" style="width:960px; margin: 0 auto;">
-                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Bairro">
-                            <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
-                          </div>
-
-                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control" id="inputSuccess3" placeholder="Endereço">
-                            <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
-                          </div>
-                        </div>
-                      <div class="row" style="width:960px; margin: 0 auto;">
-                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Complemento">
-                            <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
-                          </div>
-
-                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control" id="inputSuccess3" placeholder="Numero">
-                            <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
-                          </div>
-                        </div>
-                        <div class="row" style="width:960px; margin: 0 auto;">
-                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Estado">
-                            <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
-                          </div>
-
-                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control" id="inputSuccess5" placeholder="Cidade">
-                            <span class="fa fa-newspaper-o form-control-feedback right" aria-hidden="true"></span>
-                          </div>
-                        </div>
-                      </div>
-                      <div id="step-3">
-                      <div class="row" style="width:960px; margin: 0 auto;">
-                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Unidade Concedente">
-                            <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
-                          </div>
-
-                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control" id="inputSuccess3" placeholder="Agente de Integração">
-                            <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-                    <!-- End SmartWizard Content -->
-                    </form>
+                      <tbody>
+                        <tr>
+                          <td>ADEILTON BISPO DA SILVA JÚNIOR</td>
+                          <td>CTEC COMERCIO DE LIVROS E CURSOS TECNICOS LTDA - CTECAMP</td>
+                          <td>(19)98201-4033</td>
+                          <td>468.590.998-44</td>
+                          <td>CAMPINAS
+                          </td>
+                          <td>19/12/2002</td>
+                          <td>ENSINO MÉDIO</td>
+                          <td>31/12/2020</td>
+                          <td>Sim</td>
+                          <td><a href="" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a></td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
         </div>
+    </div>
+    </div>
         <!-- /page content -->
 
         <!-- footer content -->
