@@ -22,7 +22,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                  <a href="" class="btn btn-success pull-right"> <i class="fa fa-home"> </i> Adicionar Instituição de Ensino</a>
+                  <a href="{{route('instituicao.create')}}" class="btn btn-success pull-right"> <i class="fa fa-home"> </i> Adicionar Instituição de Ensino</a>
                     <h2>Instituição de Ensino</h2>
                     <div class="clearfix"></div>
                   </div>

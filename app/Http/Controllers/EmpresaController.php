@@ -22,83 +22,88 @@ class EmpresaController extends Controller
             return view('empresa/index');
     }
 
-  public function empresas()
+   /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
-        $emp = Empresa::all();
-         return view('cadastro.empresas',['empresas' => $emp]);
-     }
-
-    public function edit()
-    {
-        return view('edit-empresa',['empresa' => Empresa::where(request('id_empresa'))->firstOrFail()]);
+        return view('empresa.create');
     }
 
-    public function add()
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
-        return view('cadastro.add-empresa');
-    }
-    public function store()
-    {
-        if(request('id') == 0){
-            $this->validate(request(), [
-                'name' => 'required',
-                'email' => 'required|email',
-                'password' => 'required|confirmed'
-            ]);
-            DB::beginTransaction();
-            $emp = Empresa::create([
-                "razao_social" => request('razao_social'),
-                "cnpj" => request('cnpj'),
-                "insc_estadual" => request('insc_estadual'),
-                "telefone" => request('telefone'),
-                "celular" => request('celular'),
-                "site_url" => request ('site_url')
-            ]);
-            DB::commit();
-        }else{
+        $request->validate([
+            'nome' => 'required|min:3',
+            'email' => 'required',
+        ]);
 
-            $this->validate(request(), [
-                'name' => 'required',
-                'email' => 'required|email',
-                'password' => 'required|confirmed'
-            ]);
-            DB::beginTransaction();
-            $emp =  Empresa::whereId(request('id'))->firstOrFail();
-            if($emp){
-                $emp->name = request('name');
-                $emp->email = request('email');
-                $emp->password = bcrypt(request('password'));
-                $emp->save();
-            }
-            DB::commit();
-        }
-        return $this->index();
-        //auth()->login($emp);
-
-
+        $inst = Instituicao::create(['nome' => $request->nome,'email' => $request->email]);
+        return redirect('/empresa/'.$usr->id);
     }
 
-    public function delete()
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Empresa  $emp
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Empresa $emp)
     {
-        $message = new Message();
-        $message->message ="";
-        $message->type ="";
-        try{
-            DB::beginTransaction();
-
-            Empresa::whereId(request("id_empresa"))->delete();
-
-            DB::commit();
-            $message->message = 'empresa excluída com sucesso';
-            $message->type="success";
-        }
-        catch (\Exception $e)
-        {
-            DB::rollback();
-            $message->message = $e->getMessage();
-            $message->type="error";
-        }
-        return $this->index()->with(['message' => $message,'emps' =>Empresa::all()]);
+        return view('empresa.show',compact('empresa',$emp));
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Empresa  $emp
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Instituicao $emp)
+    {
+        return view('empresa.edit',compact('empresa',$emp));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Empresa  $emp
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Empresa $emp)
+    {
+       //Validate
+        $request->validate([
+            'nome' => 'required|min:3',
+            'email' => 'required',
+        ]);
+
+        $usr->nome = $request->nome;
+        $usr->email = $request->email;
+        $usr->save();
+        $request->session()->flash('message', 'Atualizado com sucesso!');
+        return redirect('empresa');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Empresa  $emp
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Empresa $emp)
+    {
+       $usr->delete();
+        $request->session()->flash('message', 'Removido com sucesso!');
+        return redirect('empresa');
+    }
 }
+

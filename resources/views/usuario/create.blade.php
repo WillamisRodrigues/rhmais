@@ -61,43 +61,44 @@
                         </li>
                       </ul>
                       <div id="step-1" style="overflow:hidden;">
-                      <form class="form-horizontal form-label-left input_mask">
+                      <form method="POST" action="{{ route('usuario.store') }}" class="form-horizontal form-label-left input_mask">
+                      {{ csrf_field() }}
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Nome Completo">
+                            <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Nome Completo" name="nome">
                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                           </div>
 
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control" id="inputSuccess3" placeholder="Email">
+                            <input type="text" class="form-control" id="inputSuccess3" placeholder="Email" name="email">
                             <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
                           </div>
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" id="inputSuccess4" placeholder="RG">
+                            <input type="text" class="form-control has-feedback-left" id="inputSuccess4" placeholder="RG" name="rg">
                             <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
                           </div>
 
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control" id="inputSuccess5" placeholder="CPF">
+                            <input type="text" class="form-control" id="inputSuccess5" placeholder="CPF" name="cpf">
                             <span class="fa fa-newspaper-o form-control-feedback right" aria-hidden="true"></span>
                           </div>
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Telefone">
+                            <input type="text" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Telefone" name="telefone">
                             <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                           </div>
 
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control" id="inputSuccess5" placeholder="Celular">
+                            <input type="text" class="form-control" id="inputSuccess5" placeholder="Celular" name="celular">
                             <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
                           </div>
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Data de Nascimento">
+                            <input type="text" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Data de Nascimento" name="nascimento">
                             <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
@@ -105,34 +106,34 @@
                       <div id="step-2">
                       <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Bairro">
+                            <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Bairro" name="bairro">
                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                           </div>
 
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control" id="inputSuccess3" placeholder="Endereço">
+                            <input type="text" class="form-control" id="inputSuccess3" placeholder="Endereço" name="endereco">
                             <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
                           </div>
                         </div>
                       <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Complemento">
+                            <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Complemento" name="complemento">
                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                           </div>
 
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control" id="inputSuccess3" placeholder="Numero">
+                            <input type="text" class="form-control" id="inputSuccess3" placeholder="Numero" name="numero">
                             <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
                           </div>
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Estado">
+                            <input type="text" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Estado" name="estado">
                             <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
                           </div>
 
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control" id="inputSuccess5" placeholder="Cidade">
+                            <input type="text" class="form-control" id="inputSuccess5" placeholder="Cidade" name="cidade">
                             <span class="fa fa-newspaper-o form-control-feedback right" aria-hidden="true"></span>
                           </div>
                         </div>
@@ -140,17 +141,16 @@
                       <div id="step-3">
                       <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Unidade Concedente">
+                            <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Unidade Concedente" name="undcondente">
                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                           </div>
 
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control" id="inputSuccess3" placeholder="Agente de Integração">
+                            <input type="text" class="form-control" id="inputSuccess3" placeholder="Agente de Integração" name="agenteint">
                             <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
                           </div>
                         </div>
                       </div>
-                      
                     </div>
                     <!-- End SmartWizard Content -->
                     </form>
