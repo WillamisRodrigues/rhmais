@@ -6,9 +6,10 @@
                 <a id="menu_toggle"><i class="fa fa-bars"></i></a>
               </div>
               <ul class="nav navbar-nav navbar-right">
+               <li><a>{{Auth::user()->name}} </a></li>
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="{{asset('images/img.jpg')}}" alt="">RH MAIS
+                    <img src="{{asset('images/img.jpg')}}" alt="">
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -18,6 +19,7 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{csrf_field()}}
                     </form>
+
                   </ul>
                 </li>
               </ul>
