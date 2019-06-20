@@ -15,8 +15,10 @@ class UsuarioController extends Controller
 
     public function index()
     {
-        $usr = Usuario::all();
-        return view('usuario.index',compact('usuario',$usr));
+    //     $registros = Curso::all();
+    //   return view('admin.cursos.index',compact('registros'));
+        $usuarios = Usuario::all();
+        return view('usuario.index',compact('usuarios', $usuarios));
     }
      /**
      * Show the form for creating a new resource.
@@ -41,40 +43,40 @@ class UsuarioController extends Controller
             'email' => 'required',
         ]);
 
-        $usr = Usuario::create(['nome' => $request->nome,'email' => $request->email]);
-        return redirect('/usario/'.$usr->id);
+        $usuarios = Usuario::create(['nome' => $request->nome,'email' => $request->email]);
+        return redirect('/usario/'.$usuarios->id);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Usuario  $usr
+     * @param  \App\Usuario  $usuarios
      * @return \Illuminate\Http\Response
      */
-    public function show(Usuario $usr)
+    public function show(Usuario $usuarios)
     {
-        return view('usuario.show',compact('usuario',$usr));
+        return view('usuario.show',compact('usuario',$usuarios));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Usuario  $usr
+     * @param  \App\Usuario  $usuarios
      * @return \Illuminate\Http\Response
      */
-    public function edit(Usuario $usr)
+    public function edit(Usuario $usuarios)
     {
-        return view('usuario.edit',compact('usuario',$usr));
+        return view('usuario.edit',compact('usuario',$usuarios));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Usuario  $usr
+     * @param  \App\Usuario  $usuarios
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Usuario $usr)
+    public function update(Request $request, Usuario $usuarios)
     {
        //Validate
         $request->validate([
@@ -82,9 +84,9 @@ class UsuarioController extends Controller
             'email' => 'required',
         ]);
 
-        $usr->nome = $request->nome;
-        $usr->email = $request->email;
-        $usr->save();
+        $usuarios->nome = $request->nome;
+        $usuarios->email = $request->email;
+        $usuarios->save();
         $request->session()->flash('message', 'Atualizado com sucesso!');
         return redirect('usuario');
     }
@@ -92,12 +94,12 @@ class UsuarioController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Usuario  $usr
+     * @param  \App\Usuario  $usuarios
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Usuario $usr)
+    public function destroy(Usuario $usuarios)
     {
-       $usr->delete();
+       $usuarios->delete();
         $request->session()->flash('message', 'Removido com sucesso!');
         return redirect('usuario');
     }

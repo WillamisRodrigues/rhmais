@@ -42,22 +42,22 @@
                           <th>Ação</th>
                         </tr>
                       </thead>
-
-
                       <tbody>
-                        <tr>
-                          <td>ADEILTON BISPO DA SILVA JÚNIOR</td>
-                          <td>CTEC COMERCIO DE LIVROS E CURSOS TECNICOS LTDA - CTECAMP</td>
-                          <td>(19)98201-4033</td>
-                          <td>468.590.998-44</td>
-                          <td>CAMPINAS
-                          </td>
+                       @foreach($usuarios as $usuario)
+                         <tr>
+                          <td>{{$usuario->nome}}</td>
+                          <td>{{$usuario->unidade}}</td>
+                          <td>{{$usuario->celular}}</td>
+                          <td>{{$usuario->cpf}}</td>
+                          <td>{{$usuario->cidade}}</td>
                           <td>19/12/2002</td>
                           <td>ENSINO MÉDIO</td>
-                          <td>31/12/2020</td>
+                           <td>31/12/2020</td>
                           <td>Sim</td>
-                          <td><a href="" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a></td>
+
+                           <td><a href="" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a></td>
                         </tr>
+                          @endforeach
                       </tbody>
                     </table>
                   </div>
@@ -67,6 +67,7 @@
         </div>
     </div>
     </div>
+
         <!-- /page content -->
 
         <!-- footer content -->
