@@ -27,6 +27,12 @@
     <!-- Custom Theme Style -->
     <link href="{{asset('build/css/custom.min.css')}}" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <!-- Include SmartWizard CSS -->
+    <link href="{{asset('vendors/wizard/dist/css/smart_wizard.css')}}" rel="stylesheet" type="text/css" />
+    <!-- Optional SmartWizard theme -->
+    <link href="{{asset('vendors/wizard/dist/css/smart_wizard_theme_circles.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('vendors/wizard/dist/css/smart_wizard_theme_arrows.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('vendors/wizard/dist/css/smart_wizard_theme_dots.css')}}" rel="stylesheet" type="text/css" />
   </head>
 
   <body class="nav-md">
@@ -38,6 +44,7 @@
     <!-- Bootstrap -->
     <script src="{{asset('vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
     <!-- FastClick -->
+    <script src="{{asset('vendors/wizard/dist/js/jquery.smartWizard.min.js')}}"></script>
     <script src="{{asset('vendors/validator/validator.js')}}"></script>
     <script src="{{asset('vendors/fastclick/lib/fastclick.js')}}"></script>
     <!-- NProgress -->
@@ -65,9 +72,7 @@
     <script src="{{asset('vendors/flot.orderbars/js/jquery.flot.orderBars.js')}}"></script>
     <script src="{{asset('vendors/flot-spline/js/jquery.flot.spline.min.js')}}"></script>
     <script src="{{asset('vendors/flot.curvedlines/curvedLines.js')}}"></script>
-     <!-- jQuery Smart Wizard -->
-     <script src="{{asset('vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js')}}"></script>
-    <!-- Custom Theme Scripts -->
+   <!-- Custom Theme Scripts -->
     <!-- DateJS -->
     <script src="{{asset('vendors/DateJS/build/date.js')}}"></script>
     <!-- JQVMap -->
@@ -82,5 +87,8 @@
     <script src="{{asset('build/js/custom.min.js')}}"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="{{asset('vendors/script.js')}}"></script>
+    <!-- Include jQuery Validator plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
+    <script src="{{asset('vendors/wizard/form-wizard.js')}}"> </script>
 
 </html>
