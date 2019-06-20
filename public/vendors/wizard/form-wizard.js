@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
     // Toolbar extra buttons
-    var btnFinish = $('<button></button>').text('Enviar')
+    var btnFinish = $('<button ></button>').text('Enviar')
     .addClass('btn btn-info').on('click', function(){
     if( !$(this).hasClass('disabled')){
       var elmForm = $("#myForm");

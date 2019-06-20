@@ -26,7 +26,6 @@
                     <h2>Usuários do Sistema</h2>
                     <div class="clearfix"></div>
                   </div>
-                  @if($usuarios != null)
                   <div class="x_content">
                     <table id="usuario" class="table table-striped table-bordered">
                       <thead>
@@ -44,26 +43,19 @@
                         </tr>
                       </thead>
                       <tbody>
-                       @foreach ($usuarios as $usr)
+                       @foreach($usuarios as $usuario)
                          <tr>
-                          <td>{{$usr->nome}}</td>
-                          <td>{{$usr->unidade}}</td>
-                          <td>{{$usr->celular}}</td>
-                          <td>{{$usr->cpf}}</td>
-                          <td>{{$usr->cidade}}</td>
-                            <!-- <th>{{\Carbon\Carbon::parse($usr->data_nascimento)->format("d/m/Y")}}</th> -->
-                            <!-- <th>{{$usr->unidade->Nome}}</th>
-                          <td>ADEILTON BISPO DA SILVA JÚNIOR</td>
-                          <td>CTEC COMERCIO DE LIVROS E CURSOS TECNICOS LTDA - CTECAMP</td>
-                          <td>(19)98201-4033</td>
-                          <td>468.590.998-44</td>
-                          <td>CAMPINAS
-                          </td>
+                          <td>{{$usuario->nome}}</td>
+                          <td>{{$usuario->unidade}}</td>
+                          <td>{{$usuario->celular}}</td>
+                          <td>{{$usuario->cpf}}</td>
+                          <td>{{$usuario->cidade}}</td>
                           <td>19/12/2002</td>
                           <td>ENSINO MÉDIO</td>
-                          <td>31/12/2020</td>
-                          <td>Sim</td> -->
-                          <td><a href="" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a></td>
+                           <td>31/12/2020</td>
+                          <td>Sim</td>
+
+                           <td><a href="" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a></td>
                         </tr>
                           @endforeach
                       </tbody>
@@ -75,7 +67,7 @@
         </div>
     </div>
     </div>
-    @endif
+
         <!-- /page content -->
 
         <!-- footer content -->

@@ -27,7 +27,8 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                  <form action="#" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
+                  <form action="{{ route('usuario.store') }}" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
+                  {{csrf_field()}}
 
                       <!-- SmartWizard html -->
                       <div id="smartwizard">
@@ -139,6 +140,17 @@
                               </div>
                           </div>
                       </div>
+                      @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if(session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
                       </form>
                   </div>
                 </div>
