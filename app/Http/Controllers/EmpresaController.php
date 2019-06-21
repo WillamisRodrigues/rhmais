@@ -39,47 +39,55 @@ class EmpresaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Empresa $empresas)
     {
-        $request->validate([
-            'nome' => 'required|min:3',
-            'email' => 'required',
-        ]);
+       // Insere uma nova categoria, de acordo com os dados informados pelo usuário
+    $insert = $empresas->create($request->all());
 
-        $inst = Instituicao::create(['nome' => $request->nome,'email' => $request->email]);
-        return redirect('/empresa/'.$usr->id);
+    // Verifica se inseriu com sucesso
+    // Redireciona para a listagem das categorias
+    // Passa uma session flash success (sessão temporária)
+    if ($insert)
+        return redirect()
+                    ->route('empresa.index')
+                    ->with('success', 'Categoria inserida com sucesso!');
+
+    // Redireciona de volta com uma mensagem de erro
+    return redirect()
+                ->back()
+                ->with('error', 'Falha ao inserir');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Empresa  $emp
+     * @param  \App\Empresa  $empresas
      * @return \Illuminate\Http\Response
      */
-    public function show(Empresa $emp)
+    public function show(Empresa $empresas)
     {
-        return view('empresa.show',compact('empresa',$emp));
+        return view('empresa.show',compact('empresa',$empresas));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Empresa  $emp
+     * @param  \App\Empresa  $empresas
      * @return \Illuminate\Http\Response
      */
     public function edit(Instituicao $emp)
     {
-        return view('empresa.edit',compact('empresa',$emp));
+        return view('empresa.edit',compact('empresa',$empresas));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Empresa  $emp
+     * @param  \App\Empresa  $empresas
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Empresa $emp)
+    public function update(Request $request, Empresa $empresas)
     {
        //Validate
         $request->validate([
@@ -87,9 +95,9 @@ class EmpresaController extends Controller
             'email' => 'required',
         ]);
 
-        $usr->nome = $request->nome;
-        $usr->email = $request->email;
-        $usr->save();
+        $empresas->nome = $request->nome;
+        $empresas->email = $request->email;
+        $empresas->save();
         $request->session()->flash('message', 'Atualizado com sucesso!');
         return redirect('empresa');
     }
@@ -97,12 +105,12 @@ class EmpresaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Empresa  $emp
+     * @param  \App\Empresa  $empresas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Empresa $emp)
+    public function destroy(Empresa $empresas)
     {
-       $usr->delete();
+       $empresas->delete();
         $request->session()->flash('message', 'Removido com sucesso!');
         return redirect('empresa');
     }

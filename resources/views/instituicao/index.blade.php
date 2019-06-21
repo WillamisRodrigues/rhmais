@@ -43,11 +43,11 @@
                         @foreach($instituicoes as $instituicao)
                          <tr>
                           <td>{{$instituicao->nome_instituicao}}</td>
-                          <td>{{$instituicao->cnpj}}</td>
+                          <td>ENSINO MÉDIO</td>
                           <td>{{$instituicao->insc_estadual}}</td>
                           <td>{{$instituicao->telefone}}</td>
+                          <td>{{$instituicao->cnpj}}</td>
                           <td>19/12/2002</td>
-                          <td>ENSINO MÉDIO</td>
                            <td>31/12/2020</td>
                           <td>Sim</td>
 

@@ -18,7 +18,7 @@ class InstituicaoController extends Controller
     {
           $instituicoes = Instituicao::all();
         return view('instituicao.index',compact('instituicoes', $instituicoes));
-            // return view('instituicao/index');
+
     }
 
      /**
@@ -37,15 +37,23 @@ class InstituicaoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Instituicao $instituicoes)
     {
-        $request->validate([
-            'nome' => 'required|min:3',
-            'email' => 'required',
-        ]);
+        // Insere uma nova categoria, de acordo com os dados informados pelo usuário
+    $insert = $instituicoes->create($request->all());
 
-        $instituicoes = Instituicao::create(['nome' => $request->nome,'email' => $request->email]);
-        return redirect('/usario/'.$usr->id);
+    // Verifica se inseriu com sucesso
+    // Redireciona para a listagem das categorias
+    // Passa uma session flash success (sessão temporária)
+    if ($insert)
+        return redirect()
+                    ->route('instituicao.index')
+                    ->with('success', 'Categoria inserida com sucesso!');
+
+    // Redireciona de volta com uma mensagem de erro
+    return redirect()
+                ->back()
+                ->with('error', 'Falha ao inserir');
     }
 
     /**
