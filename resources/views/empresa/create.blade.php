@@ -1,5 +1,5 @@
 @extends('layout/app')
-@section('titulo','Cadastro Empresa | RH MAIS')
+@section('titulo','Cadastro Empresas | RH MAIS')
 @section('conteudo')
     <div class="container body">
       <div class="main_container">
@@ -23,34 +23,25 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Cadastro de Empresa</h2>
+                    <h2>Cadastro de Empresas</h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                     <div id="wizard" class="form_wizard wizard_horizontal">
-                      <ul class="wizard_steps">
-                        <li>
-                          <a href="#step-1">
-                            <span class="step_no">1</span>
-                            <span class="step_descr">
-                                              Dados da Empresa<br />
-                                              <small>cadastra dados da empresa</small>
-                                          </span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#step-2">
-                            <span class="step_no">2</span>
-                            <span class="step_descr">
-                                              Dados da Cobrança<br />
-                                              <small>cadadtro da cobrança</small>
-                                          </span>
-                          </a>
-                        </li>
-                      </ul>
-                      <div id="step-1" style="overflow:hidden;">
-                      <form class="form-horizontal form-label-left input_mask">
-                        <div class="row" style="width:960px; margin: 0 auto;">
+                  <form action="" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
+                  {{csrf_field()}}
+
+                      <!-- SmartWizard html -->
+                      <div id="smartwizard">
+                          <ul>
+                              <li><a href="#step-1">Passo 1<br /><small>Cadastro Empresa</small></a></li>
+                              <li><a href="#step-2">Passo 2<br /><small>Cadastro de Endereço</small></a></li>
+                          </ul>
+
+                          <div>
+                              <div id="step-1">
+                                    <br>
+                                  <div id="form-step-0" role="form" data-toggle="validator">
+                                  <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="CNPJ / CPF">
                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
@@ -169,9 +160,13 @@
                             <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
-                      </div>
-                      <div id="step-2">
-                        <div class="row" style="width:960px; margin: 0 auto;">
+              
+                                  </div>
+                              </div>
+                              <div id="step-2">
+                                  <br>
+                                  <div id="form-step-1" role="form" data-toggle="validator">
+                                  <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Dias p/ Pgto Estágiario(a)">
                             <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
@@ -229,11 +224,23 @@
                             </div>
                           </div>
                         </div>
-                    </div>
-                    <!-- End SmartWizard Content -->
-                       <form method="POST" action="submit" type="hidden">
-                      {{csrf_field()}}
-                    </form>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                      @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if(session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
+                      </form>
                   </div>
                 </div>
               </div>
@@ -243,12 +250,7 @@
         <!-- /page content -->
 
         <!-- footer content -->
-        <footer>
-          <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
+        @include('layout.footer')
         <!-- /footer content -->
       </div>
     </div>

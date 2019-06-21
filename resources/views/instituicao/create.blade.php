@@ -27,75 +27,61 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                  <div id="wizard" class="form_wizard wizard_horizontal">
-                      <ul class="wizard_steps">
-                        <li>
-                          <a href="#step-1">
-                            <span class="step_no">1</span>
-                            <span class="step_descr">
-                                              Cadastro Empresa<br />
-                                              <small>Dados da Empresa</small>
-                                          </span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#step-2">
-                            <span class="step_no">2</span>
-                            <span class="step_descr">
-                                              Cadastro de Endereço<br />
-                                              <small>Dados do Endereço</small>
-                                          </span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#step-3">
-                            <span class="step_no">3</span>
-                            <span class="step_descr">
-                                              Cadastro Responsável<br />
-                                              <small>Dados do Responsável</small>
-                                          </span>
-                          </a>
-                        </li>
-                      </ul>
-                      <div id="step-1" style="overflow:hidden;">
-                      <form class="form-horizontal form-label-left input_mask">
-                        <div class="row" style="width:960px; margin: 0 auto;">
-                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="CNPJ">
-                            <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
-                          </div>
+                  <form action="" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
+                  {{csrf_field()}}
 
-                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control" id="inputSuccess3" placeholder="Razão Social">
-                            <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
-                          </div>
-                        </div>
-                        <div class="row" style="width:960px; margin: 0 auto;">
-                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Complemento">
-                            <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
-                          </div>
+                      <!-- SmartWizard html -->
+                      <div id="smartwizard">
+                          <ul>
+                              <li><a href="#step-1">Passo 1<br /><small>Cadastro Empresa</small></a></li>
+                              <li><a href="#step-2">Passo 2<br /><small>Cadastro de Endereço</small></a></li>
+                              <li><a href="#step-3">Passo 3<br /><small> Cadastro Responsável</small></a></li>
+                          </ul>
 
-                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control" id="inputSuccess3" placeholder="Mantenedora">
-                            <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
-                          </div>
-                        </div>
-                        <div class="row" style="width:960px; margin: 0 auto;">
-                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Insc. Estadual">
-                            <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
-                          </div>
+                          <div>
+                              <div id="step-1">
+                                    <br>
+                                  <div id="form-step-0" role="form" data-toggle="validator">
+                                  <div class="row" style="width:960px; margin: 0 auto;">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                      <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="CNPJ">
+                                      <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                    </div>
 
-                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control" id="inputSuccess3" placeholder="Endereço Site">
-                            <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
-                          </div>
-                        </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                      <input type="text" class="form-control" id="inputSuccess3" placeholder="Razão Social">
+                                      <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                                    </div>
+                                  </div>
+                                  <div class="row" style="width:960px; margin: 0 auto;">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                      <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Complemento">
+                                      <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                    </div>
 
-                      </div>
-                      <div id="step-2">
-                      <div class="row" style="width:960px; margin: 0 auto;">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                      <input type="text" class="form-control" id="inputSuccess3" placeholder="Mantenedora">
+                                      <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                                    </div>
+                                  </div>
+                                  <div class="row" style="width:960px; margin: 0 auto;">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                      <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Insc. Estadual">
+                                      <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                    </div>
+
+                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                      <input type="text" class="form-control" id="inputSuccess3" placeholder="Endereço Site">
+                                      <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                                    </div>
+                                  </div>
+                                  </div>
+
+                              </div>
+                              <div id="step-2">
+                                  <br>
+                                  <div id="form-step-1" role="form" data-toggle="validator">
+                                  <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Estado">
                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
@@ -139,9 +125,12 @@
                             <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
                           </div>
                         </div>
-                      </div>
-                      <div id="step-3">
-                      <div class="row" style="width:960px; margin: 0 auto;">
+                                  </div>
+                              </div>
+                              <div id="step-3">
+                                 <br>
+                                  <div id="form-step-2" role="form" data-toggle="validator">
+                                  <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Nome do Contato">
                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
@@ -185,10 +174,22 @@
                             <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
                           </div>
                         </div>
-                        </form>
+                                </div>
+                              </div>
+                          </div>
                       </div>
-                    </div>
-                    <!-- End SmartWizard Content -->
+                      @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if(session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
+                      </form>
                   </div>
                 </div>
               </div>
@@ -198,12 +199,7 @@
         <!-- /page content -->
 
         <!-- footer content -->
-        <footer>
-          <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
+        @include('layout.footer')
         <!-- /footer content -->
       </div>
     </div>
