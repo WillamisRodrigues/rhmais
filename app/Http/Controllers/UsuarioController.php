@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Usuario;
+use Redirect;
+use App\Message;
 
 class UsuarioController extends Controller
 {
@@ -15,8 +17,7 @@ class UsuarioController extends Controller
 
     public function index()
     {
-    //     $registros = Curso::all();
-    //   return view('admin.cursos.index',compact('registros'));
+
         $usuarios = Usuario::all();
         return view('usuario.index',compact('usuarios', $usuarios));
     }
@@ -37,14 +38,8 @@ class UsuarioController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, Usuario $usuarios)
-    {
+      {
 
-        // $request->validate([
-        //     'nome' => 'required|min:3',
-        //     'email' => 'required',
-        // ]);
-
-       {
     // Insere uma nova categoria, de acordo com os dados informados pelo usuário
     $insert = $usuarios->create($request->all());
 
@@ -61,7 +56,7 @@ class UsuarioController extends Controller
                 ->back()
                 ->with('error', 'Falha ao inserir');
      }
-    }
+
     /**
      * Display the specified resource.
      *

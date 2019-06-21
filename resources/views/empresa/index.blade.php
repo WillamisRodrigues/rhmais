@@ -33,7 +33,7 @@
                           <th>Nome</th>
                           <th>Cidade</th>
                           <th>Telefone</th>
-                          <th>CNPJ/ CPF</th>
+                          <th>CNPJ</th>
                           <th>Qtade Plano</th>
                           <th>Valor Fixo</th>
                           <th>Valor Perc</th>
@@ -43,23 +43,19 @@
                           <th>Ação</th>
                         </tr>
                       </thead>
-
-
                       <tbody>
-                        <tr>
-                          <td>ADISI EMPREENDIMENTOS EDUCACIONAIS LTDA - C. PHOTON ADISI</td>
-                          <td>CAMPINAS</td>
-                          <td>(19)3207-2921</td>
-                          <td>01.476.559/0001-55</td>
-                          <td>0
-                          </td>
-                          <td>0.00</td>
-                          <td>0.00</td>
-                          <td>110.00</td>
-                          <td>0.00</td>
+                        @foreach($empresas as $empresa)
+                         <tr>
+                          <td>{{$empresa->razao_social}}</td>
+                          <td>{{$empresa->cnpj}}</td>
+                          <td>{{$empresa->insc_estadual}}</td>
+                          <td>{{$empresa->telefone}}</td>
+                          <td>{{$empresa->cidade}}</td>
                           <td>Sim</td>
-                          <td><a href="" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a></td>
+                           <td><a href="" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a></td>
                         </tr>
+                          @endforeach
+
                       </tbody>
                     </table>
                   </div>

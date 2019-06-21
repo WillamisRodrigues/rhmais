@@ -38,18 +38,23 @@
                           <th>Ação</th>
                         </tr>
                       </thead>
-
-
                       <tbody>
-                        <tr>
-                          <td>'CAIXA ESCOLAR MARCOS BORGES DE MIRANDA</td>
-                          <td></td>
-                          <td>UBERLANDIA</td>
-                          <td>AV. COMENDADOR ALEXANDRINO GARCIA	</td>
-                          <td>21.296.223/0001-18
-                          </td>
-                          <td><a href="" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a></td>
+
+                        @foreach($instituicoes as $instituicao)
+                         <tr>
+                          <td>{{$instituicao->nome_instituicao}}</td>
+                          <td>{{$instituicao->cnpj}}</td>
+                          <td>{{$instituicao->insc_estadual}}</td>
+                          <td>{{$instituicao->telefone}}</td>
+                          <td>19/12/2002</td>
+                          <td>ENSINO MÉDIO</td>
+                           <td>31/12/2020</td>
+                          <td>Sim</td>
+
+                           <td><a href="" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a></td>
                         </tr>
+                          @endforeach
+
                       </tbody>
                     </table>
                   </div>
