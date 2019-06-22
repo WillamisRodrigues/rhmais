@@ -60,23 +60,23 @@ class UsuarioController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Usuario  $usuarios
+     * @param  \App\Usuario  $usuario
      * @return \Illuminate\Http\Response
      */
-    public function show(Usuario $usuarios)
+    public function show(Usuario $usuario)
     {
-        return view('usuario.show',compact('usuarios',$usuarios));
+        return view('usuario.show',compact('usuario',$usuario));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Usuario  $usuarios
+     * @param  \App\Usuario  $usuario
      * @return \Illuminate\Http\Response
      */
-    public function edit(Usuario $usuarios)
+    public function edit(Usuario $usuario)
     {
-        return view('usuario.edit',compact('usuario',$usuarios));
+        return view('usuario.edit', compact('usuario', $usuario));
     }
 
     /**
@@ -86,30 +86,33 @@ class UsuarioController extends Controller
      * @param  \App\Usuario  $usuarios
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Usuario $usuarios)
+    public function update(Request $request, Usuario $usuario)
     {
-       //Validate
         $request->validate([
-            'nome' => 'required|min:3',
+
+            'nome' => 'required',
             'email' => 'required',
+            'cpf' => 'required',
         ]);
 
-        $usuarios->nome = $request->nome;
-        $usuarios->email = $request->email;
-        $usuarios->save();
-        $request->session()->flash('message', 'Atualizado com sucesso!');
+       $usuario->nome = $request->nome;
+        $usuario->email = $request->email;
+        $usuario->cpf = $request->cpf;
+        $usuario->save();
+        $request->session()->flash('message', 'Sucesso!');
         return redirect('usuario');
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Usuario  $usuarios
+     * @param  \App\Usuario  $usuario
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Usuario $usuarios)
+    public function destroy(Request $request, Usuario $usuario)
     {
-       $usuarios->delete();
+       $usuario->delete();
         $request->session()->flash('message', 'Removido com sucesso!');
         return redirect('usuario');
     }
