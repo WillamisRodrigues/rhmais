@@ -56,13 +56,17 @@
                            <td>31/12/2020</td>
                           <td>Sim</td>
 
-                           <td><a href="{{ route('estagiario.edit',$estagiario->id) }}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a></td>
-                           <td>
-                          <form action="{{url('estagiario', [$estagiario->id])}}" method="POST">
-    		                  <input type="hidden" name="_method" value="DELETE">
-   		                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-   		                    <input type="submit" class="btn btn-danger" value="Delete"/>
-                          </form>
+                           <td style="width:15%;">
+                            <div class="col-md-3">
+                              <a href="{{ route('estagiario.edit',$estagiario->id) }}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
+                            </div>
+                            <form class="col-md-3" style="margin-left:40px;" action="{{url('estagiario', [$estagiario->id])}}" method="POST">
+                              <input type="hidden" name="_method" value="DELETE">
+                              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                              <button type="submit" class="btn btn-danger">
+                              <i class="fa fa-trash"></i> Deletar
+                              </button>
+                            </form>
                           </td>
                         </tr>
                           @endforeach

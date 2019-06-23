@@ -31,6 +31,7 @@ $(document).ready(function(){
     // Smart Wizard
     $('#smartwizard').smartWizard({
             selected: 0,
+            lang:{next:'Próximo',previous: 'Anterior'},
             theme: 'arrows',
             transitionEffect:'fade',
             toolbarSettings: {toolbarPosition: 'bottom',
