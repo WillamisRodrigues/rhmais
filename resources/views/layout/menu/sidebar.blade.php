@@ -6,7 +6,7 @@
                   <li><a href="/home"><i class="fa fa-home"></i> Home</a> </li>
                   <li><a><i class="fa fa-edit"></i> Cadastros <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="/usuario">Usuarios</a></li>
+                      <li><a href="/usuario">Estagiarios</a></li>
                       <li><a href="/instituicao">Instituição de Ensino</a></li>
                       <li><a href="/empresa">Empresas Parceiras</a></li>
                     </ul>
@@ -46,6 +46,7 @@
                   </li>
                   <li><a><i class="fa fa-cogs"></i> Configurações <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
+                      <li><a href="">Usuários do Sistema</a></li>
                       <li><a href="">Cidades</a></li>
                       <li><a href="">Cursos</a></li>
                       <li><a href="">Motivos <br> Resição / Recesso</a></li>

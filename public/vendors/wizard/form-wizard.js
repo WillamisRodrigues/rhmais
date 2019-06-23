@@ -9,10 +9,10 @@ $(document).ready(function(){
           elmForm.validator('validate');
             var elmErr = elmForm.find('.has-error');
             if(elmErr && elmErr.length > 0){
-                alert('Oops we still have error in the form');
+                alert('Oops ocorreu um erro no sitema');
                 return false;
             }else{
-              alert('Great! we are ready to submit form');
+              alert('Salvo com Sucesso');
               elmForm.submit();
               return false;
             }
