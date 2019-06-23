@@ -27,7 +27,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                     <form action="{{ route('usuario.update',$usuario->id) }}" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
+                     <form action="{{ route('estagiario.update',$estagiario->id) }}" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
             <input type="hidden" name="_method" value="PUT">
                   {{csrf_field()}}
                       <!-- SmartWizard html -->
@@ -42,40 +42,40 @@
                                   <div id="form-step-0" role="form" data-toggle="validator">
                                   <div class="row" style="width:960px; margin: 0 auto;">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" value="{{$usuario->nome}}" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Nome Completo" name="nome">
+                                        <input type="text" value="{{$estagiario->nome}}" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Nome Completo" name="nome">
                                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
 
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text"  value="{{$usuario->email}}" class="form-control" id="inputSuccess3" placeholder="Email" name="email">
+                                        <input type="text"  value="{{$estagiario->email}}" class="form-control" id="inputSuccess3" placeholder="Email" name="email">
                                         <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
                                     </div>
                                     </div>
                                     <div class="row" style="width:960px; margin: 0 auto;">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text"   value="{{$usuario->rg}}" maxlength="12" class="form-control has-feedback-left" id="inputSuccess4" placeholder="RG" name="rg">
+                                        <input type="text"   value="{{$estagiario->rg}}" maxlength="12" class="form-control has-feedback-left" id="inputSuccess4" placeholder="RG" name="rg">
                                         <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
                                     </div>
 
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text"  value="{{$usuario->cpf}}" maxlength="14" class="form-control" id="inputSuccess5" placeholder="CPF" name="cpf">
+                                        <input type="text"  value="{{$estagiario->cpf}}" maxlength="14" class="form-control" id="inputSuccess5" placeholder="CPF" name="cpf">
                                         <span class="fa fa-newspaper-o form-control-feedback right" aria-hidden="true"></span>
                                     </div>
                                     </div>
                                     <div class="row" style="width:960px; margin: 0 auto;">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text"  value="{{$usuario->telefone}}" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Telefone" name="telefone">
+                                        <input type="text"  value="{{$estagiario->telefone}}" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Telefone" name="telefone">
                                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                                     </div>
 
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text"  value="{{$usuario->celular}}" class="form-control" id="inputSuccess5" placeholder="Celular" name="celular">
+                                        <input type="text"  value="{{$estagiario->celular}}" class="form-control" id="inputSuccess5" placeholder="Celular" name="celular">
                                         <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
                                     </div>
                                     </div>
                                     <div class="row" style="width:960px; margin: 0 auto;">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="date"   value="{{$usuario->data_nascimento}}" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Data de Nascimento" name="data_nascimento">
+                                        <input type="date"   value="{{$estagiario->data_nascimento}}" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Data de Nascimento" name="data_nascimento">
                                         <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     </div>

@@ -6,7 +6,7 @@
                   <li><a href="/home"><i class="fa fa-home"></i> Home</a> </li>
                   <li><a><i class="fa fa-edit"></i> Cadastros <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="/usuario">Estagiarios</a></li>
+                      <li><a href="/estagiario">Estagiarios</a></li>
                       <li><a href="/instituicao">Instituição de Ensino</a></li>
                       <li><a href="/empresa">Empresas Parceiras</a></li>
                     </ul>
@@ -15,7 +15,7 @@
                     <ul class="nav child_menu">
                       <li><a href="">TCE / Contrato(s)</a></li>
                       <li><a href="">TCE / Aditivo(s)</a></li>
-                      <li><a href="">TCE / Rescição(ões)</a></li>
+                      <li><a href="">TCE / Rescisão(ões)</a></li>
                       <li><a href="">TCE / Rescindidido(s)</a></li>
                       <li><a href="">CAU / Convênio A.I. e <br> Unid. Concedente</a></li>
                       <li><a href="">CCE / Convênio A.I. e <br> Inst. Ensino</a></li>
@@ -31,9 +31,9 @@
                   <li><a><i class="fa fa-money"></i> Folha Pagamento <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                     <li><a href="">Gerar Folha Pagamento</a></li>
-                    <li><a href="">Gerar Folha de Resição</a></li>
+                    <li><a href="">Gerar Folha de Rescisão</a></li>
                     <li><a href="">Informe de Rendimentos</a></li>
-                    <li><a href="">Gerar Prévia de Resição</a></li>
+                    <li><a href="">Gerar Prévia de Rescisão</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-graduation-cap"></i> Avaliações <span class="fa fa-chevron-down"></span></a>

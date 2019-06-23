@@ -1,5 +1,5 @@
 @extends('layout/app')
-@section('titulo','Empresas | RH MAIS')
+@section('titulo','Usuários do Sistema | RH MAIS')
 @section('conteudo')
    <div class="container body">
       <div class="main_container">
@@ -22,44 +22,43 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                  <a href="{{route('empresa.create')}}" class="btn btn-success pull-right"> <i class="fa fa-home"> </i> Adicionar Empresa Parceira</a>
-                    <h2>Empresas Parceiras</h2>
+                  <a href="{{route('estagiario.create')}}" class="btn btn-success pull-right"> <i class="fa fa-user"> </i> Adicionar Novo Usuário</a>
+                    <h2>Usuários do Sistema</h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <table id="empresas" class="table table-striped table-bordered">
+                    <table id="estagiario" class="table table-striped table-bordered">
                       <thead>
                         <tr>
                           <th>Nome</th>
+                          <th>Unidade</th>
+                          <th>Tel.Celular</th>
+                          <th>CPF</th>
                           <th>Cidade</th>
-                          <th>Telefone</th>
-                          <th>CNPJ</th>
-                          <th>Qtade Plano</th>
-                          <th>Valor Fixo</th>
-                          <th>Valor Perc</th>
-                          <th>Custo Unitario</th>
-                          <th>Valor Adicional</th>
+                          <th>Data de Nascimento</th>
+                          <th>Escolaridade</th>
+                          <th>Termino Curso</th>
                           <th>Ativo</th>
                           <th>Ação</th>
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach($empresas as $empresa)
+                       @foreach($estagiarios as $estagiario)
+
                          <tr>
-                          <td>{{$empresa->razao_social}}</td>
-                          <td>Campinas</td>
-                          <td>19 36558898</td>
-                          <td>{{$empresa->cnpj}}</td>
-                          <td>12 Vezes</td>
+                          <td>{{$estagiario->nome}}</td>
+                          <td>{{$estagiario->unidade}}</td>
+                          <td>{{$estagiario->celular}}</td>
+                          <td>{{$estagiario->cpf}}</td>
+                          <td>{{$estagiario->cidade}}</td>
+                          <td>19/12/2002</td>
+                          <td>ENSINO MÉDIO</td>
+                           <td>31/12/2020</td>
                           <td>Sim</td>
-                          <td>15%</td>
-                          <td>10</td>
-                          <td>{{$empresa->insc_estadual}}</td>
-                          <td>{{$empresa->telefone}}</td>
-                          <td>{{$empresa->cidade}}</td>
-                           <td><a href="{{ route('empresa.edit',$empresa->id) }}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a></td>
+
+                           <td><a href="{{ route('estagiario.edit',$estagiario->id) }}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a></td>
                            <td>
-                          <form action="{{url('empresa', [$empresa->id])}}" method="POST">
+                          <form action="{{url('estagiario', [$estagiario->id])}}" method="POST">
     		                  <input type="hidden" name="_method" value="DELETE">
    		                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
    		                    <input type="submit" class="btn btn-danger" value="Delete"/>
@@ -67,7 +66,6 @@
                           </td>
                         </tr>
                           @endforeach
-
                       </tbody>
                     </table>
                   </div>
@@ -77,6 +75,7 @@
         </div>
     </div>
     </div>
+
         <!-- /page content -->
 
         <!-- footer content -->

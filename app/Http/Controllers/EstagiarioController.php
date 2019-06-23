@@ -2,35 +2,34 @@
 
 namespace App\Http\Controllers;
 
+use App\Estagiario;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Response;
-use Redirect;
- use App\Empresa;
-use App\Message;
 
-class EmpresaController extends Controller
+class EstagiarioController extends Controller
 {
-       public function __construct()
+    public function __contruct()
     {
         $this->middleware('auth');
     }
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-          $empresas = Empresa::all();
-            return view('empresa.index',compact('empresas', $empresas));
+        $estagiarios = Estagiario::all();
+        return view('estagiario.index', compact('estagiarios', $estagiarios));
     }
 
-   /**
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        return view('empresa.create');
+        return view('estagiario.create');
     }
 
     /**
@@ -39,17 +38,17 @@ class EmpresaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Empresa $empresas)
+    public function store(Request $request, Estagiario $estagiarios)
     {
-       // Insere uma nova categoria, de acordo com os dados informados pelo usuário
-    $insert = $empresas->create($request->all());
+        // Insere uma nova categoria, de acordo com os dados informados pelo usuário
+    $insert = $estagiarios->create($request->all());
 
     // Verifica se inseriu com sucesso
     // Redireciona para a listagem das categorias
     // Passa uma session flash success (sessão temporária)
     if ($insert)
         return redirect()
-                    ->route('empresa.index')
+                    ->route('estagiario.index')
                     ->with('success', 'Categoria inserida com sucesso!');
 
     // Redireciona de volta com uma mensagem de erro
@@ -61,58 +60,60 @@ class EmpresaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Empresa  $empresas
+     * @param  \App\Estagiario  $estagiario
      * @return \Illuminate\Http\Response
      */
-    public function show(Empresa $empresas)
+    public function show(Estagiario $estagiario)
     {
-        return view('empresa.show',compact('empresa',$empresas));
+        return view('estagiario.show', compact('estagiario', $estagiario));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Empresa  $empresa
+     * @param  \App\Estagiario  $estagiario
      * @return \Illuminate\Http\Response
      */
-    public function edit(Empresa $empresa)
+    public function edit(Estagiario $estagiario)
     {
-        return view('empresa.edit',compact('empresa',$empresa));
+        return view('estagiario.edit', compact('estagiario', $estagiario));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Empresa  $empresas
+     * @param  \App\Estagiario  $estagiario
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Empresa $empresas)
+    public function update(Request $request, Estagiario $estagiario)
     {
-       //Validate
         $request->validate([
-            'nome' => 'required|min:3',
+
+            'nome' => 'required',
             'email' => 'required',
+            'cpf' => 'required',
         ]);
 
-        $empresas->nome = $request->nome;
-        $empresas->email = $request->email;
-        $empresas->save();
-        $request->session()->flash('message', 'Atualizado com sucesso!');
-        return redirect('empresa');
+        $estagiario->nome = $request->nome;
+        $estagiario->email = $request->email;
+        $estagiario->cpf = $request->cpf;
+        $estagiario->save();
+        $request->session()->flash('message', 'Sucesso!');
+        return redirect('estagiario');
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Empresa  $empresas
+     * @param  \App\Estagiario  $estagiario
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Empresa $empresas)
+    public function destroy(Request $request,Estagiario $estagiario)
     {
-       $empresas->delete();
+       $estagiario->delete();
         $request->session()->flash('message', 'Removido com sucesso!');
-        return redirect('empresa');
+        return redirect('estagiario');
     }
 }
-

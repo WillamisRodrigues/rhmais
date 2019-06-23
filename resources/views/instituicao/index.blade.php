@@ -51,7 +51,14 @@
                            <td>31/12/2020</td>
                           <td>Sim</td>
 
-                           <td><a href="" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a></td>
+                           <td><a href="{{ route('instituicao.edit',$instituicao->id) }}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a></td>
+                           <td>
+                          <form action="{{url('instituicao', [$instituicao->id])}}" method="POST">
+    		                  <input type="hidden" name="_method" value="DELETE">
+   		                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+   		                    <input type="submit" class="btn btn-danger" value="Delete"/>
+                          </form>
+                          </td>
                         </tr>
                           @endforeach
 

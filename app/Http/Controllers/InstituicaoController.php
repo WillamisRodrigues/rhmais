@@ -59,33 +59,33 @@ class InstituicaoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Instituicao  $instituicoes
+     * @param  \App\Instituicao  $instituicao
      * @return \Illuminate\Http\Response
      */
-    public function show(Instituicao $instituicoes)
+    public function show(Instituicao $instituicao)
     {
-        return view('instituicao.show',compact('usuario',$instituicoes));
+        return view('instituicao.show',compact('instituicao',$instituicao));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Instituicao  $instituicoes
+     * @param  \App\Instituicao  $instituicao
      * @return \Illuminate\Http\Response
      */
-    public function edit(Instituicao $instituicoes)
+    public function edit(Instituicao $instituicao)
     {
-        return view('isntituicao.edit',compact('instituicoes',$instituicoes));
+        return view('instituicao.edit',compact('instituicao',$instituicao));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Instituicao  $instituicoes
+     * @param  \App\Instituicao  $instituicao
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Instituicao $instituicoes)
+    public function update(Request $request, Instituicao $instituicao)
     {
        //Validate
         $request->validate([
@@ -93,9 +93,9 @@ class InstituicaoController extends Controller
             'email' => 'required',
         ]);
 
-        $instituicoes->nome = $request->nome;
-        $instituicoes->email = $request->email;
-        $instituicoes->save();
+        $instituicao->nome = $request->nome;
+        $instituicao->email = $request->email;
+        $instituicao->save();
         $request->session()->flash('message', 'Atualizado com sucesso!');
         return redirect('instituicao');
     }

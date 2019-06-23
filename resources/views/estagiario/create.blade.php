@@ -23,18 +23,21 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Editar Usuário</h2>
+                    <h2>Cadastro de Usuário</h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                   <div class="jumbotron text-center">
-        <p>
-            <strong>Task Title:</strong> {{ $usuario->nome }}<br>
-            <strong>Description:</strong> {{ $usuario->email }}
-        </p>
-    </div>
+                  <form action="{{ route('estagiario.store') }}" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
+                  {{csrf_field()}}
 
                       <!-- SmartWizard html -->
+                      <div id="smartwizard">
+                          <ul>
+                              <li><a href="#step-1">Passo 1<br /><small>Dados Pessoais</small></a></li>
+                              <li><a href="#step-2">Passo 2<br /><small>Dados de Endereço</small></a></li>
+                              <li><a href="#step-3">Passo 3<br /><small>Dados da Empresa</small></a></li>
+                          </ul>
+
                           <div>
                               <div id="step-1">
                                     <br>
@@ -138,7 +141,18 @@
                           </div>
                       </div>
                      </div>
-                 </form>
+                   @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if(session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
+                      </form>
                   </div>
                 </div>
               </div>

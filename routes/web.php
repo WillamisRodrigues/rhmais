@@ -17,7 +17,7 @@ Auth::routes();
  Route::post('/home', 'HomeController@index')->name('index');
 
  Route::resource('empresa', 'EmpresaController');
- Route::resource('usuario', 'UsuarioController');
+ Route::resource('estagiario', 'EstagiarioController');
  Route::resource('instituicao', 'InstituicaoController');
 
 
