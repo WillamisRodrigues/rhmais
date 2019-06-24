@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Estagiario;
 use Illuminate\Http\Request;
+// use PDF;
 
 class EstagiarioController extends Controller
 {
@@ -110,10 +111,11 @@ class EstagiarioController extends Controller
      * @param  \App\Estagiario  $estagiario
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request,Estagiario $estagiario)
+    public function destroy(Request $request, Estagiario $estagiario)
     {
-       $estagiario->delete();
+        $estagiario->delete();
         $request->session()->flash('message', 'Removido com sucesso!');
         return redirect('estagiario');
     }
+
 }

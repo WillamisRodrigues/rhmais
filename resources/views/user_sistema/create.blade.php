@@ -3,12 +3,15 @@
 
     <div>
       <a class="hiddenanchor" id="signup"></a>
+       <a class="btn btn-primary submit" href="#" style="margin:20px;">
+      <i class="fa fa-home"></i>
+       Voltar ao Painel</a>
       <!-- <a class="hiddenanchor" id="signin"></a> -->
 
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-              <form method="POST" action="{{ route('salvar') }}" enctype="multipart/form-data">
+              <form method="POST" action="{{ route('user_sistema.store') }}" enctype="multipart/form-data">
              {{csrf_field()}}
               <h1>Criar Conta</h1>
               <div>
@@ -40,8 +43,8 @@
               <input  type="password" class="form-control" placeholder="Confirmação de senha" required=""  name="password_confirmation"/>
               <div>
                <button class="btn btn-default">Criar</button>
-                 <!-- <a  id="send" type="submit" class="btn btn-default submit" href="index.html">Criar</a> -->
               </div>
+
 
               <div class="clearfix"></div>
 

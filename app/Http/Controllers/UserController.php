@@ -19,20 +19,17 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = User::all();
-        return view('users',['users' => $users]);
+        // $users = User::all();
+        $users = DB::table('users')->paginate(5);
+       return view('user_sistema.index', compact('users', $users));
     }
 
-    public function edit()
+        public function create()
     {
-        return view('user-form-edit',['user' => User::whereId(request('id'))->firstOrFail()]);
+        return view('user_sistema.create');
     }
 
-    public function add()
-    {
-        return view('user-add');
-    }
-  public function salvar()
+     public function store(Request $request, User $users)
     {
 
         if(request('id') == 0){
@@ -65,10 +62,48 @@ class UserController extends Controller
             }
             DB::commit();
         }
-      return redirect()->route('home');
+      return redirect()->route('user_sistema.index');
         }
 
-    public function delete()
+      public function show( User $users)
+    {
+        return view('user_sistema.show',compact('users',$users));
+    }
+
+     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\User $users
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(User $users)
+    {
+        //  return view('edit',['user' => User::whereId(request('id'))->firstOrFail()]);
+         return view('user_sistema.edit', compact('users', $users));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\user  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, User $user)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+        ]);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->save();
+        $request->session()->flash('message', 'Sucesso!');
+        return redirect('user_sistema');
+    }
+
+     public function destroy()
     {
         $message = new Message();
         $message->message ="";
@@ -76,7 +111,7 @@ class UserController extends Controller
         try{
             DB::beginTransaction();
 
-            User::whereId(request("id"))->delete();
+            User::whereId(request("id"))->destroy();
 
             DB::commit();
             $message->message = 'usuário excluído com sucesso';

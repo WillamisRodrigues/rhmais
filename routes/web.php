@@ -19,8 +19,12 @@ Auth::routes();
  Route::resource('empresa', 'EmpresaController');
  Route::resource('estagiario', 'EstagiarioController');
  Route::resource('instituicao', 'InstituicaoController');
-
+Route::resource('user_sistema', 'UserController');
 
 Route::get('/termo_recesso', function () {
     return view('termo/lista-recesso');
+});
+
+Route::get('/invoice', function () {
+    return view('invoice');
 });

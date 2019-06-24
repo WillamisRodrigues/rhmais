@@ -16,52 +16,41 @@
           <!-- page content -->
           <div class="right_col" role="main">
           <div class="">
-          <!-- <a href="{{url('estagiario/exportar')}}">Print  PDF</a> -->
+
             <div class="clearfix"></div>
 
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                  <a href="{{route('estagiario.create')}}" class="btn btn-success pull-right"> <i class="fa fa-user"> </i> Adicionar Novo Usuário</a>
-                    <h2>Estagiários</h2>
+                  <a href="{{route('user_sistema.create')}}" class="btn btn-success pull-right"> <i class="fa fa-user"> </i> Adicionar Novo Usuário</a>
+                    <h2>Usuários do Sistema</h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <table id="estagiario" class="table table-striped table-bordered">
-                      <thead>
-                        <tr>
-                          <th>Nome</th>
-                          <th>Unidade</th>
-                          <th>Tel.Celular</th>
-                          <th>CPF</th>
-                          <th>Cidade</th>
-                          <th>Data de Nascimento</th>
-                          <th>Escolaridade</th>
-                          <th>Termino Curso</th>
-                          <th>Ativo</th>
-                          <th>Ação</th>
-                        </tr>
-                      </thead>
+                    <table id="user" class="table table-striped table-bordered">
+                    <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>E-mail</th>
+                                <th>Data de cadastro</th>
+                                <th>Ultima atualização</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
                       <tbody>
-                       @foreach($estagiarios as $estagiario)
-
-                         <tr>
-                          <td>{{$estagiario->nome}}</td>
-                          <td>{{$estagiario->unidade}}</td>
-                          <td>{{$estagiario->celular}}</td>
-                          <td>{{$estagiario->cpf}}</td>
-                          <td>{{$estagiario->cidade}}</td>
-                          <td>19/12/2002</td>
-                          <td>ENSINO MÉDIO</td>
-                           <td>31/12/2020</td>
-                          <td>Sim</td>
+                       @foreach ($users as $user)
+                                <tr>
+                                    <th>{{$user->name}}</th>
+                                    <th>{{$user->email}}</th>
+                                    <th>{{$user->created_at}}</th>
+                                    <th>{{$user->updated_at}}</th>
 
                            <td style="width:15%;">
                             <div class="col-md-3">
-                              <a href="{{ route('estagiario.edit',$estagiario->id) }}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
+                              <a href="{{ route('user_sistema.edit',$user->id) }}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
                             </div>
-                            <form class="col-md-3" style="margin-left:40px;" action="{{url('estagiario', [$estagiario->id])}}" method="POST">
+                            <form class="col-md-3" style="margin-left:40px;" action="{{url('user_sistema', [$user->id])}}" method="POST">
                               <input type="hidden" name="_method" value="DELETE">
                               <input type="hidden" name="_token" value="{{ csrf_token() }}">
                               <button type="submit" class="btn btn-danger">
@@ -73,6 +62,9 @@
                           @endforeach
                       </tbody>
                     </table>
+                    <div class="text-right">
+                      {{ $users->links() }}
+                    </div>
                   </div>
                 </div>
               </div>
