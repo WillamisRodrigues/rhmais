@@ -20,10 +20,11 @@ Auth::routes();
  Route::resource('estagiario', 'EstagiarioController');
  Route::resource('instituicao', 'InstituicaoController');
 Route::resource('user_sistema', 'UserController');
-// Route::get('/estagiario/pdf/', [ 'as' => 'estagiario.pdf', 'uses' => 'EstagiarioController@pdf']);
-Route::get('/estagiario/print-pdf', [ 'as' => 'estagiario.printpdf', 'uses' => 'EstagiarioController@printPDF']);
-
 
 Route::get('/termo_recesso', function () {
     return view('termo/lista-recesso');
+});
+
+Route::get('/invoice', function () {
+    return view('invoice');
 });

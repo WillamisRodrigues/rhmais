@@ -65,7 +65,7 @@ class UsuarioController extends Controller
      */
     public function show(Usuario $usuario)
     {
-        return view('usuario.edit2',compact('usuario',$usuario));
+        return view('usuario.show',compact('usuario',$usuario));
     }
 
     /**

@@ -16,7 +16,7 @@
           <!-- page content -->
           <div class="right_col" role="main">
           <div class="">
-            <a href="{{route('estagiario.printpdf')}}">Print  PDF</a>
+          <!-- <a href="{{url('estagiario/exportar')}}">Print  PDF</a> -->
             <div class="clearfix"></div>
 
             <div class="row">
