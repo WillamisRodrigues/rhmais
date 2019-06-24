@@ -19,6 +19,9 @@ Auth::routes();
  Route::resource('empresa', 'EmpresaController');
  Route::resource('estagiario', 'EstagiarioController');
  Route::resource('instituicao', 'InstituicaoController');
+Route::resource('user_sistema', 'UserController');
+// Route::get('/estagiario/pdf/', [ 'as' => 'estagiario.pdf', 'uses' => 'EstagiarioController@pdf']);
+Route::get('/estagiario/print-pdf', [ 'as' => 'estagiario.printpdf', 'uses' => 'EstagiarioController@printPDF']);
 
 
 Route::get('/termo_recesso', function () {

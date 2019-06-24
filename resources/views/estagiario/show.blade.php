@@ -28,10 +28,6 @@
                   </div>
                   <div class="x_content">
                    <div class="jumbotron text-center">
-        <p>
-            <strong>Task Title:</strong> {{ $estagiario->nome }}<br>
-            <strong>Description:</strong> {{ $estagiario->email }}
-        </p>
     </div>
 
                       <!-- SmartWizard html -->
