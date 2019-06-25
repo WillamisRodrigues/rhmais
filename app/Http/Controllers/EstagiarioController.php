@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Estagiario;
 use Illuminate\Http\Request;
-// use PDF;
 
 class EstagiarioController extends Controller
 {
@@ -19,10 +18,10 @@ class EstagiarioController extends Controller
      */
     public function index()
     {
+        // $estagiarios = Estagiario::count();
         $estagiarios = Estagiario::all();
         return view('estagiario.index', compact('estagiarios', $estagiarios));
     }
-
     /**
      * Show the form for creating a new resource.
      *

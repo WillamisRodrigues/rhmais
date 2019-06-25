@@ -1,5 +1,6 @@
  <!DOCTYPE html>
 <html>
+       
 <title>HTML Tutorial</title>
 <body>
 
@@ -7,4 +8,4 @@
 <p>This is a paragraph.</p>
 
 </body>
-</html> 
+</html>

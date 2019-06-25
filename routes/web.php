@@ -26,5 +26,7 @@ Route::get('/termo_recesso', function () {
 });
 
 Route::get('/invoice', function () {
-    return view('invoice');
+    //  return view('invoice');
+    $pdf = PDF::loadView('invoice');
+    return $pdf->stream('invoice.pdf');
 });
