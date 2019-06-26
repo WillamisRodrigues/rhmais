@@ -1,7 +1,7 @@
 /* lista termo de recesso ferias */
 $(document).ready(function() {
     $('#recesso').DataTable();
-    $('#usuario').DataTable();
+    $('#estagiario').DataTable();
     $('#instituicao').DataTable();
     $('#empresas').DataTable();
 } );

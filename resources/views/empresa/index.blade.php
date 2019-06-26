@@ -53,16 +53,19 @@
                           <td>12 Vezes</td>
                           <td>Sim</td>
                           <td>15%</td>
-                          <td>10</td>
                           <td>{{$empresa->insc_estadual}}</td>
                           <td>{{$empresa->telefone}}</td>
                           <td>{{$empresa->cidade}}</td>
-                           <td><a href="{{ route('empresa.edit',$empresa->id) }}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a></td>
-                           <td>
-                          <form action="{{url('empresa', [$empresa->id])}}" method="POST">
+                           <td style="width:15%;">
+                           <div class="col-md-3">
+                            <a href="{{ route('empresa.edit',$empresa->id) }}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
+                          </div>
+                          <form  class="col-md-3" style="margin-left:40px;" action="{{url('empresa', [$empresa->id])}}" method="POST">
     		                  <input type="hidden" name="_method" value="DELETE">
    		                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-   		                    <input type="submit" class="btn btn-danger" value="Delete"/>
+   		                    <button type="submit" class="btn btn-danger">
+                              <i class="fa fa-trash"></i> Deletar
+                              </button>
                           </form>
                           </td>
                         </tr>
