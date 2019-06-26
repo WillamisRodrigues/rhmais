@@ -48,7 +48,7 @@
 
                          <tr>
                           <td>{{$estagiario->nome}}</td>
-                          <td>{{$estagiario->unidade}}</td>
+                          <td>{{$estagiario->und_concedente}}</td>
                           <td>{{$estagiario->celular}}</td>
                           <td>{{$estagiario->cpf}}</td>
                           <td>{{$estagiario->cidade}}</td>
