@@ -14,21 +14,22 @@
         <!-- page content -->
         <div class="right_col" role="main">
           <!-- top tiles -->
+
           <div class="row tile_count">
             <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="fa fa-user"></i> Total de Estagiários</span>
-              <div class="count">270</div>
-              <span class="count_bottom"><i class="green">4% </i> neste mês</span>
+              <div class="count"><td >{{$totalEstagiario}}</td></div>
+              <!-- <span class="count_bottom"><i class="green">4% </i> neste mês</span> -->
             </div>
             <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="fa fa-clock-o"></i> Total de Instituição Ensino</span>
-              <div class="count">123</div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> neste mês</span>
+              <div class="count">{{$totalInstituicao}}</div>
+              <!-- <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> neste mês</span> -->
             </div>
             <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="fa fa-user"></i> Total Empresas Parceiras</span>
-              <div class="count green">2,500</div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> neste mês</span>
+              <div class="count green">{{$totalEmpresa}}</div>
+              <!-- <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> neste mês</span> -->
             </div>
           </div>
           <!-- /top tiles -->

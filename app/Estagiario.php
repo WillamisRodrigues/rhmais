@@ -10,4 +10,5 @@ class Estagiario extends Model
         'dt_cadastro','und_concedente','agente_int','pessoa_responsavel','sexo'
     ];
     protected $table = 'estagiario';
+
 }

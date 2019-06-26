@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
 use App\Estagiario;
+use App\Instituicao;
+use App\Empresa;
 
 class HomeController extends Controller
 {
@@ -14,6 +16,9 @@ class HomeController extends Controller
 
     public function index()
     {
-         return view('home.index');
+         $totalEstagiario = Estagiario::count();
+         $totalInstituicao = Instituicao::count();
+         $totalEmpresa = Empresa::count();
+        return view('home.index',compact('totalEstagiario', 'totalInstituicao','totalEmpresa'));
     }
 }
