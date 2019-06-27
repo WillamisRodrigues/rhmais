@@ -13,13 +13,13 @@
                   </li>
                   <li><a><i class="fa fa-briefcase"></i> Contratos <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="">TCE / Contrato(s)</a></li>
-                      <li><a href="">TCE / Aditivo(s)</a></li>
-                      <li><a href="">TCE / Rescisão(ões)</a></li>
-                      <li><a href="">TCE / Rescindidido(s)</a></li>
-                      <li><a href="">CAU / Convênio A.I. e <br> Unid. Concedente</a></li>
-                      <li><a href="">CCE / Convênio A.I. e <br> Inst. Ensino</a></li>
-                      <li><a href="">Plano de Estágio</a></li>
+                      <li><a href="/tce_contratos">TCE / Contrato(s)</a></li>
+                      <li><a href="/tce_aditivos">TCE / Aditivo(s)</a></li>
+                      <li><a href="/tce_recisao">TCE / Rescisão(ões)</a></li>
+                      <li><a href="/tce_rescindindo">TCE / Rescindidido(s)</a></li>
+                      <li><a href="/cau_convenio">CAU / Convênio A.I. e <br> Unid. Concedente</a></li>
+                      <li><a href="/cce_convenio">CCE / Convênio A.I. e <br> Inst. Ensino</a></li>
+                      <li><a href="/plano_estagio">Plano de Estágio</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-book"></i> Recesso / Férias <span class="fa fa-chevron-down"></span></a>
