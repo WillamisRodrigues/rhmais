@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Endereco;
 use App\Estagiario;
 use Illuminate\Http\Request;
+ use Khill\Lavacharts\Laravel\LavachartsFacade;
 
 class EstagiarioController extends Controller
 {
@@ -86,7 +87,12 @@ class EstagiarioController extends Controller
      */
     public function show(Estagiario $estagiario)
     {
-        return view('estagiario.show', compact('estagiario', $estagiario));
+        $lava = new Lavacharts;
+        $estagiarios = $lava->DataTable();
+
+        $estagiarios->addStringColum('sexo');
+        $lava->BarChart('dado', $estagiarios);
+        return view('estagiario.show', compact('estagiario', $estagiario, 'lava'));
     }
 
     /**
