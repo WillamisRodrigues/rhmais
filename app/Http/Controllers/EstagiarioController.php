@@ -143,5 +143,5 @@ class EstagiarioController extends Controller
         $request->session()->flash('message', 'Removido com sucesso!');
         return redirect('estagiario');
     }
-
+    
 }

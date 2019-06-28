@@ -132,6 +132,12 @@
                   </div>
                 </div>
               </div>
+              <div style="width:50%;">
+       {!! $chart->container() !!}
+       </div>
+    </div>
+</div>
+
               <!-- /line graph -->
             </div>
           </div>
