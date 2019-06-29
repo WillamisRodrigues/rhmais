@@ -135,9 +135,12 @@
               <div style="width:50%;">
        {!! $chart->container() !!}
        </div>
+       <br>
+             <div style="width:100%;">
+       {!! $chart2->container() !!}
+       </div>
     </div>
-</div>
-
+    </div>
               <!-- /line graph -->
             </div>
           </div>
@@ -146,4 +149,8 @@
         @include('layout.footer')
       </div>
     </div>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/echarts/4.0.2/echarts-en.min.js charset=utf-8></script>
+        {!! $chart->script() !!}
+        {!! $chart2->script() !!}
 @endsection
+

@@ -15,4 +15,5 @@ class HomeChart extends Chart
     {
         parent::__construct();
     }
+
 }
