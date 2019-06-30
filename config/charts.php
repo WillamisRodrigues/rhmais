@@ -11,5 +11,16 @@ return [
     | while creating the chart to ignore this value.
     |
     */
-    'default_library' => 'Chartjs',
+     'default_library' => 'Chartjs',
+    //  'default_library' => [
+
+    //     'type'   => 'pie',
+    //     'library'   => 'google',
+    //     'element_label'   => 'Element',
+    //     'title'   => 'titulo',
+    //     'height'   => '500',
+    //     'width'   => '400',
+    //     'responsive'   => 'true',
+
+    //  ],
 ];
