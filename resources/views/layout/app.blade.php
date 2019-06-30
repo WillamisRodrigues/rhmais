@@ -41,6 +41,7 @@
 
     <!-- jQuery -->
     <script src="{{asset('vendors/jquery/dist/jquery.min.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.js"></script>
     <!-- Bootstrap -->
     <script src="{{asset('vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
     <!-- FastClick -->
@@ -90,4 +91,10 @@
     <!-- Include jQuery Validator plugin -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
     <script src="{{asset('vendors/wizard/form-wizard.js')}}"> </script>
+    <script>
+        $(document).ready(function(){
+          $('.rg').mask('00.000.000-0');
+          $('.cpf').mask('000.000.000-00');
+        });
+    </script>
 </html>

@@ -55,12 +55,12 @@
                                     </div>
                                     <div class="row" style="width:960px; margin: 0 auto;">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" maxlength="12" class="form-control has-feedback-left" placeholder="RG" name="rg">
+                                        <input type="text" maxlength="12" class="form-control rg has-feedback-left" placeholder="RG" name="rg">
                                         <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
                                     </div>
 
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" maxlength="14" class="form-control has-feedback-left"  placeholder="CPF" name="cpf">
+                                        <input type="text" maxlength="14" class="form-control cpf has-feedback-left"  placeholder="CPF" name="cpf">
                                         <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     </div>
