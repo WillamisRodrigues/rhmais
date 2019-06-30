@@ -3,7 +3,7 @@
 
     <div>
       <a class="hiddenanchor" id="signup"></a>
-       <a class="btn btn-primary submit" href="#" style="margin:20px;">
+       <a class="btn btn-primary submit" href="/home" style="margin:20px;">
       <i class="fa fa-home"></i>
        Voltar ao Painel</a>
       <!-- <a class="hiddenanchor" id="signin"></a> -->
@@ -42,7 +42,7 @@
                             </label>
               <input  type="password" class="form-control" placeholder="Confirmação de senha" required=""  name="password_confirmation"/>
               <div>
-               <button class="btn btn-default">Criar</button>
+               <button class="btn btn-default">Cradastrar</button>
               </div>
 
 

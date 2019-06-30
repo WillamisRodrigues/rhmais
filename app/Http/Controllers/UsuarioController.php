@@ -39,7 +39,6 @@ class UsuarioController extends Controller
      */
     public function store(Request $request, Usuario $usuarios)
       {
-
     // Insere uma nova categoria, de acordo com os dados informados pelo usuário
     $insert = $usuarios->create($request->all());
 

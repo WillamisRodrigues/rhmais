@@ -47,8 +47,8 @@
                   <li><a><i class="fa fa-cogs"></i> Configurações <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="/user_sistema">Usuários do Sistema</a></li>
-                      <li><a href="">Cidades</a></li>
-                      <li><a href="">Cursos</a></li>
+                      <li><a href="/cidade">Cidades</a></li>
+                      <li><a href="/curso">Cursos</a></li>
                       <li><a href="">Motivos <br> Resição / Recesso</a></li>
                       <li><a href="">Setores</a></li>
                       <li><a href="">Atividades</a></li>

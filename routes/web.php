@@ -17,13 +17,12 @@ Auth::routes();
  Route::post('/home', 'HomeController@index')->name('index');
 Route::get('/home/grafico', 'HomeController@grafico');
 
-
  Route::resource('empresa', 'EmpresaController');
  Route::resource('estagiario', 'EstagiarioController');
  Route::resource('instituicao', 'InstituicaoController');
 Route::resource('user_sistema', 'UserController');
-// Route::resource('tce_aditivos', 'ContratoController');
-// Route::resource('tce_contratos', 'ContratoController');
+Route::resource('curso', 'CursoController');
+ Route::resource('cidade', 'CidadeController');
 
 Route::get('/termo_recesso', function () {
     return view('termo/lista-recesso');
