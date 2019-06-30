@@ -43,7 +43,11 @@
                   </div>
                   <div class="x_content">
                       {!! $chart->container() !!}
-
+                      <br>
+                      <div>
+                        <span class="badge" style="background-color:#84e573; font-size:14pt;">&nbsp; Feminino</span>
+                        <span class="badge" style="background-color:#715ae2; font-size:14pt;">&nbsp; Masculino</span>
+                      </div>
                   </div>
                 </div>
               </div>
@@ -57,7 +61,15 @@
                   <div class="x_content">
 
                   {!! $chart2->container() !!}
-
+                  <br>
+                  <div>
+                        <span class="badge" style="background-color:#84e573; font-size:14pt;">&nbsp; MED</span>
+                        <span class="badge" style="background-color:#715ae2; font-size:14pt;">&nbsp; SUP</span>
+                        <span class="badge" style="background-color:#84e573; font-size:14pt;">&nbsp; M. TEC</span>
+                        <span class="badge" style="background-color:#715ae2; font-size:14pt;">&nbsp; S. TEC</span>
+                        <span class="badge" style="background-color:#84e573; font-size:14pt;">&nbsp; N. FUN</span>
+                        <span class="badge" style="background-color:#715ae2; font-size:14pt;">&nbsp; N. PRO</span>
+                      </div>
                   </div>
                 </div>
               </div>
