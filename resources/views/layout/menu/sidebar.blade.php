@@ -17,7 +17,7 @@
                       <li><a href="/tce_aditivos">TCE / Aditivo(s)</a></li>
                       <li><a href="/tce_recisao">TCE / Rescisão(ões)</a></li>
                       <li><a href="/tce_rescindindo">TCE / Rescindidido(s)</a></li>
-                      <li><a href="/cau_convenio">CAU / Convênio A.I. e <br> Unid. Concedente</a></li>
+                      <li><a href="/cau_convenio">CAU / Contrato A.I. e <br> Unid. Concedente</a></li>
                       <li><a href="/cce_convenio">CCE / Convênio A.I. e <br> Inst. Ensino</a></li>
                       <li><a href="/plano_estagio">Plano de Estágio</a></li>
                     </ul>
