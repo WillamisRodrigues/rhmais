@@ -44,7 +44,7 @@
                                   <div id="form-step-0" role="form" data-toggle="validator">
                                   <div class="row" style="width:960px; margin: 0 auto;">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                      <input type="text" class="form-control has-feedback-left" placeholder="CNPJ" name="cnpj">
+                                      <input type="text" class="form-control cnpj has-feedback-left" placeholder="CNPJ" name="cnpj">
                                       <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
 
@@ -116,12 +116,12 @@
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" placeholder="CEP" name="cep">
+                            <input type="text" class="form-control cep has-feedback-left" placeholder="CEP" name="cep">
                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                           </div>
 
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left"  placeholder="Telefone" name="telefone">
+                            <input type="text" class="form-control telefone has-feedback-left"  placeholder="Telefone" name="telefone">
                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
@@ -137,40 +137,40 @@
                           </div>
 
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left"  placeholder="Email do Contato" name="email_contato">
+                            <input type="email" class="form-control has-feedback-left"  placeholder="Email do Contato" name="email_contato">
                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" placeholder="Celular Contato" name="cel_contato">
+                            <input type="text" class="form-control telefone has-feedback-left" placeholder="Celular Contato" name="cel_contato">
                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                           </div>
 
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left"  placeholder="Celular Representante" name="cel_representante">
+                            <input type="text" class="form-control telefone has-feedback-left"  placeholder="Celular Representante" name="cel_representante">
                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left"  placeholder="Email do Contato" name="email_contato">
+                            <input type="email" class="form-control has-feedback-left"  placeholder="Email do Contato" name="email_contato">
                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                           </div>
 
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" placeholder="Email Representante" name="email_representante2">
+                            <input type="email" class="form-control has-feedback-left" placeholder="Email Representante" name="email_representante2">
                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" placeholder="CPF Representante" name="cpf_representante">
+                            <input type="text" class="form-control cpf has-feedback-left" placeholder="CPF Representante" name="cpf_representante">
                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                           </div>
 
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" placeholder="RG Represetante" name="rg_representante">
+                            <input type="text" class="form-control rg has-feedback-left" placeholder="RG Represetante" name="rg_representante">
                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>

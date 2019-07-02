@@ -66,12 +66,12 @@
                                     </div>
                                     <div class="row" style="width:960px; margin: 0 auto;">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control has-feedback-left" placeholder="Telefone" name="telefone">
+                                        <input type="text" class="form-control telefone has-feedback-left" placeholder="Telefone" name="telefone">
                                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                                     </div>
 
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control has-feedback-left" placeholder="Celular" name="celular">
+                                        <input type="text" class="form-control telefone has-feedback-left" placeholder="Celular" name="celular">
                                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     </div>

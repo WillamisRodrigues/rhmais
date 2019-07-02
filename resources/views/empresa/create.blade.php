@@ -43,7 +43,7 @@
                                   <div id="form-step-0" role="form" data-toggle="validator">
                                   <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" placeholder="CNPJ / CPF" name="cnpj">
+                            <input type="text" class="form-control cnpj has-feedback-left" placeholder="CNPJ / CPF" name="cnpj">
                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                           </div>
 
@@ -76,7 +76,7 @@
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" placeholder="Telefone" name="telefone">
+                            <input type="text" class="form-control telefone has-feedback-left" placeholder="Telefone" name="telefone">
                             <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -86,7 +86,7 @@
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" placeholder="Celular cont." name="celular1">
+                            <input type="text" class="form-control telefone has-feedback-left" placeholder="Celular cont." name="celular1">
                             <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -96,11 +96,11 @@
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" placeholder="CPF Representante" name="cpf2">
+                            <input type="text" class="form-control cpf has-feedback-left" placeholder="CPF Representante" name="cpf2">
                             <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" placeholder="Email Representante" name="email2">
+                            <input type="email" class="form-control has-feedback-left" placeholder="Email Representante" name="email2">
                             <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
@@ -130,13 +130,13 @@
                             <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left"  placeholder="CEP" name="cep">
+                            <input type="text" class="form-control cep has-feedback-left"  placeholder="CEP" name="cep">
                             <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" placeholder="Celular" name="celular2">
+                            <input type="text" class="form-control telefone has-feedback-left" placeholder="Celular" name="celular2">
                             <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -150,13 +150,13 @@
                             <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left"  placeholder="Celular Representante" name="celular_representante">
+                            <input type="text" class="form-control telefone has-feedback-left"  placeholder="Celular Representante" name="celular_representante">
                             <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" placeholder="R.G. Representante" name="rg_representante">
+                            <input type="text" class="form-control rg has-feedback-left" placeholder="R.G. Representante" name="rg_representante">
                             <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
