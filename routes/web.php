@@ -64,6 +64,22 @@ Route::get('/lista_recesso', function () {
     return view('recesso/index');
 });
 /* fim recesso de ferias */
+
+/*rotas folhas de pagamento , recisao, rendimentos , previa_recisao*/
+Route::get('/folha_pagamento', function () {
+    return view('folha_pagamento/index');
+});
+Route::get('/folha_rescisao', function () {
+    return view('folha_rescisao/index');
+});
+Route::get('/rendimentos', function () {
+    return view('rendimentos/index');
+});
+Route::get('/previsao_rescisao', function () {
+    return view('previsao_rescisao/index');
+});
+/* fim folha de pagamento */
+
 Route::get('/invoice', function () {
     //  return view('invoice');
     $pdf = PDF::loadView('invoice');
