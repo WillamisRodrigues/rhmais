@@ -25,8 +25,9 @@ Route::resource('curso', 'CursoController');
  Route::resource('cidade', 'CidadeController');
 
 Route::get('/termo_recesso', function () {
-    return view('termo/lista-recesso');
+    return view('termo/index');
 });
+
 
 /* rotas tce */
 
@@ -58,6 +59,11 @@ Route::get('/plano_estagio', function () {
 });
 
 /* fim rotas tce */
+/* rotas recesso / ferias */
+Route::get('/lista_recesso', function () {
+    return view('recesso/index');
+});
+/* fim recesso de ferias */
 Route::get('/invoice', function () {
     //  return view('invoice');
     $pdf = PDF::loadView('invoice');

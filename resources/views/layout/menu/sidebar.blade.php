@@ -24,8 +24,8 @@
                   </li>
                   <li><a><i class="fa fa-book"></i> Recesso / Férias <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="">Termo de Recesso / Férias</a></li>
-                      <li><a href="/termo_recesso">Lista de Recesso / Férias </a></li>
+                      <li><a href="/termo_recesso">Termo de Recesso / Férias</a></li>
+                      <li><a href="/lista_recesso">Lista de Recesso / Férias </a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-money"></i> Folha Pagamento <span class="fa fa-chevron-down"></span></a>
