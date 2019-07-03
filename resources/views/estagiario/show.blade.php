@@ -120,12 +120,12 @@
                                   <div id="form-step-2" role="form" data-toggle="validator">
                                   <div class="row" style="width:960px; margin: 0 auto;">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Unidade Concedente" name="undcondente">
+                                        <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Unidade Concedente" name="und_concedente">
                                         <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                     </div>
 
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control" id="inputSuccess3" placeholder="Agente de Integração" name="agenteint">
+                                        <input type="text" class="form-control" id="inputSuccess3" placeholder="Agente de Integração" name="agente_int">
                                         <span class="fa fa-home form-control-feedback right" aria-hidden="true"></span>
                                     </div>
                                     </div>

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 use App\Endereco;
 use App\Estagiario;
 use Illuminate\Http\Request;
- use Khill\Lavacharts\Laravel\LavachartsFacade;
 
 class EstagiarioController extends Controller
 {
@@ -39,44 +38,17 @@ class EstagiarioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Estagiario $estagiarios)
+    public function store(Request $request)
     {
-         {
-    $estagiarios = new estagiario();
-    $insert = $estagiarios->create($request->all());
-    $estagiarios->nome = $request->input("nome");
-    $estagiarios->rg = $request->input("rg");
-    $estagiarios->cpf = $request->input("cpf");
-    $estagiarios->telefone = $request->input("telefone");
-    $estagiarios->celular = $request->input("celular");
-    $estagiarios->email = $request->input("email");
-    $estagiarios->data_nascimento = $request->input("data_nascimento");
-    $estagiarios->ctps = $request->input("ctps");
-    $estagiarios->serie_ctps = $request->input("serie_ctps");
-    $estagiarios->numero_pis = $request->input("numero_pis");
-    $estagiarios->cor_raca = $request->input("cor_raca");
-    $estagiarios->dt_cadastro = $request->input("dt_cadastro");
-    $estagiarios->und_concedente = $request->input("und_concedente");
-    $estagiarios->agente_int = $request->input("agente_int");
-    $estagiarios->pessoa_responsavel = $request->input("pessoa_responsavel");
-    $estagiarios->sexo = $request->input("sexo");
-    $estagiarios->save();
+             $request->validate([
+            'nome' => 'required|min:5|max:255',
+            'email' => 'required|email|unique:estagiario,email',
+        ]);
 
-    $location = new endereco();
-    $location->estagiario_id = $estagiarios->id;
-    $location->endereco = $request->input("endereco");
-    $location->save();
- }
+        Estagiario::create($request->all());
 
- if ($estagiarios)
-         return redirect()
-                     ->route('estagiario.index')
-                    ->with('success', 'Categoria inserida com sucesso!');
-
-    // // Redireciona de volta com uma mensagem de erro
-     return redirect()
-                 ->back()
-                 ->with('error', 'Falha ao inserir');
+        return redirect()->route('estagiario.index')
+                        ->with('success','Cadastrado com sucesso.');
     }
 
     /**
@@ -87,12 +59,7 @@ class EstagiarioController extends Controller
      */
     public function show(Estagiario $estagiario)
     {
-        $lava = new Lavacharts;
-        $estagiarios = $lava->DataTable();
-
-        $estagiarios->addStringColum('sexo');
-        $lava->BarChart('dado', $estagiarios);
-        return view('estagiario.show', compact('estagiario', $estagiario, 'lava'));
+        return view('estagiario.show', compact('estagiario', $estagiario));
     }
 
     /**
@@ -143,5 +110,5 @@ class EstagiarioController extends Controller
         $request->session()->flash('message', 'Removido com sucesso!');
         return redirect('estagiario');
     }
-    
+
 }
