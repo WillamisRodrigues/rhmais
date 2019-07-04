@@ -31,7 +31,6 @@ class HomeController extends Controller
           $dataset->backgroundColor(collect(['#7158e2','#3ae374', '#ff3838']));
           $dataset->color(collect(['#7d5fff','#32ff7e', '#ff4d4d']));
 
-
           $dataEsc = DB::table('estagiario')->where('escolaridade', 'Medio')->count();
           $chart2 = new HomeChart;
           $chart2->displayAxes(false);

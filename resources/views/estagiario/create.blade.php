@@ -77,7 +77,7 @@
                                     </div>
                                     <div class="row" style="width:960px; margin: 0 auto;">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="date" class="form-control has-feedback-left" placeholder="Data de Nascimento" name="nascimento">
+                                        <input type="date" class="form-control has-feedback-left" placeholder="Data de Nascimento" name="data_nascimento">
                                         <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -92,14 +92,14 @@
                                             <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                            <input type="text" maxlength="5" class="form-control has-feedback-left" placeholder="Complemento" name="complemento">
+                                            <input type="text" maxlength="20" class="form-control has-feedback-left" placeholder="Complemento" name="complemento">
                                             <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
                                         </div>
 
 
                                         </div>
                                     <div class="row" style="width:960px; margin: 0 auto;">
-                                        
+
                                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                             <input type="text" class="form-control has-feedback-left" placeholder="Numero" name="numero">
                                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
@@ -116,14 +116,14 @@
                                             <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control has-feedback-left" placeholder="Unidade Concedente" name="undcondente">
+                                        <input type="text" class="form-control has-feedback-left" placeholder="Unidade Concedente" name="und_concedente">
                                         <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                         </div>
                                         <div class="row" style="width:960px; margin: 0 auto;">
 
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control has-feedback-left" value="RH Mais" readonly placeholder="Agente de Integração" name="agenteint">
+                                        <input type="text" class="form-control has-feedback-left" value="RH Mais" readonly placeholder="Agente de Integração" name="agente_int">
                                         <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     </div>
@@ -147,7 +147,7 @@
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <select class="form-control has-feedback-left" name="curso">
+                                                <select class="form-control has-feedback-left" name="periodo">
                                                     <option>Período</option>
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
@@ -199,10 +199,10 @@
                                                     <label>
                                                     <input type="checkbox" class="flat"> Esta Ativo
                                                     </label>
-                                                </div>    
+                                                </div>
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                                                <textarea class="form-control" placeholder="Sua observação" name="criar_senha">
+                                                <textarea class="form-control" placeholder="Sua observação" name="observacao">
                                                 </textarea>
                                             </div>
                                         </div>
