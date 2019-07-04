@@ -13,8 +13,8 @@
                   </li>
                   <li><a><i class="fa fa-briefcase"></i> Contratos <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="/tce_contratos">TCE / Contrato(s)</a></li>
-                      <li><a href="/tce_aditivos">TCE / Aditivo(s)</a></li>
+                      <li><a href="/tce_contrato">TCE / Contrato(s)</a></li>
+                      <li><a href="/tce_aditivo">TCE / Aditivo(s)</a></li>
                       <li><a href="/tce_recisao">TCE / Rescisão(ões)</a></li>
                       <li><a href="/tce_rescindindo">TCE / Rescindidido(s)</a></li>
                       <li><a href="/cau_convenio">CAU / Contrato A.I. e <br> Unid. Concedente</a></li>

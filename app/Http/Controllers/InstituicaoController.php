@@ -48,7 +48,7 @@ class InstituicaoController extends Controller
     if ($insert)
         return redirect()
                     ->route('instituicao.index')
-                    ->with('success', 'Categoria inserida com sucesso!');
+                    ->with('success', 'Escola cadastrada com sucesso!');
 
     // Redireciona de volta com uma mensagem de erro
     return redirect()

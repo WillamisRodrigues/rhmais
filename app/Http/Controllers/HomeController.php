@@ -7,6 +7,7 @@ use App\Charts\HomeChart;
 use App\Estagiario;
 use App\Instituicao;
 use App\Empresa;
+use App\Contrato;
 use Charts;
 
 class HomeController extends Controller
@@ -37,7 +38,9 @@ class HomeController extends Controller
           $chart2->labels(['Medio']);
           $dataset = $chart2->dataset('My dataset', 'pie', array($dataEsc));
           $dataset->backgroundColor(collect(['#3a566e']));
+
           return view('home.index',compact('totalEstagiario', 'totalInstituicao','totalEmpresa','chart','chart2'));
     }
+
 
 }

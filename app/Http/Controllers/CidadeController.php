@@ -44,7 +44,7 @@ class CidadeController extends Controller
     if ($insert)
         return redirect()
                     ->route('cidade.index')
-                    ->with('success', 'Categoria inserida com sucesso!');
+                    ->with('success', 'Cidade cadastrada com sucesso!');
 
     // Redireciona de volta com uma mensagem de erro
     return redirect()

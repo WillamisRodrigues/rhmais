@@ -50,12 +50,12 @@ class EmpresaController extends Controller
     if ($insert)
         return redirect()
                     ->route('empresa.index')
-                    ->with('success', 'Categoria inserida com sucesso!');
+                    ->with('success', 'Empresa inserida com sucesso!');
 
     // Redireciona de volta com uma mensagem de erro
     return redirect()
                 ->back()
-                ->with('error', 'Falha ao inserir');
+                ->with('error', 'Falha ao cadastrar');
     }
 
     /**

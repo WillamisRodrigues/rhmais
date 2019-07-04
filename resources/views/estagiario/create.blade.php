@@ -37,7 +37,6 @@
                               <li><a href="#step-2">Passo 2<br /><small>Escolaridade</small></a></li>
                               <li><a href="#step-3">Passo 3<br /><small>Outras informações</small></a></li>
                           </ul>
-
                           <div>
                               <div id="step-1">
                                     <br>
@@ -47,7 +46,6 @@
                                         <input type="text" class="form-control has-feedback-left" placeholder="Nome Completo" name="nome">
                                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
-
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                         <input type="text" class="form-control has-feedback-left" placeholder="Email" name="email">
                                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
@@ -211,17 +209,6 @@
                           </div>
                       </div>
                      </div>
-                   @if(session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
-
-@if(session('error'))
-    <div class="alert alert-danger">
-        {{ session('error') }}
-    </div>
-@endif
                       </form>
                   </div>
                 </div>

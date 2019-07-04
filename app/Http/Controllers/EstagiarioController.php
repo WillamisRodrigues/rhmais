@@ -107,8 +107,9 @@ class EstagiarioController extends Controller
     public function destroy(Request $request, Estagiario $estagiario)
     {
         $estagiario->delete();
-        $request->session()->flash('message', 'Removido com sucesso!');
+        $request->session()->flash('warning', 'Removido com sucesso!');
         return redirect('estagiario');
+
     }
 
 }
