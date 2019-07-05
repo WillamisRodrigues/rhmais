@@ -49,10 +49,10 @@
                       <li><a href="/user_sistema">Usuários do Sistema</a></li>
                       <li><a href="/cidade">Cidades</a></li>
                       <li><a href="/curso">Cursos</a></li>
-                      <li><a href="">Motivos <br> Resição / Recesso</a></li>
-                      <li><a href="">Setores</a></li>
-                      <li><a href="">Atividades</a></li>
-                      <li><a href="">Benefícios</a></li>
+                      <li><a href="/motivos_rescisao">Motivos <br> Resição / Recesso</a></li>
+                      <li><a href="/setores">Setores</a></li>
+                      <li><a href="/atividades">Atividades</a></li>
+                      <li><a href="/beneficios">Benefícios</a></li>
                       <li><a href="">Horários</a></li>
                       <li><a href="">Orientador</a></li>
                       <li><a href="">Seguro</a></li>
