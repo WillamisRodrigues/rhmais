@@ -32,7 +32,7 @@
     <link href="{{asset('vendors/wizard/dist/css/smart_wizard_theme_circles.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('vendors/wizard/dist/css/smart_wizard_theme_arrows.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('vendors/wizard/dist/css/smart_wizard_theme_dots.css')}}" rel="stylesheet" type="text/css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet" type="text/css" /> 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet" type="text/css" />
   </head>
 
   <body class="nav-md">
@@ -101,4 +101,9 @@
           $('.rg').mask('00.000.000-0');
         });
     </script>
+    <script>
+           $(".delete").on("submit", function(){
+           return confirm("Confima remover?");
+         });
+     </script>
 </html>

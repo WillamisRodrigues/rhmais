@@ -41,13 +41,11 @@
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
 
-                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <select class="form-control has-feedback-left" name="curso">
-                                                    <option>Selecione um nivel</option>
-                                                </select>
+                                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                        <input type="text" class="form-control has-feedback-left" placeholder="Nivel" name="curso">
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
-                                           
+
                                         </div>
                                     </div>
                                     <div class="btn-group mr-2 sw-btn-group-extra" role="group">
@@ -55,7 +53,7 @@
                                       <button class="btn btn-danger">Cancelar</button>
                                     </div>
                               </div>
-                            
+
                       </div>
                      </div>
                    @if(session('success'))
