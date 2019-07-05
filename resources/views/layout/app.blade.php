@@ -8,9 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>@yield('titulo') </title>
-
-    @include('layout.alerta.flash-message')
-
     <!-- Bootstrap -->
     <link href="{{asset('vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Font Awesome -->
@@ -35,6 +32,7 @@
     <link href="{{asset('vendors/wizard/dist/css/smart_wizard_theme_circles.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('vendors/wizard/dist/css/smart_wizard_theme_arrows.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('vendors/wizard/dist/css/smart_wizard_theme_dots.css')}}" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet" type="text/css" /> 
   </head>
 
   <body class="nav-md">

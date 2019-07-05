@@ -31,10 +31,7 @@
                   {{csrf_field()}}
 
                       <!-- SmartWizard html -->
-                      <div id="smartwizard">
-                          <ul>
-                          <li><a href="#step-1">Passo 1<br /><small>Cidade</small></a></li>
-                          </ul>
+                      <div>
                           <div>
                               <div id="step-1">
                                     <br>
@@ -54,14 +51,11 @@
                                         </div>
                                         <div class="row" style="width:960px; margin: 0 auto;">
                               </div>
-                              <div id="step-2">
-                                    <div id="form-step-0" role="form" data-toggle="validator">
-                                        </div>
-                                    </div>
+                              <div class="btn-group mr-2 sw-btn-group-extra" role="group">
+                                <button class="btn btn-info">Enviar</button>
+                                <button class="btn btn-danger">Cancelar</button>
                               </div>
-                                    </div>
-                              </div>
-                          </div>
+                         </div>
                       </div>
                      </div>
                    @if(session('success'))
