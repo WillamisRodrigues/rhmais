@@ -41,21 +41,15 @@ class EmpresaController extends Controller
      */
     public function store(Request $request, Empresa $empresas)
     {
-       // Insere uma nova categoria, de acordo com os dados informados pelo usuário
-    $insert = $empresas->create($request->all());
+        $request->validate([
+            'nome_fantasia' => 'required',
+            'cnpj' => 'required',
+        ]);
 
-    // Verifica se inseriu com sucesso
-    // Redireciona para a listagem das categorias
-    // Passa uma session flash success (sessão temporária)
-    if ($insert)
-        return redirect()
-                    ->route('empresa.index')
-                    ->with('success', 'Empresa inserida com sucesso!');
+        Empresa::create($request->all());
 
-    // Redireciona de volta com uma mensagem de erro
-    return redirect()
-                ->back()
-                ->with('error', 'Falha ao cadastrar');
+        return redirect()->route('empresa.index')
+                        ->with('success','Cadastrado com sucesso.');
     }
 
     /**

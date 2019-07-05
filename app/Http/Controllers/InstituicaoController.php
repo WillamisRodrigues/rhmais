@@ -39,21 +39,15 @@ class InstituicaoController extends Controller
      */
     public function store(Request $request, Instituicao $instituicoes)
     {
-        // Insere uma nova categoria, de acordo com os dados informados pelo usuário
-    $insert = $instituicoes->create($request->all());
+        $request->validate([
+            'nome_instituicao' => 'required',
+            'cnpj' => 'required',
+        ]);
 
-    // Verifica se inseriu com sucesso
-    // Redireciona para a listagem das categorias
-    // Passa uma session flash success (sessão temporária)
-    if ($insert)
-        return redirect()
-                    ->route('instituicao.index')
-                    ->with('success', 'Escola cadastrada com sucesso!');
-
-    // Redireciona de volta com uma mensagem de erro
-    return redirect()
-                ->back()
-                ->with('error', 'Falha ao inserir');
+      Instituicao::create($request->all());
+      
+        return redirect()->route('instituicao.index')
+                        ->with('success','Cadastrado com sucesso.');
     }
 
     /**

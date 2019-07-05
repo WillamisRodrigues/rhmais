@@ -70,6 +70,7 @@ class EstagiarioController extends Controller
      */
     public function edit(Estagiario $estagiario)
     {
+        //dd($estagiario);
         return view('estagiario.edit', compact('estagiario', $estagiario));
     }
 
@@ -86,12 +87,10 @@ class EstagiarioController extends Controller
 
             'nome' => 'required',
             'email' => 'required',
-            'cpf' => 'required',
         ]);
 
         $estagiario->nome = $request->nome;
         $estagiario->email = $request->email;
-        $estagiario->cpf = $request->cpf;
         $estagiario->save();
         $request->session()->flash('message', 'Sucesso!');
         return redirect('estagiario');
