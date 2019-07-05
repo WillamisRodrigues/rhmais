@@ -75,6 +75,22 @@ Route::get('/rendimentos', function () {
 Route::get('/previsao_rescisao', function () {
     return view('previsao_rescisao/index');
 });
+
+Route::get('/motivos_rescisao', function () {
+    return view('motivos/index');
+});
+
+Route::get('/setores', function () {
+    return view('setores/index');
+});
+
+Route::get('/atividades', function () {
+    return view('atividades/index');
+});
+
+Route::get('/beneficios', function () {
+    return view('beneficios/index');
+});
 /* fim folha de pagamento */
 
 Route::get('/invoice', function () {

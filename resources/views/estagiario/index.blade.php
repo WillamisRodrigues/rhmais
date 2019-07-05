@@ -21,6 +21,7 @@
 
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
+              @include('layout.alerta.flash-message')
                 <div class="x_panel">
                   <div class="x_title">
                   <a href="{{route('estagiario.create')}}" class="btn btn-success pull-right"> <i class="fa fa-user"> </i> Adicionar Novo Usuário</a>
