@@ -103,7 +103,7 @@
         });
     </script>
     <script>
-           $(".delete").on("submit", function(){
+           $(".delete").on("submit", function (){
            return confirm("Confima remover?");
          });
      </script>

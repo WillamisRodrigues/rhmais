@@ -27,9 +27,9 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                  <form action="{{ route('estagiario.store') }}" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
-                  {{csrf_field()}}
-
+                  <form action="{{ route('estagiario.update',  $estagiario->id) }}" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
+                   <input type="hidden" name="_method" value="PUT">
+                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
                       <!-- SmartWizard html -->
                       <div>
                           <div>
@@ -38,79 +38,104 @@
                                   <div id="form-step-0" role="form" data-toggle="validator">
                                   <div class="row" style="width:960px; margin: 0 auto;">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control has-feedback-left" placeholder="Nome Completo" name="nome">
+                                        <input type="text" value="{{ $estagiario->nome }}" class="form-control has-feedback-left" placeholder="Nome Completo" name="nome">
                                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
 
+<<<<<<< HEAD
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                         <input type="email" class="form-control has-feedback-left" placeholder="Email" name="email">
+=======
+                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                        <input type="text" value="{{ $estagiario->email }}" class="form-control has-feedback-left" placeholder="Email" name="email">
+>>>>>>> 9b26046e27fb0be3aea9cb0edd4562db79246a74
                                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     </div>
                                     <div class="row" style="width:960px; margin: 0 auto;">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+<<<<<<< HEAD
                                         <input type="text" maxlength="12" class="form-control rg has-feedback-left" placeholder="RG" name="rg">
+=======
+                                        <input type="text" value="{{ $estagiario->rg }}" maxlength="12" class="form-control has-feedback-left" placeholder="RG" name="rg">
+>>>>>>> 9b26046e27fb0be3aea9cb0edd4562db79246a74
                                         <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
                                     </div>
 
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+<<<<<<< HEAD
                                         <input type="text" maxlength="14" class="form-control cpf has-feedback-left"  placeholder="CPF" name="cpf">
+=======
+                                        <input type="text" value="{{ $estagiario->cpf }}" maxlength="14" class="form-control has-feedback-left"  placeholder="CPF" name="cpf">
+>>>>>>> 9b26046e27fb0be3aea9cb0edd4562db79246a74
                                         <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     </div>
                                     <div class="row" style="width:960px; margin: 0 auto;">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+<<<<<<< HEAD
                                         <input type="text" class="form-control telefone has-feedback-left" placeholder="Telefone" name="telefone">
+=======
+                                        <input type="text" value="{{ $estagiario->telefone }}" class="form-control has-feedback-left" placeholder="Telefone" name="telefone">
+>>>>>>> 9b26046e27fb0be3aea9cb0edd4562db79246a74
                                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                                     </div>
 
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+<<<<<<< HEAD
                                         <input type="text" class="form-control telefone has-feedback-left" placeholder="Celular" name="celular">
+=======
+                                        <input type="text" value="{{ $estagiario->celular }}" class="form-control has-feedback-left" placeholder="Celular" name="celular">
+>>>>>>> 9b26046e27fb0be3aea9cb0edd4562db79246a74
                                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     </div>
                                     <div class="row" style="width:960px; margin: 0 auto;">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+<<<<<<< HEAD
                                         <input type="text" class="form-control nascimento has-feedback-left" placeholder="Data de Nascimento" name="nascimento">
+=======
+                                        <input type="date" value="{{ $estagiario->data_nascimento }}" class="form-control has-feedback-left" placeholder="Data de Nascimento" name="data_nascimento">
+>>>>>>> 9b26046e27fb0be3aea9cb0edd4562db79246a74
                                         <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                            <input type="text" class="form-control has-feedback-left" placeholder="Bairro" name="bairro">
+                                            <input type="text" value="{{ $estagiario->bairro }}" class="form-control has-feedback-left" placeholder="Bairro" name="bairro">
                                             <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
                                         </div>
                                     </div>
                                     <div class="row" style="width:960px; margin: 0 auto;">
 
                                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                            <input type="text" class="form-control has-feedback-left" placeholder="Endereço" name="endereco">
+                                            <input type="text" value="{{ $estagiario->endereco }}" class="form-control has-feedback-left" placeholder="Endereço" name="endereco">
                                             <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                            <input type="text" maxlength="5" class="form-control has-feedback-left" placeholder="Complemento" name="complemento">
+                                            <input type="text" value="{{ $estagiario->complemento }}" maxlength="5" class="form-control has-feedback-left" placeholder="Complemento" name="complemento">
                                             <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
                                         </div>
 
 
                                         </div>
                                     <div class="row" style="width:960px; margin: 0 auto;">
-                                        
+
                                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                            <input type="text" class="form-control has-feedback-left" placeholder="Numero" name="numero">
+                                            <input type="text" value="{{ $estagiario->numero }}" class="form-control has-feedback-left" placeholder="Numero" name="numero">
                                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                            <input type="text" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Estado" name="estado">
+                                            <input type="text" value="{{ $estagiario->estado }}" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Estado" name="estado">
                                             <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
                                         </div>
                                         </div>
                                         <div class="row" style="width:960px; margin: 0 auto;">
 
                                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                            <input type="text" class="form-control has-feedback-left" placeholder="Cidade" name="cidade">
+                                            <input type="text" value="{{ $estagiario->cidade }}" class="form-control has-feedback-left" placeholder="Cidade" name="cidade">
                                             <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control has-feedback-left" placeholder="Unidade Concedente" name="undcondente">
+                                        <input type="text" value="{{ $estagiario->unid_concendente }}" class="form-control has-feedback-left" placeholder="Unidade Concedente" name="und_condente">
                                         <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                         </div>
@@ -152,27 +177,27 @@
                                                 <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Matricula" name="matricula">
+                                                <input type="text" value="{{ $estagiario->matricula }}" class="form-control has-feedback-left" placeholder="Matricula" name="matricula">
                                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Previsão Término Curso" name="previsao_termino">
+                                                <input type="text" value="{{ $estagiario->prev_termino }}" class="form-control has-feedback-left" placeholder="Previsão Término Curso" name="prev_termino">
                                                 <span class="fa fa-book form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Banco/Agência" name="banco_agencia">
+                                                <input type="text" value="{{ $estagiario->banco_agencia }}" class="form-control has-feedback-left" placeholder="Banco/Agência" name="banco_agencia">
                                                 <span class="fa fa-bank form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Conta" name="conta">
+                                                <input type="text" value="{{ $estagiario->conta }}" class="form-control has-feedback-left" placeholder="Conta" name="conta">
                                                 <span class="fa fa-bars form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Código da vaga" name="codigo_vaga">
+                                                <input type="text" value="{{ $estagiario->codigo_vaga }}" class="form-control has-feedback-left" placeholder="Código da vaga" name="codigo_vaga">
                                                 <span class="fa fa-barcode form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Criar Senha" name="criar_senha">
+                                                <input type="text" value="{{ $estagiario->criar_senha }}" class="form-control has-feedback-left" placeholder="Criar Senha" name="criar_senha">
                                                 <span class="fa fa-key form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -180,14 +205,14 @@
                                                     <label>
                                                     <input type="checkbox" class="flat"> Esta Ativo
                                                     </label>
-                                                </div>    
+                                                </div>
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                                                 <textarea class="form-control" placeholder="Sua observação" name="criar_senha">
                                                 </textarea>
                                             </div>
                                         </div>
-                                        <button class="btn btn-success" style="margin: 20px auto; display:block;">Salvar Alterações</button>
+                                        <button  type="submit"class="btn btn-success" style="margin: 20px auto; display:block;">Salvar Alterações</button>
                                     </div>
                                   </div>
 
@@ -195,17 +220,6 @@
                           </div>
                       </div>
                      </div>
-                   @if(session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
-
-@if(session('error'))
-    <div class="alert alert-danger">
-        {{ session('error') }}
-    </div>
-@endif
                       </form>
                   </div>
                 </div>

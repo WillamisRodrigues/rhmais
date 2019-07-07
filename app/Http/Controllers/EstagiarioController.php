@@ -68,9 +68,10 @@ class EstagiarioController extends Controller
      * @param  \App\Estagiario  $estagiario
      * @return \Illuminate\Http\Response
      */
-    public function edit(Estagiario $estagiario)
+    public function edit (Estagiario $estagiario)
     {
         //dd($estagiario);
+        // $estagiario = Estagiario::findOrFail($id);
         return view('estagiario.edit', compact('estagiario', $estagiario));
     }
 
