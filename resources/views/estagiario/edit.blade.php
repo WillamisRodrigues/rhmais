@@ -31,15 +31,9 @@
                   {{csrf_field()}}
 
                       <!-- SmartWizard html -->
-                      <div id="smartwizard">
-                          <ul>
-                          <li><a href="#step-1">Passo 1<br /><small>Dados Pessoais</small></a></li>
-                              <li><a href="#step-2">Passo 2<br /><small>Escolaridade</small></a></li>
-                              <li><a href="#step-3">Passo 3<br /><small>Outras informações</small></a></li>
-                          </ul>
-
+                      <div>
                           <div>
-                              <div id="step-1">
+                              <div>
                                     <br>
                                   <div id="form-step-0" role="form" data-toggle="validator">
                                   <div class="row" style="width:960px; margin: 0 auto;">
@@ -126,14 +120,7 @@
                                         <input type="text" class="form-control has-feedback-left" value="RH Mais" readonly placeholder="Agente de Integração" name="agenteint">
                                         <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                     </div>
-                                    </div>
-                                  </div>
-
-                              </div>
-                              <div id="step-2">
-                                    <div id="form-step-0" role="form" data-toggle="validator">
-                                    <div class="row" style="width:960px; margin: 20px auto;">
-                                        <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="nivel">
                                                     <option>Selecione um nível</option>
                                                 </select>
@@ -172,12 +159,6 @@
                                                 <input type="text" class="form-control has-feedback-left" placeholder="Previsão Término Curso" name="previsao_termino">
                                                 <span class="fa fa-book form-control-feedback left" aria-hidden="true"></span>
                                             </div>
-                                        </div>
-                                    </div>
-                              </div>
-                              <div id="step-3">
-                                    <div id="form-step-0" role="form" data-toggle="validator">
-                                        <div class="row" style="width:960px; margin: 20px auto;">
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <input type="text" class="form-control has-feedback-left" placeholder="Banco/Agência" name="banco_agencia">
                                                 <span class="fa fa-bank form-control-feedback left" aria-hidden="true"></span>
@@ -206,7 +187,10 @@
                                                 </textarea>
                                             </div>
                                         </div>
+                                        <button class="btn btn-success" style="margin: 20px auto; display:block;">Salvar Alterações</button>
                                     </div>
+                                  </div>
+
                               </div>
                           </div>
                       </div>
