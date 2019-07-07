@@ -39,7 +39,7 @@ class EmpresaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Empresa $empresas)
+    public function store(Request $request)
     {
         $request->validate([
             'nome_fantasia' => 'required',
@@ -58,9 +58,9 @@ class EmpresaController extends Controller
      * @param  \App\Empresa  $empresas
      * @return \Illuminate\Http\Response
      */
-    public function show(Empresa $empresas)
+    public function show(Empresa $empresa)
     {
-        return view('empresa.show',compact('empresa',$empresas));
+        return view('empresa.show',compact('empresa',$empresa));
     }
 
     /**
@@ -81,17 +81,16 @@ class EmpresaController extends Controller
      * @param  \App\Empresa  $empresas
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Empresa $empresas)
+    public function update(Request $request, Empresa $empresa)
     {
        //Validate
         $request->validate([
-            'nome' => 'required|min:3',
-            'email' => 'required',
+            'razao_social' => 'required',
+            'cnpj' => 'required',
         ]);
 
-        $empresas->nome = $request->nome;
-        $empresas->email = $request->email;
-        $empresas->save();
+        $empresa->update($request->all());
+        $empresa->save();
         $request->session()->flash('message', 'Atualizado com sucesso!');
         return redirect('empresa');
     }
@@ -102,9 +101,9 @@ class EmpresaController extends Controller
      * @param  \App\Empresa  $empresas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Empresa $empresas)
+    public function destroy(Empresa $empresa)
     {
-       $empresas->delete();
+       $empresa->delete();
         $request->session()->flash('message', 'Removido com sucesso!');
         return redirect('empresa');
     }

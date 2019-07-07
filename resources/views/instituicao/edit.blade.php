@@ -27,9 +27,9 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                  <form action="{{ route('instituicao.store') }}" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
-                  {{csrf_field()}}
-
+                  <form action="{{ route('instituicao.update', $instituicao->id) }}" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
+                 <input type="hidden" name="_method" value="PUT">
+                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
                       <!-- SmartWizard html -->
                       <i class="fas fa-divide"></i>
                           <div>
@@ -38,7 +38,7 @@
                                   <div id="form-step-0" role="form" data-toggle="validator">
                                   <div class="row" style="width:960px; margin: 0 auto;">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                      <input type="text" class="form-control cnpj has-feedback-left" placeholder="CNPJ" name="cnpj">
+                                      <input type="text" value="{{ $instituicao->cnpj }}" class="form-control cnpj has-feedback-left" placeholder="CNPJ" name="cnpj">
                                       <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
 
@@ -145,7 +145,7 @@
                                   </div>
 
                               </div>
-                       
+
                                 </div>
                               </div>
                           </div>

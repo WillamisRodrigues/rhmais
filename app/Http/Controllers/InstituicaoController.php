@@ -45,7 +45,7 @@ class InstituicaoController extends Controller
         ]);
 
       Instituicao::create($request->all());
-      
+
         return redirect()->route('instituicao.index')
                         ->with('success','Cadastrado com sucesso.');
     }
@@ -69,7 +69,7 @@ class InstituicaoController extends Controller
      */
     public function edit(Instituicao $instituicao)
     {
-        return view('instituicao.edit',compact('instituicao',$instituicao));
+         return view('instituicao.edit',compact('instituicao',$instituicao));
     }
 
     /**
@@ -83,12 +83,11 @@ class InstituicaoController extends Controller
     {
        //Validate
         $request->validate([
-            'nome' => 'required|min:3',
-            'email' => 'required',
+            'razao_social' => 'required',
+            'cnpj' => 'required',
         ]);
 
-        $instituicao->nome = $request->nome;
-        $instituicao->email = $request->email;
+        $instituicao->update($request->all());
         $instituicao->save();
         $request->session()->flash('message', 'Atualizado com sucesso!');
         return redirect('instituicao');
