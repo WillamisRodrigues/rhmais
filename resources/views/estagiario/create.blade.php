@@ -3,19 +3,6 @@
 @section('conteudo')
     <div class="container body">
       <div class="main_container">
-        <div class="col-md-3 left_col">
-          <div class="left_col scroll-view">
-          @include('layout.menu.menu')
-            <!-- /menu profile quick info -->
-
-            <br />
-            @include('layout.menu.sidebar')
-            <!-- /sidebar menu -->
-          </div>
-        </div>
-        @include('layout.menu.menutop')
-        <!-- page content -->
-        <div class="right_col" role="main">
             <div class="clearfix"></div>
 
             <div class="row">
@@ -127,11 +114,6 @@
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
 
-                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <select class="form-control has-feedback-left" name="curso">
-                                                    <option>Selecione um curso</option>
-                                                </select>
-                                                <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="curso">
