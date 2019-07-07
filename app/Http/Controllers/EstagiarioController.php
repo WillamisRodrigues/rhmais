@@ -90,8 +90,7 @@ class EstagiarioController extends Controller
             'email' => 'required',
         ]);
 
-        $estagiario->nome = $request->nome;
-        $estagiario->email = $request->email;
+        $estagiario->update($request->all());
         $estagiario->save();
         $request->session()->flash('message', 'Sucesso!');
         return redirect('estagiario');
