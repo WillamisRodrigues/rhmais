@@ -17,9 +17,7 @@
         <!-- page content -->
         <div class="right_col" role="main">
             <div class="clearfix"></div>
-
             <div class="row">
-
               <div class="col-md-12 col-sm-12 col-xs-12">
               @include('layout.alerta.flash-message')
                 <div class="x_panel">
@@ -230,17 +228,6 @@
                             </div>
                           </div>
                       </div>
-                      @if(session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
-
-@if(session('error'))
-    <div class="alert alert-danger">
-        {{ session('error') }}
-    </div>
-@endif
                       </form>
                   </div>
                 </div>
