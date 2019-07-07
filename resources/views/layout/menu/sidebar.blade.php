@@ -53,10 +53,10 @@
                       <li><a href="/setores">Setores</a></li>
                       <li><a href="/atividades">Atividades</a></li>
                       <li><a href="/beneficios">Benefícios</a></li>
-                      <li><a href="">Horários</a></li>
-                      <li><a href="">Orientador</a></li>
-                      <li><a href="">Seguro</a></li>
-                      <li><a href="">Supervisor</a></li>
+                      <li><a href="/horarios">Horários</a></li>
+                      <li><a href="/orientador">Orientador</a></li>
+                      <li><a href="/seguro">Seguro</a></li>
+                      <li><a href="/supervisor">Supervisor</a></li>
                     </ul>
                   </li>
                 </ul>

@@ -91,6 +91,23 @@ Route::get('/atividades', function () {
 Route::get('/beneficios', function () {
     return view('beneficios/index');
 });
+
+
+Route::get('/horarios', function () {
+    return view('horarios/index');
+});
+
+Route::get('/orientador', function () {
+    return view('orientador/index');
+});
+Route::get('/seguro', function () {
+    return view('seguro/index');
+});
+
+Route::get('/supervisor', function () {
+    return view('supervisor/index');
+});
+
 /* fim folha de pagamento */
 
 Route::get('/invoice', function () {
