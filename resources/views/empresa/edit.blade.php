@@ -31,14 +31,9 @@
                   {{csrf_field()}}
 
                       <!-- SmartWizard html -->
-                      <div id="smartwizard">
-                          <ul>
-                              <li><a href="#step-1">Passo 1<br /><small>Cadastro Empresa</small></a></li>
-                              <li><a href="#step-2">Passo 2<br /><small>Cadastro de Endereço</small></a></li>
-                          </ul>
-
+                      <div>
                           <div>
-                              <div id="step-1">
+                              <div>
                                     <br>
                                   <div id="form-step-0" role="form" data-toggle="validator">
                                   <div class="row" style="width:960px; margin: 0 auto;">
@@ -160,13 +155,7 @@
                             <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
-
-                                  </div>
-                              </div>
-                              <div id="step-2">
-                                  <br>
-                                  <div id="form-step-1" role="form" data-toggle="validator">
-                                  <div class="row" style="width:960px; margin: 0 auto;">
+                        <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left" placeholder="Dias p/ Pgto Estágiario(a)" name="pgto_estagiario">
                             <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
@@ -223,7 +212,8 @@
                               </div>
                             </div>
                           </div>
-                        </div>
+                          <button class="btn btn-success" style="margin: 20px auto; display:block;">Salvar Alterações</button>
+
                                   </div>
                               </div>
                             </div>
