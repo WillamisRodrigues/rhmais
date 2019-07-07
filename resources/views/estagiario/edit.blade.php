@@ -42,36 +42,61 @@
                                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
 
+<<<<<<< HEAD
+                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                        <input type="email" class="form-control has-feedback-left" placeholder="Email" name="email">
+=======
                                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                         <input type="text" value="{{ $estagiario->email }}" class="form-control has-feedback-left" placeholder="Email" name="email">
+>>>>>>> 9b26046e27fb0be3aea9cb0edd4562db79246a74
                                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     </div>
                                     <div class="row" style="width:960px; margin: 0 auto;">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+<<<<<<< HEAD
+                                        <input type="text" maxlength="12" class="form-control rg has-feedback-left" placeholder="RG" name="rg">
+=======
                                         <input type="text" value="{{ $estagiario->rg }}" maxlength="12" class="form-control has-feedback-left" placeholder="RG" name="rg">
+>>>>>>> 9b26046e27fb0be3aea9cb0edd4562db79246a74
                                         <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
                                     </div>
 
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+<<<<<<< HEAD
+                                        <input type="text" maxlength="14" class="form-control cpf has-feedback-left"  placeholder="CPF" name="cpf">
+=======
                                         <input type="text" value="{{ $estagiario->cpf }}" maxlength="14" class="form-control has-feedback-left"  placeholder="CPF" name="cpf">
+>>>>>>> 9b26046e27fb0be3aea9cb0edd4562db79246a74
                                         <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     </div>
                                     <div class="row" style="width:960px; margin: 0 auto;">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+<<<<<<< HEAD
+                                        <input type="text" class="form-control telefone has-feedback-left" placeholder="Telefone" name="telefone">
+=======
                                         <input type="text" value="{{ $estagiario->telefone }}" class="form-control has-feedback-left" placeholder="Telefone" name="telefone">
+>>>>>>> 9b26046e27fb0be3aea9cb0edd4562db79246a74
                                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                                     </div>
 
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+<<<<<<< HEAD
+                                        <input type="text" class="form-control telefone has-feedback-left" placeholder="Celular" name="celular">
+=======
                                         <input type="text" value="{{ $estagiario->celular }}" class="form-control has-feedback-left" placeholder="Celular" name="celular">
+>>>>>>> 9b26046e27fb0be3aea9cb0edd4562db79246a74
                                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     </div>
                                     <div class="row" style="width:960px; margin: 0 auto;">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+<<<<<<< HEAD
+                                        <input type="text" class="form-control nascimento has-feedback-left" placeholder="Data de Nascimento" name="nascimento">
+=======
                                         <input type="date" value="{{ $estagiario->data_nascimento }}" class="form-control has-feedback-left" placeholder="Data de Nascimento" name="data_nascimento">
+>>>>>>> 9b26046e27fb0be3aea9cb0edd4562db79246a74
                                         <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
