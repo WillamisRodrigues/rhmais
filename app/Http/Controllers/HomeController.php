@@ -39,8 +39,15 @@ class HomeController extends Controller
           $dataset = $chart2->dataset('My dataset', 'pie', array($dataEsc));
           $dataset->backgroundColor(collect(['#3a566e']));
 
-          return view('home.index',compact('totalEstagiario', 'totalInstituicao','totalEmpresa','chart','chart2'));
+         $today_users = Contrato::whereMonth('created_at', '5')->where('status', '1')->count();
+         $yesterday_users = Contrato::whereMonth('created_at', '6')->where('status', '2')->count();
+         $users_2_days_ago = Contrato::whereMonth('created_at', '7')->where('status', '1')->count();
+
+         $chart3 = new HomeChart;
+         $chart3->labels(['Maio', 'Junho', 'Julho']);
+         $chart3->dataset('My dataset', 'line', [$users_2_days_ago, $yesterday_users, $today_users]);
+
+
+        return view('home.index',compact('totalEstagiario', 'totalInstituicao','totalEmpresa','chart','chart2', 'chart3'));
     }
-
-
 }

@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Estado extends Model
 {
-     protected $fillable = ['nome'];
+     protected $fillable = ['id','nome'];
     protected $table = 'estado';
 
-    public function cidade()
+    public function cidades()
     {
-        return $this->belongsTo(Cidade::class, 'nome');
+        return $this->hasMany('App\Cidade');
     }
 }

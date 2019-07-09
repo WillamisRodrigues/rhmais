@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Contrato extends Model
 {
-    protected $fillable = ['nome'];
+    protected $fillable = ['nome','status'];
     protected $table = 'tce_contrato';
 }

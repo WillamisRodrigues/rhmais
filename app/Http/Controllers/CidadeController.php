@@ -12,12 +12,25 @@ class CidadeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    private $estadoModel;
+    public function __construct(Estado $estado)
+    {
+        $this->estadoModel = $estado;
+    }
     public function index()
     {
         // $cidades = Cidade::all();
-        $cidades = DB::table('cidade')->paginate(5);
-        return view('cidade.index', compact('cidades', $cidades));
+        $estados = $this->estadoModel->pluck('nome', 'id');
+        return view('cidade', compact('estados'));
 
+        // $cidades = DB::table('cidade')->paginate(5);
+        // return view('cidade.index', compact('cidades', $cidades));
+    }
+     public function getCidades($idEstado)
+    {
+        $estado = $this->estadoModel->find($idEstado);
+        $cidades = $estado->cidades()->getQuery()->get(['id', 'nome']);
+        return Response::json($cidades);
     }
 
     /**

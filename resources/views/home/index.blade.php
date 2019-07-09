@@ -102,6 +102,7 @@
               </div>
               <!-- /line graph -->
                <!-- line graph -->
+               {!! $chart3->container() !!}
                <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
@@ -131,6 +132,7 @@
         </div>
     </div>
               <!-- /line graph -->
+
             </div>
           </div>
         </div>
@@ -141,5 +143,6 @@
     <script src=https://cdnjs.cloudflare.com/ajax/libs/echarts/4.0.2/echarts-en.min.js charset=utf-8></script>
         {!! $chart->script() !!}
         {!! $chart2->script() !!}
+        {!! $chart3->script() !!}
 @endsection
 
