@@ -4,7 +4,7 @@
               <div class="menu_section">
                 <ul class="nav side-menu">
                   <li><a href="/home"><i class="fa fa-home"></i> Home</a> </li>
-                  <li><a><i class="fa fa-edit"></i> Cadastros <span class="fa fa-chevron-down"></span></a>
+                  <li class="{{ (request()->is('estagiario/index')) ? 'active' : '' }}"><a><i class="fa fa-edit"></i> Cadastros <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="/estagiario">Estagiarios</a></li>
                       <li><a href="/instituicao">Instituição de Ensino</a></li>
@@ -36,14 +36,15 @@
                     <li><a href="/previsao_rescisao">Gerar Prévia de Rescisão</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-graduation-cap"></i> Avaliações <span class="fa fa-chevron-down"></span></a>
+                  <!-- falta concluir essas views -->
+                  <!-- <li><a><i class="fa fa-graduation-cap"></i> Avaliações <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                     <li><a href="">Auto-Avaliação <br> Estagiário(a)</a></li>
                     <li><a href="">Lista Auto-Avaliação <br> Estagiário(a)</a></li>
                     <li><a href="">Avaliação Supervisor(a)</a></li>
                     <li><a href="">Lista Avaliação <br> Supervisor(a)</a></li>
                     </ul>
-                  </li>
+                  </li> -->
                   <li><a><i class="fa fa-cogs"></i> Configurações <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="/user_sistema">Usuários do Sistema</a></li>
@@ -77,10 +78,10 @@
               </a>
             </div>
             <!-- /menu footer buttons -->
-            <script type="text/javascript">
+           <!--  <script type="text/javascript">
   window.onload = function(){
     $(".child_menu").hide();
     $("li").removeClass('active active-sm');
 }
 
-  </script>
+  </script> -->

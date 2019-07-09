@@ -26,7 +26,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <table id="cidade" class="table table-striped table-bordered">
+                    <table class="table table-striped list table-bordered">
                       <thead>
                         <tr>
                           <th>Motivos - Relacionados à Aditivos / Rescisões - Listagem</th>

@@ -28,7 +28,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <table id="user" class="table table-striped table-bordered">
+                    <table class="table table-striped list table-bordered">
                     <thead>
                             <tr>
                                 <th>Nome</th>
@@ -62,9 +62,6 @@
                           @endforeach
                       </tbody>
                     </table>
-                    <div class="text-right">
-                      {{ $users->links() }}
-                    </div>
                   </div>
                 </div>
               </div>

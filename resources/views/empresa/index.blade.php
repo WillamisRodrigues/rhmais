@@ -28,7 +28,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <table id="empresas" class="table table-striped table-bordered">
+                    <table class="table list table-striped table-bordered">
                       <thead>
                         <tr>
                           <th>Nome</th>
