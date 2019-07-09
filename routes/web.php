@@ -110,8 +110,9 @@ Route::get('/supervisor', function () {
 
 /* fim folha de pagamento */
 
-Route::get('/invoice', function () {
+/* pdf tce  */
+Route::get('/tce', function () {
     //  return view('invoice');
-    $pdf = PDF::loadView('invoice');
-    return $pdf->stream('invoice.pdf');
+    $pdf = PDF::loadView('pdf/tce/index');
+    return $pdf->stream('pdf/tce/index.pdf');
 });

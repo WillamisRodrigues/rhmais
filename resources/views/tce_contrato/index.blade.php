@@ -54,7 +54,7 @@
                           <td>AD</td>
                           <td>Não</td>
                           <td>N</td>
-                          <td><button class="btn btn-primary"><i class="fa fa-print"></i> Imprimir TCE</button></td>
+                          <td><a class="btn btn-primary" href="/tce" target="_blank"><i class="fa fa-print"></i> Imprimir TCE</a></td>
                         </tr>
                       </tbody>
                     </table>
