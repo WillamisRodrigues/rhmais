@@ -116,3 +116,8 @@ Route::get('/tce', function () {
     $pdf = PDF::loadView('pdf/tce/index');
     return $pdf->stream('pdf/tce/index.pdf');
 });
+Route::get('/recisaotce', function () {
+    //  return view('invoice');
+    $pdf = PDF::loadView('pdf/recisao/index');
+    return $pdf->stream('pdf/recisao/index.pdf');
+});

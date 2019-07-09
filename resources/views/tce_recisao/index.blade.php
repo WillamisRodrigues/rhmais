@@ -52,7 +52,7 @@
                           <td>31/10/2019</td>
                           <td>RES</td>
                           <td>TCE Assinado Rescisão Assinada</td>
-                          <td><button class="btn btn-primary"><i class="fa fa-print"></i> TCE Recisão</button></td>
+                          <td><a href="/recisaotce" target="_blank" class="btn btn-primary"><i class="fa fa-print"></i> TCE Recisão</a></td>
                         </tr>
                       </tbody>
                     </table>
