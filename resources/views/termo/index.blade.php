@@ -26,7 +26,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <table id="recesso" class="table table-striped table-bordered">
+                    <table class="table list table-striped table-bordered">
                       <thead>
                         <tr>
                           <th>Estagiário</th>

@@ -31,8 +31,9 @@ Route::get('/termo_recesso', function () {
 
 /* rotas tce */
 Route::resource('tce_contrato', 'ContratoController');
-Route::get('/tce_aditivos', function () {
-    return view('tce_aditivos/index');
+
+Route::get('/tce_aditivo', function () {
+    return view('tce_aditivo/index');
 });
 
 Route::get('/tce_recisao', function () {
