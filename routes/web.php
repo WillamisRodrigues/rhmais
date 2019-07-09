@@ -108,6 +108,10 @@ Route::get('/supervisor', function () {
     return view('supervisor/index');
 });
 
+Route::get('/editar_conta', function () {
+    return view('editar_conta/edit');
+});
+
 /* fim folha de pagamento */
 
 /* pdf tce  */
