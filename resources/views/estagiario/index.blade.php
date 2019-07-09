@@ -24,7 +24,7 @@
               @include('layout.alerta.flash-message')
                 <div class="x_panel">
                   <div class="x_title">
-                  <a href="{{route('estagiario.create')}}" class="btn btn-success pull-right"> <i class="fa fa-user"> </i> Adicionar Novo Usuário</a>
+                  <a href="{{route('estagiario.create')}}" class="btn btn-success pull-right"> <i class="fa fa-user"> </i> Adicionar Novo Estagiário</a>
                     <h2>Estagiários</h2>
                     <div class="clearfix"></div>
                   </div>

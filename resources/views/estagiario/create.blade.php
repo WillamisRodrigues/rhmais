@@ -26,7 +26,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                  <form action="{{ route('empresa.store') }}" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
+                  <form action="{{ route('estagiario.store') }}" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
                   {{csrf_field()}}
 
                       <!-- SmartWizard html -->
@@ -93,13 +93,19 @@
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="estado">
-                                                    <option>Selecione Estado</option>
+                                                <option>Selecione Estado</option>
+                                                @foreach ($estados as $estado)
+                                                    <option value="{{ $estado -> nome  }}"> {{ $estado->nome}} </option>
+                                                    @endforeach
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="cidade">
-                                                    <option>Selecione Cidade</option>
+                                                   <option valu="0">Selecione a cidade</option>
+                                     @foreach($cidade as $un)
+                                                <option value="{{$un->nome}}" selected>{{$un->nome}}</option>
+                                    @endforeach
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
@@ -112,6 +118,8 @@
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="sexo">
                                                     <option>Selecione Sexo</option>
+                                                    <option>Masculino</option>
+                                                    <option>Feminino</option>
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
@@ -123,12 +131,12 @@
                                                 <input type="text" class="form-control has-feedback-left" placeholder="Série Ctps:" name="serie_ctps">
                                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div>
-                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                            <!-- <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="cor">
                                                     <option>Selecione Cor/Raça</option>
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
-                                            </div>
+                                            </div> -->
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <input type="text" class="form-control has-feedback-left" placeholder="Filiação Mãe" name="filiacao_mae">
                                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
@@ -242,7 +250,7 @@
                                                     </label>
                                                 </div>
                                             </div>
-                                        </div>  
+                                        </div>
                                   </div>
                               </div>
                             </div>

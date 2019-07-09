@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use DB;
 use App\Endereco;
 use App\Estagiario;
+use App\Estado;
+use App\Cidade;
 use Illuminate\Http\Request;
 
 class EstagiarioController extends Controller
@@ -18,6 +21,7 @@ class EstagiarioController extends Controller
      */
     public function index()
     {
+        // return view('estagiario.edit', compact('nome', 'estado'));
         // $estagiarios = Estagiario::count();
         $estagiarios = Estagiario::all();
         return view('estagiario.index', compact('estagiarios', $estagiarios));
@@ -29,7 +33,20 @@ class EstagiarioController extends Controller
      */
     public function create()
     {
-        return view('estagiario.create');
+        // $estados = Estado::with('cidade')->get();
+        // return view('estagiario.create', compact('estados'));
+
+        $estados = Estado::all();
+        // $cidade = Cidade::with('estado')->get();
+        // //  $roles = Roles::all();
+        //  $cidade = Cidade::first()->estado_id;
+
+        $cidade = DB::table('estado')
+        ->join('cidade', 'cidade.estado_id', '=' , 'estado.id')
+        ->select('estado.nome', 'estado_id', 'cidade.nome')
+        ->get()->toArray();
+        return view('estagiario.create', ['estados' => $estados,
+        'cidade'=>$cidade]);
     }
 
     /**
@@ -41,12 +58,10 @@ class EstagiarioController extends Controller
     public function store(Request $request)
     {
              $request->validate([
-            'nome' => 'required|min:5|max:255',
+            'nome' => 'required',
             'email' => 'required|email|unique:estagiario,email',
         ]);
-
         Estagiario::create($request->all());
-
         return redirect()->route('estagiario.index')
                         ->with('success','Cadastrado com sucesso.');
     }
@@ -94,8 +109,7 @@ class EstagiarioController extends Controller
         $estagiario->save();
         $request->session()->flash('message', 'Sucesso!');
         return redirect('estagiario');
-
-    }
+        }
 
     /**
      * Remove the specified resource from storage.

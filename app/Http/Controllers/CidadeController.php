@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use App\Cidade;
 use Illuminate\Http\Request;
 
@@ -14,8 +14,10 @@ class CidadeController extends Controller
      */
     public function index()
     {
-        $cidades = Cidade::all();
+        // $cidades = Cidade::all();
+        $cidades = DB::table('cidade')->paginate(5);
         return view('cidade.index', compact('cidades', $cidades));
+
     }
 
     /**

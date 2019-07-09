@@ -113,6 +113,15 @@
                                         <input type="text" value="{{ $estagiario->unid_concendente }}" class="form-control has-feedback-left" placeholder="Unidade Concedente" name="und_condente">
                                         <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                     </div>
+                                    </select>
+                                                <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                <select class="form-control has-feedback-left" name="sexo">
+                                                    <option>Selecione Sexo</option>
+                                                    <option>Masculino</option>
+                                                    <option>Feminino</option>
+                                                </select>
                                         </div>
                                         <div class="row" style="width:960px; margin: 0 auto;">
 
