@@ -33,23 +33,16 @@ class EstagiarioController extends Controller
      */
     public function create()
     {
-        // $estados = Estado::with('cidade')->get();
-        // return view('estagiario.create', compact('estados'));
-
-        // $estados = Estado::all();
-        // // $cidade = Cidade::with('estado')->get();
-        // // //  $roles = Roles::all();
-        // //  $cidade = Cidade::first()->estado_id;
-
-        // $cidade = DB::table('estado')
-        // ->join('cidade', 'cidade.estado_id', '=' , 'estado.id')
-        // ->select('estado.nome', 'estado_id', 'cidade.nome')
-        // ->get()->toArray();
 
         // $estado = Estado::all();
-        // return view('estagiario.create', ['estados' => $estados,
-        // 'cidade'=>$cidade,'estado'=>$estado]);
-        return view('estagiario.create');
+        $estados = DB::table('estado')->pluck('nome');
+
+        $cidades = Estado::join('cidade', 'estado.id', '=', 'cidade.estado_id')
+            ->where('estado.nome', $estados)
+            ->orderBy('cidade.nome', 'asc')
+            ->get();
+
+        return view('estagiario.create', compact('estados', 'cidades','estado'));
     }
 
     /**

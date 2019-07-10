@@ -93,13 +93,19 @@
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="estado">
-                                                <option>Selecione Estado</option>
+                                                <option value ="0">Selecione Estado</option>
+                                                  @foreach ($estados as $key => $value)
+                                                <option value="{{ $key }}"> {{ $value }} </option>
+                                                 @endforeach
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="cidade">
                                                    <option value="Selecione a cidade" selected>Selecione a cidade</option>
+                                                @foreach ($cidades as $cidade)
+                                                        <option value="{{$cidade->nome}}" selected>{{$cidade->nome}}</option>
+                                                 @endforeach
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>

@@ -9,6 +9,7 @@
         "barryvdh/laravel-dompdf": "^0.8.4",
         "consoletvs/charts": "6.*",
         "fideloper/proxy": "^4.0",
+        "fx3costa/laravelchartjs": "^2.5",
         "khill/lavacharts": "3.1.*",
         "laravel/framework": "5.6.*",
         "laravel/tinker": "^1.0",

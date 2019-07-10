@@ -74,7 +74,7 @@
                 </div>
               </div>
                <!-- line graph -->
-               <div class="col-md-6 col-sm-6 col-xs-12">
+               <!-- <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>TCE ATIVOS </h2>
@@ -99,11 +99,13 @@
                     <div id="graph_line" style="width:100%; height:300px;"></div>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <!-- /line graph -->
                <!-- line graph -->
-               {!! $chart3->container() !!}
-               <div class="col-md-6 col-sm-6 col-xs-12">
+             <div style="width:100%;">
+                {!! $chartjs4->render() !!}
+              </div>
+               <!-- <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>TCE INATIVOS</h2>
@@ -130,9 +132,8 @@
                 </div>
               </div>
         </div>
-    </div>
+    </div> -->
               <!-- /line graph -->
-
             </div>
           </div>
         </div>
@@ -143,6 +144,5 @@
     <script src=https://cdnjs.cloudflare.com/ajax/libs/echarts/4.0.2/echarts-en.min.js charset=utf-8></script>
         {!! $chart->script() !!}
         {!! $chart2->script() !!}
-        {!! $chart3->script() !!}
 @endsection
 
