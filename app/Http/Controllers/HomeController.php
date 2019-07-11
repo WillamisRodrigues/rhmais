@@ -25,19 +25,7 @@ class HomeController extends Controller
 
          $dataMasc = DB::table('estagiario')->where('sexo', 'Masculino')->count();
          $dataFem = DB::table('estagiario')->where('sexo', 'Feminino')->count();
-          $chart = new HomeChart;
-          $chart->displayAxes(false);
-          $chart->labels(['Masculino', 'Feminino']);
-          $dataset = $chart->dataset('Sexo', 'pie', array($dataMasc,$dataFem));
-          $dataset->backgroundColor(collect(['#7158e2','#3ae374', '#ff3838']));
-          $dataset->color(collect(['#7d5fff','#32ff7e', '#ff4d4d']));
-
-          $dataEsc = DB::table('estagiario')->where('escolaridade', 'Medio')->count();
-          $chart2 = new HomeChart;
-          $chart2->displayAxes(false);
-          $chart2->labels(['Medio']);
-          $dataset = $chart2->dataset('My dataset', 'pie', array($dataEsc));
-          $dataset->backgroundColor(collect(['#3a566e']));
+         $dataEsc = DB::table('estagiario')->where('escolaridade', 'Medio')->count();
 
          $jan1 = Contrato::whereMonth('created_at', '1')->where('status', '1')->count();
          $jan2 = Contrato::whereMonth('created_at', '1')->where('status', '2')->count();
@@ -93,6 +81,34 @@ class HomeController extends Controller
         ])
         ->options([]);
 
-        return view('home.index',compact('totalEstagiario', 'totalInstituicao','totalEmpresa','chart','chart2','chartjs4'));
+        $chartjs1 = app()->chartjs
+        ->name('pieChartTest')
+        ->type('pie')
+        ->size(['width' => 400, 'height' => 200])
+        ->labels(['Feminino', 'Masculino'])
+        ->datasets([
+            [
+                'backgroundColor' => ['#FF6384', '#36A2EB'],
+                'hoverBackgroundColor' => ['#FF6384', '#36A2EB'],
+                'data' => [$dataMasc,$dataFem]
+            ]
+        ])
+        ->options([]);
+
+         $chartjs2 = app()->chartjs
+        ->name('pie')
+        ->type('pie')
+        ->size(['width' => 400, 'height' => 200])
+        ->labels(['MED','SUP','M. TEC','S. TEC','N. FUN','N. PRO'])
+        ->datasets([
+            [
+                'backgroundColor' => ['#FF6384', '#36A2EB','#FF6384', '#36A2EB','#FF6384', '#36A2EB'],
+                'hoverBackgroundColor' => ['#FF6384', '#36A2EB','#FF6384', '#36A2EB','#FF6384', '#36A2EB'],
+                'data' => [$dataEsc,2, 1,1, 3,5]
+            ]
+        ])
+        ->options([]);
+
+        return view('home.index',compact('totalEstagiario', 'totalInstituicao','totalEmpresa','chartjs4', 'chartjs1', 'chartjs2'));
     }
 }
