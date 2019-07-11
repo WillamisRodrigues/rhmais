@@ -43,52 +43,52 @@
                                   <div id="form-step-0" role="form" data-toggle="validator">
                                         <div class="row" style="width:960px; margin: 0 auto;">
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Nome Completo" name="nome">
+                                                <input type="text" class="form-control has-feedback-left" placeholder="Nome Completo" name="nome" value="{{old('nome')}}">
                                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Email" name="email">
+                                                <input type="text" class="form-control has-feedback-left" placeholder="Email" name="email" value="{{old('email')}}">
                                                 <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" maxlength="12" class="form-control rg has-feedback-left" placeholder="RG" name="rg">
+                                                <input type="text" maxlength="12" class="form-control rg has-feedback-left" placeholder="RG" name="rg" value="{{old('rg')}}">
                                                 <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" maxlength="14" class="form-control cpf has-feedback-left"  placeholder="CPF" name="cpf">
+                                                <input type="text" maxlength="14" class="form-control cpf has-feedback-left"  placeholder="CPF" name="cpf" value="{{old('cpf')}}">
                                                 <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control telefone has-feedback-left" placeholder="Telefone" name="telefone">
+                                                <input type="text" class="form-control telefone has-feedback-left" placeholder="Telefone" name="telefone" value="{{old('telefone')}}">
                                                 <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                                             </div>
 
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control telefone has-feedback-left" placeholder="Celular" name="celular">
+                                                <input type="text" class="form-control telefone has-feedback-left" placeholder="Celular" name="celular" value="{{old('celular')}}">
                                                 <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control nascimento has-feedback-left" placeholder="Data de Nascimento" name="data_nascimento">
+                                                <input type="text" class="form-control nascimento has-feedback-left" placeholder="Data de Nascimento" name="data_nascimento" value="{{old('data_nascimento')}}">
                                                 <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Bairro" name="bairro">
+                                                <input type="text" class="form-control has-feedback-left" placeholder="Bairro" name="bairro" value="{{old('bairro')}}">
                                                 <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Endereço" name="endereco">
+                                                <input type="text" class="form-control has-feedback-left" placeholder="Endereço" name="endereco" value="{{old('endereco')}}">
                                                 <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" maxlength="20" class="form-control has-feedback-left" placeholder="Complemento" name="complemento">
+                                                <input type="text" maxlength="20" class="form-control has-feedback-left" placeholder="Complemento" name="complemento" value="{{old('complemento')}}">
                                                 <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" maxlength="20" class="form-control cep has-feedback-left" placeholder="CEP" name="cep">
+                                                <input type="text" maxlength="20" class="form-control cep has-feedback-left" placeholder="CEP" name="cep" value="{{old('cep')}}">
                                                 <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Numero" name="numero">
+                                                <input type="text" class="form-control has-feedback-left" placeholder="Numero" name="numero" value="{{old('numero')}}">
                                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -124,11 +124,11 @@
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Filiação Pai" name="filiacao_pai">
+                                                <input type="text" class="form-control has-feedback-left" placeholder="Filiação Pai" name="filiacao_pai" value="{{old('filiacao_pai')}}">
                                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Série Ctps:" name="serie_ctps">
+                                                <input type="text" class="form-control has-feedback-left" placeholder="Filiação Mãe" name="filiacao_mae">
                                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <!-- <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -138,15 +138,15 @@
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div> -->
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Filiação Mãe" name="filiacao_mae">
+                                                <input type="text" class="form-control has-feedback-left" placeholder="Série Ctps:" name="serie_ctps" value="{{old('serie_ctps')}}">
                                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Ctps" name="ctps">
+                                                <input type="text" class="form-control has-feedback-left" placeholder="Ctps" name="ctps" value="{{old('ctps')}}">
                                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Número PIS" name="pis">
+                                                <input type="text" class="form-control has-feedback-left" placeholder="Número PIS" name="pis" value="{{old('pis')}}">
                                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -154,19 +154,19 @@
                                                 <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <select class="form-control has-feedback-left" name="nacionalidade">
+                                                <select class="form-control has-feedback-left" name="nacionalidade" value="{{old('nacionalidade')}}">
                                                     <option>Selecione Nacionalidade</option>
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <select class="form-control has-feedback-left" name="responsavel">
+                                                <select class="form-control has-feedback-left" name="responsavel" value="{{old('responsavel')}}">
                                                     <option>Selecione Responsavel</option>
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <select class="form-control has-feedback-left" name="deficeiencia">
+                                                <select class="form-control has-feedback-left" name="deficiencia">
                                                     <option>Não e Portador de Deficiência</option>
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
@@ -179,7 +179,7 @@
                                   <div id="form-step-1" role="form" data-toggle="validator">
                                     <div class="row" style="width:960px; margin: 20px auto;">
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <select class="form-control has-feedback-left" name="nivel">
+                                                <select class="form-control has-feedback-left" name="nivel" >
                                                     <option>Selecione um nível</option>
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
@@ -209,11 +209,11 @@
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Matricula" name="matricula">
+                                                <input type="text" class="form-control has-feedback-left" placeholder="Matricula" name="matricula" value="{{old('matricula')}}">
                                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Previsão Término Curso" name="previsao_termino">
+                                                <input type="text" class="form-control has-feedback-left" placeholder="Previsão Término Curso" name="previsao_termino" value="{{old('previsao_termino')}}">
                                                 <span class="fa fa-book form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                     </div>
@@ -224,23 +224,23 @@
                                   <div id="form-step-1" role="form" data-toggle="validator">
                                   <div class="row" style="width:960px; margin: 20px auto;">
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Banco/Agência" name="banco_agencia">
+                                                <input type="text" class="form-control has-feedback-left" placeholder="Banco/Agência" name="banco_agencia" value="{{old('banco_agencia')}}">
                                                 <span class="fa fa-bank form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Conta" name="conta">
+                                                <input type="text" class="form-control has-feedback-left" placeholder="Conta" name="conta" value="{{old('conta')}}">
                                                 <span class="fa fa-bars form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Código da vaga" name="codigo_vaga">
+                                                <input type="text" class="form-control has-feedback-left" placeholder="Código da vaga" name="codigo_vaga" value="{{old('codigo_vaga')}}">
                                                 <span class="fa fa-barcode form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Criar Senha" name="criar_senha">
+                                                <input type="text" class="form-control has-feedback-left" placeholder="Criar Senha" name="criar_senha" value="{{old('criar_senha')}}">
                                                 <span class="fa fa-key form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                                                <textarea class="form-control" placeholder="Sua observação" name="observacao">
+                                                <textarea class="form-control" placeholder="Sua observação" name="observacao" value="{{old('observacao')}}">
                                                 </textarea>
                                             </div>
                                             <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
