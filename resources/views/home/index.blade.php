@@ -41,8 +41,11 @@
                     <h2>RH TALENTOS | SEXO</h2>
                     <div class="clearfix"></div>
                   </div>
-                  <div class="x_content">
-                      {!! $chart->container() !!}
+                  <div style="width:100%;">
+                  {!! $chartjs1->render() !!}
+                </div>
+                   <div class="x_content">
+
                       <br>
                       <div>
                         <span class="badge" style="background-color:#84e573; font-size:14pt;">&nbsp; Feminino</span>
@@ -58,9 +61,10 @@
                     <h2>RH MAIS TALENTOS | ESCOLARIDADE</h2>
                     <div class="clearfix"></div>
                   </div>
+                  <div style="width:100%;">
+                  {!! $chartjs2->render() !!}
+                </div>
                   <div class="x_content">
-
-                  {!! $chart2->container() !!}
                   <br>
                   <div>
                         <span class="badge" style="background-color:#84e573; font-size:14pt;">&nbsp; MED</span>
@@ -141,8 +145,5 @@
         @include('layout.footer')
       </div>
     </div>
-    <script src=https://cdnjs.cloudflare.com/ajax/libs/echarts/4.0.2/echarts-en.min.js charset=utf-8></script>
-        {!! $chart->script() !!}
-        {!! $chart2->script() !!}
 @endsection
 
