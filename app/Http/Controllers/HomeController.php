@@ -88,8 +88,8 @@ class HomeController extends Controller
         ->labels(['Feminino', 'Masculino'])
         ->datasets([
             [
-                'backgroundColor' => ['#FF6384', '#36A2EB'],
-                'hoverBackgroundColor' => ['#FF6384', '#36A2EB'],
+                'backgroundColor' => ['#3C2CE8', '#2C80E8'],
+                'hoverBackgroundColor' => ['#3C2CE8', '#2C80E8'],
                 'data' => [$dataMasc,$dataFem]
             ]
         ])
@@ -102,8 +102,8 @@ class HomeController extends Controller
         ->labels(['MED','SUP','M. TEC','S. TEC','N. FUN','N. PRO'])
         ->datasets([
             [
-                'backgroundColor' => ['#FF6384', '#36A2EB','#FF6384', '#36A2EB','#FF6384', '#36A2EB'],
-                'hoverBackgroundColor' => ['#FF6384', '#36A2EB','#FF6384', '#36A2EB','#FF6384', '#36A2EB'],
+                'backgroundColor' => ['#1935B3', '#5776FF','#3D61FF', '#7A30FF','#30C3FF', '#36A2EB'],
+                'hoverBackgroundColor' => ['#1935B3', '#5776FF','#3D61FF', '#7A30FF','#30C3FF', '#36A2EB'],
                 'data' => [$dataEsc,2, 1,1, 3,5]
             ]
         ])
