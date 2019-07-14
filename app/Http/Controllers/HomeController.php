@@ -60,7 +60,7 @@ class HomeController extends Controller
         ->datasets([
             [
                 "label" => "TCE ATIVOS",
-                'backgroundColor' => "rgba(58, 86, 109, 0.50)",
+                'backgroundColor' => "rgba(19, 34, 232, 0.50)",
                 'borderColor' => "rgba(58, 86, 109, 0.7)",
                 "pointBorderColor" => "rgba(58, 86, 109, 1)",
                 "pointBackgroundColor" => "#fff",
@@ -70,7 +70,7 @@ class HomeController extends Controller
             ],
             [
                 "label" => "TCE INATIVOS",
-                'backgroundColor' => "rgba(58, 86, 109, 0.50)",
+                'backgroundColor' => "rgba(34, 106, 255, 0.50)",
                 'borderColor' => "rgba(63, 119, 165, 0.7)",
                 "pointBorderColor" => "rgba(58, 86, 109, 1)",
                 "pointBackgroundColor" => "#fff",
