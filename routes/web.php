@@ -17,12 +17,14 @@ Auth::routes();
  Route::post('/home', 'HomeController@index')->name('index');
 Route::get('/home/grafico', 'HomeController@grafico');
 
- Route::resource('empresa', 'EmpresaController');
- Route::resource('estagiario', 'EstagiarioController');
- Route::resource('instituicao', 'InstituicaoController');
+Route::resource('empresa', 'EmpresaController');
+Route::resource('estagiario', 'EstagiarioController');
+Route::resource('instituicao', 'InstituicaoController');
 Route::resource('user_sistema', 'UserController');
 Route::resource('curso', 'CursoController');
- Route::resource('cidade', 'CidadeController');
+
+Route::get('myform',array('as'=>'myform','uses'=>'EstagiarioController@myform'));
+Route::get('myform/ajax/{id}',array('as'=>'myform.ajax','uses'=>'EstagiarioController@myformAjax'));
 
 Route::get('/termo_recesso', function () {
     return view('termo/index');

@@ -81,9 +81,7 @@
         </div>
     </div>
     </div>
-
         <!-- /page content -->
-
         <!-- footer content -->
         @include('layout.footer')
         <!-- /footer content -->

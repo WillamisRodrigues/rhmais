@@ -90,21 +90,18 @@
                                                 <input type="text" class="form-control has-feedback-left" placeholder="Numero" name="numero" value="{{old('numero')}}">
                                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div>
+                                                <div class="form-group">
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="estado">
-                                                <option value =" ">Selecione Estado</option>
-                                                  @foreach ($estados as $estado)
-                                                <option value="{{ $estado->id }}"> {{ $estado->nome }} </option>
-                                                 @endforeach
+                                                <label for="estado">Selecione Estado</label>
+                                                <option value="">Selecione Estado</option>
+                                              
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <select class="form-control has-feedback-left" name="cidade">
-                                                   <option value=" ">Selecione a cidade</option>
-                                                @foreach ($cidades as $cidade)
-                                                        <option value="{{ $cidade->nome }}"> {{ $cidade->nome }}</option>
-                                                 @endforeach
+                                                 <option value="">Selecione Cidade</option>
+                                                <select class="form-control has-feedback-left" name="cidade"  id="estado">
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
@@ -263,7 +260,6 @@
           </div>
         </div>
         <!-- /page content -->
-
         <!-- footer content -->
         @include('layout.footer')
         <!-- /footer content -->

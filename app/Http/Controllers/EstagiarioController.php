@@ -21,31 +21,53 @@ class EstagiarioController extends Controller
      */
     public function index()
     {
-        // return view('estagiario.edit', compact('nome', 'estado'));
-        // $estagiarios = Estagiario::count();
-        $estagiarios = Estagiario::all();
+       $estagiarios = Estagiario::all();
         return view('estagiario.index', compact('estagiarios', $estagiarios));
     }
+
+    public function getEstados()
+    {
+        $estados = DB::table("estado")->pluck("nome","id");
+        return view('estagiario.create',compact('estados'));
+    }
+
+    public function getCidades($id)
+    {
+        $cidades = DB::table("cidade")
+                    ->where("estado_id",$id)
+                    ->pluck("nome","id");
+        return json_encode($cidades);
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Estado $estados)
+    public function create()
     {
+       return view('estagiario.create');
+    }
 
-         $estados = Estado::all();
-         $cidades = Cidade::all();
-        //   $cid = $cidades;
-        //   $cidades = Cidade::where('cidade.estado.id', '=',$estado);
-//  dd($cidades);
-            // $cidades = Estado::join('cidade', 'estado.id', '=', 'cidade.estado_id')
-            // ->where('estado.nome', $estados )
-            // ->orderBy('cidade.nome', 'asc')
-            // ->get();
+        public function myform()
+    {
+        $states = DB::table("estado")->pluck("nome","id");
+        return view('myform',compact('states'));
 
-        return view('estagiario.create', compact('estados', 'cidades'));
+    }
+    /**
+     * Get Ajax Request and restun Data
+     *
+     * @return \Illuminate\Http\Response
+     */
 
+    public function myformAjax($id)
+    {
+        $cities = DB::table("cidade")
+                    ->where("estado_id",$id)
+                    ->pluck("nome","id");
+        return json_encode($cities);
     }
 
     /**
