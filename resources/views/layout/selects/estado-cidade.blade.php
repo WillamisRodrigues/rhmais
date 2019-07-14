@@ -9,7 +9,8 @@
     <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
 </div>
 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-     <select name="city" class="form-control" style="width:350px">
+     <select name="city" class="form-control has-feedback-left">
+        <option value="">--- Selecione Cidade ---</option>
     </select>
     <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
 </div>
