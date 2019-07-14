@@ -26,9 +26,6 @@ Route::resource('curso', 'CursoController');
  Route::get('/cidade-estado',array('as'=>'myform','uses'=>'EstagiarioController@myform'));
  Route::get('myform/ajax/{id}',array('as'=>'myform.ajax','uses'=>'EstagiarioController@myformAjax'));
 
-//  Route::get('myform',array('as'=>'myform','uses'=>'EstagiarioController@myform'));
-//  Route::get('myform/ajax/{id}',array('as'=>'myform.ajax','uses'=>'EstagiarioController@myformAjax'));
-
 Route::get('/termo_recesso', function () {
     return view('termo/index');
 });

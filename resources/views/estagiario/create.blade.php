@@ -154,7 +154,6 @@
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                         </div>
-                                    </div>
                                   </div>
                               </div>
                               <div id="step-2">
