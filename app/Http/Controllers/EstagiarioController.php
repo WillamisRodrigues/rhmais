@@ -31,18 +31,21 @@ class EstagiarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Estado $estados)
     {
 
-        // $estado = Estado::all();
-        $estados = DB::table('estado')->pluck('nome');
+         $estados = Estado::all();
+         $cidades = Cidade::all();
+        //   $cid = $cidades;
+        //   $cidades = Cidade::where('cidade.estado.id', '=',$estado);
+//  dd($cidades);
+            // $cidades = Estado::join('cidade', 'estado.id', '=', 'cidade.estado_id')
+            // ->where('estado.nome', $estados )
+            // ->orderBy('cidade.nome', 'asc')
+            // ->get();
 
-        $cidades = Estado::join('cidade', 'estado.id', '=', 'cidade.estado_id')
-            ->where('estado.nome', $estados)
-            ->orderBy('cidade.nome', 'asc')
-            ->get();
+        return view('estagiario.create', compact('estados', 'cidades'));
 
-        return view('estagiario.create', compact('estados', 'cidades','estado'));
     }
 
     /**
@@ -70,7 +73,7 @@ class EstagiarioController extends Controller
      */
     public function show(Estagiario $estagiario)
     {
-        return view('estagiario.show', compact('estagiario', $estagiario));
+        // return view('estagiario.show', compact('estagiario', $estagiario));
     }
 
     /**

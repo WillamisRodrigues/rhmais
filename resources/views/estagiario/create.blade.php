@@ -7,7 +7,6 @@
           <div class="left_col scroll-view">
           @include('layout.menu.menu')
             <!-- /menu profile quick info -->
-
             <br />
             @include('layout.menu.sidebar')
             <!-- /sidebar menu -->
@@ -93,18 +92,18 @@
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="estado">
-                                                <option value ="0">Selecione Estado</option>
-                                                  @foreach ($estados as $key => $value)
-                                                <option value="{{ $key }}"> {{ $value }} </option>
+                                                <option value =" ">Selecione Estado</option>
+                                                  @foreach ($estados as $estado)
+                                                <option value="{{ $estado->id }}"> {{ $estado->nome }} </option>
                                                  @endforeach
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="cidade">
-                                                   <option value="Selecione a cidade" selected>Selecione a cidade</option>
+                                                   <option value=" ">Selecione a cidade</option>
                                                 @foreach ($cidades as $cidade)
-                                                        <option value="{{$cidade->nome}}" selected>{{$cidade->nome}}</option>
+                                                        <option value="{{ $cidade->nome }}"> {{ $cidade->nome }}</option>
                                                  @endforeach
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
