@@ -25,21 +25,6 @@ class EstagiarioController extends Controller
         return view('estagiario.index', compact('estagiarios', $estagiarios));
     }
 
-    public function getEstados()
-    {
-        $estados = DB::table("estado")->pluck("nome","id");
-        return view('estagiario.create',compact('estados'));
-    }
-
-    public function getCidades($id)
-    {
-        $cidades = DB::table("cidade")
-                    ->where("estado_id",$id)
-                    ->pluck("nome","id");
-        return json_encode($cidades);
-    }
-
-
     /**
      * Show the form for creating a new resource.
      *
@@ -47,7 +32,8 @@ class EstagiarioController extends Controller
      */
     public function create()
     {
-       return view('estagiario.create');
+        $states = DB::table("estado")->pluck("nome","id");
+       return view('estagiario.create', compact('states'));
     }
 
         public function myform()

@@ -1,33 +1,23 @@
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title>Laravel Dependent Dropdown</title>
-    <script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script>
+<script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script>
     <link rel="stylesheet" href="http://demo.itsolutionstuff.com/plugin/bootstrap-3.min.css">
-</head>
-<body>
-<div class="container">
+    <div class="container">
     <div class="panel panel-default">
-      <div class="panel-heading">Selecione Estado e abaixo a Cidade</div>
+       <div class="panel-heading">Selecione Estado e abaixo a Cidade</div>
       <div class="panel-body">
-            <div class="form-group">
-                <label for="title">Selecione Estado:</label>
-                <select name="state" class="form-control" style="width:350px">
-                    <option value="">--- Selecione Estado ---</option>
-                    @foreach ($states as $key => $value)
+      <div class="form-group">
+      <label for="title">Selecione Estado:</label>
+    <select class="form-control" name="state">
+        <option value="">--- Selecione Estado ---</option>
+        @foreach ($states as $key => $value)
                         <option value="{{ $key }}">{{ $value }}</option>
-                    @endforeach
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="title">Selecione Cidade:</label>
-                <select name="city" class="form-control" style="width:350px">
-                </select>
-            </div>
-      </div>
-    </div>
+        @endforeach
+    </select>
+    <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+</div>
+<div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+         <select name="city" class="form-control" style="width:350px">
+    </select>
+    <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
 </div>
 <script type="text/javascript">
     $(document).ready(function() {
@@ -51,5 +41,3 @@
         });
     });
 </script>
-</body>
-</html>
