@@ -7,7 +7,7 @@ use App\Charts\HomeChart;
 use App\Estagiario;
 use App\Instituicao;
 use App\Empresa;
-use App\Contrato;
+use App\TceContrato;
 use Charts;
 
 class HomeController extends Controller
@@ -27,30 +27,30 @@ class HomeController extends Controller
          $dataFem = DB::table('estagiario')->where('sexo', 'Feminino')->count();
          $dataEsc = DB::table('estagiario')->where('escolaridade', 'Medio')->count();
 
-         $jan1 = Contrato::whereMonth('created_at', '1')->where('status', '1')->count();
-         $jan2 = Contrato::whereMonth('created_at', '1')->where('status', '2')->count();
-         $fev1 = Contrato::whereMonth('created_at', '2')->where('status', '1')->count();
-         $fev2 = Contrato::whereMonth('created_at', '2')->where('status', '2')->count();
-         $mar1 = Contrato::whereMonth('created_at', '3')->where('status', '1')->count();
-         $mar2 = Contrato::whereMonth('created_at', '3')->where('status', '2')->count();
-         $abr1 = Contrato::whereMonth('created_at', '4')->where('status', '1')->count();
-         $abr2 = Contrato::whereMonth('created_at', '4')->where('status', '2')->count();
-         $mai1 = Contrato::whereMonth('created_at', '5')->where('status', '1')->count();
-         $mai2 = Contrato::whereMonth('created_at', '5')->where('status', '2')->count();
-         $jun1 = Contrato::whereMonth('created_at', '6')->where('status', '1')->count();
-         $jun2 = Contrato::whereMonth('created_at', '6')->where('status', '2')->count();
-         $jul1 = Contrato::whereMonth('created_at', '7')->where('status', '1')->count();
-         $jul2 = Contrato::whereMonth('created_at', '7')->where('status', '2')->count();
-         $ago1 = Contrato::whereMonth('created_at', '8')->where('status', '1')->count();
-         $ago2 = Contrato::whereMonth('created_at', '8')->where('status', '2')->count();
-         $set1 = Contrato::whereMonth('created_at', '9')->where('status', '1')->count();
-         $set2 = Contrato::whereMonth('created_at', '9')->where('status', '2')->count();
-         $out1 = Contrato::whereMonth('created_at', '10')->where('status', '1')->count();
-         $out2 = Contrato::whereMonth('created_at', '10')->where('status', '2')->count();
-         $nov1 = Contrato::whereMonth('created_at', '11')->where('status', '1')->count();
-         $nov2 = Contrato::whereMonth('created_at', '11')->where('status', '2')->count();
-         $dez1 = Contrato::whereMonth('created_at', '12')->where('status', '1')->count();
-         $dez2 = Contrato::whereMonth('created_at', '12')->where('status', '2')->count();
+         $jan1 = TceContrato::whereMonth('created_at', '1')->where('status', '1')->count();
+         $jan2 = TceContrato::whereMonth('created_at', '1')->where('status', '2')->count();
+         $fev1 = TceContrato::whereMonth('created_at', '2')->where('status', '1')->count();
+         $fev2 = TceContrato::whereMonth('created_at', '2')->where('status', '2')->count();
+         $mar1 = TceContrato::whereMonth('created_at', '3')->where('status', '1')->count();
+         $mar2 = TceContrato::whereMonth('created_at', '3')->where('status', '2')->count();
+         $abr1 = TceContrato::whereMonth('created_at', '4')->where('status', '1')->count();
+         $abr2 = TceContrato::whereMonth('created_at', '4')->where('status', '2')->count();
+         $mai1 = TceContrato::whereMonth('created_at', '5')->where('status', '1')->count();
+         $mai2 = TceContrato::whereMonth('created_at', '5')->where('status', '2')->count();
+         $jun1 = TceContrato::whereMonth('created_at', '6')->where('status', '1')->count();
+         $jun2 = TceContrato::whereMonth('created_at', '6')->where('status', '2')->count();
+         $jul1 = TceContrato::whereMonth('created_at', '7')->where('status', '1')->count();
+         $jul2 = TceContrato::whereMonth('created_at', '7')->where('status', '2')->count();
+         $ago1 = TceContrato::whereMonth('created_at', '8')->where('status', '1')->count();
+         $ago2 = TceContrato::whereMonth('created_at', '8')->where('status', '2')->count();
+         $set1 = TceContrato::whereMonth('created_at', '9')->where('status', '1')->count();
+         $set2 = TceContrato::whereMonth('created_at', '9')->where('status', '2')->count();
+         $out1 = TceContrato::whereMonth('created_at', '10')->where('status', '1')->count();
+         $out2 = TceContrato::whereMonth('created_at', '10')->where('status', '2')->count();
+         $nov1 = TceContrato::whereMonth('created_at', '11')->where('status', '1')->count();
+         $nov2 = TceContrato::whereMonth('created_at', '11')->where('status', '2')->count();
+         $dez1 = TceContrato::whereMonth('created_at', '12')->where('status', '1')->count();
+         $dez2 = TceContrato::whereMonth('created_at', '12')->where('status', '2')->count();
 
          $chartjs4 = app()->chartjs
         ->name('lineChartTest')

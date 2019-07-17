@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Contrato;
+use App\TceContrato;
 use Illuminate\Http\Request;
 
-class ContratoController extends Controller
+class TceContratoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class ContratoController extends Controller
      */
     public function index()
     {
-    //
+         return view('tce_contrato.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class ContratoController extends Controller
      */
     public function create()
     {
-        //
+        return view('tce_contrato.create');
     }
 
     /**
@@ -41,10 +41,10 @@ class ContratoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Contrato  $contrato
+     * @param  \App\TceContrato  $tceContrato
      * @return \Illuminate\Http\Response
      */
-    public function show(Contrato $contrato)
+    public function show(TceContrato $tceContrato)
     {
         //
     }
@@ -52,10 +52,10 @@ class ContratoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Contrato  $contrato
+     * @param  \App\TceContrato  $tceContrato
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contrato $contrato)
+    public function edit(TceContrato $tceContrato)
     {
         //
     }
@@ -64,10 +64,10 @@ class ContratoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Contrato  $contrato
+     * @param  \App\TceContrato  $tceContrato
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contrato $contrato)
+    public function update(Request $request, TceContrato $tceContrato)
     {
         //
     }
@@ -75,10 +75,10 @@ class ContratoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Contrato  $contrato
+     * @param  \App\TceContrato  $tceContrato
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contrato $contrato)
+    public function destroy(TceContrato $tceContrato)
     {
         //
     }
