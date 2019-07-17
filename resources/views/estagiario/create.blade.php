@@ -94,6 +94,9 @@
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="unidade_concedente">
                                                     <option>Selecione Unidade Concedente</option>
+                                                          @foreach ($empresas as $key => $value)
+                                                        <option value="{{ $key }}">{{ $value->nome_fantasia }}</option>
+                                                        @endforeach
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
@@ -150,6 +153,8 @@
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="deficiencia">
                                                     <option>Não e Portador de Deficiência</option>
+                                                    <option>Sim</option>
+                                                    <option>Não</option>
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
@@ -195,7 +200,7 @@
                                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Previsão Término Curso" name="previsao_termino" value="{{old('previsao_termino')}}">
+                                                <input type="date" class="form-control has-feedback-left" placeholder="Previsão Término Curso" name="previsao_termino" value="{{old('previsao_termino')}}">
                                                 <span class="fa fa-book form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                     </div>

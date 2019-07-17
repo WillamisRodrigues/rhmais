@@ -167,17 +167,17 @@
                                   <div id="form-step-1" role="form" data-toggle="validator">
                                   <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" placeholder="Dias p/ Pgto Estágiario(a)" name="pgto_estagiario" value="{{old('pgto_estagiario')}}">
+                            <input type="date" class="form-control has-feedback-left" placeholder="Dias p/ Pgto Estágiario(a)" name="pgto_estagiario" value="{{old('pgto_estagiario')}}">
                             <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" placeholder="Dia p/ Vcto Boleto" name="vcto_boleto" value="{{old('vcto_boleto')}}">
+                            <input type="date" class="form-control has-feedback-left" placeholder="Dia p/ Vcto Boleto" name="vcto_boleto" value="{{old('vcto_boleto')}}">
                             <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" placeholder="Dia p/ Fechamento" name="dia_fechamento" value="{{old('dia_fechamento')}}">
+                            <input type="date" class="form-control has-feedback-left" placeholder="Dia p/ Fechamento" name="dia_fechamento" value="{{old('dia_fechamento')}}">
                             <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">

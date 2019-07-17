@@ -6,6 +6,7 @@ use App\Endereco;
 use App\Estagiario;
 use App\Estado;
 use App\Cidade;
+use App\Empresa;
 use Illuminate\Http\Request;
 
 class EstagiarioController extends Controller
@@ -33,7 +34,9 @@ class EstagiarioController extends Controller
     public function create()
     {
         $states = DB::table("estado")->pluck("nome","id");
-       return view('estagiario.create', compact('states'));
+        $empresas = Empresa::all();
+        // dd($empresas);
+       return view('estagiario.create', compact('states','empresas'));
     }
 
         public function myform()
@@ -54,6 +57,14 @@ class EstagiarioController extends Controller
                     ->where("estado_id",$id)
                     ->pluck("nome","id");
         return json_encode($cities);
+    }
+
+     public function endereco($id)
+    {
+        $enderecos = DB::table("endereco")
+                    ->where("estagiario_id",$id)
+                    ->pluck("cidade","id");
+        return json_encode($enderecos);
     }
 
     /**
@@ -92,8 +103,6 @@ class EstagiarioController extends Controller
      */
     public function edit (Estagiario $estagiario)
     {
-        //dd($estagiario);
-        // $estagiario = Estagiario::findOrFail($id);
         return view('estagiario.edit', compact('estagiario', $estagiario));
     }
 

@@ -53,7 +53,7 @@
                           <td>{{$estagiario->celular}}</td>
                           <td>{{$estagiario->cpf}}</td>
                           <td>{{$estagiario->cidade}}</td>
-                          <td>19/12/2002</td>
+                          <td>{{$estagiario->data_nascimento}}</td>
                           <td>ENSINO MÉDIO</td>
                            <td>31/12/2020</td>
                           <td>Sim</td>

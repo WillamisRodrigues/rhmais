@@ -22,6 +22,7 @@ Route::resource('estagiario', 'EstagiarioController');
 Route::resource('instituicao', 'InstituicaoController');
 Route::resource('user_sistema', 'UserController');
 Route::resource('curso', 'CursoController');
+Route::resource('cidade', 'CidadeController');
 
  Route::get('/cidade-estado',array('as'=>'myform','uses'=>'EstagiarioController@myform'));
  Route::get('myform/ajax/{id}',array('as'=>'myform.ajax','uses'=>'EstagiarioController@myformAjax'));
@@ -29,7 +30,6 @@ Route::resource('curso', 'CursoController');
 Route::get('/termo_recesso', function () {
     return view('termo/index');
 });
-
 
 /* rotas tce */
 Route::resource('tce_contrato', 'TceContratoController');

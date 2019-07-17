@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\TceContrato;
+use App\Empresa;
+use App\Instituicao;
+use App\Estagiario;
 use Illuminate\Http\Request;
 
 class TceContratoController extends Controller
@@ -24,7 +27,10 @@ class TceContratoController extends Controller
      */
     public function create()
     {
-        return view('tce_contrato.create');
+        $empresas = Empresa::all();
+        $estagiarios = Estagiario::all();
+        $inst = Instituicao::all();
+        return view('tce_contrato.create', compact('empresas', 'inst', 'estagiarios'));
     }
 
     /**

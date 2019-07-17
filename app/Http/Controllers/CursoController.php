@@ -41,7 +41,13 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+           $request->validate([
+            'nome' => 'required',
+            'nivel' => 'required',
+        ]);
+        Curso::create($request->all());
+        return redirect()->route('curso.index')
+                        ->with('success','Cadastrado com sucesso.');
     }
 
     /**
@@ -63,7 +69,7 @@ class CursoController extends Controller
      */
     public function edit(Curso $curso)
     {
-        //
+        return view('curso.edit', compact('curso', $curso));
     }
 
     /**

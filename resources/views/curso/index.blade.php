@@ -40,7 +40,7 @@
                        @foreach($cursos as $curso)
                          <tr>
                           <td>{{$curso->nome}}</td>
-                          <td>{{$curso->und_concedente}}</td>
+                          <td>{{$curso->nivel}}</td>
                            <td style="width:15%;">
                             <div class="col-md-3">
                               <a href="{{ route('curso.edit',$curso->id) }}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>

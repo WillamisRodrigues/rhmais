@@ -128,7 +128,7 @@
            $(".delete").on("submit", function (){
            return confirm("Confima remover?");
          });
-         
+
      </script>
     <script type="text/javascript">
         $('select[name=estado]').change(function () {
