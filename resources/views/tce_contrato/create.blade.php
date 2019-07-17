@@ -1,71 +1,166 @@
 @extends('layout/app')
-@section('titulo','Lista de Contratos Ativos - TCE | RH MAIS')
+@section('titulo','AGENTE DE INTEGRAÇÃO - Lista de Contratos Ativos - TCE | RH MAIS')
 @section('conteudo')
-   <div class="container body">
+    <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
-            @include('layout.menu.menu')
+          @include('layout.menu.menu')
+            <!-- /menu profile quick info -->
+
             <br />
             @include('layout.menu.sidebar')
+            <!-- /sidebar menu -->
           </div>
         </div>
-            @include('layout.menu.menutop')
+        @include('layout.menu.menutop')
         <!-- page content -->
-
-          <!-- page content -->
-          <div class="right_col" role="main">
-          <div class="">
-          <!-- <a href="{{url('estagiario/exportar')}}">Print  PDF</a> -->
+        <div class="right_col" role="main">
             <div class="clearfix"></div>
 
             <div class="row">
+
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                  <a href="#" class="btn btn-success pull-right"> <i class="fa fa-plus"> </i> Adicionar Novo Contrato</a>
                     <h2>AGENTE DE INTEGRAÇÃO - Lista de Contratos Ativos - TCE</h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <table id="estagiario" class="table table-striped table-bordered">
-                      <thead>
-                        <tr>
-                          <th>Estagiario</th>
-                          <th>Un. Concedente</th>
-                          <th>Instituição</th>
-                          <th>Valor Bolsa</th>
-                          <th>Data Inicio</th>
-                          <th>Data Fim</th>
-                          <th>Contrato</th>
-                          <th>Assinado</th>
-                          <th>Obrigatório</th>
-                          <th>Opções</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                         <tr>
-                          <td>LÍVIA ALBUQUERQUE DIAS</td>
-                          <td>NEY CARTER DO CARMO BORGES CRM: 50.535 - VIVECOR VINHEDO</td>
-                          <td>CETEC - CENTRO TÉCNICO DE ENFERMAGEM LTDA - CETEC JUNDIAÍ</td>
-                          <td>800,00</td>
-                          <td>06/02/2019</td>
-                          <td>31/10/2019</td>
-                          <td>AD</td>
-                          <td>Não</td>
-                          <td>N</td>
-                          <td><button class="btn btn-primary"><i class="fa fa-print"></i> Imprimir TCE</button></td>
-                        </tr>
-                      </tbody>
-                    </table>
+                  <form action="{{ route('curso.store') }}" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
+                  {{csrf_field()}}
+
+                      <!-- SmartWizard html -->
+                      <div>
+                          <div>
+                              <div>
+                                    <div id="form-step-0" role="form" data-toggle="validator">
+                                      <div class="row" style="width:960px; margin: 20px auto;">
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                <select class="form-control has-feedback-left" name="unidade_concedente">
+                                                    <option>Ag. Integração:</option>
+                                                </select>
+                                                <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                <select class="form-control has-feedback-left" name="unidade_concedente">
+                                                    <option>Selecione o Estagiário:</option>
+                                                </select>
+                                                <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                <select class="form-control has-feedback-left" name="unidade_concedente">
+                                                    <option>Selecione Unidade Concedente:</option>
+                                                </select>
+                                                <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                <select class="form-control has-feedback-left" name="unidade_concedente">
+                                                    <option>Selecione Instituição de Ensino:</option>
+                                                </select>
+                                                <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                                            </div> 
+                                            <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
+                                              <input type="text" class="form-control has-feedback-left" placeholder="Valor Bolsa-Auxílio:" name="valor_adicional" value="{{old('valor_adicional')}}">
+                                              <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                            <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
+                                              <input type="text" class="form-control has-feedback-left" placeholder="Data Início:" name="valor_adicional" value="{{old('valor_adicional')}}">
+                                              <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                            <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
+                                              <input type="text" class="form-control has-feedback-left" placeholder="Data Fim:" name="valor_adicional" value="{{old('valor_adicional')}}">
+                                              <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                <select class="form-control has-feedback-left" name="unidade_concedente">
+                                                    <option>Selecione Beneficio:</option>
+                                                </select>
+                                                <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                                            </div> 
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                <select class="form-control has-feedback-left" name="unidade_concedente">
+                                                    <option>Selecione Seguro:</option>
+                                                </select>
+                                                <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                                            </div> 
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                <select class="form-control has-feedback-left" name="unidade_concedente">
+                                                    <option>Horário de Estagio:</option>
+                                                </select>
+                                                <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                                            </div> 
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                <select class="form-control has-feedback-left" name="unidade_concedente">
+                                                    <option>Selecione Setor:</option>
+                                                </select>
+                                                <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                                            </div> 
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                <select class="form-control has-feedback-left" name="unidade_concedente">
+                                                    <option>Selecione Atividade:</option>
+                                                </select>
+                                                <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                                            </div> 
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                <select class="form-control has-feedback-left" name="unidade_concedente">
+                                                    <option>Orientador Estágio:</option>
+                                                </select>
+                                                <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                                            </div> 
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                <select class="form-control has-feedback-left" name="unidade_concedente">
+                                                    <option>Supervisor Estagio:</option>
+                                                </select>
+                                                <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                                            </div> 
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                              <input type="text" class="form-control has-feedback-left" placeholder="Data Documento" name="valor_adicional" value="{{old('valor_adicional')}}">
+                                              <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                            <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
+                                              <div class="checkbox">
+                                              <label>Tipo de Estágio: </label>
+                                                <label>
+                                                  <input type="checkbox" class="flat" checked="checked"> Não Obrigatório
+                                                </label>
+                                                <label>
+                                                  <input type="checkbox" class="flat"> Obrigatório
+                                                </label>
+                                              </div>
+                                            </div> 
+                                            <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                                                <textarea class="form-control" placeholder="Sua observação" name="observacao" value="{{old('observacao')}}">
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                      
+                                    <div class="btn-group mr-2 sw-btn-group-extra" role="group">
+                                      <button class="btn btn-info">Enviar</button>
+                                      <button class="btn btn-danger">Cancelar</button>
+                                    </div>
+                              </div>
+
+                      </div>
+                     </div>
+                   @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if(session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
+                      </form>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
         </div>
-    </div>
-    </div>
-
         <!-- /page content -->
 
         <!-- footer content -->
