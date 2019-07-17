@@ -40,19 +40,19 @@
                                                 <select class="form-control has-feedback-left" name="unidade_concedente">
                                                     <option>Ag. Integração:</option>
                                                 </select>
-                                                <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                                                <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="unidade_concedente">
                                                     <option>Selecione o Estagiário:</option>
                                                 </select>
-                                                <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                                                <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="unidade_concedente">
                                                     <option>Selecione Unidade Concedente:</option>
                                                 </select>
-                                                <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                                                <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="unidade_concedente">
@@ -62,61 +62,61 @@
                                             </div> 
                                             <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
                                               <input type="text" class="form-control has-feedback-left" placeholder="Valor Bolsa-Auxílio:" name="valor_adicional" value="{{old('valor_adicional')}}">
-                                              <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+                                              <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
                                               <input type="text" class="form-control has-feedback-left" placeholder="Data Início:" name="valor_adicional" value="{{old('valor_adicional')}}">
-                                              <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+                                              <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
                                               <input type="text" class="form-control has-feedback-left" placeholder="Data Fim:" name="valor_adicional" value="{{old('valor_adicional')}}">
-                                              <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+                                              <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="unidade_concedente">
                                                     <option>Selecione Beneficio:</option>
                                                 </select>
-                                                <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                                                <span class="fa fa-bars form-control-feedback left" aria-hidden="true"></span>
                                             </div> 
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="unidade_concedente">
                                                     <option>Selecione Seguro:</option>
                                                 </select>
-                                                <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                                                <span class="fa fa-bars form-control-feedback left" aria-hidden="true"></span>
                                             </div> 
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="unidade_concedente">
                                                     <option>Horário de Estagio:</option>
                                                 </select>
-                                                <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                                                <span class="fa fa-clock-o form-control-feedback left" aria-hidden="true"></span>
                                             </div> 
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="unidade_concedente">
                                                     <option>Selecione Setor:</option>
                                                 </select>
-                                                <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                                                <span class="fa fa-cube form-control-feedback left" aria-hidden="true"></span>
                                             </div> 
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="unidade_concedente">
                                                     <option>Selecione Atividade:</option>
                                                 </select>
-                                                <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                                                <span class="fa fa-book form-control-feedback left" aria-hidden="true"></span>
                                             </div> 
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="unidade_concedente">
                                                     <option>Orientador Estágio:</option>
                                                 </select>
-                                                <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                                                <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div> 
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="unidade_concedente">
                                                     <option>Supervisor Estagio:</option>
                                                 </select>
-                                                <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                                                <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div> 
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                               <input type="text" class="form-control has-feedback-left" placeholder="Data Documento" name="valor_adicional" value="{{old('valor_adicional')}}">
-                                              <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+                                              <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
                                               <div class="checkbox">
