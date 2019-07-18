@@ -22,7 +22,13 @@ class EstagiarioController extends Controller
      */
     public function index()
     {
-       $estagiarios = Estagiario::all();
+       $estagiarios = DB::table('estagiario')
+       ->join('endereco', 'estagiario.id', '=', 'endereco.estagiario_id')
+       ->select('endereco.cidade', 'estagiario.nome','estagiario.und_concedente','estagiario.celular',
+       'estagiario.cpf','estagiario.data_nascimento','estagiario.id')
+       ->get();
+        // $estagiarios = Estagiario::all();
+    // dd($estagiarios);
         return view('estagiario.index', compact('estagiarios', $estagiarios));
     }
 

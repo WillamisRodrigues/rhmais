@@ -46,7 +46,6 @@
                       </thead>
                       <tbody>
                        @foreach($estagiarios as $estagiario)
-
                          <tr>
                           <td>{{$estagiario->nome}}</td>
                           <td>{{$estagiario->und_concedente}}</td>
@@ -57,10 +56,9 @@
                           <td>ENSINO MÉDIO</td>
                            <td>31/12/2020</td>
                           <td>Sim</td>
-
                            <td style="width:15%;">
                             <div class="col-md-3">
-                              <a href="{{ route('estagiario.edit',[$estagiario->id])}}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
+                            <a href="{{ route('estagiario.edit',[$estagiario->id])}}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
                             </div>
                             <form class="col-md-3 delete" style="margin-left:40px;" action="{{route('estagiario.destroy', [$estagiario->id])}}" method="POST">
                               <input type="hidden" name="_method" value="DELETE">

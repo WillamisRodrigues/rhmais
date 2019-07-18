@@ -141,6 +141,7 @@
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="nacionalidade" value="{{old('nacionalidade')}}">
                                                     <option>Selecione Nacionalidade</option>
+                                                    <option>Brasileiro(a)</option>
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
