@@ -28,6 +28,8 @@ Route::resource('seguro', 'SeguradoraController');
 Route::resource('setor', 'SetorController');
 Route::resource('atividade', 'AtividadeController');
 Route::resource('horario', 'HorarioController');
+Route::resource('auto_avaliacao', 'AvaliacaoController');
+Route::resource('avaliacao_super', 'AvaliacaoSuperController');
 
  Route::get('/cidade-estado',array('as'=>'myform','uses'=>'EstagiarioController@myform'));
  Route::get('myform/ajax/{id}',array('as'=>'myform.ajax','uses'=>'EstagiarioController@myformAjax'));
@@ -89,16 +91,10 @@ Route::get('/motivos_rescisao', function () {
 });
 
 
-Route::get('/beneficios', function () {
-    return view('beneficios/index');
-});
-
 Route::get('/orientador', function () {
     return view('orientador/index');
 });
-Route::get('/seguro', function () {
-    return view('seguro/index');
-});
+
 
 Route::get('/supervisor', function () {
     return view('supervisor/index');
