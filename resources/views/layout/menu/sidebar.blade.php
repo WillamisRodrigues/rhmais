@@ -32,7 +32,7 @@
                     <ul class="nav child_menu">
                     <li><a href="/folha_pagamento">Gerar Folha Pagamento</a></li>
                     <li><a href="/folha_rescisao">Gerar Folha de Rescisão</a></li>
-                    <li><a href="/rendimentos">Informe de Rendimentos</a></li>
+                    <li><a href="/rendimento">Informe de Rendimentos</a></li>
                     <li><a href="/previsao_rescisao">Gerar Prévia de Rescisão</a></li>
                     </ul>
                   </li>
@@ -50,10 +50,10 @@
                       <li><a href="/cidade">Cidades</a></li>
                       <li><a href="/curso">Cursos</a></li>
                       <li><a href="/motivos_rescisao">Motivos <br> Resição / Recesso</a></li>
-                      <li><a href="/setores">Setores</a></li>
-                      <li><a href="/atividades">Atividades</a></li>
-                      <li><a href="/beneficios">Benefícios</a></li>
-                      <li><a href="/horarios">Horários</a></li>
+                      <li><a href="/setor">Setores</a></li>
+                      <li><a href="/atividade">Atividades</a></li>
+                      <li><a href="/beneficio">Benefícios</a></li>
+                      <li><a href="/horario">Horários</a></li>
                       <li><a href="/orientador">Orientador</a></li>
                       <li><a href="/seguro">Seguro</a></li>
                       <li><a href="/supervisor">Supervisor</a></li>

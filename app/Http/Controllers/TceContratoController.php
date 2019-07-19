@@ -41,7 +41,14 @@ class TceContratoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nome' => 'required',
+            'empresa' => 'required',
+            'instituicao' => 'required',
+        ]);
+        TceContrato::create($request->all());
+        return redirect()->route('tce_contrato.index')
+                        ->with('success','Cadastrado com sucesso.');
     }
 
     /**
@@ -63,7 +70,7 @@ class TceContratoController extends Controller
      */
     public function edit(TceContrato $tceContrato)
     {
-        //
+        return view('tce_contrato.edit', compact('tceContrato', $tceContrato));
     }
 
     /**
