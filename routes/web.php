@@ -108,6 +108,22 @@ Route::get('/editar_conta', function () {
     return view('editar_conta/edit');
 });
 
+Route::get('/auto_avaliacao', function () {
+    return view('auto_avaliacao/index');
+});
+
+Route::get('/lista_auto_avaliacao', function () {
+    return view('lista_auto_avaliacao/index');
+});
+
+Route::get('/avaliacao_supervisor', function () {
+    return view('avaliacao_supervisor/index');
+});
+
+Route::get('/lista_avaliacao_supervisor', function () {
+    return view('lista_avaliacao_supervisor/index');
+});
+
 /* fim folha de pagamento */
 
 /* pdf tce  */
