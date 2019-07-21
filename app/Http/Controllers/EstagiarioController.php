@@ -41,7 +41,6 @@ class EstagiarioController extends Controller
     {
         $states = DB::table("estado")->pluck("nome","id");
         $empresas = Empresa::all();
-        // dd($empresas);
        return view('estagiario.create', compact('states','empresas'));
     }
 

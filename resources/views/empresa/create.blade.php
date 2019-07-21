@@ -159,7 +159,7 @@
                             <span class="fa fa-bars form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
-
+                        @include('layout.selects.estado-cidade')
                                   </div>
                               </div>
                               <div id="step-2">

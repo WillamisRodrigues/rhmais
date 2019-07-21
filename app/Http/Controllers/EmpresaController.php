@@ -30,7 +30,8 @@ class EmpresaController extends Controller
      */
     public function create()
     {
-        return view('empresa.create');
+        $states = DB::table("estado")->pluck("nome", "id");
+        return view('empresa.create', compact('states', 'empresas'));
     }
 
     /**
@@ -101,11 +102,12 @@ class EmpresaController extends Controller
      * @param  \App\Empresa  $empresas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Empresa $empresa)
+    public function destroy(Request $request, Empresa $empresa)
     {
-       $empresa->delete();
+        $empresa->delete();
         $request->session()->flash('message', 'Removido com sucesso!');
         return redirect('empresa');
     }
+
 }
 

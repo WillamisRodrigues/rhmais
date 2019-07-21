@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Redirect;
 use App\Instituicao;
-use App\Message;
+use Illuminate\Support\Facades\DB;
 
 class InstituicaoController extends Controller
 {
@@ -28,7 +27,8 @@ class InstituicaoController extends Controller
      */
     public function create()
     {
-        return view('instituicao.create');
+        $states = DB::table("estado")->pluck("nome", "id");
+        return view('instituicao.create', compact('states','empresas'));
     }
 
     /**
@@ -99,11 +99,11 @@ class InstituicaoController extends Controller
      * @param  \App\Instituicao  $instituicoes
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Instituicao $instituicoes)
+    public function destroy(Request $request, Instituicao $instituicoes)
     {
-       $usr->delete();
-        $request->session()->flash('message', 'Removido com sucesso!');
-        return redirect('instituicao');
+       $instituicoes->delete();
+       $request->session()->flash('message', 'Removido com sucesso!');
+       return redirect('instituicao');
     }
 }
 

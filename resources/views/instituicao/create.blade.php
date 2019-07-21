@@ -77,6 +77,7 @@
                                     </div>
                                   </div>
                                   </div>
+                                  @include('layout.selects.estado-cidade')
 
                               </div>
                               <div id="step-2">
