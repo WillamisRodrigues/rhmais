@@ -31,15 +31,33 @@
                     <table class="table list table-striped table-bordered">
                       <thead>
                         <tr>
-                          <th>Estagiario</th>
-                          <th>Un. Concedente</th>
-                          <th>Instituição</th>
-                          <th>Valor Bolsa</th>
-                          <th>Data Inicio</th>
-                          <th>Data Fim</th>
-                          <th>Contrato</th>
-                          <th>Assinado</th>
-                          <th>Obrigatório</th>
+                          <th>Estagiario
+                          <input type="text">
+                          </th>
+                          <th>Un. Concedente <br>
+                          <input type="text">
+                          </th>
+                          <th>Instituição
+                          <input type="text">
+                          </th>
+                          <th>Valor Bolsa
+                          <input type="text" style="width:100px;">
+                          </th>
+                          <th>Data Inicio
+                          <input type="text" style="width:100px;">
+                          </th>
+                          <th>Data Fim
+                          <input type="text" style="width:100px;">
+                          </th>
+                          <th>Contrato
+                          <input type="text" style="width:100px;">
+                          </th>
+                          <th>Assinado
+                          <input type="text" style="width:100px;">
+                          </th>
+                          <th>Obrigatório
+                          <input type="text" style="width:100px;">
+                          </th>
                           <th>Opções</th>
                         </tr>
                       </thead>
