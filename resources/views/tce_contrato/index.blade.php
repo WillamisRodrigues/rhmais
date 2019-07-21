@@ -31,34 +31,36 @@
                     <table class="table list table-striped table-bordered">
                       <thead>
                         <tr>
-                          <th>Estagiario
-                          <input type="text">
+                          <th>Estagiario:
+                          <input type="text" class="form-control">
                           </th>
-                          <th>Un. Concedente <br>
-                          <input type="text">
+                          <th>Un. Concedente: <br>
+                          <input type="text" class="form-control">
                           </th>
-                          <th>Instituição
-                          <input type="text">
+                          <th>Instituição:
+                          <input type="text" class="form-control">
                           </th>
-                          <th>Valor Bolsa
-                          <input type="text" style="width:100px;">
+                          <th>Valor Bolsa:
+                          <input type="text" style="width:100px;" class="form-control">
                           </th>
-                          <th>Data Inicio
-                          <input type="text" style="width:100px;">
+                          <th>Data Inicio:
+                          <input type="text" style="width:100px;" class="form-control"> 
                           </th>
-                          <th>Data Fim
-                          <input type="text" style="width:100px;">
+                          <th>Data Fim:
+                          <input type="text" style="width:100px;" class="form-control">
                           </th>
-                          <th>Contrato
-                          <input type="text" style="width:100px;">
+                          <th>Contrato:
+                          <input type="text" style="width:100px;" class="form-control">
                           </th>
-                          <th>Assinado
-                          <input type="text" style="width:100px;">
+                          <th>Assinado:
+                          <input type="text" style="width:100px;" class="form-control">
                           </th>
-                          <th>Obrigatório
-                          <input type="text" style="width:100px;">
+                          <th>Obrigatório:
+                          <input type="text" style="width:100px;" class="form-control">
                           </th>
-                          <th>Opções</th>
+                          <th>Opções 
+                          <div style="height:20px;"></div>
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
