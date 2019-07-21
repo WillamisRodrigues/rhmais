@@ -7,6 +7,13 @@ use App\Empresa;
 use App\Instituicao;
 use App\Estagiario;
 use Illuminate\Http\Request;
+use App\Beneficio;
+use App\Seguradora;
+use App\Setor;
+use App\Horario;
+use App\Atividade;
+use App\Orientador;
+use App\Supervisor;
 
 class TceContratoController extends Controller
 {
@@ -29,8 +36,17 @@ class TceContratoController extends Controller
     {
         $empresas = Empresa::all();
         $estagiarios = Estagiario::all();
-        $inst = Instituicao::all();
-        return view('tce_contrato.create', compact('empresas', 'inst', 'estagiarios'));
+        $instituicoes = Instituicao::all();
+        $beneficios = Beneficio::all();
+        $seguros = Seguradora::all();
+        $setores = Setor::all();
+        $horarios = Horario::all();
+        $atividades = Atividade::all();
+        $orienta = Orientador::all();
+        $super = Supervisor::all();
+
+        return view('tce_contrato.create', compact('empresas','instituicoes','estagiarios','beneficios','seguros','setores','horarios','atividades','orienta','super'));
+
     }
 
     /**
@@ -41,14 +57,15 @@ class TceContratoController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nome' => 'required',
-            'empresa' => 'required',
-            'instituicao' => 'required',
-        ]);
+        // $request->validate([
+        //     'nome' => 'required',
+        //     'empresa' => 'required',
+        //     'instituicao' => 'required',
+        // ]);
         TceContrato::create($request->all());
         return redirect()->route('tce_contrato.index')
                         ->with('success','Cadastrado com sucesso.');
+
     }
 
     /**

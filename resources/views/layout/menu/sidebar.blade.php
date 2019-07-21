@@ -49,7 +49,7 @@
                       <li><a href="/user_sistema">Usuários do Sistema</a></li>
                       <li><a href="/cidade">Cidades</a></li>
                       <li><a href="/curso">Cursos</a></li>
-                      <li><a href="/motivos_rescisao">Motivos <br> Resição / Recesso</a></li>
+                      <li><a href="/motivo">Motivos <br> Resição / Recesso</a></li>
                       <li><a href="/setor">Setores</a></li>
                       <li><a href="/atividade">Atividades</a></li>
                       <li><a href="/beneficio">Benefícios</a></li>

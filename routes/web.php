@@ -30,6 +30,7 @@ Route::resource('atividade', 'AtividadeController');
 Route::resource('horario', 'HorarioController');
 Route::resource('auto_avaliacao', 'AvaliacaoController');
 Route::resource('avaliacao_super', 'AvaliacaoSuperController');
+Route::resource('motivo', 'MotivoController');
 
  Route::get('/cidade-estado',array('as'=>'myform','uses'=>'EstagiarioController@myform'));
  Route::get('myform/ajax/{id}',array('as'=>'myform.ajax','uses'=>'EstagiarioController@myformAjax'));
@@ -84,10 +85,6 @@ Route::get('/rendimentos', function () {
 });
 Route::get('/previsao_rescisao', function () {
     return view('previsao_rescisao/index');
-});
-
-Route::get('/motivos_rescisao', function () {
-    return view('motivos/index');
 });
 
 
