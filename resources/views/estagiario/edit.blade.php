@@ -119,7 +119,7 @@
                                                     <option>Masculino</option>
                                                     <option>Feminino</option>
                                                 </select>
-                                                <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
+                                                <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             
                                         </div>
                                         <div class="row" style="width:960px; margin: 0 auto;">

@@ -43,110 +43,110 @@
                                   <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control cnpj has-feedback-left" placeholder="CNPJ / CPF" name="cnpj" value="{{old('cnpj')}}">
-                            <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                            <span class="fa fa-bars form-control-feedback left" aria-hidden="true"></span>
                           </div>
 
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left" placeholder="Razão Social / Nome" name="razao_social" value="{{old('razao_social')}}">
-                            <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                            <span class="fa fa-bars form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left" placeholder="Insc. Estadual/Rg" name="inscricao" value="{{old('inscricao')}}" >
-                            <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
+                            <span class="fa fa-bars form-control-feedback left" aria-hidden="true"></span>
                           </div>
 
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left" placeholder="Cidade" name="cidade" value="{{old('cidade')}}">
-                            <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
+                            <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left" placeholder="Numero" name="numero" value="{{old('numero')}}">
-                            <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+                            <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
                           </div>
 
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left" placeholder="Bairro" name="bairro" value="{{old('bairro')}}">
-                            <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+                            <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control telefone has-feedback-left" placeholder="Telefone" name="telefone" value="{{old('telefone')}}">
-                            <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
+                            <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left" placeholder="End. Site" name="site_url" value="{{old('site_url')}}">
-                            <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+                            <span class="fa fa-at form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control telefone has-feedback-left" placeholder="Celular cont." name="celular1" value="{{old('celular1')}}">
-                            <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
+                            <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left" placeholder="Nome Representante" name="representante" value="{{old('representante')}}">
-                            <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+                            <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control cpf has-feedback-left" placeholder="CPF Representante" name="cpf2" value="{{old('cpf2')}}">
-                            <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
+                            <span class="fa fa-bars form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="email" class="form-control has-feedback-left" placeholder="Email Representante" name="email2" value="{{old('email2')}}">
-                            <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+                            <span class="fa fa-at form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left" placeholder="Agente Integração" name="agente" value="{{old('agente')}}">
-                            <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
+                            <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left" placeholder="Nome Fantasia" name="fantasia" value="{{old('fantasia')}}">
-                            <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+                            <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left" placeholder="Estado" name="estado" value="{{old('estado')}}">
-                            <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
+                            <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left"  placeholder="Endereço" name="endereco" value="{{old('endereco')}}">
-                            <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+                            <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left" placeholder="Complemento"  name="complemento" value="{{old('complemento')}}">
-                            <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
+                            <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control cep has-feedback-left"  placeholder="CEP" name="cep" value="{{old('cep')}}">
-                            <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+                            <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control telefone has-feedback-left" placeholder="Celular" name="celular2" value="{{old('celular2')}}">
-                            <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
+                            <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left"  placeholder="Nome do Contato" name="nome_contato" value="{{old('nome_contato')}}">
-                            <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+                            <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left" placeholder="Email Contato" name="email_contato" value="{{old('email_contato')}}">
-                            <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
+                            <span class="fa fa-at form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control telefone has-feedback-left"  placeholder="Celular Representante" name="celular_representante" value="{{old('celular_representante')}}">
@@ -156,7 +156,7 @@
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control rg has-feedback-left" placeholder="R.G. Representante" name="rg_representante" value="{{old('rg_representante')}}">
-                            <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
+                            <span class="fa fa-bars form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
 
@@ -182,27 +182,27 @@
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left" placeholder="Quantidade TCE Plano" name="qtd_plano" value="{{old('qtd_plano')}}">
-                            <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+                            <span class="fa fa-bars form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left" placeholder="Cobrança Valor Fixo" name="cob_valor_fixo" value="{{old('cob_valor_fixo')}}">
-                            <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
+                            <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left" placeholder="Cobrança Valor %" name="cobranca_valor" value="{{old('cobranca_valor')}}">
-                            <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+                            <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left" placeholder="Custo Unitário" name="custo_unitario" value="{{old('custo_unitario')}}">
-                            <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
+                            <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left" placeholder="Valor Adicional" name="valor_adicional" value="{{old('valor_adicional')}}">
-                            <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+                            <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="row" style="width:500px; margin: 0 auto;">
                             <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
