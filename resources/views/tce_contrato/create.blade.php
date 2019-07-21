@@ -68,14 +68,17 @@
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
-                                              <input type="text" class="form-control has-feedback-left" placeholder="Valor Bolsa-Auxílio:" name="bolsa">
-                                              <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
+                                            <label for="">Data do Cadastro</label>
+                                              <input type="date" class="form-control has-feedback-left" placeholder="Data Documento" name="data_doc">
+                                              <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
+                                              <label for=""> Data Inicio</label>
                                               <input type="date" class="form-control has-feedback-left" placeholder="Data Início:" name="data_inicio">
                                               <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
+                                            <label for=""> Data Fim</label>
                                               <input type="date" class="form-control has-feedback-left" placeholder="Data Fim:" name="data_fim">
                                               <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                             </div>
@@ -143,8 +146,8 @@
                                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                              <input type="date" class="form-control has-feedback-left" placeholder="Data Documento" name="data_doc">
-                                              <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
+                                              <input type="text" class="form-control has-feedback-left" placeholder="Valor Bolsa-Auxílio:" name="bolsa">
+                                              <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
                                               <div class="checkbox">
