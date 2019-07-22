@@ -29,10 +29,18 @@
                     <table class="table table-striped  list table-bordered">
                       <thead>
                         <tr>
-                          <th>Estagiário</th>
-                          <th>Unidade Concedente</th>
-                          <th>Data Inicio</th>
-                          <th>Data Fim</th>
+                          <th>Estagiário
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Unidade Concedente
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Data Inicio
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Data Fim
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
                           <th>Situacao Termo Férias/Recesso</th>
                           <th>Opções</th>
                         </tr>
