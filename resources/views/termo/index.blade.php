@@ -32,15 +32,19 @@
                           <th>Estagiário
                           <input type="text" class="form-control">
                           </th>
-                          <th>Unidade Concedente</th>
-                          <th>Valor da Bolsa</th>
+                          <th>Unidade Concedente
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Valor da Bolsa
+                          <input type="text" class="form-control"  style="width:100px;">
+                          </th>
                           <th>TCE Inicio / FIM</th>
                           <th>Período <br> Aquisitivo</th>
                           <th>Ferias Concedidas</th>
                           <th>Valor Direito</th>
                           <th>Valor Recebido</th>
                           <th>Valor Saldo</th>
-                          <th>TCE / Ad Assinado </th>
+                          <th>TCE / Ad Assinado <input type="text" class="form-control" style="width:100px;"> </th>
                           <th>Opções</th>
                         </tr>
                       </thead>
