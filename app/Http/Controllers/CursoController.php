@@ -81,7 +81,15 @@ class CursoController extends Controller
      */
     public function update(Request $request, Curso $curso)
     {
-        //
+        $request->validate([
+            'nome' => 'required',
+            'nivel' => 'required',
+        ]);
+
+        $curso->update($request->all());
+        $curso->save();
+        $request->session()->flash('message', 'Sucesso!');
+        return redirect('curso.index');
     }
 
     /**

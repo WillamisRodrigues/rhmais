@@ -43,7 +43,7 @@
                                     </div>
 
                                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" value="{{ $curso->nivel }}" class="form-control has-feedback-left" placeholder="Email" name="email">
+                                        <input type="text" value="{{ $curso->nivel }}" class="form-control has-feedback-left" placeholder="Nível" name="nivel">
                                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     </div>

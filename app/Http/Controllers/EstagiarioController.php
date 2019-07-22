@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 use DB;
-use App\Endereco;
 use App\Estagiario;
-use App\Estado;
-use App\Cidade;
 use App\Empresa;
 use Illuminate\Http\Request;
 
