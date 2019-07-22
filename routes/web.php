@@ -31,6 +31,8 @@ Route::resource('horario', 'HorarioController');
 Route::resource('auto_avaliacao', 'AvaliacaoController');
 Route::resource('avaliacao_super', 'AvaliacaoSuperController');
 Route::resource('motivo', 'MotivoController');
+Route::resource('orientador', 'OrientadorController');
+Route::resource('supervisor', 'SupervisorController');
 
  Route::get('/cidade-estado',array('as'=>'myform','uses'=>'EstagiarioController@myform'));
  Route::get('myform/ajax/{id}',array('as'=>'myform.ajax','uses'=>'EstagiarioController@myformAjax'));
@@ -85,16 +87,6 @@ Route::get('/rendimentos', function () {
 });
 Route::get('/previsao_rescisao', function () {
     return view('previsao_rescisao/index');
-});
-
-
-Route::get('/orientador', function () {
-    return view('orientador/index');
-});
-
-
-Route::get('/supervisor', function () {
-    return view('supervisor/index');
 });
 
 Route::get('/editar_conta', function () {

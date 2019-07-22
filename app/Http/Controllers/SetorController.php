@@ -25,7 +25,7 @@ class SetorController extends Controller
      */
     public function create()
     {
-        //
+        return view('setor.create');
     }
 
     /**

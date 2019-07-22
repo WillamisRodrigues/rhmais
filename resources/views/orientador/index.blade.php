@@ -21,7 +21,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                  <a href="#" class="btn btn-success pull-right"> <i class="fa fa-list"> </i> Novo Orientador</a>
+                  <a href="{{route('orientador.create')}}" class="btn btn-success pull-right"> <i class="fa fa-list"> </i> Novo Orientador</a>
                     <h2>Lista de Orientadores</h2>
                     <div class="clearfix"></div>
                   </div>

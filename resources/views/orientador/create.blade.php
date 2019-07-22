@@ -1,5 +1,5 @@
 @extends('layout/app')
-@section('titulo','Setores - Listagem | RH MAIS')
+@section('titulo','Lista de Orientadores | RH MAIS')
 @section('conteudo')
    <div class="container body">
       <div class="main_container">
@@ -21,23 +21,33 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                  <a href={{route('setor.create')}} class="btn btn-success pull-right"> <i class="fa fa-list"> </i> Novo</a>
-                    <h2>Setores - Listagem</h2>
+                  <a href="#" class="btn btn-success pull-right"> <i class="fa fa-list"> </i> Novo Orientador</a>
+                    <h2>Lista de Orientadores</h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <table class="table table-striped list table-bordered">
                       <thead>
                         <tr>
-                          <th>Nome do Setor</th>
-                          <th>Sigla do Setor</th>
+                          <th>Nome do Orientador</th>
+                          <th>CPF</th>
+                          <th>RG</th>
+                          <th>Cidade</th>
+                          <th>Instituição</th>
+                          <th>Unidade</th>
+                          <th>Ag de Integração</th>
                           <th>Opções</th>
                         </tr>
                       </thead>
                       <tbody>
                          <tr>
-                            <td>ACADEMIA</td>
-                            <td>OUT - OUTROS SETORES NÃO CADASTRADOS</td>
+                            <td>ADRIANA REGINA MARQUES DE SOUZA PELISSARI</td>
+                            <td>000.000.456-78</td>
+                            <td></td>
+                            <td>CAMPINAS</td>
+                            <td>ASSUPERO ENSINO SUPERIOR LTDA</td>
+                            <td>KOSTER & KOSTER CONSULTORIA EM RH LTDA</td>
+                            <td>KOSTER E KOSTER CONSULTORIA EM RH LTDA</td>
                             <td style="width:15%;">
                           <form class="col-md-3" action="#" method="POST">
     		                  <input type="hidden" name="_method" value="DELETE">

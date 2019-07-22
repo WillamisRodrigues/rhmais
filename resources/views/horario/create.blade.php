@@ -1,5 +1,5 @@
 @extends('layout/app')
-@section('titulo','Setores - Listagem | RH MAIS')
+@section('titulo','Horários de Estágio - Trabalho - Listagem | RH MAIS')
 @section('conteudo')
    <div class="container body">
       <div class="main_container">
@@ -21,23 +21,27 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                  <a href={{route('setor.create')}} class="btn btn-success pull-right"> <i class="fa fa-list"> </i> Novo</a>
-                    <h2>Setores - Listagem</h2>
+                  <a href="#" class="btn btn-success pull-right"> <i class="fa fa-list"> </i> Novo Horário</a>
+                    <h2>Horários de Estágio - Trabalho - Listagem</h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <table class="table table-striped list table-bordered">
                       <thead>
                         <tr>
-                          <th>Nome do Setor</th>
-                          <th>Sigla do Setor</th>
+                          <th>Descrição do Horário</th>
+                          <th>Qtade Horas</th>
+                          <th>Unidade</th>
+                          <th>Ag de Integração</th>
                           <th>Opções</th>
                         </tr>
                       </thead>
                       <tbody>
                          <tr>
-                            <td>ACADEMIA</td>
-                            <td>OUT - OUTROS SETORES NÃO CADASTRADOS</td>
+                            <td>2ª 6ª DAS 09:00 ÀS 15:00 COM 00:15 MINUTOS DE INTERVALO, TOTALIZANDO 30 HORAS SEMANAIS.</td>
+                            <td>30.00</td>
+                            <td>PRINCIPAL RB PROMOTORA DE CREDITO LTDA ME - PRINCIPAL PROMOTORA </td>
+                            <td>KOSTER E KOSTER CONSULTORIA EM RH LTDA - RH MAIS TALENTOS</td>
                             <td style="width:15%;">
                           <form class="col-md-3" action="#" method="POST">
     		                  <input type="hidden" name="_method" value="DELETE">

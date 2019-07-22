@@ -21,7 +21,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                  <a href="#" class="btn btn-success pull-right"> <i class="fa fa-list"> </i> Novo Horário</a>
+                  <a href="{{route('horario.create')}}" class="btn btn-success pull-right"> <i class="fa fa-list"> </i> Novo Horário</a>
                     <h2>Horários de Estágio - Trabalho - Listagem</h2>
                     <div class="clearfix"></div>
                   </div>

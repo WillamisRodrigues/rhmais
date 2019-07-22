@@ -21,7 +21,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                  <a href="#" class="btn btn-success pull-right"> <i class="fa fa-list"> </i> Novo Seguro</a>
+                  <a href="{{route('seguro.create')}}" class="btn btn-success pull-right"> <i class="fa fa-list"> </i> Novo Seguro</a>
                     <h2>Lista de Seguros - Apólices em Vigência</h2>
                     <div class="clearfix"></div>
                   </div>

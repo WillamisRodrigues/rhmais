@@ -14,7 +14,8 @@ class OrientadorController extends Controller
      */
     public function index()
     {
-        //
+        $orientadores = Orientador::all();
+        return view('orientador.index', compact('orientadores'));
     }
 
     /**
@@ -24,7 +25,7 @@ class OrientadorController extends Controller
      */
     public function create()
     {
-        //
+        return view('orientador.create');
     }
 
     /**

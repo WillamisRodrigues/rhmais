@@ -1,5 +1,5 @@
 @extends('layout/app')
-@section('titulo','Setores - Listagem | RH MAIS')
+@section('titulo','Atividades Relacionadas aos Setores - Listagem | RH MAIS')
 @section('conteudo')
    <div class="container body">
       <div class="main_container">
@@ -21,23 +21,25 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                  <a href={{route('setor.create')}} class="btn btn-success pull-right"> <i class="fa fa-list"> </i> Novo</a>
-                    <h2>Setores - Listagem</h2>
+                  <a href="#" class="btn btn-success pull-right"> <i class="fa fa-list"> </i> Novo</a>
+                    <h2>Atividades Relacionadas aos Setores - Listagem</h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <table class="table table-striped list table-bordered">
                       <thead>
                         <tr>
-                          <th>Nome do Setor</th>
-                          <th>Sigla do Setor</th>
+                          <th>Nome da Atividade</th>
+                          <th>Unidade</th>
+                          <th>Ag. Integração</th>
                           <th>Opções</th>
                         </tr>
                       </thead>
                       <tbody>
                          <tr>
-                            <td>ACADEMIA</td>
-                            <td>OUT - OUTROS SETORES NÃO CADASTRADOS</td>
+                            <td>ACIONAMENTO DE CLIENTES E NEGOCIAÇÃO DE CRÉDITO VIA TELEFONE, PRESTAÇÃO DE SERVIÇOS PARA BANCOS,</td>
+                            <td>R. DE LIMA SILVEIRA INFORMAÇÕES CADASTRAIS - FABRICA DO CRÉDITO</td>
+                            <td>KOSTER E KOSTER CONSULTORIA EM RH LTDA - RH MAIS TALENTOS</td>
                             <td style="width:15%;">
                           <form class="col-md-3" action="#" method="POST">
     		                  <input type="hidden" name="_method" value="DELETE">

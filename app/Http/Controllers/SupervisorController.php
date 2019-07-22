@@ -14,7 +14,8 @@ class SupervisorController extends Controller
      */
     public function index()
     {
-        //
+        $supervisores = Supervisor::all();
+        return view('supervisor.index', compact('supervisores'));
     }
 
     /**
@@ -24,7 +25,7 @@ class SupervisorController extends Controller
      */
     public function create()
     {
-        //
+        return view('supervisor.create');
     }
 
     /**

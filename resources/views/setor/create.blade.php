@@ -21,7 +21,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                  <a href={{route('setor.create')}} class="btn btn-success pull-right"> <i class="fa fa-list"> </i> Novo</a>
+                  <a href="#" class="btn btn-success pull-right"> <i class="fa fa-list"> </i> Novo</a>
                     <h2>Setores - Listagem</h2>
                     <div class="clearfix"></div>
                   </div>

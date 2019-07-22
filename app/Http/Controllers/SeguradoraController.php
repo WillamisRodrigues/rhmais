@@ -25,7 +25,7 @@ class SeguradoraController extends Controller
      */
     public function create()
     {
-        //
+        return view('seguro.index');
     }
 
     /**

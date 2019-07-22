@@ -25,7 +25,7 @@ class MotivoController extends Controller
      */
     public function create()
     {
-        //
+        return view('motivo.create');
     }
 
     /**
