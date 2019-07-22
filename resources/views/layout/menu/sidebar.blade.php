@@ -28,6 +28,12 @@
                       <li><a href="/lista_recesso">Lista de Recesso / Férias </a></li>
                     </ul>
                   </li>
+                  <li><a><i class="fa fa-money"></i> Financeiro <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="/">Relatório e Fechamento</a></li>
+                    </ul>
+                  </li>
+                  
                   <li><a><i class="fa fa-money"></i> Folha Pagamento <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                     <li><a href="/folha_pagamento">Gerar Folha Pagamento</a></li>
