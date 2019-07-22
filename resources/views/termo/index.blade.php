@@ -29,7 +29,9 @@
                     <table class="table list table-striped table-bordered">
                       <thead>
                         <tr>
-                          <th>Estagiário</th>
+                          <th>Estagiário
+                          <input type="text" class="form-control">
+                          </th>
                           <th>Unidade Concedente</th>
                           <th>Valor da Bolsa</th>
                           <th>TCE Inicio / FIM</th>
@@ -61,7 +63,7 @@
                           <td><a href="" class="btn btn-primary"> <i class="fa fa-plus"> </i> Adicionar</a></td>
                         </tr>
                         <tr>
-                          <td>Nathalie Kesley Viana Silva</td>
+                          <td>Welton Kesley Viana Silva</td>
                           <td>Arymana Contabilidade Eireli</td>
                           <td>800,00</td>
                           <td>01/08/2018 <br> 01/08/2020</td>

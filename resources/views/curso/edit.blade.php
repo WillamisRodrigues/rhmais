@@ -48,14 +48,7 @@
                                     </div>
                                     </div>
                                         </div>
-                                        <div class="row" style="width:960px; margin: 0 auto;">
-                                                <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
-                                        </div>
-                                        <div class="row" style="width:960px; margin: 0 auto;">
-                                   <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
-
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                        </div>
+                                       
                                         <button  type="submit"class="btn btn-success" style="margin: 20px auto; display:block;">Salvar Alterações</button>
                                     </div>
                                   </div>
