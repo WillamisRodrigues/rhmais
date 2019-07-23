@@ -33,6 +33,7 @@ Route::resource('avaliacao_super', 'AvaliacaoSuperController');
 Route::resource('motivo', 'MotivoController');
 Route::resource('orientador', 'OrientadorController');
 Route::resource('supervisor', 'SupervisorController');
+Route::get('tce-pdf', 'PdfController@generatePDF');
 
  Route::get('/cidade-estado',array('as'=>'myform','uses'=>'EstagiarioController@myform'));
  Route::get('myform/ajax/{id}',array('as'=>'myform.ajax','uses'=>'EstagiarioController@myformAjax'));
@@ -112,13 +113,13 @@ Route::get('/lista_avaliacao_supervisor', function () {
 /* fim folha de pagamento */
 
 /* pdf tce  */
-Route::get('/tce', function () {
-    //  return view('invoice');
-    $pdf = PDF::loadView('pdf/tce/index');
-    return $pdf->stream('pdf/tce/index.pdf');
-});
-Route::get('/recisaotce', function () {
-    //  return view('invoice');
-    $pdf = PDF::loadView('pdf/recisao/index');
-    return $pdf->stream('pdf/recisao/index.pdf');
-});
+// Route::get('/tce', function () {
+//     //  return view('invoice');
+//     $pdf = PDF::loadView('pdf/tce/index');
+//     return $pdf->stream('pdf/tce/index.pdf');
+// });
+// Route::get('/recisaotce', function () {
+//     //  return view('invoice');
+//     $pdf = PDF::loadView('pdf/recisao/index');
+//     return $pdf->stream('pdf/recisao/index.pdf');
+// });

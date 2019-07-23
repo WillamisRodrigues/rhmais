@@ -24,8 +24,6 @@ class EstagiarioController extends Controller
        ->select('endereco.cidade', 'estagiario.nome','estagiario.und_concedente','estagiario.celular',
        'estagiario.cpf','estagiario.data_nascimento','estagiario.id')
        ->get();
-        // $estagiarios = Estagiario::all();
-    // dd($estagiarios);
         return view('estagiario.index', compact('estagiarios', $estagiarios));
     }
 

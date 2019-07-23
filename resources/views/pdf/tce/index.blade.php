@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <h1>{{ $estagiario }}</h1>
     <title> TCE - TERMO DE COMPROMISSO DE ESTÁGIO    </title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -22,7 +23,7 @@ Federal 11.788 de 25/09/2008, as partes abaixo nomeadas no item 1 (um) acordam o
         <span> <strong> CEP: <span class="text-danger"> -----</span> </strong></span>
         </p>
         <p> <strong> Representante: <span class="text-danger"> --------</span> </strong> <span> <strong> Cargo: <span class="text-danger"> ----- </span></strong></span> </p>
-        <p> <strong> Orientador de estágio: </strong>  <span class="text-danger"> Leilane Aparecida Bernardo </span> 
+        <p> <strong> Orientador de estágio: </strong>  <span class="text-danger"> Leilane Aparecida Bernardo </span>
         <span> <strong> Telefone: </strong><span class="text-danger"> (19) 3231-3033 </span> </span>
         </p>
     </div>
@@ -33,21 +34,21 @@ Federal 11.788 de 25/09/2008, as partes abaixo nomeadas no item 1 (um) acordam o
         <p><strong> Endereço: </strong> <span class="text-danger">Avenida Anchieta </span> <span> <strong>Nº:</strong></span>
         <span class="text-danger"> 80 </span>
         <span> <strong> Bairro: <span class="text-danger">----- </span></strong> </span> </p>
-        <p><strong> Cidade: </strong><span class="text-danger"> Campinas </span><span> <strong>UF: 
+        <p><strong> Cidade: </strong><span class="text-danger"> Campinas </span><span> <strong>UF:
         <span class="text-danger">-- </span></strong> </span>
         <span> <strong> CEP:<span class="text-danger"> ----- </span> </strong></span>  <span> <strong> Telefone: </strong><span class="text-danger"> (19) 3231-3033 </span> </span>
         </p>
         <p> <strong> Representante: </strong> <span class="text-danger"> -------- </span><span><strong> Cargo: </strong> <span class="text-danger"> ----- </span> </span> </span> </p>
         <p> <strong> Supervisor de estágio: </strong> <span class="text-danger">-------- </span><span> <strong> Cargo:</strong> <span class="text-danger">  ----- </span> </span>
         </p>
-        <p> <strong> Formação Acadêmica: </strong> <span class="text-danger"> -------- </span> 
+        <p> <strong> Formação Acadêmica: </strong> <span class="text-danger"> -------- </span>
         </p>
     </div>
     <hr>
     <div>
         <h5><strong>A UNIDADE CONCEDENTE, juntamente com a INSTITUIÇÃO DE ENSINO, e o ESTUDANTE.</strong></h5>
         <p> <strong> Estudante: </strong> <span class="text-danger"> Aline Rafaela Lima </span> <strong></p>
-        <p><strong> Endereço: </strong><span class="text-danger"> Avenida Anchieta </span> <span> <strong>Nº:</strong></span> 
+        <p><strong> Endereço: </strong><span class="text-danger"> Avenida Anchieta </span> <span> <strong>Nº:</strong></span>
         <span class="text-danger"> 80 </span>
         <span> <strong> Bairro: <span class="text-danger"> ----- </span> </strong> </span> </p>
         <p><strong> Cidade: </strong><span class="text-danger"> Campinas </span> <span> <strong>UF: <span class="text-danger"> -- </span></strong> </span>
@@ -134,7 +135,7 @@ escrito, todas as partes envolvidas.</p>
 <div style="height:50px;"></div>
 
 <p class="pull-left">__________________________________ <br>
-Escola Estadual Carlos Gomes 
+Escola Estadual Carlos Gomes
 </p>
 <p class="pull-left" style="margin-left:30px;">
 _________________________________ <br>

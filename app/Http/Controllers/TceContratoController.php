@@ -14,6 +14,7 @@ use App\Horario;
 use App\Atividade;
 use App\Orientador;
 use App\Supervisor;
+use DB;
 
 class TceContratoController extends Controller
 {
@@ -24,7 +25,23 @@ class TceContratoController extends Controller
      */
     public function index()
     {
-         return view('tce_contrato.index');
+        $estagiarios = DB::table('estagiario')
+            ->join('tce_contrato', 'estagiario.id', '=', 'tce_contrato.estagiario_id')
+            ->join('empresa', 'empresa.id', '=', 'tce_contrato.empresa_id')
+            ->join('instituicao', 'instituicao.id', '=', 'tce_contrato.instituicao_id')
+            ->select(
+                'estagiario.nome',
+                'empresa.nome_fantasia',
+                'instituicao.nome_instituicao',
+                'tce_contrato.bolsa',
+                'tce_contrato.data_inicio',
+                'tce_contrato.data_fim',
+                'tce_contrato.contrato',
+                'tce_contrato.assinado',
+                'tce_contrato.obrigatorio'
+            )
+            ->get();
+         return view('tce_contrato.index',  compact('estagiarios', $estagiarios));
     }
 
     /**

@@ -44,7 +44,7 @@
                           <input type="text" style="width:100px;" class="form-control">
                           </th>
                           <th>Data Inicio:
-                          <input type="text" style="width:100px;" class="form-control"> 
+                          <input type="text" style="width:100px;" class="form-control">
                           </th>
                           <th>Data Fim:
                           <input type="text" style="width:100px;" class="form-control">
@@ -58,24 +58,26 @@
                           <th>Obrigatório:
                           <input type="text" style="width:100px;" class="form-control">
                           </th>
-                          <th>Opções 
+                          <th>Opções
                           <div style="height:20px;"></div>
                           </th>
                         </tr>
                       </thead>
                       <tbody>
+                        @foreach ($estagiarios as $estagiario)
                          <tr>
-                          <td>LÍVIA ALBUQUERQUE DIAS</td>
-                          <td>NEY CARTER DO CARMO BORGES CRM: 50.535 - VIVECOR VINHEDO</td>
-                          <td>CETEC - CENTRO TÉCNICO DE ENFERMAGEM LTDA - CETEC JUNDIAÍ</td>
-                          <td>800,00</td>
-                          <td>06/02/2019</td>
-                          <td>31/10/2019</td>
-                          <td>AD</td>
-                          <td>Não</td>
-                          <td>N</td>
-                          <td><a class="btn btn-primary" href="/tce" target="_blank"><i class="fa fa-print"></i> Imprimir TCE</a></td>
+                          <td>{{ $estagiario->nome }}</td>
+                          <td>{{ $estagiario->nome_fantasia }}</td>
+                          <td>{{ $estagiario->nome_instituicao }}</td>
+                          <td>R$ {{ $estagiario->bolsa }}</td>
+                          <td>{{ $estagiario->data_inicio }}</td>
+                          <td>{{ $estagiario->data_fim }}</td>
+                          <td>{{ $estagiario->contrato }}</td>
+                          <td>{{ $estagiario->assinado }}</td>
+                          <td>{{ $estagiario->obrigatorio }}</td>
+                         <td><a class="btn btn-primary" href="/tce-pdf" target="_blank"><i class="fa fa-print"></i> Imprimir TCE</a></td>
                         </tr>
+                        @endforeach
                       </tbody>
                     </table>
                   </div>

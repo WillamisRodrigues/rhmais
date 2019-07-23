@@ -153,10 +153,10 @@
                                               <div class="checkbox">
                                               <label>Tipo de Estágio: </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" checked="checked"> Não Obrigatório
+                                                  <input type="checkbox" class="flat" checked="checked" name="nao"> Não Obrigatório
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat"> Obrigatório
+                                                  <input type="checkbox" class="flat" name="sim"> Obrigatório
                                                 </label>
                                               </div>
                                             </div>
