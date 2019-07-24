@@ -48,7 +48,7 @@
                        @foreach($estagiarios as $estagiario)
                          <tr>
                           <td>{{$estagiario->nome}}</td>
-                          <td>{{$estagiario->und_concedente}}</td>
+                          <td>{{$estagiario->nome_fantasia}}</td>
                           <td>{{$estagiario->celular}}</td>
                           <td>{{$estagiario->cpf}}</td>
                           <td>{{$estagiario->cidade}}</td>

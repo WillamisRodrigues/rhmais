@@ -44,11 +44,10 @@
                         @foreach($instituicoes as $instituicao)
                          <tr>
                           <td>{{$instituicao->nome_instituicao}}</td>
-                          <td>ENSINO MÉDIO</td>
-                          <td>{{$instituicao->insc_estadual}}</td>
-                          <td>{{$instituicao->telefone}}</td>
+                          <td>{{$instituicao->razao_social}}</td>
+                          <td>{{$instituicao->rua}}</td>
+                          <td>{{$instituicao->cidade}}</td>
                           <td>{{$instituicao->cnpj}}</td>
-
                            <td style="width:15%;">
                            <div class="col-md-3">
                            <a href="{{ route('instituicao.edit',[$instituicao->id])}}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>

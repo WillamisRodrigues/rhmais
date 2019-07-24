@@ -15,7 +15,18 @@ class InstituicaoController extends Controller
 
     public function index()
     {
-          $instituicoes = Instituicao::all();
+        // $instituicoes = Instituicao::all();
+         $instituicoes = DB::table('instituicao')
+            ->join('endereco', 'instituicao.id', '=', 'endereco.instituicao_id')
+            ->select(
+            'instituicao.razao_social',
+            'instituicao.nome_instituicao',
+            'instituicao.cnpj',
+            'instituicao.id',
+            'endereco.rua',
+            'endereco.cidade'
+            )
+            ->get();
         return view('instituicao.index',compact('instituicoes', $instituicoes));
 
     }

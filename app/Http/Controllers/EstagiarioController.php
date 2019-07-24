@@ -21,7 +21,8 @@ class EstagiarioController extends Controller
     {
        $estagiarios = DB::table('estagiario')
        ->join('endereco', 'estagiario.id', '=', 'endereco.estagiario_id')
-       ->select('endereco.cidade', 'estagiario.nome','estagiario.und_concedente','estagiario.celular',
+       ->join('empresa', 'estagiario.empresa_id', '=', 'empresa.id')
+       ->select('endereco.cidade', 'estagiario.nome','empresa.nome_fantasia','estagiario.celular',
        'estagiario.cpf','estagiario.data_nascimento','estagiario.id')
        ->get();
         return view('estagiario.index', compact('estagiarios', $estagiarios));
