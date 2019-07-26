@@ -110,6 +110,10 @@ Route::get('/lista_avaliacao_supervisor', function () {
     return view('lista_avaliacao_supervisor/index');
 });
 
+Route::get('/financeiro', function () {
+    return view('financeiro/index');
+});
+
 /* fim folha de pagamento */
 
 /* pdf tce  */
