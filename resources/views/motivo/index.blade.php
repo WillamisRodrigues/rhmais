@@ -29,9 +29,15 @@
                     <table class="table table-striped list table-bordered">
                       <thead>
                         <tr>
-                          <th>Motivos - Relacionados à Aditivos / Rescisões - Listagem</th>
-                          <th>Descrição do Motivo</th>
-                          <th>Unidade</th>
+                          <th>Descrição do Nome do Motivo
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Descrição do Motivo
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Unidade
+                          <input type="text" class="form-control">
+                          </th>
                           <th>Opções</th>
                         </tr>
                       </thead>

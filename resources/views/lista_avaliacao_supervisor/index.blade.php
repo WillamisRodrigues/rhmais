@@ -31,10 +31,18 @@
                     <table class="table list table-striped table-bordered">
                       <thead>
                         <tr>
-                          <th>Estagiario</th>
-                          <th>Unidade Concedente</th>
-                          <th>Supervisor</th>
-                          <th>Período Avaliativo</th>
+                          <th>Estagiario
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Unidade Concedente
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Supervisor
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Período Avaliativo
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
                           <th>Situação</th>
                           <th>Opções</th>
                         </tr>

@@ -29,13 +29,27 @@
                     <table class="table table-striped list table-bordered">
                       <thead>
                         <tr>
-                          <th>Nome do Orientador</th>
-                          <th>CPF</th>
-                          <th>RG</th>
-                          <th>Cidade</th>
-                          <th>Instituição</th>
-                          <th>Unidade</th>
-                          <th>Ag de Integração</th>
+                          <th>Nome do Orientador
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>CPF
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>RG
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Cidade
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Instituição
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Unidade
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Ag de Integração
+                          <input type="text" class="form-control">
+                          </th>
                           <th>Opções</th>
                         </tr>
                       </thead>

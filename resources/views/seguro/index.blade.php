@@ -29,11 +29,21 @@
                     <table class="table table-striped list table-bordered">
                       <thead>
                         <tr>
-                          <th>Nome da Seguradora</th>
-                          <th>Nº da Apólice</th>
-                          <th>Unidade</th>
-                          <th>Cobertura</th>
-                          <th>Ag. Integração</th>
+                          <th>Nome da Seguradora
+                          <input type="text" class="form-control" >
+                          </th>
+                          <th>Nº da Apólice
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Unidade
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Cobertura
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Ag. Integração
+                          <input type="text" class="form-control">
+                          </th>
                           <th>Opções</th>
                         </tr>
                       </thead>

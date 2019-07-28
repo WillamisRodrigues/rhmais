@@ -29,10 +29,18 @@
                     <table class="table table-striped list table-bordered">
                       <thead>
                         <tr>
-                          <th>Descrição do Horário</th>
-                          <th>Qtade Horas</th>
-                          <th>Unidade</th>
-                          <th>Ag de Integração</th>
+                          <th>Descrição do Horário
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Qtade Horas
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Unidade
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Ag de Integração
+                          <input type="text" class="form-control">
+                          </th>
                           <th>Opções</th>
                         </tr>
                       </thead>

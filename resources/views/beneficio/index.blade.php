@@ -29,10 +29,18 @@
                     <table class="table table-striped list table-bordered">
                       <thead>
                         <tr>
-                          <th>Nome do Beneficio</th>
-                          <th>Sigla do Beneficio</th>
-                          <th>Unidade</th>
-                          <th>Ag. de Integração</th>
+                          <th>Nome do Beneficio
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Sigla do Beneficio
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Unidade
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Ag. de Integração
+                          <input type="text" class="form-control">
+                          </th>
                           <th>Opções</th>
                         </tr>
                       </thead>

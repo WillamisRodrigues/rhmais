@@ -29,9 +29,15 @@
                     <table class="table table-striped list table-bordered">
                       <thead>
                         <tr>
-                          <th>Nome da Atividade</th>
-                          <th>Unidade</th>
-                          <th>Ag. Integração</th>
+                          <th>Nome da Atividade
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Unidade
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Ag. Integração
+                          <input type="text" class="form-control">
+                          </th>
                           <th>Opções</th>
                         </tr>
                       </thead>

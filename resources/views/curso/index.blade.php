@@ -31,8 +31,12 @@
                     <table class="table table-striped list table-bordered">
                       <thead>
                         <tr>
-                          <th>Nome curso</th>
-                          <th>Nível</th>
+                          <th>Nome curso
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Nível
+                          <input type="text" class="form-control">
+                          </th>
                           <th>Ação</th>
                         </tr>
                       </thead>

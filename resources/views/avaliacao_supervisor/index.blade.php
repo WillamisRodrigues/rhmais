@@ -31,17 +31,27 @@
                     <table class="table list table-striped table-bordered">
                       <thead>
                         <tr>
-                          <th>Estagiario</th>
-                          <th>Unidade Concedente</th>
+                          <th>Estagiario
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Unidade Concedente
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
                           <th>TCE   inicio/Fim</th>
                           <th>Período Avaliativo</th>
                           <th>Avaliação Supervisor</th>
                           <th>Avaliação Branco Período</th>
                           <th>Auto-Avaliação</th>
                           <th>Saldo das Avaliações</th>
-                          <th>Supervisor</th>
-                          <th>Contrato</th>
-                          <th>Assinado</th>
+                          <th>Supervisor
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Contrato
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Assinado
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
                           <th>Opções</th>
                         </tr>
                       </thead>

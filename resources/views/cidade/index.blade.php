@@ -28,8 +28,12 @@
                     <table class="table list table-striped table-bordered">
                       <thead>
                         <tr>
-                          <th>Nome cidade</th>
-                          <th>Estado</th>
+                          <th>Nome cidade
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Estado
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
                         </tr>
                       </thead>
                       <tbody>

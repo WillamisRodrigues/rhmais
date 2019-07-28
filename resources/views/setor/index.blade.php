@@ -29,8 +29,12 @@
                     <table class="table table-striped list table-bordered">
                       <thead>
                         <tr>
-                          <th>Nome do Setor</th>
-                          <th>Sigla do Setor</th>
+                          <th>Nome do Setor
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Sigla do Setor
+                          <input type="text" class="form-control" >
+                          </th>
                           <th>Opções</th>
                         </tr>
                       </thead>
