@@ -11,4 +11,8 @@ class Empresa extends Model
     ];
     protected $table = 'empresa';
 
+     public function estagios()
+     {
+          return  $this->hasMany('App\Estagiario', 'empresa_id');
+     }
   }

@@ -8,6 +8,7 @@ use App\Empresa;
 use Illuminate\Http\Request;
 use App\Curso;
 use App\Adicional;
+use App\Endereco;
 
 class EstagiarioController extends Controller
 {
@@ -22,7 +23,7 @@ class EstagiarioController extends Controller
      */
     public function index()
     {
-        // $estagiarios = Estagiario::all();
+
        $estagiarios = DB::table('estagiario')
        ->join('empresa', 'estagiario.empresa_id', '=', 'empresa.id')
         ->join('cidade', 'estagiario.city', '=', 'cidade.id')
@@ -30,7 +31,9 @@ class EstagiarioController extends Controller
        'estagiario.cpf','estagiario.data_nascimento','estagiario.id','estagiario.status','cidade.nome AS nome_cidade')
        ->get();
 
-        return view('estagiario.index', compact('estagiarios', $estagiarios));
+        // dd($estagiarios);
+        return view('estagiario.index', compact('estagiarios'));
+
     }
 
     /**
@@ -105,19 +108,24 @@ class EstagiarioController extends Controller
         $estagiarios->agente_int = $request->get('agente_int');
         $estagiarios->pessoa_responsavel = $request->get('pessoa_responsavel');
         $estagiarios->sexo = $request->get('sexo');
-        $estagiarios->endereco = $request->get('endereco');
-        $estagiarios->bairro = $request->get('bairro');
-        $estagiarios->cep = $request->get('cep');
-        $estagiarios->numero = $request->get('numero');
         $estagiarios->city = $request->get('city');
         $estagiarios->state = $request->get('state');
         $estagiarios->escolaridade = $request->get('escolaridade');
-        $estagiarios->complemento = $request->get('complemento');
         $estagiarios->nacionalidade = $request->get('nacionalidade');
         $estagiarios->pai = $request->get('pai');
         $estagiarios->mae = $request->get('mae');
         $estagiarios->save();
         $estagiario_id = $estagiarios->id;
+
+        $enderecos = new Endereco();
+        $enderecos->cep = $request->get('cep');
+        $enderecos->endereco = $request->get('endereco');
+        $enderecos->bairro = $request->get('bairro');
+        $enderecos->cep = $request->get('cep');
+        $enderecos->numero = $request->get('numero');
+        $enderecos->complemento = $request->get('complemento');
+        $enderecos->estagiario_id = $estagiario_id;
+        $enderecos->save();
 
         $contas = new Adicional();
         $contas->banco = $request->get('banco');

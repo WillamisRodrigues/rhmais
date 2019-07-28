@@ -22,8 +22,9 @@ class PdfController extends Controller
     {
         $estagiarios = DB::table('estagiario')
             ->join('endereco', 'estagiario.id', '=', 'endereco.estagiario_id')
+            ->join('cidade', 'estagiario.city', '=', 'cidade.id')
             ->select(
-                'endereco.cidade',
+                'cidade.nome AS nome_cidade',
                 'estagiario.nome',
                 'estagiario.empresa_id',
                 'estagiario.celular',

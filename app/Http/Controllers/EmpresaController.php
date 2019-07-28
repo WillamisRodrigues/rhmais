@@ -4,11 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Response;
-use Redirect;
  use App\Empresa;
-use App\Message;
+
 
 class EmpresaController extends Controller
 {
@@ -19,8 +16,22 @@ class EmpresaController extends Controller
 
     public function index()
     {
-        $empresas = Empresa::all();
+        // $empresas = Empresa::all();
 
+        $empresas = DB::table('empresa')
+            ->join('endereco', 'empresa.id', '=', 'endereco.empresa_id')
+            ->join('cidade', 'empresa.city', '=', 'cidade.id')
+            ->select(
+            'empresa.razao_social',
+            'empresa.nome_fantasia',
+            'empresa.cnpj',
+            'empresa.insc_estadual',
+            'empresa.telefone',
+            'empresa.id',
+            'endereco.endereco',
+            'cidade.nome AS nome_cidade'
+            )
+            ->get();
         return view('empresa.index',compact('empresas', $empresas));
     }
 
@@ -48,7 +59,34 @@ class EmpresaController extends Controller
             'cnpj' => 'required',
         ]);
 
-        Empresa::create($request->all());
+        // Empresa::create($request->all());
+
+        $empresas = new empresa();
+        $empresas->razao_social = $request->get('razao_social');
+        $empresas->nome_empresa = $request->get('nome_empresa');
+        $empresas->cnpj = $request->get('cnpj');
+        $empresas->insc_estadual = $request->get('insc_estadual');
+        $empresas->telefone = $request->get('telefone');
+        $empresas->site_url = $request->get('site_url');
+        $empresas->city = $request->get('city');
+        $empresas->state = $request->get('state');
+        $empresas->nome_rep = $request->get('nome_rep');
+        $empresas->rg_rep = $request->get('rg_rep');
+        $empresas->cpf_rep = $request->get('cpf_rep');
+        $empresas->email_rep = $request->get('email_rep');
+        $empresas->telefone_rep = $request->get('telefone_rep');
+        $empresas->save();
+        $empresa_id = $empresas->id;
+
+        $enderecos = new Endereco();
+        $enderecos->cep = $request->get('cep');
+        $enderecos->endereco = $request->get('endereco');
+        $enderecos->bairro = $request->get('bairro');
+        $enderecos->cep = $request->get('cep');
+        $enderecos->numero = $request->get('numero');
+        $enderecos->complemento = $request->get('complemento');
+        $enderecos->empresa_id = $empresa_id;
+        $enderecos->save();
 
         return redirect()->route('empresa.index')
                         ->with('success','Cadastrado com sucesso.');

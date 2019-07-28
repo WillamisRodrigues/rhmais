@@ -15,18 +15,19 @@ class InstituicaoController extends Controller
 
     public function index()
     {
-        $instituicoes = Instituicao::all();
-        //  $instituicoes = DB::table('instituicao')
-        //     ->join('endereco', 'instituicao.id', '=', 'endereco.instituicao_id')
-        //     ->select(
-        //     'instituicao.razao_social',
-        //     'instituicao.nome_instituicao',
-        //     'instituicao.cnpj',
-        //     'instituicao.id',
-        //     'endereco.rua',
-        //     'endereco.cidade'
-        //     )
-        //     ->get();
+        // $instituicoes = Instituicao::all();
+         $instituicoes = DB::table('instituicao')
+            ->join('endereco', 'instituicao.id', '=', 'endereco.instituicao_id')
+            ->join('cidade', 'instituicao.city', '=', 'cidade.id')
+            ->select(
+            'instituicao.razao_social',
+            'instituicao.nome_instituicao',
+            'instituicao.cnpj',
+            'instituicao.id',
+            'endereco.endereco',
+            'cidade.nome AS nome_cidade'
+            )
+            ->get();
         return view('instituicao.index',compact('instituicoes', $instituicoes));
 
     }
@@ -39,7 +40,7 @@ class InstituicaoController extends Controller
     public function create()
     {
         $states = DB::table("estado")->pluck("nome", "id");
-        return view('instituicao.create', compact('states','empresas'));
+        return view('instituicao.create', compact('states','insti$instituicoes'));
     }
 
     /**
@@ -55,7 +56,35 @@ class InstituicaoController extends Controller
             'cnpj' => 'required',
         ]);
 
-      Instituicao::create($request->all());
+        //   Instituicao::create($request->all());
+
+        $instituicoes = new Instituicao();
+
+        $instituicoes->razao_social = $request->get('razao_social');
+        $instituicoes->nome_instituicao = $request->get('nome_instituicao');
+        $instituicoes->cnpj = $request->get('cnpj');
+        $instituicoes->insc_estadual = $request->get('insc_estadual');
+        $instituicoes->telefone = $request->get('telefone');
+        $instituicoes->site_url = $request->get('site_url');
+        $instituicoes->city = $request->get('city');
+        $instituicoes->state = $request->get('state');
+        $instituicoes->nome_rep = $request->get('nome_rep');
+        $instituicoes->rg_rep = $request->get('rg_rep');
+        $instituicoes->cpf_rep = $request->get('cpf_rep');
+        $instituicoes->email_rep = $request->get('email_rep');
+        $instituicoes->telefone_rep = $request->get('telefone_rep');
+        $instituicoes->save();
+        $instituicao_id = $instituicoes->id;
+
+        $enderecos = new Endereco();
+        $enderecos->cep = $request->get('cep');
+        $enderecos->endereco = $request->get('endereco');
+        $enderecos->bairro = $request->get('bairro');
+        $enderecos->cep = $request->get('cep');
+        $enderecos->numero = $request->get('numero');
+        $enderecos->complemento = $request->get('complemento');
+        $enderecos->instituicao_id = $instituicao_id;
+        $enderecos->save();
 
         return redirect()->route('instituicao.index')
                         ->with('success','Cadastrado com sucesso.');

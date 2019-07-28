@@ -68,7 +68,7 @@
                         @foreach($empresas as $empresa)
                          <tr>
                           <td>{{$empresa->nome_fantasia}}</td>
-                          <td>{{$empresa->city}}</td>
+                          <td>{{$empresa->nome_cidade}}</td>
                           <td>19 36558898</td>
                           <td>{{$empresa->cnpj}}</td>
                           <td>12 Vezes</td>

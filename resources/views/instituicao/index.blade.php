@@ -55,8 +55,8 @@
                          <tr>
                           <td>{{$instituicao->nome_instituicao}}</td>
                           <td>{{$instituicao->razao_social}}</td>
-                          <td>{{$instituicao->rua}}</td>
-                          <td>{{$instituicao->cidade}}</td>
+                          <td>{{$instituicao->endereco}}</td>
+                          <td>{{$instituicao->nome_cidade}}</td>
                           <td>{{$instituicao->cnpj}}</td>
                            <td style="width:15%;">
                            <div class="col-md-3">
