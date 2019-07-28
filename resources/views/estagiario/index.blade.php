@@ -69,11 +69,17 @@
                           <td>{{$estagiario->nome_fantasia}}</td>
                           <td>{{$estagiario->celular}}</td>
                           <td>{{$estagiario->cpf}}</td>
-                          <td>{{$estagiario->cidade}}</td>
+                          <td>{{$estagiario->nome_cidade}}</td>
                           <td>{{$estagiario->data_nascimento}}</td>
                           <td>ENSINO MÉDIO</td>
                            <td>31/12/2020</td>
-                          <td>Sim</td>
+                           <td>
+                           @if ($estagiario->status == '1')
+                              Sim
+                              @else
+                              Não
+                            @endif
+                          </td>
                            <td style="width:15%;">
                             <div class="col-md-3">
                             <a href="{{ route('estagiario.edit',[$estagiario->id])}}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>

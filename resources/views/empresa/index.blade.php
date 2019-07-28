@@ -67,8 +67,8 @@
                       <tbody>
                         @foreach($empresas as $empresa)
                          <tr>
-                          <td>{{$empresa->razao_social}}</td>
-                          <td>Campinas</td>
+                          <td>{{$empresa->nome_fantasia}}</td>
+                          <td>{{$empresa->city}}</td>
                           <td>19 36558898</td>
                           <td>{{$empresa->cnpj}}</td>
                           <td>12 Vezes</td>
@@ -76,7 +76,7 @@
                           <td>15%</td>
                           <td>{{$empresa->insc_estadual}}</td>
                           <td>{{$empresa->telefone}}</td>
-                          <td>{{$empresa->cidade}}</td>
+                          <td>{{$empresa->nome_cidade}}</td>
                            <td style="width:15%;">
                            <div class="col-md-3">
                             <a href="{{ route('empresa.edit',[$empresa->id])}}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>

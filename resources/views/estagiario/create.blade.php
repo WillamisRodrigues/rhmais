@@ -109,11 +109,11 @@
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Filiação Pai" name="filiacao_pai" value="{{old('filiacao_pai')}}">
+                                                <input type="text" class="form-control has-feedback-left" placeholder="Filiação Pai" name="pai" value="{{old('pai')}}">
                                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Filiação Mãe" name="filiacao_mae">
+                                                <input type="text" class="form-control has-feedback-left" placeholder="Filiação Mãe" name="mae" value="{{old('mae')}}">
                                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <!-- <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -131,7 +131,7 @@
                                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Número PIS" name="pis" value="{{old('pis')}}">
+                                                <input type="text" class="form-control has-feedback-left" placeholder="Número PIS" name="numero_pis" value="{{old('numero_pis')}}">
                                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -145,11 +145,9 @@
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
-                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <select class="form-control has-feedback-left" name="responsavel" value="{{old('responsavel')}}">
-                                                    <option>Selecione Responsavel</option>
-                                                </select>
-                                                <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                <input type="text" class="form-control has-feedback-left" value="{{Auth::user()->name}}" readonly placeholder="Responsável" name="pessoa_responsavel">
+                                                <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="deficiencia">
@@ -169,33 +167,45 @@
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="nivel" >
                                                     <option>Selecione um nível</option>
+                                                      @foreach ($cursos as $key)
+                                                        <option>{{ $key->nome }}</option>
+                                                        @endforeach
+                                                </select>
+                                                <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                <select class="form-control has-feedback-left" name="curso">
+                                                    <option>Selecione um Curso</option>
+                                                      @foreach ($cursos as $key)
+                                                        <option>{{ $key->nivel }}</option>
+                                                        @endforeach
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="periodo">
                                                     <option>Período</option>
+                                                    <option>Manhã</option>
+                                                    <option>Tarde</option>
+                                                    <option>Noite</option>
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="instituicao">
                                                     <option>Instituição de Ensino</option>
+                                                      @foreach ($instituicoes as $key => $value)
+                                                        <option value="{{ $key }}">{{ $value->nome_instituicao }}</option>
+                                                        @endforeach
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
-                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <select class="form-control has-feedback-left" name="curso">
-                                                    <option>Selecione um Curso</option>
-                                                </select>
-                                                <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
-                                            </div>
-                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                            {{-- <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="horario">
                                                     <option>Selecione um Horário</option>
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
-                                            </div>
+                                            </div> --}}
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <input type="text" class="form-control has-feedback-left" placeholder="Matricula" name="matricula" value="{{old('matricula')}}">
                                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>

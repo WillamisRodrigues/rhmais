@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 use DB;
 use App\Estagiario;
+use App\Instituicao;
 use App\Empresa;
 use Illuminate\Http\Request;
+use App\Curso;
+use App\Adicional;
 
 class EstagiarioController extends Controller
 {
@@ -19,12 +22,14 @@ class EstagiarioController extends Controller
      */
     public function index()
     {
+        // $estagiarios = Estagiario::all();
        $estagiarios = DB::table('estagiario')
-       ->join('endereco', 'estagiario.id', '=', 'endereco.estagiario_id')
        ->join('empresa', 'estagiario.empresa_id', '=', 'empresa.id')
-       ->select('endereco.cidade', 'estagiario.nome','empresa.nome_fantasia','estagiario.celular',
-       'estagiario.cpf','estagiario.data_nascimento','estagiario.id')
+        ->join('cidade', 'estagiario.city', '=', 'cidade.id')
+       ->select('estagiario.nome','empresa.nome_fantasia','estagiario.celular',
+       'estagiario.cpf','estagiario.data_nascimento','estagiario.id','estagiario.status','cidade.nome AS nome_cidade')
        ->get();
+
         return view('estagiario.index', compact('estagiarios', $estagiarios));
     }
 
@@ -36,8 +41,11 @@ class EstagiarioController extends Controller
     public function create()
     {
         $states = DB::table("estado")->pluck("nome","id");
+        $cursos  = Curso::all();
+        $instituicoes = Instituicao::all();
+        // dd($cursos);
         $empresas = Empresa::all();
-       return view('estagiario.create', compact('states','empresas'));
+       return view('estagiario.create', compact('states','empresas', 'cursos','instituicoes'));
     }
 
         public function myform()
@@ -76,11 +84,50 @@ class EstagiarioController extends Controller
      */
     public function store(Request $request)
     {
-             $request->validate([
+        $request->validate([
             'nome' => 'required',
             'email' => 'required|email|unique:estagiario,email',
         ]);
-        Estagiario::create($request->all());
+
+        //  Estagiario::create($request->all());
+        $estagiarios = new Estagiario();
+        $estagiarios->nome = $request->get('nome');
+        $estagiarios->email = $request->get('email');
+        $estagiarios->rg = $request->get('rg');
+        $estagiarios->cpf = $request->get('cpf');
+        $estagiarios->telefone = $request->get('telefone');
+        $estagiarios->celular = $request->get('celular');
+        $estagiarios->data_nascimento = $request->get('data_nascimento');
+        $estagiarios->ctps = $request->get('ctps');
+        $estagiarios->serie_ctps = $request->get('serie_ctps');
+        $estagiarios->numero_pis = $request->get('numero_pis');
+        $estagiarios->dt_cadastro = $request->get('dt_cadastro');
+        $estagiarios->agente_int = $request->get('agente_int');
+        $estagiarios->pessoa_responsavel = $request->get('pessoa_responsavel');
+        $estagiarios->sexo = $request->get('sexo');
+        $estagiarios->endereco = $request->get('endereco');
+        $estagiarios->bairro = $request->get('bairro');
+        $estagiarios->cep = $request->get('cep');
+        $estagiarios->numero = $request->get('numero');
+        $estagiarios->city = $request->get('city');
+        $estagiarios->state = $request->get('state');
+        $estagiarios->escolaridade = $request->get('escolaridade');
+        $estagiarios->complemento = $request->get('complemento');
+        $estagiarios->nacionalidade = $request->get('nacionalidade');
+        $estagiarios->pai = $request->get('pai');
+        $estagiarios->mae = $request->get('mae');
+        $estagiarios->save();
+        $estagiario_id = $estagiarios->id;
+
+        $contas = new Adicional();
+        $contas->banco = $request->get('banco');
+        $contas->conta = $request->get('conta');
+        $contas->codigo = $request->get('codigo');
+        $contas->senha = $request->get('senha');
+        $contas->obs = $request->get('obs');
+        $contas->estagiario_id = $estagiario_id;
+        $contas->save();
+
         return redirect()->route('estagiario.index')
                         ->with('success','Cadastrado com sucesso.');
     }
@@ -91,7 +138,7 @@ class EstagiarioController extends Controller
      * @param  \App\Estagiario  $estagiario
      * @return \Illuminate\Http\Response
      */
-    public function show(Estagiario $estagiario)
+    public function show()
     {
         // return view('estagiario.show', compact('estagiario', $estagiario));
     }

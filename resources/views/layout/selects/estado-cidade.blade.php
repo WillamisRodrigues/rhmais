@@ -1,6 +1,6 @@
 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
     <select class="form-control has-feedback-left" name="state">
-       <option value="">--- Selecione Estado ---</option>
+       <option value=""> Selecione Estado </option>
         @foreach ($states as $key => $value)
                         <option value="{{ $key }}">{{ $value }}</option>
         @endforeach
@@ -9,7 +9,7 @@
 </div>
 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
      <select name="city" class="form-control has-feedback-left">
-        <option value="">--- Selecione Cidade ---</option>
+        <option value="">Selecione Cidade </option>
     </select>
     <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
 </div>
