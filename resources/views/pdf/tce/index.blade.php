@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <h1>{{ $estagiario }}</h1>
+   <h1 style="font-size:10pt;">{{ $estagiario }}</h1> 
     <title> TCE - TERMO DE COMPROMISSO DE ESTÁGIO    </title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -9,6 +9,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
+    <img src="https://www.rhmaistalentos.com.br/imagens/logo-site.png" style="margin-left:250px; width:30%;">
+
     <h5 class="text-center"><strong> TCE - TERMO DE COMPROMISSO DE ESTÁGIO </strong></h5>
     <hr>
     <p>Pelo presente instrumento particular denominado TERMO DE COMPROMISSO DE ESTÁGIO com base na Lei
@@ -16,52 +18,54 @@ Federal 11.788 de 25/09/2008, as partes abaixo nomeadas no item 1 (um) acordam o
     <hr>
     <div>
         <h5><strong>INSTITUÍÇÃO DE ENSINO</strong></h5>
-        <p> <strong> Razão Social: </strong> <span class="text-danger"> Escola Estadual Carlos Gomes </span> <strong> CNPJ: <span class="text-danger"> ----- </span> </strong> </p>
-        <p><strong> Endereço: </strong><span class="text-danger"> Avenida Anchieta </span> <span> <strong>Nº:</strong></span><span class="text-danger"> 80 </span>
-        <span> <strong> Bairro: <span class="text-danger"> ----- </strong></span> </span> </p>
-        <p><strong> Cidade: </strong><span class="text-danger"> Campinas  </span><span> <strong>UF: <span class="text-danger">-- </span></strong> </span>
-        <span> <strong> CEP: <span class="text-danger"> -----</span> </strong></span>
+        <p> <strong> Razão Social: </strong> <span class="text-danger">  </span> <strong> CNPJ: <span class="text-danger">  </span> </strong> </p>
+        <p><strong> Endereço: </strong><span class="text-danger"> </span> <span> <strong>Nº:</strong></span><span class="text-danger">  </span>
+        <span> <strong> Bairro: <span class="text-danger"> </strong></span> </span> </p>
+        <p><strong> Cidade: </strong><span class="text-danger">  </span><span> <strong>UF: <span class="text-danger"> </span></strong> </span>
+        <span> <strong> CEP: <span class="text-danger"> </span> </strong></span>
         </p>
-        <p> <strong> Representante: <span class="text-danger"> --------</span> </strong> <span> <strong> Cargo: <span class="text-danger"> ----- </span></strong></span> </p>
-        <p> <strong> Orientador de estágio: </strong>  <span class="text-danger"> Leilane Aparecida Bernardo </span>
-        <span> <strong> Telefone: </strong><span class="text-danger"> (19) 3231-3033 </span> </span>
+        <p> <strong> Representante: <span class="text-danger"> </span> </strong> <span> <strong> Cargo: <span class="text-danger">  </span></strong></span> </p>
+        <p> <strong> Orientador de estágio: </strong>  <span class="text-danger"> </span>
+        <span> <strong> Telefone: </strong><span class="text-danger">  </span> </span>
         </p>
     </div>
     <hr>
     <div>
         <h5><strong>UNIDADE CONCEDENTE</strong></h5>
-        <p> <strong> Razão Social: </strong><span class="text-danger"> Vasconcelos Pires e Azevedo Cobranças LTDA </span><strong> CNPJ: <span class="text-danger">----- </span> </strong> </p>
-        <p><strong> Endereço: </strong> <span class="text-danger">Avenida Anchieta </span> <span> <strong>Nº:</strong></span>
-        <span class="text-danger"> 80 </span>
-        <span> <strong> Bairro: <span class="text-danger">----- </span></strong> </span> </p>
-        <p><strong> Cidade: </strong><span class="text-danger"> Campinas </span><span> <strong>UF:
-        <span class="text-danger">-- </span></strong> </span>
-        <span> <strong> CEP:<span class="text-danger"> ----- </span> </strong></span>  <span> <strong> Telefone: </strong><span class="text-danger"> (19) 3231-3033 </span> </span>
+        <p> <strong> Razão Social: </strong><span class="text-danger"> </span><strong> CNPJ: <span class="text-danger"> </span> </strong> </p>
+        <p><strong> Endereço: </strong> <span class="text-danger"> </span> <span> <strong>Nº:</strong></span>
+        <span class="text-danger">  </span>
+        <span> <strong> Bairro: <span class="text-danger"> </span></strong> </span> </p>
+        <p><strong> Cidade: </strong><span class="text-danger"> </span><span> <strong>UF:
+        <span class="text-danger"> </span></strong> </span>
+        <span> <strong> CEP:<span class="text-danger">  </span> </strong></span>  <span> <strong> Telefone: </strong><span class="text-danger">  </span> </span>
         </p>
-        <p> <strong> Representante: </strong> <span class="text-danger"> -------- </span><span><strong> Cargo: </strong> <span class="text-danger"> ----- </span> </span> </span> </p>
-        <p> <strong> Supervisor de estágio: </strong> <span class="text-danger">-------- </span><span> <strong> Cargo:</strong> <span class="text-danger">  ----- </span> </span>
+        <p> <strong> Representante: </strong> <span class="text-danger">  </span><span><strong> Cargo: </strong> <span class="text-danger">  </span> </span> </span> </p>
+        <p> <strong> Supervisor de estágio: </strong> <span class="text-danger"> </span><span> <strong> Cargo:</strong> <span class="text-danger">  </span> </span>
         </p>
-        <p> <strong> Formação Acadêmica: </strong> <span class="text-danger"> -------- </span>
+        <p> <strong> Formação Acadêmica: </strong> <span class="text-danger"> </span>
         </p>
     </div>
     <hr>
     <div>
+    @foreach ($estagiario as $dados)
         <h5><strong>A UNIDADE CONCEDENTE, juntamente com a INSTITUIÇÃO DE ENSINO, e o ESTUDANTE.</strong></h5>
-        <p> <strong> Estudante: </strong> <span class="text-danger"> Aline Rafaela Lima </span> <strong></p>
-        <p><strong> Endereço: </strong><span class="text-danger"> Avenida Anchieta </span> <span> <strong>Nº:</strong></span>
-        <span class="text-danger"> 80 </span>
-        <span> <strong> Bairro: <span class="text-danger"> ----- </span> </strong> </span> </p>
-        <p><strong> Cidade: </strong><span class="text-danger"> Campinas </span> <span> <strong>UF: <span class="text-danger"> -- </span></strong> </span>
-        <span> <strong> CEP: <span class="text-danger"> ----- </span> </strong></span>
+        <p> <strong> Estudante: </strong> <span class="text-danger"> {{$dados->nome}} </span> <strong></p>
+        <p><strong> Endereço: </strong><span class="text-danger">  </span> <span> <strong>Nº:</strong></span>
+        <span class="text-danger">  </span>
+        <span> <strong> Bairro: <span class="text-danger"> </span> </strong> </span> </p>
+        <p><strong> Cidade: </strong><span class="text-danger">{{$dados->cidade}} </span> <span> <strong>UF: <span class="text-danger">  </span></strong> </span>
+        <span> <strong> CEP: <span class="text-danger">  </span> </strong></span>
         </p>
-        <p><strong> Telefone: </strong><span class="text-danger"> (19) 3231-3033 </span> <span> <strong>Email: <span class="text-danger"> ------ </span></strong> </span>
+        <p><strong> Telefone: </strong><span class="text-danger"> {{$dados->celular}} </span> <span> <strong>Email: <span class="text-danger">  </span></strong> </span>
         </p>
-        <p><strong> CPF: </strong><span class="text-danger"> ----- </span> <span> <strong>RG: <span class="text-danger"> -- </span></strong> </span>
-        <span> <strong> RA: <span class="text-danger"> ----- </span> </strong></span>
+        <p><strong> CPF: </strong><span class="text-danger"> {{$dados->cpf}} </span> <span> <strong>RG: <span class="text-danger">  </span></strong> </span>
+        <span> <strong> RA: <span class="text-danger"> </span> </strong></span>
         </p>
-        <p><strong> Curso: </strong><span class="text-danger"> ----- </span> <span> <strong>Período/Ano: <span class="text-danger"> -- </span></strong> </span>
+        <p><strong> Curso: </strong><span class="text-danger">  </span> <span> <strong>Período/Ano: <span class="text-danger">  </span></strong> </span>
         </p>
     </div>
+    @endforeach
     <hr>
     <p class="text-justify">Celebram entre si, através do <strong> Agente de Integração </strong> Koster & Koster Consultoria em Recursos Humanos LTDA ME,
 CNPJ: 21.925.427/0001-70, o TERMO DE COMPROMISSO DE ESTÁGIO, de acordo com a Lei n° 11.788/2008, sob

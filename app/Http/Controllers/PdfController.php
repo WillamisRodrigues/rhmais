@@ -25,7 +25,7 @@ class PdfController extends Controller
             ->select(
                 'endereco.cidade',
                 'estagiario.nome',
-                'estagiario.und_concedente',
+                'estagiario.empresa_id',
                 'estagiario.celular',
                 'estagiario.cpf',
                 'estagiario.data_nascimento',

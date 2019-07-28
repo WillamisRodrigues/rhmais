@@ -28,7 +28,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <table  class="table table-striped list table-bordered">
+                    <table  class="table table-striped table-responsive w-auto list table-bordered">
                       <thead>
                         <tr>
                           <th>Un. Concedente

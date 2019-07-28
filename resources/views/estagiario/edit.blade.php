@@ -49,23 +49,23 @@
                                     </div>
                                     <div class="row" style="width:960px; margin: 0 auto;">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" value="{{ $estagiario->rg }}" maxlength="12" class="form-control has-feedback-left" placeholder="RG" name="rg">
+                                        <input type="text" value="{{ $estagiario->rg }}" maxlength="12" class="form-control rg has-feedback-left" placeholder="RG" name="rg">
                                         <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
                                     </div>
 
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" value="{{ $estagiario->cpf }}" maxlength="14" class="form-control has-feedback-left"  placeholder="CPF" name="cpf">
+                                        <input type="text" value="{{ $estagiario->cpf }}" maxlength="14" class="form-control cpf has-feedback-left"  placeholder="CPF" name="cpf">
                                         <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     </div>
                                     <div class="row" style="width:960px; margin: 0 auto;">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" value="{{ $estagiario->telefone }}" class="form-control has-feedback-left" placeholder="Telefone" name="telefone">
+                                        <input type="text" value="{{ $estagiario->telefone }}" class="form-control telefone has-feedback-left" placeholder="Telefone" name="telefone">
                                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                                     </div>
 
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" value="{{ $estagiario->celular }}" class="form-control has-feedback-left" placeholder="Celular" name="celular">
+                                        <input type="text" value="{{ $estagiario->celular }}" class="form-control telefone has-feedback-left" placeholder="Celular" name="celular">
                                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     </div>

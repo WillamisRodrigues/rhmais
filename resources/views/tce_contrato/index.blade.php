@@ -28,7 +28,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <table class="table list table-striped table-bordered">
+                    <table class="table list table-striped table-responsive w-auto table-bordered">
                       <thead>
                         <tr>
                           <th>Estagiario:
