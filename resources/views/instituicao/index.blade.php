@@ -31,11 +31,21 @@
                     <table class="table table-striped list table-bordered">
                       <thead>
                         <tr>
-                          <th>Nome</th>
-                          <th>Complemento</th>
-                          <th>Cidade</th>
-                          <th>Endereço</th>
-                          <th>CNPJ</th>
+                          <th>Nome
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Complemento
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Cidade
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Endereço
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>CNPJ
+                          <input type="text" class="form-control">
+                          </th>
                           <th>Ação</th>
                         </tr>
                       </thead>

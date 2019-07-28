@@ -32,15 +32,33 @@
                     <table class="table table-striped list table-bordered">
                       <thead>
                         <tr>
-                          <th>Nome</th>
-                          <th>Unidade</th>
-                          <th>Tel.Celular</th>
-                          <th>CPF</th>
-                          <th>Cidade</th>
-                          <th>Data de Nascimento</th>
-                          <th>Escolaridade</th>
-                          <th>Termino Curso</th>
-                          <th>Ativo</th>
+                          <th>Nome
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Unidade
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Tel.Celular
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>CPF
+                          <input type="text" class="form-control" style="width:200px;">
+                          </th>
+                          <th>Cidade
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Data de Nascimento
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Escolaridade
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Termino Curso
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Ativo
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
                           <th>Ação</th>
                         </tr>
                       </thead>

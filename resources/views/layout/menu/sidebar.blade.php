@@ -38,7 +38,7 @@
                     <ul class="nav child_menu">
                     <li><a href="/folha_pagamento">Gerar Folha Pagamento</a></li>
                     <li><a href="/folha_rescisao">Gerar Folha de Rescisão</a></li>
-                    <li><a href="/rendimento">Informe de Rendimentos</a></li>
+                    <li><a href="/rendimentos">Informe de Rendimentos</a></li>
                     <li><a href="/previsao_rescisao">Gerar Prévia de Rescisão</a></li>
                     </ul>
                   </li>

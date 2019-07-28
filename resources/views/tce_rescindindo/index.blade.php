@@ -57,14 +57,30 @@
                     <table class="table table-striped list table-bordered">
                       <thead>
                         <tr>
-                          <th>Estagiario</th>
-                          <th>Un. Concedente</th>
-                          <th>Instituição</th>
-                          <th>Valor Bolsa</th>
-                          <th>Data Inicio</th>
-                          <th>Data Fim</th>
-                          <th>Contrato</th>
-                          <th>Nº Contrato</th>
+                          <th>Estagiario
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Un. Concedente
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Instituição
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Valor Bolsa
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Data Inicio
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Data Fim
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Contrato
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Nº Contrato
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
                           <th>Opções</th>
                         </tr>
                       </thead>

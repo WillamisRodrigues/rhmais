@@ -59,12 +59,24 @@
                       <thead>
                         <tr>
                           <th><button class="btn btn-primary"> Fechar Mês</button></th>
-                          <th>Referência</th>
-                          <th>Estagiario</th>
-                          <th>Un. Concedente</th>
-                          <th>Valor da Bolsa</th>
-                          <th>Faltas</th>
-                          <th>Valor Liquido</th>
+                          <th>Referência
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Estagiario
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Un. Concedente
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Valor da Bolsa
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Faltas
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Valor Liquido
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
                           <th>Opções</th>
                         </tr>
                       </thead>

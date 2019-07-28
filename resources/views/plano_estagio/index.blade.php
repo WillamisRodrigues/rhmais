@@ -30,12 +30,22 @@
                     <table class="table table-striped list table-bordered">
                       <thead>
                         <tr>
-                          <th>Estagiario</th>
-                          <th>Un. Concedente</th>
+                          <th>Estagiario
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Un. Concedente
+                          <input type="text" class="form-control">
+                          </th>
                           <th>TCE Início/Fim</th>
-                          <th>Contrato</th>
-                          <th>tce/Ad Assinado</th>
-                          <th>Plano</th>
+                          <th>Contrato
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>tce/Ad Assinado
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Plano
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
                           <th>Opções</th>
                         </tr>
                       </thead>

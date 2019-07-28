@@ -58,11 +58,21 @@
                     <table class="table table-striped list table-bordered">
                       <thead>
                         <tr>
-                          <th>Referência</th>
-                          <th>Estagiario</th>
-                          <th>Un. Concedente</th>
-                          <th>Valor da Bolsa</th>
-                          <th>Valor Recebido</th>
+                          <th>Referência
+                          <input type="text" class="form-control" style="width:100px;"> 
+                          </th>
+                          <th>Estagiario
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Un. Concedente
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Valor da Bolsa
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Valor Recebido
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
                           <th>Opções</th>
                         </tr>
                       </thead>

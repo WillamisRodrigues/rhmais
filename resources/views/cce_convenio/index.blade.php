@@ -31,10 +31,18 @@
                     <table class="table table-striped list table-bordered">
                       <thead>
                         <tr>
-                          <th>Un. Concedente</th>
-                          <th>Cidade</th>
-                          <th>Data Inicio</th>
-                          <th>Data Fim</th>
+                          <th>Un. Concedente
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Cidade
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Data Inicio
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Data Fim
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
                           <th>Situação</th>
                           <th>Opções</th>
                         </tr>

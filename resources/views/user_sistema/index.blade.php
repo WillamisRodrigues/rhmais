@@ -28,11 +28,15 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <table class="table table-striped list table-bordered">
+                    <table class="table list table-striped table-bordered">
                     <thead>
                             <tr>
-                                <th>Nome</th>
-                                <th>E-mail</th>
+                                <th>Nome
+                                <input type="text" class="form-control">
+                                </th>
+                                <th>E-mail
+                                <input type="text" class="form-control">
+                                </th>
                                 <th>Data de cadastro</th>
                                 <th>Ultima atualização</th>
                                 <th>Ações</th>

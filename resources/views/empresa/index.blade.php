@@ -31,16 +31,36 @@
                     <table class="table list table-striped table-bordered">
                       <thead>
                         <tr>
-                          <th>Nome</th>
-                          <th>Cidade</th>
-                          <th>Telefone</th>
-                          <th>CNPJ</th>
-                          <th>Qtade Plano</th>
-                          <th>Valor Fixo</th>
-                          <th>Valor Perc</th>
-                          <th>Custo Unitario</th>
-                          <th>Valor Adicional</th>
-                          <th>Ativo</th>
+                          <th>Nome
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Cidade
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Telefone
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>CNPJ
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Qtade Plano
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Valor Fixo
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Valor Perc
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Custo Unitario
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Valor Adicional
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Ativo
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
                           <th>Ação</th>
                         </tr>
                       </thead>

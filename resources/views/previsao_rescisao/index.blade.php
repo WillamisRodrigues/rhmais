@@ -31,13 +31,25 @@
                     <table class="table table-striped list  table-bordered">
                       <thead>
                         <tr>
-                          <th>Estagiário</th>
-                          <th>Unidade Concedente</th>
-                          <th>Valor Bolsa</th>
+                          <th>Estagiário
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Unidade Concedente
+                          <input type="text" class="form-control">
+                          </th>
+                          <th>Valor Bolsa
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
                           <th>TCE Início/Fim</th>
-                          <th>TCE / Ad Assinado</th>
-                          <th>Contrato</th>
-                          <th>Previa</th>
+                          <th>TCE / Ad Assinado
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Contrato
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Previa
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
                           <th>Opções</th>
                         </tr>
                       </thead>
