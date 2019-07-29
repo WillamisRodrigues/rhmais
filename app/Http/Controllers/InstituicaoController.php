@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Instituicao;
+use App\Endereco;
 use Illuminate\Support\Facades\DB;
 
 class InstituicaoController extends Controller

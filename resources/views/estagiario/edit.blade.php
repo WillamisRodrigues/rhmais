@@ -71,7 +71,7 @@
                                     </div>
                                     <div class="row" style="width:960px; margin: 0 auto;">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="date" value="{{ $estagiario->data_nascimento }}" class="form-control has-feedback-left" placeholder="Data de Nascimento" name="data_nascimento">
+                                        <input type="text" value="{{ $estagiario->data_nascimento }}" class="form-control has-feedback-left" placeholder="Data de Nascimento" name="data_nascimento">
                                         <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -120,7 +120,7 @@
                                                     <option>Feminino</option>
                                                 </select>
                                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
-                                            
+
                                         </div>
                                         <div class="row" style="width:960px; margin: 0 auto;">
 

@@ -238,7 +238,7 @@
                                                 <span class="fa fa-key form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                                                <textarea class="form-control" placeholder="Sua observação" name="observacao" value="{{old('observacao')}}">
+                                                <textarea class="form-control" placeholder="Sua observação" name="obs">
                                                 </textarea>
                                             </div>
                                             <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
