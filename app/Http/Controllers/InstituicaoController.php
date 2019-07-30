@@ -18,14 +18,13 @@ class InstituicaoController extends Controller
     {
         // $instituicoes = Instituicao::all();
          $instituicoes = DB::table('instituicao')
-            ->join('endereco', 'instituicao.id', '=', 'endereco.instituicao_id')
             ->join('cidade', 'instituicao.city', '=', 'cidade.id')
             ->select(
             'instituicao.razao_social',
             'instituicao.nome_instituicao',
             'instituicao.cnpj',
+            'instituicao.rua',
             'instituicao.id',
-            'endereco.endereco',
             'cidade.nome AS nome_cidade'
             )
             ->get();

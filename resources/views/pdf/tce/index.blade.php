@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
    <h1 style="font-size:10pt;">{{ $estagiario }}</h1>
-    <title> TCE - TERMO DE COMPROMISSO DE ESTÁGIO    </title>
+    <title> TCE - TERMO DE COMPROMISSO DE ESTÁGIO </title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

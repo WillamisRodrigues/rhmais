@@ -19,7 +19,6 @@ class EmpresaController extends Controller
         // $empresas = Empresa::all();
 
         $empresas = DB::table('empresa')
-            ->join('endereco', 'empresa.id', '=', 'endereco.empresa_id')
             ->join('cidade', 'empresa.city', '=', 'cidade.id')
             ->select(
             'empresa.razao_social',
@@ -28,7 +27,6 @@ class EmpresaController extends Controller
             'empresa.insc_estadual',
             'empresa.telefone',
             'empresa.id',
-            'endereco.endereco',
             'cidade.nome AS nome_cidade'
             )
             ->get();

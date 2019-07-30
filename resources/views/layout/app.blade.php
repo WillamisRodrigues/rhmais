@@ -125,6 +125,14 @@
         });
     </script>
     <script>
+        $(function() {
+            var textareas = $('textarea.clean');
+            $.each(textareas, function(key, value) {
+                $(this).val($(this).val().replace(/[ ]+/g, ' ').replace(/^[ ]+/m, ''));
+            })
+            })
+    </script>
+    <script>
            $(".delete").on("submit", function (){
            return confirm("Confima remover?");
          });

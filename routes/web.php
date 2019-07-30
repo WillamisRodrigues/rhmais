@@ -114,17 +114,3 @@ Route::get('/lista_avaliacao_supervisor', function () {
 Route::get('/financeiro', function () {
     return view('financeiro/index');
 });
-
-/* fim folha de pagamento */
-
-/* pdf tce  */
-// Route::get('/tce', function () {
-//     //  return view('invoice');
-//     $pdf = PDF::loadView('pdf/tce/index');
-//     return $pdf->stream('pdf/tce/index.pdf');
-// });
-// Route::get('/recisaotce', function () {
-//     //  return view('invoice');
-//     $pdf = PDF::loadView('pdf/recisao/index');
-//     return $pdf->stream('pdf/recisao/index.pdf');
-// });

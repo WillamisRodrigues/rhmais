@@ -75,7 +75,7 @@
                                                 <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Endereço" name="endereco" value="{{old('endereco')}}">
+                                                <input type="text" class="form-control has-feedback-left" placeholder="Endereço" name="rua" value="{{old('rua')}}">
                                                 <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -92,7 +92,7 @@
                                             </div>
                                            @include('layout.selects.estado-cidade')
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <select class="form-control has-feedback-left" name="unidade_concedente">
+                                                <select class="form-control has-feedback-left" name="empresa_id">
                                                     <option>Selecione Unidade Concedente</option>
                                                           @foreach ($empresas as $key => $value)
                                                         <option value="{{ $key }}">{{ $value->nome_fantasia }}</option>
@@ -174,7 +174,7 @@
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <select class="form-control has-feedback-left" name="curso">
+                                                <select class="form-control has-feedback-left" name="curso_id">
                                                     <option>Selecione um Curso</option>
                                                       @foreach ($cursos as $key)
                                                         <option>{{ $key->nivel }}</option>
@@ -192,7 +192,7 @@
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <select class="form-control has-feedback-left" name="instituicao">
+                                                <select class="form-control has-feedback-left" name="instituicao_id">
                                                     <option>Instituição de Ensino</option>
                                                       @foreach ($instituicoes as $key => $value)
                                                         <option value="{{ $key }}">{{ $value->nome_instituicao }}</option>
@@ -222,7 +222,7 @@
                                   <div id="form-step-1" role="form" data-toggle="validator">
                                   <div class="row" style="width:960px; margin: 20px auto;">
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Banco/Agência" name="banco_agencia" value="{{old('banco_agencia')}}">
+                                                <input type="text" class="form-control has-feedback-left" placeholder="Banco/Agência" name="banco" value="{{old('banco')}}">
                                                 <span class="fa fa-bank form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -234,7 +234,7 @@
                                                 <span class="fa fa-barcode form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Criar Senha" name="criar_senha" value="{{old('criar_senha')}}">
+                                                <input type="text" class="form-control has-feedback-left" placeholder="Criar Senha" name="senha" value="{{old('senha')}}">
                                                 <span class="fa fa-key form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">

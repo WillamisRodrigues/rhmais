@@ -45,19 +45,15 @@ class PdfController extends Controller
     public function gerarRelatorio($id)
     {
 
-        // Todos os Alunos
+        // Todos os Estagiarios
         if ($id == 0) {
             $estagiarios = Estagiario::all();
         }
-        // Um Aluno Específico
+        // Um Estagiario Específico
         else {
             $estagiarios = Estagiario::where('id', '=', $id)->get();
         }
 
-        // return \PDF::loadView('alunoRelatorio', compact('alunos'))
-        //     ->setPaper('A4', 'portrait')
-        //     ->stream('relatorio_alunos.pdf');
-        // // ->download('relatorio_alunos.pdf');
 
         $data = ['estagiario' => $estagiarios];
         $pdf = PDF::loadView('pdf.tce.index', $data);

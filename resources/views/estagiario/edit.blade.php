@@ -82,11 +82,11 @@
                                     <div class="row" style="width:960px; margin: 0 auto;">
 
                                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                            <input type="text" value="{{ $estagiario->endereco }}" class="form-control has-feedback-left" placeholder="Endereço" name="endereco">
+                                            <input type="text" value="{{ $estagiario->rua }}" class="form-control has-feedback-left" placeholder="Endereço" name="rua">
                                             <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                            <input type="text" value="{{ $estagiario->complemento }}" maxlength="5" class="form-control has-feedback-left" placeholder="Complemento" name="complemento">
+                                            <input type="text" value="{{ $estagiario->complemento }}" class="form-control has-feedback-left" placeholder="Complemento" name="complemento">
                                             <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
                                         </div>
 
@@ -99,31 +99,27 @@
                                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                            <input type="text" value="{{ $estagiario->estado }}" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Estado" name="estado">
+                                            <input type="text" value="{{ $estagiario->state }}" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Estado" name="state">
                                             <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
                                         </div>
                                         </div>
                                         <div class="row" style="width:960px; margin: 0 auto;">
 
                                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                            <input type="text" value="{{ $estagiario->cidade }}" class="form-control has-feedback-left" placeholder="Cidade" name="cidade">
+                                            <input type="text" value="{{ $estagiario->city }}" class="form-control has-feedback-left" placeholder="Cidade" name="city">
                                             <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" value="{{ $estagiario->unid_concendente }}" class="form-control has-feedback-left" placeholder="Unidade Concedente" name="und_condente">
+                                        <input type="text" value="{{ $estagiario->empresa_id }}" class="form-control has-feedback-left" placeholder="Unidade Concedente" name="empresa_id">
                                         <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="sexo">
-                                                    <option>Selecione Sexo</option>
-                                                    <option>Masculino</option>
-                                                    <option>Feminino</option>
+                                                    <option value="{{$estagiario->sexo}}">{{$estagiario->sexo}} </option>
                                                 </select>
                                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
-
                                         </div>
                                         <div class="row" style="width:960px; margin: 0 auto;">
-
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                         <input type="text" class="form-control has-feedback-left" value="RH Mais" readonly placeholder="Agente de Integração" name="agenteint">
                                         <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
@@ -160,7 +156,7 @@
                                                 <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" value="{{ $estagiario->matricula }}" class="form-control has-feedback-left" placeholder="Matricula" name="matricula">
+                                                 <input type="text" value="{{ $estagiario->matricula }}" class="form-control has-feedback-left" placeholder="Matricula" name="matricula">
                                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -168,7 +164,7 @@
                                                 <span class="fa fa-book form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" value="{{ $estagiario->banco_agencia }}" class="form-control has-feedback-left" placeholder="Banco/Agência" name="banco_agencia">
+                                                <input type="text" value="{{ $estagiario->banco }}" class="form-control has-feedback-left" placeholder="Banco/Agência" name="banco">
                                                 <span class="fa fa-bank form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -180,7 +176,7 @@
                                                 <span class="fa fa-barcode form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" value="{{ $estagiario->criar_senha }}" class="form-control has-feedback-left" placeholder="Criar Senha" name="criar_senha">
+                                                <input type="text" value="{{ $estagiario->senha }}" class="form-control has-feedback-left" placeholder="Criar Senha" name="senha">
                                                 <span class="fa fa-key form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -191,8 +187,8 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                                                <textarea class="form-control" placeholder="Sua observação" name="criar_senha">
-                                                </textarea>
+                                                <label>Sua observação</label>
+                                            <textarea class="form-control" name="nomeText">{{$estagiario->obs}}</textarea>
                                             </div>
                                         </div>
                                         <button  type="submit"class="btn btn-success" style="margin: 20px auto; display:block;">Salvar Alterações</button>

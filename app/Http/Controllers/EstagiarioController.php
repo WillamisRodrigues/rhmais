@@ -1,14 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use DB;
 use App\Estagiario;
 use App\Instituicao;
 use App\Empresa;
 use Illuminate\Http\Request;
 use App\Curso;
-use App\Adicional;
-use App\Endereco;
 use PDF;
 
 class EstagiarioController extends Controller
@@ -25,16 +24,23 @@ class EstagiarioController extends Controller
     public function index()
     {
 
-       $estagiarios = DB::table('estagiario')
-       ->join('empresa', 'estagiario.empresa_id', '=', 'empresa.id')
-        ->join('cidade', 'estagiario.city', '=', 'cidade.id')
-       ->select('estagiario.nome','empresa.nome_fantasia','estagiario.celular',
-       'estagiario.cpf','estagiario.data_nascimento','estagiario.id','estagiario.status','cidade.nome AS nome_cidade')
-       ->get();
+        $estagiarios = DB::table('estagiario')
+            ->join('empresa', 'estagiario.empresa_id', '=', 'empresa.id')
+            ->join('cidade', 'estagiario.city', '=', 'cidade.id')
+            ->select(
+                'estagiario.nome',
+                'empresa.nome_fantasia',
+                'estagiario.celular',
+                'estagiario.cpf',
+                'estagiario.data_nascimento',
+                'estagiario.id',
+                'estagiario.status',
+                'cidade.nome AS nome_cidade'
+            )
+            ->get();
 
         // dd($estagiarios);
         return view('estagiario.index', compact('estagiarios'));
-
     }
 
     public function gerarRelatorio(Estagiario $estagiarios, $id)
@@ -52,7 +58,7 @@ class EstagiarioController extends Controller
         //     ->setPaper('A4', 'portrait')
         //     ->stream('relatorio_alunos.pdf');
         // // ->download('relatorio_alunos.pdf');
-// dd($estagiarios);
+        // dd($estagiarios);
         $data = ['estagiario' => $estagiarios];
         $pdf = PDF::loadView('pdf.tce.index', $data);
         return $pdf->stream('tce-pdf.pdf');
@@ -64,19 +70,18 @@ class EstagiarioController extends Controller
      */
     public function create()
     {
-        $states = DB::table("estado")->pluck("nome","id");
+        $states = DB::table("estado")->pluck("nome", "id");
         $cursos  = Curso::all();
-        $instituicoes = Instituicao::all();
         // dd($cursos);
+        $instituicoes = Instituicao::all();
         $empresas = Empresa::all();
-       return view('estagiario.create', compact('states','empresas', 'cursos','instituicoes'));
+        return view('estagiario.create', compact('states', 'empresas', 'cursos', 'instituicoes'));
     }
 
-        public function myform()
+    public function myform()
     {
-        $states = DB::table("estado")->pluck("nome","id");
-        return view('myform',compact('states'));
-
+        $states = DB::table("estado")->pluck("nome", "id");
+        return view('myform', compact('states'));
     }
     /**
      * Get Ajax Request and restun Data
@@ -87,17 +92,17 @@ class EstagiarioController extends Controller
     public function myformAjax($id)
     {
         $cities = DB::table("cidade")
-                    ->where("estado_id",$id)
-                    ->pluck("nome","id");
+            ->where("estado_id", $id)
+            ->pluck("nome", "id");
         return json_encode($cities);
     }
 
-     public function endereco($id)
+    public function endereco($id)
     {
-        $enderecos = DB::table("endereco")
-                    ->where("estagiario_id",$id)
-                    ->pluck("cidade","id");
-        return json_encode($enderecos);
+        $estagiarios = DB::table("endereco")
+            ->where("estagiario_id", $id)
+            ->pluck("cidade", "id");
+        return json_encode($estagiarios);
     }
 
     /**
@@ -135,30 +140,35 @@ class EstagiarioController extends Controller
         $estagiarios->nacionalidade = $request->get('nacionalidade');
         $estagiarios->pai = $request->get('pai');
         $estagiarios->mae = $request->get('mae');
+        $estagiarios->cep = $request->get('cep');
+        $estagiarios->rua = $request->get('rua');
+        $estagiarios->bairro = $request->get('bairro');
+        $estagiarios->cep = $request->get('cep');
+        $estagiarios->numero = $request->get('numero');
+        $estagiarios->complemento = $request->get('complemento');
+        $estagiarios->banco = $request->get('banco');
+        $estagiarios->conta = $request->get('conta');
+        $estagiarios->codigo = $request->get('codigo');
+        $estagiarios->senha = $request->get('senha');
+        $estagiarios->obs = $request->get('obs');
+        $estagiarios->matricula = $request->get('matricula');
+        $estagiarios->empresa_id = $request->get('empresa_id');
+        $estagiarios->instituicao_id = $request->get('instituicao_id');
+        $estagiarios->curso_id = $request->get('curso_id');
         $estagiarios->save();
-        $estagiario_id = $estagiarios->id;
+        // $estagiario_id = $estagiarios->id;
 
-        $enderecos = new Endereco();
-        $enderecos->cep = $request->get('cep');
-        $enderecos->endereco = $request->get('endereco');
-        $enderecos->bairro = $request->get('bairro');
-        $enderecos->cep = $request->get('cep');
-        $enderecos->numero = $request->get('numero');
-        $enderecos->complemento = $request->get('complemento');
-        $enderecos->estagiario_id = $estagiario_id;
-        $enderecos->save();
-
-        $contas = new Adicional();
-        $contas->banco = $request->get('banco');
-        $contas->conta = $request->get('conta');
-        $contas->codigo = $request->get('codigo');
-        $contas->senha = $request->get('senha');
-        $contas->obs = $request->get('obs');
-        $contas->estagiario_id = $estagiario_id;
-        $contas->save();
+        // $contas = new Adicional();
+        // $contas->banco = $request->get('banco');
+        // $contas->conta = $request->get('conta');
+        // $contas->codigo = $request->get('codigo');
+        // $contas->senha = $request->get('senha');
+        // $contas->obs = $request->get('obs');
+        // $contas->estagiario_id = $estagiario_id;
+        // $contas->save();
 
         return redirect()->route('estagiario.index')
-                        ->with('success','Cadastrado com sucesso.');
+            ->with('success', 'Cadastrado com sucesso.');
     }
 
     /**
@@ -178,7 +188,7 @@ class EstagiarioController extends Controller
      * @param  \App\Estagiario  $estagiario
      * @return \Illuminate\Http\Response
      */
-    public function edit (Estagiario $estagiario)
+    public function edit(Estagiario $estagiario)
     {
         return view('estagiario.edit', compact('estagiario', $estagiario));
     }
@@ -192,6 +202,7 @@ class EstagiarioController extends Controller
      */
     public function update(Request $request, Estagiario $estagiario)
     {
+        // dd($estagiario);
         $request->validate([
 
             'nome' => 'required',
@@ -202,7 +213,7 @@ class EstagiarioController extends Controller
         $estagiario->save();
         $request->session()->flash('message', 'Sucesso!');
         return redirect('estagiario');
-        }
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -215,7 +226,5 @@ class EstagiarioController extends Controller
         $estagiario->delete();
         $request->session()->flash('warning', 'Removido com sucesso!');
         return redirect('estagiario');
-
     }
-
 }
