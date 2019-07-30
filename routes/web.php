@@ -34,6 +34,7 @@ Route::resource('motivo', 'MotivoController');
 Route::resource('orientador', 'OrientadorController');
 Route::resource('supervisor', 'SupervisorController');
 Route::get('tce-pdf', 'PdfController@generatePDF');
+Route::get('/tce-pdf/{id}', 'EstagiarioController@gerarRelatorio');
 
  Route::get('/cidade-estado',array('as'=>'myform','uses'=>'EstagiarioController@myform'));
  Route::get('myform/ajax/{id}',array('as'=>'myform.ajax','uses'=>'EstagiarioController@myformAjax'));

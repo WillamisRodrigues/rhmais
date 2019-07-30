@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Curso;
 use App\Adicional;
 use App\Endereco;
+use PDF;
 
 class EstagiarioController extends Controller
 {
@@ -36,6 +37,26 @@ class EstagiarioController extends Controller
 
     }
 
+    public function gerarRelatorio(Estagiario $estagiarios, $id)
+    {
+        // Todos os Alunos
+        if ($id == 0) {
+            $estagiarios = Estagiario::all();
+        }
+        // Um Aluno Específico
+        else {
+            $estagiarios = Estagiario::where('id', '=', $id)->get();
+        }
+
+        // return \PDF::loadView('alunoRelatorio', compact('alunos'))
+        //     ->setPaper('A4', 'portrait')
+        //     ->stream('relatorio_alunos.pdf');
+        // // ->download('relatorio_alunos.pdf');
+// dd($estagiarios);
+        $data = ['estagiario' => $estagiarios];
+        $pdf = PDF::loadView('pdf.tce.index', $data);
+        return $pdf->stream('tce-pdf.pdf');
+    }
     /**
      * Show the form for creating a new resource.
      *

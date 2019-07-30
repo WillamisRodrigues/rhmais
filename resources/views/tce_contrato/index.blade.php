@@ -75,7 +75,7 @@
                           <td>{{ $estagiario->contrato }}</td>
                           <td>{{ $estagiario->assinado }}</td>
                           <td>{{ $estagiario->obrigatorio }}</td>
-                         <td><a class="btn btn-primary" href="/tce-pdf" target="_blank"><i class="fa fa-print"></i> Imprimir TCE</a></td>
+                         <td><a class="btn btn-primary" href="{{ action('EstagiarioController@gerarRelatorio', $estagiario->id) }}" target="_blank"><i class="fa fa-print"></i> Imprimir TCE</a></td>
                         </tr>
                         @endforeach
                       </tbody>

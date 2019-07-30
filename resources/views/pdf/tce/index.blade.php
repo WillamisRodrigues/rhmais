@@ -59,7 +59,7 @@ Federal 11.788 de 25/09/2008, as partes abaixo nomeadas no item 1 (um) acordam o
         </p>
         <p><strong> Telefone: </strong><span class="text-danger"> {{$dados->celular}} </span> <span> <strong>Email: <span class="text-danger">  </span></strong> </span>
         </p>
-        <p><strong> CPF: </strong><span class="text-danger"> {{$dados->cpf}} </span> <span> <strong>RG: <span class="text-danger">  </span></strong> </span>
+        <p><strong> CPF: </strong><span class="text-danger"> {{$dados->cpf}} </span> <span> <strong>RG: <span class="text-danger"> {{$dados->rg}} </span></strong> </span>
         <span> <strong> RA: <span class="text-danger"> </span> </strong></span>
         </p>
         <p><strong> Curso: </strong><span class="text-danger">  </span> <span> <strong>Período/Ano: <span class="text-danger">  </span></strong> </span>

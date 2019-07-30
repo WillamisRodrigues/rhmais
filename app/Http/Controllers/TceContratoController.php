@@ -31,6 +31,7 @@ class TceContratoController extends Controller
             ->join('instituicao', 'instituicao.id', '=', 'tce_contrato.instituicao_id')
             ->select(
                 'estagiario.nome',
+                'estagiario.id',
                 'empresa.nome_fantasia',
                 'instituicao.nome_instituicao',
                 'tce_contrato.bolsa',
