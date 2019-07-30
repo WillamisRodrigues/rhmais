@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-   <h1 style="font-size:10pt;">{{ $estagiario }}</h1> 
+   <h1 style="font-size:10pt;">{{ $estagiario }}</h1>
     <title> TCE - TERMO DE COMPROMISSO DE ESTÁGIO    </title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -54,7 +54,7 @@ Federal 11.788 de 25/09/2008, as partes abaixo nomeadas no item 1 (um) acordam o
         <p><strong> Endereço: </strong><span class="text-danger">  </span> <span> <strong>Nº:</strong></span>
         <span class="text-danger">  </span>
         <span> <strong> Bairro: <span class="text-danger"> </span> </strong> </span> </p>
-        <p><strong> Cidade: </strong><span class="text-danger">{{$dados->cidade}} </span> <span> <strong>UF: <span class="text-danger">  </span></strong> </span>
+        <p><strong> Cidade: </strong><span class="text-danger">{{$dados->nome_cidade}} </span> <span> <strong>UF: <span class="text-danger">  </span></strong> </span>
         <span> <strong> CEP: <span class="text-danger">  </span> </strong></span>
         </p>
         <p><strong> Telefone: </strong><span class="text-danger"> {{$dados->celular}} </span> <span> <strong>Email: <span class="text-danger">  </span></strong> </span>
