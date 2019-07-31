@@ -69,12 +69,12 @@
                                       <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                      <input type="text" value="{{ $instituicao->nome_estado }}"class="form-control has-feedback-left"  placeholder="Estado" name="estado">
+                                      <input type="text" value="{{ $instituicao->state }}"class="form-control has-feedback-left"  placeholder="Estado" name="state">
                                       <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
 
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                      <input type="text" value="{{ $instituicao->cidade }}" class="form-control has-feedback-left" placeholder="Cidade" name="cidade">
+                                      <input type="text" value="{{ $instituicao->city }}" class="form-control has-feedback-left" placeholder="Cidade" name="city">
                                       <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -83,7 +83,7 @@
                                     </div>
 
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                      <input type="text" value="{{ $instituicao->endereco }}" class="form-control has-feedback-left" placeholder="Endereço" name="endereco">
+                                      <input type="text" value="{{ $instituicao->rua }}" class="form-control has-feedback-left" placeholder="Endereço" name="rua">
                                       <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -110,25 +110,25 @@
                                     </div>
 
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                      <input type="text" value="{{ $instituicao->email_contato }}" class="form-control has-feedback-left"  placeholder="Email do Contato" name="email_contato">
+                                      <input type="text" value="{{ $instituicao->nome_rep }}" class="form-control has-feedback-left"  placeholder="Nome do Representante" name="nome_rep">
                                       <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                      <input type="text" value="{{ $instituicao->celular_contato }}" class="form-control telefone has-feedback-left" placeholder="Celular Contato" name="cel_contato">
-                                      <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
-                                    </div>
-
-                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                      <input type="text" value="{{ $instituicao->celular_rep }}" class="form-control telefone has-feedback-left"  placeholder="Celular Representante" name="cel_representante">
-                                      <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                      <input type="text"value="{{ $instituicao->email_contato }}" class="form-control has-feedback-left"  placeholder="Email do Contato" name="email_contato">
+                                      <input type="text" value="{{ $instituicao->celular_contato }}" class="form-control telefone has-feedback-left" placeholder="Celular Contato" name="celular_contato">
                                       <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
 
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                      <input type="text" class="form-control has-feedback-left" placeholder="Email Representante" name="email_representante2">
+                                      <input type="text" value="{{ $instituicao->celular_rep }}" class="form-control telefone has-feedback-left"  placeholder="Celular Representante" name="celular_rep">
+                                      <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                      <input type="text" value="{{ $instituicao->email_rep }}" class="form-control has-feedback-left"  placeholder="Email do Representante" name="email_rep">
+                                      <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                    </div>
+
+                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                      <input type="text" value="{{ $instituicao->email_contato }}" class="form-control has-feedback-left" placeholder="Email Contato" name="email_contato">
                                       <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -151,7 +151,6 @@
                           </div>
                       </div>
                       </div>
-                      @endif
                       </form>
                   </div>
                 </div>

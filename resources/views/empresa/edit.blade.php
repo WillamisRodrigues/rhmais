@@ -23,7 +23,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Editar empresass</h2>
+                    <h2>Editar empresas</h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -49,12 +49,12 @@
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" value="{{ $empresa->inscricao }}" class="form-control has-feedback-left" placeholder="Insc. Estadual/Rg" name="inscricao">
+                            <input type="text" value="{{ $empresa->insc_estadual }}" class="form-control has-feedback-left" placeholder="Insc. Estadual/Rg" name="insc_estadual">
                             <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
                           </div>
 
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" value="{{ $empresa->cidadel }}" class="form-control has-feedback-left" placeholder="Cidade" name="cidade">
+                            <input type="text" value="{{ $empresa->city }}" class="form-control has-feedback-left" placeholder="Cidade" name="city">
                             <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
@@ -81,41 +81,41 @@
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" value="{{ $empresa->celular1 }}" class="form-control telefone has-feedback-left" placeholder="Celular cont." name="celular1">
+                            <input type="text" value="{{ $empresa->celular_contato }}" class="form-control telefone has-feedback-left" placeholder="Celular contato" name="celular_contato">
                             <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" value="{{ $empresa->representante }}" class="form-control has-feedback-left" placeholder="Nome Representante" name="representante">
+                            <input type="text" value="{{ $empresa->nome_rep }}" class="form-control has-feedback-left" placeholder="Nome Representante" name="nome_rep">
                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text"  value="{{ $empresa->cpf2 }}" class="form-control cpf has-feedback-left" placeholder="CPF Representante" name="cpf2">
+                            <input type="text"  value="{{ $empresa->cpf_rep }}" class="form-control cpf has-feedback-left" placeholder="CPF Representante" name="cpf_rep">
                             <span class="fa fa-bars form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" value="{{ $empresa->email2 }}" class="form-control has-feedback-left" placeholder="Email Representante" name="email2">
+                            <input type="text" value="{{ $empresa->email_rep }}" class="form-control has-feedback-left" placeholder="Email Representante" name="email_rep">
                             <span class="fa fa-bars form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" value="{{ $empresa->agente }}" class="form-control has-feedback-left" placeholder="Agente Integração" name="agente">
+                            <input type="text" class="form-control has-feedback-left" value="RH Mais" placeholder="Agente Integração" name="agente_int">
                             <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text"  value="{{ $empresa->fantasia }}"class="form-control has-feedback-left" placeholder="Nome Fantasia" name="fantasia">
+                            <input type="text"  value="{{ $empresa->nome_fantasia }}"class="form-control has-feedback-left" placeholder="Nome Fantasia" name="nome_fantasia">
                             <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" value="{{ $empresa->estado }}" class="form-control has-feedback-left" placeholder="Estado" name="estado">
+                            <input type="text" value="{{ $empresa->state }}" class="form-control has-feedback-left" placeholder="Estado" name="state">
                             <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" value="{{ $empresa->endereco }}" class="form-control has-feedback-left"  placeholder="Endereço" name="endereco">
+                            <input type="text" value="{{ $empresa->rua }}" class="form-control has-feedback-left"  placeholder="Endereço" name="rua">
                             <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
@@ -131,7 +131,7 @@
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" value="{{ $empresa->celular2 }}" class="form-control celular has-feedback-left" placeholder="Celular" name="celular2">
+                            <input type="text" value="{{ $empresa->celular }}" class="form-control celular has-feedback-left" placeholder="Celular" name="celular">
                             <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -145,13 +145,13 @@
                             <span class="fa fa-bars form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text"value="{{ $empresa->celular_representante }}" class="form-control telefone has-feedback-left"  placeholder="Celular Representante" name="celular_representante">
+                            <input type="text"value="{{ $empresa->celular_rep }}" class="form-control telefone has-feedback-left"  placeholder="Celular Representante" name="celular_rep">
                             <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" value="{{ $empresa->rg_representante }}" class="form-control rg has-feedback-left" placeholder="R.G. Representante" name="rg_representante">
+                            <input type="text" value="{{ $empresa->rg_rep }}" class="form-control rg has-feedback-left" placeholder="R.G. Representante" name="rg_rep">
                             <span class="fa fa-bars form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
