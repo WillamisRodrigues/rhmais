@@ -43,6 +43,7 @@ Route::get('/termo_recesso', function () {
     return view('termo/index');
 });
 
+Route::get('recisaotce', 'PdfController@generateRecisao');
 /* rotas tce */
 Route::resource('tce_contrato', 'TceContratoController');
 
@@ -86,6 +87,9 @@ Route::get('/folha_rescisao', function () {
 });
 Route::get('/rendimentos', function () {
     return view('rendimentos/index');
+});
+Route::get('/gerar_aditivo', function () {
+    return view('tce_aditivo/edit');
 });
 Route::get('/previsao_rescisao', function () {
     return view('previsao_rescisao/index');

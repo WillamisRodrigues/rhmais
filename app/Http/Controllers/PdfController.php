@@ -42,6 +42,11 @@ class PdfController extends Controller
 
     }
 
+    public function  generateRecisao(){
+        $pdf = PDF::loadView('pdf.recisao.index');
+        return $pdf->stream('index.pdf');
+    }
+
     public function gerarRelatorio($id)
     {
 

@@ -72,7 +72,7 @@
                           <td>AD</td>
                           <td>Não</td>
                           <td>N</td>
-                          <td><button class="btn btn-primary"><i class="fa fa-pencil"></i> Novo</button></td>
+                          <td><a class="btn btn-primary" href="/gerar_aditivo"><i class="fa fa-pencil"></i> Novo</a></td>
                         </tr>
                       </tbody>
                     </table>
