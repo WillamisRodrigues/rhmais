@@ -23,4 +23,14 @@ class Estagiario extends Model
     {
         return $this->hasOne('App\Adicional', 'id', 'adicional_id');
     }
+
+    public function empresas()
+    {
+        return  $this->hasMany('App\Empresa');
+    }
+
+    public function instituicoes()
+    {
+        return  $this->hasMany('App\Instituicao');
+    }
 }

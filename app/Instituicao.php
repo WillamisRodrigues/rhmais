@@ -31,4 +31,9 @@ class Instituicao extends Model
         'celular_contato'];
 
     protected $table = 'instituicao';
+
+    public function estagios()
+    {
+        return  $this->hasMany('App\Estagiario');
+    }
 }
