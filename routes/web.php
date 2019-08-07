@@ -44,6 +44,9 @@ Route::get('/termo_recesso', function () {
 });
 
 Route::get('recisaotce', 'PdfController@generateRecisao');
+Route::get('cau', 'PdfController@generateCau');
+Route::get('cce', 'PdfController@generateCce');
+Route::get('estagio', 'PdfController@generateEstagio');
 /* rotas tce */
 Route::resource('tce_contrato', 'TceContratoController');
 

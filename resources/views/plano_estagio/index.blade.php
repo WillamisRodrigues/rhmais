@@ -59,7 +59,7 @@
                           <td>Sim</td>
                           <td>
                           <button class="btn btn-primary"><i class="fa fa-plus"></i> Editar</button>
-                          <button class="btn btn-primary"><i class="fa fa-print"></i> Imprimir Plano</button></td>
+                          <a class="btn btn-primary" href="/estagio" target="_blank"><i class="fa fa-print"></i> Imprimir Plano</a></td>
                         </tr>
                       </tbody>
                     </table>

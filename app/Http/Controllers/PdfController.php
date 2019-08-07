@@ -47,6 +47,20 @@ class PdfController extends Controller
         return $pdf->stream('index.pdf');
     }
 
+    public function  generateCau(){
+        $pdf = PDF::loadView('pdf.cau.index');
+        return $pdf->stream('index.pdf');
+    }
+    public function  generateEstagio(){
+        $pdf = PDF::loadView('pdf.plano.index');
+        return $pdf->stream('index.pdf');
+    }
+
+    public function  generateCce(){
+        $pdf = PDF::loadView('pdf.cce.index');
+        return $pdf->stream('index.pdf');
+    }
+
     public function gerarRelatorio($id)
     {
 

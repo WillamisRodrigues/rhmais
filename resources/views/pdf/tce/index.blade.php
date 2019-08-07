@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-   <h1 style="font-size:10pt;">{{ $estagiario }}</h1>
     <title> TCE - TERMO DE COMPROMISSO DE ESTÁGIO </title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -10,7 +9,7 @@
 </head>
 <body>
     <img src="https://www.rhmaistalentos.com.br/imagens/logo-site.png" style="margin-left:250px; width:30%;">
-
+    <h1 style="font-size:10pt;">{{ $estagiario }}</h1>
     <h5 class="text-center"><strong> TCE - TERMO DE COMPROMISSO DE ESTÁGIO </strong></h5>
     <hr>
     <p>Pelo presente instrumento particular denominado TERMO DE COMPROMISSO DE ESTÁGIO com base na Lei

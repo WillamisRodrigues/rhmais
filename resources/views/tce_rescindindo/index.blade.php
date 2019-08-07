@@ -94,7 +94,7 @@
                           <td>31/10/2019</td>
                           <td>RES</td>
                           <td>20181124022944 - 20181129030248596</td>
-                          <td><button class="btn btn-primary"><i class="fa fa-print"></i> Imprimir TCE</button></td>
+                          <td><a class="btn btn-primary" href="#"><i class="fa fa-print"></i> Imprimir TCE</button></td>
                         </tr>
                       </tbody>
                     </table>

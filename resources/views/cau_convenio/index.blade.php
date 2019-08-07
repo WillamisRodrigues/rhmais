@@ -58,7 +58,7 @@
                           <td style="width:22%;">
                           <button class="btn btn-primary"><i class="fa fa-trash"></i> Excluir</button>
                           <button class="btn btn-primary"><i class="fa fa-edit"></i> Editar</button>
-                          <button class="btn btn-primary"><i class="fa fa-print"></i> Imprimir CAU</button>
+                          <a class="btn btn-primary" href="/cau" target="_blank"><i class="fa fa-print"></i> Imprimir CAU</a>
                           </td>
                         </tr>
                       </tbody>
