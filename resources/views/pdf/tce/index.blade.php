@@ -9,54 +9,54 @@
 </head>
 <body>
     <img src="https://www.rhmaistalentos.com.br/imagens/logo-site.png" style="margin-left:250px; width:30%;">
-    <h1 style="font-size:10pt;">{{ $estagiario }}</h1>
+    {{-- <h1 style="font-size:10pt;">{{ $estagiario }}</h1> --}}
     <h5 class="text-center"><strong> TCE - TERMO DE COMPROMISSO DE ESTÁGIO </strong></h5>
     <hr>
     <p>Pelo presente instrumento particular denominado TERMO DE COMPROMISSO DE ESTÁGIO com base na Lei
 Federal 11.788 de 25/09/2008, as partes abaixo nomeadas no item 1 (um) acordam o que segue </p>
     <hr>
     <div>
+        @foreach ($estagiario as $dados)
         <h5><strong>INSTITUÍÇÃO DE ENSINO</strong></h5>
-        <p> <strong> Razão Social: </strong> <span class="text-danger">  </span> <strong> CNPJ: <span class="text-danger">  </span> </strong> </p>
-        <p><strong> Endereço: </strong><span class="text-danger"> </span> <span> <strong>Nº:</strong></span><span class="text-danger">  </span>
-        <span> <strong> Bairro: <span class="text-danger"> </strong></span> </span> </p>
-        <p><strong> Cidade: </strong><span class="text-danger">  </span><span> <strong>UF: <span class="text-danger"> </span></strong> </span>
-        <span> <strong> CEP: <span class="text-danger"> </span> </strong></span>
+        <p> <strong> Razão Social: </strong> <span class="text-danger"> {{$dados->instituicao_razao}}  </span> <strong> CNPJ: <span class="text-danger"> {{$dados->instituicao_cnpj}} </span> </strong> </p>
+        <p><strong> Endereço: </strong><span class="text-danger"> {{$dados->instituicao_rua}}  </span> <span> <strong>Nº:</strong></span><span class="text-danger"> {{$dados->instituicao_numero}} </span>
+        <span> <strong> Bairro: <span class="text-danger"> {{$dados->instituicao_bairro}} </strong></span> </span> </p>
+        <p><strong> Cidade: </strong><span class="text-danger">  {{$dados->instituicao_cidade}} </span><span> <strong>UF: <span class="text-danger"> {{$dados->instituicao_estado}} </span></strong> </span>
+        <span> <strong> CEP: <span class="text-danger"> </span> {{$dados->instituicao_cep}}</strong></span>
         </p>
-        <p> <strong> Representante: <span class="text-danger"> </span> </strong> <span> <strong> Cargo: <span class="text-danger">  </span></strong></span> </p>
-        <p> <strong> Orientador de estágio: </strong>  <span class="text-danger"> </span>
-        <span> <strong> Telefone: </strong><span class="text-danger">  </span> </span>
+        <p> <strong> Representante: <span class="text-danger"> {{$dados->instituicao_nome_rep}} </span> </strong> <span> <strong> Cargo: <span class="text-danger"> {{$dados->instituicao_cargo_rep}} </span></strong></span> </p>
+        <p> <strong> Orientador de estágio: </strong>  <span class="text-danger"> {{$dados->instituicao_orientador}} </span>
+        <span> <strong> Telefone: </strong><span class="text-danger"> {{$dados->instituicao_telefone}} </span> </span>
         </p>
     </div>
     <hr>
     <div>
         <h5><strong>UNIDADE CONCEDENTE</strong></h5>
-        <p> <strong> Razão Social: </strong><span class="text-danger"> </span><strong> CNPJ: <span class="text-danger"> </span> </strong> </p>
-        <p><strong> Endereço: </strong> <span class="text-danger"> </span> <span> <strong>Nº:</strong></span>
+        <p> <strong> Razão Social: </strong><span class="text-danger"> {{$dados->empresa_razao}} </span><strong> CNPJ: <span class="text-danger"> {{$dados->empresa_cnpj}}</span> </strong> </p>
+        <p><strong> Endereço: </strong> <span class="text-danger">{{$dados->empresa_rua}} </span> <span> <strong>Nº:</strong></span>
         <span class="text-danger">  </span>
-        <span> <strong> Bairro: <span class="text-danger"> </span></strong> </span> </p>
-        <p><strong> Cidade: </strong><span class="text-danger"> </span><span> <strong>UF:
-        <span class="text-danger"> </span></strong> </span>
-        <span> <strong> CEP:<span class="text-danger">  </span> </strong></span>  <span> <strong> Telefone: </strong><span class="text-danger">  </span> </span>
+        <span> <strong> Bairro: <span class="text-danger"> {{$dados->empresa_bairro}}</span></strong> </span> </p>
+        <p><strong> Cidade: </strong><span class="text-danger">{{$dados->empresa_cidade}} </span><span> <strong>UF:
+        <span class="text-danger">{{$dados->empresa_estado}} </span></strong> </span>
+        <span> <strong> CEP:<span class="text-danger"> {{$dados->empresa_cep}} </span> </strong></span>  <span> <strong> Telefone: </strong><span class="text-danger"> {{$dados->empresa_telefone}} </span> </span>
         </p>
-        <p> <strong> Representante: </strong> <span class="text-danger">  </span><span><strong> Cargo: </strong> <span class="text-danger">  </span> </span> </span> </p>
-        <p> <strong> Supervisor de estágio: </strong> <span class="text-danger"> </span><span> <strong> Cargo:</strong> <span class="text-danger">  </span> </span>
+        <p> <strong> Representante: </strong> <span class="text-danger"> {{$dados->empresa_nome_rep}} </span><span><strong> Cargo: </strong> <span class="text-danger"> {{$dados->empresa_cargo_rep}} </span> </span> </span> </p>
+        <p> <strong> Supervisor de estágio: </strong> {{$dados->empresa_sup}} <span class="text-danger"> </span><span> <strong> Cargo:</strong> <span class="text-danger"> {{$dados->empresa_cargo_sup}} </span> </span>
         </p>
         <p> <strong> Formação Acadêmica: </strong> <span class="text-danger"> </span>
         </p>
     </div>
     <hr>
     <div>
-    @foreach ($estagiario as $dados)
         <h5><strong>A UNIDADE CONCEDENTE, juntamente com a INSTITUIÇÃO DE ENSINO, e o ESTUDANTE.</strong></h5>
         <p> <strong> Estudante: </strong> <span class="text-danger"> {{$dados->nome}} </span> <strong></p>
-        <p><strong> Endereço: </strong><span class="text-danger">  </span> <span> <strong>Nº:</strong></span>
-        <span class="text-danger">  </span>
-        <span> <strong> Bairro: <span class="text-danger"> </span> </strong> </span> </p>
-        <p><strong> Cidade: </strong><span class="text-danger">{{$dados->nome_cidade}} </span> <span> <strong>UF: <span class="text-danger">  </span></strong> </span>
-        <span> <strong> CEP: <span class="text-danger">  </span> </strong></span>
+        <p><strong> Endereço: </strong><span class="text-danger"> {{$dados->rua}} </span> <span> <strong>Nº:</strong></span>
+        <span class="text-danger"> {{$dados->numero}} </span>
+        <span> <strong> Bairro: <span class="text-danger"> {{$dados->bairro}} </span> </strong> </span> </p>
+        <p><strong> Cidade: </strong><span class="text-danger">{{$dados->city}} </span> <span> <strong>UF: <span class="text-danger"> {{$dados->state}}  </span></strong> </span>
+        <span> <strong> CEP: <span class="text-danger"> {{$dados->cep}} </span> </strong></span>
         </p>
-        <p><strong> Telefone: </strong><span class="text-danger"> {{$dados->celular}} </span> <span> <strong>Email: <span class="text-danger">  </span></strong> </span>
+        <p><strong> Telefone: </strong><span class="text-danger"> {{$dados->celular}} </span> <span> <strong>Email: <span class="text-danger"> {{$dados->email}} </span></strong> </span>
         </p>
         <p><strong> CPF: </strong><span class="text-danger"> {{$dados->cpf}} </span> <span> <strong>RG: <span class="text-danger"> {{$dados->rg}} </span></strong> </span>
         <span> <strong> RA: <span class="text-danger"> </span> </strong></span>

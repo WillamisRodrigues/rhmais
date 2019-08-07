@@ -33,8 +33,6 @@ Route::resource('avaliacao_super', 'AvaliacaoSuperController');
 Route::resource('motivo', 'MotivoController');
 Route::resource('orientador', 'OrientadorController');
 Route::resource('supervisor', 'SupervisorController');
-Route::get('tce-pdf', 'PdfController@generatePDF');
-Route::get('/tce-pdf/{id}', 'EstagiarioController@gerarRelatorio');
 
  Route::get('/cidade-estado',array('as'=>'myform','uses'=>'EstagiarioController@myform'));
  Route::get('myform/ajax/{id}',array('as'=>'myform.ajax','uses'=>'EstagiarioController@myformAjax'));
@@ -43,20 +41,25 @@ Route::get('/termo_recesso', function () {
     return view('termo/index');
 });
 
+/*Gerar PDF*/
 Route::get('recisaotce', 'PdfController@generateRecisao');
 Route::get('cau', 'PdfController@generateCau');
 Route::get('cce', 'PdfController@generateCce');
 Route::get('estagio', 'PdfController@generateEstagio');
+Route::get('tce-pdf', 'PdfController@generatePDF');
+Route::get('/tce-pdf/{id}', 'EstagiarioController@gerarRelatorio');
+Route::get('/recisaotce/{id}', 'PdfController@generateRecisao');
+
+
+
 /* rotas tce */
 Route::resource('tce_contrato', 'TceContratoController');
+Route::get('tce_recisao', 'PdfController@tce_recisao');
 
 Route::get('/tce_aditivo', function () {
     return view('tce_aditivo/index');
 });
 
-Route::get('/tce_recisao', function () {
-    return view('tce_recisao/index');
-});
 
 Route::get('/tce_rescindindo', function () {
     return view('tce_rescindindo/index');

@@ -51,14 +51,57 @@ class EstagiarioController extends Controller
         }
         // Um Aluno Específico
         else {
-            $estagiarios = Estagiario::where('id', '=', $id)->get();
-        }
+            // $estagiarios = Estagiario::where('id', '=', $id)->get();
+            $estagiarios = DB::table('estagiario')
+                ->join('empresa', 'estagiario.empresa_id', '=', 'empresa.id')
+                ->join('instituicao', 'estagiario.instituicao_id', '=', 'instituicao.id')
+                ->select('estagiario.nome',
+                'estagiario.rua',
+                'estagiario.numero',
+                'estagiario.bairro',
+                'estagiario.city',
+                'estagiario.state',
+                'estagiario.cep',
+                'estagiario.celular',
+                'estagiario.cpf',
+                'estagiario.rg',
+                'estagiario.email',
+                'instituicao.razao_social AS instituicao_razao',
+                'instituicao.cnpj AS instituicao_cnpj',
+                'instituicao.numero AS instituicao_numero',
+                'instituicao.bairro AS instituicao_bairro',
+                'instituicao.city AS instituicao_cidade',
+                'instituicao.state AS instituicao_estado',
+                'instituicao.cep AS instituicao_cep',
+                'instituicao.nome_rep AS instituicao_nome_rep',
+                'instituicao.cargo_rep AS instituicao_cargo_rep',
+                'instituicao.orientador AS instituicao_orientador',
+                'instituicao.telefone AS instituicao_telefone',
+                'instituicao.rua AS instituicao_rua',
+                'empresa.razao_social AS empresa_razao',
+                'empresa.cnpj AS empresa_cnpj',
+                'empresa.numero AS empresa_numero',
+                'empresa.bairro AS empresa_bairro',
+                'empresa.city AS empresa_cidade',
+                'empresa.state AS empresa_estado',
+                'empresa.cep AS empresa_cep',
+                'empresa.nome_rep AS empresa_nome_rep',
+                'empresa.cargo_rep AS empresa_cargo_rep',
+                'empresa.supervisor AS empresa_cargo_sup',
+                'empresa.orientador AS empresa_orientador',
+                'empresa.supervisor AS empresa_sup',
+                'empresa.telefone AS empresa_telefone',
+                'empresa.rua AS empresa_rua'
+                )
+                ->where('estagiario.id', '=', $id)
+                ->get();
+         }
 
         // return \PDF::loadView('alunoRelatorio', compact('alunos'))
         //     ->setPaper('A4', 'portrait')
         //     ->stream('relatorio_alunos.pdf');
         // // ->download('relatorio_alunos.pdf');
-        // dd($estagiarios);
+
         $data = ['estagiario' => $estagiarios];
         $pdf = PDF::loadView('pdf.tce.index', $data);
         return $pdf->stream('tce-pdf.pdf');

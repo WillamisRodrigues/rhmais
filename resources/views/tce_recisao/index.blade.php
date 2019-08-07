@@ -57,17 +57,22 @@
                         </tr>
                       </thead>
                       <tbody>
+                         @foreach ($estagiarios as $estagiario)
                          <tr>
-                          <td>LÍVIA ALBUQUERQUE DIAS</td>
-                          <td>NEY CARTER DO CARMO BORGES CRM: 50.535 - VIVECOR VINHEDO</td>
-                          <td>CETEC - CENTRO TÉCNICO DE ENFERMAGEM LTDA - CETEC JUNDIAÍ</td>
-                          <td>800,00</td>
-                          <td>06/02/2019</td>
-                          <td>31/10/2019</td>
+                         <td>{{$estagiario->nome}}</td>
+                          <td>{{ $estagiario->nome_fantasia }}</td>
+                          <td>{{ $estagiario->nome_instituicao }}</td>
+                          <td>R$ {{ $estagiario->bolsa }}</td>
+                          <td>{{ $estagiario->data_inicio }}</td>
+                          <td>{{ $estagiario->data_fim }}</td>
+                          <td>{{ $estagiario->contrato }}</td>
+                          {{-- <td>{{ $estagiario->assinado }}</td> --}}
+                          {{-- <td>{{ $estagiario->obrigatorio }}</td> --}}
                           <td>RES</td>
                           <td>TCE Assinado Rescisão Assinada</td>
-                          <td><a href="/recisaotce" target="_blank" class="btn btn-primary"><i class="fa fa-print"></i> TCE Recisão</a></td>
+                          <td><a href="{{ action('EstagiarioController@gerarRelatorio', $estagiario->id) }}" target="_blank" class="btn btn-primary"><i class="fa fa-print"></i> TCE Recisão</a></td>
                         </tr>
+                        @endforeach
                       </tbody>
                     </table>
                   </div>
