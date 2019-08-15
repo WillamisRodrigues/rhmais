@@ -6,6 +6,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+        h5,p{
+            font-size:8pt;
+        }
+        hr{
+            padding:0px!important;
+        }
+    </style>
 </head>
 <body>
 <img src="https://www.rhmaistalentos.com.br/imagens/logo-site.png" style="margin-left:250px; width:30%;">
@@ -13,7 +21,7 @@
     
     <p>Celebram entre si o presente Instrumento jurídico, as partes a seguir qualificadas, </p>
     <hr>
-    <div>
+    <div class="col-md-4">
         <h5><strong>Parte Concedente :</strong></h5>
         <p> <strong> Razão Social: </strong> <span class="text-danger"> ESCOLA TECNICA ESTADUAL BENTO QUIRINO </span> <strong> CNPJ: </strong> <span class="text-danger"> ----- </span>  </p>
         <p><strong> Endereço: </strong><span class="text-danger"> AVENIDA OROSIMBO MAIA </span> <span> <strong>Nº:</strong></span><span class="text-danger"> 2600 </span>

@@ -6,6 +6,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        h5,p{
+            font-size:8pt;
+        }
+        hr{
+            padding:0px!important;
+        }
+    </style>
 </head>
 <body>
     <img src="https://www.rhmaistalentos.com.br/imagens/logo-site.png" style="margin-left:250px; width:30%;">
@@ -29,7 +37,6 @@ Federal 11.788 de 25/09/2008, as partes abaixo nomeadas no item 1 (um) acordam o
         <span> <strong> Telefone: </strong><span class="text-danger"> {{$dados->instituicao_telefone}} </span> </span>
         </p>
     </div>
-    <hr>
     <div>
         <h5><strong>UNIDADE CONCEDENTE</strong></h5>
         <p> <strong> Razão Social: </strong><span class="text-danger"> {{$dados->empresa_razao}} </span><strong> CNPJ: <span class="text-danger"> {{$dados->empresa_cnpj}}</span> </strong> </p>
@@ -136,26 +143,29 @@ escrito, todas as partes envolvidas.</p>
 <p>
  <p class="pull-right"> Campinas, <span class="text-danger"> 25 de junho de 2019. </span> </p>
 <div style="height:50px;"></div>
-
+<div class="row">
 <p class="pull-left">__________________________________ <br>
 Escola Estadual Carlos Gomes
 </p>
-<p class="pull-left" style="margin-left:30px;">
+<p class="pull-left" style="margin-left:40px;">
 _________________________________ <br>
 Vasconcelos Pires e A. Cobranças LTDA
 </p>
+</div>
 <br>
-<p>
-_______________________________________ <br>
-Koster & Koster Consultoria em RH LTDA ME
-</p>
-<p class="pull-left">
- _______________________________<br>
-Aline Rafaela Lima
-</p>
-<p class="pull-left" style="margin-left:30px;">
-_________________________________<br>
-Responsável legal
-</p>
+<div class="row">
+    <p class="pull-right" style="margin-left:10px;">
+    _______________________________________ <br>
+    Koster & Koster Consultoria em RH LTDA ME
+    </p>
+    <p class="pull-left" >
+    _______________________________<br>
+    Aline Rafaela Lima
+    </p>
+    <p class="pull-left" style="margin-left:65px;">
+    _________________________________<br>
+    Responsável legal
+    </p>
+</div>
 </body>
 </html>

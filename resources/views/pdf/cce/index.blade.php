@@ -6,6 +6,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+        h5,p{
+            font-size:8pt;
+        }
+        hr{
+            padding:0px!important;
+        }
+    </style>
 </head>
 <body>
 <img src="https://www.rhmaistalentos.com.br/imagens/logo-site.png" style="margin-left:250px; width:30%;">
@@ -82,7 +90,7 @@ Ensino e por Supervisor da parte concedente, comprovado por vistos nos relatóri
     <p>
     CLÁUSULA 5a - A (O) KOSTER E KOSTER CONSULTORIA EM RH LTDA, de acordo com o Artigo 5o da Lei Federal 11.788 de 25/09/2008, desde já,
 fica autorizada auxiliar a Instituição de Ensino, acima qualificada, no processo de aperfeiçoamento do instituto do estágio nas seguintes condições:
-    </p>]
+    </p>
     <p>
     --> Identificar oportunidades de estágio;
 --> Ajustar suas condições de realização;
@@ -159,18 +167,19 @@ deste convênio.
      </p>
  
  <p> Campinas, <span class="text-danger"> 05/12/2018. </span> </p>
-<div style="height:50px;"></div>
-
-<p class="pull-left">__________________________________ <br>
-ASSOCIACAO PRO-UNIVERSIDADE CANOENSE <br><br>
-<span>(assinatura e carimbo) </span>
-</p>
-<p class="pull-left" style="margin-left:30px;">
-_________________________________ <br>
-KOSTER E KOSTER CONSULTORIA <br> EM RH LTDA <br><br>
-<span>(assinatura e carimbo) </span>
-</p>
-<br>
+<div style="height:70px;"></div>
+<div class="row">
+    <p class="pull-left">__________________________________ <br>
+    ASSOCIACAO PRO-UNIVERSIDADE CANOENSE <br><br>
+    <span>(assinatura e carimbo) </span>
+    </p>
+    <p class="pull-left" style="margin-left:30px;">
+    _________________________________ <br>
+    KOSTER E KOSTER CONSULTORIA <br> EM RH LTDA <br><br>
+    <span>(assinatura e carimbo) </span>
+    </p>
+</div>
+<div class="row">
 <h3 tyle="margin-top:130px;"> Testemunhas: </h3>
 <br>
 <p class="pull-left" style="margin-left:30px;">
@@ -181,5 +190,6 @@ _________________________________ <br>
 _________________________________ <br>
 (Nome e CPF) <br><br>
 </p>
+</div>
 </body>
 </html>
