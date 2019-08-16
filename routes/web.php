@@ -41,6 +41,15 @@ Route::get('/termo_recesso', function () {
     return view('termo/index');
 });
 
+Route::get('/adicionar_cau', function () {
+    return view('cau_convenio/create');
+});
+
+Route::get('/adicionar_cce', function () {
+    return view('cce_convenio/create');
+});
+
+
 /*Gerar PDF*/
 Route::get('recisaotce', 'PdfController@generateRecisao');
 Route::get('cau', 'PdfController@generateCau');
