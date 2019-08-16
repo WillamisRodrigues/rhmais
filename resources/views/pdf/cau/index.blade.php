@@ -18,7 +18,7 @@
 <body>
 <img src="https://www.rhmaistalentos.com.br/imagens/logo-site.png" style="margin-left:250px; width:30%;">
     <h5 class="text-center"><strong> CONVÊNIO AGENTE DE INTEGRAÇÃO e UNIDADE CONCEDENTE DE ESTÁGIO </strong></h5>
-    
+
     <p>Celebram entre si o presente Instrumento jurídico, as partes a seguir qualificadas, </p>
     <hr>
     <div class="col-md-4">
@@ -46,7 +46,7 @@
         <p> <strong> CNPJ: </strong> <span class="text-danger"> 22.282.192/0001-09 </span><span> </p>
         <p><strong> Representante Legal: </strong><span class="text-danger"> TABAJARA DIAS DE ANDRADE </span> <span> <strong>Email:</strong></span><span class="text-danger"> TABAJARA@CLADE.COM.BR </span> </p>
     </div>
-    <hr>    
+    <hr>
     <p>CLÁUSULA 1a - DO OBJETO</p>
     <p>
     Este convênio tem por objetivo o estabelecimento e a manutenção de um acordo de cooperaço recíproca entre a UNIDADE CONCEDENTE e o AGENTE
@@ -166,8 +166,8 @@ questão que se originar deste Convênio, e que não possa ser resolvida amigave
     <p>
     As partes, por estarem de acordo quanto ao cumprimento dos termos mutuamente firmados, assinam o presente em duas vias de igual teor e conteúdo.
     </p>
- 
- 
+
+
  <p> Campinas, <span class="text-danger"> 05/12/2018. </span> </p>
 <div style="height:50px;"></div>
 

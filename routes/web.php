@@ -34,6 +34,7 @@ Route::resource('motivo', 'MotivoController');
 Route::resource('orientador', 'OrientadorController');
 Route::resource('supervisor', 'SupervisorController');
 
+
  Route::get('/cidade-estado',array('as'=>'myform','uses'=>'EstagiarioController@myform'));
  Route::get('myform/ajax/{id}',array('as'=>'myform.ajax','uses'=>'EstagiarioController@myformAjax'));
 
@@ -63,24 +64,20 @@ Route::get('/recisaotce/{id}', 'PdfController@generateRecisao');
 
 /* rotas tce */
 Route::resource('tce_contrato', 'TceContratoController');
-Route::get('tce_recisao', 'PdfController@tce_recisao');
+Route::resource('tce_rescisao', 'TceRescisaoController');
+Route::resource('cau_convenio', 'CauController');
+Route::resource('cce_convenio', 'CceController');
+//   Route::get('tce_recisao', 'TceRescisao@tce_recisao');
 
 Route::get('/tce_aditivo', function () {
     return view('tce_aditivo/index');
 });
 
 
-Route::get('/tce_rescindindo', function () {
-    return view('tce_rescindindo/index');
-});
+// Route::get('/tce_rescindindo', function () {
+//     return view('tce_rescindindo/index');
+// });
 
-Route::get('/cau_convenio', function () {
-    return view('cau_convenio/index');
-});
-
-Route::get('/cce_convenio', function () {
-    return view('cce_convenio/index');
-});
 
 Route::get('/plano_estagio', function () {
     return view('plano_estagio/index');

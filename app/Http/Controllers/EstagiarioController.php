@@ -45,11 +45,11 @@ class EstagiarioController extends Controller
 
     public function gerarRelatorio(Estagiario $estagiarios, $id)
     {
-        // Todos os Alunos
+        // Todos os Estagiarios
         if ($id == 0) {
             $estagiarios = Estagiario::all();
         }
-        // Um Aluno Específico
+        // Um Estagiario Específico
         else {
             // $estagiarios = Estagiario::where('id', '=', $id)->get();
             $estagiarios = DB::table('estagiario')

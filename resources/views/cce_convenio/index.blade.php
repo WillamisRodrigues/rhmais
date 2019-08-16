@@ -48,11 +48,12 @@
                         </tr>
                       </thead>
                       <tbody>
+                        @foreach ($instituicoes as $instituicao)
                          <tr>
-                          <td>ZRH CAPITAL INVESTIMENTOS E PARTICIPAÇÕES EIRELI - AUSTER</td>
-                            <td>CAMPINAS</td>
-                            <td>20/05/2019</td>
-                            <td>31/01/2022</td>
+                         <td>{{$instituicao->nome_fantasia}}</td>
+                            <td>{{$instituicao->city}}</td>
+                            <td>{{$instituicao->data_inicio}}</td>
+                            <td>{{$instituicao->data_fim}}</td>
                             <td>Não Assinado</td>
 
                           <td style="width:22%;">
@@ -61,6 +62,7 @@
                           <a class="btn btn-primary" href="/cce" target="_blank"><i class="fa fa-print"></i> Imprimir CCE</a>
                           </td>
                         </tr>
+                        @endforeach
                       </tbody>
                     </table>
                   </div>
