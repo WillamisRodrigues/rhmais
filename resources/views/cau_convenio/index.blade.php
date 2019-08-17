@@ -23,7 +23,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                  <a href="/adicionar_cau" class="btn btn-success pull-right"> <i class="fa fa-plus"> </i> Adicionar Novo Convênio</a>
+                  <a href="{{route('cau_convenio.create')}}" class="btn btn-success pull-right"> <i class="fa fa-plus"> </i> Adicionar Novo Convênio</a>
                     <h2>Lista de Convênio Agente de Integração/Unidade Concedente - CAU</h2>
                     <div class="clearfix"></div>
                   </div>

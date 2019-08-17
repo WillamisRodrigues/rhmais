@@ -61,23 +61,12 @@ Route::get('/tce-pdf/{id}', 'EstagiarioController@gerarRelatorio');
 Route::get('/recisaotce/{id}', 'PdfController@generateRecisao');
 
 
-
 /* rotas tce */
 Route::resource('tce_contrato', 'TceContratoController');
 Route::resource('tce_rescisao', 'TceRescisaoController');
 Route::resource('cau_convenio', 'CauController');
 Route::resource('cce_convenio', 'CceController');
-//   Route::get('tce_recisao', 'TceRescisao@tce_recisao');
-
-Route::get('/tce_aditivo', function () {
-    return view('tce_aditivo/index');
-});
-
-
-// Route::get('/tce_rescindindo', function () {
-//     return view('tce_rescindindo/index');
-// });
-
+Route::resource('tce_aditivo', 'TceAditivoController');
 
 Route::get('/plano_estagio', function () {
     return view('plano_estagio/index');
@@ -100,9 +89,7 @@ Route::get('/folha_rescisao', function () {
 Route::get('/rendimentos', function () {
     return view('rendimentos/index');
 });
-Route::get('/gerar_aditivo', function () {
-    return view('tce_aditivo/edit');
-});
+
 Route::get('/previsao_rescisao', function () {
     return view('previsao_rescisao/index');
 });

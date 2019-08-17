@@ -37,15 +37,18 @@
                                     <br>
                                     <div id="form-step-0" role="form" data-toggle="validator">
                                         <div class="row" style="width:960px; margin: 0 auto;">
-                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <select class="form-control has-feedback-left" name="unidade_concedente">
-                                                    <option>Koster & Koster Consultoria em RH LTDA</option>
+                                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                <select class="form-control has-feedback-left" name="instituicao_id">
+                                                    <option>Institução de Ensino</option>
+                                                     @foreach ($instituicoes as $key => $value)
+                                                        <option value="{{ $key }}">{{ $value->nome_instituicao }}</option>
+                                                        @endforeach
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="unidade_concedente">
-                                                    <option>Institução de Ensino</option>
+                                                    <option>Koster & Koster Consultoria em RH LTDA</option>
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
@@ -65,8 +68,11 @@
                                                 <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <select class="form-control has-feedback-left" name="unidade_concedente">
+                                                <select class="form-control has-feedback-left" name="seguro_id">
                                                     <option>Apólice/Seguradora</option>
+                                                    @foreach ($seguro as $key => $value)
+                                                        <option value="{{ $key }}">{{ $value->nome }}</option>
+                                                        @endforeach
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>

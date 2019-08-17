@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Cau;
 use DB;
+use App\Empresa;
 use Illuminate\Http\Request;
 
 class CauController extends Controller
@@ -36,7 +37,8 @@ class CauController extends Controller
      */
     public function create()
     {
-        //
+        $empresas = Empresa::all();
+        return view('cau_convenio.create', compact('empresas'));
     }
 
     /**

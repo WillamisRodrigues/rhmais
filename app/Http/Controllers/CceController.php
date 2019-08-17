@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Cce;
+use App\Instituicao;
+use App\Seguradora;
 use DB;
 use Illuminate\Http\Request;
 
@@ -36,7 +38,9 @@ class CceController extends Controller
      */
     public function create()
     {
-        //
+        $instituicoes = Instituicao::all();
+        $seguro = Seguradora::all();
+        return view('cce_convenio.create', compact('instituicoes', 'seguro'));
     }
 
     /**

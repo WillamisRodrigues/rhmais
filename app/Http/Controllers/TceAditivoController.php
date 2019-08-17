@@ -2,21 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\TceContrato;
-use App\Empresa;
-use App\Instituicao;
-use App\Estagiario;
-use Illuminate\Http\Request;
-use App\Beneficio;
-use App\Seguradora;
-use App\Setor;
-use App\Horario;
-use App\Atividade;
-use App\Orientador;
-use App\Supervisor;
+use App\TceAditivo;
 use DB;
+use Illuminate\Http\Request;
 
-class TceContratoController extends Controller
+class TceAditivoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,7 +32,7 @@ class TceContratoController extends Controller
                 'tce_contrato.obrigatorio'
             )
             ->get();
-         return view('tce_contrato.index',  compact('estagiarios', $estagiarios));
+        return view('tce_aditivo.index',  compact('estagiarios', $estagiarios));
     }
 
     /**
@@ -52,19 +42,7 @@ class TceContratoController extends Controller
      */
     public function create()
     {
-        $empresas = Empresa::all();
-        $estagiarios = Estagiario::all();
-        $instituicoes = Instituicao::all();
-        $beneficios = Beneficio::all();
-        $seguros = Seguradora::all();
-        $setores = Setor::all();
-        $horarios = Horario::all();
-        $atividades = Atividade::all();
-        $orienta = Orientador::all();
-        $super = Supervisor::all();
-
-        return view('tce_contrato.create', compact('empresas','instituicoes','estagiarios','beneficios','seguros','setores','horarios','atividades','orienta','super'));
-
+        //
     }
 
     /**
@@ -75,24 +53,16 @@ class TceContratoController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'nome' => 'required',
-        //     'empresa' => 'required',
-        //     'instituicao' => 'required',
-        // ]);
-        TceContrato::create($request->all());
-        return redirect()->route('tce_contrato.index')
-                        ->with('success','Cadastrado com sucesso.');
-
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\TceContrato  $tceContrato
+     * @param  \App\TceAditivo  $tceAditivo
      * @return \Illuminate\Http\Response
      */
-    public function show(TceContrato $tceContrato)
+    public function show(TceAditivo $tceAditivo)
     {
         //
     }
@@ -100,21 +70,22 @@ class TceContratoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\TceContrato  $tceContrato
+     * @param  \App\TceAditivo  $tceAditivo
      * @return \Illuminate\Http\Response
      */
-    public function edit(TceContrato $tceContrato)
+    public function edit(TceAditivo $tceAditivo)
     {
-        return view('tce_contrato.edit', compact('tceContrato', $tceContrato));
+        return view('tce_aditivo.edit', compact('tceAditivo', $tceAditivo));
     }
+
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\TceContrato  $tceContrato
+     * @param  \App\TceAditivo  $tceAditivo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TceContrato $tceContrato)
+    public function update(Request $request, TceAditivo $tceAditivo)
     {
         //
     }
@@ -122,10 +93,10 @@ class TceContratoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\TceContrato  $tceContrato
+     * @param  \App\TceAditivo  $tceAditivo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TceContrato $tceContrato)
+    public function destroy(TceAditivo $tceAditivo)
     {
         //
     }

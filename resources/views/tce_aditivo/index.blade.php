@@ -63,17 +63,20 @@
                       </thead>
                       <tbody>
                          <tr>
-                          <td>LÍVIA ALBUQUERQUE DIAS</td>
-                          <td>NEY CARTER DO CARMO BORGES CRM: 50.535 - VIVECOR VINHEDO</td>
-                          <td>CETEC - CENTRO TÉCNICO DE ENFERMAGEM LTDA - CETEC JUNDIAÍ</td>
-                          <td>800,00</td>
-                          <td>06/02/2019</td>
-                          <td>31/10/2019</td>
-                          <td>AD</td>
-                          <td>Não</td>
-                          <td>N</td>
-                          <td><a class="btn btn-primary" href="/gerar_aditivo"><i class="fa fa-pencil"></i> Novo</a></td>
+                          @foreach ($estagiarios as $estagiario)
+                         <tr>
+                          <td>{{ $estagiario->nome }}</td>
+                          <td>{{ $estagiario->nome_fantasia }}</td>
+                          <td>{{ $estagiario->nome_instituicao }}</td>
+                          <td>R$ {{ $estagiario->bolsa }}</td>
+                          <td>{{ $estagiario->data_inicio }}</td>
+                          <td>{{ $estagiario->data_fim }}</td>
+                          <td>{{ $estagiario->contrato }}</td>
+                          <td>{{ $estagiario->assinado }}</td>
+                          <td>{{ $estagiario->obrigatorio }}</td>
+                          <td><a class="btn btn-primary" href="{{ route('tce_aditivo.edit',[$estagiario->id])}}"><i class="fa fa-pencil"></i> Novo</a></td>
                         </tr>
+                        @endforeach
                       </tbody>
                     </table>
                   </div>
