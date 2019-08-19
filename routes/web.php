@@ -63,11 +63,9 @@ Route::resource('tce_rescisao', 'TceRescisaoController');
 Route::resource('cau_convenio', 'CauController');
 Route::resource('cce_convenio', 'CceController');
 Route::resource('tce_aditivo', 'TceAditivoController');
+Route::resource('plano_estagio', 'PlanoEstagioController');
 // Route::get('/tce_aditivo/{id}', 'TceAditivo@edit');
 
-Route::get('/plano_estagio', function () {
-    return view('plano_estagio/index');
-});
 
 /* fim rotas tce */
 /* rotas recesso / ferias */

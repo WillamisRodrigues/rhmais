@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\PlanoEstagio;
+use DB;
 use Illuminate\Http\Request;
 
 class PlanoEstagioController extends Controller
@@ -14,7 +15,24 @@ class PlanoEstagioController extends Controller
      */
     public function index()
     {
-        //
+        $planos = DB::table('tce_contrato')
+            ->join('estagiario', 'estagiario.id', '=', 'tce_contrato.estagiario_id')
+            ->join('empresa', 'empresa.id', '=', 'tce_contrato.empresa_id')
+            ->join('instituicao', 'instituicao.id', '=', 'tce_contrato.instituicao_id')
+            ->select(
+                'estagiario.nome',
+                'estagiario.id',
+                'empresa.nome_fantasia',
+                'instituicao.nome_instituicao',
+                'tce_contrato.bolsa',
+                'tce_contrato.data_inicio',
+                'tce_contrato.data_fim',
+                'tce_contrato.contrato',
+                'tce_contrato.assinado',
+                'tce_contrato.obrigatorio'
+            )
+            ->get();
+        return view('plano_estagio.index',  compact('planos', $planos));
     }
 
     /**

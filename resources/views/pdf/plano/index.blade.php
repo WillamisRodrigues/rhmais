@@ -8,9 +8,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-<img src="https://www.rhmaistalentos.com.br/imagens/logo-site.png" style="margin-left:250px; width:30%;">
+{{-- <img src="https://www.rhmaistalentos.com.br/imagens/logo-site.png" style="margin-left:250px; width:30%;"> --}}
     <h5 class="text-center"><strong> PLANO DE ESTÁGIO (previsto na Lei de Estágio 11.788/08) </strong></h5>
-    
+
     <p class="text-center">
     Estagiário(a): LAURA BEATRIZ CARDOSO DE CARVALHO
 CPF: 135.633.236-66
@@ -30,15 +30,15 @@ VENDAS@RPPROMOTORA.COM.BR - (16)3441-9495 -
         <div>
             <p> <strong> Instituição de Ensino: </strong> <span class="text-danger"> ASSUPERO - ENSINO SUPERIOR LTDA </span> <strong> CNPJ: </strong> <span class="text-danger">  06.099.229/0052-51 / UNIP RIBEIRÃO PRETO </span>  </p>
         </div>
-    <hr>  
+    <hr>
         <div>
             <p> <strong> Termo de Compromisso Estágio no: </strong> <span class="text-danger"> 20181124012256 </span> <strong> Vigência do Estágio: </strong> <span class="text-danger">  10/09/2018 a 10/09/2020 </span>  </p>
-        </div> 
-    <hr>  
+        </div>
+    <hr>
         <div>
             <p> <strong> Plano de Atividades : </strong>  </p>
         </div>
-    <hr>    
+    <hr>
     <div>
             <p> <strong> Observação : </strong>  </p>
         </div>
@@ -47,7 +47,7 @@ VENDAS@RPPROMOTORA.COM.BR - (16)3441-9495 -
             <p> <strong> RIBEIRÃO PRETO , 05/08/2019 </strong>  </p>
         </div>
     <hr>
- 
+
  <p> </p>
 <div style="height:50px;"></div>
 

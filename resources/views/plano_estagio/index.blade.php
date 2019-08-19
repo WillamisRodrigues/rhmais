@@ -50,10 +50,11 @@
                         </tr>
                       </thead>
                       <tbody>
+                        @foreach ($planos as $plano)
                          <tr>
-                          <td>NATHALIE KESLEY VIANA SILVA</td>
-                          <td>ARYMANA CONTABILIDADE EIRELI - ARYMANA CONTABILIDADE</td>
-                          <td>01/08/2018 01/08/2020</td>
+                         <td>{{$plano->nome}}</td>
+                          <td>{{$plano->nome_fantasia}}</td>
+                          <td>{{$plano->data_inicio}} / {{$plano->data_fim}}</td>
                           <td>TCE</td>
                           <td>Sim</td>
                           <td>Sim</td>
@@ -61,6 +62,7 @@
                           <button class="btn btn-primary"><i class="fa fa-plus"></i> Editar</button>
                           <a class="btn btn-primary" href="/estagio" target="_blank"><i class="fa fa-print"></i> Imprimir Plano</a></td>
                         </tr>
+                        @endforeach
                       </tbody>
                     </table>
                   </div>
