@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\TceAditivo;
+use App\Estagiario;
+use App\TceContrato;
 use DB;
 use Illuminate\Http\Request;
 
@@ -15,8 +17,8 @@ class TceAditivoController extends Controller
      */
     public function index()
     {
-        $estagiarios = DB::table('estagiario')
-            ->join('tce_contrato', 'estagiario.id', '=', 'tce_contrato.estagiario_id')
+        $tcesad = DB::table('tce_contrato')
+            ->join('estagiario', 'estagiario.id', '=', 'tce_contrato.estagiario_id')
             ->join('empresa', 'empresa.id', '=', 'tce_contrato.empresa_id')
             ->join('instituicao', 'instituicao.id', '=', 'tce_contrato.instituicao_id')
             ->select(
@@ -29,10 +31,11 @@ class TceAditivoController extends Controller
                 'tce_contrato.data_fim',
                 'tce_contrato.contrato',
                 'tce_contrato.assinado',
-                'tce_contrato.obrigatorio'
+                'tce_contrato.obrigatorio',
+            'tce_contrato.id'
             )
             ->get();
-        return view('tce_aditivo.index',  compact('estagiarios', $estagiarios));
+        return view('tce_aditivo.index',  compact('tcesad', $tcesad));
     }
 
     /**
@@ -73,8 +76,10 @@ class TceAditivoController extends Controller
      * @param  \App\TceAditivo  $tceAditivo
      * @return \Illuminate\Http\Response
      */
-    public function edit(TceAditivo $tceAditivo)
+    public function edit(TceAditivo  $tceAditivo)
     {
+        // $tcesad = TceContrato::where('id', '=', $id)->get();
+
         return view('tce_aditivo.edit', compact('tceAditivo', $tceAditivo));
     }
 

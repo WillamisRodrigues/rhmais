@@ -50,8 +50,8 @@
                       <tbody>
                         @foreach ($instituicoes as $instituicao)
                          <tr>
-                         <td>{{$instituicao->nome_fantasia}}</td>
-                            <td>{{$instituicao->city}}</td>
+                         <td>{{$instituicao->nome_instituicao}}</td>
+                            <td>Cidade</td>
                             <td>{{$instituicao->data_inicio}}</td>
                             <td>{{$instituicao->data_fim}}</td>
                             <td>Não Assinado</td>

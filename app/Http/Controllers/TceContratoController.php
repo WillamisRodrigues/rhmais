@@ -25,8 +25,8 @@ class TceContratoController extends Controller
      */
     public function index()
     {
-        $estagiarios = DB::table('estagiario')
-            ->join('tce_contrato', 'estagiario.id', '=', 'tce_contrato.estagiario_id')
+        $tces = DB::table('tce_contrato')
+            ->join('estagiario', 'estagiario.id', '=', 'tce_contrato.estagiario_id')
             ->join('empresa', 'empresa.id', '=', 'tce_contrato.empresa_id')
             ->join('instituicao', 'instituicao.id', '=', 'tce_contrato.instituicao_id')
             ->select(
@@ -42,7 +42,7 @@ class TceContratoController extends Controller
                 'tce_contrato.obrigatorio'
             )
             ->get();
-         return view('tce_contrato.index',  compact('estagiarios', $estagiarios));
+         return view('tce_contrato.index',  compact('tces', $tces));
     }
 
     /**

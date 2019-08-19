@@ -27,9 +27,8 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                  <form action="" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
-                   <input type="hidden" name="_method" value="PUT">
-                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <form action="{{ route('cce_convenio.store') }}" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
+                  {{csrf_field()}}
                       <!-- SmartWizard html -->
                       <div>
                           <div>
@@ -47,24 +46,24 @@
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <select class="form-control has-feedback-left" name="unidade_concedente">
+                                                <select class="form-control has-feedback-left" name="agente_integracao">
                                                     <option>Koster & Koster Consultoria em RH LTDA</option>
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
                                             <label for="">Data inicio:</label>
-                                                <input type="text" class="form-control nascimento has-feedback-left" placeholder="Data de Inicio" name="data_nascimento" value="">
+                                                <input type="text" class="form-control nascimento has-feedback-left" placeholder="Data de Inicio" name="data_inicio" value="">
                                                 <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
                                                 <label for="">Data Fim:</label>
-                                                <input type="text" class="form-control nascimento has-feedback-left" placeholder="Data de Final" name="data_nascimento" value="">
+                                                <input type="text" class="form-control nascimento has-feedback-left" placeholder="Data de Final" name="data_fim" value="">
                                                 <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
                                                 <label for="">Data Documento:</label>
-                                                <input type="text" class="form-control nascimento has-feedback-left" placeholder="Data de Final" name="data_nascimento" value="">
+                                                <input type="text" class="form-control nascimento has-feedback-left" placeholder="Data de Documento" name="data_doc" value="">
                                                 <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -82,7 +81,7 @@
                                                 </textarea>
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                                                <button class="btn btn-success">Salvar</button>
+                                                <button type="submit" class="btn btn-success">Salvar</button>
                                                 <button class="btn btn-primary">Cancelar</button>
                                             </div>
                                         </div>

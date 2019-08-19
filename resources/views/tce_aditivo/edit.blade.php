@@ -27,7 +27,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                  <form action="{{ route('tce_aditivo.update',  $estagiario->id) }}" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
+                  <form action="{{ route('tce_aditivo.update',  $tceAditivo->id) }}" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
                    <input type="hidden" name="_method" value="PUT">
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
                       <!-- SmartWizard html -->
@@ -38,56 +38,56 @@
                                   <div id="form-step-0" role="form" data-toggle="validator">
                                   <div class="row" style="width:960px; margin: 0 auto;">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                    <input type="text" value="{{$estagiario->nome}} " class="form-control has-feedback-left" placeholder="Estagiário" name="nome">
+                                    <input type="text" value="{{$tceAditivo->estagiario_id}}" class="form-control has-feedback-left" placeholder="Estagiário" name="nome">
                                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
 
                                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control has-feedback-left" placeholder="Instituição de Ensino" name="email">
+                                        <input type="text" value="{{$tceAditivo->instituicao_id}}" class="form-control has-feedback-left" placeholder="Instituição de Ensino" name="email">
                                         <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control has-feedback-left" placeholder="Unidade Concedente" name="email">
+                                        <input type="text" value="{{$tceAditivo->empresa_id}}" class="form-control has-feedback-left" placeholder="Unidade Concedente" name="email">
                                         <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control has-feedback-left" placeholder="Valor Bolsa-Auxílio:" name="email">
+                                        <input type="text" value="{{$tceAditivo->bolsa}}" class="form-control has-feedback-left" placeholder="Valor Bolsa-Auxílio:" name="email">
                                         <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control has-feedback-left" placeholder="Data Inicio:" name="email">
+                                        <input type="text" value="{{$tceAditivo->data_inicio}}" class="form-control has-feedback-left" placeholder="Data Inicio:" name="data_inicio">
                                         <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control has-feedback-left" placeholder="Data Fim:" name="email">
+                                        <input type="text" value="{{$tceAditivo->data_fim}}" class="form-control has-feedback-left" placeholder="Data Fim:" name="data_fim">
                                         <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control has-feedback-left" placeholder="Benefício:" name="email">
+                                        <input type="text" value="{{$tceAditivo->beneficio_id}}" class="form-control has-feedback-left" placeholder="Benefício:" name="beneficio">
                                         <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control has-feedback-left" placeholder="Horário Estágio:" name="email">
+                                        <input type="text" value="{{$tceAditivo->horario}}" class="form-control has-feedback-left" placeholder="Horário Estágio:" name="horario">
                                         <span class="fa fa-clock-o form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control has-feedback-left" placeholder="Setor:" name="email">
+                                        <input type="text" value="{{$tceAditivo->setor_id}}" class="form-control has-feedback-left" placeholder="Setor:" name="setor">
                                         <span class="fa fa-bars form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control has-feedback-left" placeholder="Atividades:" name="email">
+                                        <input type="text" value="{{$tceAditivo->atividades}}" class="form-control has-feedback-left" placeholder="Atividades:" name="atividades">
                                         <span class="fa fa-bars form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control has-feedback-left" placeholder="Orientador Estágio:" name="email">
+                                        <input type="text" value="{{$tceAditivo->orientador}}" class="form-control has-feedback-left" placeholder="Orientador Estágio:" name="orientador">
                                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control has-feedback-left" placeholder="Supervisor Estágio:" name="email">
+                                        <input type="text" value="{{$tceAditivo->supervisor}}"class="form-control has-feedback-left" placeholder="Supervisor Estágio:" name="supervisor">
                                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" class="form-control has-feedback-left" placeholder="Data Documento:" name="email">
+                                        <input type="text" value="{{$tceAditivo->data_doc}}" class="form-control has-feedback-left" placeholder="Data Documento:" name="data_doc">
                                         <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12">

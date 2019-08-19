@@ -42,10 +42,6 @@ Route::get('/termo_recesso', function () {
     return view('termo/index');
 });
 
-Route::get('/adicionar_cau', function () {
-    return view('cau_convenio/create');
-});
-
 Route::get('/adicionar_cce', function () {
     return view('cce_convenio/create');
 });
@@ -67,6 +63,7 @@ Route::resource('tce_rescisao', 'TceRescisaoController');
 Route::resource('cau_convenio', 'CauController');
 Route::resource('cce_convenio', 'CceController');
 Route::resource('tce_aditivo', 'TceAditivoController');
+// Route::get('/tce_aditivo/{id}', 'TceAditivo@edit');
 
 Route::get('/plano_estagio', function () {
     return view('plano_estagio/index');

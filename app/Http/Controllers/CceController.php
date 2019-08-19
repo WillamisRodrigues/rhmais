@@ -17,9 +17,8 @@ class CceController extends Controller
      */
     public function index()
     {
-        $instituicoes = DB::table('instituicao')
-            ->join('cce', 'instituicao.id', '=', 'cce.instituicao_id')
-            ->join('cidade', 'instituicao.city', '=', 'cidade.id')
+        $instituicoes = DB::table('cce')
+            ->join('instituicao', 'instituicao.id', '=', 'cce.instituicao_id')
             ->select(
             'instituicao.id',
             'instituicao.nome_instituicao',
@@ -51,7 +50,21 @@ class CceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'instituicao_id' => 'required',
+        ]);
+
+        $cce = new cce();
+        $cce->instituicao_id = $request->get('instituicao_id');
+        $cce->agente_integracao = $request->get('agente_integracao');
+        $cce->data_inicio = $request->get('data_inicio');
+        $cce->data_fim = $request->get('data_fim');
+        $cce->data_doc = $request->get('data_doc');
+        $cce->seguro_id = $request->get('seguro_id');
+        $cce->obs = $request->get('obs');
+        $cce->save();
+        return redirect()->route('cce_convenio.index')
+            ->with('success', 'Cadastrado com sucesso.');
     }
 
     /**

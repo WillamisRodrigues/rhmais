@@ -16,7 +16,7 @@
           <!-- page content -->
           <div class="right_col" role="main">
           <div class="">
-          <!-- <a href="{{url('estagiario/exportar')}}">Print  PDF</a> -->
+          <!-- <a href="{{url('tce/exportar')}}">Print  PDF</a> -->
             <div class="clearfix"></div>
 
             <div class="row">
@@ -31,7 +31,7 @@
                     <table class="table list table-striped table-responsive w-auto table-bordered">
                       <thead>
                         <tr>
-                          <th>Estagiario:
+                          <th>tce:
                           <input type="text" class="form-control">
                           </th>
                           <th>Un. Concedente: <br>
@@ -64,18 +64,18 @@
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach ($estagiarios as $estagiario)
+                        @foreach ($tces as $tce)
                          <tr>
-                          <td>{{ $estagiario->nome }}</td>
-                          <td>{{ $estagiario->nome_fantasia }}</td>
-                          <td>{{ $estagiario->nome_instituicao }}</td>
-                          <td>R$ {{ $estagiario->bolsa }}</td>
-                          <td>{{ $estagiario->data_inicio }}</td>
-                          <td>{{ $estagiario->data_fim }}</td>
-                          <td>{{ $estagiario->contrato }}</td>
-                          <td>{{ $estagiario->assinado }}</td>
-                          <td>{{ $estagiario->obrigatorio }}</td>
-                         <td><a class="btn btn-primary" href="{{ action('EstagiarioController@gerarRelatorio', $estagiario->id) }}" target="_blank"><i class="fa fa-print"></i> Imprimir TCE</a></td>
+                          <td>{{ $tce->nome }}</td>
+                          <td>{{ $tce->nome_fantasia }}</td>
+                          <td>{{ $tce->nome_instituicao }}</td>
+                          <td>R$ {{ $tce->bolsa }}</td>
+                          <td>{{ $tce->data_inicio }}</td>
+                          <td>{{ $tce->data_fim }}</td>
+                          <td>{{ $tce->contrato }}</td>
+                          <td>{{ $tce->assinado }}</td>
+                          <td>{{ $tce->obrigatorio }}</td>
+                         <td><a class="btn btn-primary" href="{{ action('EstagiarioController@gerarRelatorio', $tce->id) }}" target="_blank"><i class="fa fa-print"></i> Imprimir TCE</a></td>
                         </tr>
                         @endforeach
                       </tbody>

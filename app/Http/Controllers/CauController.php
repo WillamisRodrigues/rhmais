@@ -16,9 +16,8 @@ class CauController extends Controller
      */
     public function index()
     {
-        $empresas = DB::table('empresa')
-            ->join('cau', 'empresa.id', '=', 'cau.empresa_id')
-            ->join('cidade', 'empresa.city', '=', 'cidade.id')
+        $empresas = DB::table('cau')
+            ->join('empresa', 'empresa.id', '=', 'cau.empresa_id')
             ->select(
                 'empresa.id',
                 'empresa.nome_fantasia',
@@ -49,7 +48,20 @@ class CauController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'empresa_id' => 'required',
+        ]);
+
+        $cau = new cau();
+        $cau->empresa_id = $request->get('empresa_id');
+        $cau->agente_integracao = $request->get('agente_integracao');
+        $cau->data_inicio = $request->get('data_inicio');
+        $cau->data_fim = $request->get('data_fim');
+        $cau->data_doc = $request->get('data_doc');
+        $cau->obs = $request->get('obs');
+        $cau->save();
+        return redirect()->route('cau_convenio.index')
+            ->with('sucess', 'Cadastrado com sucesso.');
     }
 
     /**

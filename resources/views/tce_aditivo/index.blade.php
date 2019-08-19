@@ -16,7 +16,7 @@
           <!-- page content -->
           <div class="right_col" role="main">
           <div class="">
-          <!-- <a href="{{url('estagiario/exportar')}}">Print  PDF</a> -->
+          <!-- <a href="{{url('tcead/exportar')}}">Print  PDF</a> -->
             <div class="clearfix"></div>
 
             <div class="row">
@@ -31,7 +31,7 @@
                     <table class="table list table-striped table-bordered">
                       <thead>
                         <tr>
-                          <th>Estagiario
+                          <th>tcead
                           <input type="text" class="form-control" style="width:100px;">
                           </th>
                           <th>Un. Concedente
@@ -63,18 +63,18 @@
                       </thead>
                       <tbody>
                          <tr>
-                          @foreach ($estagiarios as $estagiario)
+                          @foreach ($tcesad as $tcead)
                          <tr>
-                          <td>{{ $estagiario->nome }}</td>
-                          <td>{{ $estagiario->nome_fantasia }}</td>
-                          <td>{{ $estagiario->nome_instituicao }}</td>
-                          <td>R$ {{ $estagiario->bolsa }}</td>
-                          <td>{{ $estagiario->data_inicio }}</td>
-                          <td>{{ $estagiario->data_fim }}</td>
-                          <td>{{ $estagiario->contrato }}</td>
-                          <td>{{ $estagiario->assinado }}</td>
-                          <td>{{ $estagiario->obrigatorio }}</td>
-                          <td><a class="btn btn-primary" href="{{ route('tce_aditivo.edit',[$estagiario->id])}}"><i class="fa fa-pencil"></i> Novo</a></td>
+                          <td>{{ $tcead->nome }}</td>
+                          <td>{{ $tcead->nome_fantasia }}</td>
+                          <td>{{ $tcead->nome_instituicao }}</td>
+                          <td>R$ {{ $tcead->bolsa }}</td>
+                          <td>{{ $tcead->data_inicio }}</td>
+                          <td>{{ $tcead->data_fim }}</td>
+                          <td>{{ $tcead->contrato }}</td>
+                          <td>{{ $tcead->assinado }}</td>
+                          <td>{{ $tcead->obrigatorio }}</td>
+                          <td><a class="btn btn-primary" href="{{ route('tce_aditivo.edit',[$tcead->id])}}"><i class="fa fa-pencil"></i> Novo</a></td>
                         </tr>
                         @endforeach
                       </tbody>

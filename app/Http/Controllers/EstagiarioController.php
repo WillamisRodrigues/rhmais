@@ -97,11 +97,6 @@ class EstagiarioController extends Controller
                 ->get();
          }
 
-        // return \PDF::loadView('alunoRelatorio', compact('alunos'))
-        //     ->setPaper('A4', 'portrait')
-        //     ->stream('relatorio_alunos.pdf');
-        // // ->download('relatorio_alunos.pdf');
-
         $data = ['estagiario' => $estagiarios];
         $pdf = PDF::loadView('pdf.tce.index', $data);
         return $pdf->stream('tce-pdf.pdf');
