@@ -63,8 +63,8 @@
                           <td>{{ $estagiario->nome_fantasia }}</td>
                           <td>{{ $estagiario->nome_instituicao }}</td>
                           <td>R$ {{ $estagiario->bolsa }}</td>
-                          <td>{{ $estagiario->data_inicio }}</td>
-                          <td>{{ $estagiario->data_fim }}</td>
+                          <td>{{Carbon\Carbon::parse($estagiario->data_inicio)->format('d/m/Y') }}</td>
+                          <td>{{ Carbon\Carbon::parse($estagiario->data_fim)->format('d/m/Y') }}</td>
                           <td>{{ $estagiario->contrato }}</td>
                           {{-- <td>{{ $estagiario->assinado }}</td> --}}
                           {{-- <td>{{ $estagiario->obrigatorio }}</td> --}}

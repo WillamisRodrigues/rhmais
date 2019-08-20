@@ -70,12 +70,16 @@
                           <td>{{ $tce->nome_fantasia }}</td>
                           <td>{{ $tce->nome_instituicao }}</td>
                           <td>R$ {{ $tce->bolsa }}</td>
-                          <td>{{ $tce->data_inicio }}</td>
-                          <td>{{ $tce->data_fim }}</td>
+                          <td>{{Carbon\Carbon::parse($tce->data_inicio)->format('d/m/Y') }}</td>
+                          <td>{{ Carbon\Carbon::parse($tce->data_fim )->format('d/m/Y')}}</td>
                           <td>{{ $tce->contrato }}</td>
                           <td>{{ $tce->assinado }}</td>
                           <td>{{ $tce->obrigatorio }}</td>
-                         <td><a class="btn btn-primary" href="{{ action('EstagiarioController@gerarRelatorio', $tce->id) }}" target="_blank"><i class="fa fa-print"></i> Imprimir TCE</a></td>
+                         <td><a class="btn btn-primary" href="{{ action('EstagiarioController@gerarRelatorio', $tce->id) }}" target="_blank"><i class="fa fa-print"></i> Imprimir TCE</a>
+                          <td style="width:15%;">
+                            <form class="col-md-3" style="margin-left:40px;" action="#" method="POST">
+                              <button type="submit" class="btn btn-danger" >Gerar Rescisão</button>
+                              </td>
                         </tr>
                         @endforeach
                       </tbody>

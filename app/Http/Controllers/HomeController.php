@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 use DB;
-use Illuminate\Http\Request;
-use App\Charts\HomeChart;
 use App\Estagiario;
 use App\Instituicao;
 use App\Empresa;
 use App\TceContrato;
-use Charts;
 
 class HomeController extends Controller
 {
