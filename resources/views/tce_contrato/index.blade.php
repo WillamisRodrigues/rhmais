@@ -76,10 +76,8 @@
                           <td>{{ $tce->assinado }}</td>
                           <td>{{ $tce->obrigatorio }}</td>
                          <td><a class="btn btn-primary" href="{{ action('EstagiarioController@gerarRelatorio', $tce->id) }}" target="_blank"><i class="fa fa-print"></i> Imprimir TCE</a>
-                          <td style="width:15%;">
-                            <form class="col-md-3" style="margin-left:40px;" action="#" method="POST">
-                              <button type="submit" class="btn btn-danger" >Gerar Rescisão</button>
-                              </td>
+                         <a href="/recisao  " class="btn btn-danger"><i class="fa fa-print"></i> Gerar Rescisão</a>
+                          </td>
                         </tr>
                         @endforeach
                       </tbody>

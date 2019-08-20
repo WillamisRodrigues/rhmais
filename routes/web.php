@@ -46,6 +46,10 @@ Route::get('/adicionar_cce', function () {
     return view('cce_convenio/create');
 });
 
+Route::get('/recisao', function () {
+    return view('tce_recisao/create');
+});
+
 
 /*Gerar PDF*/
 Route::get('recisaotce', 'PdfController@generateRecisao');
