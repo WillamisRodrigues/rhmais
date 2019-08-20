@@ -59,7 +59,7 @@
                           <td>Sim</td>
                           <td>Sim</td>
                           <td>
-                          <button class="btn btn-primary"><i class="fa fa-plus"></i> Editar</button>
+                          <a href="/adicionar_plano_estagio" class="btn btn-primary"><i class="fa fa-plus"></i> Editar</a>
                           <a class="btn btn-primary" href="/estagio" target="_blank"><i class="fa fa-print"></i> Imprimir Plano</a></td>
                         </tr>
                         @endforeach

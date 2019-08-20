@@ -76,6 +76,10 @@ Route::resource('plano_estagio', 'PlanoEstagioController');
 Route::get('/lista_recesso', function () {
     return view('recesso/index');
 });
+
+Route::get('/adicionar_plano_estagio', function () {
+    return view('plano_estagio/create');
+});
 /* fim recesso de ferias */
 
 /*rotas folhas de pagamento , recisao, rendimentos , previa_recisao*/
