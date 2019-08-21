@@ -46,9 +46,7 @@ Route::get('/adicionar_cce', function () {
     return view('cce_convenio/create');
 });
 
-Route::get('/recisao', function () {
-    return view('tce_recisao/create');
-});
+
 
 
 /*Gerar PDF*/
@@ -68,8 +66,7 @@ Route::resource('cau_convenio', 'CauController');
 Route::resource('cce_convenio', 'CceController');
 Route::resource('tce_aditivo', 'TceAditivoController');
 Route::resource('plano_estagio', 'PlanoEstagioController');
-// Route::get('/tce_aditivo/{id}', 'TceAditivo@edit');
-
+Route::get('plano_edit', 'TceContrato@plano_edit');
 
 /* fim rotas tce */
 /* rotas recesso / ferias */
@@ -77,9 +74,6 @@ Route::get('/lista_recesso', function () {
     return view('recesso/index');
 });
 
-Route::get('/adicionar_plano_estagio', function () {
-    return view('plano_estagio/create');
-});
 /* fim recesso de ferias */
 
 /*rotas folhas de pagamento , recisao, rendimentos , previa_recisao*/

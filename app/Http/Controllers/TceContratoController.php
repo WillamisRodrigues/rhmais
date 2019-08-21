@@ -39,7 +39,8 @@ class TceContratoController extends Controller
                 'tce_contrato.data_fim',
                 'tce_contrato.contrato',
                 'tce_contrato.assinado',
-                'tce_contrato.obrigatorio'
+                'tce_contrato.obrigatorio',
+                'tce_contrato.id As tceId'
             )
             ->get();
          return view('tce_contrato.index',  compact('tces', $tces));
@@ -94,7 +95,7 @@ class TceContratoController extends Controller
      */
     public function show(TceContrato $tceContrato)
     {
-        //
+        return view('tce_contrato.show', compact('tceContrato', $tceContrato));
     }
 
     /**
@@ -105,8 +106,9 @@ class TceContratoController extends Controller
      */
     public function edit(TceContrato $tceContrato)
     {
-        return view('tce_contrato.edit', compact('tceContrato', $tceContrato));
+       return view('tce_contrato.edit', compact('tceContrato', $tceContrato));
     }
+
     /**
      * Update the specified resource in storage.
      *

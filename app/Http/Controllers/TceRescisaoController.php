@@ -15,24 +15,22 @@ class TceRescisaoController extends Controller
      */
     public function index()
     {
-        $estagiarios = DB::table('estagiario')
-            ->join('tce_contrato', 'estagiario.id', '=', 'tce_contrato.estagiario_id')
-            ->join('empresa', 'empresa.id', '=', 'tce_contrato.empresa_id')
-            ->join('instituicao', 'instituicao.id', '=', 'tce_contrato.instituicao_id')
+        $rescisao = DB::table('tce_rescisao')
+            ->join('estagiario', 'estagiario.id', '=', 'tce_rescisao.estagiario_id')
+            ->join('empresa', 'empresa.id', '=', 'tce_rescisao.empresa_id')
+            ->join('instituicao', 'instituicao.id', '=', 'tce_rescisao.instituicao_id')
             ->select(
                 'estagiario.nome',
                 'estagiario.id',
                 'empresa.nome_fantasia',
                 'instituicao.nome_instituicao',
-                'tce_contrato.bolsa',
-                'tce_contrato.data_inicio',
-                'tce_contrato.data_fim',
-                'tce_contrato.contrato',
-                'tce_contrato.assinado',
-                'tce_contrato.obrigatorio'
+                'tce_rescisao.bolsa',
+                'tce_rescisao.data_inicio',
+                'tce_rescisao.data_fim',
+                'tce_rescisao.contrato'
             )
             ->get();
-        return view('tce_recisao.index', compact('estagiarios', $estagiarios));
+        return view('tce_rescisao.index',  compact('rescisao', $rescisao));
     }
 
     /**
@@ -53,7 +51,14 @@ class TceRescisaoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $request->validate([
+        //     'nome' => 'required',
+        //     'empresa' => 'required',
+        //     'instituicao' => 'required',
+        // ]);
+        TceRescisao::create($request->all());
+        return redirect()->route('tce_rescisao.index')
+            ->with('success', 'Cadastrado com sucesso.');
     }
 
     /**

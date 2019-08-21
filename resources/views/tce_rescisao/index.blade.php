@@ -16,7 +16,7 @@
           <!-- page content -->
           <div class="right_col" role="main">
           <div class="">
-          <!-- <a href="{{url('estagiario/exportar')}}">Print  PDF</a> -->
+          <!-- <a href="{{url('resc/exportar')}}">Print  PDF</a> -->
             <div class="clearfix"></div>
 
             <div class="row">
@@ -31,7 +31,7 @@
                     <table class="table table-striped list table-bordered">
                       <thead>
                         <tr>
-                          <th>Estagiario
+                          <th>resc
                           <input type="text" class="form-control" style="width:100px;">
                           </th>
                           <th>Un. Concedente
@@ -57,20 +57,20 @@
                         </tr>
                       </thead>
                       <tbody>
-                         @foreach ($estagiarios as $estagiario)
+                         @foreach ($rescisao as $resc)
                          <tr>
-                         <td>{{$estagiario->nome}}</td>
-                          <td>{{ $estagiario->nome_fantasia }}</td>
-                          <td>{{ $estagiario->nome_instituicao }}</td>
-                          <td>R$ {{ $estagiario->bolsa }}</td>
-                          <td>{{Carbon\Carbon::parse($estagiario->data_inicio)->format('d/m/Y') }}</td>
-                          <td>{{ Carbon\Carbon::parse($estagiario->data_fim)->format('d/m/Y') }}</td>
-                          <td>{{ $estagiario->contrato }}</td>
-                          {{-- <td>{{ $estagiario->assinado }}</td> --}}
-                          {{-- <td>{{ $estagiario->obrigatorio }}</td> --}}
+                         <td>{{$resc->nome}}</td>
+                          <td>{{ $resc->nome_fantasia }}</td>
+                          <td>{{ $resc->nome_instituicao }}</td>
+                          <td>R$ {{ $resc->bolsa }}</td>
+                          <td>{{Carbon\Carbon::parse($resc->data_inicio)->format('d/m/Y') }}</td>
+                          <td>{{ Carbon\Carbon::parse($resc->data_fim)->format('d/m/Y') }}</td>
+                          <td>{{ $resc->contrato }}</td>
+                          {{-- <td>{{ $resc->assinado }}</td> --}}
+                          {{-- <td>{{ $resc->obrigatorio }}</td> --}}
                           <td>RES</td>
                           <td>TCE Assinado Rescisão Assinada</td>
-                          <td><a href="{{ action('EstagiarioController@gerarRelatorio', $estagiario->id) }}" target="_blank" class="btn btn-primary"><i class="fa fa-print"></i> TCE Recisão</a></td>
+                          <td><a href="{{ action('EstagiarioController@gerarRelatorio', $resc->id) }}" target="_blank" class="btn btn-primary"><i class="fa fa-print"></i> TCE Recisão</a></td>
                         </tr>
                         @endforeach
                       </tbody>

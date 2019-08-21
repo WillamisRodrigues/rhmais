@@ -76,7 +76,7 @@
                           <td>{{ $tce->assinado }}</td>
                           <td>{{ $tce->obrigatorio }}</td>
                          <td><a class="btn btn-primary" href="{{ action('EstagiarioController@gerarRelatorio', $tce->id) }}" target="_blank"><i class="fa fa-print"></i> Imprimir TCE</a>
-                         <a href="/recisao  " class="btn btn-danger"><i class="fa fa-print"></i> Gerar Rescisão</a>
+                         <a href="{{ route('tce_contrato.edit',[$tce->tceId])}}" class="btn btn-danger"><i class="fa fa-print"></i> Gerar Rescisão</a>
                           </td>
                         </tr>
                         @endforeach

@@ -29,7 +29,9 @@ class PlanoEstagioController extends Controller
                 'tce_contrato.data_fim',
                 'tce_contrato.contrato',
                 'tce_contrato.assinado',
-                'tce_contrato.obrigatorio'
+                'tce_contrato.obrigatorio',
+                'tce_contrato.plano_estagio',
+                'tce_contrato.id As tceId'
             )
             ->get();
         return view('plano_estagio.index',  compact('planos', $planos));
@@ -53,7 +55,14 @@ class PlanoEstagioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $request->validate([
+        //     'nome' => 'required',
+        //     'empresa' => 'required',
+        //     'instituicao' => 'required',
+        // ]);
+        PlanoEstagio::create($request->all());
+        return redirect()->route('plano_estagio.index')
+            ->with('success', 'Cadastrado com sucesso.');
     }
 
     /**
@@ -75,7 +84,7 @@ class PlanoEstagioController extends Controller
      */
     public function edit(PlanoEstagio $planoEstagio)
     {
-        //
+        return view('plano_estagio.edit', compact('planoEstagio', $planoEstagio));
     }
 
     /**

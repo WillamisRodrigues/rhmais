@@ -54,12 +54,18 @@
                          <tr>
                          <td>{{$plano->nome}}</td>
                           <td>{{$plano->nome_fantasia}}</td>
-                          <td>{{$plano->data_inicio}} / {{$plano->data_fim}}</td>
+                          <td>{{Carbon\Carbon::parse($plano->data_inicio)->format('d/m/Y')}} / {{Carbon\Carbon::parse($plano->data_fim)->format('d/m/Y')}}</td>
                           <td>TCE</td>
                           <td>Sim</td>
-                          <td>Sim</td>
                           <td>
-                          <a href="/adicionar_plano_estagio" class="btn btn-primary"><i class="fa fa-plus"></i> Editar</a>
+                          @if ($plano->plano_estagio == '1')
+                              Sim
+                              @else
+                              Não
+                            @endif
+                          </td>
+                          <td>
+                          <a href="{{ route('tce_contrato.show',[$plano->tceId])}}" class="btn btn-primary"><i class="fa fa-plus"></i> Editar</a>
                           <a class="btn btn-primary" href="/estagio" target="_blank"><i class="fa fa-print"></i> Imprimir Plano</a></td>
                         </tr>
                         @endforeach

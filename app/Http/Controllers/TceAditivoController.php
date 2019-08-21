@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\TceAditivo;
-use App\Estagiario;
-use App\TceContrato;
 use DB;
 use Illuminate\Http\Request;
 
@@ -32,7 +30,7 @@ class TceAditivoController extends Controller
                 'tce_contrato.contrato',
                 'tce_contrato.assinado',
                 'tce_contrato.obrigatorio',
-            'tce_contrato.id'
+                'tce_contrato.id'
             )
             ->get();
         return view('tce_aditivo.index',  compact('tcesad', $tcesad));
@@ -78,9 +76,7 @@ class TceAditivoController extends Controller
      */
     public function edit(TceAditivo  $tceAditivo)
     {
-        // $tcesad = TceContrato::where('id', '=', $id)->get();
-
-        return view('tce_aditivo.edit', compact('tceAditivo', $tceAditivo));
+         return view('tce_aditivo.edit', compact('tceAditivo', $tceAditivo));
     }
 
     /**
