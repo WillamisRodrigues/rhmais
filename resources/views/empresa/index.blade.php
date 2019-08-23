@@ -69,7 +69,7 @@
                          <tr>
                           <td>{{$empresa->nome_fantasia}}</td>
                           <td>{{$empresa->nome_cidade}}</td>
-                          <td>19 36558898</td>
+                          <td>{{$empresa->telefone}}</td>
                           <td>{{$empresa->cnpj}}</td>
                           <td>12 Vezes</td>
                           <td>Sim</td>

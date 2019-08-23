@@ -42,11 +42,6 @@ Route::get('/termo_recesso', function () {
     return view('termo/index');
 });
 
-Route::get('/adicionar_cce', function () {
-    return view('cce_convenio/create');
-});
-
-
 
 
 /*Gerar PDF*/

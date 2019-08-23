@@ -16,7 +16,7 @@ class CauController extends Controller
      */
     public function index()
     {
-        $empresas = DB::table('cau')
+        $caus = DB::table('cau')
             ->join('empresa', 'empresa.id', '=', 'cau.empresa_id')
             ->select(
                 'empresa.id',
@@ -26,7 +26,7 @@ class CauController extends Controller
                 'cau.situacao'
             )
             ->get();
-        return view('cau_convenio.index',  compact('empresas', $empresas));
+        return view('cau_convenio.index',  compact('caus', $caus));
     }
 
     /**
@@ -81,9 +81,9 @@ class CauController extends Controller
      * @param  \App\Cau  $cau
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cau $cau)
+    public function edit(Cau $caus)
     {
-        //
+        return view('cau_convenio.edit', compact('caus', $caus));
     }
 
     /**
@@ -104,8 +104,10 @@ class CauController extends Controller
      * @param  \App\Cau  $cau
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cau $cau)
+    public function destroy(Request $request, Cau $caus )
     {
-        //
+        $caus->delete();
+        $request->session()->flash('warning', 'Removido com sucesso!');
+        return redirect('cau_convenio');
     }
 }

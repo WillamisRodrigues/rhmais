@@ -54,7 +54,7 @@
                          <tr>
                          <td>{{$plano->nome}}</td>
                           <td>{{$plano->nome_fantasia}}</td>
-                          <td>{{Carbon\Carbon::parse($plano->data_inicio)->format('d/m/Y')}} / {{Carbon\Carbon::parse($plano->data_fim)->format('d/m/Y')}}</td>
+                          <td>{{date('d/m/Y', strtotime($plano->data_inicio))}} / {{date('d/m/Y', strtotime($plano->data_fim))}}</td>
                           <td>TCE</td>
                           <td>Sim</td>
                           <td>

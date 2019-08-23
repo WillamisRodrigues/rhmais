@@ -69,8 +69,8 @@
                           <td>{{ $tcead->nome_fantasia }}</td>
                           <td>{{ $tcead->nome_instituicao }}</td>
                           <td>R$ {{ $tcead->bolsa }}</td>
-                          <td>{{ Carbon\Carbon::parse($tcead->data_inicio)->format('d/m/Y') }}</td>
-                          <td>{{Carbon\Carbon::parse($tcead->data_fim)->format('d/m/Y')}}</td>
+                          <td>{{ date('d/m/Y', strtotime($tcead->data_inicio)) }}</td>
+                          <td>{{date('d/m/Y', strtotime($tcead->data_fim))}}</td>
                           <td>{{ $tcead->contrato }}</td>
                           <td>{{ $tcead->assinado }}</td>
                           <td>{{ $tcead->obrigatorio }}</td>

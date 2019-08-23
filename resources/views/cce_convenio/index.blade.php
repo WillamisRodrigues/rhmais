@@ -48,17 +48,21 @@
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach ($instituicoes as $instituicao)
+                        @foreach ($cces as $cce)
                          <tr>
-                         <td>{{$instituicao->nome_instituicao}}</td>
+                         <td>{{$cce->nome_instituicao}}</td>
                             <td>Cidade</td>
-                            <td>{{$instituicao->data_inicio}}</td>
-                            <td>{{$instituicao->data_fim}}</td>
+                            <td>{{date('d/m/Y', strtotime($cce->data_inicio))}}</td>
+                            <td>{{date('d/m/Y', strtotime($cce->data_fim))}}</td>
                             <td>Não Assinado</td>
 
                           <td style="width:22%;">
-                          <button class="btn btn-primary"><i class="fa fa-trash"></i> Excluir</button>
-                          <button class="btn btn-primary"><i class="fa fa-edit"></i> Editar</button>
+                          <form action="{{route('cce_convenio.destroy', [$cce->id])}}" method="POST">
+                          <button type="submit" class="btn btn-primary"><i class="fa fa-trash"></i> Excluir</button>
+                          <button  class="btn btn-primary" href="{{route('cce_convenio.edit', [$cce->id])}}"><i class="fa fa-edit"></i> Editar</button>
+                            @csrf
+                           @method('DELETE')
+                             </form>
                           <a class="btn btn-primary" href="/cce" target="_blank"><i class="fa fa-print"></i> Imprimir CCE</a>
                           </td>
                         </tr>

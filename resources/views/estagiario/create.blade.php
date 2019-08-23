@@ -94,8 +94,8 @@
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="empresa_id">
                                                     <option>Selecione Unidade Concedente</option>
-                                                          @foreach ($empresas as $key => $value)
-                                                        <option value="{{ $key }}">{{ $value->nome_fantasia }}</option>
+                                                          @foreach ($empresas as $empresa)
+                                                        <option value="{{ $empresa->id }}">{{ $empresa->nome_fantasia }}</option>
                                                         @endforeach
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
@@ -152,8 +152,8 @@
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="deficiencia">
                                                     <option>Não e Portador de Deficiência</option>
-                                                    <option>Sim</option>
-                                                    <option>Não</option>
+                                                    <option value="1">Sim</option>
+                                                    <option value="2">Não</option>
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>

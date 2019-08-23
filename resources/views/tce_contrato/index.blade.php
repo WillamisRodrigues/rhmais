@@ -70,8 +70,8 @@
                           <td>{{ $tce->nome_fantasia }}</td>
                           <td>{{ $tce->nome_instituicao }}</td>
                           <td>R$ {{ $tce->bolsa }}</td>
-                          <td>{{Carbon\Carbon::parse($tce->data_inicio)->format('d/m/Y') }}</td>
-                          <td>{{ Carbon\Carbon::parse($tce->data_fim )->format('d/m/Y')}}</td>
+                          <td>{{date('d/m/Y', strtotime($tce->data_inicio)) }}</td>
+                          <td>{{ date('d/m/Y', strtotime($tce->data_fim ))}}</td>
                           <td>{{ $tce->contrato }}</td>
                           <td>{{ $tce->assinado }}</td>
                           <td>{{ $tce->obrigatorio }}</td>

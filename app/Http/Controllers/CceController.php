@@ -17,7 +17,7 @@ class CceController extends Controller
      */
     public function index()
     {
-        $instituicoes = DB::table('cce')
+        $cces = DB::table('cce')
             ->join('instituicao', 'instituicao.id', '=', 'cce.instituicao_id')
             ->select(
             'instituicao.id',
@@ -27,7 +27,7 @@ class CceController extends Controller
             'cce.situacao'
             )
             ->get();
-        return view('cce_convenio.index',  compact('instituicoes', $instituicoes));
+        return view('cce_convenio.index',  compact('cces', $cces));
     }
 
     /**
@@ -107,8 +107,10 @@ class CceController extends Controller
      * @param  \App\Cce  $cce
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cce $cce)
+    public function destroy(Cce $cce, Request $request)
     {
-        //
+        $cce->delete();
+        $request->session()->flash('warning', 'Removido com sucesso!');
+        return redirect('cce_convenio');
     }
 }

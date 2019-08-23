@@ -63,8 +63,8 @@
                           <td>{{ $resc->nome_fantasia }}</td>
                           <td>{{ $resc->nome_instituicao }}</td>
                           <td>R$ {{ $resc->bolsa }}</td>
-                          <td>{{Carbon\Carbon::parse($resc->data_inicio)->format('d/m/Y') }}</td>
-                          <td>{{ Carbon\Carbon::parse($resc->data_fim)->format('d/m/Y') }}</td>
+                          <td>{{date('d/m/Y', strtotime($resc->data_inicio)) }}</td>
+                          <td>{{ date('d/m/Y', strtotime($resc->data_fim)) }}</td>
                           <td>{{ $resc->contrato }}</td>
                           {{-- <td>{{ $resc->assinado }}</td> --}}
                           {{-- <td>{{ $resc->obrigatorio }}</td> --}}

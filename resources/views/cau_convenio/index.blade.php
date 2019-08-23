@@ -48,18 +48,25 @@
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach ($empresas as $empresa)
+                        @foreach ($caus as $cau)
                          <tr>
-                          <td>{{$empresa->nome_fantasia}}</td>
+                          <td>{{$cau->nome_fantasia}}</td>
                             <td>Cidade</td>
-                            <td>{{$empresa->data_inicio}}</td>
-                            <td>{{$empresa->data_fim}}</td>
+                            <td>{{date('d/m/Y', strtotime($cau->data_inicio))}}</td>
+                            <td>{{date('d/m/Y', strtotime($cau->data_fim))}}</td>
                             <td>Não Assinado</td>
-
                           <td style="width:22%;">
-                          <button class="btn btn-primary"><i class="fa fa-trash"></i> Excluir</button>
-                          <button class="btn btn-primary"><i class="fa fa-edit"></i> Editar</button>
-                          <a class="btn btn-primary" href="/cau" target="_blank"><i class="fa fa-print"></i> Imprimir CAU</a>
+                            <div class="col-md-3">
+                            <a href="{{ route('empresa.edit',[$cau->id])}}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
+                          </div>
+                          <form  class="col-md-3" style="margin-left:40px;" action="{{route('cau_convenio.destroy', [$cau->id])}}" method="POST">
+    		                  <input type="hidden" name="_method" value="DELETE">
+   		                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+   		                    <button type="submit" class="btn btn-danger">
+                              <i class="fa fa-trash"></i> Deletar
+                              </button>
+                          </form>
+                            <a class="btn btn-primary" href="/cau" target="_blank"><i class="fa fa-print"></i> Imprimir CAU</a>
                           </td>
                         </tr>
                         @endforeach
