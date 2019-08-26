@@ -54,10 +54,13 @@
                             <td>Cidade</td>
                             <td>{{date('d/m/Y', strtotime($cau->data_inicio))}}</td>
                             <td>{{date('d/m/Y', strtotime($cau->data_fim))}}</td>
-                            <td>Não Assinado</td>
+                            <td>Não Assinado
+
+                            </td>
+
                           <td style="width:22%;">
                             <div class="col-md-3">
-                            <a href="{{ route('empresa.edit',[$cau->id])}}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
+                            <a href="{{ route('cau_convenio.edit',[$cau->id])}}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
                           </div>
                           <form  class="col-md-3" style="margin-left:40px;" action="{{route('cau_convenio.destroy', [$cau->id])}}" method="POST">
     		                  <input type="hidden" name="_method" value="DELETE">
@@ -70,6 +73,7 @@
                           </td>
                         </tr>
                         @endforeach
+
                       </tbody>
                     </table>
                   </div>

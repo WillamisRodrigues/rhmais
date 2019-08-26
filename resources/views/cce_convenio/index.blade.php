@@ -57,13 +57,13 @@
                             <td>Não Assinado</td>
 
                           <td style="width:22%;">
+                          <button  class="btn btn-primary" href="{{route('cce_convenio.edit', [$cce->id])}}"><i class="fa fa-edit"></i> Editar</button>
+                          <a class="btn btn-primary" href="/cce" target="_blank"><i class="fa fa-print"></i> Imprimir CCE</a>
                           <form action="{{route('cce_convenio.destroy', [$cce->id])}}" method="POST">
                           <button type="submit" class="btn btn-primary"><i class="fa fa-trash"></i> Excluir</button>
-                          <button  class="btn btn-primary" href="{{route('cce_convenio.edit', [$cce->id])}}"><i class="fa fa-edit"></i> Editar</button>
-                            @csrf
-                           @method('DELETE')
+                            <input type="hidden" name="_method" value="DELETE">
+   		                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                              </form>
-                          <a class="btn btn-primary" href="/cce" target="_blank"><i class="fa fa-print"></i> Imprimir CCE</a>
                           </td>
                         </tr>
                         @endforeach

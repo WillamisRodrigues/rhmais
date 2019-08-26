@@ -19,6 +19,7 @@
             <div class="clearfix"></div>
 
             <div class="row">
+              @foreach ($tceContrato as $tce)
 
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
@@ -37,42 +38,42 @@
                                     <div id="form-step-0" role="form" data-toggle="validator">
                                       <div class="row" style="width:960px; margin: 20px auto;">
                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" value="{{$tceContrato->estagiario_id}}" class="form-control has-feedback-left" placeholder="Estágiario" name="nome_estagiario">
+                                                <input type="text" value="{{$tce->nome}}" class="form-control has-feedback-left" placeholder="Estágiario" name="nome">
                                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" value="{{$tceContrato->estagiario_id}}" class="form-control has-feedback-left" placeholder="Curso" name="curso">
+                                                <input type="text"  class="form-control has-feedback-left" placeholder="Curso" name="curso">
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" value="{{$tceContrato->estagiario_id}}" class="form-control has-feedback-left" placeholder="Insituição de Ensino" name="instituicao_ensino">
+                                                <input type="text" value="{{$tce->nome_instituicao}}" class="form-control has-feedback-left" placeholder="Insituição de Ensino" name="nome_instituicao">
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text"  value="{{$tceContrato->estagiario_id}}" class="form-control has-feedback-left" placeholder="Unidade Concedente" name="unidade_concedente">
+                                                <input type="text"  value="{{$tce->nome_fantasia}}" class="form-control has-feedback-left" placeholder="Unidade Concedente" name="nome_fantasia">
                                                 <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" value="{{$tceContrato->estagiario_id}}" class="form-control has-feedback-left" placeholder="Supervisor Estágio" name="supervisor_estagio">
+                                                <input type="text" value="{{$tce->supervisor}}" class="form-control has-feedback-left" placeholder="Supervisor Estágio" name="supervisor">
                                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" value="{{$tceContrato->estagiario_id}}" class="form-control has-feedback-left" placeholder="Orientador" name="orientador">
+                                                <input type="text" value="{{$tce->orientador}}" class="form-control has-feedback-left" placeholder="Orientador" name="orientador">
                                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
                                             <label for="">Data Documento:</label>
-                                                <input type="text" value="{{$tceContrato->estagiario_id}}" class="form-control has-feedback-left" placeholder="Data Documento" name="data_documento">
+                                                <input type="text" value="{{$tce->data_doc}}" class="form-control has-feedback-left" placeholder="Data Documento" name="data_doc">
                                                 <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
                                                 <label for="">Data Inicio:</label>
-                                                <input type="text" value="{{$tceContrato->estagiario_id}}" class="form-control has-feedback-left" placeholder="Data Inicio" name="data_inicio">
+                                                <input type="text" value="{{$tce->data_inicio}}" class="form-control has-feedback-left" placeholder="Data Inicio" name="data_inicio">
                                                 <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
                                                 <label for="">Data Fim:</label>
-                                                <input type="text" value="{{$tceContrato->estagiario_id}}" class="form-control has-feedback-left" placeholder="Data Fim" name="data_fim">
+                                                <input type="text" value="{{$tce->data_fim}}" class="form-control has-feedback-left" placeholder="Data Fim" name="data_fim">
                                                 <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -99,6 +100,7 @@
                       </div>
                      </div>
                       </form>
+                      @endforeach
                   </div>
                 </div>
               </div>

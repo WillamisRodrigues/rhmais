@@ -23,7 +23,8 @@ class CauController extends Controller
                 'empresa.nome_fantasia',
                 'cau.data_inicio',
                 'cau.data_fim',
-                'cau.situacao'
+                'cau.situacao',
+                'cau.id AS id'
             )
             ->get();
         return view('cau_convenio.index',  compact('caus', $caus));
@@ -104,10 +105,16 @@ class CauController extends Controller
      * @param  \App\Cau  $cau
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, Cau $caus )
+    public function destroy($id, Request $request)
+
     {
-        $caus->delete();
-        $request->session()->flash('warning', 'Removido com sucesso!');
-        return redirect('cau_convenio');
+        $res = Cau::destroy($id);
+        if ($res) {
+            $request->session()->flash('warning', 'Removido com sucesso!');
+            return redirect('cau_convenio');
+        } else {
+            $request->session()->flash('warning', 'Removido com sucesso!');
+            return redirect('cau_convenio');
+        }
     }
 }

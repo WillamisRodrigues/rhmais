@@ -24,7 +24,8 @@ class CceController extends Controller
             'instituicao.nome_instituicao',
             'cce.data_inicio',
             'cce.data_fim',
-            'cce.situacao'
+            'cce.situacao',
+            'cce.id'
             )
             ->get();
         return view('cce_convenio.index',  compact('cces', $cces));
@@ -107,10 +108,15 @@ class CceController extends Controller
      * @param  \App\Cce  $cce
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cce $cce, Request $request)
+    public function destroy(Request $request, $id)
     {
-        $cce->delete();
-        $request->session()->flash('warning', 'Removido com sucesso!');
-        return redirect('cce_convenio');
+        $res = Cce::destroy($id);
+        if ($res) {
+            $request->session()->flash('warning', 'Removido com sucesso!');
+            return redirect('cce_convenio');
+        } else {
+            $request->session()->flash('warning', 'Removido com sucesso!');
+            return redirect('cce_convenio');
+        }
     }
 }

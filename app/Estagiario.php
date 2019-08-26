@@ -26,11 +26,19 @@ class Estagiario extends Model
 
     public function empresas()
     {
-        return  $this->hasMany('App\Empresa');
+        return $this->belongsTo('App\Empresa');
+        // return  $this->hasMany('App\Empresa');
     }
 
     public function instituicoes()
     {
-        return  $this->hasMany('App\Instituicao');
+        return $this->belongsTo('App\Instituicao');
+        // return  $this->hasMany('App\Instituicao');
+    }
+
+    public function tce_contrato()
+    {
+        // return $this->belongsTo('App\TceContrato');
+        return  $this->hasMany('App\TceContrato');
     }
 }
