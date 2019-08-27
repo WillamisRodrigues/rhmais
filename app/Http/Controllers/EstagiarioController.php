@@ -187,13 +187,13 @@ class EstagiarioController extends Controller
         $estagiarios->complemento = $request->get('complemento');
         $estagiarios->banco = $request->get('banco');
         $estagiarios->conta = $request->get('conta');
-        $estagiarios->codigo = $request->get('codigo');
+        $estagiarios->codigo_vaga = $request->get('codigo_vaga');
         $estagiarios->senha = $request->get('senha');
         $estagiarios->obs = $request->get('obs');
         $estagiarios->matricula = $request->get('matricula');
         $estagiarios->empresa_id = $request->get('empresa_id');
         $estagiarios->instituicao_id = $request->get('instituicao_id');
-        $estagiarios->curso_id = $request->get('curso_id');
+        $estagiarios->curso = $request->get('curso');
         $estagiarios->save();
         // $estagiario_id = $estagiarios->id;
 

@@ -45,8 +45,6 @@
                           <th>Opções</th>
                         </tr>
                       </thead>
-
-
                       <tbody>
                         <tr>
                         <td>AGATHA VASCONCELOS PAULOS TOME	</td>
@@ -58,7 +56,7 @@
                             <a href="" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
                             <a href="" class="btn btn-warning"> <i class="fa fa-print"> </i> Imprimir</a>
                             <a href="" class="btn btn-danger"> <i class="fa fa-trash"> </i> Excluir</a>
-                        </td>  
+                        </td>
                         </tr>
                       </tbody>
                     </table>

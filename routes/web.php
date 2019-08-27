@@ -33,16 +33,11 @@ Route::resource('avaliacao_super', 'AvaliacaoSuperController');
 Route::resource('motivo', 'MotivoController');
 Route::resource('orientador', 'OrientadorController');
 Route::resource('supervisor', 'SupervisorController');
+Route::resource('termo_recesso', 'RecessoController');
 
 
  Route::get('/cidade-estado',array('as'=>'myform','uses'=>'EstagiarioController@myform'));
  Route::get('myform/ajax/{id}',array('as'=>'myform.ajax','uses'=>'EstagiarioController@myformAjax'));
-
-Route::get('/termo_recesso', function () {
-    return view('termo/index');
-});
-
-
 
 /*Gerar PDF*/
 Route::get('recisaotce', 'PdfController@generateRecisao');

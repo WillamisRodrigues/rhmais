@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Recesso;
+use DB;
 use Illuminate\Http\Request;
 
 class RecessoController extends Controller
@@ -14,7 +15,25 @@ class RecessoController extends Controller
      */
     public function index()
     {
-        //
+        $recessos = DB::table('tce_contrato')
+            ->join('estagiario', 'estagiario.id', '=', 'tce_contrato.estagiario_id')
+            ->join('empresa', 'empresa.id', '=', 'tce_contrato.empresa_id')
+            ->join('instituicao', 'instituicao.id', '=', 'tce_contrato.instituicao_id')
+            ->select(
+                'estagiario.nome',
+                'estagiario.id',
+                'empresa.nome_fantasia',
+                'instituicao.nome_instituicao',
+                'tce_contrato.bolsa',
+                'tce_contrato.data_inicio',
+                'tce_contrato.data_fim',
+                'tce_contrato.contrato',
+                'tce_contrato.assinado',
+                'tce_contrato.obrigatorio',
+                'tce_contrato.id As tceId'
+            )
+            ->get();
+        return view('termo.index',  compact('recessos', $recessos));
     }
 
     /**

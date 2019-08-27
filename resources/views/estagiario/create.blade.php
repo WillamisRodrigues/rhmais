@@ -174,10 +174,10 @@
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <select class="form-control has-feedback-left" name="curso_id">
+                                                <select class="form-control has-feedback-left" name="curso">
                                                     <option>Selecione um Curso</option>
                                                       @foreach ($cursos as $key)
-                                                        <option>{{ $key->nivel }}</option>
+                                                       <option value="{{ $key->nome }}">{{ $key->nome }}</option>
                                                         @endforeach
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>

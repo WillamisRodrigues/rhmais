@@ -48,15 +48,14 @@
                           <th>Opções</th>
                         </tr>
                       </thead>
-
-
                       <tbody>
+                        @foreach ($recessos as $recesso)
                         <tr>
-                          <td>Nathalie Kesley Viana Silva</td>
-                          <td>Arymana Contabilidade Eireli</td>
-                          <td>800,00</td>
-                          <td>01/08/2018 <br> 01/08/2020</td>
-                          <td>01/08/2018 <br>01/08/2019 <br>11/12 27.5 <br> Dias
+                        <td>{{$recesso->nome}}</td>
+                        <td>{{$recesso->nome_fantasia}}</td>
+                        <td>R$ {{$recesso->bolsa}}</td>
+                        <td>{{date('d/m/Y', strtotime($recesso->data_inicio)) }}<br>{{ date('d/m/Y', strtotime($recesso->data_fim)) }}</td>
+                        <td>{{date('d/m/Y', strtotime($recesso->data_inicio)) }}<br>{{ date('d/m/Y', strtotime($recesso->data_fim)) }}<br>11/12 27.5 <br> Dias
                         02/08/2019 <br> 01/08/2020 <br> n/c
                           </td>
                           <td></td>
@@ -66,36 +65,7 @@
                           <td>Sim</td>
                           <td><a href="" class="btn btn-primary"> <i class="fa fa-plus"> </i> Adicionar</a></td>
                         </tr>
-                        <tr>
-                          <td>Welton Kesley Viana Silva</td>
-                          <td>Arymana Contabilidade Eireli</td>
-                          <td>800,00</td>
-                          <td>01/08/2018 <br> 01/08/2020</td>
-                          <td>01/08/2018 <br>01/08/2019 <br>11/12 27.5 <br> Dias
-                        02/08/2019 <br> 01/08/2020 <br> n/c
-                          </td>
-                          <td></td>
-                          <td>733,33</td>
-                          <td>0,00</td>
-                          <td>733,33</td>
-                          <td>Sim</td>
-                          <td><a href="" class="btn btn-primary"> <i class="fa fa-plus"> </i> Adicionar</a></td>
-                        </tr>
-                        <tr>
-                          <td>Nathalie Kesley Viana Silva</td>
-                          <td>Arymana Contabilidade Eireli</td>
-                          <td>800,00</td>
-                          <td>01/08/2018 <br> 01/08/2020</td>
-                          <td>01/08/2018 <br>01/08/2019 <br>11/12 27.5 <br> Dias
-                        02/08/2019 <br> 01/08/2020 <br> n/c
-                          </td>
-                          <td></td>
-                          <td>733,33</td>
-                          <td>0,00</td>
-                          <td>733,33</td>
-                          <td>Sim</td>
-                          <td><a href="" class="btn btn-primary"> <i class="fa fa-plus"> </i> Adicionar</a></td>
-                        </tr>
+                        @endforeach
                       </tbody>
                     </table>
                   </div>
