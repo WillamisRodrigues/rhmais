@@ -85,6 +85,10 @@ Route::get('/editar_conta', function () {
     return view('editar_conta/edit');
 });
 
+Route::get('/editar_cce', function () {
+    return view('cce_convenio/edit');
+});
+
 Route::get('/auto_avaliacao', function () {
     return view('auto_avaliacao/index');
 });

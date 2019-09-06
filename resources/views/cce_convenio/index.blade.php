@@ -57,7 +57,7 @@
                             <td>Não Assinado</td>
 
                           <td style="width:22%;">
-                          <button  class="btn btn-primary" href="{{route('cce_convenio.edit', [$cce->id])}}"><i class="fa fa-edit"></i> Editar</button>
+                          <a  class="btn btn-primary" href="/editar_cce"><i class="fa fa-edit"></i> Editar</a>
                           <a class="btn btn-primary" href="/cce" target="_blank"><i class="fa fa-print"></i> Imprimir CCE</a>
                           <form action="{{route('cce_convenio.destroy', [$cce->id])}}" method="POST">
                           <button type="submit" class="btn btn-primary"><i class="fa fa-trash"></i> Excluir</button>
