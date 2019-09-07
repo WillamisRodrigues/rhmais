@@ -64,6 +64,10 @@ Route::get('/lista_recesso', function () {
     return view('recesso/index');
 });
 
+Route::get('/calculo', function () {
+    return view('home/calculo');
+});
+
 /* fim recesso de ferias */
 
 /*rotas folhas de pagamento , recisao, rendimentos , previa_recisao*/

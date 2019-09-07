@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Recesso;
+use App\TceContrato;
 use DB;
+use DateTime;
 use Illuminate\Http\Request;
 
 class RecessoController extends Controller
@@ -33,7 +35,44 @@ class RecessoController extends Controller
                 'tce_contrato.id As tceId'
             )
             ->get();
-        return view('termo.index',  compact('recessos', $recessos));
+
+        $dataContrato = TceContrato::all();
+
+        $data1text = DB::table('tce_contrato')->where([['data_inicio', '=', $dataContrato]])->get();
+        $data2text = DB::table('tce_contrato')->where([['data_fim', '=', $dataContrato]])->get();
+        $bolsa = DB::table('tce_contrato')->where('bolsa', '=', $dataContrato)->get();
+        $date = date('Y');
+
+        $data1text = $date->format('Y-m-d ') . $data1text;
+        $$data2text = $date->format('Y-m-d ') . $data2text;
+        $date1 = DateTime::createFromFormat('Y-m-d H:i', $data1text);
+        $date2 = DateTime::createFromFormat('Y-m-d H:i', $data2text);
+
+        $meses = $date2->diffInMonths($date1); // saída: 365 dias
+        // $date1 = new DateTime($data1text);
+        // $date2 = new DateTime($data2text);
+        //Repare que inverto a ordem, assim terei a subtração da ultima data pela primeira.
+        //Calculando a diferença entre os meses
+        // $meses = ((int) $date2->format('m') - (int) $date1->format('m'))
+        //     //    e somando com a diferença de anos multiplacado por 12
+        //     + (((int) $date2->format('y') - (int) $date1->format('y')) * 12);
+        if ($meses <= 12) {
+            $soma = $bolsa / 12;
+            $resultado = $soma * $meses;
+            // echo $resultado;
+        } else {
+            $soma = $bolsa / 24;
+            $resultado = $soma * $meses;
+        }
+        return view('termo.index', [
+            'recessos' => $recessos,
+            'dataContrato' => $data1text,
+            'dataFim' => $data2text,
+            'dataAgora' => $date,
+            'bolsa' => $bolsa,
+            'meses' => $meses,
+            'resultado' => $resultado
+            ]);
     }
 
     /**
