@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Recesso;
 use App\TceContrato;
+use DateInterval;
 use DB;
 use DateTime;
+use DateTimeZone;
 use Illuminate\Http\Request;
 
 class RecessoController extends Controller
@@ -36,43 +38,146 @@ class RecessoController extends Controller
             )
             ->get();
 
-        $dataContrato = TceContrato::all();
+        // $dataContrato = TceContrato::all();
 
-        $data1text = DB::table('tce_contrato')->where([['data_inicio', '=', $dataContrato]])->get();
-        $data2text = DB::table('tce_contrato')->where([['data_fim', '=', $dataContrato]])->get();
-        $bolsa = DB::table('tce_contrato')->where('bolsa', '=', $dataContrato)->get();
+        $data1text = DB::table('tce_contrato')->where([['data_inicio', '=', $recessos[0]->data_inicio]])->get();
+        $data2text = DB::table('tce_contrato')->where([['data_fim', '=', $recessos[0]->data_fim]])->get();
+        $bolsa = DB::table('tce_contrato')->where('bolsa', '=', $recessos[0]->bolsa)->get();
         $date = date('Y');
 
-        $data1text = $date->format('Y-m-d ') . $data1text;
-        $$data2text = $date->format('Y-m-d ') . $data2text;
-        $date1 = DateTime::createFromFormat('Y-m-d H:i', $data1text);
-        $date2 = DateTime::createFromFormat('Y-m-d H:i', $data2text);
+        // dd($recessos);
 
-        $meses = $date2->diffInMonths($date1); // saída: 365 dias
+        // $data1text = $date->format('Y-m-d', $data1text[0]->data_inicio);
+        // $data2text = $date->format('Y-m-d', $data2text[0]->data_fim);
+        $date1 = DateTime::createFromFormat('Y-m-d H:i', $data1text[0]->data_inicio);
+        $date2 = DateTime::createFromFormat('Y-m-d H:i', $data2text[0]->data_fim);
+
+        // $meses = $date2->diffInMonths($date1); // saída: 365 dias
         // $date1 = new DateTime($data1text);
         // $date2 = new DateTime($data2text);
         //Repare que inverto a ordem, assim terei a subtração da ultima data pela primeira.
         //Calculando a diferença entre os meses
-        // $meses = ((int) $date2->format('m') - (int) $date1->format('m'))
-        //     //    e somando com a diferença de anos multiplacado por 12
-        //     + (((int) $date2->format('y') - (int) $date1->format('y')) * 12);
+        $meses = ((int) date('m', $date2) - (int) date('m', $date1))
+            //     //    e somando com a diferença de anos multiplacado por 12
+            + (((int) date('y', $date2) - (int) date('y', $date1)) * 12);
         if ($meses <= 12) {
-            $soma = $bolsa / 12;
+            $soma = $bolsa[0]->bolsa / 12;
             $resultado = $soma * $meses;
             // echo $resultado;
         } else {
-            $soma = $bolsa / 24;
+            $soma = $bolsa[0]->bolsa / 24;
             $resultado = $soma * $meses;
         }
+
+        $listaRecessos = DB::table('recesso')->get();
+
         return view('termo.index', [
-            'recessos' => $recessos,
+            'listaRecessos' => $listaRecessos,
             'dataContrato' => $data1text,
             'dataFim' => $data2text,
             'dataAgora' => $date,
             'bolsa' => $bolsa,
             'meses' => $meses,
+            'recessos' => $recessos,
             'resultado' => $resultado
-            ]);
+        ]);
+    }
+
+    public static function valorFerias($dataInicio, $valorBolsa)
+    {
+        $data1text = $dataInicio;
+        $data2text = date('Y');
+
+        $date1 = new DateTime($data1text);
+        $date2 = new DateTime($data2text);
+        //Repare que inverto a ordem, assim terei a subtração da ultima data pela primeira.
+        //Calculando a diferença entre os meses
+        //    e somando com a diferença de anos multiplacado por 12
+        $meses = ((int) $date2->format('m') - (int) $date1->format('m'))
+            + (((int) $date2->format('y') - (int) $date1->format('y')) * 12);
+
+        if ($meses <= 12) {
+            $soma = $valorBolsa / 12;
+            $resultado = $soma * $meses;
+            $resultado = number_format($resultado, 2, '.', ',');
+        } else {
+            $mesesExcedentes = $meses - 12;
+            $soma = $valorBolsa / 12;
+            $resultado = $soma * $mesesExcedentes;
+            $resultado = number_format($resultado + $valorBolsa, 2, '.', ',');
+            // number_format($valorBolsa, 2, '.', ',')." + R$ ".
+        }
+
+        return $resultado;
+    }
+
+    public static function valorSaldo($tceId)
+    {
+        $contrato = DB::table('tce_contrato')->where('id', '=', $tceId)->get()->first();
+
+        $saldo = 0;
+
+        return $saldo;
+    }
+
+    public static function diasFerias($dataInicio, $dataFim)
+    {
+        $data1text = $dataInicio;
+        $data2text = date('Y');
+
+        $date1 = new DateTime($data1text);
+        $date2 = new DateTime($data2text);
+        //Repare que inverto a ordem, assim terei a subtração da ultima data pela primeira.
+        //Calculando a diferença entre os meses
+        //    e somando com a diferença de anos multiplacado por 12
+        $meses = ((int) $date2->format('m') - (int) $date1->format('m')) + (((int) $date2->format('y') - (int) $date1->format('y')) * 12);
+
+        return $meses;
+    }
+
+    public static function periodoAquisitivo($tceId)
+    {
+        $contrato = DB::table('tce_contrato')->where('id', '=', $tceId)->get()->first();
+        $dataInicio = $contrato->data_inicio;
+        $dataFim = $contrato->data_fim;
+
+        $dataInicioObj = new DateTime($dataInicio);
+        $dataFimObj = new DateTime($dataFim);
+        $dataInicioStr = $dataInicioObj->format('d/m/Y');
+        $dataFimStr = $dataFimObj->format('d/m/Y');
+
+        $AnoQueVem = $dataInicioObj->add(new DateInterval('P1Y'));
+        $AnoQueVemStr = $AnoQueVem->format('d/m/Y');
+        $AnoQueVemMaisUmDia = $AnoQueVem->add(new DateInterval('P1D'));
+        $AnoQueVemMaisUmDiaStr = $AnoQueVemMaisUmDia->format('d/m/Y');
+
+        $meses = RecessoController::diasFerias($dataInicio, $dataFim);
+
+        if ($meses > 12) {
+            $mesesExcedentes = $meses - 12;
+            $meses = 12;
+            $dias = 30.0;
+            $diasExcedentes = $mesesExcedentes * 2.5;
+            $excedente = "$mesesExcedentes/12 $diasExcedentes Dias";
+        } else {
+            $dias = $meses * 2.5;
+            $excedente = "n/c";
+        }
+
+        $recesso = DB::table('recesso')->where('estagiario_id', '=', $contrato->estagiario_id)->get()->first();
+
+        if ($recesso) {
+            $data1text = $recesso->data_inicio;
+            $data2text = $recesso->data_fim;
+
+            $date1 = new DateTime($data1text);
+            $date2 = new DateTime($data2text);
+
+            $diasFerias = ((int) $date2->format('d') - (int) $date1->format('d')) + (((int) $date2->format('m') - (int) $date1->format('m')) * 30) + (((int) $date2->format('y') - (int) $date1->format('y')) * 360);
+            $dias = $dias - $diasFerias;
+        }
+
+        return "$dataInicioStr $AnoQueVemStr $meses/12 $dias Dias $AnoQueVemMaisUmDiaStr $dataFimStr $excedente";
     }
 
     /**
@@ -81,9 +186,7 @@ class RecessoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
-    }
+    { }
 
     /**
      * Store a newly created resource in storage.
@@ -93,7 +196,39 @@ class RecessoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //para cada 2.5 dias de férias o fulano recebe o valor referente a (bolsa / 12)
+        $data1text = $request->inicio_recesso;
+        $data2text = $request->fim_recesso;;
+
+        $date1 = new DateTime($data1text);
+        $date2 = new DateTime($data2text);
+
+        $dias = ((int) $date2->format('d') - (int) $date1->format('d')) + (((int) $date2->format('m') - (int) $date1->format('m')) * 30) + (((int) $date2->format('y') - (int) $date1->format('y')) * 360);
+
+        $valorReceber = ($dias / 2.5) * ($request->bolsa / 12);
+
+        $contrato = DB::table('tce_contrato')->where('id', '=', $request->contrato_id)->get()->first();
+        $dataInicio = $contrato->data_inicio;
+        $dataFim = $contrato->data_fim;
+
+        $meses = RecessoController::diasFerias($dataInicio, $dataFim);
+
+        $valorDireito = $meses * ($request->bolsa / 12);
+
+        $valorRestante = $valorDireito - $valorReceber;
+
+        $valorReceber = number_format($valorReceber, 2, '.', ',');
+        $valorDireito = number_format($valorDireito, 2, '.', ',');
+        $valorRestante = number_format($valorRestante, 2, '.', ',');
+
+        DB::insert(
+            'insert into recesso
+        (estagiario_id, empresa_id, bolsa, data_inicio, data_fim, vr_direito, vr_recebido, vr_saldo, periodo, ferias) values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+            [$request->estagiario_id, $request->empresa_id, $request->bolsa, $request->inicio_recesso, $request->fim_recesso, $valorDireito, $valorReceber, $valorRestante, $request->observacao, $request->motivo_id]
+        );
+
+        return redirect()->route('termo_recesso.index');
     }
 
     /**
@@ -113,9 +248,28 @@ class RecessoController extends Controller
      * @param  \App\Recesso  $recesso
      * @return \Illuminate\Http\Response
      */
-    public function edit(Recesso $recesso)
+    public function edit($id)
     {
-        //
+        $estagiario = DB::table('estagiario')->where('id', '=', $id)->get()->first();
+        $contrato = DB::table('tce_contrato')->where('estagiario_id', '=', $id)->get()->first();
+        $empresa = DB::table('empresa')->where('id', '=', $contrato->empresa_id)->get()->first();
+        $instituicao = DB::table('instituicao')->where('id', '=', $contrato->instituicao_id)->get()->first();
+        $orientador = DB::table('orientador')->where('id', '=', $contrato->orientador)->get()->first();
+        $supervisor = DB::table('supervisor')->where('id', '=', $contrato->supervisor)->get()->first();
+        $atividade = DB::table('atividade')->where('id', '=', $contrato->atividade)->get()->first();
+        $motivos = DB::table('motivo')->get();
+
+
+        return view('termo.update', [
+            'estagiario' => $estagiario,
+            'contrato' => $contrato,
+            'empresa' => $empresa,
+            'instituicao' => $instituicao,
+            'orientador' => $orientador,
+            'supervisor' => $supervisor,
+            'atividade' => $atividade,
+            'motivos' => $motivos
+        ]);
     }
 
     /**
@@ -139,5 +293,23 @@ class RecessoController extends Controller
     public function destroy(Recesso $recesso)
     {
         //
+    }
+
+    public static function dias_Ferias($inicio, $fim)
+    {
+        $data1text = $inicio;
+        $data2text = $fim;
+
+        $date1 = new DateTime($data1text);
+        $date2 = new DateTime($data2text);
+
+        $dias = ((int) $date2->format('d') - (int) $date1->format('d')) + (((int) $date2->format('m') - (int) $date1->format('m')) * 30) + (((int) $date2->format('y') - (int) $date1->format('y')) * 360);
+
+        $inicio = $date1->format("d/m/Y");
+        $fim = $date2->format("d/m/Y");
+
+        echo "De " . $inicio . " Até " . $fim . " Total: ";
+
+        echo $dias . " Dias";
     }
 }

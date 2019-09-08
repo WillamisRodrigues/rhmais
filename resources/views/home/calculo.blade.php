@@ -16,7 +16,7 @@ echo $meses;//2
 echo "<br>";
 echo "<br>";
 
-$bolsa =800;
+$bolsa = 800;
 
 if($meses <= 12){
 $soma = $bolsa / 12;

@@ -12,9 +12,9 @@
 */
 
 Auth::routes();
- Route::get('/', 'HomeController@index')->name('index');
- Route::get('/home', 'HomeController@index')->name('index');
- Route::post('/home', 'HomeController@index')->name('index');
+Route::get('/', 'HomeController@index')->name('index');
+Route::get('/home', 'HomeController@index')->name('index');
+Route::post('/home', 'HomeController@index')->name('index');
 Route::get('/home/grafico', 'HomeController@grafico');
 
 Route::resource('empresa', 'EmpresaController');
@@ -36,8 +36,12 @@ Route::resource('supervisor', 'SupervisorController');
 Route::resource('termo_recesso', 'RecessoController');
 
 
- Route::get('/cidade-estado',array('as'=>'myform','uses'=>'EstagiarioController@myform'));
- Route::get('myform/ajax/{id}',array('as'=>'myform.ajax','uses'=>'EstagiarioController@myformAjax'));
+// Route::post('adicionarRecesso',['as' => 'adicionarRecesso', 'uses' => 'RecessoController@store']);
+
+
+
+Route::get('/cidade-estado', array('as' => 'myform', 'uses' => 'EstagiarioController@myform'));
+Route::get('myform/ajax/{id}', array('as' => 'myform.ajax', 'uses' => 'EstagiarioController@myformAjax'));
 
 /*Gerar PDF*/
 Route::get('recisaotce', 'PdfController@generateRecisao');
