@@ -22,11 +22,14 @@
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
               <form action="">
-              <div class="col-md-2">
-                <label for="">Unidade:</label>
-                <select name="" class="form-control">
-                    <option> Todas as Unidades</option>
-                </select>
+                    <div class="col-md-2">
+                    <label for="">Unidade:</label>
+                    <select name="" class="form-control">
+                        <option> Todas as Unidades</option>
+                        @foreach ($unidades as $unidade)
+                          <option> {{$unidade->nome_fantasia}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="col-md-2">
                 <label for="">Período:</label>

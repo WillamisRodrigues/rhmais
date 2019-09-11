@@ -45,6 +45,9 @@
                           @endforeach
                       </tbody>
                     </table>
+                    	{{-- <div class="pull-right">
+                    {{ $cidades->links() }}
+                    	</div>   --}}
                   </div>
                 </div>
               </div>

@@ -21,7 +21,7 @@ class CidadeController extends Controller
     public function index()
     {
 
-        $cidades = DB::table('cidade')->paginate(5);
+        $cidades = DB::table('cidade')->paginate(20);
         return view('cidade.index', compact('cidades', $cidades));
     }
 

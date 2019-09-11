@@ -75,9 +75,8 @@ Route::get('/calculo', function () {
 /* fim recesso de ferias */
 
 /*rotas folhas de pagamento , recisao, rendimentos , previa_recisao*/
-Route::get('/folha_pagamento', function () {
-    return view('folha_pagamento/index');
-});
+Route::resource('folha_pagamento', 'FolhaPagamentoController');
+
 Route::get('/folha_rescisao', function () {
     return view('folha_rescisao/index');
 });
