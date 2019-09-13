@@ -88,6 +88,11 @@ Route::get('/previsao_rescisao', function () {
     return view('previsao_rescisao/index');
 });
 
+Route::get('/avaliacao_estagiario', function () {
+    return view('auto_avaliacao/create');
+});
+
+
 Route::get('/editar_conta', function () {
     return view('editar_conta/edit');
 });
