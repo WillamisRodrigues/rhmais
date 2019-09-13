@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Empresa;
 use App\Orientador;
 use DB;
+use App\Instituicao;
 use Illuminate\Http\Request;
 
 class OrientadorController extends Controller
