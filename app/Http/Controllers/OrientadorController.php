@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Orientador;
+use DB;
 use Illuminate\Http\Request;
 
 class OrientadorController extends Controller
@@ -25,7 +26,12 @@ class OrientadorController extends Controller
      */
     public function create()
     {
-        return view('orientador.create');
+        $states = DB::table("estado")->pluck("nome", "id");
+
+        $instituicoes = Instituicao::all();
+        $empresas = Empresa::all();
+
+        return view('orientador.create', compact('states', 'empresas', 'cursos', 'instituicoes'));
     }
 
     /**
