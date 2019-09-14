@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Beneficio;
+use App\Empresa;
 use Illuminate\Http\Request;
 
 class BeneficioController extends Controller
@@ -24,7 +25,10 @@ class BeneficioController extends Controller
      */
     public function create()
     {
-        return view('beneficio.create');
+
+        $empresas = Empresa::all();
+
+          return view('beneficio.create', compact('empresas'));
     }
 
     /**

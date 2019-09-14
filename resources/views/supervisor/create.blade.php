@@ -1,68 +1,133 @@
 @extends('layout/app')
-@section('titulo','Lista de Supervisores | RH MAIS')
+@section('titulo','Supervisor - Cadastro - TCE | RH MAIS')
 @section('conteudo')
-   <div class="container body">
+    <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
-            @include('layout.menu.menu')
+          @include('layout.menu.menu')
+            <!-- /menu profile quick info -->
+
             <br />
             @include('layout.menu.sidebar')
+            <!-- /sidebar menu -->
           </div>
         </div>
-            @include('layout.menu.menutop')
+        @include('layout.menu.menutop')
         <!-- page content -->
-          <!-- page content -->
-          <div class="right_col" role="main">
-          <div class="">
-          <!-- <a href="{{url('cidade/exportar')}}">Print  PDF</a> -->
+        <div class="right_col" role="main">
             <div class="clearfix"></div>
+
             <div class="row">
+
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                  <a href="#" class="btn btn-success pull-right"> <i class="fa fa-list"> </i> Novo Supervisor</a>
-                    <h2>Lista de Supervisores</h2>
+                    <h2>Supervisor - Cadastro</h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <table class="table table-striped list table-bordered">
-                      <thead>
-                        <tr>
-                          <th>Novo Supervisor</th>
-                          <th>CPF</th>
-                          <th>RG</th>
-                          <th>Cidade</th>
-                          <th>Unidade</th>
-                          <th>Ag. de Integração</th>
-                          <th>Opções</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                         <tr>
-                            <td>ADRIELLE SIQUEIRA PARINI</td>
-                            <td>372.821.798-08</td>
-                            <td>45.798.797-2</td>
-                            <td>RIBEIRÃO PRETO</td>
-                            <td>PRINCIPAL RB PROMOTORA DE CREDITO LTDA ME - PRINCIPAL PROMOTORA</td>
-                            <td>KOSTER E KOSTER CONSULTORIA EM RH LTDA - KOSTER E KOSTER CONSULTORIA EM RH LTDA</td>
-                            <td style="width:15%;">
-                            <div class="col-md-3" style="margin-left:40px;">
-                            <a href="#" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+                  <form action="{{ route('supervisor.store') }}" method="post">
+                  {{csrf_field()}}
+
+                      <!-- SmartWizard html -->
+                      <div>
+                          <div>
+                              <div>
+                                    <div id="form-step-0" role="form" data-toggle="validator">
+                                      <div class="row" style="width:960px; margin: 20px auto;">
+                                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                              <input type="text" class="form-control has-feedback-left" placeholder="CPF:" name="cpf">
+                                              <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                              <input type="text" class="form-control has-feedback-left" placeholder="RG:" name="rg">
+                                              <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                              <input type="text" class="form-control has-feedback-left" placeholder="Nome do supervisor:" name="nome">
+                                              <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                            @include('layout.selects.estado-cidade')
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                              <input type="text" class="form-control has-feedback-left" placeholder="Numero" name="numero">
+                                              <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                              <input type="text" class="form-control has-feedback-left" placeholder="Endereco:" name="endereco">
+                                              <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                              <input type="text" class="form-control has-feedback-left" placeholder="CEP:" name="cep">
+                                              <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                              <input type="text" class="form-control has-feedback-left" placeholder="Complemento:" name="complemento">
+                                              <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                              <input type="text" class="form-control has-feedback-left" placeholder="Telefone:" name="telefone">
+                                              <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                              <input type="text" class="form-control has-feedback-left" placeholder="Celular:" name="celular">
+                                              <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                              <input type="text" class="form-control has-feedback-left" placeholder="Email:" name="email">
+                                              <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                              <input type="text" class="form-control has-feedback-left" placeholder="Cargo:" name="cargo">
+                                              <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                              <input type="text" class="form-control has-feedback-left" placeholder="Formação:" name="formacao">
+                                              <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                              <input type="text" class="form-control has-feedback-left" placeholder="Id.Profissional:" name="id_profissional">
+                                              <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                <select class="form-control has-feedback-left" name="instituicao_id">
+                                                    <option>Selecione Instituição de Ensino:</option>
+                                                      @foreach ($instituicoes as $instituicao)
+                                                        <option value="{{ $instituicao->id }}">{{ $instituicao->nome_instituicao }}</option>
+                                                     @endforeach
+                                                </select>
+                                                <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                <input type="text" class="form-control has-feedback-left" value="RH Mais" readonly placeholder="Agente de Integração" name="agente_integracao">
+                                                <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                <select class="form-control has-feedback-left" name="empresa_id">
+                                                    <option>Selecione Unidade Concedente:</option>
+                                                     @foreach ($empresas as $empresa)
+                                                        <option value="{{ $empresa->id }}">{{ $empresa->nome_fantasia }}</option>
+                                                     @endforeach
+                                                </select>
+                                                <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                        </div>
+                                    <div class="btn-group mr-2 sw-btn-group-extra" role="group">
+                                      <button type="submit" class="btn btn-info">Enviar</button>
+                                      <button class="btn btn-danger">Cancelar</button>
+                                    </div>
+                              </div>
+                      </div>
+                     </div>
+                      </form>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
         </div>
-    </div>
-    </div>
         <!-- /page content -->
-
         <!-- footer content -->
         @include('layout.footer')
         <!-- /footer content -->

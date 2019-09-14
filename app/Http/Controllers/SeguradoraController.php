@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Empresa;
 use App\Seguradora;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,9 @@ class SeguradoraController extends Controller
      */
     public function create()
     {
-        return view('seguro.index');
+        $empresas = Empresa::all();
+
+        return view('seguro.create', compact('empresas'));
     }
 
     /**

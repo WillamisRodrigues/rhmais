@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Atividade;
+use App\Empresa;
 use Illuminate\Http\Request;
 
 class AtividadeController extends Controller
@@ -25,7 +26,9 @@ class AtividadeController extends Controller
      */
     public function create()
     {
-        return view('atividade.create');
+        $empresas = Empresa::all();
+
+        return view('atividade.create', compact('empresas'));
     }
 
     /**

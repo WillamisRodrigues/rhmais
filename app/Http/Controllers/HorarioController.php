@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Empresa;
 use App\Horario;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,8 @@ class HorarioController extends Controller
      */
     public function create()
     {
-        return view('horario.create');
+        $empresas = Empresa::all();
+        return view('horario.create', compact('empresas'));
     }
 
     /**
