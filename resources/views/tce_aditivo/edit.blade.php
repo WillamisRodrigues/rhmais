@@ -92,18 +92,18 @@
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="checkbox">
-                                        tipo de estágio:
+                                        Tipo de Estágio:
                                             <label>
-                                                <input type="checkbox" class="flat"> Não Obrigatório
+                                                <input type="radio" name="obrigatorio" value="Não Obrigatório" class="flat"> Não Obrigatório
                                             </label>
                                             <label>
-                                                <input type="checkbox" class="flat"> Obrigatório
+                                                <input type="radio" name="obrigatorio" value="Obrigatório" class="flat"> Obrigatório
                                             </label>
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                                         <label>Sua observação</label>
-                                        <textarea class="form-control" name="nomeText"></textarea>
+                                        <textarea class="form-control" placeholder="Observações" name="nomeText"></textarea>
                                     </div>
                                 </div>
                                         <button  type="submit"class="btn btn-success" style="margin: 20px auto; display:block;">Salvar Alterações</button>

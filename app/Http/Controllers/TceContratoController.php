@@ -81,7 +81,27 @@ class TceContratoController extends Controller
         //     'empresa' => 'required',
         //     'instituicao' => 'required',
         // ]);
-        TceContrato::create($request->all());
+        $contrato = new TceContrato();
+        $contrato->agente_integracao = $request->get('agente_integracao');
+        $contrato->estagiario_id = $request->get('estagiario_id');
+        $contrato->empresa_id = $request->get('empresa_id');
+        $contrato->instituicao_id = $request->get('instituicao_id');
+        $contrato->data_doc = $request->get('data_doc');
+        $contrato->data_inicio = $request->get('data_inicio');
+        $contrato->data_fim = $request->get('data_fim');
+        $contrato->beneficio = $request->get('beneficio');
+        $contrato->apolice = $request->get('apolice');
+        $contrato->horario = $request->get('descricao');
+        $contrato->setor = $request->get('setor');
+        $contrato->atividade = $request->get('atividade');
+        $contrato->orientador = $request->get('orientador');
+        $contrato->supervisor = $request->get('supervisor');
+        $contrato->bolsa = $request->get('bolsa');
+        $contrato->obrigatorio = $request->get('obrigatorio');
+        $contrato->obs = $request->get('observacao');
+        $contrato->save();
+
+
         return redirect()->route('tce_contrato.index')
             ->with('success', 'Cadastrado com sucesso.');
     }

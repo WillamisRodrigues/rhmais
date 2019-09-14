@@ -92,7 +92,7 @@
                                                 <span class="fa fa-bars form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <select class="form-control has-feedback-left" name="seguro">
+                                                <select class="form-control has-feedback-left" name="apolice">
                                                     <option>Selecione Seguro:</option>
                                                      @foreach ($seguros as $seguro)
                                                         <option value="{{ $seguro->id }}">{{ $seguro->nome }}</option>
@@ -153,16 +153,15 @@
                                               <div class="checkbox">
                                               <label>Tipo de Estágio: </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" checked="checked" name="nao"> Não Obrigatório
+                                                  <input type="radio" class="flat" checked="checked" name="obrigatorio" value="Não Obrigatório"> Não Obrigatório
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="sim"> Obrigatório
+                                                  <input type="radio" class="flat" name="obrigatorio" value="Obrigatório"> Obrigatório
                                                 </label>
                                               </div>
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                                                <textarea class="form-control" placeholder="Sua observação" name="observacao">
-                                                </textarea>
+                                                <textarea class="form-control" placeholder="Observações" name="observacao"></textarea>
                                             </div>
                                         </div>
                                     <div class="btn-group mr-2 sw-btn-group-extra" role="group">

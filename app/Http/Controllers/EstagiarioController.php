@@ -99,6 +99,8 @@ class EstagiarioController extends Controller
                 ->get();
         }
 
+        DB::update('update tce_contrato set assinado = "Sim" where estagiario_id = ?', [$id]);
+
         $data = ['estagiario' => $estagiarios];
         $pdf = PDF::loadView('pdf.tce.index', $data);
         return $pdf->stream('tce-pdf.pdf');
