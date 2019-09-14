@@ -238,13 +238,12 @@
                                                 <span class="fa fa-key form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                                                <textarea class="form-control" placeholder="Sua observação" name="obs">
-                                                </textarea>
+                                                <textarea class="form-control" placeholder="Sua observação" name="obs"></textarea>
                                             </div>
                                             <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <div class="checkbox">
                                                     <label>
-                                                    <input type="checkbox" class="flat" checked="checked"> Está Ativo
+                                                    <input type="checkbox" name="ativo" class="flat" checked="checked"> Está Ativo
                                                     </label>
                                                 </div>
                                             </div>

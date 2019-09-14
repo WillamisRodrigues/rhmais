@@ -35,6 +35,7 @@ class EstagiarioController extends Controller
                 'estagiario.data_nascimento',
                 'estagiario.id',
                 'estagiario.status',
+                'estagiario.escolaridade',
                 'cidade.nome AS nome_cidade'
             )
             ->get();
@@ -194,6 +195,9 @@ class EstagiarioController extends Controller
         $estagiarios->empresa_id = $request->get('empresa_id');
         $estagiarios->instituicao_id = $request->get('instituicao_id');
         $estagiarios->curso = $request->get('curso');
+        if($request->ativo == 'on'){
+            $estagiarios->status = 1;
+        }
         $estagiarios->save();
         // $estagiario_id = $estagiarios->id;
 
