@@ -29,7 +29,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <table class="table table-striped list table-bordered">
+                    <table class="table table-striped list table-bordered" style="zoom:0.8;">
                       <thead>
                         <tr>
                           <th>Nome
@@ -82,12 +82,12 @@
                           </td>
                            <td style="width:15%;">
                             <div class="col-md-3">
-                            <a href="{{ route('estagiario.edit',[$estagiario->id])}}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
+                            <a href="{{ route('estagiario.edit',[$estagiario->id])}}" class="btn btn-primary"> <i class="fa fa-pencil"> </i> Editar </a>
                             </div>
                             <form class="col-md-3 delete" style="margin-left:40px;" action="{{route('estagiario.destroy', [$estagiario->id])}}" method="POST">
                               <input type="hidden" name="_method" value="DELETE">
                               <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                              <button type="submit" class="btn btn-danger" >
+                              <button type="submit" class="btn btn-danger">
                               <i class="fa fa-trash"></i> Deletar
                               </button>
                             </form>

@@ -28,7 +28,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <table class="table list table-striped table-responsive w-auto table-bordered">
+                    <table class="table list table-striped table-responsive w-auto table-bordered" style="zoom:0.8;">
                       <thead>
                         <tr>
                           <th>tce:

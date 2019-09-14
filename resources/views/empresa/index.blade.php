@@ -28,7 +28,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <table class="table list table-striped table-bordered">
+                    <table class="table list table-striped table-bordered" style="zoom:0.8;">
                       <thead>
                         <tr>
                           <th>Nome
@@ -43,19 +43,19 @@
                           <th>CNPJ
                           <input type="text" class="form-control" style="width:100px;">
                           </th>
-                          <th>Qtade Plano
+                          <th>Qtade <br> Plano
                           <input type="text" class="form-control" style="width:100px;">
                           </th>
-                          <th>Valor Fixo
+                          <th>Valor <br> Fixo
                           <input type="text" class="form-control" style="width:100px;">
                           </th>
-                          <th>Valor Perc
+                          <th>Valor <br> Perc
                           <input type="text" class="form-control" style="width:100px;">
                           </th>
-                          <th>Custo Unitario
+                          <th>Custo <br> Unitario
                           <input type="text" class="form-control" style="width:100px;">
                           </th>
-                          <th>Valor Adicional
+                          <th>Valor <br> Adicional
                           <input type="text" class="form-control" style="width:100px;">
                           </th>
                           <th>Ativo
@@ -79,13 +79,13 @@
                           <td>{{$empresa->nome_cidade}}</td>
                            <td style="width:15%;">
                            <div class="col-md-3">
-                            <a href="{{ route('empresa.edit',[$empresa->id])}}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
+                            <a href="{{ route('empresa.edit',[$empresa->id])}}" class="btn btn-primary"> <i class="fa fa-pencil"> </i> Editar </a>
                           </div>
                           <form  class="col-md-3" style="margin-left:40px;" action="{{route('empresa.destroy', [$empresa->id])}}" method="POST">
     		                  <input type="hidden" name="_method" value="DELETE">
    		                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
    		                    <button type="submit" class="btn btn-danger">
-                              <i class="fa fa-trash"></i> Deletar
+                              <i class="fa fa-trash"></i> Deletar 
                               </button>
                           </form>
                           </td>

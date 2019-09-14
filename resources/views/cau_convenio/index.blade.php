@@ -28,7 +28,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <table  class="table table-striped table-responsive w-auto list table-bordered">
+                    <table  class="table table-striped table-responsive w-auto list table-bordered" style="zoom:0.8;">
                       <thead>
                         <tr>
                           <th>Un. Concedente
@@ -62,7 +62,7 @@
                             <div class="col-md-3">
                             <a href="{{ route('cau_convenio.edit',[$cau->id])}}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
                           </div>
-                          <form  class="col-md-3" style="margin-left:40px;" action="{{route('cau_convenio.destroy', [$cau->id])}}" method="POST">
+                          <form  class="col-md-3" style="margin-left:28px;" action="{{route('cau_convenio.destroy', [$cau->id])}}" method="POST">
     		                  <input type="hidden" name="_method" value="DELETE">
    		                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
    		                    <button type="submit" class="btn btn-danger">

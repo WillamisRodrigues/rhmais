@@ -105,6 +105,9 @@
         <!-- NProgress -->
         <script src="{{URL::asset('assets/nprogress/nprogress.js')}}"></script>
         <script>
+            $(function () {
+              $('[data-toggle="tooltip"]').tooltip()
+            })
             function createNoty(message, type) {
                 var html = '<div class="alert alert-' + type + ' alert-dismissable page-alert">';
                 html += '<button type="button" class="close-alert close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>';

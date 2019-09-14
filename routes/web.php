@@ -92,6 +92,10 @@ Route::get('/avaliacao_estagiario', function () {
     return view('auto_avaliacao/create');
 });
 
+Route::get('/editar_avaliacao_estagiario', function () {
+    return view('lista_auto_avaliacao/edit');
+});
+
 
 Route::get('/editar_conta', function () {
     return view('editar_conta/edit');
