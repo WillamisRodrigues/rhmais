@@ -1,72 +1,82 @@
 @extends('layout/app')
-@section('titulo','Lista de Seguros - Apólices em Vigência | RH MAIS')
+@section('titulo','Seguros - Apolíces - Cadatro - TCE | RH MAIS')
 @section('conteudo')
-   <div class="container body">
+    <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
-            @include('layout.menu.menu')
+          @include('layout.menu.menu')
+            <!-- /menu profile quick info -->
+
             <br />
             @include('layout.menu.sidebar')
+            <!-- /sidebar menu -->
           </div>
         </div>
-            @include('layout.menu.menutop')
+        @include('layout.menu.menutop')
         <!-- page content -->
-          <!-- page content -->
-          <div class="right_col" role="main">
-          <div class="">
-          <!-- <a href="{{url('cidade/exportar')}}">Print  PDF</a> -->
+        <div class="right_col" role="main">
             <div class="clearfix"></div>
+
             <div class="row">
+
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                  <a href="#" class="btn btn-success pull-right"> <i class="fa fa-list"> </i> Novo Seguro</a>
-                    <h2>Lista de Seguros - Apólices em Vigência</h2>
+                    <h2>Seguros - Apolíces - Cadatro</h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <table class="table table-striped list table-bordered">
-                      <thead>
-                        <tr>
-                          <th>Nome da Seguradora</th>
-                          <th>Nº da Apólice</th>
-                          <th>Unidade</th>
-                          <th>Cobertura</th>
-                          <th>Ag. Integração</th>
-                          <th>Opções</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                         <tr>
-                            <td>SULAMÉRICA SEG. E PREVIDÊNCIA (R$15.678 MIL REAIS)</td>
-                            <td>651805</td>
-                            <td>KOSTER & KOSTER CONSULTORIA EM RH LTDA - RH MAIS TALENTOS</td>
-                            <td></td>
-                            <td>KOSTER E KOSTER CONSULTORIA EM RH LTDA - RH MAIS TALENTOS</td>
-                            <td style="width:15%;">
-                          <form class="col-md-3" action="#" method="POST">
-    		                  <input type="hidden" name="_method" value="DELETE">
-                              <button type="submit" class="btn btn-danger">
-                              <i class="fa fa-trash"></i> Deletar
-                              </button>
-                          </form>
-                            <div class="col-md-3" style="margin-left:40px;">
-                            <a href="#" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+                  <form action="{{ route('seguro.store') }}" method="post">
+                  {{csrf_field()}}
+
+                      <!-- SmartWizard html -->
+                      <div>
+                          <div>
+                              <div>
+                                    <div id="form-step-0" role="form" data-toggle="validator">
+                                      <div class="row" style="width:960px; margin: 20px auto;">
+                                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                              <input type="text" class="form-control has-feedback-left" placeholder="Nome da Seguradora:" name="nome">
+                                              <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                              <input type="text" class="form-control has-feedback-left" placeholder="Nº da Apolice:" name="numero">
+                                              <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                <select class="form-control has-feedback-left" name="empresa_id">
+                                                    <option>Selecione Unidade Concedente:</option>
+                                                     @foreach ($empresas as $empresa)
+                                                        <option value="{{ $empresa->id }}">{{ $empresa->nome_fantasia }}</option>
+                                                     @endforeach
+                                                </select>
+                                                <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                <input type="text" class="form-control has-feedback-left" value="RH Mais" readonly placeholder="Agente de Integração" name="agente_int">
+                                                <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                              <input type="text" class="form-control has-feedback-left" placeholder="Cobertura:" name="cobertura">
+                                              <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                      </div>
+                                    <div class="btn-group mr-2 sw-btn-group-extra" role="group">
+                                      <button type="submit" class="btn btn-info">Enviar</button>
+                                      <button class="btn btn-danger">Cancelar</button>
+                                    </div>
+                              </div>
+                      </div>
+                     </div>
+                      </form>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
         </div>
-    </div>
-    </div>
         <!-- /page content -->
-
         <!-- footer content -->
         @include('layout.footer')
         <!-- /footer content -->

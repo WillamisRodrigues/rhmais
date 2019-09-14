@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Motivo;
+use DB;
+use App\Instituicao;
+use App\Empresa;
 use Illuminate\Http\Request;
 
 class MotivoController extends Controller
@@ -25,7 +28,12 @@ class MotivoController extends Controller
      */
     public function create()
     {
-        return view('motivo.create');
+        $states = DB::table("estado")->pluck("nome", "id");
+
+        $instituicoes = Instituicao::all();
+        $empresas = Empresa::all();
+
+        return view('motivo.create', compact('states', 'empresas', 'cursos', 'instituicoes'));
     }
 
     /**

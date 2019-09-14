@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Empresa;
+use App\Instituicao;
 use App\Supervisor;
+use DB;
+
 use Illuminate\Http\Request;
 
 class SupervisorController extends Controller
@@ -25,7 +29,12 @@ class SupervisorController extends Controller
      */
     public function create()
     {
-        return view('supervisor.create');
+        $states = DB::table("estado")->pluck("nome", "id");
+
+        $instituicoes = Instituicao::all();
+        $empresas = Empresa::all();
+
+        return view('supervisor.create', compact('states', 'empresas', 'cursos', 'instituicoes'));
     }
 
     /**
