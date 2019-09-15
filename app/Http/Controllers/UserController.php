@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\User;
-use App\Message;
+use Flash;
+
+// use App\Message;
 
 class UserController extends Controller
 {
@@ -100,27 +102,27 @@ class UserController extends Controller
         return redirect('user_sistema');
     }
 
-     public function destroy()
+     public function destroy(Request $request)
     {
-        $message = new Message();
-        $message->message ="";
-        $message->type ="";
+        // dd($request->all());
+        $message = "";
         try{
-            DB::beginTransaction();
+            DB::table('users')->where('id', $request->_id)->delete();
+            // DB::beginTransaction();
 
-            User::whereId(request("id"))->destroy();
+            // User::whereId(request("_id"))->destroy();
 
-            DB::commit();
-            $message->message = 'usuário excluído com sucesso';
-            $message->type="success";
+            // DB::commit();
+            $message = 'usuário excluído com sucesso';
         }
         catch (\Exception $e)
         {
             DB::rollback();
-            $message->message = $e->getMessage();
-            $message->type="error";
+            $message = $e->getMessage();
         }
-        return $this->index()->with(['message' => $message,'users' =>User::all()]);
+        Flash::success('Usuário deletado com sucesso.');
+        return redirect(route('user_sistema.index'));
+        return $this->index()->with(['success' => $message,'users' =>User::all()]);
     }
 
 }

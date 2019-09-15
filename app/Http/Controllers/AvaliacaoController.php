@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Avaliacao;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AvaliacaoController extends Controller
 {
@@ -25,7 +26,52 @@ class AvaliacaoController extends Controller
      */
     public function create()
     {
-        //
+        $estagiarios = DB::table('estagiario')
+            ->join('empresa', 'estagiario.empresa_id', '=', 'empresa.id')
+            ->join('cidade', 'estagiario.city', '=', 'cidade.id')
+            ->select(
+                'estagiario.nome',
+                'empresa.nome_fantasia',
+                'estagiario.celular',
+                'estagiario.cpf',
+                'estagiario.data_nascimento',
+                'estagiario.id',
+                'estagiario.status',
+                'estagiario.escolaridade',
+                'cidade.nome AS nome_cidade'
+            )
+            ->get();
+        $instituicoes = DB::table('instituicao')
+            ->join('cidade', 'instituicao.city', '=', 'cidade.id')
+            ->select(
+                'instituicao.razao_social',
+                'instituicao.nome_instituicao',
+                'instituicao.cnpj',
+                'instituicao.rua',
+                'instituicao.id',
+                'cidade.nome AS nome_cidade'
+            )
+            ->get();
+        $empresas = DB::table('empresa')
+            ->join('cidade', 'empresa.city', '=', 'cidade.id')
+            ->select(
+                'empresa.razao_social',
+                'empresa.nome_fantasia',
+                'empresa.cnpj',
+                'empresa.insc_estadual',
+                'empresa.telefone',
+                'empresa.id',
+                'cidade.nome AS nome_cidade'
+            )
+            ->get();
+        $supervisores = DB::table('supervisor')->get();
+
+        return view('auto_avaliacao.create', [
+            'estagiarios' => $estagiarios,
+            'instituicoes' => $instituicoes,
+            'empresas' => $empresas,
+            'supervisores' => $supervisores
+        ]);
     }
 
     /**
@@ -36,7 +82,7 @@ class AvaliacaoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
@@ -58,7 +104,52 @@ class AvaliacaoController extends Controller
      */
     public function edit(Avaliacao $avaliacao)
     {
-        //
+        $estagiarios = DB::table('estagiario')
+            ->join('empresa', 'estagiario.empresa_id', '=', 'empresa.id')
+            ->join('cidade', 'estagiario.city', '=', 'cidade.id')
+            ->select(
+                'estagiario.nome',
+                'empresa.nome_fantasia',
+                'estagiario.celular',
+                'estagiario.cpf',
+                'estagiario.data_nascimento',
+                'estagiario.id',
+                'estagiario.status',
+                'estagiario.escolaridade',
+                'cidade.nome AS nome_cidade'
+            )
+            ->get();
+        $instituicoes = DB::table('instituicao')
+            ->join('cidade', 'instituicao.city', '=', 'cidade.id')
+            ->select(
+                'instituicao.razao_social',
+                'instituicao.nome_instituicao',
+                'instituicao.cnpj',
+                'instituicao.rua',
+                'instituicao.id',
+                'cidade.nome AS nome_cidade'
+            )
+            ->get();
+        $empresas = DB::table('empresa')
+            ->join('cidade', 'empresa.city', '=', 'cidade.id')
+            ->select(
+                'empresa.razao_social',
+                'empresa.nome_fantasia',
+                'empresa.cnpj',
+                'empresa.insc_estadual',
+                'empresa.telefone',
+                'empresa.id',
+                'cidade.nome AS nome_cidade'
+            )
+            ->get();
+        $supervisores = DB::table('supervisor')->get();
+
+        return view('lista_auto_avaliacao.edit', [
+            'estagiarios' => $estagiarios,
+            'instituicoes' => $instituicoes,
+            'empresas' => $empresas,
+            'supervisores' => $supervisores
+        ]);
     }
 
     /**

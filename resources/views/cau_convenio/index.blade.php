@@ -65,7 +65,7 @@
                           <form  class="col-md-3" style="margin-left:28px;" action="{{route('cau_convenio.destroy', [$cau->id])}}" method="POST">
     		                  <input type="hidden" name="_method" value="DELETE">
    		                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-   		                    <button type="submit" class="btn btn-danger">
+   		                    <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja deletar o Convênio selecionado?')">
                               <i class="fa fa-trash"></i> Deletar
                               </button>
                           </form>
