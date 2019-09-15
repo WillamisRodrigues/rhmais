@@ -82,9 +82,9 @@ class CauController extends Controller
      * @param  \App\Cau  $cau
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cau $caus)
+    public function edit(Cau $cau)
     {
-        return view('cau_convenio.edit', compact('caus', $caus));
+        return view('cau_convenio.edit', compact('cau', $cau));
     }
 
     /**
@@ -96,7 +96,14 @@ class CauController extends Controller
      */
     public function update(Request $request, Cau $cau)
     {
-        //
+        $request->validate([
+            'empresa_id' => 'required',
+        ]);
+
+        $cau->update($request->all());
+        $cau->save();
+        $request->session()->flash('message', 'Sucesso!');
+        return redirect('cau_convenio');
     }
 
     /**

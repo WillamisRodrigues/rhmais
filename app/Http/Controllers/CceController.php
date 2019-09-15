@@ -87,7 +87,7 @@ class CceController extends Controller
      */
     public function edit(Cce $cce)
     {
-        //
+        return view('cce_convenio.edit', compact('cce', $cce));
     }
 
     /**
@@ -99,7 +99,14 @@ class CceController extends Controller
      */
     public function update(Request $request, Cce $cce)
     {
-        //
+        $request->validate([
+            'empresa_id' => 'required',
+        ]);
+
+        $cce->update($request->all());
+        $cce->save();
+        $request->session()->flash('message', 'Sucesso!');
+        return redirect('cce_convenio');
     }
 
     /**

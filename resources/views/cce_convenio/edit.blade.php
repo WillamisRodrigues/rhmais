@@ -27,18 +27,18 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                  <form action="" method="post">
-                  {{csrf_field()}}
-
+                   <form action="{{url('cce_convenio', [$cce->id])}}" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
+                   <input type="hidden" name="_method" value="PUT">
+                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
                       <!-- SmartWizard html -->
                       <div>
                           <div>
                               <div>
-                               
+
                                     <div id="form-step-0" role="form" data-toggle="validator">
                                       <div class="row" style="width:960px; margin: 20px auto;">
                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" value="" class="form-control has-feedback-left" placeholder="Agente Integração" name="agente_integracao">
+                                                <input type="text" value="RH Mais" class="form-control has-feedback-left" placeholder="Agente Integração" name="agente_integracao">
                                                 <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -76,7 +76,7 @@
                       </div>
                      </div>
                       </form>
-                    
+
                   </div>
                 </div>
               </div>
