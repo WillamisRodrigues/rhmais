@@ -27,7 +27,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                  <form action="{{url('cau_convenio', [$cau->id])}}" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
+                  <form action="{{ route('cau_convenio.update', [$cau->id])}}" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
                    <input type="hidden" name="_method" value="PUT">
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -43,24 +43,24 @@
                                                 <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" value=" {{ $cau->nome_fantasia }} " class="form-control has-feedback-left" placeholder="Unidade Concedente" name="unidade_concedente">
+                                                <input type="text" value="{{ $cau->empresa_id }}" class="form-control has-feedback-left" placeholder="Unidade Concedente" name="empresa_id">
                                                 <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
-                                                <input type="text" value="" class="form-control has-feedback-left" placeholder="Data Documento" name="data_documento">
+                                                <input type="text" value=" {{ $cau->data_doc }}" class="form-control has-feedback-left" placeholder="Data Documento" name="data_documento">
                                                 <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
-                                                <input type="text" value="" class="form-control has-feedback-left" placeholder="Data Inicio" name="data_inicio">
+                                                <input type="text" value=" {{ $cau->data_inicio }}" class="form-control has-feedback-left" placeholder="Data Inicio" name="data_inicio">
                                                 <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
-                                                <input type="text" value="" class="form-control has-feedback-left" placeholder="Data Fim" name="data_fim">
+                                                <input type="text" value=" {{ $cau->data_fim }}" class="form-control has-feedback-left" placeholder="Data Fim" name="data_fim">
                                                 <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                                                 <label>Sua observação</label>
-                                            <textarea class="form-control" name="nomeText"></textarea>
+                                            <textarea class="form-control" name="nomeText">{{$cau->obs}}</textarea>
                                             </div>
                                         </div>
                                     <div class="btn-group mr-2 sw-btn-group-extra" role="group">

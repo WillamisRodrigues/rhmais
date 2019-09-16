@@ -42,30 +42,28 @@
                                                 <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <select type="text" value="" class="form-control has-feedback-left" placeholder="Instituição de Ensino" name="instituicao_ensino">
-                                                  <option value="instituição">Instituição de Ensino</option>
-                                                </select>
+                                            <input type="text" value="{{$cce->instituicao_id}}" class="form-control has-feedback-left" placeholder="Instituição de Ensino" name="instituicao_id">
                                                 <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                                                <input type="text" value="" class="form-control has-feedback-left" placeholder="Apólice/Seguradora" name="apolice_seguradora">
+                                                <input type="text" value="{{$cce->seguro_id}}" class="form-control has-feedback-left" placeholder="Apólice/Seguradora" name="seguro_id">
                                                 <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
-                                                <input type="text" value="" class="form-control has-feedback-left" placeholder="Data Documento" name="data_documento">
+                                                <input type="text" value="{{$cce->data_doc}}" class="form-control has-feedback-left" placeholder="Data Documento" name="data_doc">
                                                 <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
-                                                <input type="text" value="" class="form-control has-feedback-left" placeholder="Data Inicio" name="data_inicio">
+                                                <input type="text" value="{{$cce->data_inicio}}" class="form-control has-feedback-left" placeholder="Data Inicio" name="data_inicio">
                                                 <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
-                                                <input type="text" value="" class="form-control has-feedback-left" placeholder="Data Fim" name="data_fim">
+                                                <input type="text" value="{{$cce->data_fim}}" class="form-control has-feedback-left" placeholder="Data Fim" name="data_fim">
                                                 <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                                                 <label>Sua observação</label>
-                                            <textarea class="form-control" name="nomeText"></textarea>
+                                            <textarea class="form-control" name="obs">{{$cce->obs}}</textarea>
                                             </div>
                                         </div>
                                     <div class="btn-group mr-2 sw-btn-group-extra" role="group">

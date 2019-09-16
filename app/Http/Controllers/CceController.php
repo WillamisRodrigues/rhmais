@@ -85,8 +85,9 @@ class CceController extends Controller
      * @param  \App\Cce  $cce
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cce $cce)
+    public function edit($id)
     {
+        $cce = DB::table('cce')->where('id', $id)->first();
         return view('cce_convenio.edit', compact('cce', $cce));
     }
 
