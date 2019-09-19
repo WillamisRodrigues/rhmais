@@ -82,8 +82,9 @@ class CauController extends Controller
      * @param  \App\Cau  $cau
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cau $cau)
+    public function edit($id)
     {
+        $cau = DB::table('cau')->where('id', $id)->first();
         return view('cau_convenio.edit', compact('cau', $cau));
     }
 

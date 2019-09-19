@@ -11,6 +11,7 @@
         "fideloper/proxy": "^4.0",
         "fx3costa/laravelchartjs": "^2.5",
         "khill/lavacharts": "3.1.*",
+        "laracasts/flash": "^3.0",
         "laravel/framework": "5.6.*",
         "laravel/tinker": "^1.0",
         "laraveldaily/laravel-charts": "^0.1.10",

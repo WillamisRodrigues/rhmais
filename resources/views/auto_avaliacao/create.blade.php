@@ -27,7 +27,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                <form action="{{ route('cce_convenio.store') }}" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
+                <form action="addAutoAvaliacao" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
                   {{csrf_field()}}
                       <!-- SmartWizard html -->
                       <div>
@@ -37,97 +37,118 @@
                                     <div id="form-step-0" role="form" data-toggle="validator">
                                         <div class="row" style="width:960px; margin: 0 auto;">
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Nome Estagiário" name="nome" value="">
+                                                <select class="form-control has-feedback-left" name="estagiario_id">
+                                                    <option>Selecione o Estagiário:</option>
+                                                     @foreach ($estagiarios as $estagiario)
+                                                        <option value="{{ $estagiario->id }}">{{ $estagiario->nome }}</option>
+                                                     @endforeach
+                                                </select>
                                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Instituição de Ensino" name="instituicao" value="">
+                                                <select class="form-control has-feedback-left" name="empresa_id">
+                                                    <option>Selecione Unidade Concedente:</option>
+                                                     @foreach ($empresas as $empresa)
+                                                        <option value="{{ $empresa->id }}">{{ $empresa->nome_fantasia }}</option>
+                                                     @endforeach
+                                                </select>
                                                 <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Unidade Concedente" name="unidade_concedente" value="">
-                                                <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
+                                                <select class="form-control has-feedback-left" name="instituicao_id">
+                                                    <option>Selecione Instituição de Ensino:</option>
+                                                      @foreach ($instituicoes as $instituicao)
+                                                        <option value="{{ $instituicao->id }}">{{ $instituicao->nome_instituicao }}</option>
+                                                     @endforeach
+                                                </select>
+                                                <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Supervisor Estágio" name="super_estagio" value="">
-                                                <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                                <select class="form-control has-feedback-left" name="super_estagio">
+                                                    <option>Selecione o Supervisor de Estágio:</option>
+                                                      @foreach ($supervisores as $supervisor)
+                                                        <option value="{{ $supervisor->id }}">{{ $supervisor->nome }}</option>
+                                                     @endforeach
+                                                </select>
+                                                <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Periodo Avaliativo" name="periodo_avaliativo" value="">
-                                                <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
-                                            </div>
-                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Data Documento" name="data_documento" value="">
-                                                <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
-                                            </div>
-                                           
+                                                <label for="">Período Avaliativo</label>
+                                                  <input type="date" class="form-control has-feedback-left" placeholder="Período Avaliativo" name="periodo_avaliativo">
+                                                  <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                    <label for="">Data do Documento</label>
+                                                      <input type="date" class="form-control has-feedback-left" placeholder="Data Documento" name="data_doc">
+                                                      <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
+                                                    </div>
+
                                             <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                                                 <label for="">Descreva as Principais Atividades Desenvolvidas:</label>
-                                                <textarea class="form-control" placeholder="observação" name="obs">
-                                                </textarea>
+                                                <textarea class="form-control" placeholder="Descrição das atividades" name="obs"></textarea>
                                             </div>
-                                            
+
                                             <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <br>
                                               <div class="checkbox">
-                                              <hr style="border:0.5px solid #2A3F54;"> 
+                                              <hr style="border:0.5px solid #2A3F54;">
                                               <label>1. As atividades estão de acordo com o Termo de Compromisso de Estágio?</label>
                                                 <label>
-                                                  <input type="checkbox" class="flat"  name="sim"> Sim 
+                                                  <input type="radio" class="flat" name="compromisso"  value="sim"> Sim
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="nao"> Não
+                                                  <input type="radio" class="flat" name="compromisso" value="nao"> Não
                                                 </label>
                                               </div>
                                             </div>
                                             <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
                                               <div class="checkbox">
-                                              <hr style="border:0.5px solid #2A3F54;"> 
+                                              <hr style="border:0.5px solid #2A3F54;">
                                               <label> 2. As atividades estão de acordo com o Plano de Estágio?</label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="sim"> Sim 
+                                                  <input type="radio" class="flat" name="plano_de_estagio" value="sim"> Sim
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="nao"> Não
+                                                  <input type="radio" class="flat" name="plano_de_estagio" value="nao"> Não
                                                 </label>
                                               </div>
                                             </div>
                                             <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
                                               <div class="checkbox">
-                                              <hr style="border:0.5px solid"> 
+                                              <hr style="border:0.5px solid">
                                               <label> 3. O estágio tem me colocado diante de situações de aprendizagem profissional?</label>
                                                 <label>
-                                                  <input type="checkbox" class="flat"  name="sim"> Sim 
+                                                  <input type="radio" class="flat" name="aprendizagem"  value="sim"> Sim
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="nao"> Não
+                                                  <input type="radio" class="flat" name="aprendizagem" value="nao"> Não
                                                 </label>
                                               </div>
                                             </div>
                                             <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
                                               <div class="checkbox">
-                                              <hr style="border:0.5px solid"> 
+                                              <hr style="border:0.5px solid">
                                               <label> 4. As atividades do estágio têm proporcionado alguma identificação com o curso ?</label>
                                                 <label>
-                                                  <input type="checkbox" class="flat"  name="sim"> Sim 
+                                                  <input type="radio" class="flat" name="identificacao"  value="sim"> Sim
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="nao"> Não
+                                                  <input type="radio" class="flat" name="identificacao" value="nao"> Não
                                                 </label>
                                               </div>
                                             </div>
                                             <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
                                               <div class="checkbox">
-                                              <hr style="border:0.5px solid #2A3F54;"> 
+                                              <hr style="border:0.5px solid #2A3F54;">
                                               <label> 5. O estágio tem oferecido experiências práticas favorecendo minha formação ?</label>
                                                 <label>
-                                                  <input type="checkbox" class="flat"  name="sim"> Sim 
+                                                  <input type="radio" class="flat" name="experiencias"  value="sim"> Sim
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="nao"> Não
+                                                  <input type="radio" class="flat" name="experiencias" value="nao"> Não
                                                 </label>
                                               </div>
-                                              <hr style="border:0.5px solid"> 
+                                              <hr style="border:0.5px solid">
                                             </div>
 
                                             <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">

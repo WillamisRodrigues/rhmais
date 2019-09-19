@@ -37,7 +37,11 @@ Route::resource('termo_recesso', 'RecessoController');
 
 
 // Route::post('adicionarRecesso',['as' => 'adicionarRecesso', 'uses' => 'RecessoController@store']);
+Route::get('/avaliacao_estagiario', ["uses" => "AvaliacaoController@create"]);
 
+Route::get('/editar_avaliacao_estagiario', ["uses" => "AvaliacaoController@create"]);
+
+Route::post('addAutoAvaliacao', ['uses' => 'AvaliacaoController@store']);
 
 
 Route::get('/cidade-estado', array('as' => 'myform', 'uses' => 'EstagiarioController@myform'));
@@ -88,6 +92,7 @@ Route::get('/previsao_rescisao', function () {
     return view('previsao_rescisao/index');
 });
 
+<<<<<<< HEAD
 Route::get('/avaliacao_estagiario', function () {
     return view('auto_avaliacao/create');
 });
@@ -105,13 +110,12 @@ Route::get('/editar_avaliacao_supervisor', function () {
 });
 
 
+=======
+>>>>>>> f0b4f35e9f4dc5f0c7aefef67d5514ec2e490dd6
 Route::get('/editar_conta', function () {
     return view('editar_conta/edit');
 });
 
-Route::get('/editar_cce', function () {
-    return view('cce_convenio/edit');
-});
 
 Route::get('/auto_avaliacao', function () {
     return view('auto_avaliacao/index');
