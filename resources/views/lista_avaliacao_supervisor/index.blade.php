@@ -56,7 +56,7 @@
                           <td>Não Assinado</td>
                           <td style="width:24%;">
                             <div class="col-md-3">
-                            <a href="#" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
+                            <a href="/editar_avaliacao_supervisor" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
                             </div>
                             <form class="col-md-3 delete" action="" method="POST">
                               <input type="hidden" name="_method" value="DELETE">

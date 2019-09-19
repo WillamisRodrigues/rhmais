@@ -92,8 +92,16 @@ Route::get('/avaliacao_estagiario', function () {
     return view('auto_avaliacao/create');
 });
 
+Route::get('/auto_avaliacao_supervisor', function () {
+    return view('avaliacao_supervisor/create');
+});
+
 Route::get('/editar_avaliacao_estagiario', function () {
     return view('lista_auto_avaliacao/edit');
+});
+
+Route::get('/editar_avaliacao_supervisor', function () {
+    return view('avaliacao_supervisor/edit');
 });
 
 

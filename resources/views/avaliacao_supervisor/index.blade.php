@@ -71,7 +71,7 @@
                           <td>Sim</td>
                           <td style="width:10%;">
                             <div class="col-md-3">
-                            <a href="#" class="btn btn-primary"> <i class="fa fa-edit"> </i> Novo</a>
+                            <a href="/auto_avaliacao_supervisor" class="btn btn-primary"> <i class="fa fa-edit"> </i> Novo</a>
                             </div>
                           </td>
                         </tr>

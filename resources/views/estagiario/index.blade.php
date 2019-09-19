@@ -29,7 +29,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <table class="table table-striped list table-bordered" style="zoom:0.8;">
+                    <table class="table table-striped list table-bordered">
                       <thead>
                         <tr>
                           <th>Nome
@@ -82,13 +82,19 @@
                           </td>
                            <td style="width:15%;">
                             <div class="col-md-3">
-                            <a href="{{ route('estagiario.edit',[$estagiario->id])}}" class="btn btn-primary"> <i class="fa fa-pencil"> </i> Editar </a>
+                            <form action="{{ route('estagiario.edit',[$estagiario->id])}}" method="POST">
+                            {{ csrf_field() }}
+                              <input type="hidden" name="_method" value="PUT">
+                              <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Editar">
+                              <i class="fa fa-pencil"></i>
+                              </button>
+                            </form>
                             </div>
-                            <form class="col-md-3 delete" style="margin-left:40px;" action="{{route('estagiario.destroy', [$estagiario->id])}}" method="POST">
+                            <form class="col-md-3 delete" style="margin-left:20px;" action="{{route('estagiario.destroy', [$estagiario->id])}}" method="POST">
                               <input type="hidden" name="_method" value="DELETE">
                               <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                              <button type="submit" class="btn btn-danger">
-                              <i class="fa fa-trash"></i> Deletar
+                              <button type="submit" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Deletar">
+                              <i class="fa fa-trash"></i>
                               </button>
                             </form>
                           </td>

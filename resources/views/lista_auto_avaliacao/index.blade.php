@@ -42,8 +42,8 @@
                           <th>Estagiario
                           <input type="text" class="form-control">
                           </th>
-                          <th>Un. Concedente
-                          <input type="text" class="form-control">
+                          <th style="width:10%:">Un. Concedente
+                            <input type="text" class="form-control" style="width:100px;">
                           </th>
                           <th>Supervisor
                           <input type="text" class="form-control" style="width:100px;">
@@ -61,25 +61,25 @@
                       <tbody>
                          <tr>
                           <td>SABRINA KELOLY VIEIRA DOS SANTOS</td>
-                          <td>LIFE ACADEMIA BRASIL EIRELI- EPP - ACADEMIA LIFE GYM</td>
+                          <td style="width:24%;">LIFE ACADEMIA BRASIL EIRELI- EPP - ACADEMIA LIFE GYM</td>
                           <td>LUCIELENA NISTA</td>
                           <td></td>
                           <td>10/09/2018 a 10/03/2019</td>
                           <td>Não Assinado</td>
                           <td style="width:24%;">
                             <div class="col-md-3">
-                            <a href="/editar_avaliacao_estagiario" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Editar"> 
-                            <i class="fa fa-pencil"> </i></a>
+                            <a href="/editar_avaliacao_estagiario" class="btn btn-primary"> 
+                            <i class="fa fa-pencil"> </i> Editar </a>
                             </div>
-                            <form class="col-md-2 delete" action="" method="POST">
+                            <form class="col-md-3 delete" action="" method="POST"style="margin-left:20px;">
                               <input type="hidden" name="_method" value="DELETE">
                               <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                              <button type="submit" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Deletar">
-                              <i class="fa fa-trash"></i>
+                              <button type="submit" class="btn btn-danger">
+                              <i class="fa fa-trash"></i> Deletar
                               </button>
                             </form>
                             <div class="col-md-3">
-                            <a href="#" class="btn btn-warning" style="margin-left:10px;" data-toggle="tooltip" data-placement="top" title="Imprimir"> <i class="fa fa-print"> </i></a>
+                            <a href="#" class="btn btn-warning" style="margin-left:40px;"> <i class="fa fa-print"> </i> Imprimir </a>
                             </div>
                           </td>
                         </tr>
