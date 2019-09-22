@@ -159,10 +159,10 @@
                                                  <input type="text" value="{{ $estagiario->matricula }}" class="form-control has-feedback-left" placeholder="Matricula" name="matricula">
                                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div>
-                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" value="{{ $estagiario->prev_termino }}" class="form-control has-feedback-left" placeholder="Previsão Término Curso" name="prev_termino">
-                                                <span class="fa fa-book form-control-feedback left" aria-hidden="true"></span>
-                                            </div>
+                                            {{-- <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback"> --}}
+                                                {{-- <input type="text" value="{{ $estagiario->prev_termino }}" class="form-control has-feedback-left" placeholder="Previsão Término Curso" name="prev_termino"> --}}
+                                                {{-- <span class="fa fa-book form-control-feedback left" aria-hidden="true"></span>
+                                            </div> --}}
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <input type="text" value="{{ $estagiario->banco }}" class="form-control has-feedback-left" placeholder="Banco/Agência" name="banco">
                                                 <span class="fa fa-bank form-control-feedback left" aria-hidden="true"></span>

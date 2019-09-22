@@ -233,8 +233,9 @@ class EstagiarioController extends Controller
      * @param  \App\Estagiario  $estagiario
      * @return \Illuminate\Http\Response
      */
-    public function edit(Estagiario $estagiario)
+    public function edit($id)
     {
+        $estagiario = DB::table('estagiario')->where('id', $id)->get()->first();
         return view('estagiario.edit', compact('estagiario', $estagiario));
     }
 

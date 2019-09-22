@@ -82,18 +82,19 @@
                           </td>
                            <td style="width:15%;">
                             <div class="col-md-3">
-                            <form action="{{ route('estagiario.edit',[$estagiario->id])}}" method="POST">
+                            {{-- <form action="{{ route('estagiario.edit',[$estagiario->id])}}" method="POST">
                             {{ csrf_field() }}
                               <input type="hidden" name="_method" value="PUT">
                               <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Editar">
                               <i class="fa fa-pencil"></i>
                               </button>
-                            </form>
+                            </form> --}}
+                            <a href="{!! route('estagiario.edit', [$estagiario->id]) !!}" class='btn btn-primary'><i class="fa fa-pencil"></i></a>
                             </div>
-                            <form class="col-md-3 delete" style="margin-left:20px;" action="{{route('estagiario.destroy', [$estagiario->id])}}" method="POST">
+                            <form class="col-md-3" style="margin-left:20px;" action="{{route('estagiario.destroy', [$estagiario->id])}}" method="POST">
                               <input type="hidden" name="_method" value="DELETE">
                               <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                              <button type="submit" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Deletar">
+                              <button type="submit" class="btn btn-danger" data-toggle="tooltip" data-placement="top"  onclick="return confirm('Tem certeza que deseja deletar o estagiário selecionado?')">
                               <i class="fa fa-trash"></i>
                               </button>
                             </form>
