@@ -43,11 +43,11 @@
                     <option> 30</option>
                 </select>
                 </div>
-                <div class="col-md-4    ">
+                <div class="col-md-4">
                 <br>
-                <button class="btn btn-primary">Processar</button>
-                <button class="btn btn-primary">G. Recibo</button>
-                <button class="btn btn-primary">G. Relaçãp</button>
+                <a href="#" class="btn btn-primary">Processar</a>
+                <a href="#" class="btn btn-primary">G. Recibo</a>
+                <a href="#" class="btn btn-primary">G. Relação</a>
                 </div>
               </form>
               <br>
@@ -61,7 +61,7 @@
                     <table class="table table-striped list  table-bordered">
                       <thead>
                         <tr>
-                          <th><button class="btn btn-primary"> Fechar Mês</button></th>
+                          <th><a href="#" class="btn btn-primary">Fechar Mês</a></th>
                           <th>Referência
                           <input type="text" class="form-control" style="width:100px;">
                           </th>
@@ -92,7 +92,7 @@
                           <td>600,00</td>
                           <td>0</td>
                           <td>600,00</td>
-                          <td><button class="btn btn-primary"><i class="fa fa-pencil"></i> Editar</button></td>
+                          <td><a href="{!! route('folha_pagamento.edit', [1]) !!}" class="btn btn-primary"><i class="fa fa-pencil"></i> Editar</a></td>
                         </tr>
                       </tbody>
                     </table>

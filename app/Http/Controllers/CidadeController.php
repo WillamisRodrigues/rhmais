@@ -20,8 +20,7 @@ class CidadeController extends Controller
     }
     public function index()
     {
-
-        $cidades = DB::table('cidade')->paginate(20);
+        $cidades = DB::table('cidade')->paginate(10);
         return view('cidade.index', compact('cidades', $cidades));
     }
 

@@ -62,7 +62,7 @@ class PdfController extends Controller
         return view('tce_recisao.index', compact('estagiarios', $estagiarios));
     }
 
-    public function  generateRecisao(Estagiario $estagiarios, $id){
+    public function generateRecisao(Estagiario $estagiarios, $id){
         // Todos os Alunos
         if ($id == 0) {
             $estagiarios = Estagiario::all();
@@ -120,17 +120,22 @@ class PdfController extends Controller
         return $pdf->stream('index.pdf');
     }
 
-    public function  generateCau(){
+    public function generateCau(){
         $pdf = PDF::loadView('pdf.cau.index');
         return $pdf->stream('index.pdf');
     }
-    public function  generateEstagio(){
+    public function generateEstagio(){
         $pdf = PDF::loadView('pdf.plano.index');
         return $pdf->stream('index.pdf');
     }
 
-    public function  generateCce(){
+    public function generateCce(){
         $pdf = PDF::loadView('pdf.cce.index');
+        return $pdf->stream('index.pdf');
+    }
+
+    public function generateHolerite(){
+        $pdf = PDF::loadView('pdf.holerite.index');
         return $pdf->stream('index.pdf');
     }
 

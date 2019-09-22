@@ -26,6 +26,7 @@ class FolhaPagamentoController extends Controller
                 'cau.id AS id'
             )
             ->get();
+
         return view('folha_pagamento.index',  compact('unidades', $unidades));
 
     }
@@ -68,9 +69,9 @@ class FolhaPagamentoController extends Controller
      * @param  \App\FolhaPagamento  $folhaPagamento
      * @return \Illuminate\Http\Response
      */
-    public function edit(FolhaPagamento $folhaPagamento)
+    public function edit($id)
     {
-        //
+        return view('folha_pagamento.edit');
     }
 
     /**

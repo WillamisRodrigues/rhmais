@@ -25,7 +25,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <table class="table list table-striped table-bordered">
+                    <table class="table table-striped table-bordered">
                       <thead>
                         <tr>
                           <th>Nome cidade
@@ -44,10 +44,13 @@
                         </tr>
                           @endforeach
                       </tbody>
+                      <tfoot>
+                          <tr>
+                              <td class="text-center">{!! $cidades->links() !!}</td>
+                              <td></td>
+                          </tr>
+                      </tfoot>
                     </table>
-                    	{{-- <div class="pull-right">
-                    {{ $cidades->links() }}
-                    	</div>   --}}
                   </div>
                 </div>
               </div>

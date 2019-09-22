@@ -133,3 +133,5 @@ Route::get('/lista_avaliacao_supervisor', function () {
 Route::get('/financeiro', function () {
     return view('financeiro/index');
 });
+
+Route::get('/holerite', 'PdfController@generateHolerite');
