@@ -99,14 +99,14 @@
                                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                            <input type="text" value="{{ $estagiario->state }}" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Estado" name="state">
+                                            <input type="text" value="{{ $estado->nome }}" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Estado" name="state">
                                             <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
                                         </div>
                                         </div>
                                         <div class="row" style="width:960px; margin: 0 auto;">
 
                                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                            <input type="text" value="{{ $estagiario->city }}" class="form-control has-feedback-left" placeholder="Cidade" name="city">
+                                            <input type="text" value="{{ $cidade->nome }}" class="form-control has-feedback-left" placeholder="Cidade" name="city">
                                             <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">

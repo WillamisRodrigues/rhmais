@@ -64,9 +64,10 @@ class OrientadorController extends Controller
      * @param  \App\Orientador  $orientador
      * @return \Illuminate\Http\Response
      */
-    public function edit(Orientador $orientador)
+    public function edit($id)
     {
-        //
+        $orientador = Orientador::find($id);
+        return view('orientador.edit', compact('orientador', $orientador));
     }
 
     /**

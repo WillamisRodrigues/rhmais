@@ -197,7 +197,7 @@ class EstagiarioController extends Controller
         $estagiarios->empresa_id = $request->get('empresa_id');
         $estagiarios->instituicao_id = $request->get('instituicao_id');
         $estagiarios->curso = $request->get('curso');
-        if($request->ativo == 'on'){
+        if ($request->ativo == 'on') {
             $estagiarios->status = 1;
         }
         $estagiarios->save();
@@ -235,8 +235,16 @@ class EstagiarioController extends Controller
      */
     public function edit($id)
     {
+
         $estagiario = DB::table('estagiario')->where('id', $id)->get()->first();
-        return view('estagiario.edit', compact('estagiario', $estagiario));
+        $estado = DB::table('estado')->where('id', '=', $estagiario->state)->get()->first();
+        $cidade = DB::table('cidade')->where('id', '=', $estagiario->city)->get()->first();
+
+        return view('estagiario.edit',[
+            'estagiario' => $estagiario,
+            'estado' => $estado,
+            'cidade' => $cidade
+        ]);
     }
 
     /**

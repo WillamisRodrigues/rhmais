@@ -43,9 +43,10 @@
                       </thead>
                       <tbody>
                          <tr>
-                            <td>CONCLUSÃO DO ESTÁGIO/ENCERRAMENTO DO TCE</td>
-                            <td>Outro - Out</td>
-                            <td>M.A. SILVA RECURSOS HUMANOS - ME - FOX RH</td>
+                           @foreach ($motivos as $motivo)
+                         <td>{{$motivo->nome}}</td>
+                            <td>{{$motivo->descricao}}</td>
+                         <td>{{$motivo->empresa_id}}</td>
                             <td style="width:15%;">
                           <form class="col-md-3" action="#" method="POST">
     		                  <input type="hidden" name="_method" value="DELETE">
@@ -54,10 +55,11 @@
                               </button>
                           </form>
                             <div class="col-md-3" style="margin-left:40px;">
-                            <a href="#" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
+                            <a href="{{ route('motivo.edit', $motivo->id) }}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
                             </div>
                           </td>
                         </tr>
+                           @endforeach
                       </tbody>
                     </table>
                   </div>

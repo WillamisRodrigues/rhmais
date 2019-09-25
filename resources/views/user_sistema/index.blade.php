@@ -50,8 +50,8 @@
                                 <tr>
                                     <th>{{$user->name}}</th>
                                     <th>{{$user->email}}</th>
-                                    <th>{{$user->created_at}}</th>
-                                    <th>{{$user->updated_at}}</th>
+                                    <th>{{date('d/m/Y', strtotime($user->created_at))}}</th>
+                                    <th>{{date('d/m/Y', strtotime($user->updated_at))}}</th>
 
                            <td style="width:15%;">
                             <div class="col-md-3">

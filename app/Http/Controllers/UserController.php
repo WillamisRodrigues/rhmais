@@ -18,7 +18,6 @@ class UserController extends Controller
 
     public function index()
     {
-        // $users = User::all();
         $users = DB::table('users')->paginate(5);
        return view('user_sistema.index', compact('users', $users));
     }
@@ -75,9 +74,9 @@ class UserController extends Controller
      * @param  \App\User $users
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $users)
+    public function edit($id)
     {
-        //  return view('edit',['user' => User::whereId(request('id'))->firstOrFail()]);
+        $users = User::find($id);
          return view('user_sistema.edit', compact('users', $users));
     }
 
@@ -88,16 +87,18 @@ class UserController extends Controller
      * @param  \App\user  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'name' => 'required',
             'email' => 'required',
         ]);
 
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->save();
+        $users = User::find($id);
+        $users->name =  $request->get('name');
+        $users->email = $request->get('email');
+        $users->save();
+
         $request->session()->flash('message', 'Sucesso!');
         return redirect('user_sistema');
     }

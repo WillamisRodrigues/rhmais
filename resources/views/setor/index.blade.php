@@ -40,8 +40,9 @@
                       </thead>
                       <tbody>
                          <tr>
-                            <td>ACADEMIA</td>
-                            <td>OUT - OUTROS SETORES NÃO CADASTRADOS</td>
+                           @foreach ($setores as $setor)
+                         <td>{{$setor->nome}}</td>
+                         <td>{{$setor->sigla}}</td>
                             <td style="width:15%;">
                           <form class="col-md-3" action="#" method="POST">
     		                  <input type="hidden" name="_method" value="DELETE">
@@ -50,10 +51,11 @@
                               </button>
                           </form>
                             <div class="col-md-3" style="margin-left:40px;">
-                            <a href="#" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
+                            <a href="{{route('setor.edit', [$setor->id])}}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
                             </div>
                           </td>
                         </tr>
+                           @endforeach
                       </tbody>
                     </table>
                   </div>

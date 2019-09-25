@@ -45,7 +45,32 @@ class SupervisorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nome' => 'required',
+            'email' => 'required',
+        ]);
+
+
+        $supervisores = new Supervisor();
+        $supervisores->nome = $request->get('nome');
+        $supervisores->email = $request->get('email');
+        $supervisores->rg = $request->get('rg');
+        $supervisores->cpf = $request->get('cpf');
+        $supervisores->telefone = $request->get('telefone');
+        $supervisores->celular = $request->get('celular');
+        $supervisores->agente_integracao = $request->get('agente_integracao');
+        $supervisores->city = $request->get('city');
+        $supervisores->state = $request->get('state');
+        $supervisores->escolaridade = $request->get('escolaridade');
+        $supervisores->cep = $request->get('cep');
+        $supervisores->rua = $request->get('rua');
+        $supervisores->bairro = $request->get('bairro');
+        $supervisores->cep = $request->get('cep');
+        $supervisores->numero = $request->get('numero');
+        $supervisores->save();
+
+        return redirect()->route('supervisor.index')
+            ->with('success', 'Cadastrado com sucesso.');
     }
 
     /**
@@ -65,9 +90,10 @@ class SupervisorController extends Controller
      * @param  \App\Supervisor  $supervisor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Supervisor $supervisor)
+    public function edit($id)
     {
-        //
+        $supervisor = Supervisor::find($id);
+        return view('supervisor.edit', compact('supervisor', $supervisor));
     }
 
     /**

@@ -64,9 +64,10 @@ class MotivoController extends Controller
      * @param  \App\Motivo  $motivo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Motivo $motivo)
+    public function edit($id)
     {
-        //
+        $motivo = Motivo::find($id);
+        return view('motivo.edit', compact('motivo', $motivo));
     }
 
     /**
@@ -76,9 +77,20 @@ class MotivoController extends Controller
      * @param  \App\Motivo  $motivo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Motivo $motivo)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nome' => 'required',
+        ]);
+
+        $motivo = User::find($id);
+        $motivo->nome =  $request->get('nome');
+        $motivo->descricao = $request->get('descricao');
+        $motivo->empresa_id = $request->get('empresa_id');
+        $motivo->save();
+
+        $request->session()->flash('message', 'Sucesso!');
+        return redirect('motivo');
     }
 
     /**

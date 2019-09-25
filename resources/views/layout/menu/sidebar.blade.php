@@ -38,8 +38,8 @@
                     <ul class="nav child_menu">
                     <li><a href="/folha_pagamento">Gerar Folha Pagamento</a></li>
                     <li><a href="/folha_rescisao">Gerar Folha de Rescisão</a></li>
-                    <li><a href="/rendimentos">Informe de Rendimentos</a></li>
-                    <li><a href="/previsao_rescisao">Gerar Prévia de Rescisão</a></li>
+                    {{-- <li><a href="/rendimentos">Informe de Rendimentos</a></li> --}}
+                    {{-- <li><a href="/previsao_rescisao">Gerar Prévia de Rescisão</a></li> --}}
                     </ul>
                   </li>
                   <li><a><i class="fa fa-graduation-cap"></i> Avaliações <span class="fa fa-chevron-down"></span></a>

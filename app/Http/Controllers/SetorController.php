@@ -56,9 +56,10 @@ class SetorController extends Controller
      * @param  \App\Setor  $setor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Setor $setor)
+    public function edit($id)
     {
-        //
+        $setor = Setor::find($id);
+        return view('setor.edit', compact('setor', $setor));
     }
 
     /**
@@ -68,9 +69,19 @@ class SetorController extends Controller
      * @param  \App\Setor  $setor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Setor $setor)
+    public function update(Request $request, $id)
     {
-        //
+         $request->validate([
+            'nome' => 'required',
+        ]);
+
+        $setor = Setor::find($id);
+        $setor->nome =  $request->get('nome');
+        $setor->sigla = $request->get('sigla');
+        $setor->save();
+
+        $request->session()->flash('message', 'Sucesso!');
+        return redirect('setor');
     }
 
     /**

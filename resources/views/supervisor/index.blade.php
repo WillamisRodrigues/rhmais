@@ -39,7 +39,7 @@
                           <input type="text" class="form-control" style="width:100px;">
                           </th>
                           <th>Cidade
-                          
+
                           <input type="text" class="form-control"></th>
                           <th>Unidade
                           <input type="text" class="form-control">
@@ -52,18 +52,20 @@
                       </thead>
                       <tbody>
                          <tr>
-                            <td>ADRIELLE SIQUEIRA PARINI</td>
-                            <td>372.821.798-08</td>
-                            <td>45.798.797-2</td>
+                           @foreach ($supervisores as $supervisor)
+                         <td>{{$supervisor->nome}}</td>
+                            <td>{{$supervisor->cpf}}</td>
+                            <td>{{$supervisor->rg}}</td>
                             <td>RIBEIRÃO PRETO</td>
                             <td>PRINCIPAL RB PROMOTORA DE CREDITO LTDA ME - PRINCIPAL PROMOTORA</td>
-                            <td>KOSTER E KOSTER CONSULTORIA EM RH LTDA - KOSTER E KOSTER CONSULTORIA EM RH LTDA</td>
+                            <td>{{$supervisor->agente_integracao}}</td>
                             <td style="width:15%;">
                             <div class="col-md-3" style="margin-left:40px;">
-                            <a href="#" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
+                            <a href="{{route('supervisor.edit', [$supervisor->id])}}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
                             </div>
                           </td>
                         </tr>
+                          @endforeach
                       </tbody>
                     </table>
                   </div>

@@ -55,13 +55,14 @@
                       </thead>
                       <tbody>
                          <tr>
-                            <td>ADRIANA REGINA MARQUES DE SOUZA PELISSARI</td>
-                            <td>000.000.456-78</td>
-                            <td></td>
-                            <td>CAMPINAS</td>
-                            <td>ASSUPERO ENSINO SUPERIOR LTDA</td>
-                            <td>KOSTER & KOSTER CONSULTORIA EM RH LTDA</td>
-                            <td>KOSTER E KOSTER CONSULTORIA EM RH LTDA</td>
+                           @foreach ($orientadores as $orientador)
+                         <td>{{$orientador->nome}}</td>
+                            <td>{{$orientador->cpf}}</td>
+                            <td>{{$orientador->rg}}</td>
+                            <td>{{$orientador->cidade}}</td>
+                            <td>{{$orientador->instituicao}}</td>
+                            <td>{{$orientador->empresa}}</td>
+                            <td>{{$orientador->agente_integracao}}</td>
                             <td style="width:15%;">
                           <form class="col-md-3" action="#" method="POST">
     		                  <input type="hidden" name="_method" value="DELETE">
@@ -70,10 +71,11 @@
                               </button>
                           </form>
                             <div class="col-md-3" style="margin-left:40px;">
-                            <a href="#" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
+                            <a href="{{route('orientador.edit', [$orientador->id])}}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
                             </div>
                           </td>
                         </tr>
+                        @endforeach
                       </tbody>
                     </table>
                   </div>
