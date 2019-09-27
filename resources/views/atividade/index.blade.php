@@ -43,10 +43,23 @@
                       </thead>
                       <tbody>
                          <tr>
-                            <td>ACIONAMENTO DE CLIENTES E NEGOCIAÇÃO DE CRÉDITO VIA TELEFONE, PRESTAÇÃO DE SERVIÇOS PARA BANCOS,</td>
-                            <td>R. DE LIMA SILVEIRA INFORMAÇÕES CADASTRAIS - FABRICA DO CRÉDITO</td>
-                            <td>KOSTER E KOSTER CONSULTORIA EM RH LTDA - RH MAIS TALENTOS</td>
+                           @foreach ($atividades as $atividade)
+                         <td>{{$atividade->nome}}</td>
+                         <td>{{$atividade->atividade}}</td>
+                         <td>{{$atividade->agente_integracao}}</td>
+                           @endforeach
                             <td style="width:15%;">
+                            <div class="col-md-3">
+                              <a href="{{route('atividade.edit', [$atividade->id])}}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
+                            </div>
+                            <form class="col-md-3" style="margin-left:40px;" action="{{url('setor', [$atividade->id])}}" method="POST">
+                              <input type="hidden" name="_method" value="DELETE">
+                              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                              <button type="submit" class="btn btn-danger">
+                              <i class="fa fa-trash"></i> Deletar
+                              </button>
+                            </div>
+                            {{-- <td style="width:15%;">
                           <form class="col-md-3" action="#" method="POST">
     		                  <input type="hidden" name="_method" value="DELETE">
                               <button type="submit" class="btn btn-danger">
@@ -54,7 +67,7 @@
                               </button>
                           </form>
                             <div class="col-md-3" style="margin-left:40px;">
-                            <a href="#" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
+                            <a href="#" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a> --}}
                             </div>
                           </td>
                         </tr>

@@ -67,6 +67,7 @@ class MotivoController extends Controller
     public function edit($id)
     {
         $motivo = Motivo::find($id);
+        // dd($motivo);
         return view('motivo.edit', compact('motivo', $motivo));
     }
 

@@ -47,7 +47,7 @@
                                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" value="{{ $motivo->nome_fantasia }}" class="form-control has-feedback-left" placeholder="Unidade:" name="empresa_id">
+                                        <input type="text" value="{{ $motivo->empresa }}" class="form-control has-feedback-left" placeholder="Unidade:" name="empresa">
                                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                   </div>

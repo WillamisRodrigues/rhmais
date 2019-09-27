@@ -49,7 +49,7 @@
                                                 <select class="form-control has-feedback-left" name="empresa_id">
                                                     <option>Selecione Unidade Concedente:</option>
                                                      @foreach ($empresas as $empresa)
-                                                        <option value="{{ $empresa->id }}">{{ $empresa->nome_fantasia }}</option>
+                                                        <option value="{{ $empresa->nome_fantasia }}">{{ $empresa->nome_fantasia }}</option>
                                                      @endforeach
                                                 </select>
                                                 <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>

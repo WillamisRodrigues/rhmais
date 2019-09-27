@@ -45,18 +45,18 @@
                          <tr>
                            @foreach ($motivos as $motivo)
                          <td>{{$motivo->nome}}</td>
-                            <td>{{$motivo->descricao}}</td>
-                         <td>{{$motivo->empresa_id}}</td>
-                            <td style="width:15%;">
-                          <form class="col-md-3" action="#" method="POST">
-    		                  <input type="hidden" name="_method" value="DELETE">
+                          <td>{{$motivo->descricao}}</td>
+                         <td>{{$motivo->empresa}}</td>
+                         <td style="width:15%;">
+                            <div class="col-md-3">
+                              <a href="{{ route('motivo.edit', $motivo->id) }}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
+                            </div>
+                            <form class="col-md-3" style="margin-left:40px;" action="{{url('motivo', [$motivo->id])}}" method="POST">
+                              <input type="hidden" name="_method" value="DELETE">
+                              <input type="hidden" name="_token" value="{{ csrf_token() }}">
                               <button type="submit" class="btn btn-danger">
                               <i class="fa fa-trash"></i> Deletar
                               </button>
-                          </form>
-                            <div class="col-md-3" style="margin-left:40px;">
-                            <a href="{{ route('motivo.edit', $motivo->id) }}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
-                            </div>
                           </td>
                         </tr>
                            @endforeach

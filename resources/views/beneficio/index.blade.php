@@ -46,11 +46,23 @@
                       </thead>
                       <tbody>
                          <tr>
-                            <td>AUXÍLIO TRANSPORTE</td>
-                            <td>VT</td>
-                            <td>CENTRO AUTOMOTIVO PRATALLI LTDA - PRATALLI AUTO MECANICA</td>
-                            <td>KOSTER E KOSTER CONSULTORIA EM RH LTDA - RH MAIS TALENTOS</td>
+                           @foreach ($beneficios as $beneficio)
+                          <td>{{$beneficio->nome}}</td>
+                         <td>{{$beneficio->sigla}}</td>
+                         <td>{{$beneficio->empresa_id}}</td>
+                         <td>{{$beneficio->agente_integracao}}</td>
                             <td style="width:15%;">
+                            <div class="col-md-3">
+                              <a href="{{route('beneficio.edit', [$beneficio->id])}}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
+                            </div>
+                            <form class="col-md-3" style="margin-left:40px;" action="{{url('beneficio', [$beneficio->id])}}" method="POST">
+                              <input type="hidden" name="_method" value="DELETE">
+                              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                              <button type="submit" class="btn btn-danger">
+                              <i class="fa fa-trash"></i> Deletar
+                              </button>
+                            </div>
+                            {{-- <td style="width:15%;">
                           <form class="col-md-3" action="#" method="POST">
     		                  <input type="hidden" name="_method" value="DELETE">
                               <button type="submit" class="btn btn-danger">
@@ -58,10 +70,11 @@
                               </button>
                           </form>
                             <div class="col-md-3" style="margin-left:40px;">
-                            <a href="#" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
+                            <a href="#" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a> --}}
                             </div>
                           </td>
                         </tr>
+                           @endforeach
                       </tbody>
                     </table>
                   </div>
