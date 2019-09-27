@@ -61,9 +61,11 @@ class SeguradoraController extends Controller
      * @param  \App\Seguradora  $seguradora
      * @return \Illuminate\Http\Response
      */
-    public function edit(Seguradora $seguradora)
+    public function edit($id)
     {
-        //
+        $seguradora = Seguradora::find($id);
+        return view('seguro.edit', compact('seguradora', $seguradora));
+
     }
 
     /**

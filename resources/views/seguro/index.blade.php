@@ -65,6 +65,7 @@
                               <button type="submit" class="btn btn-danger">
                               <i class="fa fa-trash"></i>
                               </button>
+                            </form>
                             </div>
                             {{-- <td style="width:15%;">
                           <form class="col-md-3" action="#" method="POST">

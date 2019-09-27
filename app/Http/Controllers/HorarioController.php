@@ -58,9 +58,10 @@ class HorarioController extends Controller
      * @param  \App\Horario  $horario
      * @return \Illuminate\Http\Response
      */
-    public function edit(Horario $horario)
+    public function edit($id)
     {
-        //
+        $horarios = Horario::find($id);
+        return view('horario.edit', compact('horarios', $horarios));
     }
 
     /**
