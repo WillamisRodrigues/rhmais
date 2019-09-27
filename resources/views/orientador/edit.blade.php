@@ -38,7 +38,7 @@
                                   <div id="form-step-0" role="form" data-toggle="validator">
                                   <div class="row" style="width:960px; margin: 0 auto;">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" value="{{ $orientador->nome }}" class="form-control has-feedb  ack-left" placeholder="Nome Completo" name="nome">
+                                        <input type="text" value="{{ $orientador->nome }}" class="form-control has-feedback-left" placeholder="Nome Completo" name="nome">
                                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
 
