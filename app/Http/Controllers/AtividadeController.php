@@ -39,7 +39,19 @@ class AtividadeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nome' => 'required',
+        ]);
+
+        $atividades = new Atividade();
+        $atividades->nome = $request->get('nome');
+        $atividades->empresa_id = $request->get('empresa_id');
+        $atividades->sigla = $request->get('sigla');
+
+        $atividades->save();
+
+        return redirect()->route('atividade.index')
+            ->with('success', 'Cadastrado com sucesso.');
     }
 
     /**
@@ -74,7 +86,14 @@ class AtividadeController extends Controller
      */
     public function update(Request $request, Atividade $atividade)
     {
-        //
+         $request->validate([
+            'nome' => 'required',
+        ]);
+
+        $atividade->update($request->all());
+        $atividade->save();
+        $request->session()->flash('message', 'Sucesso!');
+        return redirect('atividade');
     }
 
     /**

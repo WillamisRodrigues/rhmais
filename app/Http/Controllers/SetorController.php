@@ -36,7 +36,18 @@ class SetorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nome' => 'required',
+        ]);
+
+        $setor = new Setor();
+        $setor->nome = $request->get('nome');
+        $setor->sigla = $request->get('sigla');
+
+        $setor->save();
+
+        return redirect()->route('setor.index')
+            ->with('success', 'Cadastrado com sucesso.');
     }
 
     /**

@@ -110,7 +110,14 @@ class OrientadorController extends Controller
      */
     public function update(Request $request, Orientador $orientador)
     {
-        //
+        $request->validate([
+            'nome' => 'required',
+        ]);
+
+        $orientador->update($request->all());
+        $orientador->save();
+        $request->session()->flash('message', 'Sucesso!');
+        return redirect('orientador');
     }
 
     /**

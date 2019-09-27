@@ -38,7 +38,20 @@ class HorarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nome' => 'required',
+        ]);
+
+        $horario = new Horario();
+        $horario->descricao = $request->get('descricao');
+        $horario->qtd_horas = $request->get('qtd_horas');
+        $horario->empresa_id = $request->get('empresa_id');
+        $horario->agente_integracao = $request->get('agente_integracao');
+
+        $horario->save();
+
+        return redirect()->route('horario.index')
+            ->with('success', 'Cadastrado com sucesso.');
     }
 
     /**
@@ -73,7 +86,14 @@ class HorarioController extends Controller
      */
     public function update(Request $request, Horario $horario)
     {
-        //
+        $request->validate([
+            'descricao' => 'required',
+        ]);
+
+        $horario->update($request->all());
+        $horario->save();
+        $request->session()->flash('message', 'Sucesso!');
+        return redirect('horario');
     }
 
     /**

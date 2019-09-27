@@ -41,7 +41,21 @@ class SeguradoraController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nome' => 'required',
+        ]);
+
+        $seguradora = new Seguradora();
+        $seguradora->nome = $request->get('nome');
+        $seguradora->n_apolice = $request->get('n_apolice');
+        $seguradora->empresa_id = $request->get('empresa_id');
+        $seguradora->agente_integracao = $request->get('agente_integracao');
+        $seguradora->cobertura = $request->get('cobertura');
+
+        $seguradora->save();
+
+        return redirect()->route('seguro.index')
+            ->with('success', 'Cadastrado com sucesso.');
     }
 
     /**
@@ -77,7 +91,14 @@ class SeguradoraController extends Controller
      */
     public function update(Request $request, Seguradora $seguradora)
     {
-        //
+         $request->validate([
+            'nome' => 'required',
+            ]);
+
+        $seguradora->update($request->all());
+        $seguradora->save();
+        $request->sessionseguroflash('message', 'Sucesso!');
+        return redirect('seguro');
     }
 
     /**

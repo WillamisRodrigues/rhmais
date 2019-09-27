@@ -105,7 +105,14 @@ class SupervisorController extends Controller
      */
     public function update(Request $request, Supervisor $supervisor)
     {
-        //
+        $request->validate([
+            'nome' => 'required',
+        ]);
+
+        $supervisor->update($request->all());
+        $supervisor->save();
+        $request->session()->flash('message', 'Sucesso!');
+        return redirect('supervisor');
     }
 
     /**

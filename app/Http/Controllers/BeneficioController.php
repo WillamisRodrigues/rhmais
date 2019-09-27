@@ -29,7 +29,7 @@ class BeneficioController extends Controller
 
         $empresas = Empresa::all();
 
-          return view('beneficio.create', compact('empresas'));
+        return view('beneficio.create', compact('empresas'));
     }
 
     /**
@@ -40,7 +40,20 @@ class BeneficioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nome' => 'required',
+        ]);
+
+        $beneficio = new Beneficio();
+        $beneficio->nome = $request->get('nome');
+        $beneficio->empresa_id = $request->get('empresa_id');
+        $beneficio->sigla = $request->get('sigla');
+        $beneficio->agente_integracao = $request->get('agente_integracao');
+
+        $beneficio->save();
+
+        return redirect()->route('beneficio.index')
+            ->with('success', 'Cadastrado com sucesso.');
     }
 
     /**
@@ -75,7 +88,14 @@ class BeneficioController extends Controller
      */
     public function update(Request $request, Beneficio $beneficio)
     {
-        //
+        $request->validate([
+            'nome' => 'required',
+        ]);
+
+        $beneficio->update($request->all());
+        $beneficio->save();
+        $request->session()->flash('message', 'Sucesso!');
+        return redirect('beneficio');
     }
 
     /**
