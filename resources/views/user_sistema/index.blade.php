@@ -55,7 +55,7 @@
 
                            <td style="width:15%;">
                             <div class="col-md-3">
-                              <a href="{{ route('user_sistema.edit',$user->id) }}" class="btn btn-primary"> <i class="fa fa-edit"> </i></a>
+                              <a href="{{ route('user_sistema.edit',$user->id) }}" class="btn btn-primary"> <i class="fa fa-pencil"> </i></a>
                             </div>
                             <form class="col-md-3" style="margin-left:10px;" action="{{url('user_sistema', [$user->id])}}" method="POST">
                               <input type="hidden" name="_id" value="{!! $user->id !!}">
