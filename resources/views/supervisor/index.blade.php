@@ -61,7 +61,7 @@
                             <td>{{$supervisor->agente_integracao}}</td>
                             <td style="width:15%;">
                             <div class="col-md-3" style="margin-left:40px;">
-                            <a href="{{route('supervisor.edit', [$supervisor->id])}}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
+                            <a href="{{route('supervisor.edit', [$supervisor->id])}}" class="btn btn-primary"> <i class="fa fa-pencil"> </i></a>
                             </div>
                           </td>
                         </tr>

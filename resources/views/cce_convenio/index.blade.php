@@ -56,11 +56,11 @@
                             <td>{{date('d/m/Y', strtotime($cce->data_fim))}}</td>
                             <td>Não Assinado</td>
 
-                          <td style="width:22%;">
-                          <a  class="btn btn-primary" href="{{ route('cce_convenio.edit', [$cce->id])}}"><i class="fa fa-edit"></i> Editar</a>
-                          <a class="btn btn-info" href="/cce" target="_blank"><i class="fa fa-print"></i> Imprimir CCE</a>
+                          <td>
+                          <a  class="btn btn-primary" href="{{ route('cce_convenio.edit', [$cce->id])}}"><i class="fa fa-edit"></i> </a>
+                          <a class="btn btn-info" href="/cce" target="_blank"><i class="fa fa-print"></i></a>
                           <form action="{{route('cce_convenio.destroy', [$cce->id])}}" method="POST">
-                          <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja deletar o Convênio selecionado?')"><i class="fa fa-trash"></i> Excluir</button>
+                          <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja deletar o Convênio selecionado?')"><i class="fa fa-trash"></i></button>
                             <input type="hidden" name="_method" value="DELETE">
    		                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                              </form>

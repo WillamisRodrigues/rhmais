@@ -103,7 +103,7 @@
                                             </td>
                                             <td>Sim</td>
                                             <td><a href="{!! route('termo_recesso.edit', [$recesso->id]) !!}" class="btn btn-primary"> <i class="fa fa-plus"> </i>
-                                                    Adicionar</a></td>
+                                                </a></td>
                                         </tr>
                                         @endforeach
                                     </tbody>

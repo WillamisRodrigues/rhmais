@@ -56,17 +56,17 @@
                           <td>Não Assinado</td>
                           <td style="width:24%;">
                             <div class="col-md-3">
-                            <a href="/editar_avaliacao_supervisor" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
+                            <a href="/editar_avaliacao_supervisor" class="btn btn-primary"> <i class="fa fa-plus"> </i> </a>
                             </div>
                             <form class="col-md-3 delete" action="" method="POST">
                               <input type="hidden" name="_method" value="DELETE">
                               <input type="hidden" name="_token" value="{{ csrf_token() }}">
                               <button type="submit" class="btn btn-danger" >
-                              <i class="fa fa-trash"></i> Deletar
+                              <i class="fa fa-trash"></i> 
                               </button>
                             </form>
                             <div class="col-md-3">
-                            <a href="#" class="btn btn-warning" style="margin-left:10px;"> <i class="fa fa-print"> </i> Imprimir</a>
+                            <a href="#" class="btn btn-warning"> <i class="fa fa-print"> </i> </a>
                             </div>
                           </td>
                         </tr>

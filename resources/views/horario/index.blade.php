@@ -54,11 +54,11 @@
                           <form class="col-md-3" action="#" method="POST">
     		                  <input type="hidden" name="_method" value="DELETE">
                               <button type="submit" class="btn btn-danger">
-                              <i class="fa fa-trash"></i> Deletar
+                              <i class="fa fa-trash"></i>
                               </button>
                           </form>
-                            <div class="col-md-3" style="margin-left:40px;">
-                            <a href="#" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
+                            <div class="col-md-3" style="margin-left:10px;">
+                            <a href="#" class="btn btn-primary"> <i class="fa fa-pencil"> </i></a>
                             </div>
                           </td>
                         </tr>

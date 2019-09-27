@@ -53,26 +53,16 @@
                          <td>{{$beneficio->agente_integracao}}</td>
                             <td style="width:15%;">
                             <div class="col-md-3">
-                              <a href="{{route('beneficio.edit', [$beneficio->id])}}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
+                              <a href="{{route('beneficio.edit', [$beneficio->id])}}" class="btn btn-primary"> <i class="fa fa-pencil"> </i> </a>
                             </div>
-                            <form class="col-md-3" style="margin-left:40px;" action="{{url('beneficio', [$beneficio->id])}}" method="POST">
+                            <form class="col-md-3" style="margin-left:10px;" action="{{url('beneficio', [$beneficio->id])}}" method="POST">
                               <input type="hidden" name="_method" value="DELETE">
                               <input type="hidden" name="_token" value="{{ csrf_token() }}">
                               <button type="submit" class="btn btn-danger">
-                              <i class="fa fa-trash"></i> Deletar
+                              <i class="fa fa-trash"></i> 
                               </button>
                             </div>
-                            {{-- <td style="width:15%;">
-                          <form class="col-md-3" action="#" method="POST">
-    		                  <input type="hidden" name="_method" value="DELETE">
-                              <button type="submit" class="btn btn-danger">
-                              <i class="fa fa-trash"></i> Deletar
-                              </button>
-                          </form>
-                            <div class="col-md-3" style="margin-left:40px;">
-                            <a href="#" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a> --}}
-                            </div>
-                          </td>
+                            </form>
                         </tr>
                            @endforeach
                       </tbody>

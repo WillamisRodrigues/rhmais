@@ -79,13 +79,13 @@
                           <td>{{$empresa->nome_cidade}}</td>
                            <td style="width:15%;">
                            <div class="col-md-3">
-                            <a href="{{ route('empresa.edit',[$empresa->id])}}" class="btn btn-primary"> <i class="fa fa-pencil"> </i> Editar </a>
+                            <a href="{{ route('empresa.edit',[$empresa->id])}}" class="btn btn-primary"> <i class="fa fa-pencil"> </i> </a>
                           </div>
-                          <form  class="col-md-3" style="margin-left:40px;" action="{{route('empresa.destroy', [$empresa->id])}}" method="POST">
+                          <form  class="col-md-3" action="{{route('empresa.destroy', [$empresa->id])}}" method="POST">
     		                  <input type="hidden" name="_method" value="DELETE">
    		                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
    		                    <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja deletar a empresa selecionada?')">
-                              <i class="fa fa-trash"></i> Deletar
+                              <i class="fa fa-trash"></i> 
                               </button>
                           </form>
                           </td>

@@ -65,8 +65,8 @@
                             @endif
                           </td>
                           <td>
-                          <a href="{{ route('tce_contrato.show',[$plano->tceId])}}" class="btn btn-primary"><i class="fa fa-plus"></i> Editar</a>
-                          <a class="btn btn-primary" href="/estagio" target="_blank"><i class="fa fa-print"></i> Imprimir Plano</a></td>
+                          <a href="{{ route('tce_contrato.show',[$plano->tceId])}}" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
+                          <a class="btn btn-warning" href="/estagio" target="_blank"><i class="fa fa-print"></i></a></td>
                         </tr>
                         @endforeach
                       </tbody>

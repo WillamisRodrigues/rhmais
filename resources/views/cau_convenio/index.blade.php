@@ -60,16 +60,16 @@
 
                           <td style="width:22%;">
                             <div class="col-md-3">
-                            <a href="{{ route('cau_convenio.edit', [$cau->id])}}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
+                            <a href="{{ route('cau_convenio.edit', [$cau->id])}}" class="btn btn-primary"> <i class="fa fa-plus"> </i></a>
                           </div>
-                          <form  class="col-md-3" style="margin-left:28px;" action="{{route('cau_convenio.destroy', [$cau->id])}}" method="POST">
+                          <form  class="col-md-3" action="{{route('cau_convenio.destroy', [$cau->id])}}" method="POST">
     		                  <input type="hidden" name="_method" value="DELETE">
    		                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
    		                    <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja deletar o Convênio selecionado?')">
-                              <i class="fa fa-trash"></i> Deletar
+                              <i class="fa fa-trash"></i>
                               </button>
                           </form>
-                            <a class="btn btn-primary" href="/cau" target="_blank"><i class="fa fa-print"></i> Imprimir CAU</a>
+                            <a class="btn btn-warning" href="/cau" target="_blank"><i class="fa fa-print"></i> </a>
                           </td>
                         </tr>
                         @endforeach

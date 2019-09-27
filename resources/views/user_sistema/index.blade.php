@@ -55,14 +55,14 @@
 
                            <td style="width:15%;">
                             <div class="col-md-3">
-                              <a href="{{ route('user_sistema.edit',$user->id) }}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
+                              <a href="{{ route('user_sistema.edit',$user->id) }}" class="btn btn-primary"> <i class="fa fa-edit"> </i></a>
                             </div>
-                            <form class="col-md-3" style="margin-left:40px;" action="{{url('user_sistema', [$user->id])}}" method="POST">
+                            <form class="col-md-3" style="margin-left:10px;" action="{{url('user_sistema', [$user->id])}}" method="POST">
                               <input type="hidden" name="_id" value="{!! $user->id !!}">
                               <input type="hidden" name="_method" value="DELETE">
                               <input type="hidden" name="_token" value="{{ csrf_token() }}">
                               <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja deletar o usuário do sistema?')">
-                              <i class="fa fa-trash"></i> Deletar
+                              <i class="fa fa-trash"></i> 
                               </button>
                             </form>
                           </td>

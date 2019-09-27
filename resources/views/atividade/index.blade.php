@@ -50,13 +50,13 @@
                            @endforeach
                             <td style="width:15%;">
                             <div class="col-md-3">
-                              <a href="{{route('atividade.edit', [$atividade->id])}}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
+                              <a href="{{route('atividade.edit', [$atividade->id])}}" class="btn btn-primary"> <i class="fa fa-pencil"> </i></a>
                             </div>
-                            <form class="col-md-3" style="margin-left:40px;" action="{{url('setor', [$atividade->id])}}" method="POST">
+                            <form class="col-md-3" style="margin-left:10px;" action="{{url('setor', [$atividade->id])}}" method="POST">
                               <input type="hidden" name="_method" value="DELETE">
                               <input type="hidden" name="_token" value="{{ csrf_token() }}">
                               <button type="submit" class="btn btn-danger">
-                              <i class="fa fa-trash"></i> Deletar
+                              <i class="fa fa-trash"></i> 
                               </button>
                             </div>
                             {{-- <td style="width:15%;">

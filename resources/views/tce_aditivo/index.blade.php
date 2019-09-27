@@ -74,7 +74,7 @@
                           <td>{{ $tcead->contrato }}</td>
                           <td>{{ $tcead->assinado }}</td>
                           <td>{{ $tcead->obrigatorio }}</td>
-                          <td><a class="btn btn-primary" href="{{ route('tce_aditivo.edit',[$tcead->id])}}"><i class="fa fa-pencil"></i> Novo</a></td>
+                          <td><a class="btn btn-primary" href="{{ route('tce_aditivo.edit',[$tcead->id])}}"><i class="fa fa-plus"></i></a></td>
                         </tr>
                         @endforeach
                       </tbody>

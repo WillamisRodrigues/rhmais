@@ -53,9 +53,9 @@
                         <td>06/03/2019</td>
                         <td>Assinado</td>
                           <td>
-                            <a href="#" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
-                            <a href="#" class="btn btn-warning"> <i class="fa fa-print"> </i> Imprimir</a>
-                            <a href="#" class="btn btn-danger"> <i class="fa fa-trash"> </i> Excluir</a>
+                            <a href="#" class="btn btn-primary"> <i class="fa fa-pencil"> </i></a>
+                            <a href="#" class="btn btn-warning"> <i class="fa fa-print"> </i></a>
+                            <a href="#" class="btn btn-danger"> <i class="fa fa-trash"> </i></a>
                         </td>
                         </tr>
                       </tbody>

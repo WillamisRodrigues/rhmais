@@ -85,7 +85,7 @@
                           <td>ENGENHO COM JEITO MODAS LTDA</td>
                           <td>600,00</td>
                           <td>600,00</td>
-                          <td><button class="btn btn-primary"><i class="fa fa-pencil"></i> Editar</button></td>
+                          <td><button class="btn btn-primary"><i class="fa fa-pencil"></i></button></td>
                         </tr>
                       </tbody>
                     </table>

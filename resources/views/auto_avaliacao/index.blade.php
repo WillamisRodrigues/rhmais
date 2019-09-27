@@ -65,13 +65,13 @@
                           <td>Sim	</td>
                           <td style="width:15%;">
                             <div class="col-md-3">
-                            <a href="/avaliacao_estagiario" class="btn btn-primary"> <i class="fa fa-edit"> </i> Nova</a>
+                            <a href="/avaliacao_estagiario" class="btn btn-primary"> <i class="fa fa-pencil"> </i></a>
                             </div>
-                            <form class="col-md-3 delete" style="margin-left:40px;" action="" method="POST">
+                            <form class="col-md-3 delete" style="margin-left:10px;" action="" method="POST">
                               <input type="hidden" name="_method" value="DELETE">
                               <input type="hidden" name="_token" value="{{ csrf_token() }}">
                               <button type="submit" class="btn btn-danger" >
-                              <i class="fa fa-plus"></i> BCO
+                              <i class="fa fa-plus"></i> 
                               </button>
                             </form>
                           </td>
