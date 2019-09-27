@@ -59,9 +59,10 @@ class AtividadeController extends Controller
      * @param  \App\Atividade  $atividade
      * @return \Illuminate\Http\Response
      */
-    public function edit(Atividade $atividade)
+    public function edit($id)
     {
-        //
+        $atividades = Atividade::find($id);
+        return view('atividade.edit', compact('atividades', $atividades));
     }
 
     /**

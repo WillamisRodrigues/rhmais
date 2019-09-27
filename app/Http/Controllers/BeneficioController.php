@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Beneficio;
 use App\Empresa;
+use DB;
 use Illuminate\Http\Request;
 
 class BeneficioController extends Controller
@@ -59,9 +60,10 @@ class BeneficioController extends Controller
      * @param  \App\Beneficio  $beneficio
      * @return \Illuminate\Http\Response
      */
-    public function edit(Beneficio $beneficio)
+    public function edit($id)
     {
-        //
+        $beneficios = Beneficio::find($id);
+        return view('beneficio.edit', compact('beneficios', $beneficios));
     }
 
     /**

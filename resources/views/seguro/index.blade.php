@@ -49,12 +49,24 @@
                       </thead>
                       <tbody>
                          <tr>
-                            <td>SULAMÉRICA SEG. E PREVIDÊNCIA (R$15.678 MIL REAIS)</td>
-                            <td>651805</td>
-                            <td>KOSTER & KOSTER CONSULTORIA EM RH LTDA - RH MAIS TALENTOS</td>
-                            <td></td>
-                            <td>KOSTER E KOSTER CONSULTORIA EM RH LTDA - RH MAIS TALENTOS</td>
-                            <td style="width:15%;">
+                           @foreach ($seguros as $seguro)
+                         <td>{{$seguro->nome}}</td>
+                         <td>{{$seguro->n_apolice}}</td>
+                         <td>{{$seguro->empresa_id}}</td>
+                         <td>{{$seguro->agente_integracao}}</td>
+                         <td>{{$seguro->cobertura}}</td>
+                             <td style="width:15%;">
+                            <div class="col-md-3">
+                              <a href="{{route('seguro.edit', [$seguro->id])}}" class="btn btn-primary"> <i class="fa fa-pencil"> </i></a>
+                            </div>
+                            <form class="col-md-3" style="margin-left:10px;" action="{{url('seguro', [$seguro->id])}}" method="POST">
+                              <input type="hidden" name="_method" value="DELETE">
+                              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                              <button type="submit" class="btn btn-danger">
+                              <i class="fa fa-trash"></i>
+                              </button>
+                            </div>
+                            {{-- <td style="width:15%;">
                           <form class="col-md-3" action="#" method="POST">
     		                  <input type="hidden" name="_method" value="DELETE">
                               <button type="submit" class="btn btn-danger">
@@ -62,10 +74,11 @@
                               </button>
                           </form>
                             <div class="col-md-3" style="margin-left:10px;">
-                            <a href="#" class="btn btn-primary"> <i class="fa fa-pencil"> </i></a>
+                            <a href="#" class="btn btn-primary"> <i class="fa fa-pencil"> </i></a> --}}
                             </div>
                           </td>
                         </tr>
+                        @endforeach
                       </tbody>
                     </table>
                   </div>
