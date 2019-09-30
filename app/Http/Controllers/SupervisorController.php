@@ -93,7 +93,11 @@ class SupervisorController extends Controller
     public function edit($id)
     {
         $supervisor = Supervisor::find($id);
-        return view('supervisor.edit', compact('supervisor', $supervisor));
+        $empresa = DB::table('empresa')->where('id', '=', $supervisor->empresa_id)->get()->first();
+        $cidade = DB::table('cidade')->where('id', '=', $supervisor->city)->get()->first();
+
+        // dd($empresa);
+        return view('supervisor.edit', compact('supervisor', 'empresa', 'cidade', $supervisor));
     }
 
     /**

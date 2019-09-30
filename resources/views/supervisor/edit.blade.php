@@ -51,11 +51,11 @@
                                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" value="{{ $supervisor->cidade }}" class="form-control has-feedback-left" placeholder="Cidade:" name="cidade">
+                                        <input type="text" value="{{ $cidade->nome }}" class="form-control has-feedback-left" placeholder="Cidade:" name="cidade">
                                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" value="{{ $supervisor->empresa }}" class="form-control has-feedback-left" placeholder="Unidade:" name="empresa">
+                                        <input type="text" value="{{ $empresa->nome_fantasia }}" class="form-control has-feedback-left" placeholder="Unidade:" name="empresa">
                                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                   <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">

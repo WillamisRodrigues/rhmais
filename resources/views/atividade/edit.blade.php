@@ -37,7 +37,7 @@
                                     <div id="form-step-0" role="form" data-toggle="validator">
                                       <div class="row" style="width:960px; margin: 20px auto;">
                                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                              <input type="text" class="form-control has-feedback-left" placeholder="Nome da Atividade:*" name="nome">
+                                              <input type="text" value="{{$atividades->nome}}"ass="form-control has-feedback-left" placeholder="Nome da Atividade:*" name="nome">
                                               <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -49,7 +49,7 @@
                                                 <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                              <input type="text" class="form-control has-feedback-left" placeholder="Sigla do Setor:*" name="sigla">
+                                              <input type="text" value="{{$atividades->sigla}}"  class="form-control has-feedback-left" placeholder="Sigla do Setor:*" name="sigla">
                                               <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                     {{-- <div class="btn-group mr-2 col-md-12 sw-btn-group-extra" role="group">
