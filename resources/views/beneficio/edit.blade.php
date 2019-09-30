@@ -26,9 +26,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                <form action="{{ route('beneficio.update', [$cau->id])}}" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
-                   <input type="hidden" name="_method" value="PUT">
-                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    {!! Form::model($beneficios, array('route' => array('beneficio.update', $beneficios->id))) !!} @method('PUT')
                       <div>
                           <div>
                               <div>
@@ -45,7 +43,9 @@
                                              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="empresa_id">
                                                     <option>Selecione Unidade Concedente:</option>
-                                                        <option value=""></option>
+                                                        @foreach ($empresas as $empresa)
+                                                            <option value="{!! $empresa->id !!}"> {!! $empresa->nome_fantasia !!}</option>
+                                                        @endforeach
                                                 </select>
                                                 <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                             </div>
@@ -58,7 +58,7 @@
                                 <button  type="submit"class="btn btn-success" style="margin: 20px auto; display:block;">Salvar Alterações</button>
                       </div>
                      </div>
-                      </form>
+                      {!! Form::close() !!}
                   </div>
                 </div>
               </div>

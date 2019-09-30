@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Beneficio;
 use App\Empresa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BeneficioController extends Controller
 {
@@ -16,7 +17,8 @@ class BeneficioController extends Controller
     public function index()
     {
         $beneficios = Beneficio::all();
-        return view('beneficio.index', compact('beneficios'));
+       $empresas = Empresa::all();
+        return view('beneficio.index', compact('beneficios', 'empresas'));
     }
     /**
      * Show the form for creating a new resource.
@@ -74,7 +76,8 @@ class BeneficioController extends Controller
     public function edit($id)
     {
         $beneficios = Beneficio::find($id);
-        return view('beneficio.edit', compact('beneficios', $beneficios));
+        $empresas = DB::table('empresa')->get();
+        return view('beneficio.edit', ['beneficios' => $beneficios, 'empresas' => $empresas]);
     }
 
     /**

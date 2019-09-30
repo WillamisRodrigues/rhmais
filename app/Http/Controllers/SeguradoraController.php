@@ -16,9 +16,8 @@ class SeguradoraController extends Controller
     public function index()
     {
         $seguros = Seguradora::all();
-
-        // dd($seguros);
-        return view('seguro.index', compact('seguros'));
+        $empresas = Empresa::all();
+        return view('seguro.index', compact('seguros', 'empresas'));
     }
 
     /**

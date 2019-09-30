@@ -49,7 +49,13 @@
                            @foreach ($beneficios as $beneficio)
                           <td>{{$beneficio->nome}}</td>
                          <td>{{$beneficio->sigla}}</td>
-                         <td>{{$beneficio->empresa_id}}</td>
+                         <td>
+                           @foreach ($empresas as $empresa)
+                            @if ($beneficio->empresa_id == $empresa->id)
+                            {{$empresa->nome_fantasia}}
+                            @endif
+                           @endforeach
+                          </td>
                          <td>{{$beneficio->agente_integracao}}</td>
                             <td style="width:15%;">
                             <div class="col-md-3">

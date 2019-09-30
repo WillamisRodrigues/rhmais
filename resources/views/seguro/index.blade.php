@@ -53,7 +53,12 @@
                            @foreach ($seguros as $seguro)
                          <td>{{$seguro->nome}}</td>
                          <td>{{$seguro->n_apolice}}</td>
-                         <td>{{$seguro->empresa_id}}</td>
+                         <td> @foreach ($empresas as $empresa)
+                            @if ($seguro->empresa_id == $empresa->id)
+                            {{$empresa->nome_fantasia}}
+                            @endif
+                            @endforeach
+                          </td>
                          <td>{{$seguro->agente_integracao}}</td>
                          <td>{{$seguro->cobertura}}</td>
                              <td style="width:15%;">
