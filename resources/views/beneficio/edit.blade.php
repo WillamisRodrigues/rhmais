@@ -26,7 +26,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                 <form action="{{ route('beneficio.update',  $beneficios->id) }}" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
+                <form action="{{ route('beneficio.update', [$cau->id])}}" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
                    <input type="hidden" name="_method" value="PUT">
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
                       <div>
@@ -50,7 +50,7 @@
                                                 <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" value="RH Mais" readonly placeholder="Agente de Integração" name="agente_int">
+                                                <input type="text"   value="{{$beneficios->agente_integracao}}" class="form-control has-feedback-left" value="RH Mais" readonly placeholder="Agente de Integração" name="agente_integracao">
                                                 <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                       </div>

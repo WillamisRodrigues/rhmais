@@ -71,9 +71,9 @@
                           <td>{{$empresa->nome_cidade}}</td>
                           <td>{{$empresa->telefone}}</td>
                           <td>{{$empresa->cnpj}}</td>
-                          <td>12 Vezes</td>
-                          <td>Sim</td>
-                          <td>15%</td>
+                          <td>{{$empresa->qtd_plano}}</td>
+                          <td>{{$empresa->valor_fixo}}</td>
+                          <td>{{$empresa->valor_percentual}}</td>
                           <td>{{$empresa->insc_estadual}}</td>
                           <td>{{$empresa->telefone}}</td>
                           <td>{{$empresa->nome_cidade}}</td>
@@ -85,7 +85,7 @@
     		                  <input type="hidden" name="_method" value="DELETE">
    		                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
    		                    <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja deletar a empresa selecionada?')">
-                              <i class="fa fa-trash"></i> 
+                              <i class="fa fa-trash"></i>
                               </button>
                           </form>
                           </td>

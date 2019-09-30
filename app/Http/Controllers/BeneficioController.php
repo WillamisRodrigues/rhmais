@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Beneficio;
 use App\Empresa;
-use DB;
 use Illuminate\Http\Request;
 
 class BeneficioController extends Controller
@@ -103,8 +102,10 @@ class BeneficioController extends Controller
      * @param  \App\Beneficio  $beneficio
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Beneficio $beneficio)
+    public function destroy(Request $request, Beneficio $beneficio)
     {
-        //
+        $beneficio->delete();
+        $request->session()->flash('warning', 'Removido com sucesso!');
+        return redirect('estagiario');
     }
 }

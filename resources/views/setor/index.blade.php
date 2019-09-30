@@ -19,6 +19,7 @@
             <div class="clearfix"></div>
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
+                @include('layout.alerta.flash-message')
                 <div class="x_panel">
                   <div class="x_title">
                   <a href={{route('setor.create')}} class="btn btn-success pull-right"> <i class="fa fa-list"> </i> Novo</a>
@@ -51,7 +52,7 @@
                               <input type="hidden" name="_method" value="DELETE">
                               <input type="hidden" name="_token" value="{{ csrf_token() }}">
                               <button type="submit" class="btn btn-danger">
-                              <i class="fa fa-trash"></i> 
+                              <i class="fa fa-trash"></i>
                               </button>
                             </div>
                             {{-- <td style="width:15%;">

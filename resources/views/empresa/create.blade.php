@@ -154,17 +154,21 @@
                             <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" placeholder="Quantidade TCE Plano" name="qtd_plano" value="{{old('qtd_plano')}}">
+                            <select class="form-control has-feedback-left" name="qtd_plano">
+                                                    <option>12 Vezes</option>
+                                                    <option>24 Vezes</option>
+                                                </select>
+                            {{-- <input type="text" class="form-control has-feedback-left" placeholder="Quantidade TCE Plano" name="qtd_plano" value="{{old('qtd_plano')}}"> --}}
                             <span class="fa fa-bars form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" placeholder="Cobrança Valor Fixo" name="cob_valor_fixo" value="{{old('cob_valor_fixo')}}">
+                            <input type="text" class="form-control has-feedback-left" placeholder="Cobrança Valor Fixo" name="valor_fixo" value="{{old('valor_fixo')}}">
                             <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" placeholder="Cobrança Valor %" name="cobranca_valor" value="{{old('cobranca_valor')}}">
+                            <input type="text" class="form-control has-feedback-left" placeholder="Cobrança Valor %" name="valor_percentual" value="{{old('valor_percentual')}}">
                             <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
