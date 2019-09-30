@@ -52,8 +52,7 @@
                             <form class="col-md-3" style="margin-left:10px;" action="{{url('curso', [$curso->id])}}" method="POST">
                               <input type="hidden" name="_method" value="DELETE">
                               <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                              <button type="submit" class="btn btn-danger">
-                              <i class="fa fa-trash"></i>
+                              <button type="submit" class="btn btn-danger" data-toggle="tooltip" data-placement="top"  onclick="return confirm('Tem certeza que deseja deletar o curso selecionado?')">                              <i class="fa fa-trash"></i>
                               </button>
                             </form>
                           </td>

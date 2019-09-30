@@ -102,8 +102,10 @@ class AtividadeController extends Controller
      * @param  \App\Atividade  $atividade
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Atividade $atividade)
+    public function destroy(Request $request, Atividade $atividade)
     {
-        //
+        $atividade->delete();
+        $request->session()->flash('warning', 'Removido com sucesso!');
+        return redirect('motivo');
     }
 }

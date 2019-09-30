@@ -27,9 +27,9 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                  <form action="{{ route('atividade.store') }}" method="post">
-                  {{csrf_field()}}
-
+                    <form action="{{ route('atividade.update',  $atividades->id) }}" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
+                   <input type="hidden" name="_method" value="PUT">
+                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
                       <!-- SmartWizard html -->
                       <div>
                           <div>
@@ -44,7 +44,7 @@
                                                 <select class="form-control has-feedback-left" name="empresa_id">
                                                     <option>Selecione Unidade Concedente:</option>
                                                         <option value=""></option>
-                                                     
+
                                                 </select>
                                                 <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                             </div>
@@ -52,11 +52,12 @@
                                               <input type="text" class="form-control has-feedback-left" placeholder="Sigla do Setor:*" name="sigla">
                                               <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div>
-                                    <div class="btn-group mr-2 col-md-12 sw-btn-group-extra" role="group">
+                                    {{-- <div class="btn-group mr-2 col-md-12 sw-btn-group-extra" role="group">
                                       <button type="submit" class="btn btn-info">Enviar</button>
                                       <button class="btn btn-danger">Cancelar</button>
-                                    </div>
+                                    </div> --}}
                               </div>
+                              <button  type="submit"class="btn btn-success" style="margin: 20px auto; display:block;">Salvar Alterações</button>
                             </div>
                       </div>
                      </div>

@@ -49,14 +49,15 @@
                          <td>{{$motivo->empresa}}</td>
                          <td style="width:15%;">
                             <div class="col-md-3">
-                              <a href="{{ route('motivo.edit', $motivo->id) }}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
+                              <a href="{{ route('motivo.edit', $motivo->id) }}" class="btn btn-primary"> <i class="fa fa-pencil"> </i></a>
                             </div>
-                            <form class="col-md-3" style="margin-left:40px;" action="{{url('motivo', [$motivo->id])}}" method="POST">
+                            <form class="col-md-3" style="margin-left:10px;" action="{{url('motivo', [$motivo->id])}}" method="POST">
                               <input type="hidden" name="_method" value="DELETE">
                               <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                              <button type="submit" class="btn btn-danger">
-                              <i class="fa fa-trash"></i> Deletar
+                              <button type="submit" class="btn btn-danger" data-toggle="tooltip" data-placement="top"  onclick="return confirm('Tem certeza que deseja deletar o motivo selecionado?')">
+                              <i class="fa fa-trash"></i>
                               </button>
+                            </form>
                           </td>
                         </tr>
                            @endforeach

@@ -26,19 +26,20 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                  <form action="" method="post">
-                  {{csrf_field()}}
+                 <form action="{{ route('beneficio.update',  $beneficios->id) }}" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
+                   <input type="hidden" name="_method" value="PUT">
+                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
                       <div>
                           <div>
                               <div>
                                     <div id="form-step-0" role="form" data-toggle="validator">
                                       <div class="row" style="width:960px; margin: 20px auto;">
                                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                              <input type="text" class="form-control has-feedback-left" placeholder="Nome do Benefício:" name="nome">
+                                          <input type="text" value="{{$beneficios->nome}}" class="form-control has-feedback-left" placeholder="Nome do Benefício:" name="nome">
                                               <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                              <input type="text" class="form-control has-feedback-left" placeholder="Sigla do Benefício:" name="sigla">
+                                              <input type="text"  value="{{$beneficios->sigla}}" class="form-control has-feedback-left" placeholder="Sigla do Benefício:" name="sigla">
                                               <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -53,11 +54,8 @@
                                                 <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                       </div>
-                                    <div class="btn-group mr-2 sw-btn-group-extra" role="group">
-                                      <button type="submit" class="btn btn-info">Enviar</button>
-                                      <button class="btn btn-danger">Cancelar</button>
-                                    </div>
                               </div>
+                                <button  type="submit"class="btn btn-success" style="margin: 20px auto; display:block;">Salvar Alterações</button>
                       </div>
                      </div>
                       </form>
