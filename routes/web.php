@@ -34,6 +34,8 @@ Route::resource('motivo', 'MotivoController');
 Route::resource('orientador', 'OrientadorController');
 Route::resource('supervisor', 'SupervisorController');
 Route::resource('termo_recesso', 'RecessoController');
+Route::resource('financeiro', 'FinanceiroController');
+
 
 
 // Route::post('adicionarRecesso',['as' => 'adicionarRecesso', 'uses' => 'RecessoController@store']);
@@ -130,8 +132,8 @@ Route::get('/lista_avaliacao_supervisor', function () {
     return view('lista_avaliacao_supervisor/index');
 });
 
-Route::get('/financeiro', function () {
-    return view('financeiro/index');
-});
+// Route::get('/financeiro', function () {
+//     return view('financeiro/index');
+// });
 
 Route::get('/holerite', 'PdfController@generateHolerite');

@@ -32,6 +32,9 @@
                 <label for="">Unidade:</label>
                 <select name="" class="form-control">
                     <option> Nome da Unidade</option>
+                    @foreach ($empresas as $empresa)
+                        <option value="{!! $empresa->id !!}">{!! $empresa->nome_fantasia !!}</option>
+                    @endforeach
                 </select>
                 </div>
                 <div class="col-md-2">
@@ -40,11 +43,11 @@
                     <option> 2019/04</option>
                 </select>
                 </div>
-                <div class="col-md-4    ">
+                <div class="col-md-4">
                 <br>
                 <button class="btn btn-primary">Processar</button>
                 <button class="btn btn-primary">Rel. Agente</button>
-                <button class="btn btn-primary">L. Relaçãp</button>
+                <button class="btn btn-primary">L. Relação</button>
                 </div>
               </form>
               <br>
@@ -85,7 +88,7 @@
                           <th>Q.Ativos
                           <input type="text" class="form-control" style="width:100px;">
                           </th>
-                          <th>V.Cobrado
+                          <th>V.Calculado
                             <input type="text" class="form-control" style="width:100px;">
                           </th>
                           <th>Fechado
