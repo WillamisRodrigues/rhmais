@@ -21,7 +21,7 @@
 
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
-              <form action="">
+              {{-- <form action="">
               <div class="col-md-2">
                 <label for="">Agente:</label>
                 <select name="" class="form-control">
@@ -49,82 +49,67 @@
                 <button class="btn btn-primary">Rel. Agente</button>
                 <button class="btn btn-primary">L. Relação</button>
                 </div>
-              </form>
+              </form> --}}
               <br>
                 <div class="x_panel">
                   <div class="x_title">
 
-                    <h2>Informe de Faturamento</h2>
+                    <h2>Resumo do Fechamento</h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <table class="table table-striped list  table-bordered" style="zoom:0.8;">
                       <thead>
                         <tr>
-                          <th>Unidade
+                          <th>Contrato
                           <input type="text" class="form-control">
                           </th>
                           <th>Referência
                           <input type="text" class="form-control" style="width:100px;">
                           </th>
-                          <th>Dia Vcto
+                          <th>P.Inicial - P.Final
                           <input type="text" class="form-control" style="width:100px;">
                           </th>
-                          <th>T.Bolsa
+                          <th>Início e Fim - TCE
                           <input type="text" class="form-control" style="width:100px;">
                           </th>
-                          <th>Q.Plano
+                          <th>Processamento
                           <input type="text" class="form-control" style="width:100px;">
                           </th>
-                          <th>V.Fixo
-                          <input type="text" class="form-control" style="width:100px;">
-                          </th>
-                          <th>C.Unitario
-                          <input type="text" class="form-control" style="width:100px;">
-                          </th>
-                          <th>Q.Resc.
-                          <input type="text" class="form-control" style="width:100px;">
-                          </th>
-                          <th>Q.Ativos
+                          <th>V.Cobrado
                           <input type="text" class="form-control" style="width:100px;">
                           </th>
                           <th>V.Calculado
-                            <input type="text" class="form-control" style="width:100px;">
-                          </th>
-                          <th>Fechado
                           <input type="text" class="form-control" style="width:100px;">
                           </th>
-                          <th>Opções</th>
+                          <th>V.Taxas
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Situação
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Unidade
+                            <input type="text" class="form-control" style="width:100px;">
+                          </th>
+                          <th>Estagiário
+                          <input type="text" class="form-control" style="width:100px;">
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach ($empresas as $empresa)
-                            <tr>
-                                <td>{{ $empresa->nome_fantasia }}</td>
-                                <td>{{ date('Y/m') }}</td>
-                                <td></td>
-                                <td>
-                                    @php
-                                    $soma = 0;
-                                        foreach ($contratos as $contrato) {
-                                            if ($contrato->empresa_id == $empresa->id) {
-                                                $soma += $contrato->bolsa;
-                                            }
-                                        }
-                                    echo "R$ ".number_format($soma, 2, ',', '.');;
-                                    @endphp
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>VALOR <BR> SOMA <BR> % <BR> CONTRATO<BR> ESTAGIARIO</td>
-                                <td></td>
-                                <td><a href="{{ route('financeiro.infos', [$empresa->id]) }}" class="btn btn-primary"><i class="fa fa-bars"></i></a></td>
-                            </tr>
-                        @endforeach
-
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                       </tbody>
                     </table>
                   </div>

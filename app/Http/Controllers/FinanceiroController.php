@@ -15,12 +15,16 @@ class FinanceiroController extends Controller
     public function index()
     {
         $empresas = DB::table('empresa')->get();
-        $estagiarios = DB::table('estagiario')->get();
+        $estagiarios = DB::table('estagiario')->where([['empresa_id', '<>', null]])->get();
         $contratos = DB::table('tce_contrato')->where([['estagiario_id', '<>', null]])->get();
 
-        dd($estagiarios);
+        // dd($estagiarios);
 
-        return view('financeiro.index', ['empresas' => $empresas]);
+        return view('financeiro.index', ['empresas' => $empresas, 'contratos' => $contratos, 'estagiarios' => $estagiarios]);
+    }
+
+    public function infos($id){
+        return view('financeiro.infos');
     }
 
     /**
