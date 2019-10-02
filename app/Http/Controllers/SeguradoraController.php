@@ -16,7 +16,8 @@ class SeguradoraController extends Controller
     public function index()
     {
         $seguros = Seguradora::all();
-        return view('seguro.index', compact('seguros'));
+        $empresas = Empresa::all();
+        return view('seguro.index', compact('seguros', 'empresas'));
     }
 
     /**
@@ -39,7 +40,21 @@ class SeguradoraController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nome' => 'required',
+        ]);
+
+        $seguradora = new Seguradora();
+        $seguradora->nome = $request->get('nome');
+        $seguradora->n_apolice = $request->get('n_apolice');
+        $seguradora->empresa_id = $request->get('empresa_id');
+        $seguradora->agente_integracao = $request->get('agente_integracao');
+        $seguradora->cobertura = $request->get('cobertura');
+
+        $seguradora->save();
+
+        return redirect()->route('seguro.index')
+            ->with('success', 'Cadastrado com sucesso.');
     }
 
     /**
@@ -59,9 +74,11 @@ class SeguradoraController extends Controller
      * @param  \App\Seguradora  $seguradora
      * @return \Illuminate\Http\Response
      */
-    public function edit(Seguradora $seguradora)
+    public function edit($id)
     {
-        //
+        $seguradora = Seguradora::find($id);
+        return view('seguro.edit', compact('seguradora', $seguradora));
+
     }
 
     /**
@@ -73,7 +90,14 @@ class SeguradoraController extends Controller
      */
     public function update(Request $request, Seguradora $seguradora)
     {
-        //
+         $request->validate([
+            'nome' => 'required',
+            ]);
+
+        $seguradora->update($request->all());
+        $seguradora->save();
+        $request->sessionseguroflash('message', 'Sucesso!');
+        return redirect('seguro');
     }
 
     /**

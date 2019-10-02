@@ -44,7 +44,38 @@ class OrientadorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nome' => 'required',
+        ]);
+
+        $orientadoress = new Orientador();
+        $orientadoress->nome = $request->get('nome');
+        $orientadoress->email = $request->get('email');
+        $orientadoress->rg = $request->get('rg');
+        $orientadoress->cpf = $request->get('cpf');
+        $orientadoress->telefone = $request->get('telefone');
+        $orientadoress->celular = $request->get('celular');
+        $orientadoress->data_nascimento = $request->get('data_nascimento');
+        $orientadoress->agente_int = $request->get('agente_int');
+        $orientadoress->pessoa_responsavel = $request->get('pessoa_responsavel');
+        $orientadoress->sexo = $request->get('sexo');
+        $orientadoress->city = $request->get('city');
+        $orientadoress->state = $request->get('state');
+        $orientadoress->escolaridade = $request->get('escolaridade');
+        $orientadoress->nacionalidade = $request->get('nacionalidade');
+        $orientadoress->cep = $request->get('cep');
+        $orientadoress->rua = $request->get('rua');
+        $orientadoress->bairro = $request->get('bairro');
+        $orientadoress->cep = $request->get('cep');
+        $orientadoress->numero = $request->get('numero');
+        $orientadoress->complemento = $request->get('complemento');
+        $orientadoress->empresa_id = $request->get('empresa_id');
+        $orientadoress->instituicao_id = $request->get('instituicao_id');
+        $orientadoress->curso = $request->get('curso');
+        $orientadoress->save();
+
+        return redirect()->route('orientador.index')
+            ->with('success', 'Cadastrado com sucesso.');
     }
 
     /**
@@ -79,7 +110,14 @@ class OrientadorController extends Controller
      */
     public function update(Request $request, Orientador $orientador)
     {
-        //
+        $request->validate([
+            'nome' => 'required',
+        ]);
+
+        $orientador->update($request->all());
+        $orientador->save();
+        $request->session()->flash('message', 'Sucesso!');
+        return redirect('orientador');
     }
 
     /**

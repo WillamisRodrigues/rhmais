@@ -58,7 +58,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <table class="table table-striped list  table-bordered">
+                    <table class="table table-striped list  table-bordered" style="zoom:0.8;">
                       <thead>
                         <tr>
                           <th>Unidade
@@ -110,7 +110,7 @@
                           <td>28</td>
                           <td>2122.66</td>
                           <td>S</td>
-                          <td><button class="btn btn-primary"><i class="fa fa-bars"></i> Resumo</button></td>
+                          <td><button class="btn btn-primary"><i class="fa fa-bars"></i></button></td>
                         </tr>
                       </tbody>
                     </table>

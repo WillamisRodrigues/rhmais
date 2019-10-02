@@ -174,7 +174,7 @@
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <select class="form-control has-feedback-left" name="curso">
+                                                <select class="form-control has-feedback-left" name="escolaridade">
                                                     <option>Selecione um Curso</option>
                                                       @foreach ($cursos as $key)
                                                        <option value="{{ $key->nome }}">{{ $key->nome }}</option>
@@ -211,7 +211,7 @@
                                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="date" class="form-control has-feedback-left" placeholder="Previsão Término Curso" name="previsao_termino" value="{{old('previsao_termino')}}">
+                                                <input type="date" class="form-control has-feedback-left" placeholder="Previsão Término Curso" name="termino_curso" value="{{old('termino_curso')}}">
                                                 <span class="fa fa-book form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                     </div>

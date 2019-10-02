@@ -44,7 +44,18 @@ class MotivoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nome' => 'required',
+        ]);
+
+        $motivo = new Motivo();
+        $motivo->nome = $request->get('nome');
+        $motivo->descricao = $request->get('descricao');
+        $motivo->empresa = $request->get('empresa');
+        $motivo->save();
+
+        return redirect()->route('motivo.index')
+            ->with('success', 'Cadastrado com sucesso.');
     }
 
     /**
@@ -67,6 +78,7 @@ class MotivoController extends Controller
     public function edit($id)
     {
         $motivo = Motivo::find($id);
+        // dd($motivo);
         return view('motivo.edit', compact('motivo', $motivo));
     }
 
@@ -83,10 +95,10 @@ class MotivoController extends Controller
             'nome' => 'required',
         ]);
 
-        $motivo = User::find($id);
+        $motivo = Motivo::find($id);
         $motivo->nome =  $request->get('nome');
         $motivo->descricao = $request->get('descricao');
-        $motivo->empresa_id = $request->get('empresa_id');
+        $motivo->empresa = $request->get('empresa');
         $motivo->save();
 
         $request->session()->flash('message', 'Sucesso!');
@@ -99,8 +111,10 @@ class MotivoController extends Controller
      * @param  \App\Motivo  $motivo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Motivo $motivo)
+    public function destroy(Request $request, Motivo $motivo)
     {
-        //
+        $motivo->delete();
+        $request->session()->flash('warning', 'Removido com sucesso!');
+        return redirect('motivo');
     }
 }

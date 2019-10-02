@@ -27,6 +27,9 @@ class EmpresaController extends Controller
             'empresa.insc_estadual',
             'empresa.telefone',
             'empresa.id',
+            'empresa.qtd_plano',
+            'empresa.valor_fixo',
+            'empresa.valor_percentual',
             'cidade.nome AS nome_cidade'
             )
             ->get();

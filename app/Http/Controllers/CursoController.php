@@ -67,9 +67,10 @@ class CursoController extends Controller
      * @param  \App\Curso  $curso
      * @return \Illuminate\Http\Response
      */
-    public function edit(Curso $curso)
+    public function edit($id)
     {
-        return view('curso.edit', compact('curso', $curso));
+        $cursos = Curso::find($id);
+        return view('curso.edit', compact('cursos', $cursos));
     }
 
     /**
@@ -98,8 +99,10 @@ class CursoController extends Controller
      * @param  \App\Curso  $curso
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Curso $curso)
+    public function destroy(Request $request, Curso $curso)
     {
-        //
+        $curso->delete();
+        $request->session()->flash('warning', 'Removido com sucesso!');
+        return redirect('curso');
     }
 }

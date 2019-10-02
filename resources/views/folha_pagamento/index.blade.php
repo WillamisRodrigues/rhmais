@@ -92,7 +92,7 @@
                           <td>600,00</td>
                           <td>0</td>
                           <td>600,00</td>
-                          <td><a href="{!! route('folha_pagamento.edit', [1]) !!}" class="btn btn-primary"><i class="fa fa-pencil"></i> Editar</a></td>
+                          <td><a href="{!! route('folha_pagamento.edit', [1]) !!}" class="btn btn-primary"><i class="fa fa-pencil"></i> </a></td>
                         </tr>
                       </tbody>
                     </table>

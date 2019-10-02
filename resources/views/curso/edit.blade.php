@@ -27,7 +27,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                  <form action="{{ route('curso.update',  $curso->id) }}" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
+                  <form action="{{ route('curso.update',  $cursos->id) }}" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
                    <input type="hidden" name="_method" value="PUT">
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
                       <!-- SmartWizard html -->
@@ -38,12 +38,12 @@
                                   <div id="form-step-0" role="form" data-toggle="validator">
                                   <div class="row" style="width:960px; margin: 0 auto;">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" value="{{ $curso->nome }}" class="form-control has-feedback-left" placeholder="Nome Completo" name="nome">
+                                        <input type="text" value="{{ $cursos->nome }}" class="form-control has-feedback-left" placeholder="Nome Completo" name="nome">
                                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
 
                                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" value="{{ $curso->nivel }}" class="form-control has-feedback-left" placeholder="Nível" name="nivel">
+                                        <input type="text" value="{{ $cursos->nivel }}" class="form-control has-feedback-left" placeholder="Nível" name="nivel">
                                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     </div>

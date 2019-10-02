@@ -36,6 +36,7 @@ class EstagiarioController extends Controller
                 'estagiario.id',
                 'estagiario.status',
                 'estagiario.escolaridade',
+                'estagiario.termino_curso',
                 'cidade.nome AS nome_cidade'
             )
             ->get();

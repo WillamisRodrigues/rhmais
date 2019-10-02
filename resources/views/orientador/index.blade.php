@@ -19,6 +19,7 @@
             <div class="clearfix"></div>
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
+                @include('layout.alerta.flash-message')
                 <div class="x_panel">
                   <div class="x_title">
                   <a href="{{route('orientador.create')}}" class="btn btn-success pull-right"> <i class="fa fa-list"> </i> Novo Orientador</a>
@@ -64,6 +65,16 @@
                             <td>{{$orientador->empresa}}</td>
                             <td>{{$orientador->agente_integracao}}</td>
                             <td style="width:15%;">
+                            <div class="col-md-3">
+                              <a href="{{route('orientador.edit', [$orientador->id])}}" class="btn btn-primary"> <i class="fa fa-pencil"> </i> </a>
+                            </div>
+                            <form class="col-md-3" style="margin-left:10px;" action="{{url('orientador', [$orientador->id])}}" method="POST">
+                              <input type="hidden" name="_method" value="DELETE">
+                              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                              <button type="submit" class="btn btn-danger">
+                              <i class="fa fa-trash"></i>
+                              </button>
+                            {{-- <td style="width:15%;">
                           <form class="col-md-3" action="#" method="POST">
     		                  <input type="hidden" name="_method" value="DELETE">
                               <button type="submit" class="btn btn-danger">
@@ -71,7 +82,7 @@
                               </button>
                           </form>
                             <div class="col-md-3" style="margin-left:40px;">
-                            <a href="{{route('orientador.edit', [$orientador->id])}}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a>
+                            <a href="{{route('orientador.edit', [$orientador->id])}}" class="btn btn-primary"> <i class="fa fa-plus"> </i> Editar</a> --}}
                             </div>
                           </td>
                         </tr>

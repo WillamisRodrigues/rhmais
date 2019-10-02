@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Beneficio;
 use App\Empresa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BeneficioController extends Controller
 {
@@ -16,7 +17,8 @@ class BeneficioController extends Controller
     public function index()
     {
         $beneficios = Beneficio::all();
-        return view('beneficio.index', compact('beneficios'));
+       $empresas = Empresa::all();
+        return view('beneficio.index', compact('beneficios', 'empresas'));
     }
     /**
      * Show the form for creating a new resource.
@@ -28,7 +30,7 @@ class BeneficioController extends Controller
 
         $empresas = Empresa::all();
 
-          return view('beneficio.create', compact('empresas'));
+        return view('beneficio.create', compact('empresas'));
     }
 
     /**
@@ -39,7 +41,19 @@ class BeneficioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nome' => 'required',
+        ]);
+
+        $beneficio = new Beneficio();
+        $beneficio->nome = $request->get('nome');
+        $beneficio->empresa_id = $request->get('empresa_id');
+        $beneficio->sigla = $request->get('sigla');
+        $beneficio->agente_integracao = $request->get('agente_integracao');
+        $beneficio->save();
+
+        return redirect()->route('beneficio.index')
+            ->with('success', 'Cadastrado com sucesso.');
     }
 
     /**
@@ -59,9 +73,11 @@ class BeneficioController extends Controller
      * @param  \App\Beneficio  $beneficio
      * @return \Illuminate\Http\Response
      */
-    public function edit(Beneficio $beneficio)
+    public function edit($id)
     {
-        //
+        $beneficios = Beneficio::find($id);
+        $empresas = DB::table('empresa')->get();
+        return view('beneficio.edit', ['beneficios' => $beneficios, 'empresas' => $empresas]);
     }
 
     /**
@@ -73,7 +89,14 @@ class BeneficioController extends Controller
      */
     public function update(Request $request, Beneficio $beneficio)
     {
-        //
+        $request->validate([
+            'nome' => 'required',
+        ]);
+
+        $beneficio->update($request->all());
+        $beneficio->save();
+        $request->session()->flash('message', 'Sucesso!');
+        return redirect('beneficio');
     }
 
     /**
@@ -82,8 +105,10 @@ class BeneficioController extends Controller
      * @param  \App\Beneficio  $beneficio
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Beneficio $beneficio)
+    public function destroy(Request $request, Beneficio $beneficio)
     {
-        //
+        $beneficio->delete();
+        $request->session()->flash('warning', 'Removido com sucesso!');
+        return redirect('estagiario');
     }
 }

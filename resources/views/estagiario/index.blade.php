@@ -71,8 +71,8 @@
                           <td>{{$estagiario->cpf}}</td>
                           <td>{{$estagiario->nome_cidade}}</td>
                           <td>{{date('d/m/Y', strtotime($estagiario->data_nascimento))}}</td>
-                          <td>ENSINO MÉDIO</td>
-                           <td>31/12/2020</td>
+                          <td>{{$estagiario->escolaridade}}</td>
+                           <td>{{date('d/m/Y', strtotime($estagiario->termino_curso))}}</td>
                            <td>
                            @if ($estagiario->status == '1')
                               Sim
