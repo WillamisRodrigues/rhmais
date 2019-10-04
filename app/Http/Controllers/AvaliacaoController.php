@@ -15,8 +15,42 @@ class AvaliacaoController extends Controller
      */
     public function index()
     {
-        $avaliacoes = Avaliacao::all();
-        return view('auto_avaliacao.index', compact('avaliacoes'));
+    //  $avaliacoes = Avaliacao::all();
+
+        $estagiarios = DB::table('avaliacao')
+            ->join('estagiario', 'avaliacao.estagiario_id', '=', 'estagiario.id')
+            ->select(
+                'estagiario.nome'
+            )
+            ->get();
+
+        $instituicoes = DB::table('avaliacao')
+            ->join('empresa', 'avaliacao.empresa_id', '=', 'empresa.id')
+            ->select(
+                'empresa.nome_fantasia'
+            )
+            ->get();
+        $empresas = DB::table('empresa')
+            ->join('cidade', 'empresa.city', '=', 'cidade.id')
+            ->select(
+                'empresa.razao_social',
+                'empresa.nome_fantasia',
+                'empresa.cnpj',
+                'empresa.insc_estadual',
+                'empresa.telefone',
+                'empresa.id',
+                'cidade.nome AS nome_cidade'
+            )
+            ->get();
+        $supervisores = DB::table('supervisor')->get();
+
+        return view('auto_avaliacao.index', [
+            'estagiarios' => $estagiarios,
+            'instituicoes' => $instituicoes,
+            'empresas' => $empresas,
+            'supervisores' => $supervisores
+        ]);
+        // return view('auto_avaliacao.index', compact('avaliacoes'));
     }
 
     /**
@@ -82,7 +116,29 @@ class AvaliacaoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'estagiario_id' => 'required',
+            'empresa_id' => 'required',
+        ]);
+
+        $avaliacao = new Avaliacao();
+        $avaliacao->estagiario_id = $request->get('estagiario_id');
+        $avaliacao->empresa_id = $request->get('empresa_id');
+        $avaliacao->instituicao_id = $request->get('instituicao_id');
+        $avaliacao->supervisor = $request->get('supervisor');
+        $avaliacao->periodo_avaliativo = $request->get('periodo_avaliativo');
+        $avaliacao->data_doc = $request->get('data_doc');
+        $avaliacao->obs = $request->get('obs');
+        $avaliacao->compromisso = $request->get('compromisso');
+        $avaliacao->plano_de_estagio = $request->get('plano_de_estagio');
+        $avaliacao->aprendizagem = $request->get('aprendizagem');
+        $avaliacao->identificacao = $request->get('identificacao');
+        $avaliacao->experiencia = $request->get('experiencia');
+
+        $avaliacao->save();
+
+        return redirect()->route('auto_avaliacao.index')
+            ->with('success', 'Realizada com sucesso.');
     }
 
     /**

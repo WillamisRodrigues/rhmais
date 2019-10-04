@@ -27,7 +27,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                <form action="addAutoAvaliacao" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
+                <form action="{{route('auto_avaliacao.store')}}" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
                   {{csrf_field()}}
                       <!-- SmartWizard html -->
                       <div>
@@ -64,7 +64,7 @@
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <select class="form-control has-feedback-left" name="super_estagio">
+                                                <select class="form-control has-feedback-left" name="supervisor">
                                                     <option>Selecione o Supervisor de Estágio:</option>
                                                       @foreach ($supervisores as $supervisor)
                                                         <option value="{{ $supervisor->id }}">{{ $supervisor->nome }}</option>
@@ -142,10 +142,10 @@
                                               <hr style="border:0.5px solid #2A3F54;">
                                               <label> 5. O estágio tem oferecido experiências práticas favorecendo minha formação ?</label>
                                                 <label>
-                                                  <input type="radio" class="flat" name="experiencias"  value="sim"> Sim
+                                                  <input type="radio" class="flat" name="experiencia"  value="sim"> Sim
                                                 </label>
                                                 <label>
-                                                  <input type="radio" class="flat" name="experiencias" value="nao"> Não
+                                                  <input type="radio" class="flat" name="experiencia" value="nao"> Não
                                                 </label>
                                               </div>
                                               <hr style="border:0.5px solid">

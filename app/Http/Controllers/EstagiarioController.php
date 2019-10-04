@@ -161,7 +161,6 @@ class EstagiarioController extends Controller
             'email' => 'required|email|unique:estagiario,email',
         ]);
 
-        //  Estagiario::create($request->all());
         $estagiarios = new Estagiario();
         $estagiarios->nome = $request->get('nome');
         $estagiarios->email = $request->get('email');

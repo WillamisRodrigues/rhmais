@@ -53,8 +53,9 @@
                       </thead>
                       <tbody>
                          <tr>
-                          <td>NICOLAS TEYLLON PEREIRA SILVA</td>
-                          <td>KOSTER & KOSTER CONSULTORIA EM RH LTDA - RH MAIS TALENTOS</td>
+                           @foreach ($estagiarios as $estagiario)
+                         <td>{{$estagiario->nome}}</td>
+                         <td>KOSTER & KOSTER CONSULTORIA EM RH LTDA - RH MAIS TALENTOS</td>
                           <td>02/01/2018 31/12/2019</td>
                           <td>02/01/2018 02/07/2018 03/07/2018 03/01/2019 04/01/2019 04/07/2019 05/07/2019 31/12/2019	</td>
                           <td></td>
@@ -65,10 +66,10 @@
                           <td>Sim	</td>
                           <td style="width:15%;">
                             <div class="col-md-3">
-                            <a href="{{route('avaliacao_estagiario.create')}}" class="btn btn-primary"> <i class="fa fa-pencil"> </i></a>
+                            <a href="{{route('auto_avaliacao.create')}}" class="btn btn-primary"> <i class="fa fa-pencil"> </i></a>
                             </div>
                             <form class="col-md-3 delete" style="margin-left:10px;" action="" method="POST">
-                              <input type="hidden" name="_method" value="DELETE">
+                              <input type="hidden" name="_method" value="">
                               <input type="hidden" name="_token" value="{{ csrf_token() }}">
                               <button type="submit" class="btn btn-danger" >
                               <i class="fa fa-plus"></i>
@@ -76,6 +77,7 @@
                             </form>
                           </td>
                         </tr>
+                        @endforeach
                       </tbody>
                     </table>
                   </div>

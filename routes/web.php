@@ -37,15 +37,7 @@ Route::resource('supervisor', 'SupervisorController');
 Route::resource('termo_recesso', 'RecessoController');
 Route::resource('financeiro', 'FinanceiroController');
 
-
-
 // Route::post('adicionarRecesso',['as' => 'adicionarRecesso', 'uses' => 'RecessoController@store']);
-Route::get('/avaliacao_estagiario', ["uses" => "AvaliacaoController@create"]);
-
-Route::get('/editar_avaliacao_estagiario', ["uses" => "AvaliacaoController@create"]);
-
-Route::post('addAutoAvaliacao', ['uses' => 'AvaliacaoController@store']);
-
 
 Route::get('/cidade-estado', array('as' => 'myform', 'uses' => 'EstagiarioController@myform'));
 Route::get('myform/ajax/{id}', array('as' => 'myform.ajax', 'uses' => 'EstagiarioController@myformAjax'));
@@ -95,31 +87,12 @@ Route::get('/previsao_rescisao', function () {
     return view('previsao_rescisao/index');
 });
 
-Route::get('/avaliacao_estagiario', function () {
-    return view('auto_avaliacao/create');
-});
-
-Route::get('/auto_avaliacao_supervisor', function () {
-    return view('avaliacao_supervisor/create');
-});
-
-Route::get('/editar_avaliacao_estagiario', function () {
-    return view('lista_auto_avaliacao/edit');
-});
-
-Route::get('/editar_avaliacao_supervisor', function () {
-    return view('avaliacao_supervisor/edit');
-});
 
 
 Route::get('/editar_conta', function () {
     return view('editar_conta/edit');
 });
 
-
-Route::get('/auto_avaliacao', function () {
-    return view('auto_avaliacao/index');
-});
 
 Route::get('/lista_auto_avaliacao', function () {
     return view('lista_auto_avaliacao/index');
