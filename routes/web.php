@@ -30,12 +30,12 @@ Route::resource('setor', 'SetorController');
 Route::resource('atividade', 'AtividadeController');
 Route::resource('horario', 'HorarioController');
 Route::resource('auto_avaliacao', 'AvaliacaoController');
-Route::resource('avaliacao_super', 'AvaliacaoSuperController');
 Route::resource('motivo', 'MotivoController');
 Route::resource('orientador', 'OrientadorController');
 Route::resource('supervisor', 'SupervisorController');
 Route::resource('termo_recesso', 'RecessoController');
 Route::resource('financeiro', 'FinanceiroController');
+Route::resource('avaliacao_supervisor', 'AvaliacaoSuperController');
 
 // Route::post('adicionarRecesso',['as' => 'adicionarRecesso', 'uses' => 'RecessoController@store']);
 
@@ -96,10 +96,6 @@ Route::get('/editar_conta', function () {
 
 Route::get('/lista_auto_avaliacao', function () {
     return view('lista_auto_avaliacao/index');
-});
-
-Route::get('/avaliacao_supervisor', function () {
-    return view('avaliacao_supervisor/index');
 });
 
 Route::get('/lista_avaliacao_supervisor', function () {

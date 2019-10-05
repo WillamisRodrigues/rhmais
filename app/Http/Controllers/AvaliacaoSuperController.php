@@ -15,7 +15,7 @@ class AvaliacaoSuperController extends Controller
     public function index()
     {
         $avaliacao = AvaliacaoSuper::all();
-        return view('avalicao_supervisor.index', compact('avaliacao'));
+        return view('avaliacao_supervisor.index', compact('avaliacao'));
     }
 
     /**
@@ -25,7 +25,7 @@ class AvaliacaoSuperController extends Controller
      */
     public function create()
     {
-        //
+        return view('avaliacao_supervisor.create');
     }
 
     /**

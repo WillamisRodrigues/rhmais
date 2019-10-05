@@ -62,7 +62,7 @@
                           <td>10/09/2018 31/12/2019</td>
                           <td>10/09/2018 10/03/2019 11/03/2019 11/09/2019 12/09/2019 31/12/2019</td>
                           <td></td>
-                          <td>(em: 06/05/2019) - 10/09/2018 a 10/03/2019 (em: 06/05/2019) 
+                          <td>(em: 06/05/2019) - 10/09/2018 a 10/03/2019 (em: 06/05/2019)
                           - 10/09/2018 a 10/03/2019 (em: 10/05/2019) - 10/09/2018 a 10/03/2019</td>
                           <td>(em: 06/05/2019) - null(em: 06/05/2019) - null(em: 10/05/2019) - null</td>
                           <td>Obrigação=2 Supervisor fez=0 Estudante Fez=3 Estudante a mais=2 Falta=1</td>
@@ -71,7 +71,7 @@
                           <td>Sim</td>
                           <td style="width:10%;">
                             <div class="col-md-3">
-                            <a href="/auto_avaliacao_supervisor" class="btn btn-primary"> <i class="fa fa-pencil"> </i></a>
+                            <a href="{{route('avaliacao_supervisor.create')}}" class="btn btn-primary"> <i class="fa fa-pencil"> </i></a>
                             </div>
                           </td>
                         </tr>
