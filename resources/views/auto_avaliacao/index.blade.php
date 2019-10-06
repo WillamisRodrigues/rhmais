@@ -68,13 +68,8 @@
                             <div class="col-md-3">
                             <a href="{{route('auto_avaliacao.create')}}" class="btn btn-primary"> <i class="fa fa-pencil"> </i></a>
                             </div>
-                            <form class="col-md-3 delete" style="margin-left:10px;" action="" method="POST">
-                              <input type="hidden" name="_method" value="">
-                              <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                              <button type="submit" class="btn btn-danger" >
-                              <i class="fa fa-plus"></i>
-                              </button>
-                            </form>
+                              <a href ="/auto_avaliacao/show" class="btn btn-danger" > <i class="fa fa-plus"></i></a>
+                              </div>
                           </td>
                         </tr>
                         @endforeach

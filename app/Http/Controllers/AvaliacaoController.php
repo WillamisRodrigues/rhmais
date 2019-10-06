@@ -3,8 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Avaliacao;
+use App\Empresa;
+use App\Estagiario;
+use App\Instituicao;
+use App\Supervisor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
 
 class AvaliacaoController extends Controller
 {
@@ -149,7 +154,12 @@ class AvaliacaoController extends Controller
      */
     public function show(Avaliacao $avaliacao)
     {
-        //
+        $empresas = Empresa::all();
+        $estagiarios = Estagiario::all();
+        $instituicoes = Instituicao::all();
+        $supervisores = Supervisor::all();
+
+        return view('auto_avaliacao.show', compact('empresas', 'estagiarios', 'instituicoes', 'supervisores'));
     }
 
     /**
