@@ -239,11 +239,13 @@ class EstagiarioController extends Controller
         $estagiario = DB::table('estagiario')->where('id', $id)->get()->first();
         $estado = DB::table('estado')->where('id', '=', $estagiario->state)->get()->first();
         $cidade = DB::table('cidade')->where('id', '=', $estagiario->city)->get()->first();
+        $empresas = DB::table('empresa')->where('id', '=', $estagiario->empresa_id)->get()->first();
 
         return view('estagiario.edit',[
             'estagiario' => $estagiario,
             'estado' => $estado,
-            'cidade' => $cidade
+            'cidade' => $cidade,
+            'empresas' => $empresas
         ]);
     }
 

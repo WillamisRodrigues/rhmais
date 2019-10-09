@@ -27,7 +27,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                <form action="{{ route('cce_convenio.store') }}" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
+                <form action="{{ route('avaliacao_supervisor.store') }}" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
                   {{csrf_field()}}
                       <!-- SmartWizard html -->
                       <div>
@@ -37,27 +37,47 @@
                                     <div id="form-step-0" role="form" data-toggle="validator">
                                         <div class="row" style="width:960px; margin: 0 auto;">
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Nome Estagiário" name="estagiario_id" value="">
+                                                <select class="form-control has-feedback-left" name="estagiario_id">
+                                                    <option>Selecione o Estagiário:</option>
+                                                     @foreach ($estagiarios as $estagiario)
+                                                        <option value="{{ $estagiario->id }}">{{ $estagiario->nome }}</option>
+                                                     @endforeach
+                                                </select>
                                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div>
-                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Instituição de Ensino" name="instituicao_id" value="">
+                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                <select class="form-control has-feedback-left" name="instituicao_id">
+                                                    <option>Selecione Instituição de Ensino:</option>
+                                                      @foreach ($instituicoes as $instituicao)
+                                                        <option value="{{ $instituicao->id }}">{{ $instituicao->nome_instituicao }}</option>
+                                                     @endforeach
+                                                </select>
+                                                <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                <select class="form-control has-feedback-left" name="empresa_id">
+                                                    <option>Selecione Unidade Concedente:</option>
+                                                     @foreach ($empresas as $empresa)
+                                                        <option value="{{ $empresa->id }}">{{ $empresa->nome_fantasia }}</option>
+                                                     @endforeach
+                                                </select>
                                                 <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Unidade Concedente" name="empresa_id" value="">
-                                                <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
+                                                <select class="form-control has-feedback-left" name="supervisor">
+                                                    <option>Selecione o Supervisor de Estágio:</option>
+                                                      @foreach ($supervisores as $supervisor)
+                                                        <option value="{{ $supervisor->id }}">{{ $supervisor->nome }}</option>
+                                                     @endforeach
+                                                </select>
+                                                <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Supervisor Estágio" name="supervisor" value="">
-                                                <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
-                                            </div>
-                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Periodo Avaliativo" name="periodo_avaliativo" value="">
+                                                <input type="date" class="form-control has-feedback-left" placeholder="Periodo Avaliativo" name="periodo_avaliativo" value="">
                                                 <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" placeholder="Data Documento" name="data_doc" value="">
+                                                <input type="date" class="form-control has-feedback-left" placeholder="Data Documento" name="data_doc" value="">
                                                 <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                             </div>
 
@@ -75,16 +95,16 @@
                                               <label>1. Assiduidade: Constância e pontualidade no cumprimento dos horários e dias trabalhados.*</label>
                                               <br><br>
                                                 <label>
-                                                  <input type="checkbox" class="flat"  name="insuficiente"> Insuficiente
+                                                  <input type="checkbox" class="flat"  name="assiduidade" value="insuficiente"> Insuficiente
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="regular"> Regular
+                                                  <input type="checkbox" class="flat"name="assiduidade" value="regular"> Regular
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="bom"> Bom
+                                                  <input type="checkbox" class="flat" name="assiduidade" value="bom"> Bom
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="otimo"> Ótimo
+                                                  <input type="checkbox" class="flat" name="assiduidade" value="otimo"> Ótimo
                                                 </label>
                                               </div>
                                             </div>
@@ -95,16 +115,16 @@
                                               acatar regularmente as normas da Entidade.*</label>
                                               <br><br>
                                               <label>
-                                                  <input type="checkbox" class="flat"  name="insuficiente"> Insuficiente
+                                                  <input type="checkbox" class="flat"  name="facilidade" value="insuficiente"> Insuficiente
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="regular"> Regular
+                                                  <input type="checkbox" class="flat" name="facilidade" value="regular"> Regular
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="bom"> Bom
+                                                  <input type="checkbox" class="flat" name="facilidade" value="bom"> Bom
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="otimo"> Ótimo
+                                                  <input type="checkbox" class="flat" name="facilidade" value="otimo"> Ótimo
                                                 </label>
                                               </div>
                                             </div>
@@ -115,16 +135,16 @@
                                               com que age frente a pessoas, fatos e situações.*</label>
                                               <br><br>
                                               <label>
-                                                  <input type="checkbox" class="flat"  name="insuficiente"> Insuficiente
+                                                  <input type="checkbox" class="flat" name="sociabilidade" value="insuficiente"> Insuficiente
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="regular"> Regular
+                                                  <input type="checkbox" class="flat" name="sociabilidade" value="regular"> Regular
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="bom"> Bom
+                                                  <input type="checkbox" class="flat" name="sociabilidade" value="bom"> Bom
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="otimo"> Ótimo
+                                                  <input type="checkbox" class="flat"  name="sociabilidade" value="otimo"> Ótimo
                                                 </label>
                                               </div>
                                             </div>
@@ -135,16 +155,16 @@
                                               quais executa as tarefas integrantes do programa de estágio.*</label>
                                               <br><br>
                                               <label>
-                                                  <input type="checkbox" class="flat"  name="insuficiente"> Insuficiente
+                                                  <input type="checkbox" class="flat" name="rendimento" value="insuficiente"> Insuficiente
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="regular"> Regular
+                                                  <input type="checkbox" class="flat" name="sociabilidade" value="regular"> Regular
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="bom"> Bom
+                                                  <input type="checkbox" class="flat" name="sociabilidade" value="bom"> Bom
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="otimo"> Ótimo
+                                                  <input type="checkbox" class="flat" name="sociabilidade" value="otimo"> Ótimo
                                                 </label>
                                               </div>
                                             </div>
@@ -155,16 +175,16 @@
                                               pôr em prática ou entender instruções e informações verbais ou escritas.*</label>
                                               <br><br>
                                               <label>
-                                                  <input type="checkbox" class="flat"  name="insuficiente"> Insuficiente
+                                                  <input type="checkbox" class="flat" name="facilidade"  value="insuficiente"> Insuficiente
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="regular"> Regular
+                                                  <input type="checkbox" class="flat" name="facilidade" value="regular"> Regular
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="bom"> Bom
+                                                  <input type="checkbox" class="flat" name="facilidade" value="bom"> Bom
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="otimo"> Ótimo
+                                                  <input type="checkbox" class="flat" name="facilidade" value="otimo"> Ótimo
                                                 </label>
                                               </div>
 
@@ -176,16 +196,16 @@
                                               do programa de estágio, tendo em vista sua escolaridade.*</label>
                                               <br><br>
                                               <label>
-                                                  <input type="checkbox" class="flat"  name="insuficiente"> Insuficiente
+                                                  <input type="checkbox" class="flat" name="conhecimento"  value="insuficiente"> Insuficiente
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="regular"> Regular
+                                                  <input type="checkbox" class="flat" name="conhecimento" value="regular"> Regular
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="bom"> Bom
+                                                  <input type="checkbox" class="flat" name="conhecimento" value="bom"> Bom
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="otimo"> Ótimo
+                                                  <input type="checkbox" class="flat" name="conhecimento" value="otimo"> Ótimo
                                                 </label>
                                               </div>
                                             </div>
@@ -197,16 +217,16 @@
                                               a organização do seu trabalho.*</label>
                                               <br><br>
                                               <label>
-                                                  <input type="checkbox" class="flat"  name="insuficiente"> Insuficiente
+                                                  <input type="checkbox" class="flat" name="organizacao" value="insuficiente"> Insuficiente
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="regular"> Regular
+                                                  <input type="checkbox" class="flat" name="organizacao" value="regular"> Regular
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="bom"> Bom
+                                                  <input type="checkbox" class="flat" name="organizacao" value="bom"> Bom
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="otimo"> Ótimo
+                                                  <input type="checkbox" class="flat" name="organizacao" value="otimo"> Ótimo
                                                 </label>
                                               </div>
                                             </div>
@@ -217,16 +237,16 @@
                                               novas soluções, sem prévia orientação, dentro de padrões adequados.*</label>
                                               <br><br>
                                               <label>
-                                                  <input type="checkbox" class="flat"  name="insuficiente"> Insuficiente
+                                                  <input type="checkbox" class="flat"  name="iniciativa" value="insuficiente"> Insuficiente
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="regular"> Regular
+                                                  <input type="checkbox" class="flat" name="iniciativa" value="regular"> Regular
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="bom"> Bom
+                                                  <input type="checkbox" class="flat" name="iniciativa" value="bom"> Bom
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="otimo"> Ótimo
+                                                  <input type="checkbox" class="flat" name="iniciativa" value="otimo"> Ótimo
                                                 </label>
                                               </div>
                                             </div>
@@ -237,16 +257,16 @@
                                               um objetivo comum. Influência positiva no grupo.*</label>
                                               <br><br>
                                               <label>
-                                                  <input type="checkbox" class="flat"  name="insuficiente"> Insuficiente
+                                                  <input type="checkbox" class="flat" name="cooperacao" value="insuficiente"> Insuficiente
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="regular"> Regular
+                                                  <input type="checkbox" class="flat" name="cooperacao" value="regular"> Regular
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="bom"> Bom
+                                                  <input type="checkbox" class="flat" name="cooperacao" value="bom"> Bom
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="otimo"> Ótimo
+                                                  <input type="checkbox" class="flat" name="cooperacao" value="otimo"> Ótimo
                                                 </label>
                                               </div>
                                             </div>
@@ -257,16 +277,16 @@
                                                zelar pelos bens e equipamentos da Entidade.*</label>
                                               <br><br>
                                               <label>
-                                                  <input type="checkbox" class="flat"  name="insuficiente"> Insuficiente
+                                                  <input type="checkbox" class="flat"  name="responsabilidade" value="insuficiente"> Insuficiente
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="regular"> Regular
+                                                  <input type="checkbox" class="flat" name="responsabilidade" value="regular"> Regular
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="bom"> Bom
+                                                  <input type="checkbox" class="flat" name="responsabilidade" value="bom"> Bom
                                                 </label>
                                                 <label>
-                                                  <input type="checkbox" class="flat" name="otimo"> Ótimo
+                                                  <input type="checkbox" class="flat" name="responsabilidade" value="otimo"> Ótimo
                                                 </label>
                                               </div>
                                             </div>

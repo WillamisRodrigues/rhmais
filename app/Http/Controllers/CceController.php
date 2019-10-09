@@ -88,7 +88,9 @@ class CceController extends Controller
     public function edit($id)
     {
         $cce = DB::table('cce')->where('id', $id)->first();
-        return view('cce_convenio.edit', compact('cce', $cce));
+        $instituicoes = DB::table('instituicao')->where('id', '=', $cce->instituicao_id)->get()->first();
+        $apolices = DB::table('seguradora')->where('id', '=', $cce->seguradora_id)->get()->first();
+        return view('cce_convenio.edit', compact('cce', 'instituicoes','apolices', $cce));
     }
 
     /**
