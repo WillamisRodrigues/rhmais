@@ -22,8 +22,8 @@
               <form action="">
                 <div class="col-md-4">
                 <br>
-                <button class="btn btn-primary">Lista Branco</button>
-                <button class="btn btn-primary">Lista Preenchida</button>
+                {{-- <button class="btn btn-primary">Lista Branco</button>
+                <button class="btn btn-primary">Lista Preenchida</button> --}}
                 </div>
               </form>
               <br>
@@ -68,6 +68,9 @@
                           <td>Não Assinado</td>
                           <td style="width:24%;">
                             <div class="col-md-3">
+                            <a href="" class="btn btn-primary">
+                            <i class="fa fa-star"> </i> </a>
+                            </div>
                             <a href="/editar_avaliacao_estagiario" class="btn btn-primary">
                             <i class="fa fa-pencil"> </i> </a>
                             </div>

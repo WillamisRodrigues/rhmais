@@ -60,7 +60,7 @@
 
                           <td style="width:22%;">
                             <div class="col-md-3">
-                            <a href="{{ route('cau_convenio.edit', [$cau->id])}}" class="btn btn-primary"> <i class="fa fa-plus"> </i></a>
+                            <a href="{{ route('cau_convenio.edit', [$cau->id])}}" class="btn btn-primary"> <i class="fa fa-pencil"> </i></a>
                           </div>
                           <form  class="col-md-3" action="{{route('cau_convenio.destroy', [$cau->id])}}" method="POST">
     		                  <input type="hidden" name="_method" value="DELETE">

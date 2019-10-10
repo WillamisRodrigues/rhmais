@@ -85,7 +85,8 @@ class CauController extends Controller
     public function edit($id)
     {
         $cau = DB::table('cau')->where('id', $id)->first();
-        return view('cau_convenio.edit', compact('cau', $cau));
+        $empresas = DB::table('empresa')->where('id', '=', $cau->empresa_id)->get()->first();
+        return view('cau_convenio.edit', compact('cau', 'empresas', $cau));
     }
 
     /**

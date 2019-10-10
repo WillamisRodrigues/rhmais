@@ -110,7 +110,7 @@
                                             <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" value="{{ $estagiario->empresa_id }}" class="form-control has-feedback-left" placeholder="Unidade Concedente" name="empresa_id">
+                                        <input type="text" value="{{ $empresas->nome_fantasia }}" class="form-control has-feedback-left" placeholder="Unidade Concedente" name="empresa_id">
                                         <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
