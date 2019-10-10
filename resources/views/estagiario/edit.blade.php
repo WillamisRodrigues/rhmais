@@ -89,8 +89,6 @@
                                             <input type="text" value="{{ $estagiario->complemento }}" class="form-control has-feedback-left" placeholder="Complemento" name="complemento">
                                             <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
                                         </div>
-
-
                                         </div>
                                     <div class="row" style="width:960px; margin: 0 auto;">
 
@@ -127,32 +125,46 @@
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="nivel">
-                                                    <option>Selecione um nível</option>
+                                                <option>Selecione um nível</option>
+                                                @foreach ($cursos as $curso)
+                                                <option value="{{$curso->nivel}}">{{$curso->nivel}}</option>
+                                                @endforeach
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
-
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="curso">
                                                     <option>Selecione um curso</option>
+                                                  @foreach ($cursos as $curso)
+                                                <option value="{{$curso->nome}}">{{$curso->nome}}</option>
+                                                @endforeach
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <select class="form-control has-feedback-left" name="curso">
+                                                <select class="form-control has-feedback-left" name="periodo">
                                                     <option>Período</option>
+                                                    @foreach ($cursos as $curso)
+                                                <option value="{{$curso->periodo}}">{{$curso->periodo}}</option>
+                                                    @endforeach
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="horario">
                                                     <option>Horário de Estudo</option>
+                                                    @foreach ($horarios as $horario)
+                                                <option value="{{$horario->descricao}}">{{$horario->descricao}}</option>
+                                                    @endforeach
                                                 </select>
                                                 <span class="fa fa-clock-o form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <select class="form-control has-feedback-left" name="instituicao_ensino">
+                                                <select class="form-control has-feedback-left" name="instituicao_id">
                                                     <option>Instituição de Ensino</option>
+                                                   @foreach ($instituicoes as $instituicao)
+                                                <option value="{{$instituicao->nome_instituicao}}">{{$instituicao->nome_instituicao}}</option>
+                                                   @endforeach
                                                 </select>
                                                 <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                             </div>
@@ -195,7 +207,6 @@
                                         <button  type="submit"class="btn btn-success" style="margin: 20px auto; display:block;">Salvar Alterações</button>
                                     </div>
                                   </div>
-
                               </div>
                           </div>
                       </div>

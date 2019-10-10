@@ -47,13 +47,20 @@ class AvaliacaoController extends Controller
                 'cidade.nome AS nome_cidade'
             )
             ->get();
+        $tceContrato = DB::table('tce_contrato')
+            ->select(
+            'tce_contrato.data_inicio',
+            'tce_contrato.data_fim'
+            )
+            ->get();
         $supervisores = DB::table('supervisor')->get();
         // dd($empresas);
         return view('auto_avaliacao.index', [
             'estagiarios' => $estagiarios,
             'instituicoes' => $instituicoes,
             'empresas' => $empresas,
-            'supervisores' => $supervisores
+            'supervisores' => $supervisores,
+            'tceContrato' => $tceContrato
         ]);
     }
 

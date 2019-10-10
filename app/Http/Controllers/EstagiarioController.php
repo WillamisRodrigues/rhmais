@@ -8,6 +8,7 @@ use App\Instituicao;
 use App\Empresa;
 use Illuminate\Http\Request;
 use App\Curso;
+use App\Horario;
 use PDF;
 
 class EstagiarioController extends Controller
@@ -240,12 +241,19 @@ class EstagiarioController extends Controller
         $estado = DB::table('estado')->where('id', '=', $estagiario->state)->get()->first();
         $cidade = DB::table('cidade')->where('id', '=', $estagiario->city)->get()->first();
         $empresas = DB::table('empresa')->where('id', '=', $estagiario->empresa_id)->get()->first();
+        $instituicoes = Instituicao::all();
+        $cursos = Curso::all();
+        $horarios = Horario::all();
+//  dd($instituicoes);
 
-        return view('estagiario.edit',[
+        return view('estagiario.edit', [
             'estagiario' => $estagiario,
             'estado' => $estado,
             'cidade' => $cidade,
-            'empresas' => $empresas
+            'empresas' => $empresas,
+            'instituicoes' => $instituicoes,
+            'cursos' => $cursos,
+            'horarios' => $horarios
         ]);
     }
 
