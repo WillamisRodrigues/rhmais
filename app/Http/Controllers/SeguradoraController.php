@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Empresa;
 use App\Seguradora;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SeguradoraController extends Controller
 {
@@ -76,9 +77,15 @@ class SeguradoraController extends Controller
      */
     public function edit($id)
     {
-        $seguradora = Seguradora::find($id);
-        return view('seguro.edit', compact('seguradora', $seguradora));
-
+        // $seguradora = Seguradora::find($id);
+        $seguradora = DB::table('seguradora')->where('id', $id)->get()->first();
+        // $empresas = DB::table('empresa')->where('id', '=', $seguradora->empresa_id)->get()->first();
+        $empresas = Empresa::all();
+        
+        return view('seguro.edit', [
+            'seguradora' => $seguradora,
+            'empresas' => $empresas
+        ]);
     }
 
     /**
@@ -90,9 +97,9 @@ class SeguradoraController extends Controller
      */
     public function update(Request $request, Seguradora $seguradora)
     {
-         $request->validate([
+        $request->validate([
             'nome' => 'required',
-            ]);
+        ]);
 
         $seguradora->update($request->all());
         $seguradora->save();
