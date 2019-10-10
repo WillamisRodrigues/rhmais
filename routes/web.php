@@ -11,12 +11,15 @@
 |
 */
 
+use Illuminate\Support\Facades\DB;
+
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('/home', 'HomeController@index')->name('index');
 Route::post('/home', 'HomeController@index')->name('index');
 Route::get('/home/grafico', 'HomeController@grafico');
 Route::get('infos/{id}', ['uses' => 'FinanceiroController@infos', 'as' => 'financeiro.infos']);
+Route::get('cau_assinado/{id}', ['uses' => 'CauController@assinado', 'as' => 'cau_convenio.assinar']);
 Route::post('editar_folha_pagamento', ['uses' => 'FolhaPagamentoController@editar', 'as' => 'folha_pagamento.editar']);
 
 Route::resource('empresa', 'EmpresaController');
@@ -97,11 +100,47 @@ Route::get('/editar_conta', function () {
 
 
 Route::get('/lista_auto_avaliacao', function () {
-    return view('lista_auto_avaliacao/index');
+    $avaliacoes = DB::table('avaliacao')->get();
+    $empresas = DB::table('empresa')->get();
+    $instituicoes = DB::table('instituicao')->get();
+    $estagiarios = DB::table('estagiario')->get();
+    $orientadores = DB::table('orientador')->get();
+    return view('lista_auto_avaliacao/index', [
+        'avaliacoes' => $avaliacoes,
+        'empresas' => $empresas,
+        'instituicoes' => $instituicoes,
+        'estagiarios' => $estagiarios,
+        'orientadores' => $orientadores,
+    ]);
 });
 
+Route::get('deletar_avaliacao_estagiario/{id}', [
+    'uses' => 'AvaliacaoController@deletar_avaliacao_estagiario',
+    'as' => 'deletar.avaliacao.estagiario'
+]);
+
+Route::get('assinar_avaliacao_estagiario/{id}', ['uses' => 'AvaliacaoController@assinar_avaliacao_estagiario', 'as' => 'assinar.avaliacao.estagiario']);
+
+Route::get('deletar_avaliacao_supervisor/{id}', [
+    'uses' => 'AvaliacaoController@deletar_avaliacao_supervisor',
+    'as' => 'deletar.avaliacao.supervisor'
+]);
+
+Route::get('assinar_avaliacao_supervisor/{id}', ['uses' => 'AvaliacaoController@assinar_avaliacao_supervisor', 'as' => 'assinar.avaliacao.supervisor']);
+
 Route::get('/lista_avaliacao_supervisor', function () {
-    return view('lista_avaliacao_supervisor/index');
+    $avaliacoes = DB::table('avaliacao_super')->get();
+    $empresas = DB::table('empresa')->get();
+    $instituicoes = DB::table('instituicao')->get();
+    $estagiarios = DB::table('estagiario')->get();
+    $orientadores = DB::table('orientador')->get();
+    return view('lista_avaliacao_supervisor/index', [
+        'avaliacoes' => $avaliacoes,
+        'empresas' => $empresas,
+        'instituicoes' => $instituicoes,
+        'estagiarios' => $estagiarios,
+        'orientadores' => $orientadores,
+    ]);
 });
 
 // Route::get('/financeiro', function () {

@@ -54,21 +54,24 @@
                             <td>Cidade</td>
                             <td>{{date('d/m/Y', strtotime($cau->data_inicio))}}</td>
                             <td>{{date('d/m/Y', strtotime($cau->data_fim))}}</td>
-                            <td>Não Assinado
-
+                            <td>
+                                @if ($cau->situacao != 1)
+                                    Não Assinado
+                                @else
+                                    Assinado
+                                @endif
                             </td>
 
                           <td style="width:22%;">
-                            <div class="col-md-3">
-                            <a href="{{ route('cau_convenio.edit', [$cau->id])}}" class="btn btn-primary"> <i class="fa fa-pencil"> </i></a>
-                          </div>
-                          <form  class="col-md-3" action="{{route('cau_convenio.destroy', [$cau->id])}}" method="POST">
-    		                  <input type="hidden" name="_method" value="DELETE">
-   		                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-   		                    <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja deletar o Convênio selecionado?')">
-                              <i class="fa fa-trash"></i>
-                              </button>
-                          </form>
+                            <a href="{{ route('cau_convenio.edit', [$cau->id]) }}" class="btn btn-primary"> <i class="fa fa-pencil"> </i></a>
+                            <a href="{{ route('cau_convenio.assinar', [$cau->id]) }}" class="btn btn-primary" title="Marcar contrato como assinado"> <i class="fa fa-star"></i> </a>
+                            <form  class="col-md-3" action="{{route('cau_convenio.destroy', [$cau->id])}}" method="POST">
+    		                    <input type="hidden" name="_method" value="DELETE">
+   		                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+   		                        <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja deletar o Convênio selecionado?')">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </form>
                             <a class="btn btn-warning" href="/cau" target="_blank"><i class="fa fa-print"></i> </a>
                           </td>
                         </tr>

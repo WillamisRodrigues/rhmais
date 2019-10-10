@@ -24,16 +24,16 @@ class AvaliacaoController extends Controller
 
         $estagiarios = DB::table('avaliacao')
             ->join('estagiario', 'avaliacao.estagiario_id', '=', 'estagiario.id')
-            ->select(
-                'estagiario.nome'
-            )
+            // ->select(
+            //     'estagiario.nome'
+            // )
             ->get();
 
         $instituicoes = DB::table('avaliacao')
             ->join('empresa', 'avaliacao.empresa_id', '=', 'empresa.id')
-            ->select(
-                'empresa.nome_fantasia'
-            )
+            // ->select(
+            //     'empresa.nome_fantasia'
+            // )
             ->get();
         $empresas = DB::table('empresa')
             ->join('cidade', 'empresa.city', '=', 'cidade.id')
@@ -48,14 +48,32 @@ class AvaliacaoController extends Controller
             )
             ->get();
         $supervisores = DB::table('supervisor')->get();
-
+        // dd($empresas);
         return view('auto_avaliacao.index', [
             'estagiarios' => $estagiarios,
             'instituicoes' => $instituicoes,
             'empresas' => $empresas,
             'supervisores' => $supervisores
         ]);
-        // return view('auto_avaliacao.index', compact('avaliacoes'));
+    }
+
+    public function assinar_avaliacao_estagiario($id){
+        DB::update('update avaliacao set status = 1 where id = ?', [$id]);
+        return redirect('/lista_auto_avaliacao');
+    }
+
+    public function deletar_avaliacao_estagiario($id){
+        DB::delete('delete from `avaliacao` where `avaliacao`.`id` = ?', [$id]);
+        return redirect('/lista_auto_avaliacao');
+    }
+    public function assinar_avaliacao_supervisor($id){
+        DB::update('update avaliacao_super set status = 1 where id = ?', [$id]);
+        return redirect('/lista_avaliacao_supervisor');
+    }
+
+    public function deletar_avaliacao_supervisor($id){
+        DB::delete('delete from `avaliacao_super` where `avaliacao_super`.`id` = ?', [$id]);
+        return redirect('/lista_avaliacao_supervisor');
     }
 
     /**

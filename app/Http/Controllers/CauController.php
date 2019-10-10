@@ -126,4 +126,9 @@ class CauController extends Controller
             return redirect('cau_convenio');
         }
     }
+
+    public function assinado($id){
+        DB::update('update cau set situacao = 1 where id = ?', [$id]);
+        return redirect('cau_convenio');
+    }
 }
