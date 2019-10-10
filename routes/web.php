@@ -17,6 +17,7 @@ Route::get('/home', 'HomeController@index')->name('index');
 Route::post('/home', 'HomeController@index')->name('index');
 Route::get('/home/grafico', 'HomeController@grafico');
 Route::get('infos/{id}', ['uses' => 'FinanceiroController@infos', 'as' => 'financeiro.infos']);
+Route::post('editar_folha_pagamento', ['uses' => 'FolhaPagamentoController@editar', 'as' => 'folha_pagamento.editar']);
 
 Route::resource('empresa', 'EmpresaController');
 Route::resource('estagiario', 'EstagiarioController');
@@ -36,6 +37,8 @@ Route::resource('supervisor', 'SupervisorController');
 Route::resource('termo_recesso', 'RecessoController');
 Route::resource('financeiro', 'FinanceiroController');
 Route::resource('avaliacao_supervisor', 'AvaliacaoSuperController');
+Route::resource('folha_pagamento', 'FolhaPagamentoController');
+
 
 // Route::post('adicionarRecesso',['as' => 'adicionarRecesso', 'uses' => 'RecessoController@store']);
 
@@ -74,7 +77,6 @@ Route::get('/calculo', function () {
 /* fim recesso de ferias */
 
 /*rotas folhas de pagamento , recisao, rendimentos , previa_recisao*/
-Route::resource('folha_pagamento', 'FolhaPagamentoController');
 
 Route::get('/folha_rescisao', function () {
     return view('folha_rescisao/index');

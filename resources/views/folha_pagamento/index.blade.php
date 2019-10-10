@@ -84,16 +84,45 @@
                         </tr>
                       </thead>
                       <tbody>
-                         <tr>
-                          <td>Pendente</td>
-                          <td>2019/06</td>
-                          <td>CYNTHIA LIMA DA SILVA</td>
-                          <td>ENGENHO COM JEITO MODAS LTDA</td>
-                          <td>600,00</td>
-                          <td>0</td>
-                          <td>600,00</td>
-                          <td><a href="{!! route('folha_pagamento.edit', [1]) !!}" class="btn btn-primary"><i class="fa fa-pencil"></i> </a></td>
-                        </tr>
+                          @foreach ($folhas as $folha)
+                            <tr>
+                                <td>
+                                    @if ($folha->status == 0)
+                                        Pendente
+                                    @else
+                                        Gerado
+                                    @endif
+                                </td>
+                                <td>{{ $folha->referencia }}</td>
+                                <td>
+                                    @php
+                                        foreach ($estagiarios as $estagiario) {
+                                            if ($estagiario->id == $folha->estagiario_id) {
+                                                echo $estagiario->nome;
+                                            }
+                                        }
+                                    @endphp
+                                </td>
+                                <td>
+                                    @php
+                                        foreach ($empresas as $empresa) {
+                                            if ($empresa->id == $folha->empresa_id) {
+                                                echo $empresa->nome_fantasia;
+                                            }
+                                        }
+                                    @endphp
+                                </td>
+                                <td>{{ $folha->valor_bolsa }}</td>
+                                <td>{{ $folha->faltas }}</td>
+                                <td>{{ $folha->valor_liquido }}</td>
+                                <td>
+                                    @if ($folha->status == 0)
+                                        <a href="{!! route('folha_pagamento.edit', [$folha->id]) !!}" class="btn btn-primary"><i class="fa fa-pencil"></i> </a>
+                                    @endif
+                                </td>
+                            </tr>
+                          @endforeach
+
                       </tbody>
                     </table>
                   </div>
