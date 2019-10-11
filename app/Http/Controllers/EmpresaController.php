@@ -19,7 +19,6 @@ class EmpresaController extends Controller
         // $empresas = Empresa::all();
 
         $empresas = DB::table('empresa')
-            ->join('cidade', 'empresa.city', '=', 'cidade.id')
             ->select(
             'empresa.razao_social',
             'empresa.nome_fantasia',
@@ -30,7 +29,8 @@ class EmpresaController extends Controller
             'empresa.qtd_plano',
             'empresa.valor_fixo',
             'empresa.valor_percentual',
-            'cidade.nome AS nome_cidade'
+            'empresa.cidade',
+            'empresa.estado'
             )
             ->get();
         return view('empresa.index',compact('empresas', $empresas));
@@ -43,8 +43,8 @@ class EmpresaController extends Controller
      */
     public function create()
     {
-        $states = DB::table("estado")->pluck("nome", "id");
-        return view('empresa.create', compact('states', 'empresas'));
+        $estados = DB::table("estado")->pluck("nome", "id");
+        return view('empresa.create', compact('estados', 'empresas'));
     }
 
     /**
@@ -69,8 +69,8 @@ class EmpresaController extends Controller
         $empresas->insc_estadual = $request->get('insc_estadual');
         $empresas->telefone = $request->get('telefone');
         $empresas->site_url = $request->get('site_url');
-        $empresas->city = $request->get('city');
-        $empresas->state = $request->get('state');
+        $empresas->cidade = $request->get('cidade');
+        $empresas->estado = $request->get('estado');
         $empresas->nome_rep = $request->get('nome_rep');
         $empresas->rg_rep = $request->get('rg_rep');
         $empresas->cpf_rep = $request->get('cpf_rep');

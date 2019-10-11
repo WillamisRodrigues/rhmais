@@ -97,18 +97,19 @@
                                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                            <input type="text" value="{{ $estado->nome }}" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Estado" name="state">
+                                            <input type="text" value="{{ $estagiario->estado }}" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Estado" name="estado">
                                             <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
                                         </div>
                                         </div>
                                         <div class="row" style="width:960px; margin: 0 auto;">
 
                                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                            <input type="text" value="{{ $cidade->nome }}" class="form-control has-feedback-left" placeholder="Cidade" name="city">
+                                            <input type="text" value="{{ $estagiario->cidade }}" class="form-control has-feedback-left" placeholder="Cidade" name="cidade">
                                             <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" value="{{ $empresas->nome_fantasia }}" class="form-control has-feedback-left" placeholder="Unidade Concedente" name="empresa_id">
+                                        <div  class="form-control has-feedback-left" placeholder="Unidade Concedente" name="empresa_id">{{ $empresas->nome_fantasia }}
+                                        </div>
                                         <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -162,7 +163,7 @@
                                                 <select class="form-control has-feedback-left" name="instituicao_id">
                                                     <option>Instituição de Ensino</option>
                                                    @foreach ($instituicoes as $instituicao)
-                                                <option value="{{$instituicao->nome_instituicao}}">{{$instituicao->nome_instituicao}}</option>
+                                                <option value="{{$instituicao->institituicao_id}}">{{$instituicao->nome_instituicao}}</option>
                                                    @endforeach
                                                 </select>
                                                 <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>

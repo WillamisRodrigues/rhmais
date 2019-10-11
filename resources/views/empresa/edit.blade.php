@@ -52,9 +52,8 @@
                             <input type="text" value="{{ $empresa->insc_estadual }}" class="form-control has-feedback-left" placeholder="Insc. Estadual/Rg" name="insc_estadual">
                             <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
                           </div>
-
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" value="{{ $empresa->city }}" class="form-control has-feedback-left" placeholder="Cidade" name="city">
+                            <input type="text" value="{{ $empresa->cidade }}" class="form-control has-feedback-left" placeholder="Cidade" name="cidade">
                             <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
@@ -111,7 +110,7 @@
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" value="{{ $empresa->state }}" class="form-control has-feedback-left" placeholder="Estado" name="state">
+                            <input type="text" value="{{ $empresa->estado }}" class="form-control has-feedback-left" placeholder="Estado" name="estado">
                             <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">

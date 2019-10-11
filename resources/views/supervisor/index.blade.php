@@ -57,7 +57,7 @@
                          <td>{{$supervisor->nome}}</td>
                             <td>{{$supervisor->cpf}}</td>
                             <td>{{$supervisor->rg}}</td>
-                            <td>RIBEIRÃO PRETO</td>
+                            <td>{{$supervisor->cidade}}</td>
                             <td>PRINCIPAL RB PROMOTORA DE CREDITO LTDA ME - PRINCIPAL PROMOTORA</td>
                             <td>{{$supervisor->agente_integracao}}</td>
                             <td style="width:15%;">

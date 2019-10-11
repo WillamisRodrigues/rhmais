@@ -55,8 +55,8 @@
                          <tr>
                           <td>{{$instituicao->nome_instituicao}}</td>
                           <td>{{$instituicao->razao_social}}</td>
+                          <td>{{$instituicao->cidade}}</td>
                           <td>{{$instituicao->rua}}</td>
-                          <td>{{$instituicao->nome_cidade}}</td>
                           <td>{{$instituicao->cnpj}}</td>
                            <td style="width:15%;">
                            <div class="col-md-3">
@@ -66,7 +66,7 @@
     		                  <input type="hidden" name="_method" value="DELETE">
    		                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                            <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja deletar a instituição selecionada?')">
-                              <i class="fa fa-trash"></i> 
+                              <i class="fa fa-trash"></i>
                               </button>
                           </form>
                           </td>

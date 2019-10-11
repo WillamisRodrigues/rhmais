@@ -36,7 +36,6 @@ class AvaliacaoController extends Controller
             )
             ->get();
         $empresas = DB::table('empresa')
-            ->join('cidade', 'empresa.city', '=', 'cidade.id')
             ->select(
                 'empresa.razao_social',
                 'empresa.nome_fantasia',
@@ -44,7 +43,8 @@ class AvaliacaoController extends Controller
                 'empresa.insc_estadual',
                 'empresa.telefone',
                 'empresa.id',
-                'cidade.nome AS nome_cidade'
+                'empresa.cidade',
+                'empresa.estado'
             )
             ->get();
         $tceContrato = DB::table('tce_contrato')
@@ -74,7 +74,6 @@ class AvaliacaoController extends Controller
     {
         $estagiarios = DB::table('estagiario')
             ->join('empresa', 'estagiario.empresa_id', '=', 'empresa.id')
-            ->join('cidade', 'estagiario.city', '=', 'cidade.id')
             ->select(
                 'estagiario.nome',
                 'empresa.nome_fantasia',
@@ -84,22 +83,22 @@ class AvaliacaoController extends Controller
                 'estagiario.id',
                 'estagiario.status',
                 'estagiario.escolaridade',
-                'cidade.nome AS nome_cidade'
+                'estagiario.cidade',
+                'estagiario.estado'
             )
             ->get();
         $instituicoes = DB::table('instituicao')
-            ->join('cidade', 'instituicao.city', '=', 'cidade.id')
             ->select(
                 'instituicao.razao_social',
                 'instituicao.nome_instituicao',
                 'instituicao.cnpj',
                 'instituicao.rua',
                 'instituicao.id',
-                'cidade.nome AS nome_cidade'
+                'instituicao.cidade',
+                'instituicao.estado'
             )
             ->get();
         $empresas = DB::table('empresa')
-            ->join('cidade', 'empresa.city', '=', 'cidade.id')
             ->select(
                 'empresa.razao_social',
                 'empresa.nome_fantasia',
@@ -107,7 +106,8 @@ class AvaliacaoController extends Controller
                 'empresa.insc_estadual',
                 'empresa.telefone',
                 'empresa.id',
-                'cidade.nome AS nome_cidade'
+                'empresa.cidade',
+                'empresa.estado'
             )
             ->get();
         $supervisores = DB::table('supervisor')->get();
@@ -179,7 +179,6 @@ class AvaliacaoController extends Controller
     {
         $estagiarios = DB::table('estagiario')
             ->join('empresa', 'estagiario.empresa_id', '=', 'empresa.id')
-            ->join('cidade', 'estagiario.city', '=', 'cidade.id')
             ->select(
                 'estagiario.nome',
                 'empresa.nome_fantasia',
@@ -189,22 +188,22 @@ class AvaliacaoController extends Controller
                 'estagiario.id',
                 'estagiario.status',
                 'estagiario.escolaridade',
-                'cidade.nome AS nome_cidade'
+                'estagiario.cidade',
+                'estagiario.estado'
             )
             ->get();
         $instituicoes = DB::table('instituicao')
-            ->join('cidade', 'instituicao.city', '=', 'cidade.id')
             ->select(
                 'instituicao.razao_social',
                 'instituicao.nome_instituicao',
                 'instituicao.cnpj',
                 'instituicao.rua',
                 'instituicao.id',
-                'cidade.nome AS nome_cidade'
+                'instituicao.cidade',
+                'instituicao.estado'
             )
             ->get();
         $empresas = DB::table('empresa')
-            ->join('cidade', 'empresa.city', '=', 'cidade.id')
             ->select(
                 'empresa.razao_social',
                 'empresa.nome_fantasia',
@@ -212,8 +211,9 @@ class AvaliacaoController extends Controller
                 'empresa.insc_estadual',
                 'empresa.telefone',
                 'empresa.id',
-                'cidade.nome AS nome_cidade'
-            )
+                'empresa.cidade',
+                'empresa.estado'
+                )
             ->get();
         $supervisores = DB::table('supervisor')->get();
 

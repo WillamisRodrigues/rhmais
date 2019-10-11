@@ -28,12 +28,12 @@ class OrientadorController extends Controller
      */
     public function create()
     {
-        $states = DB::table("estado")->pluck("nome", "id");
+        $estados = DB::table("estado")->pluck("nome", "id");
 
         $instituicoes = Instituicao::all();
         $empresas = Empresa::all();
 
-        return view('orientador.create', compact('states', 'empresas', 'cursos', 'instituicoes'));
+        return view('orientador.create', compact('estados', 'empresas', 'cursos', 'instituicoes'));
     }
 
     /**
@@ -59,8 +59,8 @@ class OrientadorController extends Controller
         $orientadoress->agente_int = $request->get('agente_int');
         $orientadoress->pessoa_responsavel = $request->get('pessoa_responsavel');
         $orientadoress->sexo = $request->get('sexo');
-        $orientadoress->city = $request->get('city');
-        $orientadoress->state = $request->get('state');
+        $orientadoress->cidade = $request->get('cidade');
+        $orientadoress->estado = $request->get('estado');
         $orientadoress->escolaridade = $request->get('escolaridade');
         $orientadoress->nacionalidade = $request->get('nacionalidade');
         $orientadoress->cep = $request->get('cep');

@@ -23,9 +23,8 @@ class PdfController extends Controller
     {
         $estagiarios = DB::table('estagiario')
             ->join('endereco', 'estagiario.id', '=', 'endereco.estagiario_id')
-            ->join('cidade', 'estagiario.city', '=', 'cidade.id')
             ->select(
-                'cidade.nome AS nome_cidade',
+                'estagiario.cidade AS nome_cidade',
                 'estagiario.nome',
                 'estagiario.empresa_id',
                 'estagiario.celular',
@@ -78,8 +77,8 @@ class PdfController extends Controller
                     'estagiario.rua',
                     'estagiario.numero',
                     'estagiario.bairro',
-                    'estagiario.city',
-                    'estagiario.state',
+                    'estagiario.cidade',
+                    'estagiario.estado',
                     'estagiario.cep',
                     'estagiario.celular',
                     'estagiario.cpf',
@@ -89,8 +88,8 @@ class PdfController extends Controller
                     'instituicao.cnpj AS instituicao_cnpj',
                     'instituicao.numero AS instituicao_numero',
                     'instituicao.bairro AS instituicao_bairro',
-                    'instituicao.city AS instituicao_cidade',
-                    'instituicao.state AS instituicao_estado',
+                    'instituicao.cidade AS instituicao_cidade',
+                    'instituicao.estado AS instituicao_estado',
                     'instituicao.cep AS instituicao_cep',
                     'instituicao.nome_rep AS instituicao_nome_rep',
                     'instituicao.cargo_rep AS instituicao_cargo_rep',
@@ -101,8 +100,8 @@ class PdfController extends Controller
                     'empresa.cnpj AS empresa_cnpj',
                     'empresa.numero AS empresa_numero',
                     'empresa.bairro AS empresa_bairro',
-                    'empresa.city AS empresa_cidade',
-                    'empresa.state AS empresa_estado',
+                    'empresa.cidade AS empresa_cidade',
+                    'empresa.estado AS empresa_estado',
                     'empresa.cep AS empresa_cep',
                     'empresa.nome_rep AS empresa_nome_rep',
                     'empresa.cargo_rep AS empresa_cargo_rep',

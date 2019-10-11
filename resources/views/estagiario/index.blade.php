@@ -69,7 +69,7 @@
                           <td>{{$estagiario->nome_fantasia}}</td>
                           <td>{{$estagiario->celular}}</td>
                           <td>{{$estagiario->cpf}}</td>
-                          <td>{{$estagiario->nome_cidade}}</td>
+                          <td>{{$estagiario->cidade}}</td>
                           <td>{{date('d/m/Y', strtotime($estagiario->data_nascimento))}}</td>
                           <td>{{$estagiario->escolaridade}}</td>
                            <td>{{date('d/m/Y', strtotime($estagiario->termino_curso))}}</td>

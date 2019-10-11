@@ -16,18 +16,7 @@ class InstituicaoController extends Controller
 
     public function index()
     {
-        // $instituicoes = Instituicao::all();
-         $instituicoes = DB::table('instituicao')
-            ->join('cidade', 'instituicao.city', '=', 'cidade.id')
-            ->select(
-            'instituicao.razao_social',
-            'instituicao.nome_instituicao',
-            'instituicao.cnpj',
-            'instituicao.rua',
-            'instituicao.id',
-            'cidade.nome AS nome_cidade'
-            )
-            ->get();
+        $instituicoes = Instituicao::all();
         return view('instituicao.index',compact('instituicoes', $instituicoes));
 
     }
@@ -39,8 +28,8 @@ class InstituicaoController extends Controller
      */
     public function create()
     {
-        $states = DB::table("estado")->pluck("nome", "id");
-        return view('instituicao.create', compact('states','insti$instituicoes'));
+        // $estados = DB::table("estado")->pluck("nome", "id");
+        return view('instituicao.create', compact('insti$instituicoes'));
     }
 
     /**
@@ -66,8 +55,8 @@ class InstituicaoController extends Controller
         $instituicoes->insc_estadual = $request->get('insc_estadual');
         $instituicoes->telefone = $request->get('telefone');
         $instituicoes->site_url = $request->get('site_url');
-        $instituicoes->city = $request->get('city');
-        $instituicoes->state = $request->get('state');
+        $instituicoes->cidade = $request->get('cidade');
+        $instituicoes->estado = $request->get('estado');
         $instituicoes->nome_rep = $request->get('nome_rep');
         $instituicoes->rg_rep = $request->get('rg_rep');
         $instituicoes->cpf_rep = $request->get('cpf_rep');

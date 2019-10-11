@@ -29,12 +29,9 @@ class SupervisorController extends Controller
      */
     public function create()
     {
-        $states = DB::table("estado")->pluck("nome", "id");
-
         $instituicoes = Instituicao::all();
         $empresas = Empresa::all();
-
-        return view('supervisor.create', compact('states', 'empresas', 'cursos', 'instituicoes'));
+        return view('supervisor.create', compact('empresas', 'cursos', 'instituicoes'));
     }
 
     /**
@@ -59,13 +56,12 @@ class SupervisorController extends Controller
         $supervisores->telefone = $request->get('telefone');
         $supervisores->celular = $request->get('celular');
         $supervisores->agente_integracao = $request->get('agente_integracao');
-        $supervisores->city = $request->get('city');
-        $supervisores->state = $request->get('state');
+        $supervisores->cidade = $request->get('cidade');
+        $supervisores->estado = $request->get('estado');
         $supervisores->escolaridade = $request->get('escolaridade');
         $supervisores->cep = $request->get('cep');
         $supervisores->rua = $request->get('rua');
         $supervisores->bairro = $request->get('bairro');
-        $supervisores->cep = $request->get('cep');
         $supervisores->numero = $request->get('numero');
         $supervisores->save();
 
@@ -94,10 +90,9 @@ class SupervisorController extends Controller
     {
         $supervisor = Supervisor::find($id);
         $empresa = DB::table('empresa')->where('id', '=', $supervisor->empresa_id)->get()->first();
-        $cidade = DB::table('cidade')->where('id', '=', $supervisor->city)->get()->first();
 
         // dd($empresa);
-        return view('supervisor.edit', compact('supervisor', 'empresa', 'cidade', $supervisor));
+        return view('supervisor.edit', compact('supervisor', 'empresa', $supervisor));
     }
 
     /**
@@ -125,8 +120,10 @@ class SupervisorController extends Controller
      * @param  \App\Supervisor  $supervisor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Supervisor $supervisor)
+    public function destroy(Request $request, Supervisor $supervisor)
     {
-        //
+        $supervisor->delete();
+        $request->session()->flash('warning', 'Removido com sucesso!');
+        return redirect('supervisor');
     }
 }
