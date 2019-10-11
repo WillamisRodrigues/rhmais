@@ -1,4 +1,5 @@
 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+<<<<<<< HEAD
     <select class="form-control has-feedback-left" name="estados">
 	<option value="AC">Acre</option>
 	<option value="AL">Alagoas</option>
@@ -29,6 +30,22 @@
 	<option value="TO">Tocantins</option>
 </select>
     <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+=======
+    <select class="form-control has-feedback-left" name="state">
+       <option value=""> Selecione Estado </option>
+        @foreach ($states as $key => $value)
+                        <option value="{{ $key }}">{{ $value }}</option>
+        @endforeach
+    </select>
+    <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
+</div>
+<div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+     {{-- <select name="city" class="form-control has-feedback-left">
+        <option value="">Selecione Cidade </option>
+    </select> --}}
+    <input type="text" name="city" class="form-control has-feedback-left" placeholder="Cidade">
+    <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
+>>>>>>> 28eed1273b3088c0faa18fd6efbb592c221c6847
 </div>
     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
         <input type="text" class="form-control has-feedback-left" placeholder="Cidade" name="cidade" value="{{old('cidade')}}">
