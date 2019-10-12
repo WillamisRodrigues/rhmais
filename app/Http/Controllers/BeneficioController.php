@@ -95,7 +95,7 @@ class BeneficioController extends Controller
 
         $beneficio->update($request->all());
         $beneficio->save();
-        $request->session()->flash('sucess', 'Atualizado com sucesso!');
+        $request->session()->flash('success', 'Atualizado com sucesso!');
         return redirect('beneficio');
     }
 

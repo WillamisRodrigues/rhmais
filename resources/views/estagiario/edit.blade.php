@@ -97,8 +97,8 @@
                                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <select class="form-control has-feedback-left" name="nivel">
-                                                <option>Selecione o Estado</option>
+                                                <select class="form-control has-feedback-left" name="estado">
+                                                <option value="{{ $estagiario->estado }}">{{ $estagiario->estado }}</option>
                                                 @foreach ($estados as $estado)
                                                 <option value="{{$estado->nome}}">{{$estado->nome}}</option>
                                                 @endforeach
@@ -120,6 +120,8 @@
                                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="sexo">
                                                     <option value="{{$estagiario->sexo}}">{{$estagiario->sexo}} </option>
+                                                    <option value="Masculino"> Masculino </option>
+                                                    <option value="Feminino"> Feminino </option>
                                                 </select>
                                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                         </div>
@@ -130,7 +132,7 @@
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="nivel">
-                                                <option>Selecione um nível</option>
+                                                 <option value="{{ $estagiario->nivel }}">{{ $estagiario->nivel }}</option>
                                                 @foreach ($cursos as $curso)
                                                 <option value="{{$curso->nivel}}">{{$curso->nivel}}</option>
                                                 @endforeach
@@ -138,8 +140,8 @@
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <select class="form-control has-feedback-left" name="escolaridade">
-                                                    <option>Selecione um curso</option>
+                                                <select class="form-control has-feedback-left" name="curso">
+                                                    <option value="{{ $estagiario->curso }}">{{ $estagiario->curso }}</option>
                                                   @foreach ($cursos as $curso)
                                                 <option value="{{$curso->nome}}">{{$curso->nome}}</option>
                                                 @endforeach
@@ -148,7 +150,7 @@
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="periodo">
-                                                    <option>Período</option>
+                                                    <option value="{{ $estagiario->periodo }}">{{ $estagiario->periodo }}</option>
                                                     @foreach ($cursos as $curso)
                                                 <option value="{{$curso->periodo}}">{{$curso->periodo}}</option>
                                                     @endforeach
@@ -157,7 +159,7 @@
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="horario">
-                                                    <option>Horário de Estudo</option>
+                                                      <option value="{{ $estagiario->horario }}">{{ $estagiario->horario }}</option>
                                                     @foreach ($horarios as $horario)
                                                 <option value="{{$horario->descricao}}">{{$horario->descricao}}</option>
                                                     @endforeach
@@ -190,19 +192,19 @@
                                                 <span class="fa fa-barcode form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" value="{{ $estagiario->senha }}" class="form-control has-feedback-left" placeholder="Criar Senha" name="senha">
+                                                <input type="password" value="{{ $estagiario->senha }}" class="form-control has-feedback-left" placeholder="Criar Senha" name="senha">
                                                 <span class="fa fa-key form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12">
                                                 <div class="checkbox">
                                                     <label>
-                                                    <input type="checkbox" class="flat"> Esta Ativo
+                                                    <input name="ativo" type="checkbox" class="flat"> Esta Ativo
                                                     </label>
                                                 </div>
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                                                <label>Sua observação</label>
-                                            <textarea class="form-control" name="nomeText">{{$estagiario->obs}}</textarea>
+                                                <label>{{$estagiario->obs}}</label>
+                                            <textarea class="form-control" name="obs">{{$estagiario->obs}}</textarea>
                                             </div>
                                         </div>
                                         <button  type="submit"class="btn btn-success" style="margin: 20px auto; display:block;">Salvar Alterações</button>

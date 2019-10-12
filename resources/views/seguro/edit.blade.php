@@ -46,7 +46,7 @@
                                             </div>
                                              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="empresa_id">
-                                                    <option>Selecione Unidade Concedente:</option>
+                                                   <option value="{{ $seguradora->empresa_id}}">{{ $seguradora->empresa_id }}</option>
                                                      @foreach ($empresas as $empresa)
                                                         <option value="{{$empresa->nome_fantasia}}">{{$empresa->nome_fantasia}}</option>
                                                         @endforeach

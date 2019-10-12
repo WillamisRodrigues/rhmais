@@ -75,7 +75,8 @@ class HorarioController extends Controller
     public function edit($id)
     {
         $horarios = Horario::find($id);
-        return view('horario.edit', compact('horarios', $horarios));
+        $empresas = Empresa::all();
+        return view('horario.edit', compact('horarios','empresas', $horarios));
     }
 
     /**

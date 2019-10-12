@@ -81,7 +81,7 @@ class SeguradoraController extends Controller
         $seguradora = DB::table('seguradora')->where('id', $id)->get()->first();
         // $empresas = DB::table('empresa')->where('id', '=', $seguradora->empresa_id)->get()->first();
         $empresas = Empresa::all();
-        
+
         return view('seguro.edit', [
             'seguradora' => $seguradora,
             'empresas' => $empresas
@@ -103,7 +103,7 @@ class SeguradoraController extends Controller
 
         $seguradora->update($request->all());
         $seguradora->save();
-        $request->sessionseguroflash('message', 'Sucesso!');
+        $request->sessionseguroflash('success', 'Atualizado com sucesso!');
         return redirect('seguro');
     }
 
@@ -113,8 +113,10 @@ class SeguradoraController extends Controller
      * @param  \App\Seguradora  $seguradora
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Seguradora $seguradora)
+    public function destroy(Request $request, Seguradora $seguradora)
     {
-        //
+        $seguradora->delete();
+        $request->session()->flash('warning', 'Removido com sucesso!');
+        return redirect('seguro');
     }
 }

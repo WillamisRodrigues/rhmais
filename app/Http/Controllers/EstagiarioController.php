@@ -37,7 +37,8 @@ class EstagiarioController extends Controller
                 'estagiario.estado',
                 'estagiario.id',
                 'estagiario.status',
-                'estagiario.escolaridade',
+                'estagiario.nivel',
+                'estagiario.curso',
                 'estagiario.termino_curso'
             )
             ->get();
@@ -179,7 +180,8 @@ class EstagiarioController extends Controller
         $estagiarios->sexo = $request->get('sexo');
         $estagiarios->cidade = $request->get('cidade');
         $estagiarios->estado = $request->get('estado');
-        $estagiarios->escolaridade = $request->get('escolaridade');
+        $estagiarios->nivel = $request->get('nivel');
+        $estagiarios->curso = $request->get('curso');
         $estagiarios->nacionalidade = $request->get('nacionalidade');
         $estagiarios->pai = $request->get('pai');
         $estagiarios->mae = $request->get('mae');
@@ -193,6 +195,7 @@ class EstagiarioController extends Controller
         $estagiarios->conta = $request->get('conta');
         $estagiarios->codigo_vaga = $request->get('codigo_vaga');
         $estagiarios->senha = $request->get('senha');
+        $estagiarios->periodo = $request->get('periodo');
         $estagiarios->obs = $request->get('obs');
         $estagiarios->matricula = $request->get('matricula');
         $estagiarios->empresa_id = $request->get('empresa_id');

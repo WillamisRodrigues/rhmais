@@ -56,7 +56,7 @@
                                     </div>
                                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="empresa">
-                                                    <option>Selecione a Unidade:</option>
+                                                     <option value="{{ $orientador->empresa }}">{{ $orientador->empresa }}</option>
                                                       @foreach ($empresas as $empresa)
                                                         <option value="{{ $empresa->nome_fantasia }}">{{ $empresa->nome_fantasia }}</option>
                                                      @endforeach
@@ -64,7 +64,7 @@
                                      </div>
                                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="instituicao">
-                                                    <option>Selecione Instituição de Ensino:</option>
+                                                      <option value="{{ $orientador->instituicao }}">{{ $orientador->instituicao }}</option>
                                                       @foreach ($instituicoes as $instituicao)
                                                         <option value="{{ $instituicao->nome_instituicao }}">{{ $instituicao->nome_instituicao }}</option>
                                                      @endforeach

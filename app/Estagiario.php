@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 class Estagiario extends Model
 {
         protected $fillable = ['nome', 'rg','cpf','telefone','celular','email','data_nascimento','ctps','serie_ctps','numero_pis',
-        'dt_cadastro','agente_int','pessoa_responsavel','sexo','agente_int','sexo','escolaridade','status','empresa_id','instituicao_id',
-        'cep','rua','numero','bairro','complemento','cidade','estado','nacionalidade','obs','banco','conta','codigo_vaga','senha','matricula'];
+        'dt_cadastro','agente_int','pessoa_responsavel','sexo','agente_int','sexo','nivel','status','empresa_id','instituicao_id',
+        'cep','rua','numero','bairro','complemento','cidade','estado','nacionalidade','obs','banco','conta','codigo_vaga','senha','matricula', 'curso', 'periodo', 'horario'];
 
     protected $table = 'estagiario';
 
