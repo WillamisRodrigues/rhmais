@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Instituicao;
 use App\Endereco;
+use App\Estado;
 use Illuminate\Support\Facades\DB;
 
 class InstituicaoController extends Controller
@@ -98,7 +99,8 @@ class InstituicaoController extends Controller
      */
     public function edit(Instituicao $instituicao)
     {
-         return view('instituicao.edit',compact('instituicao',$instituicao));
+        $estados = Estado::all();
+         return view('instituicao.edit',compact('instituicao', 'estados', $instituicao));
     }
 
     /**
@@ -118,7 +120,7 @@ class InstituicaoController extends Controller
 
         $instituicao->update($request->all());
         $instituicao->save();
-        $request->session()->flash('message', 'Atualizado com sucesso!');
+        $request->session()->flash('success', 'Atualizado com sucesso!');
         return redirect('instituicao');
     }
 
@@ -131,7 +133,7 @@ class InstituicaoController extends Controller
     public function destroy(Request $request, Instituicao $instituicoes)
     {
        $instituicoes->delete();
-       $request->session()->flash('message', 'Removido com sucesso!');
+       $request->session()->flash('warning', 'Removido com sucesso!');
        return redirect('instituicao');
     }
 }

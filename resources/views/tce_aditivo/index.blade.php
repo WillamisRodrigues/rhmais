@@ -72,7 +72,13 @@
                           <td>{{ date('d/m/Y', strtotime($tcead->data_inicio)) }}</td>
                           <td>{{date('d/m/Y', strtotime($tcead->data_fim))}}</td>
                           <td>{{ $tcead->contrato }}</td>
-                          <td>{{ $tcead->assinado }}</td>
+                          <td>
+                            @if ( $tcead->assinado == '1')
+                              Sim
+                              @else
+                              Não
+                            @endif
+                            </td>
                           <td>{{ $tcead->obrigatorio }}</td>
                           <td><a class="btn btn-primary" href="{{ route('tce_aditivo.edit',[$tcead->id])}}"><i class="fa fa-plus"></i></a></td>
                         </tr>

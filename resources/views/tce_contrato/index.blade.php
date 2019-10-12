@@ -73,7 +73,13 @@
                           <td>{{date('d/m/Y', strtotime($tce->data_inicio)) }}</td>
                           <td>{{ date('d/m/Y', strtotime($tce->data_fim ))}}</td>
                           <td>{{ $tce->contrato }}</td>
-                          <td>{{ $tce->assinado }}</td>
+                          <td>
+                             @if ($tce->assinado == '1')
+                              Sim
+                              @else
+                              Não
+                            @endif
+                          </td>
                           <td>{{ $tce->obrigatorio }}</td>
                          <td><a class="btn btn-primary" href="{{ action('EstagiarioController@gerarRelatorio', $tce->id) }}" target="_blank"><i class="fa fa-print"></i> Imprimir TCE</a>
                          <a href="{{ route('tce_contrato.edit',[$tce->tceId])}}" class="btn btn-danger"><i class="fa fa-print"></i> Gerar Rescisão</a>

@@ -55,9 +55,21 @@
                                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" value="{{ $orientador->empresa }}" class="form-control has-feedback-left" placeholder="Unidade:" name="empresa">
-                                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
-                                    </div>
+                                                <select class="form-control has-feedback-left" name="empresa">
+                                                    <option>Selecione a Unidade:</option>
+                                                      @foreach ($empresas as $empresa)
+                                                        <option value="{{ $empresa->nome_fantasia }}">{{ $empresa->nome_fantasia }}</option>
+                                                     @endforeach
+                                                </select>
+                                     </div>
+                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                <select class="form-control has-feedback-left" name="instituicao">
+                                                    <option>Selecione Instituição de Ensino:</option>
+                                                      @foreach ($instituicoes as $instituicao)
+                                                        <option value="{{ $instituicao->nome_instituicao }}">{{ $instituicao->nome_instituicao }}</option>
+                                                     @endforeach
+                                                </select>
+                                     </div>
                                   <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                         <input type="text" class="form-control has-feedback-left" value="RH Mais" readonly placeholder="Agente de Integração" name="agenteint">
                                         <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>

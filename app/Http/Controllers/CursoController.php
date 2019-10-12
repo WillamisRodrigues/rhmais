@@ -89,7 +89,7 @@ class CursoController extends Controller
 
         $curso->update($request->all());
         $curso->save();
-        $request->session()->flash('message', 'Sucesso!');
+        $request->session()->flash('success', 'Atualizado com sucesso!');
         return redirect('curso');
     }
 

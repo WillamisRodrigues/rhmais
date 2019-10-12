@@ -99,7 +99,7 @@ class UserController extends Controller
         $users->email = $request->get('email');
         $users->save();
 
-        $request->session()->flash('message', 'Sucesso!');
+        $request->session()->flash('success', 'Atualizado com sucesso!');
         return redirect('user_sistema');
     }
 

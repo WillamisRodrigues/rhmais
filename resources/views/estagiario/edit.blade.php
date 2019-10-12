@@ -71,7 +71,7 @@
                                     </div>
                                     <div class="row" style="width:960px; margin: 0 auto;">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="text" value="{{ $estagiario->data_nascimento }}" class="form-control has-feedback-left" placeholder="Data de Nascimento" name="data_nascimento">
+                                        <input type="text" value="{{ date('d/m/Y', strtotime($estagiario->data_nascimento )) }}" class="form-control has-feedback-left" placeholder="Data de Nascimento" name="data_nascimento">
                                         <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -97,9 +97,14 @@
                                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                            <input type="text" value="{{ $estagiario->estado }}" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Estado" name="estado">
-                                            <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
-                                        </div>
+                                                <select class="form-control has-feedback-left" name="nivel">
+                                                <option>Selecione o Estado</option>
+                                                @foreach ($estados as $estado)
+                                                <option value="{{$estado->nome}}">{{$estado->nome}}</option>
+                                                @endforeach
+                                                </select>
+                                                <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
                                         </div>
                                         <div class="row" style="width:960px; margin: 0 auto;">
 
@@ -133,7 +138,7 @@
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <select class="form-control has-feedback-left" name="curso">
+                                                <select class="form-control has-feedback-left" name="escolaridade">
                                                     <option>Selecione um curso</option>
                                                   @foreach ($cursos as $curso)
                                                 <option value="{{$curso->nome}}">{{$curso->nome}}</option>
@@ -159,15 +164,11 @@
                                                 </select>
                                                 <span class="fa fa-clock-o form-control-feedback left" aria-hidden="true"></span>
                                             </div>
-                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <select class="form-control has-feedback-left" name="instituicao_id">
-                                                    <option>Instituição de Ensino</option>
-                                                   @foreach ($instituicoes as $instituicao)
-                                                <option value="{{$instituicao->institituicao_id}}">{{$instituicao->nome_instituicao}}</option>
-                                                   @endforeach
-                                                </select>
-                                                <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
-                                            </div>
+                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                        <div  class="form-control has-feedback-left" placeholder="Instituição de Ensino" name="instituicao_id">{{$instituicoes->nome_instituicao}}
+                                        </div>
+                                             </div>
+
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                  <input type="text" value="{{ $estagiario->matricula }}" class="form-control has-feedback-left" placeholder="Matricula" name="matricula">
                                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>

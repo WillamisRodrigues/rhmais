@@ -16,23 +16,22 @@ class EmpresaController extends Controller
 
     public function index()
     {
-        // $empresas = Empresa::all();
-
-        $empresas = DB::table('empresa')
-            ->select(
-            'empresa.razao_social',
-            'empresa.nome_fantasia',
-            'empresa.cnpj',
-            'empresa.insc_estadual',
-            'empresa.telefone',
-            'empresa.id',
-            'empresa.qtd_plano',
-            'empresa.valor_fixo',
-            'empresa.valor_percentual',
-            'empresa.cidade',
-            'empresa.estado'
-            )
-            ->get();
+        $empresas = Empresa::all();
+        // $empresas = DB::table('empresa')
+        //     ->select(
+        //     'empresa.razao_social',
+        //     'empresa.nome_fantasia',
+        //     'empresa.cnpj',
+        //     'empresa.insc_estadual',
+        //     'empresa.telefone',
+        //     'empresa.id',
+        //     'empresa.qtd_plano',
+        //     'empresa.valor_fixo',
+        //     'empresa.valor_percentual',
+        //     'empresa.cidade',
+        //     'empresa.estado'
+        //     )
+        //     ->get();
         return view('empresa.index',compact('empresas', $empresas));
     }
 
@@ -132,7 +131,7 @@ class EmpresaController extends Controller
 
         $empresa->update($request->all());
         $empresa->save();
-        $request->session()->flash('message', 'Atualizado com sucesso!');
+        $request->session()->flash('success', 'Atualizado com sucesso!');
         return redirect('empresa');
     }
 
@@ -145,7 +144,7 @@ class EmpresaController extends Controller
     public function destroy(Request $request, Empresa $empresa)
     {
         $empresa->delete();
-        $request->session()->flash('message', 'Removido com sucesso!');
+        $request->session()->flash('warning', 'Removido com sucesso!');
         return redirect('empresa');
     }
 

@@ -67,7 +67,7 @@
                                                 <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control nascimento has-feedback-left" placeholder="Data de Nascimento" name="data_nascimento" value="{{old('data_nascimento')}}">
+                                                <input type="date" class="form-control nascimento has-feedback-left" placeholder="Data de Nascimento" name="data_nascimento" value="{{old('data_nascimento')}}">
                                                 <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">

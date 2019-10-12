@@ -110,7 +110,7 @@ class SupervisorController extends Controller
 
         $supervisor->update($request->all());
         $supervisor->save();
-        $request->session()->flash('message', 'Sucesso!');
+        $request->session()->flash('success', 'Atualizado com sucesso!');
         return redirect('supervisor');
     }
 

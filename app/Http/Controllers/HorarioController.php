@@ -93,7 +93,7 @@ class HorarioController extends Controller
 
         $horario->update($request->all());
         $horario->save();
-        $request->session()->flash('message', 'Sucesso!');
+        $request->session()->flash('success', 'Atualizado com sucesso!');
         return redirect('horario');
     }
 
@@ -103,8 +103,10 @@ class HorarioController extends Controller
      * @param  \App\Horario  $horario
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Horario $horario)
+    public function destroy(Request $request, Horario $horario)
     {
-        //
+        $horario->delete();
+        $request->session()->flash('warning', 'Removido com sucesso!');
+        return redirect('horario');
     }
 }

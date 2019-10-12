@@ -8,6 +8,7 @@ use App\Instituicao;
 use App\Empresa;
 use Illuminate\Http\Request;
 use App\Curso;
+use App\Estado;
 use App\Horario;
 use PDF;
 
@@ -24,7 +25,6 @@ class EstagiarioController extends Controller
      */
     public function index()
     {
-
         $estagiarios = DB::table('estagiario')
             ->join('empresa', 'estagiario.empresa_id', '=', 'empresa.id')
             ->select(
@@ -239,7 +239,9 @@ class EstagiarioController extends Controller
 
         $estagiario = DB::table('estagiario')->where('id', $id)->get()->first();
         $empresas = DB::table('empresa')->where('id', '=', $estagiario->empresa_id)->get()->first();
-        $instituicoes = Instituicao::all();
+        $instituicoes = DB::table('instituicao')->where('id', '=', $estagiario->instituicao_id)->get()->first();
+        // $instituicoes = Instituicao::all();
+        $estados = Estado::all();
         $cursos = Curso::all();
         $horarios = Horario::all();
 //  dd($instituicoes);
@@ -249,7 +251,8 @@ class EstagiarioController extends Controller
             'empresas' => $empresas,
             'instituicoes' => $instituicoes,
             'cursos' => $cursos,
-            'horarios' => $horarios
+            'horarios' => $horarios,
+            'estados' => $estados
         ]);
     }
 
@@ -271,7 +274,7 @@ class EstagiarioController extends Controller
 
         $estagiario->update($request->all());
         $estagiario->save();
-        $request->session()->flash('message', 'Sucesso!');
+        $request->session()->flash('success', 'Atualizado com sucesso!');
         return redirect('estagiario');
     }
 

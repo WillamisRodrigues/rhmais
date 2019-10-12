@@ -95,7 +95,7 @@ class UsuarioController extends Controller
         $usuario->email = $request->email;
         $usuario->cpf = $request->cpf;
         $usuario->save();
-        $request->session()->flash('message', 'Sucesso!');
+        $request->session()->flash('success', 'Atualizado com sucesso!');
         return redirect('usuario');
 
     }
@@ -109,7 +109,7 @@ class UsuarioController extends Controller
     public function destroy(Request $request, Usuario $usuario)
     {
        $usuario->delete();
-        $request->session()->flash('message', 'Removido com sucesso!');
+        $request->session()->flash('warning', 'Removido com sucesso!');
         return redirect('usuario');
     }
 }

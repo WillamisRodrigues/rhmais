@@ -76,7 +76,13 @@
                           <td>{{$empresa->valor_percentual}}</td>
                           <td>{{$empresa->insc_estadual}}</td>
                           <td>{{$empresa->telefone}}</td>
-                          <td>{{$empresa->cidade}}</td>
+                          <td>
+                             @if ($empresa->ativo == '1')
+                              Sim
+                              @else
+                              Não
+                            @endif
+                          </td>
                            <td style="width:15%;">
                            <div class="col-md-3">
                             <a href="{{ route('empresa.edit',[$empresa->id])}}" class="btn btn-primary"> <i class="fa fa-pencil"> </i> </a>

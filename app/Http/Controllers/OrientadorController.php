@@ -98,7 +98,9 @@ class OrientadorController extends Controller
     public function edit($id)
     {
         $orientador = Orientador::find($id);
-        return view('orientador.edit', compact('orientador', $orientador));
+        $instituicoes = Instituicao::all();
+        $empresas = Empresa::all();
+        return view('orientador.edit', compact('orientador','instituicoes', 'empresas',  $orientador));
     }
 
     /**
@@ -116,7 +118,7 @@ class OrientadorController extends Controller
 
         $orientador->update($request->all());
         $orientador->save();
-        $request->session()->flash('message', 'Sucesso!');
+        $request->session()->flash('success', 'Atualizado com sucesso!');
         return redirect('orientador');
     }
 
@@ -126,8 +128,10 @@ class OrientadorController extends Controller
      * @param  \App\Orientador  $orientador
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Orientador $orientador)
+    public function destroy(Request $request, Orientador $orientador)
     {
-        //
+        $orientador->delete();
+        $request->session()->flash('warning', 'Removido com sucesso!');
+        return redirect('orientador');
     }
 }

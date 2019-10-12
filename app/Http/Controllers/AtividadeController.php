@@ -45,8 +45,9 @@ class AtividadeController extends Controller
 
         $atividades = new Atividade();
         $atividades->nome = $request->get('nome');
-        $atividades->empresa_id = $request->get('empresa_id');
+        $atividades->empresa = $request->get('empresa');
         $atividades->sigla = $request->get('sigla');
+        $atividades->agente_integracao = $request->get('agente_integracao');
 
         $atividades->save();
 
@@ -74,7 +75,8 @@ class AtividadeController extends Controller
     public function edit($id)
     {
         $atividades = Atividade::find($id);
-        return view('atividade.edit', compact('atividades', $atividades));
+        $empresas = Empresa::all();
+        return view('atividade.edit', compact('atividades', 'empresas', $atividades));
     }
 
     /**
@@ -92,7 +94,7 @@ class AtividadeController extends Controller
 
         $atividade->update($request->all());
         $atividade->save();
-        $request->session()->flash('message', 'Sucesso!');
+        $request->session()->flash('success', 'Atualizado com sucesso!');
         return redirect('atividade');
     }
 
@@ -106,6 +108,6 @@ class AtividadeController extends Controller
     {
         $atividade->delete();
         $request->session()->flash('warning', 'Removido com sucesso!');
-        return redirect('motivo');
+        return redirect('atividade');
     }
 }

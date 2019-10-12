@@ -91,7 +91,7 @@ class SetorController extends Controller
         $setor->sigla = $request->get('sigla');
         $setor->save();
 
-        $request->session()->flash('message', 'Sucesso!');
+        $request->session()->flash('success', 'Atualizado com sucesso!');
         return redirect('setor');
     }
 
@@ -101,8 +101,10 @@ class SetorController extends Controller
      * @param  \App\Setor  $setor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Setor $setor)
+    public function destroy(Request  $request, Setor $setor)
     {
-        //
+        $setor->delete();
+        $request->session()->flash('warning', 'Removido com sucesso!');
+        return redirect('setor');
     }
 }

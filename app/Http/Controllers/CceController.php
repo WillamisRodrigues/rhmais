@@ -108,7 +108,7 @@ class CceController extends Controller
 
         $cce->update($request->all());
         $cce->save();
-        $request->session()->flash('message', 'Sucesso!');
+        $request->session()->flash('sucesso', 'Atualizado com sucesso!');
         return redirect('cce_convenio');
     }
 

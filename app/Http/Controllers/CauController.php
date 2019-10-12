@@ -104,7 +104,7 @@ class CauController extends Controller
 
         $cau->update($request->all());
         $cau->save();
-        $request->session()->flash('message', 'Sucesso!');
+        $request->session()->flash('sucesso', 'Atualizado com sucesso!');
         return redirect('cau_convenio');
     }
 

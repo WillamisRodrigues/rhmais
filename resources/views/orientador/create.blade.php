@@ -86,10 +86,10 @@
                                               <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                             </div>
                                              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <select class="form-control has-feedback-left" name="instituicao_id">
+                                                <select class="form-control has-feedback-left" name="instituicao">
                                                     <option>Selecione Instituição de Ensino:</option>
                                                       @foreach ($instituicoes as $instituicao)
-                                                        <option value="{{ $instituicao->id }}">{{ $instituicao->nome_instituicao }}</option>
+                                                        <option value="{{ $instituicao->nome_instituicao }}">{{ $instituicao->nome_instituicao }}</option>
                                                      @endforeach
                                                 </select>
                                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
@@ -100,10 +100,10 @@
                                             </div>
 
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <select class="form-control has-feedback-left" name="empresa_id">
+                                                <select class="form-control has-feedback-left" name="empresa">
                                                     <option>Selecione Unidade Concedente:</option>
                                                      @foreach ($empresas as $empresa)
-                                                        <option value="{{ $empresa->id }}">{{ $empresa->nome_fantasia }}</option>
+                                                        <option value="{{ $empresa->nome_fantasia }}">{{ $empresa->nome_fantasia }}</option>
                                                      @endforeach
                                                 </select>
                                                 <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
