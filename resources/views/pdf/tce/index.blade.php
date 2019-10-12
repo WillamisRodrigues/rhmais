@@ -60,7 +60,7 @@ Federal 11.788 de 25/09/2008, as partes abaixo nomeadas no item 1 (um) acordam o
         <p><strong> Endereço: </strong><span class="text-danger"> {{$dados->rua}} </span> <span> <strong>Nº:</strong></span>
         <span class="text-danger"> {{$dados->numero}} </span>
         <span> <strong> Bairro: <span class="text-danger"> {{$dados->bairro}} </span> </strong> </span> </p>
-        <p><strong> Cidade: </strong><span class="text-danger">{{$dados->city}} </span> <span> <strong>UF: <span class="text-danger"> {{$dados->state}}  </span></strong> </span>
+        <p><strong> Cidade: </strong><span class="text-danger">{{$dados->cidade}} </span> <span> <strong>UF: <span class="text-danger"> {{$dados->estado}}  </span></strong> </span>
         <span> <strong> CEP: <span class="text-danger"> {{$dados->cep}} </span> </strong></span>
         </p>
         <p><strong> Telefone: </strong><span class="text-danger"> {{$dados->celular}} </span> <span> <strong>Email: <span class="text-danger"> {{$dados->email}} </span></strong> </span>

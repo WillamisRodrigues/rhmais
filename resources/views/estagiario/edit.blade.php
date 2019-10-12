@@ -108,13 +108,8 @@
                                             <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-<<<<<<< HEAD
                                         <div  class="form-control has-feedback-left" placeholder="Unidade Concedente" name="empresa_id">{{ $empresas->nome_fantasia }}
                                         </div>
-=======
-                                        <input type="text" value="{{ $empresas->nome_fantasia }}" class="form-control has-feedback-left" placeholder="Unidade Concedente">
-                                        <input type="hidden" name="empresa_id" value="{{$empresas->id}}">
->>>>>>> 28eed1273b3088c0faa18fd6efbb592c221c6847
                                         <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
