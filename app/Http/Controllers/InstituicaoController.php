@@ -56,24 +56,28 @@ class InstituicaoController extends Controller
         $instituicoes->telefone = $request->get('telefone');
         $instituicoes->site_url = $request->get('site_url');
         $instituicoes->cidade = $request->get('cidade');
-        $instituicoes->estado = $request->get('estado');
+        $instituicoes->estado = $request->get('estados');
+        $instituicoes->nome_contato = $request->get('nome_contato');
         $instituicoes->nome_rep = $request->get('nome_rep');
+        $instituicoes->cargo_rep = $request->get('cargo_rep');
         $instituicoes->rg_rep = $request->get('rg_rep');
         $instituicoes->cpf_rep = $request->get('cpf_rep');
+        $instituicoes->email_contato = $request->get('email_contato');
         $instituicoes->email_rep = $request->get('email_rep');
-        $instituicoes->telefone_rep = $request->get('telefone_rep');
+        $instituicoes->celular_rep = $request->get('cel_rep');
+        $instituicoes->celular_contato = $request->get('cel_contato');
         $instituicoes->save();
         $instituicao_id = $instituicoes->id;
 
-        $enderecos = new Endereco();
-        $enderecos->cep = $request->get('cep');
-        $enderecos->endereco = $request->get('endereco');
-        $enderecos->bairro = $request->get('bairro');
-        $enderecos->cep = $request->get('cep');
-        $enderecos->numero = $request->get('numero');
-        $enderecos->complemento = $request->get('complemento');
-        $enderecos->instituicao_id = $instituicao_id;
-        $enderecos->save();
+        // $enderecos = new Endereco();
+        // $enderecos->cep = $request->get('cep');
+        // $enderecos->endereco = $request->get('endereco');
+        // $enderecos->bairro = $request->get('bairro');
+        // $enderecos->cep = $request->get('cep');
+        // $enderecos->numero = $request->get('numero');
+        // $enderecos->complemento = $request->get('complemento');
+        // $enderecos->instituicao_id = $instituicao_id;
+        // $enderecos->save();
 
         return redirect()->route('instituicao.index')
             ->with('success', 'Cadastrado com sucesso.');

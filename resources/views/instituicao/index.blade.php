@@ -24,7 +24,7 @@
                         <div class="x_panel">
                             <div class="x_title">
                                 <a href="{{route('instituicao.create')}}" class="btn btn-success pull-right"> <i
-                                        class="fa fa-home"> </i> Adicionar Instituição de Ensino</a>
+                                        class="fa fa-plus"> </i> Adicionar Instituição de Ensino</a>
                                 <h2>Instituição de Ensino</h2>
                                 <div class="clearfix"></div>
                             </div>

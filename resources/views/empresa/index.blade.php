@@ -23,7 +23,7 @@
               @include('layout.alerta.flash-message')
                 <div class="x_panel">
                   <div class="x_title">
-                  <a href="{{route('empresa.create')}}" class="btn btn-success pull-right"> <i class="fa fa-home"> </i> Adicionar Empresa Parceira</a>
+                  <a href="{{route('empresa.create')}}" class="btn btn-success pull-right"> <i class="fa fa-plus"> </i> Adicionar Empresa Parceira</a>
                     <h2>Empresas Parceiras</h2>
                     <div class="clearfix"></div>
                   </div>
