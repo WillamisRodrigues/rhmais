@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\DB;
 use App\Estado;
 use App\Cidade;
@@ -43,19 +44,19 @@ class CidadeController extends Controller
     public function store(Request $request, Cidade $cidades)
     {
         // Insere uma nova categoria, de acordo com os dados informados pelo usuário
-    $insert = $cidades->create($request->all());
-    // Verifica se inseriu com sucesso
-    // Redireciona para a listagem das categorias
-    // Passa uma session flash success (sessão temporária)
-    if ($insert)
-        return redirect()
-                    ->route('cidade.index')
-                    ->with('success', 'Cidade cadastrada com sucesso!');
+        $insert = $cidades->create($request->all());
+        // Verifica se inseriu com sucesso
+        // Redireciona para a listagem das categorias
+        // Passa uma session flash success (sessão temporária)
+        if ($insert)
+            return redirect()
+                ->route('cidade.index')
+                ->with('success', 'Cidade cadastrada com sucesso!');
 
-    // Redireciona de volta com uma mensagem de erro
-    return redirect()
-                ->back()
-                ->with('error', 'Falha ao inserir');
+        // Redireciona de volta com uma mensagem de erro
+        return redirect()
+            ->back()
+            ->with('error', 'Falha ao inserir');
     }
 
     /**

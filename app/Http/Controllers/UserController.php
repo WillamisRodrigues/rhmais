@@ -19,18 +19,18 @@ class UserController extends Controller
     public function index()
     {
         $users = DB::table('users')->paginate(5);
-       return view('user_sistema.index', compact('users', $users));
+        return view('user_sistema.index', compact('users', $users));
     }
 
-        public function create()
+    public function create()
     {
         return view('user_sistema.create');
     }
 
-     public function store(Request $request, User $users)
+    public function store(Request $request, User $users)
     {
 
-        if(request('id') == 0){
+        if (request('id') == 0) {
             $this->validate(request(), [
                 'name' => 'required',
                 'email' => 'required|email',
@@ -43,7 +43,7 @@ class UserController extends Controller
                 "password" => bcrypt(request('password')),
             ]);
             DB::commit();
-        }else{
+        } else {
 
             $this->validate(request(), [
                 'name' => 'required',
@@ -52,7 +52,7 @@ class UserController extends Controller
             ]);
             DB::beginTransaction();
             $user =  User::whereId(request('id'))->firstOrFail();
-            if($user){
+            if ($user) {
                 $user->name = request('name');
                 $user->email = request('email');
                 $user->password = bcrypt(request('password'));
@@ -60,15 +60,15 @@ class UserController extends Controller
             }
             DB::commit();
         }
-      return redirect()->route('user_sistema.index');
-        }
-
-      public function show( User $users)
-    {
-        return view('user_sistema.show',compact('users',$users));
+        return redirect()->route('user_sistema.index');
     }
 
-     /**
+    public function show(User $users)
+    {
+        return view('user_sistema.show', compact('users', $users));
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\User $users
@@ -77,7 +77,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $users = User::find($id);
-         return view('user_sistema.edit', compact('users', $users));
+        return view('user_sistema.edit', compact('users', $users));
     }
 
     /**
@@ -103,11 +103,11 @@ class UserController extends Controller
         return redirect('user_sistema');
     }
 
-     public function destroy(Request $request)
+    public function destroy(Request $request)
     {
         // dd($request->all());
         $message = "";
-        try{
+        try {
             DB::table('users')->where('id', $request->_id)->delete();
             // DB::beginTransaction();
 
@@ -115,15 +115,12 @@ class UserController extends Controller
 
             // DB::commit();
             $message = 'usuário excluído com sucesso';
-        }
-        catch (\Exception $e)
-        {
+        } catch (\Exception $e) {
             DB::rollback();
             $message = $e->getMessage();
         }
         Flash::success('Usuário deletado com sucesso.');
         return redirect(route('user_sistema.index'));
-        return $this->index()->with(['success' => $message,'users' =>User::all()]);
+        return $this->index()->with(['success' => $message, 'users' => User::all()]);
     }
-
 }

@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
- use App\Empresa;
+use App\Empresa;
 
 
 class EmpresaController extends Controller
 {
-       public function __construct()
+    public function __construct()
     {
         $this->middleware('auth');
     }
@@ -32,10 +32,10 @@ class EmpresaController extends Controller
         //     'empresa.estado'
         //     )
         //     ->get();
-        return view('empresa.index',compact('empresas', $empresas));
+        return view('empresa.index', compact('empresas', $empresas));
     }
 
-   /**
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -43,6 +43,7 @@ class EmpresaController extends Controller
     public function create()
     {
         $estados = DB::table("estado")->pluck("nome", "id");
+        $empresas = Empresa::all();
         return view('empresa.create', compact('estados', 'empresas'));
     }
 
@@ -89,7 +90,7 @@ class EmpresaController extends Controller
         $enderecos->save();
 
         return redirect()->route('empresa.index')
-                        ->with('success','Cadastrado com sucesso.');
+            ->with('success', 'Cadastrado com sucesso.');
     }
 
     /**
@@ -100,7 +101,7 @@ class EmpresaController extends Controller
      */
     public function show(Empresa $empresa)
     {
-        return view('empresa.show',compact('empresa',$empresa));
+        return view('empresa.show', compact('empresa', $empresa));
     }
 
     /**
@@ -111,7 +112,7 @@ class EmpresaController extends Controller
      */
     public function edit(Empresa $empresa)
     {
-        return view('empresa.edit',compact('empresa',$empresa));
+        return view('empresa.edit', compact('empresa', $empresa));
     }
 
     /**
@@ -123,7 +124,7 @@ class EmpresaController extends Controller
      */
     public function update(Request $request, Empresa $empresa)
     {
-       //Validate
+        //Validate
         $request->validate([
             'razao_social' => 'required',
             'cnpj' => 'required',
@@ -147,6 +148,4 @@ class EmpresaController extends Controller
         $request->session()->flash('warning', 'Removido com sucesso!');
         return redirect('empresa');
     }
-
 }
-

@@ -17,9 +17,9 @@ class UsuarioController extends Controller
     {
 
         $usuarios = Usuario::all();
-        return view('usuario.index',compact('usuarios', $usuarios));
+        return view('usuario.index', compact('usuarios', $usuarios));
     }
-     /**
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -36,23 +36,23 @@ class UsuarioController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, Usuario $usuarios)
-      {
-    // Insere uma nova categoria, de acordo com os dados informados pelo usuário
-    $insert = $usuarios->create($request->all());
+    {
+        // Insere uma nova categoria, de acordo com os dados informados pelo usuário
+        $insert = $usuarios->create($request->all());
 
-    // Verifica se inseriu com sucesso
-    // Redireciona para a listagem das categorias
-    // Passa uma session flash success (sessão temporária)
-    if ($insert)
+        // Verifica se inseriu com sucesso
+        // Redireciona para a listagem das categorias
+        // Passa uma session flash success (sessão temporária)
+        if ($insert)
+            return redirect()
+                ->route('usuario.index')
+                ->with('success', 'Categoria inserida com sucesso!');
+
+        // Redireciona de volta com uma mensagem de erro
         return redirect()
-                    ->route('usuario.index')
-                    ->with('success', 'Categoria inserida com sucesso!');
-
-    // Redireciona de volta com uma mensagem de erro
-    return redirect()
-                ->back()
-                ->with('error', 'Falha ao inserir');
-     }
+            ->back()
+            ->with('error', 'Falha ao inserir');
+    }
 
     /**
      * Display the specified resource.
@@ -62,7 +62,7 @@ class UsuarioController extends Controller
      */
     public function show(Usuario $usuario)
     {
-        return view('usuario.show',compact('usuario',$usuario));
+        return view('usuario.show', compact('usuario', $usuario));
     }
 
     /**
@@ -91,13 +91,12 @@ class UsuarioController extends Controller
             'cpf' => 'required',
         ]);
 
-       $usuario->nome = $request->nome;
+        $usuario->nome = $request->nome;
         $usuario->email = $request->email;
         $usuario->cpf = $request->cpf;
         $usuario->save();
         $request->session()->flash('success', 'Atualizado com sucesso!');
         return redirect('usuario');
-
     }
 
     /**
@@ -108,7 +107,7 @@ class UsuarioController extends Controller
      */
     public function destroy(Request $request, Usuario $usuario)
     {
-       $usuario->delete();
+        $usuario->delete();
         $request->session()->flash('warning', 'Removido com sucesso!');
         return redirect('usuario');
     }

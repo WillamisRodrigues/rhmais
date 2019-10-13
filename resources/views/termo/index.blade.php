@@ -67,11 +67,12 @@
                                             </td>
                                             <td>
                                                 @php
-                                                    foreach($listaRecessos as $listaRecesso){
-                                                        if($recesso->id == $listaRecesso->estagiario_id){
-                                                            App\Http\Controllers\RecessoController::dias_Ferias($listaRecesso->data_inicio, $listaRecesso->data_fim);
-                                                        }
-                                                    }
+                                                foreach($listaRecessos as $listaRecesso){
+                                                if($recesso->id == $listaRecesso->estagiario_id){
+                                                App\Http\Controllers\RecessoController::dias_Ferias($listaRecesso->data_inicio,
+                                                $listaRecesso->data_fim);
+                                                }
+                                                }
                                                 @endphp
                                             </td>
                                             <td>
@@ -82,11 +83,11 @@
                                             <td>
                                                 <!-- 0,00 -->
                                                 @php
-                                                    foreach($listaRecessos as $listaRecesso){
-                                                        if($recesso->id == $listaRecesso->estagiario_id){
-                                                            echo "R$ ".$listaRecesso->vr_recebido;
-                                                        }
-                                                    }
+                                                foreach($listaRecessos as $listaRecesso){
+                                                if($recesso->id == $listaRecesso->estagiario_id){
+                                                echo "R$ ".$listaRecesso->vr_recebido;
+                                                }
+                                                }
                                                 @endphp
 
                                             </td>
@@ -94,15 +95,16 @@
                                                 <!-- 733,33 -->
                                                 <!-- {{ App\Http\Controllers\RecessoController::valorSaldo($recesso->tceId) }} -->
                                                 @php
-                                                    foreach($listaRecessos as $listaRecesso){
-                                                        if($recesso->id == $listaRecesso->estagiario_id){
-                                                            echo "R$ ".$listaRecesso->vr_saldo;
-                                                        }
-                                                    }
+                                                foreach($listaRecessos as $listaRecesso){
+                                                if($recesso->id == $listaRecesso->estagiario_id){
+                                                echo "R$ ".$listaRecesso->vr_saldo;
+                                                }
+                                                }
                                                 @endphp
                                             </td>
                                             <td>Sim</td>
-                                            <td><a href="{!! route('termo_recesso.edit', [$recesso->id]) !!}" class="btn btn-primary"> <i class="fa fa-plus"> </i>
+                                            <td><a href="{!! route('termo_recesso.edit', [$recesso->id]) !!}"
+                                                    class="btn btn-primary"> <i class="fa fa-plus"> </i>
                                                 </a></td>
                                         </tr>
                                         @endforeach

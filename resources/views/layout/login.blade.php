@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
+
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
@@ -18,8 +19,10 @@
     <link href="{{asset('vendors/animate.css/animate.min.css')}}" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="{{asset('build/css/custom.min.css')}}" rel="stylesheet">
-  </head>
-  <body class="login">
-      @yield('conteudo')
-  </body>
+</head>
+
+<body class="login">
+    @yield('conteudo')
+</body>
+
 </html>

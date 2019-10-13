@@ -88,7 +88,7 @@ class AtividadeController extends Controller
      */
     public function update(Request $request, Atividade $atividade)
     {
-         $request->validate([
+        $request->validate([
             'nome' => 'required',
         ]);
 

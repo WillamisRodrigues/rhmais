@@ -23,7 +23,8 @@ class FinanceiroController extends Controller
         return view('financeiro.index', ['empresas' => $empresas, 'contratos' => $contratos, 'estagiarios' => $estagiarios]);
     }
 
-    public function infos($id){
+    public function infos($id)
+    {
         return view('financeiro.infos');
     }
 

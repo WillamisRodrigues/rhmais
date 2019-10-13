@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,14 +11,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <style>
-    table, tr{
-        border: 2px solid #999999;
-    }
-    body{
-        font-size: 1.05rem
-    }
+        table,
+        tr {
+            border: 2px solid #999999;
+        }
+
+        body {
+            font-size: 1.05rem
+        }
     </style>
 </head>
+
 <body>
     <table class="table" style="max-width: 100%">
         <tr>
@@ -176,4 +180,5 @@
     <div class="clearfix"></div>
 
 </body>
+
 </html>

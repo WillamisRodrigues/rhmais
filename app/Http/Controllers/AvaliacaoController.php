@@ -20,7 +20,7 @@ class AvaliacaoController extends Controller
      */
     public function index()
     {
-    //  $avaliacoes = Avaliacao::all();
+        //  $avaliacoes = Avaliacao::all();
 
         $estagiarios = DB::table('avaliacao')
             ->join('estagiario', 'avaliacao.estagiario_id', '=', 'estagiario.id')
@@ -49,8 +49,8 @@ class AvaliacaoController extends Controller
             ->get();
         $tceContrato = DB::table('tce_contrato')
             ->select(
-            'tce_contrato.data_inicio',
-            'tce_contrato.data_fim'
+                'tce_contrato.data_inicio',
+                'tce_contrato.data_fim'
             )
             ->get();
         $supervisores = DB::table('supervisor')->get();
@@ -64,21 +64,25 @@ class AvaliacaoController extends Controller
         ]);
     }
 
-    public function assinar_avaliacao_estagiario($id){
+    public function assinar_avaliacao_estagiario($id)
+    {
         DB::update('update avaliacao set status = 1 where id = ?', [$id]);
         return redirect('/lista_auto_avaliacao');
     }
 
-    public function deletar_avaliacao_estagiario($id){
+    public function deletar_avaliacao_estagiario($id)
+    {
         DB::delete('delete from `avaliacao` where `avaliacao`.`id` = ?', [$id]);
         return redirect('/lista_auto_avaliacao');
     }
-    public function assinar_avaliacao_supervisor($id){
+    public function assinar_avaliacao_supervisor($id)
+    {
         DB::update('update avaliacao_super set status = 1 where id = ?', [$id]);
         return redirect('/lista_avaliacao_supervisor');
     }
 
-    public function deletar_avaliacao_supervisor($id){
+    public function deletar_avaliacao_supervisor($id)
+    {
         DB::delete('delete from `avaliacao_super` where `avaliacao_super`.`id` = ?', [$id]);
         return redirect('/lista_avaliacao_supervisor');
     }
@@ -100,7 +104,7 @@ class AvaliacaoController extends Controller
                 'estagiario.data_nascimento',
                 'estagiario.id',
                 'estagiario.status',
-                'estagiario.escolaridade',
+                'estagiario.nivel',
                 'estagiario.cidade',
                 'estagiario.estado'
             )
@@ -205,7 +209,7 @@ class AvaliacaoController extends Controller
                 'estagiario.data_nascimento',
                 'estagiario.id',
                 'estagiario.status',
-                'estagiario.escolaridade',
+                'estagiario.nivel',
                 'estagiario.cidade',
                 'estagiario.estado'
             )
@@ -231,7 +235,7 @@ class AvaliacaoController extends Controller
                 'empresa.id',
                 'empresa.cidade',
                 'empresa.estado'
-                )
+            )
             ->get();
         $supervisores = DB::table('supervisor')->get();
 

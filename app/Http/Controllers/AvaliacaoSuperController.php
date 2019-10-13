@@ -36,10 +36,10 @@ class AvaliacaoSuperController extends Controller
                 'estagiario.data_nascimento',
                 'estagiario.id',
                 'estagiario.status',
-                'estagiario.escolaridade',
+                'estagiario.nivel',
                 'estagiario.cidade',
                 'estagiario.estado'
-                )
+            )
             ->get();
         $instituicoes = DB::table('instituicao')
             ->select(

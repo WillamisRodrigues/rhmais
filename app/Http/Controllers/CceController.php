@@ -20,12 +20,12 @@ class CceController extends Controller
         $cces = DB::table('cce')
             ->join('instituicao', 'instituicao.id', '=', 'cce.instituicao_id')
             ->select(
-            'instituicao.id',
-            'instituicao.nome_instituicao',
-            'cce.data_inicio',
-            'cce.data_fim',
-            'cce.situacao',
-            'cce.id'
+                'instituicao.id',
+                'instituicao.nome_instituicao',
+                'cce.data_inicio',
+                'cce.data_fim',
+                'cce.situacao',
+                'cce.id'
             )
             ->get();
         return view('cce_convenio.index',  compact('cces', $cces));
@@ -90,7 +90,7 @@ class CceController extends Controller
         $cce = DB::table('cce')->where('id', $id)->first();
         $instituicoes = DB::table('instituicao')->where('id', '=', $cce->instituicao_id)->get()->first();
         $apolices = DB::table('seguradora')->where('id', '=', $cce->seguradora_id)->get()->first();
-        return view('cce_convenio.edit', compact('cce', 'instituicoes','apolices', $cce));
+        return view('cce_convenio.edit', compact('cce', 'instituicoes', 'apolices', $cce));
     }
 
     /**

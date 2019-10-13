@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class CursoController extends Controller
 {
-     public function __construct()
+    public function __construct()
     {
         $this->middleware('auth');
     }
@@ -20,7 +20,7 @@ class CursoController extends Controller
     public function index()
     {
         $cursos = Curso::all();
-        return view('curso.index',compact('cursos', $cursos));
+        return view('curso.index', compact('cursos', $cursos));
     }
 
     /**
@@ -41,13 +41,13 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-           $request->validate([
+        $request->validate([
             'nome' => 'required',
             'nivel' => 'required',
         ]);
         Curso::create($request->all());
         return redirect()->route('curso.index')
-                        ->with('success','Cadastrado com sucesso.');
+            ->with('success', 'Cadastrado com sucesso.');
     }
 
     /**

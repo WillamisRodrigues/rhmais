@@ -2,7 +2,7 @@ $(document).ready(function(){
 
     // Toolbar extra buttons
     var btnFinish = $('<button></button>').text('Enviar')
-    .addClass('btn btn-info pull-right').on('click', function(){
+    .addClass('btn btn-info').on('click', function(){
     if( !$(this).hasClass('disabled')){
       var elmForm = $("#myForm");
         if(elmForm){

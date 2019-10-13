@@ -100,7 +100,7 @@ class OrientadorController extends Controller
         $orientador = Orientador::find($id);
         $instituicoes = Instituicao::all();
         $empresas = Empresa::all();
-        return view('orientador.edit', compact('orientador','instituicoes', 'empresas',  $orientador));
+        return view('orientador.edit', compact('orientador', 'instituicoes', 'empresas',  $orientador));
     }
 
     /**

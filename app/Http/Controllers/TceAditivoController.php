@@ -76,7 +76,7 @@ class TceAditivoController extends Controller
      */
     public function edit(TceAditivo  $tceAditivo)
     {
-         return view('tce_aditivo.edit', compact('tceAditivo', $tceAditivo));
+        return view('tce_aditivo.edit', compact('tceAditivo', $tceAditivo));
     }
 
     /**

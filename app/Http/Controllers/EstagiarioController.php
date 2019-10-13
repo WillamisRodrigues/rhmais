@@ -117,7 +117,6 @@ class EstagiarioController extends Controller
     {
         $states = DB::table("estado")->pluck("nome", "id");
         $cursos  = Curso::all();
-        // dd($cursos);
         $instituicoes = Instituicao::all();
         $empresas = Empresa::all();
         return view('estagiario.create', compact('states', 'empresas', 'cursos', 'instituicoes'));
@@ -179,9 +178,9 @@ class EstagiarioController extends Controller
         $estagiarios->pessoa_responsavel = $request->get('pessoa_responsavel');
         $estagiarios->sexo = $request->get('sexo');
         $estagiarios->cidade = $request->get('cidade');
-        $estagiarios->estado = $request->get('estado');
+        $estagiarios->estado = $request->get('estados');
         $estagiarios->nivel = $request->get('nivel');
-        $estagiarios->curso = $request->get('curso');
+        $estagiarios->curso = $request->get('nivel');
         $estagiarios->nacionalidade = $request->get('nacionalidade');
         $estagiarios->pai = $request->get('pai');
         $estagiarios->mae = $request->get('mae');
@@ -201,6 +200,9 @@ class EstagiarioController extends Controller
         $estagiarios->empresa_id = $request->get('empresa_id');
         $estagiarios->instituicao_id = $request->get('instituicao_id');
         $estagiarios->curso = $request->get('curso');
+        $estagiarios->dt_cadastro = date("Y-m-d");
+        $estagiarios->horario = $request->horario;
+        $estagiarios->termino_curso = $request->termino_curso;
         if ($request->ativo == 'on') {
             $estagiarios->status = 1;
         }
@@ -241,13 +243,17 @@ class EstagiarioController extends Controller
     {
 
         $estagiario = DB::table('estagiario')->where('id', $id)->get()->first();
-        $empresas = DB::table('empresa')->where('id', '=', $estagiario->empresa_id)->get()->first();
-        $instituicoes = DB::table('instituicao')->where('id', '=', $estagiario->instituicao_id)->get()->first();
+        // $empresas = DB::table('empresa')->where('id', '=', $estagiario->empresa_id)->get()->first();
+        // $instituicoes = DB::table('instituicao')->where('id', '=', $estagiario->instituicao_id)->get()->first();
         // $instituicoes = Instituicao::all();
-        $estados = Estado::all();
-        $cursos = Curso::all();
+        // $estados = Estado::all();
+        // $cursos = Curso::all();
         $horarios = Horario::all();
-//  dd($instituicoes);
+
+        $estados = DB::table("estado")->pluck("nome", "id");
+        $cursos  = Curso::all();
+        $instituicoes = Instituicao::all();
+        $empresas = Empresa::all();
 
         return view('estagiario.edit', [
             'estagiario' => $estagiario,

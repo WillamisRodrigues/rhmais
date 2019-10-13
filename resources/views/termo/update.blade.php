@@ -113,25 +113,29 @@
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                         <input required type="text" class="form-control has-feedback-left"
                                             placeholder="Observação" name="observacao">
-                                        <span class="fa fa-align-justify form-control-feedback left" aria-hidden="true"></span>
+                                        <span class="fa fa-align-justify form-control-feedback left"
+                                            aria-hidden="true"></span>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
                                         <label for="">Início do Recesso</label>
-                                        <input required type="date" class="form-control has-feedback-left" name="inicio_recesso">
+                                        <input required type="date" class="form-control has-feedback-left"
+                                            name="inicio_recesso">
                                         <span class="fa fa-calendar form-control-feedback left"
                                             aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
                                         <label for="">Fim do Recesso</label>
-                                        <input required type="date" class="form-control has-feedback-left" name="fim_recesso">
+                                        <input required type="date" class="form-control has-feedback-left"
+                                            name="fim_recesso">
                                         <span class="fa fa-calendar form-control-feedback left"
                                             aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
                                         <label for="">Data do Documento</label>
-                                        <input required type="date" class="form-control has-feedback-left" name="data_doc">
+                                        <input required type="date" class="form-control has-feedback-left"
+                                            name="data_doc">
                                         <span class="fa fa-calendar form-control-feedback left"
                                             aria-hidden="true"></span>
                                     </div>

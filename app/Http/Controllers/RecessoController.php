@@ -259,7 +259,6 @@ class RecessoController extends Controller
         $atividade = DB::table('atividade')->where('id', '=', $contrato->atividade)->get()->first();
         $motivos = DB::table('motivo')->get();
 
-
         return view('termo.update', [
             'estagiario' => $estagiario,
             'contrato' => $contrato,

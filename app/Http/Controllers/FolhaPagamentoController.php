@@ -41,8 +41,7 @@ class FolhaPagamentoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-    }
+    { }
 
     /**
      * Store a newly created resource in storage.
@@ -100,8 +99,7 @@ class FolhaPagamentoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-    }
+    { }
 
     /**
      * Remove the specified resource from storage.
@@ -123,10 +121,10 @@ class FolhaPagamentoController extends Controller
 
         $update = DB::update('update folha_pagamento set faltas = ? where id = ?', [$request->dias_falta, $request->folha_id]);
 
-        if($beneficios){
+        if ($beneficios) {
             foreach ($beneficios as $beneficio) {
                 $folha = DB::table('folha_pagamento')->where('id', $request->folha_id)->get()->first();
-                $n_beneficio = $$beneficio_.$beneficio->id;
+                $n_beneficio = $$beneficio_ . $beneficio->id;
                 $valor = $folha->valor_liquido + $request->$n_beneficio;
                 DB::update('update folha_pagamento set valor_liquido = ? where id = ?', [$valor, $folha->id]);
             }

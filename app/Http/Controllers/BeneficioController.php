@@ -17,7 +17,7 @@ class BeneficioController extends Controller
     public function index()
     {
         $beneficios = Beneficio::all();
-       $empresas = Empresa::all();
+        $empresas = Empresa::all();
         return view('beneficio.index', compact('beneficios', 'empresas'));
     }
     /**

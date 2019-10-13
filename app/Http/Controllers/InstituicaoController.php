@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class InstituicaoController extends Controller
 {
-     public function __construct()
+    public function __construct()
     {
         $this->middleware('auth');
     }
@@ -18,19 +18,18 @@ class InstituicaoController extends Controller
     public function index()
     {
         $instituicoes = Instituicao::all();
-        return view('instituicao.index',compact('instituicoes', $instituicoes));
-
+        return view('instituicao.index', compact('instituicoes', $instituicoes));
     }
 
-     /**
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        // $estados = DB::table("estado")->pluck("nome", "id");
-        return view('instituicao.create', compact('insti$instituicoes'));
+        $instituicoes = Instituicao::all();
+        return view('instituicao.create', compact('instituicoes'));
     }
 
     /**
@@ -77,7 +76,7 @@ class InstituicaoController extends Controller
         $enderecos->save();
 
         return redirect()->route('instituicao.index')
-                        ->with('success','Cadastrado com sucesso.');
+            ->with('success', 'Cadastrado com sucesso.');
     }
 
     /**
@@ -88,7 +87,7 @@ class InstituicaoController extends Controller
      */
     public function show(Instituicao $instituicao)
     {
-        return view('instituicao.show',compact('instituicao',$instituicao));
+        return view('instituicao.show', compact('instituicao', $instituicao));
     }
 
     /**
@@ -100,7 +99,7 @@ class InstituicaoController extends Controller
     public function edit(Instituicao $instituicao)
     {
         $estados = Estado::all();
-         return view('instituicao.edit',compact('instituicao', 'estados', $instituicao));
+        return view('instituicao.edit', compact('instituicao', 'estados', $instituicao));
     }
 
     /**
@@ -112,7 +111,7 @@ class InstituicaoController extends Controller
      */
     public function update(Request $request, Instituicao $instituicao)
     {
-       //Validate
+        //Validate
         $request->validate([
             'razao_social' => 'required',
             'cnpj' => 'required',
@@ -132,9 +131,8 @@ class InstituicaoController extends Controller
      */
     public function destroy(Request $request, Instituicao $instituicoes)
     {
-       $instituicoes->delete();
-       $request->session()->flash('warning', 'Removido com sucesso!');
-       return redirect('instituicao');
+        $instituicoes->delete();
+        $request->session()->flash('warning', 'Removido com sucesso!');
+        return redirect('instituicao');
     }
 }
-

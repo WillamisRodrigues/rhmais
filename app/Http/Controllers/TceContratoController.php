@@ -166,7 +166,7 @@ class TceContratoController extends Controller
                 'tce_contrato.data_fim',
                 'tce_contrato.contrato',
                 'tce_contrato.assinado',
-                 'tce_contrato.horario',
+                'tce_contrato.horario',
                 'tce_contrato.apolice',
                 'tce_contrato.obrigatorio',
                 'tce_contrato.supervisor',
@@ -174,7 +174,7 @@ class TceContratoController extends Controller
             )
             ->where('tce_contrato.id', '=', $id)
             ->get();
-            // dd($tceContrato);
+        // dd($tceContrato);
         return view('tce_contrato.edit', compact('tceContrato', $tceContrato));
     }
 
