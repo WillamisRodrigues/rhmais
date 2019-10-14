@@ -27,7 +27,7 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
-                            <form action="{{ route('seguro.update',  $seguradora->id) }}" id="myForm" role="form"
+                            <form action="{{ route('seguro.update',  $seguro->id) }}" id="myForm" role="form"
                                 data-toggle="validator" method="post" accept-charset="utf-8">
                                 <input type="hidden" name="_method" value="PUT">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -38,14 +38,14 @@
                                             <div id="form-step-0" role="form" data-toggle="validator">
                                                 <div class="row" style="width:960px; margin: 20px auto;">
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" value="{{$seguradora->nome}}"
+                                                        <input type="text" value="{{$seguro->nome}}"
                                                             class="form-control has-feedback-left"
-                                                            placeholder="Nome da Seguradora:" name="nome">
+                                                            placeholder="Nome da seguro:" name="nome">
                                                         <span class="fa fa-user form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" value="{{$seguradora->n_apolice}}"
+                                                        <input type="text" value="{{$seguro->n_apolice}}"
                                                             class="form-control has-feedback-left"
                                                             placeholder="Nº da Apolice:" name="n_apolice">
                                                         <span class="fa fa-user form-control-feedback left"
@@ -54,8 +54,8 @@
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <select class="form-control has-feedback-left"
                                                             name="empresa_id">
-                                                            <option value="{{ $seguradora->empresa_id}}">
-                                                                {{ $seguradora->empresa_id }}</option>
+                                                            <option value="{{ $seguro->empresa_id}}">
+                                                                {{ $seguro->empresa_id }}</option>
                                                             @foreach ($empresas as $empresa)
                                                             <option value="{{$empresa->nome_fantasia}}">
                                                                 {{$empresa->nome_fantasia}}</option>
@@ -66,13 +66,13 @@
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text" class="form-control has-feedback-left"
-                                                            value="RH Mais" readonly placeholder="Agente de Integração"
-                                                            name="agente_int">
+                                                            value="KOSTER E KOSTER CONSULTORIA EM RH LTDA - RH MAIS TALENTOS" readonly placeholder="Agente de Integração"
+                                                            name="agente_integracao">
                                                         <span class="fa fa-home form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" value="{{$seguradora->cobertura}}"
+                                                        <input type="text" value="{{$seguro->cobertura}}"
                                                             class="form-control has-feedback-left"
                                                             placeholder="Cobertura:" name="cobertura">
                                                         <span class="fa fa-user form-control-feedback left"

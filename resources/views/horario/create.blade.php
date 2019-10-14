@@ -44,7 +44,7 @@
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text" class="form-control has-feedback-left"
-                                                            placeholder="Quantidade Horas:" name="horas">
+                                                            placeholder="Quantidade Horas:" name="qtd_horas">
                                                         <span class="fa fa-user form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
@@ -62,8 +62,8 @@
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text" class="form-control has-feedback-left"
-                                                            value="RH Mais" readonly placeholder="Agente de Integração"
-                                                            name="agente_int">
+                                                            value="KOSTER E KOSTER CONSULTORIA EM RH LTDA - RH MAIS TALENTOS" readonly placeholder="Agente de Integração"
+                                                            name="agente_integracao">
                                                         <span class="fa fa-home form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>

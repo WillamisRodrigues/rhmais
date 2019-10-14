@@ -78,12 +78,12 @@ class SeguradoraController extends Controller
     public function edit($id)
     {
         // $seguradora = Seguradora::find($id);
-        $seguradora = DB::table('seguradora')->where('id', $id)->get()->first();
+        $seguro = DB::table('seguradora')->where('id', $id)->get()->first();
         // $empresas = DB::table('empresa')->where('id', '=', $seguradora->empresa_id)->get()->first();
         $empresas = Empresa::all();
 
         return view('seguro.edit', [
-            'seguradora' => $seguradora,
+            'seguro' => $seguro,
             'empresas' => $empresas
         ]);
     }
@@ -95,15 +95,15 @@ class SeguradoraController extends Controller
      * @param  \App\Seguradora  $seguradora
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Seguradora $seguradora)
+    public function update(Request $request, Seguradora $seguro)
     {
         $request->validate([
             'nome' => 'required',
         ]);
 
-        $seguradora->update($request->all());
-        $seguradora->save();
-        $request->sessionseguroflash('success', 'Atualizado com sucesso!');
+        $seguro->update($request->all());
+        $seguro->save();
+        $request->session()->flash('success', 'Atualizado com sucesso!');
         return redirect('seguro');
     }
 
@@ -113,9 +113,9 @@ class SeguradoraController extends Controller
      * @param  \App\Seguradora  $seguradora
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, Seguradora $seguradora)
+    public function destroy(Request $request, Seguradora $seguro)
     {
-        $seguradora->delete();
+        $seguro->delete();
         $request->session()->flash('warning', 'Removido com sucesso!');
         return redirect('seguro');
     }

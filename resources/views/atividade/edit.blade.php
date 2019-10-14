@@ -56,13 +56,6 @@
                                                         <span class="fa fa-home form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
-                                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" value="{{$atividades->sigla}}"
-                                                            class="form-control has-feedback-left"
-                                                            placeholder="Sigla do Setor:*" name="sigla">
-                                                        <span class="fa fa-user form-control-feedback left"
-                                                            aria-hidden="true"></span>
-                                                    </div>
                                                 </div>
                                                 <button type="submit" class="btn btn-success"
                                                     style="margin: 20px auto; display:block;">Salvar Alterações</button>

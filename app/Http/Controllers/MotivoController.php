@@ -99,6 +99,7 @@ class MotivoController extends Controller
         $motivo->nome =  $request->get('nome');
         $motivo->descricao = $request->get('descricao');
         $motivo->empresa = $request->get('empresa');
+        $motivo->status = $request->get('status');
         $motivo->save();
 
         $request->session()->flash('success', 'Atualizado com sucesso!');

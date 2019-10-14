@@ -109,6 +109,6 @@ class BeneficioController extends Controller
     {
         $beneficio->delete();
         $request->session()->flash('warning', 'Removido com sucesso!');
-        return redirect('estagiario');
+        return redirect('beneficio');
     }
 }

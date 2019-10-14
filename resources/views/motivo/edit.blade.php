@@ -49,7 +49,7 @@
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text" value="{{ $motivo->descricao }}"
                                                             class="form-control has-feedback-left"
-                                                            placeholder="Descrição:" name="cpf">
+                                                            placeholder="Descrição:" name="descricao">
                                                         <span class="fa fa-user form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>

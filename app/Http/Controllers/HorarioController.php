@@ -40,7 +40,7 @@ class HorarioController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nome' => 'required',
+            'descricao' => 'required',
         ]);
 
         $horario = new Horario();

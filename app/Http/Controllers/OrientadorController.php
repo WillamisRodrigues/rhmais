@@ -55,14 +55,10 @@ class OrientadorController extends Controller
         $orientadoress->cpf = $request->get('cpf');
         $orientadoress->telefone = $request->get('telefone');
         $orientadoress->celular = $request->get('celular');
-        $orientadoress->data_nascimento = $request->get('data_nascimento');
-        $orientadoress->agente_int = $request->get('agente_int');
-        $orientadoress->pessoa_responsavel = $request->get('pessoa_responsavel');
-        $orientadoress->sexo = $request->get('sexo');
+        $orientadoress->agente_integracao = $request->get('agente_integracao');
         $orientadoress->cidade = $request->get('cidade');
         $orientadoress->estado = $request->get('estado');
-        $orientadoress->escolaridade = $request->get('escolaridade');
-        $orientadoress->nacionalidade = $request->get('nacionalidade');
+        $orientadoress->formacao = $request->get('formacao');
         $orientadoress->cep = $request->get('cep');
         $orientadoress->rua = $request->get('rua');
         $orientadoress->bairro = $request->get('bairro');
@@ -71,7 +67,6 @@ class OrientadorController extends Controller
         $orientadoress->complemento = $request->get('complemento');
         $orientadoress->empresa_id = $request->get('empresa_id');
         $orientadoress->instituicao_id = $request->get('instituicao_id');
-        $orientadoress->curso = $request->get('curso');
         $orientadoress->save();
 
         return redirect()->route('orientador.index')

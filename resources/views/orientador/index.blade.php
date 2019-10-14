@@ -77,6 +77,7 @@
                                                     <button type="submit" class="btn btn-danger">
                                                         <i class="fa fa-trash"></i>
                                                     </button>
+                                                </form>
                                                     {{-- <td style="width:15%;">
                           <form class="col-md-3" action="#" method="POST">
     		                  <input type="hidden" name="_method" value="DELETE">

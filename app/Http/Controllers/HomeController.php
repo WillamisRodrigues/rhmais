@@ -88,7 +88,7 @@ class HomeController extends Controller
             ->name('pieChartTest')
             ->type('pie')
             ->size(['width' => 400, 'height' => 200])
-            ->labels(['Feminino', 'Masculino'])
+            ->labels(['Masculino', 'Feminino'])
             ->datasets([
                 [
                     'backgroundColor' => ['#800800', '#BF0D00'],

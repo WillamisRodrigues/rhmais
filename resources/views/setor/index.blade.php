@@ -54,9 +54,12 @@
                                                     action="{{url('setor', [$setor->id])}}" method="POST">
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                    <button type="submit" class="btn btn-danger">
+                                                    <button type="submit" class="btn btn-danger" data-toggle="tooltip"
+                                                        data-placement="top"
+                                                        onclick="return confirm('Tem certeza que deseja deletar o motivo selecionado?')">
                                                         <i class="fa fa-trash"></i>
                                                     </button>
+                                                </form>
                             </div>
                             {{-- <td style="width:15%;">
                           <form class="col-md-3" action="#" method="POST">
