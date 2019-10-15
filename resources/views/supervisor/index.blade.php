@@ -59,7 +59,7 @@
                                             <td>{{$supervisor->cpf}}</td>
                                             <td>{{$supervisor->rg}}</td>
                                             <td>{{$supervisor->cidade}}</td>
-                                            <td>PRINCIPAL RB PROMOTORA DE CREDITO LTDA ME - PRINCIPAL PROMOTORA</td>
+                                            <td>{{$supervisor->empresa_id}}</td>
                                             <td>{{$supervisor->agente_integracao}}</td>
                                             <td style="width:15%;">
                                                 <div class="col-md-3" style="margin-left:40px;">

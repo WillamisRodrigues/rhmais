@@ -58,11 +58,12 @@ class SupervisorController extends Controller
         $supervisores->agente_integracao = $request->get('agente_integracao');
         $supervisores->cidade = $request->get('cidade');
         $supervisores->estado = $request->get('estado');
-        $supervisores->escolaridade = $request->get('escolaridade');
+        $supervisores->formacao = $request->get('formacao');
         $supervisores->cep = $request->get('cep');
         $supervisores->rua = $request->get('rua');
-        $supervisores->bairro = $request->get('bairro');
+        $supervisores->complemento = $request->get('complemento');
         $supervisores->numero = $request->get('numero');
+        $supervisores->empresa_id = $request->get('empresa_id');
         $supervisores->save();
 
         return redirect()->route('supervisor.index')

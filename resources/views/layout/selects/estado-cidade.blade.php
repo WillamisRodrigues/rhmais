@@ -1,5 +1,5 @@
 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-    <select class="form-control has-feedback-left" name="estados">
+    <select class="form-control has-feedback-left" name="estado">
         <option value="AC">Acre</option>
         <option value="AL">Alagoas</option>
         <option value="AP">Amapá</option>
