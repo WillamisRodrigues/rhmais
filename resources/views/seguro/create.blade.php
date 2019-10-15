@@ -68,9 +68,12 @@
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" class="form-control has-feedback-left"
-                                                            placeholder="Cobertura:" name="cobertura">
-                                                        <span class="fa fa-user form-control-feedback left"
+                                                        <select class="form-control has-feedback-left" name="cobertura">
+                                                        <option>Cobertura</option>
+                                                        <option value="Sim">Sim</option>
+                                                        <option value="Não">Não</option>
+                                                        </select>
+                                                        <span class="fa fa-home form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                 </div>

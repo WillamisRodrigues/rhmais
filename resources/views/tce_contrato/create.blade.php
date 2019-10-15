@@ -123,7 +123,7 @@
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <select class="form-control has-feedback-left" name="descricao">
+                                                        <select class="form-control has-feedback-left" name="horario">
                                                             <option>Horário de Estagio:</option>
                                                             @foreach ($horarios as $horario)
                                                             <option value="{{ $horario->id }}">{{ $horario->descricao }}
