@@ -197,10 +197,10 @@
                                                 </div>
                                                 <div class="row" style="width:960px; margin: 0 auto;">
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="email" class="form-control has-feedback-left"
-                                                            placeholder="Email do Contato" name="email_contato"
-                                                            value="{{old('email_contato')}}">
-                                                        <span class="fa fa-at form-control-feedback left"
+                                                        <input type="text" class="form-control has-feedback-left"
+                                                            placeholder="Nome do Representante" name="nome_rep"
+                                                            value="{{old('nome_rep')}}">
+                                                        <span class="fa fa-user form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
 

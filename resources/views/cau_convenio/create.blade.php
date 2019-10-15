@@ -50,11 +50,10 @@
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <select class="form-control has-feedback-left"
+                                                        <input type="text" class="form-control has-feedback-left"
+                                                            value="KOSTER E KOSTER CONSULTORIA EM RH LTDA - RH MAIS TALENTOS" readonly placeholder="Agente de Integração"
                                                             name="agente_integracao">
-                                                            <option>Koster & Koster Consultoria em RH LTDA</option>
-                                                        </select>
-                                                        <span class="fa fa-graduation-cap form-control-feedback left"
+                                                        <span class="fa fa-home form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">

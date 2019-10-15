@@ -52,11 +52,10 @@
                                         @foreach ($cces as $cce)
                                         <tr>
                                             <td>{{$cce->nome_instituicao}}</td>
-                                            <td>Cidade</td>
+                                            <td>{{$cce->cidade}}</td>
                                             <td>{{date('d/m/Y', strtotime($cce->data_inicio))}}</td>
                                             <td>{{date('d/m/Y', strtotime($cce->data_fim))}}</td>
                                             <td>Não Assinado</td>
-
                                             <td>
                                                 <a class="btn btn-primary"
                                                     href="{{ route('cce_convenio.edit', [$cce->id])}}"><i

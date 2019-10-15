@@ -64,7 +64,7 @@ class EmpresaController extends Controller
 
         $empresas = new empresa();
         $empresas->razao_social = $request->get('razao_social');
-        $empresas->nome_empresa = $request->get('nome_empresa');
+        $empresas->nome_fantasia = $request->get('nome_fantasia');
         $empresas->cnpj = $request->get('cnpj');
         $empresas->insc_estadual = $request->get('insc_estadual');
         $empresas->telefone = $request->get('telefone');
@@ -75,19 +75,23 @@ class EmpresaController extends Controller
         $empresas->rg_rep = $request->get('rg_rep');
         $empresas->cpf_rep = $request->get('cpf_rep');
         $empresas->email_rep = $request->get('email_rep');
-        $empresas->telefone_rep = $request->get('telefone_rep');
+        $empresas->celular = $request->get('celular');
+        $empresas->celular_rep = $request->get('celular_rep');
+        $empresas->cep = $request->get('cep');
+        $empresas->rua = $request->get('rua');
+        $empresas->bairro = $request->get('bairro');
+        $empresas->cep = $request->get('cep');
+        $empresas->numero = $request->get('numero');
+        $empresas->complemento = $request->get('complemento');
+        $empresas->nome_contato = $request->get('nome_contato');
+        $empresas->email_contato = $request->get('email_contato');
+        $empresas->qtd_plano = $request->get('qtd_plano');
+        $empresas->valor_fixo = $request->get('valor_fixo');
+        $empresas->valor_percentual = $request->get('valor_percentual');
+        $empresas->custo_unitario = $request->get('custo_unitario');
+        $empresas->valor_adicional = $request->get('valor_adicional');
+        $empresas->ativo = $request->get('ativo');
         $empresas->save();
-        $empresa_id = $empresas->id;
-
-        $enderecos = new Endereco();
-        $enderecos->cep = $request->get('cep');
-        $enderecos->endereco = $request->get('endereco');
-        $enderecos->bairro = $request->get('bairro');
-        $enderecos->cep = $request->get('cep');
-        $enderecos->numero = $request->get('numero');
-        $enderecos->complemento = $request->get('complemento');
-        $enderecos->empresa_id = $empresa_id;
-        $enderecos->save();
 
         return redirect()->route('empresa.index')
             ->with('success', 'Cadastrado com sucesso.');

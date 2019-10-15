@@ -60,8 +60,8 @@
                                                 @endif
                                                 @endforeach
                                             </td>
-                                            <td>{{$seguro->agente_integracao}}</td>
                                             <td>{{$seguro->cobertura}}</td>
+                                            <td>{{$seguro->agente_integracao}}</td>
                                             <td style="width:15%;">
                                                 <div class="col-md-3">
                                                     <a href="{{route('seguro.edit', [$seguro->id])}}"

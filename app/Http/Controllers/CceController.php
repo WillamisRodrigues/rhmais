@@ -25,7 +25,8 @@ class CceController extends Controller
                 'cce.data_inicio',
                 'cce.data_fim',
                 'cce.situacao',
-                'cce.id'
+                'cce.id',
+                'cce.cidade'
             )
             ->get();
         return view('cce_convenio.index',  compact('cces', $cces));

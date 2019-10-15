@@ -53,10 +53,11 @@ class InstituicaoController extends Controller
         $instituicoes->nome_instituicao = $request->get('nome_instituicao');
         $instituicoes->cnpj = $request->get('cnpj');
         $instituicoes->insc_estadual = $request->get('insc_estadual');
+        $instituicoes->mantenedora = $request->get('mantenedora');
         $instituicoes->telefone = $request->get('telefone');
         $instituicoes->site_url = $request->get('site_url');
         $instituicoes->cidade = $request->get('cidade');
-        $instituicoes->estado = $request->get('estados');
+        $instituicoes->estado = $request->get('estado');
         $instituicoes->nome_contato = $request->get('nome_contato');
         $instituicoes->nome_rep = $request->get('nome_rep');
         $instituicoes->cargo_rep = $request->get('cargo_rep');
@@ -66,18 +67,12 @@ class InstituicaoController extends Controller
         $instituicoes->email_rep = $request->get('email_rep');
         $instituicoes->celular_rep = $request->get('cel_rep');
         $instituicoes->celular_contato = $request->get('cel_contato');
+        $instituicoes->cep = $request->get('cep');
+        $instituicoes->endereco = $request->get('rua');
+        $instituicoes->bairro = $request->get('bairro');
+        $instituicoes->numero = $request->get('numero');
+        $instituicoes->complemento = $request->get('complemento');
         $instituicoes->save();
-        $instituicao_id = $instituicoes->id;
-
-        // $enderecos = new Endereco();
-        // $enderecos->cep = $request->get('cep');
-        // $enderecos->endereco = $request->get('endereco');
-        // $enderecos->bairro = $request->get('bairro');
-        // $enderecos->cep = $request->get('cep');
-        // $enderecos->numero = $request->get('numero');
-        // $enderecos->complemento = $request->get('complemento');
-        // $enderecos->instituicao_id = $instituicao_id;
-        // $enderecos->save();
 
         return redirect()->route('instituicao.index')
             ->with('success', 'Cadastrado com sucesso.');
