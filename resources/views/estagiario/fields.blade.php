@@ -240,7 +240,7 @@
                     </div>
                     <div id="step-3">
                         <br>
-                        <div id="form-step-1" role="form" data-toggle="validator">
+                        <div id="form-step-2" role="form" data-toggle="validator">
                             <div class="row" style="width:960px; margin: 20px auto;">
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <input type="text" class="form-control has-feedback-left"

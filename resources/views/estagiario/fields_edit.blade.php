@@ -55,7 +55,7 @@
                                     <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                    <input type="date" class="form-control nascimento has-feedback-left"
+                                    <input type="text" class="form-control nascimento has-feedback-left"
                                         placeholder="Data de Nascimento" name="data_nascimento"
                                         value="{{ $estagiario->data_nascimento }}">
                                     <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
@@ -86,10 +86,47 @@
                                         name="numero" value="{{ $estagiario->numero }}">
                                     <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                 </div>
-                                @include('layout.selects.estado-cidade')
+                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                    <select class="form-control has-feedback-left"  name="estado">
+                                        <option  value="{{ $estagiario->estado }}">{{ $estagiario->estado }}</option>
+                                        <option value="AC">Acre</option>
+                                        <option value="AL">Alagoas</option>
+                                        <option value="AP">Amapá</option>
+                                        <option value="AM">Amazonas</option>
+                                        <option value="BA">Bahia</option>
+                                        <option value="CE">Ceará</option>
+                                        <option value="DF">Distrito Federal</option>
+                                        <option value="ES">Espírito Santo</option>
+                                        <option value="GO">Goiás</option>
+                                        <option value="MA">Maranhão</option>
+                                        <option value="MT">Mato Grosso</option>
+                                        <option value="MS">Mato Grosso do Sul</option>
+                                        <option value="MG">Minas Gerais</option>
+                                        <option value="PA">Pará</option>
+                                        <option value="PB">Paraíba</option>
+                                        <option value="PR">Paraná</option>
+                                        <option value="PE">Pernambuco</option>
+                                        <option value="PI">Piauí</option>
+                                        <option value="RJ">Rio de Janeiro</option>
+                                        <option value="RN">Rio Grande do Norte</option>
+                                        <option value="RS">Rio Grande do Sul</option>
+                                        <option value="RO">Rondônia</option>
+                                        <option value="RR">Roraima</option>
+                                        <option value="SC">Santa Catarina</option>
+                                        <option value="SP">São Paulo</option>
+                                        <option value="SE">Sergipe</option>
+                                        <option value="TO">Tocantins</option>
+                                    </select>
+                                    <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                    <input type="text" class="form-control has-feedback-left" placeholder="Cidade" name="cidade"
+                                        value="{{ $estagiario->cidade}}">
+                                    <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
+                                </div>
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <select class="form-control has-feedback-left" name="empresa_id">
-                                        <option value="{{ $estagiario->empresa_id }}">Selecione Unidade Concedente
+                                        <option value="{{ $estagiario->empresa_id }}">{{ $estagiario->empresa_id }}
                                         </option>
                                         @foreach ($empresas as $empresa)
                                         <option value="{{ $empresa->id }}">{{ $empresa->nome_fantasia }}</option>
@@ -100,7 +137,7 @@
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <select class="form-control has-feedback-left" name="sexo">
-                                        <option value="{{ $estagiario->sexo }}">Selecione Sexo</option>
+                                        <option value="{{ $estagiario->sexo }}">{{ $estagiario->sexo }}</option>
                                         <option>Masculino</option>
                                         <option>Feminino</option>
                                     </select>
@@ -160,7 +197,7 @@
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <select class="form-control has-feedback-left" name="deficiencia">
-                                        <option value="{{ $estagiario->deficiencia }}">Portador de Deficiência</option>
+                                        <option value="{{ $estagiario->deficiencia }}">{{ $estagiario->deficiencia }}</option>
                                         <option value="1">Sim</option>
                                         <option value="2">Não</option>
                                     </select>
@@ -185,7 +222,7 @@
                             </div> --}}
                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                 <select class="form-control has-feedback-left" name="nivel">
-                                    <option value="{{ $estagiario->nivel }}">Selecione um Curso</option>
+                                    <option value="{{ $estagiario->nivel }}">{{ $estagiario->nivel }}</option>
                                     @foreach ($cursos as $key)
                                     <option value="{{ $key->nome }}">{{ $key->nome }}</option>
                                     @endforeach
@@ -194,7 +231,7 @@
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                 <select class="form-control has-feedback-left" name="periodo">
-                                    <option value="{{ $estagiario->periodo }}">Período</option>
+                                    <option value="{{ $estagiario->periodo }}">{{ $estagiario->periodo }}</option>
                                     <option>Manhã</option>
                                     <option>Tarde</option>
                                     <option>Noite</option>
@@ -203,7 +240,7 @@
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                 <select class="form-control has-feedback-left" name="instituicao_id">
-                                    <option value="{{ $estagiario->instituicao_id }}">Instituição de Ensino</option>
+                                    <option value="{{ $estagiario->instituicao_id }}">{{ $estagiario->instituicao_id }}</option>
                                     @foreach ($instituicoes as $key => $value)
                                     <option value="{{ $key }}">{{ $value->nome_instituicao }}</option>
                                     @endforeach
@@ -228,16 +265,17 @@
                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                <input type="date" class="form-control has-feedback-left"
+                                <input type="text" class="form-control has-feedback-left"
                                     placeholder="Previsão Término Curso" name="termino_curso"
                                     value="{{ $estagiario->termino_curso }}">
                                 <span class="fa fa-book form-control-feedback left" aria-hidden="true"></span>
                             </div>
                         </div>
                     </div>
+                    </div>
                     <div id="step-3">
                         <br>
-                        <div id="form-step-1" role="form" data-toggle="validator">
+                        <div id="form-step-2" role="form" data-toggle="validator">
                             <div class="row" style="width:960px; margin: 20px auto;">
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <input type="text" class="form-control has-feedback-left"
