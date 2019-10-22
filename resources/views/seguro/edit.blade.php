@@ -27,78 +27,81 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
-                            <form action="{{ route('seguro.update',  $seguro->id) }}" id="myForm" role="form"
-                                data-toggle="validator" method="post" accept-charset="utf-8">
-                                <input type="hidden" name="_method" value="PUT">
-                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                <!-- SmartWizard html -->
+                            {{-- {!! Form::open(['route' => ['seguro.update', $seguro->id]]) !!} --}}
+                            {!! Form::open(['route' => ['seguro.update', $seguro->id], 'method' => 'patch']) !!}
+                            {{-- <form action="{{ route('seguro.update',  $seguro->id) }}" id="myForm" role="form"
+                            data-toggle="validator" method="post" accept-charset="utf-8"> --}}
+                            {{-- <input type="hidden" name="_method" value="post"> --}}
+                            {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> --}}
+                            <!-- SmartWizard html -->
+                            <div>
                                 <div>
                                     <div>
-                                        <div>
-                                            <div id="form-step-0" role="form" data-toggle="validator">
-                                                <div class="row" style="width:960px; margin: 20px auto;">
-                                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" value="{{$seguro->nome}}"
-                                                            class="form-control has-feedback-left"
-                                                            placeholder="Nome da seguro:" name="nome">
-                                                        <span class="fa fa-user form-control-feedback left"
-                                                            aria-hidden="true"></span>
-                                                    </div>
-                                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" value="{{$seguro->n_apolice}}"
-                                                            class="form-control has-feedback-left"
-                                                            placeholder="Nº da Apolice:" name="n_apolice">
-                                                        <span class="fa fa-user form-control-feedback left"
-                                                            aria-hidden="true"></span>
-                                                    </div>
-                                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <select class="form-control has-feedback-left"
-                                                            name="empresa_id">
-                                                            <option value="{{ $seguro->empresa_id}}">
-                                                                {{ $seguro->empresa_id }}</option>
-                                                            @foreach ($empresas as $empresa)
-                                                            <option value="{{$empresa->nome_fantasia}}">
-                                                                {{$empresa->nome_fantasia}}</option>
-                                                            @endforeach
-                                                        </select>
-                                                        <span class="fa fa-home form-control-feedback left"
-                                                            aria-hidden="true"></span>
-                                                    </div>
-                                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" class="form-control has-feedback-left"
-                                                            value="KOSTER E KOSTER CONSULTORIA EM RH LTDA - RH MAIS TALENTOS" readonly placeholder="Agente de Integração"
-                                                            name="agente_integracao">
-                                                        <span class="fa fa-home form-control-feedback left"
-                                                            aria-hidden="true"></span>
-                                                    </div>
-                                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" value="{{$seguro->cobertura}}"
-                                                            class="form-control has-feedback-left"
-                                                            placeholder="Cobertura:" name="cobertura">
-                                                        <span class="fa fa-user form-control-feedback left"
-                                                            aria-hidden="true"></span>
-                                                    </div>
+                                        <div id="form-step-0" role="form" data-toggle="validator">
+                                            <div class="row" style="width:960px; margin: 20px auto;">
+                                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                    <input type="text" value="{{$seguro->nome}}"
+                                                        class="form-control has-feedback-left"
+                                                        placeholder="Nome da seguro:" name="nome">
+                                                    <span class="fa fa-user form-control-feedback left"
+                                                        aria-hidden="true"></span>
                                                 </div>
-                                                {{-- <div class="btn-group mr-2 sw-btn-group-extra" role="group">
+                                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                    <input type="text" value="{{$seguro->n_apolice}}"
+                                                        class="form-control has-feedback-left"
+                                                        placeholder="Nº da Apolice:" name="n_apolice">
+                                                    <span class="fa fa-user form-control-feedback left"
+                                                        aria-hidden="true"></span>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                    <select class="form-control has-feedback-left" name="empresa_id">
+                                                        <option value="{{ $seguro->empresa_id}}">
+                                                            {{ $seguro->empresa_id }}</option>
+                                                        @foreach ($empresas as $empresa)
+                                                        <option value="{{$empresa->nome_fantasia}}">
+                                                            {{$empresa->nome_fantasia}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    <span class="fa fa-home form-control-feedback left"
+                                                        aria-hidden="true"></span>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                    <input type="text" class="form-control has-feedback-left"
+                                                        value="KOSTER E KOSTER CONSULTORIA EM RH LTDA - RH MAIS TALENTOS"
+                                                        readonly placeholder="Agente de Integração"
+                                                        name="agente_integracao">
+                                                    <span class="fa fa-home form-control-feedback left"
+                                                        aria-hidden="true"></span>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                    <input type="text" value="{{$seguro->cobertura}}"
+                                                        class="form-control has-feedback-left" placeholder="Cobertura:"
+                                                        name="cobertura">
+                                                    <span class="fa fa-user form-control-feedback left"
+                                                        aria-hidden="true"></span>
+                                                </div>
+                                            </div>
+                                            {{-- <div class="btn-group mr-2 sw-btn-group-extra" role="group">
                                       <button type="submit" class="btn btn-info">Enviar</button>
                                       <button class="btn btn-danger">Cancelar</button>
                                     </div> --}}
-                                            </div>
-                                            <button type="submit" class="btn btn-success"
-                                                style="margin: 20px auto; display:block;">Salvar Alterações</button>
                                         </div>
+                                        <button type="submit" class="btn btn-success"
+                                            style="margin: 20px auto; display:block;">Salvar Alterações</button>
                                     </div>
-                            </form>
+                                    {!! Form::close() !!}
+                                </div>
+                                {{-- </form> --}}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- /page content -->
+        <!-- footer content -->
+        @include('layout.footer')
+        <!-- /footer content -->
     </div>
-    <!-- /page content -->
-    <!-- footer content -->
-    @include('layout.footer')
-    <!-- /footer content -->
-</div>
 </div>
 @endsection

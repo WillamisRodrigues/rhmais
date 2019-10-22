@@ -71,7 +71,7 @@
                                                     action="{{ route('seguro.destroy', [$seguro->id]) }}" method="POST">
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                    <button type="submit" class="btn btn-danger">
+                                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja deletar o seguro selecionado?')">
                                                         <i class="fa fa-trash"></i>
                                                     </button>
                                                 </form>
