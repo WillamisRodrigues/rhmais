@@ -276,7 +276,6 @@ class EstagiarioController extends Controller
     {
         // dd($estagiario);
         $request->validate([
-
             'nome' => 'required',
             'email' => 'required',
         ]);
