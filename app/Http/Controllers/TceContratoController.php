@@ -128,7 +128,6 @@ class TceContratoController extends Controller
                 'tce_contrato.data_fim',
                 'tce_contrato.contrato',
                 'tce_contrato.assinado',
-                'tce_contrato.orientador',
                 'tce_contrato.data_doc',
                 'tce_contrato.horario',
                 'tce_contrato.apolice',

@@ -85,35 +85,35 @@
                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                <select class="form-control has-feedback-left" name="estado">
-                                    <option value="{{ $estagiario->estado }}">{{ $estagiario->estado }}</option>
-                                    <option value="AC">Acre</option>
-                                    <option value="AL">Alagoas</option>
-                                    <option value="AP">Amapá</option>
-                                    <option value="AM">Amazonas</option>
-                                    <option value="BA">Bahia</option>
-                                    <option value="CE">Ceará</option>
-                                    <option value="DF">Distrito Federal</option>
-                                    <option value="ES">Espírito Santo</option>
-                                    <option value="GO">Goiás</option>
-                                    <option value="MA">Maranhão</option>
-                                    <option value="MT">Mato Grosso</option>
-                                    <option value="MS">Mato Grosso do Sul</option>
-                                    <option value="MG">Minas Gerais</option>
-                                    <option value="PA">Pará</option>
-                                    <option value="PB">Paraíba</option>
-                                    <option value="PR">Paraná</option>
-                                    <option value="PE">Pernambuco</option>
-                                    <option value="PI">Piauí</option>
-                                    <option value="RJ">Rio de Janeiro</option>
-                                    <option value="RN">Rio Grande do Norte</option>
-                                    <option value="RS">Rio Grande do Sul</option>
-                                    <option value="RO">Rondônia</option>
-                                    <option value="RR">Roraima</option>
-                                    <option value="SC">Santa Catarina</option>
-                                    <option value="SP">São Paulo</option>
-                                    <option value="SE">Sergipe</option>
-                                    <option value="TO">Tocantins</option>
+                                <select  class="form-control has-feedback-left" name="estado">
+                                    <option selected="{{ $estagiario->estado }}">{{ $estagiario->estado }}</option>
+                                    <option value="Acre">Acre</option>
+                                    <option value="Alagoas">Alagoas</option>
+                                    <option value="Amapá">Amapá</option>
+                                    <option value="Amazonas">Amazonas</option>
+                                    <option value="Bahia">Bahia</option>
+                                    <option value="Ceará">Ceará</option>
+                                    <option value="Distrito Federal">Distrito Federal</option>
+                                    <option value="Espírito Santo">Espírito Santo</option>
+                                    <option value="Goiás">Goiás</option>
+                                    <option value="Maranhão">Maranhão</option>
+                                    <option value="Mato Grosso">Mato Grosso</option>
+                                    <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
+                                    <option value="Minas Gerais">Minas Gerais</option>
+                                    <option value="Pará">Pará</option>
+                                    <option value="Paraíba">Paraíba</option>
+                                    <option value="Paraná">Paraná</option>
+                                    <option value="Pernambuco">Pernambuco</option>
+                                    <option value="Piauí">Piauí</option>
+                                    <option value="Rio de Janeiro">Rio de Janeiro</option>
+                                    <option value="Rio Grande do Norte">Rio Grande do Norte</option>
+                                    <option value="Rio Grande do Sul">Rio Grande do Sul</option>
+                                    <option value="Rondônia">Rondônia</option>
+                                    <option value="Roraima">Roraima</option>
+                                    <option value="Santa Catarina">Santa Catarina</option>
+                                    <option value="São Paulo">São Paulo</option>
+                                    <option value="Sergipe">Sergipe</option>
+                                    <option value="Tocantins">Tocantins</option>
                                 </select>
                                 <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                             </div>
@@ -172,7 +172,7 @@
                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                <input type="text" class="form-control has-feedback-left" value="RH Mais" readonly
+                                <input type="text" class="form-control has-feedback-left" value="KOSTER E KOSTER CONSULTORIA EM RH LTDA - RH MAIS TALENTOS" readonly
                                     placeholder="Agente de Integração" name="agente_int">
                                 <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                             </div>
@@ -191,7 +191,12 @@
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                 <select class="form-control has-feedback-left" name="deficiencia">
-                                    <option value="{{ $estagiario->deficiencia }}">{{ $estagiario->deficiencia }}
+                                    <option value="{{ $estagiario->deficiencia }}">
+                                       @if ($estagiario->deficiencia == '1')
+                                                Sim
+                                                @else
+                                                Não
+                                                @endif
                                     </option>
                                     <option value="1">Sim</option>
                                     <option value="2">Não</option>
@@ -288,12 +293,12 @@
                             <span class="fa fa-barcode form-control-feedback left" aria-hidden="true"></span>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" placeholder="Criar Senha"
+                            <input type="password" class="form-control has-feedback-left" placeholder="Criar Senha"
                                 name="senha" value="{{ $estagiario->senha }}">
                             <span class="fa fa-key form-control-feedback left" aria-hidden="true"></span>
                         </div>
                         <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                            <textarea class="form-control" placeholder="Sua observação" name="obs"></textarea>
+                            <textarea class="form-control" placeholder="Sua observação" name="obs" value="{{ $estagiario->obs }}">{{ $estagiario->obs }}</textarea>
                         </div>
                         <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
                             <div class="checkbox">

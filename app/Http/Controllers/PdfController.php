@@ -94,7 +94,6 @@ class PdfController extends Controller
                     'instituicao.cep AS instituicao_cep',
                     'instituicao.nome_rep AS instituicao_nome_rep',
                     'instituicao.cargo_rep AS instituicao_cargo_rep',
-                    'instituicao.orientador AS instituicao_orientador',
                     'instituicao.telefone AS instituicao_telefone',
                     'instituicao.rua AS instituicao_rua',
                     'empresa.razao_social AS empresa_razao',

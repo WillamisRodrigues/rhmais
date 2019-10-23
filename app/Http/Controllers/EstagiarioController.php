@@ -80,7 +80,6 @@ class EstagiarioController extends Controller
                     'instituicao.cep AS instituicao_cep',
                     'instituicao.nome_rep AS instituicao_nome_rep',
                     'instituicao.cargo_rep AS instituicao_cargo_rep',
-                    'instituicao.orientador AS instituicao_orientador',
                     'instituicao.telefone AS instituicao_telefone',
                     'instituicao.rua AS instituicao_rua',
                     'empresa.razao_social AS empresa_razao',
@@ -91,10 +90,6 @@ class EstagiarioController extends Controller
                     'empresa.estado AS empresa_estado',
                     'empresa.cep AS empresa_cep',
                     'empresa.nome_rep AS empresa_nome_rep',
-                    'empresa.cargo_rep AS empresa_cargo_rep',
-                    'empresa.supervisor AS empresa_cargo_sup',
-                    'empresa.orientador AS empresa_orientador',
-                    'empresa.supervisor AS empresa_sup',
                     'empresa.telefone AS empresa_telefone',
                     'empresa.rua AS empresa_rua'
                 )
@@ -178,9 +173,9 @@ class EstagiarioController extends Controller
         $estagiarios->pessoa_responsavel = $request->get('pessoa_responsavel');
         $estagiarios->sexo = $request->get('sexo');
         $estagiarios->cidade = $request->get('cidade');
-        $estagiarios->estado = $request->get('estados');
+        $estagiarios->estado = $request->get('estado');
         $estagiarios->nivel = $request->get('nivel');
-        $estagiarios->curso = $request->get('nivel');
+        $estagiarios->curso = $request->get('curso');
         $estagiarios->nacionalidade = $request->get('nacionalidade');
         $estagiarios->pai = $request->get('pai');
         $estagiarios->mae = $request->get('mae');
@@ -201,7 +196,7 @@ class EstagiarioController extends Controller
         $estagiarios->instituicao_id = $request->get('instituicao_id');
         $estagiarios->curso = $request->get('curso');
         $estagiarios->dt_cadastro = date("Y-m-d");
-        $estagiarios->horario = $request->horario;
+        $estagiarios->horario = $request->get('horario');
         $estagiarios->termino_curso = $request->termino_curso;
         if ($request->ativo == 'on') {
             $estagiarios->status = 1;

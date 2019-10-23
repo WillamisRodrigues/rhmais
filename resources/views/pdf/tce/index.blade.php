@@ -43,7 +43,7 @@
         <p> <strong> Representante: <span class="text-danger"> {{$dados->instituicao_nome_rep}} </span> </strong> <span>
                 <strong> Cargo: <span class="text-danger"> {{$dados->instituicao_cargo_rep}} </span></strong></span>
         </p>
-        <p> <strong> Orientador de estágio: </strong> <span class="text-danger"> {{$dados->instituicao_orientador}}
+        <p> <strong> Orientador de estágio: </strong> <span class="text-danger">
             </span>
             <span> <strong> Telefone: </strong><span class="text-danger"> {{$dados->instituicao_telefone}} </span>
             </span>
@@ -63,10 +63,10 @@
                 <strong> Telefone: </strong><span class="text-danger"> {{$dados->empresa_telefone}} </span> </span>
         </p>
         <p> <strong> Representante: </strong> <span class="text-danger"> {{$dados->empresa_nome_rep}}
-            </span><span><strong> Cargo: </strong> <span class="text-danger"> {{$dados->empresa_cargo_rep}} </span>
+            </span><span><strong> Cargo: </strong> <span class="text-danger">  </span>
             </span> </span> </p>
-        <p> <strong> Supervisor de estágio: </strong> {{$dados->empresa_sup}} <span class="text-danger"> </span><span>
-                <strong> Cargo:</strong> <span class="text-danger"> {{$dados->empresa_cargo_sup}} </span> </span>
+        <p> <strong> Supervisor de estágio: </strong>  <span class="text-danger"> </span><span>
+                <strong> Cargo:</strong> <span class="text-danger">  </span> </span>
         </p>
         <p> <strong> Formação Acadêmica: </strong> <span class="text-danger"> </span>
         </p>
