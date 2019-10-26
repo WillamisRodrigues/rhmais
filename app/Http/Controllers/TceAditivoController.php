@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Beneficio;
+use App\Empresa;
+use App\Estagiario;
+use App\Instituicao;
 use App\TceAditivo;
 use DB;
+
 use Illuminate\Http\Request;
 
 class TceAditivoController extends Controller
@@ -76,7 +81,17 @@ class TceAditivoController extends Controller
      */
     public function edit(TceAditivo  $tceAditivo)
     {
-        return view('tce_aditivo.edit', compact('tceAditivo', $tceAditivo));
+        $estagiarios = Estagiario::all();
+        $instituicoes = Instituicao::all();
+        $empresas = Empresa::all();
+        $beneficios = Beneficio::all();
+        return view('tce_aditivo.edit', compact([
+            'tceAditivo',
+            'estagiarios',
+            'instituicoes',
+            'empresas',
+            'beneficios',
+            $tceAditivo]));
     }
 
     /**

@@ -126,7 +126,7 @@
                                                         <select class="form-control has-feedback-left" name="horario">
                                                             <option>Horário de Estagio:</option>
                                                             @foreach ($horarios as $horario)
-                                                            <option value="{{ $horario->id }}">{{ $horario->descricao }}
+                                                            <option value="{{ $horario->horario }}">{{ $horario->horario }}
                                                             </option>
                                                             @endforeach
                                                         </select>
@@ -171,7 +171,7 @@
                                                             name="supervisor">
                                                             <option>Supervisor Estagio:</option>
                                                             @foreach ($super as $sup)
-                                                            <option value="{{ $sup->id }}">{{ $sup->nome }}</option>
+                                                            <option value="{{ $sup->nome }}">{{ $sup->nome }}</option>
                                                             @endforeach
                                                         </select>
                                                         <span class="fa fa-user form-control-feedback left"

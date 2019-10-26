@@ -124,7 +124,12 @@
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                 <select class="form-control has-feedback-left" name="empresa_id">
-                                    <option value="{{ $estagiario->empresa_id }}">{{ $estagiario->empresa_id }}
+                                      <option value="{{ $estagiario->empresa_id }}">
+                                            @foreach ($empresas as $empresa)
+                                                @if ($estagiario->empresa_id == $empresa->id)
+                                                {{$empresa->nome_fantasia}}
+                                                @endif
+                                            @endforeach
                                     </option>
                                     @foreach ($empresas as $empresa)
                                     <option value="{{ $empresa->id }}">{{ $empresa->nome_fantasia }}</option>

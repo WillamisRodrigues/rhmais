@@ -12,6 +12,7 @@ use App\Seguradora;
 use App\Setor;
 use App\Horario;
 use App\Atividade;
+use App\Motivo;
 use App\Orientador;
 use App\Supervisor;
 use DB;
@@ -173,8 +174,10 @@ class TceContratoController extends Controller
             )
             ->where('tce_contrato.id', '=', $id)
             ->get();
+
+            $motivos = Motivo::all();
         // dd($tceContrato);
-        return view('tce_contrato.edit', compact('tceContrato', $tceContrato));
+        return view('tce_contrato.edit', compact('tceContrato', 'motivos', $tceContrato));
     }
 
     /**

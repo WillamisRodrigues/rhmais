@@ -39,26 +39,37 @@
                                             <div id="form-step-0" role="form" data-toggle="validator">
                                                 <div class="row" style="width:960px; margin: 0 auto;">
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" value="{{$tceAditivo->estagiario_id}}"
+                                                        @foreach ($estagiarios as $estagiario)
+                                                            @if ($tceAditivo->estagiario_id == $estagiario->id)
+                                                        <input type="text" value="{{$estagiario->nome}}"
                                                             class="form-control has-feedback-left"
                                                             placeholder="Estagiário" name="nome">
                                                         <span class="fa fa-user form-control-feedback left"
                                                             aria-hidden="true"></span>
-                                                    </div>
-
-                                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" value="{{$tceAditivo->instituicao_id}}"
-                                                            class="form-control has-feedback-left"
-                                                            placeholder="Instituição de Ensino" name="email">
-                                                        <span class="fa fa-home form-control-feedback left"
-                                                            aria-hidden="true"></span>
+                                                            @endif
+                                                            @endforeach
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" value="{{$tceAditivo->empresa_id}}"
+                                                        @foreach ($instituicoes as $instituicao)
+                                                            @if ($tceAditivo->instituicao_id == $instituicao->id)
+                                                            <input type="text" value="{{$instituicao->nome_instituicao}}"
                                                             class="form-control has-feedback-left"
-                                                            placeholder="Unidade Concedente" name="email">
-                                                        <span class="fa fa-home form-control-feedback left"
+                                                            placeholder="Instituição de Ensino" name="instituicao_id">
+                                                            <span class="fa fa-home form-control-feedback left"
                                                             aria-hidden="true"></span>
+                                                            @endif
+                                                        @endforeach
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                        @foreach ($empresas as $empresa)
+                                                            @if ($tceAditivo->empresa_id == $empresa->id)
+                                                             <input type="text" value="{{$empresa->nome_fantasia}}"
+                                                            class="form-control has-feedback-left"
+                                                            placeholder="Unidade Concedente" name="empresa_id">
+                                                            <span class="fa fa-home form-control-feedback left"
+                                                            aria-hidden="true"></span>
+                                                            @endif
+                                                        @endforeach
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text" value="{{$tceAditivo->bolsa}}"
@@ -68,14 +79,14 @@
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" value="{{$tceAditivo->data_inicio}}"
+                                                        <input type="text" value="{{date('d/m/Y', strtotime($tceAditivo->data_inicio))}}"
                                                             class="form-control has-feedback-left"
                                                             placeholder="Data Inicio:" name="data_inicio">
                                                         <span class="fa fa-calendar form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" value="{{$tceAditivo->data_fim}}"
+                                                        <input type="text" value="{{date('d/m/Y', strtotime($tceAditivo->data_fim))}}"
                                                             class="form-control has-feedback-left"
                                                             placeholder="Data Fim:" name="data_fim">
                                                         <span class="fa fa-calendar form-control-feedback left"
@@ -124,7 +135,7 @@
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" value="{{$tceAditivo->data_doc}}"
+                                                        <input type="text" value="{{date('d/m/Y', strtotime($tceAditivo->data_doc))}}"
                                                             class="form-control has-feedback-left"
                                                             placeholder="Data Documento:" name="data_doc">
                                                         <span class="fa fa-calendar form-control-feedback left"

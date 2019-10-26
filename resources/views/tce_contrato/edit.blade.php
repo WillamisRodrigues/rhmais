@@ -107,14 +107,12 @@
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <label for="">Beneficio</label>
                                                         <textarea class="form-control" placeholder="Beneficio"
-                                                            name="beneficio">
-                                                </textarea>
+                                                            name="beneficio"></textarea>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <label for="">Atividade / Setor </label>
-                                                        <textarea class="form-control" placeholder="Beneficio"
-                                                            name="atividade">
-                                                </textarea>
+                                                        <textarea class="form-control" placeholder="Atividade / Setor"
+                                                            name="atividade"></textarea>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text" value="{{$tce->supervisor}}"
@@ -126,6 +124,9 @@
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <select class="form-control has-feedback-left" name="motivo">
                                                             <option>Selecione Motivo</option>
+                                                              @foreach ($motivos as $motivo)
+                                                            <option value="{{ $motivo->nome }}">{{ $motivo->nome }}</option>
+                                                                @endforeach
                                                         </select>
                                                         <span class="fa fa-bars form-control-feedback left"
                                                             aria-hidden="true"></span>
@@ -147,8 +148,7 @@
                                                     <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                                                         <label for="">Observação </label>
                                                         <textarea class="form-control" placeholder="Observação"
-                                                            name="obs">
-                                                </textarea>
+                                                            name="obs"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="btn-group mr-2 sw-btn-group-extra" role="group">
