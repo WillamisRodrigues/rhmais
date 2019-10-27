@@ -45,14 +45,17 @@
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <select class="form-control has-feedback-left" name="empresa">
+                                                        <input type="text" value="{{$atividades->empresa}}"
+                                                            class="form-control has-feedback-left"
+                                                            placeholder="Unidade concedente*" name="empresa">
+                                                        {{-- <select class="form-control has-feedback-left" name="empresa">
                                                             <option value="{{$atividades->empresa}}">
                                                                 {{$atividades->empresa}}</option>
                                                             @foreach ($empresas as $empresa)
                                                             <option value="{{$empresa->nome_fantasia}}">
                                                                 {{$empresa->nome_fantasia}}</option>
                                                             @endforeach
-                                                        </select>
+                                                        </select> --}}
                                                         <span class="fa fa-home form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
