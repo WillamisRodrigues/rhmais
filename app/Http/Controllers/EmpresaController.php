@@ -85,11 +85,11 @@ class EmpresaController extends Controller
         $empresas->complemento = $request->get('complemento');
         $empresas->nome_contato = $request->get('nome_contato');
         $empresas->email_contato = $request->get('email_contato');
-        $empresas->qtd_plano = $request->get('qtd_plano');
-        $empresas->valor_fixo = $request->get('valor_fixo');
-        $empresas->valor_percentual = $request->get('valor_percentual');
+        // $empresas->qtd_plano = $request->get('qtd_plano');
+        // $empresas->valor_fixo = $request->get('valor_fixo');
+        // $empresas->valor_percentual = $request->get('valor_percentual');
         $empresas->custo_unitario = $request->get('custo_unitario');
-        $empresas->valor_adicional = $request->get('valor_adicional');
+        // $empresas->valor_adicional = $request->get('valor_adicional');
         $empresas->ativo = $request->get('ativo');
         $empresas->save();
 

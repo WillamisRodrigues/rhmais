@@ -7,17 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class Empresa extends Model
 {
      protected $fillable = [
-         'razao_social',
+          'razao_social',
           'nome_fantasia',
-         'cnpj',
-         'insc_estadual',
-         'telefone',
-         'celular',
-         'site_url',
-         'rua',
-         'numero',
-        'bairro',
-         'cep',
+          'cnpj',
+          'insc_estadual',
+          'telefone',
+          'celular',
+          'site_url',
+          'rua',
+          'numero',
+          'bairro',
+          'cep',
           'complemento',
           'cidade',
           'estado',
@@ -32,12 +32,13 @@ class Empresa extends Model
           'agente_int',
           'nome_contato',
           'email_contato',
-          'celular_contato'];
+          'celular_contato'
+     ];
 
-    protected $table = 'empresa';
+     protected $table = 'empresa';
 
      public function estagios()
      {
           return  $this->hasMany('App\Estagiario', 'empresa_id');
      }
-  }
+}

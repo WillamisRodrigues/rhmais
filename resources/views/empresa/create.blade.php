@@ -153,34 +153,34 @@
                             <input type="date" class="form-control has-feedback-left" placeholder="Dia p/ Fechamento" name="dia_fechamento" value="{{old('dia_fechamento')}}">
                             <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                           </div>
-                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                          {{-- <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <select class="form-control has-feedback-left" name="qtd_plano">
                                                     <option>12 Vezes</option>
                                                     <option>24 Vezes</option>
                                                 </select>
-                            {{-- <input type="text" class="form-control has-feedback-left" placeholder="Quantidade TCE Plano" name="qtd_plano" value="{{old('qtd_plano')}}"> --}}
+                             <input type="text" class="form-control has-feedback-left" placeholder="Quantidade TCE Plano" name="qtd_plano" value="{{old('qtd_plano')}}"> 
                             <span class="fa fa-bars form-control-feedback left" aria-hidden="true"></span>
-                          </div>
+                          </div> --}}
                         </div>
-                        <div class="row" style="width:960px; margin: 0 auto;">
+                        {{-- <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left" placeholder="Cobrança Valor Fixo" name="valor_fixo" value="{{old('valor_fixo')}}">
                             <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
-                          </div>
-                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                          </div> --}}
+                          {{-- <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left" placeholder="Cobrança Valor %" name="valor_percentual" value="{{old('valor_percentual')}}">
                             <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
                           </div>
-                        </div>
+                        </div> --}}
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left" placeholder="Custo Unitário" name="custo_unitario" value="{{old('custo_unitario')}}">
                             <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
                           </div>
-                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                          {{-- <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left" placeholder="Valor Adicional" name="valor_adicional" value="{{old('valor_adicional')}}">
                             <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
-                          </div>
+                          </div> --}}
                           <div class="row" style="width:500px; margin: 0 auto;">
                             <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
                               <div class="checkbox">

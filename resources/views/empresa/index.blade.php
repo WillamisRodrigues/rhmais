@@ -43,7 +43,7 @@
                           <th>CNPJ
                           <input type="text" class="form-control" style="width:100px;">
                           </th>
-                          <th>Qtade <br> Plano
+                          {{-- <th>Qtade <br> Plano
                           <input type="text" class="form-control" style="width:100px;">
                           </th>
                           <th>Valor <br> Fixo
@@ -51,13 +51,13 @@
                           </th>
                           <th>Valor <br> Perc
                           <input type="text" class="form-control" style="width:100px;">
-                          </th>
+                          </th> --}}
                           <th>Custo <br> Unitario
                           <input type="text" class="form-control" style="width:100px;">
                           </th>
-                          <th>Valor <br> Adicional
+                          {{-- <th>Valor <br> Adicional
                           <input type="text" class="form-control" style="width:100px;">
-                          </th>
+                          </th> --}}
                           <th>Ativo
                           <input type="text" class="form-control" style="width:100px;">
                           </th>
@@ -71,11 +71,11 @@
                           <td>{{$empresa->cidade}}</td>
                           <td>{{$empresa->telefone}}</td>
                           <td>{{$empresa->cnpj}}</td>
-                          <td>{{$empresa->qtd_plano}}</td>
-                          <td>{{$empresa->valor_fixo}}</td>
-                          <td>{{$empresa->valor_percentual}}</td>
-                          <td>{{$empresa->insc_estadual}}</td>
-                          <td>{{$empresa->telefone}}</td>
+                          {{-- <td>{{$empresa->qtd_plano}}</td> --}}
+                          {{-- <td>{{$empresa->valor_fixo}}</td> --}}
+                          {{-- <td>{{$empresa->valor_percentual}}</td> --}}
+                          <td>{{$empresa->custo_unitario}}</td>
+                          {{-- <td>{{$empresa->telefone}}</td> --}}
                           <td>
                              @if ($empresa->ativo == '1')
                               Sim
