@@ -55,7 +55,13 @@
                                         <tr>
                                             @foreach ($estagiarios as $estagiario)
                                             <td>{{$estagiario->nome}}</td>
-                                            <td>KOSTER & KOSTER CONSULTORIA EM RH LTDA - RH MAIS TALENTOS</td>
+                                            <td>
+                                                @foreach ($empresas as $empresa)
+                                                    @if ($estagiario->empresa_id == $empresa->id)
+                                                        {{$empresa->nome_fantasia}}
+                                                    @endif
+                                                @endforeach
+                                            </td>
                                             <td>02/01/2018 31/12/2019</td>
                                             <td>02/01/2018 02/07/2018 03/07/2018 03/01/2019 04/01/2019 04/07/2019
                                                 05/07/2019 31/12/2019 </td>

@@ -55,13 +55,21 @@
                                             <td>{{$cce->cidade}}</td>
                                             <td>{{date('d/m/Y', strtotime($cce->data_inicio))}}</td>
                                             <td>{{date('d/m/Y', strtotime($cce->data_fim))}}</td>
-                                            <td>Não Assinado</td>
+                                            <td>
+                                                @if ($cce->situacao != 1)
+                                                Não Assinado
+                                                @else
+                                                Assinado
+                                                @endif</td>
                                             <td>
                                                 <a class="btn btn-primary"
                                                     href="{{ route('cce_convenio.edit', [$cce->id])}}"><i
                                                         class="fa fa-pencil"></i> </a>
                                                 <a class="btn btn-info" href="/cce" target="_blank"><i
                                                         class="fa fa-print"></i></a>
+                                                <a href="{{ route('cce_convenio.assinar', [$cce->id]) }}"
+                                                    class="btn btn-primary" title="Marcar contrato como assinado"> <i
+                                                        class="fa fa-star"></i> </a>
                                                 <form action="{{route('cce_convenio.destroy', [$cce->id])}}"
                                                     method="POST">
                                                     <button type="submit" class="btn btn-danger"

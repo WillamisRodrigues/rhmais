@@ -20,6 +20,7 @@ Route::post('/home', 'HomeController@index')->name('index');
 Route::get('/home/grafico', 'HomeController@grafico');
 Route::get('infos/{id}', ['uses' => 'FinanceiroController@infos', 'as' => 'financeiro.infos']);
 Route::get('cau_assinado/{id}', ['uses' => 'CauController@assinado', 'as' => 'cau_convenio.assinar']);
+Route::get('cce_convenio/{id}', ['uses' => 'CceController@assinado', 'as' => 'cce_convenio.assinar']);
 Route::post('editar_folha_pagamento', ['uses' => 'FolhaPagamentoController@editar', 'as' => 'folha_pagamento.editar']);
 
 Route::resource('empresa', 'EmpresaController');

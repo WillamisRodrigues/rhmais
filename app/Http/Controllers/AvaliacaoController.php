@@ -54,6 +54,7 @@ class AvaliacaoController extends Controller
             )
             ->get();
         $supervisores = DB::table('supervisor')->get();
+
         // dd($empresas);
         return view('auto_avaliacao.index', [
             'estagiarios' => $estagiarios,

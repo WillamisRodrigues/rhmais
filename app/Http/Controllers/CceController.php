@@ -130,4 +130,9 @@ class CceController extends Controller
             return redirect('cce_convenio');
         }
     }
+    public function assinado($id)
+    {
+        DB::update('update cce set situacao = 1 where id = ?', [$id]);
+        return redirect('cce_convenio');
+    }
 }

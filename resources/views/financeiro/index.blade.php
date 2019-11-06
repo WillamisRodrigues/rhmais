@@ -73,12 +73,12 @@
                                             <th>T.Bolsa
                                                 <input type="text" class="form-control" style="width:100px;">
                                             </th>
-                                            <th>Q.Plano
+                                            {{-- <th>Q.Plano
                                                 <input type="text" class="form-control" style="width:100px;">
-                                            </th>
-                                            <th>V.Fixo
+                                            </th> --}}
+                                            {{-- <th>V.Fixo
                                                 <input type="text" class="form-control" style="width:100px;">
-                                            </th>
+                                            </th> --}}
                                             <th>C.Unitario
                                                 <input type="text" class="form-control" style="width:100px;">
                                             </th>
