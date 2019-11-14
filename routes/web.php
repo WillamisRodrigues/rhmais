@@ -83,17 +83,13 @@ Route::get('/calculo', function () {
 /*rotas folhas de pagamento , recisao, rendimentos , previa_recisao*/
 
 Route::get('/folha_rescisao', function () {
-    return view('folha_rescisao/index');
+    $unidades = DB::table('cau')->join('empresa', 'empresa.id', '=', 'cau.empresa_id')->select('empresa.id', 'empresa.nome_fantasia', 'cau.data_inicio', 'cau.data_fim', 'cau.situacao', 'cau.id AS id')->get();
+    $periodos = DB::table("folha_pagamento")->select(DB::raw('count(*) as periodo, referencia'))->where('referencia', '<>', 1)->groupBy('referencia')->get();
+    return view('folha_rescisao/index',[
+        'unidades' => $unidades,
+        'periodos' => $periodos
+    ]);
 });
-Route::get('/rendimentos', function () {
-    return view('rendimentos/index');
-});
-
-Route::get('/previsao_rescisao', function () {
-    return view('previsao_rescisao/index');
-});
-
-
 
 Route::get('/editar_conta', function () {
     return view('editar_conta/edit');

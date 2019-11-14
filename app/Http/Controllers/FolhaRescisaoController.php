@@ -14,17 +14,8 @@ class FolhaRescisaoController extends Controller
      */
     public function index()
     {
-        $unidades = DB::table('cau')
-            ->join('empresa', 'empresa.id', '=', 'cau.empresa_id')
-            ->select(
-                'empresa.id',
-                'empresa.nome_fantasia',
-                'cau.data_inicio',
-                'cau.data_fim',
-                'cau.situacao',
-                'cau.id AS id'
-            )
-            ->get();
+        $unidades = DB::table('cau')->join('empresa', 'empresa.id', '=', 'cau.empresa_id')->select('empresa.id','empresa.nome_fantasia','cau.data_inicio','cau.data_fim','cau.situacao','cau.id AS id')->get();
+
         return view('folha_pagamento.index',  compact('unidades', $unidades));
     }
 

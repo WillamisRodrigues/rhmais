@@ -24,15 +24,19 @@ class FolhaPagamentoController extends Controller
             if (!DB::table('folha_pagamento')->where([['estagiario_id', '=', $estagiario->id], ['referencia', '=', date("Y/m")]])->get()->first()) {
                 $contrato_do_estagiario = DB::table('tce_contrato')->where('estagiario_id', $estagiario->id)->get()->first();
                 if ($contrato_do_estagiario) {
-                    DB::insert('insert into folha_pagamento (referencia, estagiario_id, empresa_id, valor_bolsa, faltas, valor_liquido, status, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?, ?, ?)', [date("Y/m"), $estagiario->id, $estagiario->empresa_id, $contrato_do_estagiario->bolsa, 0, $contrato_do_estagiario->bolsa, 0, date("Y-m-d H:i:s"), date("Y-m-d H:i:s")]);
+                    DB::insert('insert into folha_pagamento (referencia, estagiario_id, empresa_id, valor_bolsa, faltas, valor_liquido, referencia, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?, ?, ?)', [date("Y/m"), $estagiario->id, $estagiario->empresa_id, $contrato_do_estagiario->bolsa, 0, $contrato_do_estagiario->bolsa, 0, date("Y-m-d H:i:s"), date("Y-m-d H:i:s")]);
                 }
             }
         }
 
         $folhas = DB::table("folha_pagamento")->get();
+        $periodos = DB::table("folha_pagamento")->select(DB::raw('count(*) as periodo, referencia'))
+            ->where('referencia', '<>', 1)
+            ->groupBy('referencia')
+            ->get();
         $empresas = DB::table('empresa')->get();
 
-        return view('folha_pagamento.index',  ['unidades' => $unidades, 'folhas' => $folhas, 'estagiarios' => $estagiarios, 'empresas' => $empresas]);
+        return view('folha_pagamento.index',  ['unidades' => $unidades, 'folhas' => $folhas, 'estagiarios' => $estagiarios, 'empresas' => $empresas, 'periodos' => $periodos]);
     }
 
     /**
