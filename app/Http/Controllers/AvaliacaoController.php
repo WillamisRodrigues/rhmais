@@ -65,6 +65,70 @@ class AvaliacaoController extends Controller
         ]);
     }
 
+    public function buscarAvaliacaoEstagiario(Request $request)
+    {
+        $idEstagiarios = [];
+        $i = 0;
+        $estagiarios = DB::table('estagiario')->where([['nome', 'like', '%' . $request->nome . '%']])->get();
+        foreach ($estagiarios as $estagiario) {
+            $idEstagiarios[$i] = $estagiario->id;
+            $i++;
+        }
+        $avaliacoes = DB::table('avaliacao')->where([['estagiario_id', '=', $idEstagiarios]])->get();
+        $empresas = DB::table('empresa')->get();
+        $instituicoes = DB::table('instituicao')->get();
+        $orientadores = DB::table('orientador')->get();
+
+        return view('lista_auto_avaliacao.index', [
+            'avaliacoes' => $avaliacoes,
+            'empresas' => $empresas,
+            'instituicoes' => $instituicoes,
+            'estagiarios' => $estagiarios,
+            'orientadores' => $orientadores,
+        ]);
+    }
+
+    public function autoavaliacao()
+    {
+        $supervisores = DB::table('supervisor')->get();
+        $empresas = DB::table('empresa')->get();
+        return view('lista_auto_avaliacao.busca-estagiario', ['supervisores' => $supervisores, 'empresas' => $empresas]);
+    }
+
+    public function buscarEstagiarios(Request $request)
+    {
+
+        if ($request->empresa_id && !$request->supervisor_id) {
+            $estagiarios = DB::table('estagiario')->where([['empresa_id', '=', $request->empresa_id]])->get();
+        }
+
+        if ($request->supervisor_id && !$request->empresa_id) {
+            $colecaoEstagiarios = DB::table('tce_contrato')->where([['supervisor', '=', $request->supervisor_id], ['estagiario_id', '<>', null]])->get();
+            $i = 0;
+            foreach ($colecaoEstagiarios as $estagiario) {
+                $colecaoIdEstagiarios[$i] = $estagiario->estagiario_id;
+                $i++;
+            }
+            $estagiarios = DB::table('estagiario')->whereIn('id', $colecaoIdEstagiarios)->get();
+        }
+
+        if ($request->supervisor_id && $request->empresa_id) {
+            $colecaoEstagiarios = DB::table('tce_contrato')->where([['supervisor', '=', $request->supervisor_id], ['estagiario_id', '<>', null]])->get();
+            $i = 0;
+            foreach ($colecaoEstagiarios as $estagiario) {
+                $colecaoIdEstagiarios[$i] = $estagiario->estagiario_id;
+                $i++;
+            }
+            $estagiarios = DB::table('estagiario')->where('empresa_id', '=', $request->empresa_id)->whereIn('id', $colecaoIdEstagiarios)->get();
+        }
+
+        if (!$request->supervisor_id && !$request->empresa_id) {
+            $estagiarios = DB::table('estagiario')->get();
+        }
+
+        return view('lista_auto_avaliacao.lista-estagiario', ['estagiarios' => $estagiarios]);
+    }
+
     public function assinar_avaliacao_estagiario($id)
     {
         DB::update('update avaliacao set status = 1 where id = ?', [$id]);

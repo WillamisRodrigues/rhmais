@@ -111,6 +111,15 @@ Route::get('/lista_auto_avaliacao', function () {
     ]);
 });
 
+Route::get('listar-autoavaliacao', function () {
+    return view('lista_auto_avaliacao/listar');
+});
+
+Route::get('auto-avaliacao', ['uses' => 'AvaliacaoController@autoavaliacao', 'as' => 'auto-avaliacao']);
+
+Route::post('buscar-estagiario', ['uses' => 'AvaliacaoController@buscarAvaliacaoEstagiario', 'as' => 'buscar-estagiario']);
+Route::post('filtrar-estagiario', ['uses' => 'AvaliacaoController@buscarEstagiarios', 'as' => 'filtrar-estagiario']);
+
 Route::get('deletar_avaliacao_estagiario/{id}', [
     'uses' => 'AvaliacaoController@deletar_avaliacao_estagiario',
     'as' => 'deletar.avaliacao.estagiario'

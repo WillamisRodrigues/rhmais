@@ -25,6 +25,7 @@ class EstagiarioController extends Controller
      */
     public function index()
     {
+
         $estagiarios = DB::table('estagiario')
             ->join('empresa', 'estagiario.empresa_id', '=', 'empresa.id')
             ->select(
@@ -43,7 +44,7 @@ class EstagiarioController extends Controller
             )
             ->get();
 
-        // dd($estagiarios);
+        // dd($estagiarios[0]->nome);
         return view('estagiario.index', compact('estagiarios'));
     }
 
