@@ -22,47 +22,51 @@ class AvaliacaoController extends Controller
     {
         //  $avaliacoes = Avaliacao::all();
 
-        $estagiarios = DB::table('avaliacao')
-            ->join('estagiario', 'avaliacao.estagiario_id', '=', 'estagiario.id')
-            // ->select(
-            //     'estagiario.nome'
-            // )
-            ->get();
+        // $estagiarios = DB::table('avaliacao')
+        //     ->join('estagiario', 'avaliacao.estagiario_id', '=', 'estagiario.id')
+        //     // ->select(
+        //     //     'estagiario.nome'
+        //     // )
+        //     ->get();
 
-        $instituicoes = DB::table('avaliacao')
-            ->join('empresa', 'avaliacao.empresa_id', '=', 'empresa.id')
-            // ->select(
-            //     'empresa.nome_fantasia'
-            // )
-            ->get();
-        $empresas = DB::table('empresa')
-            ->select(
-                'empresa.razao_social',
-                'empresa.nome_fantasia',
-                'empresa.cnpj',
-                'empresa.insc_estadual',
-                'empresa.telefone',
-                'empresa.id',
-                'empresa.cidade',
-                'empresa.estado'
-            )
-            ->get();
-        $tceContrato = DB::table('tce_contrato')
-            ->select(
-                'tce_contrato.data_inicio',
-                'tce_contrato.data_fim'
-            )
-            ->get();
-        $supervisores = DB::table('supervisor')->get();
+        // $instituicoes = DB::table('avaliacao')
+        //     ->join('empresa', 'avaliacao.empresa_id', '=', 'empresa.id')
+        //     // ->select(
+        //     //     'empresa.nome_fantasia'
+        //     // )
+        //     ->get();
+        // $empresas = DB::table('empresa')
+        //     ->select(
+        //         'empresa.razao_social',
+        //         'empresa.nome_fantasia',
+        //         'empresa.cnpj',
+        //         'empresa.insc_estadual',
+        //         'empresa.telefone',
+        //         'empresa.id',
+        //         'empresa.cidade',
+        //         'empresa.estado'
+        //     )
+        //     ->get();
+        // $tceContrato = DB::table('tce_contrato')
+        //     ->select(
+        //         'tce_contrato.data_inicio',
+        //         'tce_contrato.data_fim'
+        //     )
+        //     ->get();
+        // $supervisores = DB::table('supervisor')->get();
 
         // dd($empresas);
-        return view('auto_avaliacao.index', [
-            'estagiarios' => $estagiarios,
-            'instituicoes' => $instituicoes,
-            'empresas' => $empresas,
-            'supervisores' => $supervisores,
-            'tceContrato' => $tceContrato
-        ]);
+        // return view('auto_avaliacao.index', [
+        //     'estagiarios' => $estagiarios,
+        //     'instituicoes' => $instituicoes,
+        //     'empresas' => $empresas,
+        //     'supervisores' => $supervisores,
+        //     'tceContrato' => $tceContrato
+        // ]);
+
+        $supervisores = DB::table('supervisor')->get();
+        $empresas = DB::table('empresa')->get();
+        return view('lista_auto_avaliacao.busca-estagiario', ['supervisores' => $supervisores, 'empresas' => $empresas]);
     }
 
     public function buscarAvaliacaoEstagiario(Request $request)
@@ -79,6 +83,22 @@ class AvaliacaoController extends Controller
         $instituicoes = DB::table('instituicao')->get();
         $orientadores = DB::table('orientador')->get();
 
+        return view('lista_auto_avaliacao.index', [
+            'avaliacoes' => $avaliacoes,
+            'empresas' => $empresas,
+            'instituicoes' => $instituicoes,
+            'estagiarios' => $estagiarios,
+            'orientadores' => $orientadores,
+        ]);
+    }
+
+    public function lista_avaliacao()
+    {
+        $avaliacoes = DB::table('avaliacao')->get();
+        $empresas = DB::table('empresa')->get();
+        $instituicoes = DB::table('instituicao')->get();
+        $estagiarios = DB::table('estagiario')->get();
+        $orientadores = DB::table('orientador')->get();
         return view('lista_auto_avaliacao.index', [
             'avaliacoes' => $avaliacoes,
             'empresas' => $empresas,

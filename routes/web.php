@@ -85,7 +85,7 @@ Route::get('/calculo', function () {
 Route::get('/folha_rescisao', function () {
     $unidades = DB::table('cau')->join('empresa', 'empresa.id', '=', 'cau.empresa_id')->select('empresa.id', 'empresa.nome_fantasia', 'cau.data_inicio', 'cau.data_fim', 'cau.situacao', 'cau.id AS id')->get();
     $periodos = DB::table("folha_pagamento")->select(DB::raw('count(*) as periodo, referencia'))->where('referencia', '<>', 1)->groupBy('referencia')->get();
-    return view('folha_rescisao/index',[
+    return view('folha_rescisao/index', [
         'unidades' => $unidades,
         'periodos' => $periodos
     ]);
@@ -96,24 +96,7 @@ Route::get('/editar_conta', function () {
 });
 
 
-Route::get('/lista_auto_avaliacao', function () {
-    $avaliacoes = DB::table('avaliacao')->get();
-    $empresas = DB::table('empresa')->get();
-    $instituicoes = DB::table('instituicao')->get();
-    $estagiarios = DB::table('estagiario')->get();
-    $orientadores = DB::table('orientador')->get();
-    return view('lista_auto_avaliacao/index', [
-        'avaliacoes' => $avaliacoes,
-        'empresas' => $empresas,
-        'instituicoes' => $instituicoes,
-        'estagiarios' => $estagiarios,
-        'orientadores' => $orientadores,
-    ]);
-});
-
-Route::get('listar-autoavaliacao', function () {
-    return view('lista_auto_avaliacao/listar');
-});
+Route::get('lista_auto_avaliacao', ['uses' => 'AvaliacaoController@lista_avaliacao', 'as' => 'lista_auto_avaliacao']);
 
 Route::get('auto-avaliacao', ['uses' => 'AvaliacaoController@autoavaliacao', 'as' => 'auto-avaliacao']);
 
@@ -134,20 +117,7 @@ Route::get('deletar_avaliacao_supervisor/{id}', [
 
 Route::get('assinar_avaliacao_supervisor/{id}', ['uses' => 'AvaliacaoController@assinar_avaliacao_supervisor', 'as' => 'assinar.avaliacao.supervisor']);
 
-Route::get('/lista_avaliacao_supervisor', function () {
-    $avaliacoes = DB::table('avaliacao_super')->get();
-    $empresas = DB::table('empresa')->get();
-    $instituicoes = DB::table('instituicao')->get();
-    $estagiarios = DB::table('estagiario')->get();
-    $orientadores = DB::table('orientador')->get();
-    return view('lista_avaliacao_supervisor/index', [
-        'avaliacoes' => $avaliacoes,
-        'empresas' => $empresas,
-        'instituicoes' => $instituicoes,
-        'estagiarios' => $estagiarios,
-        'orientadores' => $orientadores,
-    ]);
-});
+Route::get('lista_avaliacao_supervisor', ['uses' => 'AvaliacaoController@lista_avaliacao', 'as' => 'lista_avaliacao_supervisor']);
 
 // Route::get('/financeiro', function () {
 //     return view('financeiro/index');

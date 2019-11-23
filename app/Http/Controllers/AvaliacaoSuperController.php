@@ -15,8 +15,45 @@ class AvaliacaoSuperController extends Controller
      */
     public function index()
     {
-        $avaliacao = AvaliacaoSuper::all();
-        return view('avaliacao_supervisor.index', compact('avaliacao'));
+        // $avaliacao = AvaliacaoSuper::all();
+        // return view('avaliacao_supervisor.index', compact('avaliacao'));
+
+        $empresas = DB::table('empresa')->get();
+        return view('avaliacao_supervisor.index', ['empresas' => $empresas]);
+    }
+
+    public function buscarAvaliacaoSupervisor(Request $request)
+    {
+        $idSupervisor = [];
+        $i = 0;
+        $supervisores = DB::table('estagiario')->where([['nome', 'like', '%' . $request->nome . '%']])->get();
+        foreach ($supervisores as $supervisor) {
+            $idSupervisor[$i] = $supervisor->id;
+            $i++;
+        }
+        $avaliacoes = DB::table('avaliacao')->where([['supervisor_id', '=', $idSupervisor]])->get();
+        $empresas = DB::table('empresa')->get();
+
+        return view('lista_auto_avaliacao.index', [
+            'avaliacoes' => $avaliacoes,
+            'empresas' => $empresas,
+        ]);
+    }
+
+    public function lista_avaliacao()
+    {
+        $avaliacoes = DB::table('avaliacao_super')->get();
+        $empresas = DB::table('empresa')->get();
+        $instituicoes = DB::table('instituicao')->get();
+        $estagiarios = DB::table('estagiario')->get();
+        $orientadores = DB::table('orientador')->get();
+        return view('lista_avaliacao_supervisor.index', [
+            'avaliacoes' => $avaliacoes,
+            'empresas' => $empresas,
+            'instituicoes' => $instituicoes,
+            'estagiarios' => $estagiarios,
+            'orientadores' => $orientadores,
+        ]);
     }
 
     /**

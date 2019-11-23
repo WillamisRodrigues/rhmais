@@ -46,8 +46,8 @@
             </li>
             <li><a><i class="fa fa-graduation-cap"></i> Avaliações <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
-                    <li><a href="/auto-avaliacao">Auto-Avaliação <br> Estagiário(a)</a></li>
-                    <li><a href="/listar-autoavaliacao">Lista Auto-Avaliação <br> Estagiário(a)</a></li>
+                    <li><a href="/auto_avaliacao">Auto-Avaliação <br> Estagiário(a)</a></li>
+                    <li><a href="/lista_auto_avaliacao">Lista Auto-Avaliação <br> Estagiário(a)</a></li>
                     <li><a href="/avaliacao_supervisor">Avaliação Supervisor(a)</a></li>
                     <li><a href="/lista_avaliacao_supervisor">Lista Avaliação <br> Supervisor(a)</a></li>
                 </ul>
