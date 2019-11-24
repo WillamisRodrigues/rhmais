@@ -20,7 +20,7 @@ Route::post('/home', 'HomeController@index')->name('index');
 Route::get('/home/grafico', 'HomeController@grafico');
 Route::get('infos/{id}', ['uses' => 'FinanceiroController@infos', 'as' => 'financeiro.infos']);
 Route::get('cau_assinado/{id}', ['uses' => 'CauController@assinado', 'as' => 'cau_convenio.assinar']);
-Route::get('cce_convenio/{id}', ['uses' => 'CceController@assinado', 'as' => 'cce_convenio.assinar']);
+Route::get('cce_assinado/{id}', ['uses' => 'CceController@assinado', 'as' => 'cce_convenio.assinar']);
 Route::post('editar_folha_pagamento', ['uses' => 'FolhaPagamentoController@editar', 'as' => 'folha_pagamento.editar']);
 
 Route::resource('empresa', 'EmpresaController');
@@ -98,10 +98,10 @@ Route::get('/editar_conta', function () {
 
 Route::get('lista_auto_avaliacao', ['uses' => 'AvaliacaoController@lista_avaliacao', 'as' => 'lista_auto_avaliacao']);
 
-Route::get('auto-avaliacao', ['uses' => 'AvaliacaoController@autoavaliacao', 'as' => 'auto-avaliacao']);
+// Route::get('auto-avaliacao', ['uses' => 'AvaliacaoController@autoavaliacao', 'as' => 'auto-avaliacao']);
 
-Route::post('buscar-estagiario', ['uses' => 'AvaliacaoController@buscarAvaliacaoEstagiario', 'as' => 'buscar-estagiario']);
-Route::post('filtrar-estagiario', ['uses' => 'AvaliacaoController@buscarEstagiarios', 'as' => 'filtrar-estagiario']);
+// Route::post('buscar-estagiario', ['uses' => 'AvaliacaoController@buscarAvaliacaoEstagiario', 'as' => 'buscar-estagiario']);
+// Route::post('filtrar-estagiario', ['uses' => 'AvaliacaoController@buscarEstagiarios', 'as' => 'filtrar-estagiario']);
 
 Route::get('deletar_avaliacao_estagiario/{id}', [
     'uses' => 'AvaliacaoController@deletar_avaliacao_estagiario',

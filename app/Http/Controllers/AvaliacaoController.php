@@ -20,53 +20,46 @@ class AvaliacaoController extends Controller
      */
     public function index()
     {
-        //  $avaliacoes = Avaliacao::all();
 
-        // $estagiarios = DB::table('avaliacao')
-        //     ->join('estagiario', 'avaliacao.estagiario_id', '=', 'estagiario.id')
-        //     // ->select(
-        //     //     'estagiario.nome'
-        //     // )
-        //     ->get();
+        $estagiarios = DB::table('tce_contrato')
+            ->join('estagiario', 'tce_contrato.estagiario_id', '=', 'estagiario.id')
+            // ->select(
+            //     'estagiario.nome'
+            // )
+            ->get();
 
-        // $instituicoes = DB::table('avaliacao')
-        //     ->join('empresa', 'avaliacao.empresa_id', '=', 'empresa.id')
-        //     // ->select(
-        //     //     'empresa.nome_fantasia'
-        //     // )
-        //     ->get();
-        // $empresas = DB::table('empresa')
-        //     ->select(
-        //         'empresa.razao_social',
-        //         'empresa.nome_fantasia',
-        //         'empresa.cnpj',
-        //         'empresa.insc_estadual',
-        //         'empresa.telefone',
-        //         'empresa.id',
-        //         'empresa.cidade',
-        //         'empresa.estado'
-        //     )
-        //     ->get();
+        $instituicoes = DB::table('tce_contrato')
+            ->join('empresa', 'tce_contrato.empresa_id', '=', 'empresa.id')
+            // ->select(
+            //     'empresa.nome_fantasia'
+            // )
+            ->get();
+        $empresas = DB::table('empresa')
+            ->select(
+                'empresa.razao_social',
+                'empresa.nome_fantasia',
+                'empresa.cnpj',
+                'empresa.insc_estadual',
+                'empresa.telefone',
+                'empresa.id',
+                'empresa.cidade',
+                'empresa.estado'
+            )
+            ->get();
         // $tceContrato = DB::table('tce_contrato')
         //     ->select(
         //         'tce_contrato.data_inicio',
         //         'tce_contrato.data_fim'
         //     )
         //     ->get();
-        // $supervisores = DB::table('supervisor')->get();
 
-        // dd($empresas);
-        // return view('auto_avaliacao.index', [
-        //     'estagiarios' => $estagiarios,
-        //     'instituicoes' => $instituicoes,
-        //     'empresas' => $empresas,
-        //     'supervisores' => $supervisores,
-        //     'tceContrato' => $tceContrato
-        // ]);
+        return view('auto_avaliacao.index', [
+            'estagiarios' => $estagiarios,
+            'instituicoes' => $instituicoes,
+            'empresas' => $empresas,
+            // 'tceContrato' => $tceContrato
+        ]);
 
-        $supervisores = DB::table('supervisor')->get();
-        $empresas = DB::table('empresa')->get();
-        return view('lista_auto_avaliacao.busca-estagiario', ['supervisores' => $supervisores, 'empresas' => $empresas]);
     }
 
     public function buscarAvaliacaoEstagiario(Request $request)
