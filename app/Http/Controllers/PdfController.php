@@ -142,6 +142,12 @@ class PdfController extends Controller
         return $pdf->stream('index.pdf');
     }
 
+    public function generateAvaliacao()
+    {
+        $pdf = PDF::loadView('pdf.avaliacao.index');
+        return $pdf->stream('index.pdf');
+    }
+
     public function gerarRelatorio($id)
     {
 

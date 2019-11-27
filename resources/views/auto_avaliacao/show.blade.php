@@ -34,28 +34,31 @@
                                 <div>
                                     <div>
                                         <div>
-                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <select class="form-control has-feedback-left" name="estagiario_id">
-                                                    <option>Selecione Estagiário:</option>
-                                                    @foreach ($estagiarios as $estagiario)
-                                                    <option value="{{ $estagiario->id }}">{{ $estagiario->nome }}
-                                                    </option>
-                                                    @endforeach
-                                                </select>
-                                                <span class="fa fa-home form-control-feedback left"
-                                                    aria-hidden="true"></span>
+                                            <div style="width:960px; margin: 20px auto;">
+                                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                    <select class="form-control has-feedback-left" name="estagiario_id">
+                                                        <option>Selecione Estagiário:</option>
+                                                        @foreach ($estagiarios as $estagiario)
+                                                        <option value="{{ $estagiario->id }}">{{ $estagiario->nome }}
+                                                        </option>
+                                                        @endforeach
+                                                    </select>
+                                                    <span class="fa fa-user form-control-feedback left"
+                                                        aria-hidden="true"></span>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                    <select class="form-control has-feedback-left" name="instituicao_id">
+                                                        <option>Instituição de ensino:</option>
+                                                        @foreach ($instituicoes as $instituicao)
+                                                        <option value="{{ $instituicao->id }}">
+                                                            {{ $instituicao->nome_instituicao }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    <span class="fa fa-home form-control-feedback left"
+                                                        aria-hidden="true"></span>
+                                                </div>
                                             </div>
-                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <select class="form-control has-feedback-left" name="instituicao_id">
-                                                    <option>Instituição de ensino:</option>
-                                                    @foreach ($instituicoes as $instituicao)
-                                                    <option value="{{ $instituicao->id }}">
-                                                        {{ $instituicao->nome_instituicao }}</option>
-                                                    @endforeach
-                                                </select>
-                                                <span class="fa fa-home form-control-feedback left"
-                                                    aria-hidden="true"></span>
-                                            </div>
+                                        <div style="width:960px; margin: 20px auto;">
                                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <select class="form-control has-feedback-left" name="empresa_id">
                                                     <option>Selecione Unidade Concedente:</option>
@@ -78,13 +81,14 @@
                                                 <span class="fa fa-home form-control-feedback left"
                                                     aria-hidden="true"></span>
                                             </div>
+                                        </div>
                                             <div id="form-step-0" role="form" data-toggle="validator">
                                                 <div class="row" style="width:960px; margin: 20px auto;">
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text" class="form-control has-feedback-left"
                                                             placeholder="Período Avaliativo: *"
                                                             name="periodo_avaliativo">
-                                                        <span class="fa fa-user form-control-feedback left"
+                                                        <span class="fa fa-calendar form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div id="form-step-0" role="form" data-toggle="validator">
@@ -94,27 +98,31 @@
                                                                 <input type="text"
                                                                     class="form-control has-feedback-left"
                                                                     placeholder="Data Documento:* " name="data_doc">
-                                                                <span class="fa fa-user form-control-feedback left"
+                                                                <span class="fa fa-calendar form-control-feedback left"
                                                                     aria-hidden="true"></span>
                                                             </div>
                                                             <div id="form-step-0" role="form" data-toggle="validator">
                                                                 <div class="row"
                                                                     style="width:960px; margin: 20px auto;">
                                                                     <div
-                                                                        class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                                        <input type="text"
+                                                                        class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                                                                        <label for=""> observação: </label>
+                                                                        <textarea
                                                                             class="form-control has-feedback-left"
                                                                             placeholder="Texto Obs.: " name="obs">
-                                                                        <span
-                                                                            class="fa fa-user form-control-feedback left"
-                                                                            aria-hidden="true"></span>
+                                                                        </textarea>
+                                                                        <div style="margin-top:20px;">
+                                                                    
+                                                                        <a  href="/avaliacao-pdf" target="_blank" class="btn btn-success">
+                                                                        <i class="fa fa-print"></i>
+                                                                        Gerar
+                                                                        Avaliação</a>  
+                                                                         <a href="/auto_avaliacao" class="btn btn-primary">Voltar</a>
+                                                                    </div>
                                                                     </div>
                                                                 </div>
-                                                                <button type="submit" class="btn btn-success"
-                                                                    style="margin: 20px auto; display:block;">Gerar
-                                                                    Avaliação</button>
-                                                                <button class="btn btn-success"
-                                                                    style="margin: 20px auto; display:block;">Voltar</a></button>
+                                                                
+                                                                
                                                             </div>
                                                         </div>
                                                     </div>

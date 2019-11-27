@@ -91,7 +91,7 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
-                                <table class="table table-striped list  table-bordered">
+                                <table class="table table-striped list  table-bordered" style="zoom:0.9;">
                                     <thead>
                                         <tr>
                                             <th><a href="#" class="btn btn-primary">Fechar Mês</a></th>
@@ -153,6 +153,9 @@
                                                 <a href="{!! route('folha_pagamento.edit', [$folha->id]) !!}"
                                                     class="btn btn-primary"><i class="fa fa-pencil"></i> </a>
                                                 @endif
+                                                <a href="/holerite" target="_blank" class="btn btn-success">
+                                                    <i class="fa fa-print"></i>
+                                                </a>
                                             </td>
                                         </tr>
                                         @endforeach
