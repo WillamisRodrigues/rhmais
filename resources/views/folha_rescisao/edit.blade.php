@@ -1,5 +1,5 @@
 @extends('layout/app')
-@section('titulo','Editar - Folha - Agente Integração | RH MAIS')
+@section('titulo','Rescisão - Gerar | RH MAIS')
 @section('conteudo')
 <div class="container body">
     <div class="main_container">
@@ -22,30 +22,30 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
 
                         <br>
-                        <div class="x_panel">
+                        <div class="x_panel" style="height:400px!important;">
                             <div class="x_title">
-                                <h2>Editar - Folha de Pagamento</h2>
+                                <h2>Gerar - Folha de Rescisão</h2>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
                                 <div class="row" style="height: 40vh">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                         <label for="">Estagiário</label>
-                                        <input type="text" value="{{ $estagiario->nome }}"
+                                        <input type="text" value=""
                                             class="form-control has-feedback-left" placeholder="Nome Estagiario"
                                             name="estagiario" readonly>
                                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                         <label for="">Unidade Concedente</label>
-                                        <input type="text" value="{{ $empresa->nome_fantasia }}"
+                                        <input type="text" value=""
                                             class="form-control has-feedback-left" placeholder="Unidade Concedente"
                                             name="unidade-concedente" readonly>
                                         <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                         <label for="">Valor Bolsa</label>
-                                        <input type="text" value="R$ {{ number_format($contrato->bolsa, 2, ",", "") }}"
+                                        <input type="text" value=""
                                             class="form-control has-feedback-left" placeholder="Bolsa"
                                             name="valor_bolsa" readonly>
                                         <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
@@ -53,22 +53,31 @@
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                         <label for="">Início do Contrato</label>
                                         <input type="text"
-                                            value="{{ date('d/m/Y', strtotime($contrato->data_inicio)) }}"
+                                            value=""
                                             class="form-control has-feedback-left" placeholder="Data de Início"
                                             name="data_inicio" readonly>
                                         <span class="fa fa-calendar form-control-feedback left"
                                             aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                        <label for="">Fim do Contrato</label>
+                                        <input type="text"
+                                            value=""
+                                            class="form-control has-feedback-left" placeholder="Fim do Contrato"
+                                            name="data_inicio" readonly>
+                                        <span class="fa fa-calendar form-control-feedback left"
+                                            aria-hidden="true"></span>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                         <label for="">Dias Considerados</label>
-                                        <input type="number" value="{{$dias_considerados}}"
+                                        <input type="number" value=""
                                             class="form-control has-feedback-left" placeholder=""
                                             name="dias_considerados" readonly>
                                         <span class="fa fa-calendar form-control-feedback left"
                                             aria-hidden="true"></span>
                                     </div>
-                                    {!! Form::open(['route' => ['folha_pagamento.editar'], 'method' => 'post']) !!}
-                                    <input type="hidden" name="folha_id" value="{{$folha->id}}">
+                                    {!! Form::open() !!}
+                                    <input type="hidden" name="folha_id" value="">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                         <label for="">Dias de Falta</label>
                                         <input type="number" value="0" class="form-control has-feedback-left"
@@ -79,17 +88,18 @@
                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                    <label for="">Outros Eventos</label>
                                     <select name="beneficio"  class="form-control has-feedback-left">
-                                    @foreach ($beneficios as $beneficio)
-                                    <option value="{{$beneficio->id}}">{{$beneficio->nome}}</option>
-                                    @endforeach
+                                  
+                                    <option value=""></option>
+                                   
                                         
                                     </select>
                                     <span class="fa fa-list form-control-feedback left"
                                             aria-hidden="true"></span>
                                    </div>
                                    <div>
-                                    <button type="submit" class="btn btn-success" style="margin-top:20px!important; margin-left:130px!important;">Salvar Alterações</button>
-                                        <button class="btn btn-danger" style="margin-top:20px!important;">Voltar</button>
+                                    <button type="submit" class="btn btn-success" style="margin-top:10px!important; margin-left:430px!important;">Salvar Alterações</button>
+                                        <button class="btn btn-danger" style="margin-top:10px!important;">Voltar</button>
+                                    
                                     {!! Form::close() !!}
                                     </div>
                                 </div>

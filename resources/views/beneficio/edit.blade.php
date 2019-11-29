@@ -76,6 +76,14 @@
                                                     <span class="fa fa-home form-control-feedback left"
                                                         aria-hidden="true"></span>
                                                 </div>
+                                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                <label for="">Selecione o Tipo</label>
+                                                    <select class="form-control has-feedback-left" name="tipo">
+                                                        <option value="">Débito</option>
+                                                    </select>
+                                                    <span class="fa fa-list form-control-feedback left"
+                                                        aria-hidden="true"></span>
+                                                </div>
                                             </div>
                                         </div>
                                         <button type="submit" class="btn btn-success"

@@ -76,7 +76,7 @@
                                     <option> 31</option>
                                 </select>
                             </div>
-                            <div class="col-md-4    ">
+                            <div class="col-md-4">
                                 <br>
                                 <button class="btn btn-primary">Processar</button>
                                 <button class="btn btn-primary">G. Recibo</button>
@@ -94,7 +94,7 @@
                                 <table class="table table-striped  list table-bordered">
                                     <thead>
                                         <tr>
-                                            <th><button class="btn btn-primary"> Fechar Mês</button></th>
+                                            <th> Status</th>
                                             <th>Referência
                                                 <input type="text" class="form-control" style="width:100px;">
                                             </th>
@@ -121,7 +121,7 @@
                                             <td>ENGENHO COM JEITO MODAS LTDA</td>
                                             <td>600,00</td>
                                             <td>600,00</td>
-                                            <td><button class="btn btn-primary"><i class="fa fa-pencil"></i></button>
+                                            <td><a href="/editar_folha_rescisao" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
                                             </td>
                                         </tr>
                                     </tbody>

@@ -43,6 +43,9 @@
                                             <th>Ag. de Integração
                                                 <input type="text" class="form-control">
                                             </th>
+                                            <th>Tipo
+                                                <input type="text" class="form-control">
+                                            </th>
                                             <th>Opções</th>
                                         </tr>
                                     </thead>
@@ -59,6 +62,7 @@
                                                 @endforeach
                                             </td>
                                             <td>{{$beneficio->agente_integracao}}</td>
+                                            <td>Crédito</td>
                                             <td style="width:15%;">
                                                 <div class="col-md-3">
                                                     <a href="{{route('beneficio.edit', [$beneficio->id])}}"

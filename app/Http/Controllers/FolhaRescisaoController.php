@@ -57,9 +57,9 @@ class FolhaRescisaoController extends Controller
      * @param  \App\FolhaRescisao  $folhaRescisao
      * @return \Illuminate\Http\Response
      */
-    public function edit(FolhaRescisao $folhaRescisao)
+    public function editar()
     {
-        //
+        return view('folha_rescisao.edit');
     }
 
     /**

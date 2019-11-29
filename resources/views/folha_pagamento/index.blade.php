@@ -94,7 +94,7 @@
                                 <table class="table table-striped list  table-bordered" style="zoom:0.9;">
                                     <thead>
                                         <tr>
-                                            <th><a href="#" class="btn btn-primary">Fechar Mês</a></th>
+                                            <th>Status</th>
                                             <th>Referência
                                                 <input type="text" class="form-control" style="width:100px;">
                                             </th>
