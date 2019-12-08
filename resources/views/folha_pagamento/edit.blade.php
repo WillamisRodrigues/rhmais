@@ -24,9 +24,24 @@
                 <div class="clearfix"></div>
 
                 <div class="row">
+                <div class="col-md-2"></div>
+                    <div class="animated flipInY col-lg-4 col-md-4 col-sm-4">
+                        <div class="tile-stats">
+                            <div class="icon"><i class="fa fa-money"></i>
+                        </div>
+                        <div class="count"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">R$ 179</font></font></div>
+                            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Salário Total</font></font></h3>
+                        </div>
+                    </div>
+                    <div class="animated flipInY col-lg-4 col-md-4 col-sm-4">
+                        <div class="tile-stats">
+                            <div class="icon"><i class="fa fa-money"></i>
+                        </div>
+                        <div class="count"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">R$ 179</font></font></div>
+                            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Valor Beneficio </font></font></h3>
+                        </div>
+                    </div>
                     <div class="col-md-12 col-sm-12 col-xs-12">
-
-                        <br>
                         <div class="x_panel">
                             <div class="x_title">
                                 <h2>Editar - Folha de Pagamento</h2>
@@ -81,45 +96,45 @@
                                         <span class="fa fa-calendar form-control-feedback left"
                                             aria-hidden="true"></span>
                                     </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                            <label for="">Outros Eventos</label>
-                                            <br>
-                                            {{-- <select name="beneficio_id"  class="form-control has-feedback-left" id="beneficio_id">
-                                                @foreach ($beneficios as $beneficio)
-                                            <option value="{{$beneficio->id}}">{{$beneficio->nome}}</option>
-                                                @endforeach
-                                            </select>
-                                            <span class="fa fa-list form-control-feedback left"
-                                                aria-hidden="true"></span>
-                                                <br> --}}
-                                                <a class="btn btn-success" href="javascript:void(0)" id="createNewProduct">Outros eventos</a>
-                                            {{-- <a href="/adicionar_u_infoeficio" class="btn btn-success" style="margin-top:20px!important; margin-rigth:130px!important;">Adicionar</a> --}}
-                                        </div>
-                                    <div>
-                                    <button type="submit" class="btn btn-success" style="margin-top:20px!important; margin-left:130px!important;">Salvar Alterações</button>
-                                    <a href="/folha_pagamento" class="btn btn-danger" style="margin-top:20px!important;">Voltar</a>
-                                    {!! Form::close() !!}
+                                    <div style="margin-left:300px;">
+                                        <button type="submit" class="btn btn-success" style="margin-top:20px!important; margin-left:130px!important;">Salvar Alterações</button>
+                                        <a href="/folha_pagamento" class="btn btn-danger" style="margin-top:20px!important;">Voltar</a>
+                                        {!! Form::close() !!}
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
 
-    <table class="table table-bordered data-table">
-        <thead>
-            <tr>
-                <th>Código</th>
-                <th>Descrição</th>
-                <th>Tipo</th>
-                <th>Valor</th>
-                <th width="280px">Ação</th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
-</div>
+                        <br>
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2><a class="btn btn-success" href="javascript:void(0)" id="createNewProduct">Outros eventos</a></h2>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <div class="row" style="height: 40vh">
+                                <table class="table table-bordered data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Código</th>
+                                            <th>Descrição</th>
+                                            <th>Tipo</th>
+                                            <th>Valor</th>
+                                            <th width="280px">Ação</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -129,8 +144,6 @@
     <!-- footer content -->
     @include('layout.footer')
     <!-- /footer content -->
-</div>
-</div>
 <script type="text/javascript">
   $(function () {
       $.ajaxSetup({
