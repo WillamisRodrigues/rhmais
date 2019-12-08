@@ -67,6 +67,10 @@
                                                         <span class="fa fa-home form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                        <input type="radio" name="tipo" value="1"> Crédito
+                                                        <input type="radio" name="tipo" value="2"> Débito
+                                                    </div>
                                                 </div>
                                                 <div class="btn-group mr-2 sw-btn-group-extra" role="group">
                                                     <button type="submit" class="btn btn-info">Enviar</button>

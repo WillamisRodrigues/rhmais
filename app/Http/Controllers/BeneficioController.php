@@ -49,6 +49,7 @@ class BeneficioController extends Controller
         $beneficio->nome = $request->get('nome');
         $beneficio->empresa_id = $request->get('empresa_id');
         $beneficio->sigla = $request->get('sigla');
+        $beneficio->tipo = $request->get('tipo');
         $beneficio->agente_integracao = $request->get('agente_integracao');
         $beneficio->save();
 

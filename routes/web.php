@@ -23,6 +23,10 @@ Route::get('cau_assinado/{id}', ['uses' => 'CauController@assinado', 'as' => 'ca
 Route::get('cce_assinado/{id}', ['uses' => 'CceController@assinado', 'as' => 'cce_convenio.assinar']);
 Route::post('editar_folha_pagamento', ['uses' => 'FolhaPagamentoController@editar', 'as' => 'folha_pagamento.editar']);
 Route::get('editar_folha_rescisao', ['uses' => 'FolhaRescisaoController@editar', 'as' => 'folha_recisao.editar']);
+Route::post('processar', 'FolhaPagamentoController@processarFolha');
+// Route::resource('evento_beneficio', 'AdicionarBeneficioController');
+// Route::delete('remover_beneficio/{id}', 'FolhaPagamentoController@removerBeneficio')->name('remover_beneficio.removerBeneficio');
+Route::resource('ajax-crud', 'AjaxController');
 
 Route::resource('empresa', 'EmpresaController');
 Route::resource('estagiario', 'EstagiarioController');
@@ -59,6 +63,8 @@ Route::get('tce-pdf', 'PdfController@generatePDF');
 Route::get('avaliacao-pdf', 'PdfController@generateAvaliacao');
 Route::get('/tce-pdf/{id}', 'EstagiarioController@gerarRelatorio');
 Route::get('/recisaotce/{id}', 'PdfController@generateRecisao');
+Route::get('/holerite', 'PdfController@generateHolerite');
+Route::get('/folha', 'PdfController@generateFolha');
 
 
 /* rotas tce */
@@ -120,9 +126,3 @@ Route::get('deletar_avaliacao_supervisor/{id}', [
 Route::get('assinar_avaliacao_supervisor/{id}', ['uses' => 'AvaliacaoController@assinar_avaliacao_supervisor', 'as' => 'assinar.avaliacao.supervisor']);
 
 Route::get('lista_avaliacao_supervisor', ['uses' => 'AvaliacaoController@lista_avaliacao', 'as' => 'lista_avaliacao_supervisor']);
-
-// Route::get('/financeiro', function () {
-//     return view('financeiro/index');
-// });
-
-Route::get('/holerite', 'PdfController@generateHolerite');

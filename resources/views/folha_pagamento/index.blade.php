@@ -21,22 +21,23 @@
 
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                        <form action="">
+                        <form action="/processar" method="POST">
+                            {{ csrf_field() }}
                             <div class="col-md-2">
                                 <label for="">Unidade:</label>
-                                <select name="" class="form-control">
-                                    <option> Todas as Unidades</option>
+                                <select name="unidade" class="form-control">
+                                    <option value=""> Todas as Unidades</option>
                                     @foreach ($unidades as $unidade)
-                                    <option> {{$unidade->nome_fantasia}}</option>
+                                    <option value="{{$unidade->nome_fantasia}}"> {{$unidade->nome_fantasia}}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="col-md-2">
                                 <label for="">Período:</label>
-                                <select name="" class="form-control">
-                                    <option> Periodo Ano</option>
+                                <select name="referencia" class="form-control">
+                                    <option value=""> Periodo Ano</option>
                                     @foreach ($periodos as $periodo)
-                                     <option> {{$periodo->referencia}}
+                                     <option value="{{$periodo->referencia}}"> {{$periodo->referencia}}
                                     @endforeach
                                 </select>
                             </div>
@@ -78,9 +79,9 @@
                             </div>
                             <div class="col-md-4">
                                 <br>
-                                <a href="#" class="btn btn-primary">Processar</a>
-                                <a href="#" class="btn btn-primary">G. Recibo</a>
-                                <a href="#" class="btn btn-primary">G. Relação</a>
+                                <button type="submit" class="btn btn-primary">Processar</button>
+                                <a href="/holerite" class="btn btn-primary">G. Recibo</a>
+                                <a href="/folha" class="btn btn-primary">G. Relação</a>
                             </div>
                         </form>
                         <br>

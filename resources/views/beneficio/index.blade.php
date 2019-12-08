@@ -62,7 +62,12 @@
                                                 @endforeach
                                             </td>
                                             <td>{{$beneficio->agente_integracao}}</td>
-                                            <td>Crédito</td>
+                                        <td>@if ($beneficio->tipo == 1)
+                                        Crédito
+                                        @else
+                                        Débito
+                                        @endif
+                                        </td>
                                             <td style="width:15%;">
                                                 <div class="col-md-3">
                                                     <a href="{{route('beneficio.edit', [$beneficio->id])}}"

@@ -88,10 +88,7 @@
                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                    <label for="">Outros Eventos</label>
                                     <select name="beneficio"  class="form-control has-feedback-left">
-                                  
                                     <option value=""></option>
-                                   
-                                        
                                     </select>
                                     <span class="fa fa-list form-control-feedback left"
                                             aria-hidden="true"></span>
@@ -99,7 +96,7 @@
                                    <div>
                                     <button type="submit" class="btn btn-success" style="margin-top:10px!important; margin-left:430px!important;">Salvar Alterações</button>
                                         <button class="btn btn-danger" style="margin-top:10px!important;">Voltar</button>
-                                    
+
                                     {!! Form::close() !!}
                                     </div>
                                 </div>

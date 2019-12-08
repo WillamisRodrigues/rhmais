@@ -79,15 +79,16 @@
                                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <label for="">Selecione o Tipo</label>
                                                     <select class="form-control has-feedback-left" name="tipo">
-                                                        <option value="">Débito</option>
+                                                        <option value="1">Crédito</option>
+                                                        <option value="2">Débito</option>
                                                     </select>
                                                     <span class="fa fa-list form-control-feedback left"
                                                         aria-hidden="true"></span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-success"
-                                            style="margin: 20px auto; display:block;">Salvar Alterações</button>
+                                       <button type="submit" class="btn btn-success" style="margin-top:20px!important; margin-left:130px!important;">Salvar Alterações</button>
+                                       <a href="/beneficio" class="btn btn-danger" style="margin-top:20px!important;">Voltar</a>
                                     </div>
                                 </div>
                                 {!! Form::close() !!}

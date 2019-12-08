@@ -87,8 +87,8 @@
                                       <button class="btn btn-danger">Cancelar</button>
                                     </div> --}}
                                             </div>
-                                            <button type="submit" class="btn btn-success"
-                                                style="margin: 20px auto; display:block;">Salvar Alterações</button>
+                                            <button type="submit" class="btn btn-success" style="margin-top:20px!important; margin-left:130px!important;">Salvar Alterações</button>
+                                            <a href="/horario" class="btn btn-danger" style="margin-top:20px!important;">Voltar</a>
                                         </div>
                                     </div>
                             </form>
