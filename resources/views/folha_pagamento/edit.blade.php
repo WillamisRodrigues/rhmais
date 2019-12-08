@@ -30,7 +30,7 @@
                             <div class="icon"><i class="fa fa-money"></i>
                         </div>
                         <div class="count"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">R$ 179</font></font></div>
-                            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Salário Total</font></font></h3>
+                            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Salário Total + Beneficios</font></font></h3>
                         </div>
                     </div>
                     <div class="animated flipInY col-lg-4 col-md-4 col-sm-4">
