@@ -12,13 +12,19 @@
                    <input type="hidden" name="product_id" id="product_id">
                    <div class="col-md-12">
                         <div class="form-group">
-                            <label for="referencia" class="control-label">Referencia</label>
-                            <div>
+                            {{-- <label for="referencia" class="control-label">Referencia</label> --}}
+                            <select class="form-control has-feedback-left" name="referencia">
+                                    @foreach ($beneficios as $ben)
+                                <option value="{{$ben->nome}}">{{$ben->nome}}</option>
+                                    @endforeach
+                            </select>
+                                        <span class="fa fa-list form-control-feedback left" aria-hidden="true"></span>
+                            {{-- <div>
                                 <input type="text" class="form-control" id="referencia" name="referencia" placeholder="Exemplo: Beneficio Transporte" value="" maxlength="50" required="">
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
-                    <div class="col-md-6">    
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="tipo" class="control-label">Tipo</label>
                             <div>
@@ -35,13 +41,13 @@
                     <div class="form-group">
                         <label class="control-label">Valor</label>
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                        <input type="number" value="0" class="form-control has-feedback-left" name="valor">
-                                        <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
-                                    </div>
+                            <input type="number" value="0" class="form-control has-feedback-left" name="valor">
+                            <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
+                        </div>
                     </div>
                     <div class="col-sm-offset-2 col-sm-10">
                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary" id="saveBtn" value="create">Salvar mudanças</button>
+                    <button type="button" class="btn btn-primary" id="saveBtn" value="create">Salvar mudanças</button>
                     </div>
                 </form>
             </div>

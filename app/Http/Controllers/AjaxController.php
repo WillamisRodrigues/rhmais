@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\BeneficioEstagiario;
 use Illuminate\Http\Request;
 use DataTables;
+use DB;
 
 
 class AjaxController extends Controller
@@ -18,8 +19,8 @@ class AjaxController extends Controller
     {
 
         if ($request->ajax()) {
-            $data = BeneficioEstagiario::latest()->get();
-            // $data = BeneficioEstagiario::where('folha_id', '=', $folha)->get();
+            // $data = BeneficioEstagiario::latest()->get();
+            $data = DB::table('beneficio_estagiario')->where('folha_id','=', $request->id)->get();
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){

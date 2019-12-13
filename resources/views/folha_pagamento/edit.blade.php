@@ -54,6 +54,7 @@
                                         <input type="text" value="{{ $estagiario->nome }}"
                                             class="form-control has-feedback-left" placeholder="Nome Estagiario"
                                             name="estagiario" readonly>
+                                        <input type="hidden" name="estagiario_id" id="estagiario_id" data="{{$estagiario->id}}">
                                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -188,7 +189,7 @@
 
     $('#saveBtn').click(function (e) {
         e.preventDefault();
-        $(this).html('Sending..');
+        $(this).html('Salvando..');
         $.ajax({
           data: $('#productForm').serialize(),
           url: "{{ route('ajax-crud.store') }}",

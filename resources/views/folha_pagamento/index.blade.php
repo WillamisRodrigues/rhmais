@@ -151,8 +151,10 @@
                                             <td>{{ $folha->valor_liquido }}</td>
                                             <td>
                                                 @if ($folha->status == 0)
-                                                <a href="{!! route('folha_pagamento.edit', [$folha->id]) !!}"
-                                                    class="btn btn-primary"><i class="fa fa-pencil"></i> </a>
+                                                <form action="{{ route('folha_pagamento.edit', [$folha->id]) }}">
+                                                <button type="submit" class="btn btn-primary"><i class="fa fa-pencil"></i> </a>
+                                                </button>
+                                                </form>
                                                 @endif
                                                 <a href="/holerite" target="_blank" class="btn btn-success">
                                                     <i class="fa fa-print"></i>

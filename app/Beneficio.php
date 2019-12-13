@@ -8,4 +8,9 @@ class Beneficio extends Model
 {
     protected $fillable  = ['nome', 'sigla', 'empresa_id', 'agente_integracao'];
     protected $table = 'beneficio';
+
+     public function estagiarios()
+    {
+        return $this->belongsToMany('App\BeneficioEstagiario');
+    }
 }
