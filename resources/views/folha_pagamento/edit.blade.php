@@ -51,6 +51,7 @@
                                 <div class="row" style="height: 40vh">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                         <label for="">Estagiário</label>
+                                        <input type="hidden" id="estagiario_id" name="estagiario_id" value="{{ $estagiario->id}}">
                                         <input type="text" value="{{ $estagiario->nome }}"
                                             class="form-control has-feedback-left" placeholder="Nome Estagiario"
                                             name="estagiario" readonly>
@@ -118,7 +119,7 @@
                             </div>
                             <div class="x_content">
                                 <div class="row" style="height: 40vh">
-                                <table class="table table-bordered data-table">
+                                <table class="table table-bordered data-table" style="width:100%;">
                                     <thead>
                                         <tr>
                                             <th>Código</th>
@@ -152,17 +153,17 @@
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
           }
     });
-
+    var id_cliente = $("#estagiario_id").val();
     var table = $('.data-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "{{ route('ajax-crud.index') }}",
+        ajax: "http://localhost:8000/beneficio_estagiario/"+id_cliente,
         columns: [
-            {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+            {data: 'codigo', name: 'codigo'},
             {data: 'referencia', name: 'referencia'},
             {data: 'tipo', name: 'tipo'},
             {data: 'valor', name: 'valor'},
-            {data: 'action', name: 'action', orderable: false, searchable: false},
+            {data: 'action', name: 'action', orderable: false, searchable: false}
         ]
     });
 

@@ -15,23 +15,21 @@ class AjaxController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function beneficio_estagiario($id)
     {
-
-        if ($request->ajax()) {
-            // $data = BeneficioEstagiario::latest()->get();
-            $data = DB::table('beneficio_estagiario')->where('folha_id','=', $request->id)->get();
-            return Datatables::of($data)
-                    ->addIndexColumn()
-                    ->addColumn('action', function($row){
-                           $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editProduct">Edit</a>';
-                           $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteProduct">Delete</a>';
-                            return $btn;
-                    })
-                    ->rawColumns(['action'])
-                    ->make(true);
-                        }
-        return view('ajax-crud',compact('products'));
+        $id_estagiario = $id;
+        $estagiario = DB::table('beneficio_estagiario')
+        ->where('estagiario_id','=',$id_estagiario)
+        ->get();
+        return Datatables::of($estagiario)
+        ->addColumn('action', function($row){
+            $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editProduct">Edit</a>';
+            $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteProduct">Delete</a>';
+             return $btn;
+        })
+        ->rawColumns(['action'])
+        ->make(true);
+        
     }
 
 
