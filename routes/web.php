@@ -26,8 +26,8 @@ Route::get('editar_folha_rescisao', ['uses' => 'FolhaRescisaoController@editar',
 Route::post('processar', 'FolhaPagamentoController@processarFolha');
 // Route::resource('evento_beneficio', 'AdicionarBeneficioController');
 // Route::delete('remover_beneficio/{id}', 'FolhaPagamentoController@removerBeneficio')->name('remover_beneficio.removerBeneficio');
-Route::resource('ajax-crud', 'AjaxController');
- Route::get('beneficio_estagiario/{id}', ['uses' => 'AjaxController@beneficio_estagiario', 'as' => 'ajax-crud.beneficio_estagiario'] );
+//Route::resource('ajax-crud', 'AjaxController');
+Route::get('beneficio_estagiario/{id}', ['uses' => 'AjaxController@beneficio_estagiario', 'as' => 'ajax-crud.beneficio_estagiario'] );
 
 Route::resource('empresa', 'EmpresaController');
 Route::resource('estagiario', 'EstagiarioController');
@@ -56,6 +56,7 @@ Route::get('/cidade-estado', array('as' => 'myform', 'uses' => 'EstagiarioContro
 Route::get('myform/ajax/{id}', array('as' => 'myform.ajax', 'uses' => 'EstagiarioController@myformAjax'));
 
 /*Gerar PDF*/
+Route::get('valores_rescisao', 'PdfController@generateValoresRescisao');
 Route::get('recisaotce', 'PdfController@generateRecisao');
 Route::get('cau', 'PdfController@generateCau');
 Route::get('cce', 'PdfController@generateCce');

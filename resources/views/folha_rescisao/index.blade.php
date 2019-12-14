@@ -122,6 +122,9 @@
                                             <td>600,00</td>
                                             <td>600,00</td>
                                             <td><a href="/editar_folha_rescisao" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
+                                            <a href="/valores_rescisao" target="_blank" class="btn btn-success">
+                                                    <i class="fa fa-print"></i>
+                                                </a>
                                             </td>
                                         </tr>
                                     </tbody>

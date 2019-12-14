@@ -142,6 +142,12 @@ class PdfController extends Controller
         return $pdf->stream('index.pdf');
     }
 
+    public function generateValoresRescisao()
+    {
+        $pdf = PDF::loadView('pdf.valores_rescisao.index');
+        return $pdf->stream('index.pdf');
+    }
+
     public function generateFolha()
     {
         $pdf = PDF::loadView('pdf.folha.index');
