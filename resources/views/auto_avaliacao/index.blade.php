@@ -73,10 +73,10 @@
                                                     <a href="{{route('auto_avaliacao.create')}}"
                                                         class="btn btn-primary"> <i class="fa fa-pencil"> </i></a>
                                                 </div>
-                                                <div class="col-md-3">
+                                                {{-- <div class="col-md-3">
                                                     <a href="/auto_avaliacao/show" class="btn btn-success"> <i
                                                             class="fa fa-plus"></i></a>
-                                                </div>
+                                                </div> --}}
                                             </td>
                                         </tr>
                                         @endforeach

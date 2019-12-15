@@ -28,7 +28,7 @@ class AjaxController extends Controller
         })
         ->rawColumns(['action'])
         ->make(true);
-        
+
     }
 
 
@@ -41,7 +41,14 @@ class AjaxController extends Controller
     public function store(Request $request)
     {
                BeneficioEstagiario::updateOrCreate(['id' => $request->product_id],
-                ['referencia' => $request->referencia, 'valor' => $request->valor,  'tipo' => $request->tipo]);
+                ['referencia' => $request->referencia,
+                'valor' => $request->valor,
+                'tipo' => $request->tipo,
+                'estagiario_id' => $request->estagiario_id,
+                'beneficio_id' => $request->beneficio_id,
+                'empresa_id' => $request->empresa,
+                'folha_id' => $request->folha,
+                ]);
         return response()->json(['success'=>'Evento lançado.']);
     }
 

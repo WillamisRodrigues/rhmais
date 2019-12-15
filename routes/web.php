@@ -26,7 +26,7 @@ Route::get('editar_folha_rescisao', ['uses' => 'FolhaRescisaoController@editar',
 Route::post('processar', 'FolhaPagamentoController@processarFolha');
 // Route::resource('evento_beneficio', 'AdicionarBeneficioController');
 // Route::delete('remover_beneficio/{id}', 'FolhaPagamentoController@removerBeneficio')->name('remover_beneficio.removerBeneficio');
-//Route::resource('ajax-crud', 'AjaxController');
+Route::resource('ajax-crud', 'AjaxController');
 Route::get('beneficio_estagiario/{id}', ['uses' => 'AjaxController@beneficio_estagiario', 'as' => 'ajax-crud.beneficio_estagiario'] );
 
 Route::resource('empresa', 'EmpresaController');
