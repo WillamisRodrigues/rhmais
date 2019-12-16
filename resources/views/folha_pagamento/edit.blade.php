@@ -122,7 +122,6 @@
                                 <table class="table table-bordered data-table" style="width:100%;">
                                     <thead>
                                         <tr>
-                                            <th>Código</th>
                                             <th>Descrição</th>
                                             <th>Tipo</th>
                                             <th>Valor</th>
@@ -159,8 +158,7 @@
         serverSide: true,
         ajax: "http://localhost:8000/beneficio_estagiario/"+id_cliente,
         columns: [
-            {data: 'codigo', name: 'codigo'},
-            {data: 'referencia', name: 'referencia'},
+            {data: 'nome', name: 'nome'},
             {data: 'tipo', name: 'tipo'},
             {data: 'valor', name: 'valor'},
             {data: 'action', name: 'action', orderable: false, searchable: false}

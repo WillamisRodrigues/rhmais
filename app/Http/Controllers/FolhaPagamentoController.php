@@ -86,7 +86,7 @@ class FolhaPagamentoController extends Controller
         $contrato = DB::table('tce_contrato')->where('estagiario_id', $folha->estagiario_id)->get()->first();
         $beneficios = DB::table('beneficio')->where('empresa_id', $folha->empresa_id)->get();
         $users = DB::table('beneficio_estagiario')->where('estagiario_id', $folha->estagiario_id)->get();
-// dd($beneficios);
+
         $mes = date("m");
         if ($mes == 1 || $mes == 3 || $mes == 5 || $mes == 7 || $mes == 8 || $mes == 10 || $mes == 12) {
             $dias_considerados = 31;
