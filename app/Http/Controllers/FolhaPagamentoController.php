@@ -80,11 +80,14 @@ class FolhaPagamentoController extends Controller
      */
     public function edit($id)
     {
+
         $folha = DB::table('folha_pagamento')->where('id', $id)->get()->first();
         $empresa = DB::table('empresa')->where('id', $folha->empresa_id)->get()->first();
         $estagiario = DB::table('estagiario')->where('id', $folha->estagiario_id)->get()->first();
         $contrato = DB::table('tce_contrato')->where('estagiario_id', $folha->estagiario_id)->get()->first();
         $beneficios = DB::table('beneficio')->where('empresa_id', $folha->empresa_id)->get();
+
+        $mesAtual = date("m");
         $users = DB::table('beneficio_estagiario')->where('estagiario_id', $folha->estagiario_id)->get();
 
         $mes = date("m");

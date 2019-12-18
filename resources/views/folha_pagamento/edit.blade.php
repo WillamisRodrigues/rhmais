@@ -29,7 +29,7 @@
                         <div class="tile-stats">
                             <div class="icon"><i class="fa fa-money"></i>
                         </div>
-                        <div class="count"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">R$ 179</font></font></div>
+                        <div class="count"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">R$ {{$folha->valor_liquido}}</font></font></div>
                             <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Salário Total + Beneficios</font></font></h3>
                         </div>
                     </div>
