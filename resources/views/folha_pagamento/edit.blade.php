@@ -159,8 +159,8 @@
         ajax: "http://localhost:8000/beneficio_estagiario/"+id_cliente,
         columns: [
             {data: 'nome', name: 'nome'},
-            {data: 'tipo', name: 'tipo'},
-            {data: 'valor', name: 'valor'},
+            {data: 'tipo_folha', name: 'tipo_folha'},
+            {data: 'valor_real', name: 'valor_real'},
             {data: 'action', name: 'action', orderable: false, searchable: false}
         ]
     });
