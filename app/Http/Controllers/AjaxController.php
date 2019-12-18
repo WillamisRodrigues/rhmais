@@ -26,9 +26,32 @@ class AjaxController extends Controller
         ->addColumn('action', function($row){
             $btn = ' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteProduct"> <i class="fa fa-trash"></i> Delete</a>';
              return $btn;
-        })
-        ->rawColumns(['action'])
+        })->addColumn('tipo_folha', function($row){
+            if($row->tipo == 1){
+                $tipo = 'Crédito';
+            }elseif($row->tipo ==2){
+                $tipo = 'Débito';
+            }else{
+                $tipo = 'Indefinido';
+            }
+            return $tipo;
+        })->addColumn('valor_real', function($row){
+            $valor = number_format($row->valor, 2, ',', '.');
+            return "R$ ".$valor;
+        
+        })->rawColumns(['action','tipo_folha','valor_real'])
         ->make(true);
+
+    }
+
+    public function saldo($id)
+    {
+        $referencia = date("Y/m");
+        $saldo = DB::table('folha_pagamento')
+        ->where('referencia','=',$referencia)
+        ->where('estagiario_id','=',$id)
+        ->get();
+        return Datatables::of($saldo)->make(true);
 
     }
 

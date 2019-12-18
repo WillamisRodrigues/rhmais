@@ -29,7 +29,11 @@
                         <div class="tile-stats">
                             <div class="icon"><i class="fa fa-money"></i>
                         </div>
+<<<<<<< HEAD
                         <div class="count"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">R$ {{$folha->valor_liquido}}</font></font></div>
+=======
+                        <div class="count" > <input type="text" disabled style="border:none; background:#fff;" id="teste" value="179"></div>
+>>>>>>> c555be2f8c4a05c1937216cb0dae1416505991ac
                             <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Salário Total + Beneficios</font></font></h3>
                         </div>
                     </div>
@@ -159,8 +163,8 @@
         ajax: "http://localhost:8000/beneficio_estagiario/"+id_cliente,
         columns: [
             {data: 'nome', name: 'nome'},
-            {data: 'tipo', name: 'tipo'},
-            {data: 'valor', name: 'valor'},
+            {data: 'tipo_folha', name: 'tipo_folha'},
+            {data: 'valor_real', name: 'valor_real'},
             {data: 'action', name: 'action', orderable: false, searchable: false}
         ]
     });
@@ -222,5 +226,24 @@
         });
     });
   });
+</script>
+<script>
+    $(document).ready(function(){
+        setInterval(function(){ 
+            consultarSaldo(); 
+        }, 1000);
+    
+    });
+function consultarSaldo(){
+    var saldo = 26;
+    $.ajax({
+		type:'get',		
+		dataType: 'json',	
+		url: "http://localhost:8000/saldo/"+saldo,
+		success: function(data){
+         // alert(data);
+		}
+	});    
+}
 </script>
 @endsection
