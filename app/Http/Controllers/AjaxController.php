@@ -39,7 +39,7 @@ class AjaxController extends Controller
             $valor = number_format($row->valor, 2, ',', '.');
             return "R$ ".$valor;
         
-        })->rawColumns(['action','tipo_folha'])
+        })->rawColumns(['action','tipo_folha','valor_real'])
         ->make(true);
 
     }
