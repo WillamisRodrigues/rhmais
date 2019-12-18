@@ -44,6 +44,17 @@ class AjaxController extends Controller
 
     }
 
+    public function saldo($id)
+    {
+        $referencia = date("Y/m");
+        $saldo = DB::table('folha_pagamento')
+        ->where('referencia','=',$referencia)
+        ->where('estagiario_id','=',$id)
+        ->get();
+        return Datatables::of($saldo)->make(true);
+
+    }
+
 
     /**
      * Store a newly created resource in storage.
