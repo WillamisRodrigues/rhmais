@@ -146,9 +146,9 @@
                                                 }
                                                 @endphp
                                             </td>
-                                            <td>{{ $folha->valor_bolsa }}</td>
+                                            <td>R$ {{ $folha->valor_bolsa }}</td>
                                             <td>{{ $folha->faltas }}</td>
-                                            <td>{{ $folha->valor_liquido }}</td>
+                                            <td>R$ {{ $folha->valor_liquido }}</td>
                                             <td>
                                                 @if ($folha->status == 0)
                                                 <form action="{{ route('folha_pagamento.edit', [$folha->id]) }}">

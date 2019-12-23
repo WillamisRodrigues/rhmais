@@ -38,7 +38,7 @@ class AjaxController extends Controller
         })->addColumn('valor_real', function($row){
             $valor = number_format($row->valor, 2, ',', '.');
             return "R$ ".$valor;
-        
+
         })->rawColumns(['action','tipo_folha','valor_real'])
         ->make(true);
 
@@ -51,7 +51,9 @@ class AjaxController extends Controller
         ->where('referencia','=',$referencia)
         ->where('estagiario_id','=',$id)
         ->get();
-        return Datatables::of($saldo)->make(true);
+
+        return response()->json($saldo);
+        // return Datatables::of($saldo)->make(true);
 
     }
 
@@ -73,7 +75,8 @@ class AjaxController extends Controller
                 'empresa_id' => $request->empresa,
                 'folha_id' => $request->folha,
                 ]);
-        return response()->json(['success'=>'Evento lançado.']);
+
+                return response()->json(['success'=>'Evento lançado.']);
     }
 
 
@@ -98,7 +101,7 @@ class AjaxController extends Controller
      */
     public function destroy($id)
     {
-        BeneficioEstagiario::find($id)->delete();
-        return response()->json(['success'=>'Product deleted successfully.']);
+           BeneficioEstagiario::find($id)->delete($id);
+            return response()->json(['success' => 'Record deleted successfully!']);
     }
 }

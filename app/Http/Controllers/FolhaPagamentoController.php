@@ -125,22 +125,41 @@ class FolhaPagamentoController extends Controller
 
     public function editar(Request $request)
     {
-        $folha = DB::table('folha_pagamento')->where('id', $request->folha_id)->get()->first();
-        $beneficios = DB::table('beneficio')->where('empresa_id', $folha->empresa_id)->get();
 
-        $beneficio_ = "beneficio_";
+        $folha = DB::table('folha_pagamento')->where('id', $request->folha_id)->get()->first();
+        // $beneficios = DB::table('beneficio')->where('empresa_id', $folha->empresa_id)->get();
+        $beneficios = DB:: table('beneficio_estagiario')->where('folha_id', '=', $request->folha_id)->whereMonth('created_at', '=', date('m'))->get();
+
+        // $beneficios = DB::table('beneficio_estagiario')
+        //         ->where('folha_id', '=', $request->folha_id)
+        //         ->whereMonth('created_at', '=', date('m'))
+        //         ->sum('beneficio_estagiario.valor');
+// dd($beneficios);
+        //  $beneficio_ = "beneficio_";
 
         $update = DB::update('update folha_pagamento set faltas = ? where id = ?', [$request->dias_falta, $request->folha_id]);
 
         if ($beneficios) {
-            foreach ($beneficios as $beneficio) {
-                $folha = DB::table('folha_pagamento')->where('id', $request->folha_id)->get()->first();
-                $n_beneficio = $$beneficio_ . $beneficio->id;
-                $valor = $folha->valor_liquido + $request->$n_beneficio;
-                DB::update('update folha_pagamento set valor_liquido = ? where id = ?', [$valor, $folha->id]);
+            // foreach ($beneficios as $beneficio) {
+            //     if($beneficio->tipo == 1){
+
+                 $credito = DB::table('beneficio_estagiario')->where('folha_id', '=', $request->folha_id)->where('tipo', '=', 1)->whereMonth('created_at', '=', date('m'))->sum('valor');
+                 $debito = DB::table('beneficio_estagiario')->where('folha_id', '=', $request->folha_id)->where('tipo', '=', 2)->whereMonth('created_at', '=', date('m'))->sum('valor');
+                 $faltas = DB::table('folha_pagamento')->where('id', $request->folha_id)->pluck('faltas');
+                // $folha_ = DB::select('select valor_liquido from folha_pagamento where id = ?', [$request->folha_id]);
+                 $folha_ = FolhaPagamento::where('id', $request->folha_id)->pluck('valor_bolsa');
+
+                $faltaMes = $folha_[0] / 30 * $faltas[0];
+                // $n_beneficio = $$beneficio_ . $beneficio->tipo;
+                // $n_beneficio += $beneficio[$i];
+                //  $valor = $folha_[0]+ $beneficios;
+                $resultado = ($folha_[0] + $credito) - ($debito - $faltaMes);
+//   dd($resultado);
+                DB::update('update folha_pagamento set valor_liquido = ? where id = ?', [$resultado, $folha->id]);
             }
-        }
+        return  redirect('folha_pagamento');
     }
+
     public function processarFolha(Request $request)
     {
         if (empty($request->unidade) || empty($request->referencia)) {
