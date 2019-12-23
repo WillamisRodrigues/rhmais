@@ -154,8 +154,10 @@ class FolhaPagamentoController extends Controller
                 // $n_beneficio += $beneficio[$i];
                 //  $valor = $folha_[0]+ $beneficios;
                 $resultado = ($folha_[0] + $credito) - ($debito - $faltaMes);
+                $resultado_real = number_format($resultado, 2, ',', '.');
+
 //   dd($resultado);
-                DB::update('update folha_pagamento set valor_liquido = ? where id = ?', [$resultado, $folha->id]);
+                DB::update('update folha_pagamento set valor_liquido = ? where id = ?', [$resultado_real, $folha->id]);
             }
         return  redirect('folha_pagamento');
     }
