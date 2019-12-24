@@ -12,7 +12,6 @@
         </div>
         @include('layout.menu.menutop')
         <!-- page content -->
- {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" /> --}}
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -25,21 +24,6 @@
 
                 <div class="row">
                 <div class="col-md-2"></div>
-                    {{-- <div class="animated flipInY col-lg-4 col-md-4 col-sm-4">
-                        <div class="tile-stats">
-                            <div class="icon"><i class="fa fa-money"></i>
-                        </div>
-                        <div class="count" > <input type="text" disabled style="border:none; background:#fff;" id="teste" value=""></div>
-                            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Salário Total + Beneficios</font></font></h3>
-                        </div>
-                    </div>
-                    <div class="animated flipInY col-lg-4 col-md-4 col-sm-4">
-                        <div class="tile-stats">
-                            <div class="icon"><i class="fa fa-money"></i>
-                        </div>
-                        <div class="count"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">R$ 179</font></font></div>
-                            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Valor Beneficio </font></font></h3>
-                        </div> --}}
                     </div>
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
