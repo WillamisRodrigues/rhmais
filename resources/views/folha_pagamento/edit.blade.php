@@ -77,7 +77,7 @@
                                     <input type="hidden" name="folha_id" value="{{$folha->id}}">
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                         <label for="">Dias de Falta</label>
-                                        <input type="number" value="0" class="form-control has-feedback-left"
+                                    <input type="number" value="{{$folha->faltas}}" class="form-control has-feedback-left"
                                             name="dias_falta">
                                         <span class="fa fa-calendar form-control-feedback left"
                                             aria-hidden="true"></span>

@@ -156,7 +156,7 @@
                                                 </button>
                                                 </form>
                                                 @endif
-                                                <a href="/holerite" target="_blank" class="btn btn-success">
+                                                <a href="{{ action('PdfController@generateHolerite', $folha->id) }}" target="_blank" class="btn btn-success">
                                                     <i class="fa fa-print"></i>
                                                 </a>
                                             </td>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Holerite</title>
+    <title>Holerite - Estagiario</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -24,10 +24,11 @@
 
 <body>
     <table class="table" style="max-width: 100%">
+        @foreach ($folha as $data)
         <tr>
             <td colspan="2">Recibo de Pagamento Bolsa-Auxílio</td>
             <td>Referência</td>
-            <td>{!! date("Y/m") !!}</td>
+            <td>{{$data->referencia}}</td>
         </tr>
         <tr>
             <td colspan="3">Agente de Integração: <br>KOSTER E KOSTER CONSULTORIA EM RH LTDA</td>
@@ -75,8 +76,8 @@
             <td>Descontos: <br><b> {!! "000,00" !!} </b> </td>
         </tr>
         <tr>
-            <td colspan="3">Valor Base Bolsa-Auxílio <br> <b>{!! "000,00" !!}</b></td>
-            <td>(=) Valor Líquido<br> <u><b>{!! "000,00" !!}</b></u></td>
+            <td colspan="3">Valor Base Bolsa-Auxílio <br> <b>R$ {{$data->valor_bolsa}}</b></td>
+            <td>Valor Líquido<br> <u><b>R$ {{$data->valor_liquido}}</b></u></td>
         </tr>
         <tr>
             <td colspan="2">Banco/Agência</td>
@@ -85,6 +86,7 @@
         <tr>
             <td colspan="4">Mensagem: </td>
         </tr>
+        @endforeach
     </table>
 
     <div class="clearfix"></div>
@@ -103,10 +105,11 @@
     <hr style="border: dotted 1px black">
 
     <table class="table" style="max-width: 100%">
+        @foreach ($folha as $data)
         <tr>
             <td colspan="2">Recibo de Pagamento Bolsa-Auxílio</td>
             <td>Referência</td>
-            <td>{!! date("Y/m") !!}</td>
+            <td>{{$data->referencia}}</td>
         </tr>
         <tr>
             <td colspan="3">Agente de Integração: <br>KOSTER E KOSTER CONSULTORIA EM RH LTDA</td>
@@ -154,8 +157,8 @@
             <td>Descontos: <br>{!! "000,00" !!}</td>
         </tr>
         <tr>
-            <td colspan="3">Valor Base Bolsa-Auxílio <br> {!! "000,00" !!}</td>
-            <td>(=) Valor Líquido<br> <u><b>{!! "000,00" !!}</b></u></td>
+            <td colspan="3">Valor Base Bolsa-Auxílio <br>R$ {{$data->valor_bolsa}}</td>
+            <td>Valor Líquido<br> <u><b>R$ {{$data->valor_liquido}}</b></u></td>
         </tr>
         <tr>
             <td colspan="2">Banco/Agência</td>
@@ -164,6 +167,7 @@
         <tr>
             <td colspan="4">Mensagem: </td>
         </tr>
+        @endforeach
     </table>
 
     <div class="clearfix"></div>

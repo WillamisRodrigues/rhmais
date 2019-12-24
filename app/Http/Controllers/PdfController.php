@@ -33,8 +33,7 @@ class PdfController extends Controller
                 'estagiario.id'
             )
             ->get();
-        // return view('estagiario.index', compact('estagiarios', $estagiarios));
-
+     
         $data = ['estagiario' => $estagiarios];
         $pdf = PDF::loadView('pdf.tce.index', $data);
         return $pdf->stream('tce-pdf.pdf');
@@ -136,9 +135,19 @@ class PdfController extends Controller
         return $pdf->stream('index.pdf');
     }
 
-    public function generateHolerite()
+    public function generateHolerite($id)
     {
-        $pdf = PDF::loadView('pdf.holerite.index');
+        if ($id == 0) {
+            $estagiarios = Estagiario::all();
+        }
+        // Um Estagiario Específico
+        else {
+            // $estagiarios = DB::table('estagiario')->where('id', '=', $estagiario->id)->get();
+            $folha = DB::table('folha_pagamento')->where('id', '=', $id)->get();
+        }
+
+        $data = ['folha' => $folha];
+        $pdf = PDF::loadView('pdf.holerite.index', $data);
         return $pdf->stream('index.pdf');
     }
 
