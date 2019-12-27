@@ -35,23 +35,27 @@
             <td>21.925.427/0001-70</td>
         </tr>
         <tr>
-            <td colspan="2">Estagiário(a)<br> <b>{!! "nome estagiario" !!} - {!! "000.000.000-00" !!}</b> </td>
+            <td colspan="3">Unidade Concedente: <br>{{$data->nome_fantasia}}</td>
+            <td>{{$data->cnpj}}</td>
+        </tr>
+        <tr>
+            <td colspan="2">Estagiário(a)<br> <b>{{$data->nome}}  - {{$data->cpf}}</b> </td>
             <td colspan="2">
-                Data Início: <b> {!! "00/00/0000" !!} </b> <br>
-                Data Fim: <b> {!! "00/00/0000" !!} </b>
+                Data Início: <b> {{date('d/m/Y', strtotime($data->data_inicio))}} </b> <br>
+                Data Fim: <b> {{date('d/m/Y', strtotime($data->data_fim))}} </b>
             </td>
         </tr>
         <tr>
             <td>Código</td>
             <td>Descrição</td>
-            <td>Vencimentos (R$)</td>
+            <td>Vencimentos</td>
             <td>Descontos</td>
         </tr>
         <tr>
             <td style="padding-left: 3rem">
-                {!! "0" !!}<br>
-                {!! "0" !!}<br>
-                {!! "0" !!}<br>
+                {!! "1" !!}<br>
+                {!! "2" !!}<br>
+                {!! "3" !!}<br>
             </td>
             <td>
                 {!! "Bolsa Auxílio" !!}<br>
@@ -59,7 +63,7 @@
                 {!! "Bolsa Auxílio" !!}<br>
             </td>
             <td>
-                {!! "000,00" !!}<br>
+                R$ {{$data->valor_bolsa}}<br>
                 {!! "000,00" !!}<br>
                 {!! "" !!}<br>
             </td>
@@ -72,7 +76,7 @@
         <tr>
             <td></td>
             <td></td>
-            <td>Total de: <br><b> {!! "000,00" !!} </b> </td>
+            <td>Total de: <br><b>R$ {{$data->valor_bolsa}} </b> </td>
             <td>Descontos: <br><b> {!! "000,00" !!} </b> </td>
         </tr>
         <tr>
@@ -115,24 +119,28 @@
             <td colspan="3">Agente de Integração: <br>KOSTER E KOSTER CONSULTORIA EM RH LTDA</td>
             <td>21.925.427/0001-70</td>
         </tr>
+         <tr>
+            <td colspan="3">Unidade Concedente: <br>{{$data->nome_fantasia}}</td>
+            <td>{{$data->cnpj}}</td>
+        </tr>
         <tr>
-            <td colspan="2">Estagiário(a)<br> {!! "nome estagiario" !!} - {!! "000.000.000-00" !!}</td>
+            <td colspan="2">Estagiário(a)<br>{{$data->nome}}  - {{$data->cpf}}</td>
             <td colspan="2">
-                Data Início: {!! "00/00/0000" !!}<br>
-                Data Fim: {!! "00/00/0000" !!}
+                Data Início: {{$data->data_inicio}}<br>
+                Data Fim: {{$data->data_fim}}
             </td>
         </tr>
         <tr>
             <td>Código</td>
             <td>Descrição</td>
-            <td>Vencimentos (R$)</td>
+            <td>Vencimentos</td>
             <td>Descontos</td>
         </tr>
         <tr>
             <td style="padding-left: 3rem">
-                {!! "0" !!}<br>
-                {!! "0" !!}<br>
-                {!! "0" !!}<br>
+                {!! "1" !!}<br>
+                {!! "2" !!}<br>
+                {!! "3" !!}<br>
             </td>
             <td>
                 {!! "Bolsa Auxílio" !!}<br>
@@ -140,7 +148,7 @@
                 {!! "Bolsa Auxílio" !!}<br>
             </td>
             <td>
-                {!! "000,00" !!}<br>
+                R$ {{$data->valor_bolsa}}<br>
                 {!! "000,00" !!}<br>
                 {!! "" !!}<br>
             </td>
@@ -153,7 +161,7 @@
         <tr>
             <td></td>
             <td></td>
-            <td>Total de: <br>{!! "000,00" !!}</td>
+            <td>Total de: <br>R$ {{$data->valor_bolsa}}</td>
             <td>Descontos: <br>{!! "000,00" !!}</td>
         </tr>
         <tr>

@@ -93,9 +93,9 @@
                                     <span class="fa fa-list form-control-feedback left"
                                             aria-hidden="true"></span>
                                    </div>
-                                   <div>
-                                    <button type="submit" class="btn btn-success" style="margin-top:10px!important; margin-left:430px!important;">Salvar Alterações</button>
-                                        <button class="btn btn-danger" style="margin-top:10px!important;">Voltar</button>
+                                   <div style="margin-left:300px;">
+                                    <button type="submit" class="btn btn-success" style="margin-top:20px!important; margin-left:130px!important;">Salvar Alterações</button>
+                                         <a href="/folha_rescisao" class="btn btn-danger" style="margin-top:20px!important;">Voltar</a>
 
                                     {!! Form::close() !!}
                                     </div>

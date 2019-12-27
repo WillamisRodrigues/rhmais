@@ -141,7 +141,7 @@ class FolhaPagamentoController extends Controller
                 $resultado = ($folha_[0] + $credito -$debito) - $faltaMes;
                 $resultado_real = number_format($resultado, 2, ',', '.');
 
-                DB::update('update folha_pagamento set valor_liquido = ? where id = ?', [$resultado_real, $folha->id]);
+                DB::update('update folha_pagamento set valor_liquido = ?, status =1 where id = ?', [$resultado_real, $folha->id]);
             }
         return  redirect('folha_pagamento');
     }
@@ -194,61 +194,4 @@ class FolhaPagamentoController extends Controller
         return Response::json($user);
     }
 
-    public function generateHolerite()
-    {
-    //     if ($id == 0) {
-    //         $estagiarios = Estagiario::all();
-    //     }
-    //     // Um Estagiario Específico
-    //     else {
-    //         $estagiarios = DB::table('estagiario')
-    //             ->join('empresa', 'estagiario.empresa_id', '=', 'empresa.id')
-    //             ->join('instituicao', 'estagiario.instituicao_id', '=', 'instituicao.id')
-    //             ->select(
-    //                 'estagiario.nome',
-    //                 'estagiario.rua',
-    //                 'estagiario.numero',
-    //                 'estagiario.bairro',
-    //                 'estagiario.cidade',
-    //                 'estagiario.estado',
-    //                 'estagiario.cep',
-    //                 'estagiario.celular',
-    //                 'estagiario.cpf',
-    //                 'estagiario.rg',
-    //                 'estagiario.email',
-    //                 'instituicao.razao_social AS instituicao_razao',
-    //                 'instituicao.cnpj AS instituicao_cnpj',
-    //                 'instituicao.numero AS instituicao_numero',
-    //                 'instituicao.bairro AS instituicao_bairro',
-    //                 'instituicao.cidade AS instituicao_cidade',
-    //                 'instituicao.estado AS instituicao_estado',
-    //                 'instituicao.cep AS instituicao_cep',
-    //                 'instituicao.nome_rep AS instituicao_nome_rep',
-    //                 'instituicao.cargo_rep AS instituicao_cargo_rep',
-    //                 'instituicao.telefone AS instituicao_telefone',
-    //                 'instituicao.rua AS instituicao_rua',
-    //                 'empresa.razao_social AS empresa_razao',
-    //                 'empresa.cnpj AS empresa_cnpj',
-    //                 'empresa.numero AS empresa_numero',
-    //                 'empresa.bairro AS empresa_bairro',
-    //                 'empresa.cidade AS empresa_cidade',
-    //                 'empresa.estado AS empresa_estado',
-    //                 'empresa.cep AS empresa_cep',
-    //                 'empresa.nome_rep AS empresa_nome_rep',
-    //                 'empresa.telefone AS empresa_telefone',
-    //                 'empresa.rua AS empresa_rua'
-    //             )
-    //             ->where('estagiario.id', '=', $id)
-    //             ->get();
-    //     }
-
-    //     DB::update('update tce_contrato set assinado = "Sim" where estagiario_id = ?', [$id]);
-
-    //     $data = ['estagiario' => $estagiarios];
-    //     $pdf = PDF::loadView('pdf.tce.index', $data);
-    //     return $pdf->stream('tce-pdf.pdf');
-    // }
-        $pdf = PDF::loadView('pdf.holerite.index');
-        return $pdf->stream('index.pdf');
-    }
 }

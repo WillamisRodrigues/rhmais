@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use PDF;
 use DB;
 use App\Estagiario;
+use App\FolhaPagamento;
 
 class PdfController extends Controller
 {
@@ -33,7 +34,7 @@ class PdfController extends Controller
                 'estagiario.id'
             )
             ->get();
-     
+
         $data = ['estagiario' => $estagiarios];
         $pdf = PDF::loadView('pdf.tce.index', $data);
         return $pdf->stream('tce-pdf.pdf');
@@ -138,21 +139,41 @@ class PdfController extends Controller
     public function generateHolerite($id)
     {
         if ($id == 0) {
-            $estagiarios = Estagiario::all();
+            $folha = FolhaPagamento::all();
         }
-        // Um Estagiario Específico
+        // Um Folha Específica
         else {
-            // $estagiarios = DB::table('estagiario')->where('id', '=', $estagiario->id)->get();
-            $folha = DB::table('folha_pagamento')->where('id', '=', $id)->get();
-        }
+        $folha = DB::table('estagiario')
+        ->join('folha_pagamento', 'estagiario.id', '=', 'folha_pagamento.estagiario_id')
+        ->join('empresa', 'estagiario.empresa_id', '=', 'empresa.id')
+        ->join('tce_contrato', 'estagiario.id', '=', 'tce_contrato.estagiario_id')
+        ->where('folha_pagamento.id', '=', $id)
+        ->get();
 
+        // dd($folha);
+        }
         $data = ['folha' => $folha];
         $pdf = PDF::loadView('pdf.holerite.index', $data);
         return $pdf->stream('index.pdf');
     }
 
-    public function generateValoresRescisao()
+    public function generateRescisao($id)
     {
+        if ($id == 0) {
+            $folha = FolhaRescisao::all();
+        }
+        // Um Folha Específica
+        else {
+        $folha = DB::table('estagiario')
+        ->join('folha_pagamento', 'estagiario.id', '=', 'folha_pagamento.estagiario_id')
+        ->join('empresa', 'estagiario.empresa_id', '=', 'empresa.id')
+        ->join('tce_contrato', 'estagiario.id', '=', 'tce_contrato.estagiario_id')
+        ->where('folha_pagamento.id', '=', $id)
+        ->get();
+
+        // dd($folha);
+        }
+        $data = ['folha' => $folha];
         $pdf = PDF::loadView('pdf.valores_rescisao.index');
         return $pdf->stream('index.pdf');
     }

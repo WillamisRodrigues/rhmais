@@ -21,7 +21,8 @@
 
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                        <form action="">
+                        <form action="/processar" method="POST">
+                            {{ csrf_field() }}
                             <div class="col-md-2">
                                 <label for="">Unidade:</label>
                                 <select name="" class="form-control">
@@ -115,18 +116,51 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Pendente</td>
-                                            <td>2019/06</td>
-                                            <td>CYNTHIA LIMA DA SILVA</td>
-                                            <td>ENGENHO COM JEITO MODAS LTDA</td>
-                                            <td>600,00</td>
-                                            <td>600,00</td>
-                                            <td><a href="/editar_folha_rescisao" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
-                                            <a href="/valores_rescisao" target="_blank" class="btn btn-success">
+                                            @foreach ($folhas as $folha)
+                                        <tr>
+                                            <td>
+                                                @if ($folha->status == 1)
+                                                Pendente
+                                                @else
+                                                Gerado
+                                                @endif
+                                            </td>
+                                            <td>{{ $folha->referencia }}</td>
+                                            <td>
+                                                @php
+                                                foreach ($estagiarios as $estagiario) {
+                                                if ($estagiario->id == $folha->estagiario_id) {
+                                                echo $estagiario->nome;
+                                                }
+                                                }
+                                                @endphp
+                                            </td>
+                                            <td>
+                                                @php
+                                                foreach ($empresas as $empresa) {
+                                                if ($empresa->id == $folha->empresa_id) {
+                                                echo $empresa->nome_fantasia;
+                                                }
+                                                }
+                                                @endphp
+                                            </td>
+                                            <td>R$ {{ $folha->valor_bolsa }}</td>
+                                            <td>{{ $folha->faltas }}</td>
+                                            <td>R$ {{ $folha->valor_liquido }}</td>
+                                            <td>
+                                                <form action="{{ route('folha_rescisao.edit', [$folha->id]) }}">
+                                                <button type="submit" class="btn btn-primary"><i class="fa fa-pencil"></i> </a>
+                                                </button>
+                                                </form>
+                                            {{-- <td><a href="/editar_folha_rescisao" class="btn btn-primary"><i class="fa fa-pencil"></i></a> --}}
+                                            {{-- <a href="/valores_rescisao" target="_blank" class="btn btn-success">
+                                                    <i class="fa fa-print"></i> --}}
+                                                <a href="{{ action('PdfController@generateRescisao', $folha->id) }}" target="_blank" class="btn btn-success">
                                                     <i class="fa fa-print"></i>
                                                 </a>
                                             </td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

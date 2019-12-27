@@ -150,12 +150,12 @@
                                             <td>{{ $folha->faltas }}</td>
                                             <td>R$ {{ $folha->valor_liquido }}</td>
                                             <td>
-                                                @if ($folha->status == 0)
+                                                {{-- @if ($folha->status == 0) --}}
                                                 <form action="{{ route('folha_pagamento.edit', [$folha->id]) }}">
                                                 <button type="submit" class="btn btn-primary"><i class="fa fa-pencil"></i> </a>
                                                 </button>
                                                 </form>
-                                                @endif
+                                                {{-- @endif --}}
                                                 <a href="{{ action('PdfController@generateHolerite', $folha->id) }}" target="_blank" class="btn btn-success">
                                                     <i class="fa fa-print"></i>
                                                 </a>

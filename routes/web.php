@@ -11,8 +11,6 @@
 |
 */
 
-use Illuminate\Support\Facades\DB;
-
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('/home', 'HomeController@index')->name('index');
@@ -46,6 +44,7 @@ Route::resource('termo_recesso', 'RecessoController');
 Route::resource('financeiro', 'FinanceiroController');
 Route::resource('avaliacao_supervisor', 'AvaliacaoSuperController');
 Route::resource('folha_pagamento', 'FolhaPagamentoController');
+Route::resource('folha_rescisao', 'FolhaRescisaoController');
 
 
 // Route::post('adicionarRecesso',['as' => 'adicionarRecesso', 'uses' => 'RecessoController@store']);
@@ -62,7 +61,7 @@ Route::get('estagio', 'PdfController@generateEstagio');
 Route::get('tce-pdf', 'PdfController@generatePDF');
 Route::get('avaliacao-pdf', 'PdfController@generateAvaliacao');
 Route::get('/tce-pdf/{id}', 'EstagiarioController@gerarRelatorio');
-Route::get('/recisaotce/{id}', 'PdfController@generateRecisao');
+Route::get('rescisao/{id}', 'PdfController@generateRescisao');
 Route::get('holerite/{id}', 'PdfController@generateHolerite');
 Route::get('/folha', 'PdfController@generateFolha');
 
@@ -82,34 +81,11 @@ Route::get('/lista_recesso', function () {
     return view('recesso/index');
 });
 
-Route::get('/calculo', function () {
-    return view('home/calculo');
-});
-
-/* fim recesso de ferias */
-
-/*rotas folhas de pagamento , recisao, rendimentos , previa_recisao*/
-
-Route::get('/folha_rescisao', function () {
-    $unidades = DB::table('cau')->join('empresa', 'empresa.id', '=', 'cau.empresa_id')->select('empresa.id', 'empresa.nome_fantasia', 'cau.data_inicio', 'cau.data_fim', 'cau.situacao', 'cau.id AS id')->get();
-    $periodos = DB::table("folha_pagamento")->select(DB::raw('count(*) as periodo, referencia'))->where('referencia', '<>', 1)->groupBy('referencia')->get();
-    return view('folha_rescisao/index', [
-        'unidades' => $unidades,
-        'periodos' => $periodos
-    ]);
-});
-
 Route::get('/editar_conta', function () {
     return view('editar_conta/edit');
 });
 
-
 Route::get('lista_auto_avaliacao', ['uses' => 'AvaliacaoController@lista_avaliacao', 'as' => 'lista_auto_avaliacao']);
-
-// Route::get('auto-avaliacao', ['uses' => 'AvaliacaoController@autoavaliacao', 'as' => 'auto-avaliacao']);
-
-// Route::post('buscar-estagiario', ['uses' => 'AvaliacaoController@buscarAvaliacaoEstagiario', 'as' => 'buscar-estagiario']);
-// Route::post('filtrar-estagiario', ['uses' => 'AvaliacaoController@buscarEstagiarios', 'as' => 'filtrar-estagiario']);
 
 Route::get('deletar_avaliacao_estagiario/{id}', [
     'uses' => 'AvaliacaoController@deletar_avaliacao_estagiario',
