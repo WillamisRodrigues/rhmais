@@ -101,22 +101,22 @@ class FolhaRescisaoController extends Controller
         //
     }
 
-    public function processarFolha(Request $request)
+    public function processarRescisao(Request $request)
     {
         if (empty($request->unidade) || empty($request->referencia)) {
-            return redirect('folha_pagamento');
+            return redirect('folha_rescisao');
         } else {
-            $processarFolha = $request->input('unidade');
+            $processarRescisao = $request->input('unidade');
             $referencia = $request->input('referencia');
             $unidade = DB::table('folha_pagamento')->join('empresa', 'empresa.id', '=', 'folha_pagamento.empresa_id')
                 ->where([
-                    ['nome_fantasia', 'LIKE', '%' . $processarFolha . '%'],
+                    ['nome_fantasia', 'LIKE', '%' . $processarRescisao . '%'],
                     ['referencia', 'LIKE', '%' . $referencia . '%']
                 ]);
             $unidades = DB::table('cau')->join('empresa', 'empresa.id', '=', 'cau.empresa_id')->select('empresa.id', 'empresa.nome_fantasia', 'cau.data_inicio', 'cau.data_fim', 'cau.situacao', 'cau.id AS id')->where('nome_fantasia', '=', $processarFolha)->get();
 
             $folhas = DB::table("folha_pagamento")
-                ->join('empresa', 'empresa.id', '=', 'folha_pagamento.empresa_id')->where('nome_fantasia', '=', $processarFolha)
+                ->join('empresa', 'empresa.id', '=', 'folha_pagamento.empresa_id')->where('nome_fantasia', '=', $processarRescisao)
                 ->where('referencia', '=', $request->referencia)
                 ->get();
 

@@ -133,65 +133,44 @@
                             <span class="fa fa-bars form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
-                                  </div>
-                              </div>
+                        </div>
+                         </div>
                               <div id="step-2">
                                   <br>
                                   <div id="form-step-1" role="form" data-toggle="validator">
                                   <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <label for="">Dias p/ Pgto Estágiario(a)</label>
-                            <input type="date" class="form-control has-feedback-left" placeholder="Dias p/ Pgto Estágiario(a)" name="pgto_estagiario" value="{{old('pgto_estagiario')}}">
+                            <label for="">Dia p/ Pgto Estágiario(a)</label>
+                            <input type="date" class="form-control has-feedback-left" placeholder="Dia p/ Pgto Estágiario(a)" name="data_estagiario" value="{{old('data_estagiario')}}">
                             <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <label for="">Dia p/ Vcto Boleto</label>
-                            <input type="date" class="form-control has-feedback-left" placeholder="Dia p/ Vcto Boleto" name="vcto_boleto" value="{{old('vcto_boleto')}}">
+                            <input type="date" class="form-control has-feedback-left" placeholder="Dia p/ Vcto Boleto" name="data_boleto" value="{{old('data_boleto')}}">
                             <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <label for="">Dia p/ Fechamento</label>
-                            <input type="date" class="form-control has-feedback-left" placeholder="Dia p/ Fechamento" name="dia_fechamento" value="{{old('dia_fechamento')}}">
+                            <input type="date" class="form-control has-feedback-left" placeholder="Dia p/ Fechamento" name="data_fechamento" value="{{old('data_fechamento')}}">
                             <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                           </div>
-                          {{-- <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <select class="form-control has-feedback-left" name="qtd_plano">
-                                                    <option>12 Vezes</option>
-                                                    <option>24 Vezes</option>
-                                                </select>
-                             <input type="text" class="form-control has-feedback-left" placeholder="Quantidade TCE Plano" name="qtd_plano" value="{{old('qtd_plano')}}">
-                            <span class="fa fa-bars form-control-feedback left" aria-hidden="true"></span>
-                          </div> --}}
-                        {{-- </div> --}}
-                        {{-- <div class="row" style="width:960px; margin: 0 auto;">
-                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" placeholder="Cobrança Valor Fixo" name="valor_fixo" value="{{old('valor_fixo')}}">
-                            <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
-                          </div> --}}
-                          {{-- <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" placeholder="Cobrança Valor %" name="valor_percentual" value="{{old('valor_percentual')}}">
-                            <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
-                          </div>
-                        </div> --}}
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left" placeholder="Custo Unitário" name="custo_unitario" value="{{old('custo_unitario')}}">
                             <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
                           </div>
-                          {{-- <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" placeholder="Valor Adicional" name="valor_adicional" value="{{old('valor_adicional')}}">
-                            <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
-                          </div> --}}
+
                           <div class="row" style="width:500px; margin: 0 auto;">
                             <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
                               <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" class="flat" checked="checked"> Proporcional
+                                  <input type="checkbox" class="flat"> Proporcional
                                 </label>
                                 <label>
-                                  <input type="checkbox" class="flat"> Está Ativo
+                                  <input type="checkbox" class="flat" value="1" checked="checked"> Está Ativo
+                                  <input type="hidden" value="1" name="ativo" />
                                 </label>
                                 <label>
                                   <input type="checkbox" class="flat"> Dias Comerciais

@@ -32,7 +32,12 @@ class Empresa extends Model
           'agente_int',
           'nome_contato',
           'email_contato',
-          'celular_contato'
+          'celular_contato',
+          'data_estagiario',
+          'data_fechamento',
+          'data_boleto',
+          'custo_unitario',
+          'ativo'
      ];
 
      protected $table = 'empresa';

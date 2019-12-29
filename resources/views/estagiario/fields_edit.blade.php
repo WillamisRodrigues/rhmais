@@ -4,9 +4,7 @@
         <div class="clearfix"></div>
     </div>
     <div class="x_content">
-        {{-- <form action="{{ route('estagiario.update', $estagiario->id) }}" id="myForm" role="form"
-        data-toggle="validator" method="post" accept-charset="utf-8"> --}}
-        {{-- {{csrf_field()}} --}}
+
         {!! Form::open(['route' => ['estagiario.update', $estagiario->id], 'method' => 'patch']) !!}
 
         <!-- SmartWizard html -->
@@ -155,12 +153,7 @@
                                     name="mae" value="{{ $estagiario->mae }}">
                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                             </div>
-                            <!-- <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                  <select class="form-control has-feedback-left" name="cor">
-                                      <option>Selecione Cor/Raça</option>
-                                  </select>
-                                  <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
-                              </div> -->
+
                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                 <input type="text" class="form-control has-feedback-left" placeholder="Série Ctps:"
                                     name="serie_ctps" value="{{ $estagiario->serie_ctps }}">
@@ -215,15 +208,7 @@
                     <br>
                     <div id="form-step-1" role="form" data-toggle="validator">
                         <div class="row" style="width:960px; margin: 20px auto;">
-                            {{-- <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                    <select class="form-control has-feedback-left" name="nivel">
-                                        <option value="{{ $estagiario->nivel }}" >Selecione um nível</option>
-                            @foreach ($cursos as $key)
-                            <option>{{ $key->nome }}</option>
-                            @endforeach
-                            </select>
-                            <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
-                        </div> --}}
+
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <select class="form-control has-feedback-left" name="nivel">
                                 <option value="{{ $estagiario->nivel }}">{{ $estagiario->nivel }}</option>
@@ -252,12 +237,7 @@
                             </select>
                             <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                         </div>
-                        {{-- <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                  <select class="form-control has-feedback-left" name="horario">
-                                      <option>Selecione um Horário</option>
-                                  </select>
-                                  <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
-                              </div> --}}
+
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left" placeholder="Matricula"
                                 name="matricula" value="{{ $estagiario->matricula }}">
@@ -267,13 +247,13 @@
                             <input type="text" class="form-control has-feedback-left"
                                 placeholder="Data de Término do Curso" name="termino_curso"
                                 value="{{ $estagiario->termino_curso }}">
-                            <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                            <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left"
                                 placeholder="Previsão Término Curso" name="termino_curso"
                                 value="{{ $estagiario->termino_curso }}">
-                            <span class="fa fa-book form-control-feedback left" aria-hidden="true"></span>
+                            <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                         </div>
                     </div>
                 </div>
@@ -308,8 +288,8 @@
                         <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" name="ativo" class="flat" checked="checked"> Está
-                                    Ativo
+                                  <input type="checkbox" value="1" class="flat" checked="checked"> Está  Ativo
+                                  <input type="hidden" value="1" name="ativo" />
                                 </label>
                             </div>
                         </div>

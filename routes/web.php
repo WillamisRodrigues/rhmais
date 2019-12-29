@@ -22,6 +22,7 @@ Route::get('cce_assinado/{id}', ['uses' => 'CceController@assinado', 'as' => 'cc
 Route::post('editar_folha_pagamento', ['uses' => 'FolhaPagamentoController@editar', 'as' => 'folha_pagamento.editar']);
 Route::get('editar_folha_rescisao', ['uses' => 'FolhaRescisaoController@editar', 'as' => 'folha_recisao.editar']);
 Route::post('processar', 'FolhaPagamentoController@processarFolha');
+Route::post('processarRescisao', 'FolhaRescisaoController@processarRescisao');
 Route::resource('ajax-crud', 'AjaxController');
 Route::get('beneficio_estagiario/{id}', ['uses' => 'AjaxController@beneficio_estagiario', 'as' => 'ajax-crud.beneficio_estagiario'] );
 

@@ -17,21 +17,7 @@ class EmpresaController extends Controller
     public function index()
     {
         $empresas = Empresa::all();
-        // $empresas = DB::table('empresa')
-        //     ->select(
-        //     'empresa.razao_social',
-        //     'empresa.nome_fantasia',
-        //     'empresa.cnpj',
-        //     'empresa.insc_estadual',
-        //     'empresa.telefone',
-        //     'empresa.id',
-        //     'empresa.qtd_plano',
-        //     'empresa.valor_fixo',
-        //     'empresa.valor_percentual',
-        //     'empresa.cidade',
-        //     'empresa.estado'
-        //     )
-        //     ->get();
+
         return view('empresa.index', compact('empresas', $empresas));
     }
 
@@ -60,8 +46,6 @@ class EmpresaController extends Controller
             'cnpj' => 'required',
         ]);
 
-        // Empresa::create($request->all());
-
         $empresas = new empresa();
         $empresas->razao_social = $request->get('razao_social');
         $empresas->nome_fantasia = $request->get('nome_fantasia');
@@ -85,11 +69,10 @@ class EmpresaController extends Controller
         $empresas->complemento = $request->get('complemento');
         $empresas->nome_contato = $request->get('nome_contato');
         $empresas->email_contato = $request->get('email_contato');
-        // $empresas->qtd_plano = $request->get('qtd_plano');
-        // $empresas->valor_fixo = $request->get('valor_fixo');
-        // $empresas->valor_percentual = $request->get('valor_percentual');
+        $empresas->data_estagiario = $request->get('data_estagiario');
+        $empresas->data_fechamento = $request->get('data_fechamento');
+        $empresas->data_boleto = $request->get('data_boleto');
         $empresas->custo_unitario = $request->get('custo_unitario');
-        // $empresas->valor_adicional = $request->get('valor_adicional');
         $empresas->ativo = $request->get('ativo');
         $empresas->save();
 

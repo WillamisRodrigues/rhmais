@@ -71,11 +71,7 @@
                           <td>{{$empresa->cidade}}</td>
                           <td>{{$empresa->telefone}}</td>
                           <td>{{$empresa->cnpj}}</td>
-                          {{-- <td>{{$empresa->qtd_plano}}</td> --}}
-                          {{-- <td>{{$empresa->valor_fixo}}</td> --}}
-                          {{-- <td>{{$empresa->valor_percentual}}</td> --}}
-                          <td>{{$empresa->custo_unitario}}</td>
-                          {{-- <td>{{$empresa->telefone}}</td> --}}
+                          <td>R$ {{$empresa->custo_unitario}}</td>
                           <td>
                              @if ($empresa->ativo == '1')
                               Sim

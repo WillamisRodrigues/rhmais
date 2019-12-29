@@ -44,7 +44,6 @@ class EstagiarioController extends Controller
             )
             ->get();
 
-        // dd($estagiarios[0]->nome);
         return view('estagiario.index', compact('estagiarios'));
     }
 
@@ -203,16 +202,6 @@ class EstagiarioController extends Controller
             $estagiarios->status = 1;
         }
         $estagiarios->save();
-        // $estagiario_id = $estagiarios->id;
-
-        // $contas = new Adicional();
-        // $contas->banco = $request->get('banco');
-        // $contas->conta = $request->get('conta');
-        // $contas->codigo = $request->get('codigo');
-        // $contas->senha = $request->get('senha');
-        // $contas->obs = $request->get('obs');
-        // $contas->estagiario_id = $estagiario_id;
-        // $contas->save();
 
         return redirect()->route('estagiario.index')
             ->with('success', 'Cadastrado com sucesso.');
@@ -239,11 +228,7 @@ class EstagiarioController extends Controller
     {
 
         $estagiario = DB::table('estagiario')->where('id', $id)->get()->first();
-        // $empresas = DB::table('empresa')->where('id', '=', $estagiario->empresa_id)->get()->first();
-        // $instituicoes = DB::table('instituicao')->where('id', '=', $estagiario->instituicao_id)->get()->first();
-        // $instituicoes = Instituicao::all();
-        // $estados = Estado::all();
-        // $cursos = Curso::all();
+      
         $horarios = Horario::all();
 
         $estados = DB::table("estado")->pluck("nome", "id");

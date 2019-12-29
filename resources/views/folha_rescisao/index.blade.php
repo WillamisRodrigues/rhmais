@@ -21,10 +21,10 @@
 
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                        <form action="/processar" method="POST">
+                        <form action="/processarRescisao" method="POST">
                             {{ csrf_field() }}
                             <div class="col-md-2">
-                                <label for="">Unidade:</label>
+                                <label for="unidade">Unidade:</label>
                                 <select name="" class="form-control">
                                     <option> Todas as Unidades</option>
                                      @foreach ($unidades as $unidade)
@@ -34,7 +34,7 @@
                             </div>
                             <div class="col-md-2">
                                 <label for="">Período:</label>
-                                <select name="" class="form-control">
+                                <select name="referencia" class="form-control">
                                     <option> Periodo Ano</option>
                                     @foreach ($periodos as $periodo)
                                      <option> {{$periodo->referencia}}

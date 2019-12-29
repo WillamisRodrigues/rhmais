@@ -20,6 +20,7 @@
                 <div class="clearfix"></div>
 
                 <div class="row">
+                     @include('layout.alerta.flash-message')
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <form action="/processar" method="POST">
                             {{ csrf_field() }}

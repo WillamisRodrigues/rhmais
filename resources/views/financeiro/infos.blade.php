@@ -21,35 +21,7 @@
 
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                        {{-- <form action="">
-              <div class="col-md-2">
-                <label for="">Agente:</label>
-                <select name="" class="form-control">
-                    <option> KOSTER E KOSTER CONSULTORIA EM RH LTDA - RH MAIS TALENTOS</option>
-                </select>
-                </div>
-                <div class="col-md-2">
-                <label for="">Unidade:</label>
-                <select name="" class="form-control">
-                    <option> Nome da Unidade</option>
-                    @foreach ($empresas as $empresa)
-                        <option value="{!! $empresa->id !!}">{!! $empresa->nome_fantasia !!}</option>
-                    @endforeach
-                </select>
-                </div>
-                <div class="col-md-2">
-                <label for="">Período:</label>
-                <select name="" class="form-control">
-                    <option> 2019/04</option>
-                </select>
-                </div>
-                <div class="col-md-4">
-                <br>
-                <button class="btn btn-primary">Processar</button>
-                <button class="btn btn-primary">Rel. Agente</button>
-                <button class="btn btn-primary">L. Relação</button>
-                </div>
-              </form> --}}
+                    
                         <br>
                         <div class="x_panel">
                             <div class="x_title">

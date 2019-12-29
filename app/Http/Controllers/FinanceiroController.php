@@ -18,8 +18,6 @@ class FinanceiroController extends Controller
         $estagiarios = DB::table('estagiario')->where([['empresa_id', '<>', null]])->get();
         $contratos = DB::table('tce_contrato')->where([['estagiario_id', '<>', null]])->get();
 
-        // dd($estagiarios);
-
         return view('financeiro.index', ['empresas' => $empresas, 'contratos' => $contratos, 'estagiarios' => $estagiarios]);
     }
 

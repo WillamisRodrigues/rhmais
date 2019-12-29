@@ -115,12 +115,7 @@
                                         name="mae" value="{{old('mae')}}">
                                     <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                 </div>
-                                <!-- <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                  <select class="form-control has-feedback-left" name="cor">
-                                      <option>Selecione Cor/Raça</option>
-                                  </select>
-                                  <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
-                              </div> -->
+
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <input type="text" class="form-control has-feedback-left" placeholder="Série Ctps:"
                                         name="serie_ctps" value="{{old('serie_ctps')}}">
@@ -212,25 +207,20 @@
                                     <span class="fa fa-graduation-cap form-control-feedback left"
                                         aria-hidden="true"></span>
                                 </div>
-                                {{-- <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                  <select class="form-control has-feedback-left" name="horario">
-                                      <option>Selecione um Horário</option>
-                                  </select>
-                                  <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
-                              </div> --}}
+                              
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <label for="">Data de Término do Curso</label>
                                     <input type="date" class="form-control has-feedback-left"
                                         placeholder="Data de Término do Curso" name="termino_curso"
                                         value="{{old('termino_curso')}}">
-                                    <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                    <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                      <label for="">Previsão Término Curso</label>
                                     <input type="date" class="form-control has-feedback-left"
                                         placeholder="Previsão Término Curso" name="termino_curso"
                                         value="{{old('termino_curso')}}">
-                                    <span class="fa fa-book form-control-feedback left" aria-hidden="true"></span>
+                                    <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                 </div>
                                   <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <input type="text" class="form-control has-feedback-left" placeholder="Matricula"

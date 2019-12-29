@@ -143,7 +143,9 @@ class FolhaPagamentoController extends Controller
 
                 DB::update('update folha_pagamento set valor_liquido = ?, status =1 where id = ?', [$resultado_real, $folha->id]);
             }
-        return  redirect('folha_pagamento');
+
+        return  redirect('folha_pagamento')
+        ->with('success', 'Atualizado com sucesso!');
     }
 
     public function processarFolha(Request $request)
