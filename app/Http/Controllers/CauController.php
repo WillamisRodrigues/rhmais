@@ -21,6 +21,7 @@ class CauController extends Controller
             ->select(
                 'empresa.id',
                 'empresa.nome_fantasia',
+                'empresa.cidade',
                 'cau.data_inicio',
                 'cau.data_fim',
                 'cau.situacao',

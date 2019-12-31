@@ -139,7 +139,15 @@ class PdfController extends Controller
     public function generateHolerite($id)
     {
         if ($id == 0) {
-            $folha = FolhaPagamento::all();
+          
+        $folha = DB::table('estagiario')
+        ->join('folha_pagamento', 'estagiario.id', '=', 'folha_pagamento.estagiario_id')
+        ->join('empresa', 'estagiario.empresa_id', '=', 'empresa.id')
+        ->join('tce_contrato', 'estagiario.id', '=', 'tce_contrato.estagiario_id')
+        ->whereMonth('folha_pagamento.created_at', '=', date('m'))
+        ->where('folha_pagamento.status', '=', 1)
+        ->get();
+        // dd($folha_);
         }
         // Um Folha Específica
         else {

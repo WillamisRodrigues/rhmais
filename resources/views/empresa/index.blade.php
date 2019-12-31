@@ -43,21 +43,9 @@
                           <th>CNPJ
                           <input type="text" class="form-control" style="width:100px;">
                           </th>
-                          {{-- <th>Qtade <br> Plano
-                          <input type="text" class="form-control" style="width:100px;">
-                          </th>
-                          <th>Valor <br> Fixo
-                          <input type="text" class="form-control" style="width:100px;">
-                          </th>
-                          <th>Valor <br> Perc
-                          <input type="text" class="form-control" style="width:100px;">
-                          </th> --}}
                           <th>Custo <br> Unitario
                           <input type="text" class="form-control" style="width:100px;">
                           </th>
-                          {{-- <th>Valor <br> Adicional
-                          <input type="text" class="form-control" style="width:100px;">
-                          </th> --}}
                           <th>Ativo
                           <input type="text" class="form-control" style="width:100px;">
                           </th>

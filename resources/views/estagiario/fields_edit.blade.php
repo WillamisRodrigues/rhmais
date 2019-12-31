@@ -244,12 +244,14 @@
                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                            <label for="">Data Término</label>
                             <input type="text" class="form-control has-feedback-left"
                                 placeholder="Data de Término do Curso" name="termino_curso"
                                 value="{{ $estagiario->termino_curso }}">
                             <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                            <label for="">Previsão Término Curso</label>
                             <input type="text" class="form-control has-feedback-left"
                                 placeholder="Previsão Término Curso" name="termino_curso"
                                 value="{{ $estagiario->termino_curso }}">

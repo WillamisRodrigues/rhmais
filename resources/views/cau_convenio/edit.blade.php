@@ -54,6 +54,7 @@
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
+                                                        <label for="">Data Documento</label>
                                                         <input type="text" value=" {{ $cau->data_doc }}"
                                                             class="form-control has-feedback-left"
                                                             placeholder="Data Documento" name="data_documento">
@@ -61,6 +62,7 @@
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
+                                                        <label for="">Data Ínicio</label>
                                                         <input type="text" value=" {{ $cau->data_inicio }}"
                                                             class="form-control has-feedback-left"
                                                             placeholder="Data Inicio" name="data_inicio">
@@ -68,6 +70,7 @@
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
+                                                        <label for="">Data Fim</label>
                                                         <input type="text" value=" {{ $cau->data_fim }}"
                                                             class="form-control has-feedback-left"
                                                             placeholder="Data Fim" name="data_fim">

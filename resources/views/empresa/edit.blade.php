@@ -240,7 +240,7 @@
                                                     <label for="">Dia p/ Pgto Estágiario(a)</label>
                                                     <input type="text" class="form-control has-feedback-left"
                                                         placeholder="Dia p/ Pgto Estágiario(a)" name="data_estagiario"
-                                                        value="{{ $empresa->pgto_estagiario}}">
+                                                        value="{{ $empresa->data_estagiario}}">
                                                     <span class="fa fa-calendar form-control-feedback left"
                                                         aria-hidden="true"></span>
                                                 </div>
@@ -248,7 +248,7 @@
                                                       <label for="">Dia p/ Vcto Boleto</label>
                                                     <input type="text" class="form-control has-feedback-left"
                                                         placeholder="Dia p/ Vcto Boleto" name="data_boleto"
-                                                        value="{{ $empresa->vcto_boleto}}">
+                                                        value="{{ $empresa->data_boleto}}">
                                                     <span class="fa fa-calendar form-control-feedback left"
                                                         aria-hidden="true"></span>
                                                 </div>
@@ -258,7 +258,7 @@
                                                      <label for="">Dia p/ Fechamento</label>
                                                     <input type="text" class="form-control has-feedback-left"
                                                         placeholder="Dia p/ Fechamento" name="data_fechamento"
-                                                        value="{{ $empresa->dia_fechamento}}">
+                                                        value="{{ $empresa->data_fechamento}}">
                                                     <span class="fa fa-calendar form-control-feedback left"
                                                         aria-hidden="true"></span>
                                                 </div>

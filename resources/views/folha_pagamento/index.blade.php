@@ -81,7 +81,7 @@
                             <div class="col-md-4">
                                 <br>
                                 <button type="submit" class="btn btn-primary">Processar</button>
-                                <a href="/holerite" class="btn btn-primary">G. Recibo</a>
+                                <a href="{{  action('PdfController@generateHolerite', '0') }}" target="_blank" class="btn btn-primary">G. Recibo</a>
                                 <a href="/folha" class="btn btn-primary">G. Relação</a>
                             </div>
                         </form>

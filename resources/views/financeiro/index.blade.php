@@ -32,15 +32,18 @@
                                 <label for="">Unidade:</label>
                                 <select name="" class="form-control">
                                     <option> Nome da Unidade</option>
-                                    @foreach ($empresas as $empresa)
-                                    <option value="{!! $empresa->id !!}">{!! $empresa->nome_fantasia !!}</option>
+                                     @foreach ($empresas as $unidade)
+                                    <option value="{{$unidade->nome_fantasia}}"> {{$unidade->nome_fantasia}}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="col-md-2">
                                 <label for="">Período:</label>
                                 <select name="" class="form-control">
-                                    <option> 2019/04</option>
+                                    <option value=""> Periodo Ano</option>
+                                    @foreach ($periodos as $periodo)
+                                     <option value="{{$periodo->referencia}}"> {{$periodo->referencia}}
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="col-md-4">
@@ -92,30 +95,37 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($empresas as $empresa)
+                                        @foreach ($contratos as $contrato)
                                         <tr>
-                                            <td>{{ $empresa->nome_fantasia }}</td>
-                                            <td>{{ date('Y/m') }}</td>
-                                            <td></td>
+                                            <td>  @php
+                                                foreach ($empresas as $empresa) {
+                                                if ($empresa->id == $contrato->empresa_id) {
+                                                echo $empresa->nome_fantasia;
+                                                }
+                                                }
+                                                @endphp
+                                            </td>
+                                            <td>{{ $contrato->referencia }}</td>
+                                            <td>{{$contrato->data_boleto}}</td>
                                             <td>
                                                 @php
                                                 $soma = 0;
-                                                foreach ($contratos as $contrato) {
+                                                foreach ($empresas as $empresa) {
                                                 if ($contrato->empresa_id == $empresa->id) {
-                                                $soma += $contrato->bolsa;
+                                                $soma += $contrato->custo_unitario;
                                                 }
                                                 }
                                                 echo "R$ ".number_format($soma, 2, ',', '.');;
                                                 @endphp
                                             </td>
-                                            <td></td>
+                                            <td>R$ {{$contrato->custo_unitario}}</td>
                                             <td></td>
                                             <td></td>
                                             <td></td>
                                             <td></td>
                                             <td>VALOR <BR> SOMA <BR> % <BR> CONTRATO<BR> ESTAGIARIO</td>
                                             <td></td>
-                                            <td><a href="{{ route('financeiro.infos', [$empresa->id]) }}"
+                                            <td><a href="{{ route('financeiro.infos', [$contrato->id]) }}"
                                                     class="btn btn-primary"><i class="fa fa-bars"></i></a></td>
                                         </tr>
                                         @endforeach

@@ -14,11 +14,25 @@ class FinanceiroController extends Controller
      */
     public function index()
     {
+    //    $unidades = DB::table('cau')->join('empresa', 'empresa.id', '=', 'cau.empresa_id')->select('empresa.id', 'empresa.nome_fantasia', 'cau.data_inicio', 'cau.data_fim', 'cau.situacao', 'cau.id AS id')->get();
         $empresas = DB::table('empresa')->get();
-        $estagiarios = DB::table('estagiario')->where([['empresa_id', '<>', null]])->get();
-        $contratos = DB::table('tce_contrato')->where([['estagiario_id', '<>', null]])->get();
+        $contratos = DB::table("cobranca")->get();
 
-        return view('financeiro.index', ['empresas' => $empresas, 'contratos' => $contratos, 'estagiarios' => $estagiarios]);
+        foreach ($empresas as $empresa) {
+            if (!DB::table('cobranca')->where([['empresa_id', '=', $empresa->id], ['referencia', '=', date("Y/m")]])->get()->first()) {
+                $contrato_da_empresa = DB::table('cau')->where('empresa_id', $empresa->id)->get()->first();
+                if ($contrato_da_empresa) {
+                    DB::insert('insert into cobranca (referencia, dia_pg_estagio, dia_fechamento, custo_unitario, data_boleto, empresa_id, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?, ?)', [date("Y/m"), $empresa->data_estagiario, $empresa->data_fechamento, $empresa->custo_unitario, $empresa->data_boleto, $contrato_da_empresa->empresa_id, date("Y-m-d H:i:s"), date("Y-m-d H:i:s")]);
+                }
+            }
+        }
+
+        $periodos = DB::table("cobranca")->select(DB::raw('count(*) as periodo, referencia'))
+            ->where('referencia', '<>', 1)
+            ->groupBy('referencia')
+            ->get();
+
+        return view('financeiro.index', ['empresas' => $empresas, 'contratos'=>$contratos, 'periodos'=>$periodos]);
     }
 
     public function infos($id)

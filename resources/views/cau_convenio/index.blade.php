@@ -53,7 +53,7 @@
                                         @foreach ($caus as $cau)
                                         <tr>
                                             <td>{{$cau->nome_fantasia}}</td>
-                                            <td>Cidade</td>
+                                            <td>{{$cau->cidade}}</td>
                                             <td>{{date('d/m/Y', strtotime($cau->data_inicio))}}</td>
                                             <td>{{date('d/m/Y', strtotime($cau->data_fim))}}</td>
                                             <td>

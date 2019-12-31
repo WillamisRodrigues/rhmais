@@ -30,7 +30,7 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
-                                <table class="table list table-striped table-bordered" style="max-width: 100px">
+                                <table class="table list table-striped table-bordered" style="zoom:0.8;">
                                     <thead>
                                         <tr>
                                             <th>Nome
