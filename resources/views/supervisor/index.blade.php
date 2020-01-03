@@ -59,7 +59,13 @@
                                             <td>{{$supervisor->cpf}}</td>
                                             <td>{{$supervisor->rg}}</td>
                                             <td>{{$supervisor->cidade}}</td>
-                                            <td>{{$supervisor->empresa_id}}</td>
+                                            <td>
+                                                @foreach($empresa as $emp)
+                                                @if($supervisor->empresa_id == $emp->id)
+                                                    {{$emp->nome_fantasia}}
+                                                @endif
+                                                @endforeach
+                                            </td>
                                             <td>{{$supervisor->agente_integracao}}</td>
                                             <td style="width:15%;">
                                                 <div class="col-md-3" style="margin-left:40px;">

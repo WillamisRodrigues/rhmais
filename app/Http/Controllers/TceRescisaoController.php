@@ -25,9 +25,9 @@ class TceRescisaoController extends Controller
                 'empresa.nome_fantasia',
                 'instituicao.nome_instituicao',
                 'tce_rescisao.bolsa',
+                'tce_rescisao.contrato',
                 'tce_rescisao.data_inicio',
-                'tce_rescisao.data_fim',
-                'tce_rescisao.contrato'
+                'tce_rescisao.data_fim'
             )
             ->get();
         return view('tce_rescisao.index',  compact('rescisao', $rescisao));
@@ -56,9 +56,29 @@ class TceRescisaoController extends Controller
         //     'empresa' => 'required',
         //     'instituicao' => 'required',
         // ]);
-        TceRescisao::create($request->all());
+
+        // dd($request);
+        // TceRescisao::create($request->all());
+        // return redirect()->route('tce_rescisao.index')
+        //     ->with('success', 'Cadastrado com sucesso.');
+
+        $tce = new TceRescisao();
+        $tce->agente_integracao = $request->get('agente_integracao');
+        $tce->estagiario_id = $request->get('estagiario_id');
+        $tce->empresa_id = $request->get('empresa_id');
+        $tce->instituicao_id = $request->get('instituicao_id');
+        $tce->data_inicio = $request->get('data_inicio');
+        $tce->data_fim = $request->get('data_fim');
+        $tce->horario = $request->get('descricao');
+        $tce->setor = $request->get('setor');
+        $tce->supervisor = $request->get('supervisor');
+        $tce->bolsa = $request->get('bolsa');
+        $tce->obs = $request->get('observacao');
+        $tce->save();
+
         return redirect()->route('tce_rescisao.index')
             ->with('success', 'Cadastrado com sucesso.');
+
     }
 
     /**

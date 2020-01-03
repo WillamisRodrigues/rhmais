@@ -162,6 +162,9 @@ class TceContratoController extends Controller
                 'empresa.nome_fantasia',
                 'instituicao.nome_instituicao',
                 'tce_contrato.bolsa',
+                'tce_contrato.estagiario_id',
+                'tce_contrato.instituicao_id',
+                'tce_contrato.empresa_id',
                 'tce_contrato.data_inicio',
                 'tce_contrato.data_fim',
                 'tce_contrato.contrato',
@@ -176,8 +179,9 @@ class TceContratoController extends Controller
             ->get();
 
             $motivos = Motivo::all();
-        // dd($tceContrato);
-        return view('tce_contrato.edit', compact('tceContrato', 'motivos', $tceContrato));
+            $supervisor = Supervisor::all();
+
+        return view('tce_contrato.edit', compact('tceContrato', 'motivos', 'supervisor', $tceContrato));
     }
 
     /**

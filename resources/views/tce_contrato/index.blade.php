@@ -71,7 +71,7 @@
                                             <td>{{ $tce->nome }}</td>
                                             <td>{{ $tce->nome_fantasia }}</td>
                                             <td>{{ $tce->nome_instituicao }}</td>
-                                            <td>R$ {{ $tce->bolsa }}</td>
+                                            <td>{{"R$ " .number_format($tce->bolsa, 2) }}</td>
                                             <td>{{date('d/m/Y', strtotime($tce->data_inicio)) }}</td>
                                             <td>{{ date('d/m/Y', strtotime($tce->data_fim ))}}</td>
                                             <td>{{ $tce->contrato }}</td>

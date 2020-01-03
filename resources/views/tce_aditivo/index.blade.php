@@ -68,7 +68,7 @@
                                             <td>{{ $tcead->nome }}</td>
                                             <td>{{ $tcead->nome_fantasia }}</td>
                                             <td>{{ $tcead->nome_instituicao }}</td>
-                                            <td>R$ {{ $tcead->bolsa }}</td>
+                                            <td>{{"R$ " .number_format($tcead->bolsa, 2) }}</td>
                                             <td>{{ date('d/m/Y', strtotime($tcead->data_inicio)) }}</td>
                                             <td>{{date('d/m/Y', strtotime($tcead->data_fim))}}</td>
                                             <td>{{ $tcead->contrato }}</td>

@@ -38,23 +38,14 @@ class RecessoController extends Controller
             )
             ->get();
 
-        // $dataContrato = TceContrato::all();
-
         $data1text = DB::table('tce_contrato')->where([['data_inicio', '=', $recessos[0]->data_inicio]])->get();
         $data2text = DB::table('tce_contrato')->where([['data_fim', '=', $recessos[0]->data_fim]])->get();
         $bolsa = DB::table('tce_contrato')->where('bolsa', '=', $recessos[0]->bolsa)->get();
         $date = date('Y');
 
-        // dd($recessos);
-
-        // $data1text = $date->format('Y-m-d', $data1text[0]->data_inicio);
-        // $data2text = $date->format('Y-m-d', $data2text[0]->data_fim);
         $date1 = DateTime::createFromFormat('Y-m-d H:i', $data1text[0]->data_inicio);
         $date2 = DateTime::createFromFormat('Y-m-d H:i', $data2text[0]->data_fim);
 
-        // $meses = $date2->diffInMonths($date1); // saída: 365 dias
-        // $date1 = new DateTime($data1text);
-        // $date2 = new DateTime($data2text);
         //Repare que inverto a ordem, assim terei a subtração da ultima data pela primeira.
         //Calculando a diferença entre os meses
         $meses = ((int) date('m', $date2) - (int) date('m', $date1))

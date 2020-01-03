@@ -229,11 +229,16 @@
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <select class="form-control has-feedback-left" name="instituicao_id">
-                                <option value="{{ $estagiario->instituicao_id }}">{{ $estagiario->instituicao_id }}
-                                </option>
-                                @foreach ($instituicoes as $key => $value)
-                                <option value="{{ $key }}">{{ $value->nome_instituicao }}</option>
-                                @endforeach
+                                   <option value="{{ $estagiario->instituicao_id }}">
+                                            @foreach ($instituicoes as $instituicao)
+                                                @if ($estagiario->empresa_id == $instituicao->id)
+                                                {{$instituicao->nome_instituicao}}
+                                                @endif
+                                            @endforeach
+                                    </option>
+                                    @foreach ($instituicoes as $instituicao)
+                                    <option value="{{ $instituicao->id }}">{{ $instituicao->nome_instituicao }}</option>
+                                    @endforeach
                             </select>
                             <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                         </div>

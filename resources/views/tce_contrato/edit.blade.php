@@ -42,6 +42,7 @@
                                                         <input type="text" value="{{$tce->nome}}"
                                                             class="form-control has-feedback-left"
                                                             placeholder="Estágiario" name="nome">
+                                                        <input type="hidden"  name="estagiario_id" value="{{$tce->estagiario_id}}">
                                                         <span class="fa fa-user form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
@@ -49,6 +50,7 @@
                                                         <input type="text" value="{{$tce->nome_instituicao}}"
                                                             class="form-control has-feedback-left"
                                                             placeholder="Instituição de Ensino" name="nome_instituicao">
+                                                            <input type="hidden"  name="instituicao_id" value="{{$tce->instituicao_id}}">
                                                         <span class="fa fa-home form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
@@ -56,11 +58,12 @@
                                                         <input type="text" value="{{$tce->nome_fantasia}}"
                                                             class="form-control has-feedback-left"
                                                             placeholder="Unidade Concedente" name="nome_fantasia">
+                                                            <input type="hidden"  name="empresa_id" value="{{$tce->empresa_id}}">
                                                         <span class="fa fa-home form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" value=" R$ {{$tce->bolsa}}"
+                                                        <input type="text" value="{{$tce->bolsa}}"
                                                             class="form-control has-feedback-left"
                                                             placeholder="Valor Bolsa-Auxilio" name="bolsa">
                                                         <span class="fa fa-money form-control-feedback left"
@@ -112,12 +115,16 @@
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <label for="">Atividade / Setor </label>
                                                         <textarea class="form-control" placeholder="Atividade / Setor"
-                                                            name="atividade"></textarea>
+                                                            name="setor"></textarea>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" value="{{$tce->supervisor}}"
+                                                        @foreach($supervisor as $super)
+                                                            @if($tce->supervisor == $super->id)
+                                                        <input type="text" value="{{$super->nome}}"
                                                             class="form-control has-feedback-left"
                                                             placeholder="Supervisor Estágio" name="supervisor">
+                                                            @endif
+                                                            @endforeach
                                                         <span class="fa fa-user form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
@@ -132,14 +139,16 @@
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" class="form-control has-feedback-left"
+                                                        <label for=""> Último Dia </label>
+                                                        <input type="date" class="form-control has-feedback-left"
                                                             placeholder="Último Dia" name="ultimo_dia
                                                 ">
                                                         <span class="fa fa-calendar form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" class="form-control has-feedback-left"
+                                                        <label for=""> Data Documento </label>
+                                                        <input type="date" class="form-control has-feedback-left"
                                                             placeholder="Data Documento" name="data_documento
                                                 ">
                                                         <span class="fa fa-calendar form-control-feedback left"

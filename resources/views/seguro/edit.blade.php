@@ -27,12 +27,7 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
-                            {{-- {!! Form::open(['route' => ['seguro.update', $seguro->id]]) !!} --}}
                             {!! Form::open(['route' => ['seguro.update', $seguro->id], 'method' => 'patch']) !!}
-                            {{-- <form action="{{ route('seguro.update',  $seguro->id) }}" id="myForm" role="form"
-                            data-toggle="validator" method="post" accept-charset="utf-8"> --}}
-                            {{-- <input type="hidden" name="_method" value="post"> --}}
-                            {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> --}}
                             <!-- SmartWizard html -->
                             <div>
                                 <div>
@@ -81,17 +76,13 @@
                                                         aria-hidden="true"></span>
                                                 </div>
                                             </div>
-                                            {{-- <div class="btn-group mr-2 sw-btn-group-extra" role="group">
-                                      <button type="submit" class="btn btn-info">Enviar</button>
-                                      <button class="btn btn-danger">Cancelar</button>
-                                    </div> --}}
                                         </div>
+                                        <div style="margin-left:85px;">
                                        <button type="submit" class="btn btn-success" style="margin-top:20px!important; margin-left:130px!important;">Salvar Alterações</button>
                                             <a href="/seguro" class="btn btn-danger" style="margin-top:20px!important;">Voltar</a>
                                     </div>
                                     {!! Form::close() !!}
                                 </div>
-                                {{-- </form> --}}
                             </div>
                         </div>
                     </div>

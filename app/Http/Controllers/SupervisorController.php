@@ -19,7 +19,8 @@ class SupervisorController extends Controller
     public function index()
     {
         $supervisores = Supervisor::all();
-        return view('supervisor.index', compact('supervisores'));
+        $empresa = Empresa::all();
+        return view('supervisor.index', compact('supervisores', 'empresa'));
     }
 
     /**
@@ -92,8 +93,7 @@ class SupervisorController extends Controller
         $supervisor = Supervisor::find($id);
         $empresa = DB::table('empresa')->where('id', '=', $supervisor->empresa_id)->get()->first();
 
-        // dd($empresa);
-        return view('supervisor.edit', compact('supervisor', 'empresa', $supervisor));
+            return view('supervisor.edit', compact('supervisor', 'empresa', $supervisor));
     }
 
     /**

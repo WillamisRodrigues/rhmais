@@ -60,6 +60,7 @@
                                                             aria-hidden="true"></span>
                                                     </div>
                                                 </div>
+                                                <div style="margin-left:85px;">
                                                 <button type="submit" class="btn btn-success" style="margin-top:20px!important; margin-left:130px!important;">Salvar Alterações</button>
                                                 <a href="/atividade" class="btn btn-danger" style="margin-top:20px!important;">Voltar</a>
                                             </div>

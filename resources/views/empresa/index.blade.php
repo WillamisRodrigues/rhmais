@@ -59,7 +59,7 @@
                           <td>{{$empresa->cidade}}</td>
                           <td>{{$empresa->telefone}}</td>
                           <td>{{$empresa->cnpj}}</td>
-                          <td>R$ {{$empresa->custo_unitario}}</td>
+                          <td>{{"R$ " .number_format($empresa->custo_unitario, 2)}}</td>
                           <td>
                              @if ($empresa->ativo == '1')
                               Sim

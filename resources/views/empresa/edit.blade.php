@@ -264,9 +264,10 @@
                                                 </div>
                                             <div class="row" style="width:960px; margin: 0 auto;">
                                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                    <label for="">Custo unitário </label>
                                                     <input type="text" class="form-control has-feedback-left"
                                                         placeholder="Custo Unitário" name="custo_unitario"
-                                                        value="{{ $empresa->custo_unitario}}">
+                                                        value="{{"R$ " .number_format($empresa->custo_unitario, 2) }}">
                                                     <span class="fa fa-money form-control-feedback left"
                                                         aria-hidden="true"></span>
                                                 </div>

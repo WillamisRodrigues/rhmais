@@ -82,7 +82,7 @@
                                 <br>
                                 <button type="submit" class="btn btn-primary">Processar</button>
                                 <a href="{{  action('PdfController@generateHolerite', '0') }}" target="_blank" class="btn btn-primary">G. Recibo</a>
-                                <a href="/folha" class="btn btn-primary">G. Relação</a>
+                                <a href="/folha" class="btn btn-primary" target="_blank">G. Relação</a>
                             </div>
                         </form>
                         <br>
@@ -147,19 +147,20 @@
                                                 }
                                                 @endphp
                                             </td>
-                                            <td>R$ {{ $folha->valor_bolsa }}</td>
+                                            <td>{{"R$ " .number_format($folha->valor_bolsa, 2) }}</td>
                                             <td>{{ $folha->faltas }}</td>
-                                            <td>R$ {{ $folha->valor_liquido }}</td>
-                                            <td>
+                                            <td>R$ {{ $folha->valor_liquido }}
+                                            </td>
+                                             <td>
                                                 {{-- @if ($folha->status == 0) --}}
                                                 <form action="{{ route('folha_pagamento.edit', [$folha->id]) }}">
                                                 <button type="submit" class="btn btn-primary"><i class="fa fa-pencil"></i> </a>
                                                 </button>
-                                                </form>
                                                 {{-- @endif --}}
                                                 <a href="{{ action('PdfController@generateHolerite', $folha->id) }}" target="_blank" class="btn btn-success">
                                                     <i class="fa fa-print"></i>
                                                 </a>
+                                                </form>
                                             </td>
                                         </tr>
                                         @endforeach

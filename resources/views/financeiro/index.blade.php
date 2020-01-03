@@ -108,17 +108,25 @@
                                             <td>{{ $contrato->referencia }}</td>
                                             <td>{{$contrato->data_boleto}}</td>
                                             <td>
-                                                @php
+                                                {{-- @php
                                                 $soma = 0;
                                                 foreach ($empresas as $empresa) {
                                                 if ($contrato->empresa_id == $empresa->id) {
-                                                $soma += $contrato->custo_unitario;
+                                                $soma += $contrato->total_custo;
                                                 }
                                                 }
                                                 echo "R$ ".number_format($soma, 2, ',', '.');;
+                                                @endphp --}}
+                                                {{"R$ ".number_format($contrato->total_custo, 2)}}
+                                            </td>
+                                            <td>@php
+                                                foreach ($empresas as $empresa) {
+                                                if ($empresa->id == $contrato->empresa_id) {
+                                                echo "R$ ".number_format($empresa->custo_unitario, 2, ',', '.');;
+                                                }
+                                                }
                                                 @endphp
                                             </td>
-                                            <td>R$ {{$contrato->custo_unitario}}</td>
                                             <td></td>
                                             <td></td>
                                             <td></td>

@@ -151,13 +151,10 @@
                                                 <form action="{{ route('folha_rescisao.edit', [$folha->id]) }}">
                                                 <button type="submit" class="btn btn-primary"><i class="fa fa-pencil"></i> </a>
                                                 </button>
-                                                </form>
-                                            {{-- <td><a href="/editar_folha_rescisao" class="btn btn-primary"><i class="fa fa-pencil"></i></a> --}}
-                                            {{-- <a href="/valores_rescisao" target="_blank" class="btn btn-success">
-                                                    <i class="fa fa-print"></i> --}}
                                                 <a href="{{ action('PdfController@generateRescisao', $folha->id) }}" target="_blank" class="btn btn-success">
                                                     <i class="fa fa-print"></i>
                                                 </a>
+                                                </form>
                                             </td>
                                         </tr>
                                         @endforeach

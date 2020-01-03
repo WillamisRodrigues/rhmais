@@ -61,15 +61,7 @@
                                                     @endforeach
                                                         <span class="fa fa-home form-control-feedback left"
                                                             aria-hidden="true"></span>
-                                                        {{-- <select class="form-control has-feedback-left"
-                                                            name="empresa_id">
-                                                            <option value="{!! $horarios->empresa !!}"> {!!
-                                                                $horarios->empresa !!}</option>
-                                                            @foreach ($empresas as $empresa)
-                                                            <option value="{!! $empresa->id !!}"> {!!
-                                                                $empresa->nome_fantasia !!}</option>
-                                                            @endforeach
-                                                        </select> --}}
+
                                                         <span class="fa fa-home form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
@@ -82,11 +74,8 @@
                                                             aria-hidden="true"></span>
                                                     </div>
                                                 </div>
-                                                {{-- <div class="btn-group mr-2 sw-btn-group-extra" role="group">
-                                      <button type="submit" class="btn btn-info">Enviar</button>
-                                      <button class="btn btn-danger">Cancelar</button>
-                                    </div> --}}
                                             </div>
+                                            <div style="margin-left:85px;">
                                             <button type="submit" class="btn btn-success" style="margin-top:20px!important; margin-left:130px!important;">Salvar Alterações</button>
                                             <a href="/horario" class="btn btn-danger" style="margin-top:20px!important;">Voltar</a>
                                         </div>

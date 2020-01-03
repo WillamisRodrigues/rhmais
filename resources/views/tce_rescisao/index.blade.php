@@ -62,7 +62,7 @@
                                             <td>{{$resc->nome}}</td>
                                             <td>{{ $resc->nome_fantasia }}</td>
                                             <td>{{ $resc->nome_instituicao }}</td>
-                                            <td>R$ {{ $resc->bolsa }}</td>
+                                            <td>{{"R$ " .number_format($resc->bolsa, 2) }}</td>
                                             <td>{{date('d/m/Y', strtotime($resc->data_inicio)) }}</td>
                                             <td>{{ date('d/m/Y', strtotime($resc->data_fim)) }}</td>
                                             <td>{{ $resc->contrato }}</td>

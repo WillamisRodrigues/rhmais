@@ -21,7 +21,7 @@
 
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                    
+
                         <br>
                         <div class="x_panel">
                             <div class="x_title">
@@ -32,6 +32,7 @@
                             <div class="x_content">
                                 <table class="table table-striped list  table-bordered" style="zoom:0.8;">
                                     <thead>
+                                         @foreach ($contratos as $contrato)
                                         <tr>
                                             <th>Contrato
                                                 <input type="text" class="form-control">
@@ -63,25 +64,26 @@
                                             <th>Unidade
                                                 <input type="text" class="form-control" style="width:100px;">
                                             </th>
-                                            <th>Estagiário
+                                            {{-- <th>Estagiário
                                                 <input type="text" class="form-control" style="width:100px;">
-                                            </th>
+                                            </th> --}}
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
+                                        <td>#</td>
+                                        <td>{{$contrato->referencia}}</td>
+                                            <td>{{date('d/m/Y', strtotime($contrato->data_inicio))}} {{date('d/m/Y', strtotime($contrato->data_fim))}}</td>
+                                            <td>{{date('d/m/Y', strtotime($contrato->data_inicio))}} {{date('d/m/Y', strtotime($contrato->data_fim))}}</td>
+                                            <td></td>
+                                        <td>{{"R$ " .number_format($contrato->total_custo, 2)}}</td>
+                                            <td>{{"R$ " .number_format($contrato->custo_unitario, 2)}}</td>
                                             <td></td>
                                             <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                        <td>{{$contrato->nome_fantasia}}</td>
+                                            {{-- <td></td> --}}
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
