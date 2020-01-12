@@ -33,31 +33,31 @@
                                     style="zoom:0.8;">
                                     <thead>
                                         <tr>
-                                            <th>tce:
+                                            <th>Estagiario
                                                 <input type="text" class="form-control">
                                             </th>
-                                            <th>Un. Concedente: <br>
+                                            <th>Un. Concedente
                                                 <input type="text" class="form-control">
                                             </th>
-                                            <th>Instituição:
+                                            <th>Instituição
                                                 <input type="text" class="form-control">
                                             </th>
-                                            <th>Valor Bolsa:
+                                            <th>Valor Bolsa
                                                 <input type="text" style="width:100px;" class="form-control">
                                             </th>
-                                            <th>Data Inicio:
+                                            <th>Data Inicio
                                                 <input type="text" style="width:100px;" class="form-control">
                                             </th>
-                                            <th>Data Fim:
+                                            <th>Data Fim
                                                 <input type="text" style="width:100px;" class="form-control">
                                             </th>
-                                            <th>Contrato:
+                                            <th>Contrato
                                                 <input type="text" style="width:100px;" class="form-control">
                                             </th>
-                                            <th>Assinado:
+                                            <th>Assinado
                                                 <input type="text" style="width:100px;" class="form-control">
                                             </th>
-                                            <th>Obrigatório:
+                                            <th>Obrigatório
                                                 <input type="text" style="width:100px;" class="form-control">
                                             </th>
                                             <th>Opções

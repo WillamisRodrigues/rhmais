@@ -48,7 +48,7 @@
                                                     <span class="fa fa-user form-control-feedback left"
                                                         aria-hidden="true"></span>
                                                 </div>
-                                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                {{-- <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                     @foreach ($empresas as $empresa)
                                                         @if ($beneficios->empresa_id == $empresa->id)
                                                         <input type="text" value="{{ $empresa->nome_fantasia }}"
@@ -68,7 +68,7 @@
                                                         placeholder="Agente de Integração" name="agente_integracao">
                                                     <span class="fa fa-home form-control-feedback left"
                                                         aria-hidden="true"></span>
-                                                </div>
+                                                </div>--}}
                                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                 <label for="">Selecione o Tipo</label>
                                                     <select class="form-control has-feedback-left" name="tipo">

@@ -65,8 +65,8 @@
             <td><strong> Custo Unitário: 80.00</strong> </td>
             <td><strong> Valor Adicional: </strong>  </td>
         </tr>
-    </table>   
-</div> 
+    </table>
+</div>
 </body>
 
 </html>

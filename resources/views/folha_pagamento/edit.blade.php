@@ -193,7 +193,7 @@
 
     $('body').on('click', '.deleteProduct', function () {
         var product_id = $(this).data("id");
-        confirm("Deseja remover?");
+        if(confirm("Deseja remover?")){
         $.ajax({
             type: "DELETE",
             url: "{{ route('ajax-crud.store') }}"+'/'+product_id,
@@ -204,6 +204,7 @@
                 console.log('Error:', data);
             }
         });
+        }
     });
   });
 </script>

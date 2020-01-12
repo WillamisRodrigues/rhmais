@@ -37,12 +37,12 @@
                                             <th>Sigla do Beneficio
                                                 <input type="text" class="form-control">
                                             </th>
-                                            <th>Unidade
+                                            {{-- <th>Unidade
                                                 <input type="text" class="form-control">
                                             </th>
                                             <th>Ag. de Integração
                                                 <input type="text" class="form-control">
-                                            </th>
+                                            </th> --}}
                                             <th>Tipo
                                                 <input type="text" class="form-control">
                                             </th>
@@ -54,14 +54,14 @@
                                             @foreach ($beneficios as $beneficio)
                                             <td>{{$beneficio->nome}}</td>
                                             <td>{{$beneficio->sigla}}</td>
-                                            <td>
+                                            {{-- {{-- <td>
                                                 @foreach ($empresas as $empresa)
                                                 @if ($beneficio->empresa_id == $empresa->id)
                                                 {{$empresa->nome_fantasia}}
                                                 @endif
                                                 @endforeach
                                             </td>
-                                            <td>{{$beneficio->agente_integracao}}</td>
+                                            <td>{{$beneficio->agente_integracao}}</td> --}}
                                         <td>@if ($beneficio->tipo == 1)
                                         Crédito
                                         @else

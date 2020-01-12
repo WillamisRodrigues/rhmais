@@ -31,7 +31,7 @@
                                 <table class="table list table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>tcead
+                                            <th>Estagiario
                                                 <input type="text" class="form-control" style="width:100px;">
                                             </th>
                                             <th>Un. Concedente

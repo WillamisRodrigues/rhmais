@@ -63,7 +63,7 @@
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" value="{{$tce->bolsa}}"
+                                                        <input type="text" value="{{"R$ " .number_format($tce->bolsa, 2)}}"
                                                             class="form-control has-feedback-left"
                                                             placeholder="Valor Bolsa-Auxilio" name="bolsa">
                                                         <span class="fa fa-money form-control-feedback left"

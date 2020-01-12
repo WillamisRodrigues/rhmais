@@ -115,4 +115,10 @@ class FinanceiroController extends Controller
     {
         //
     }
+
+    public function assinado($id)
+    {
+        DB::update('update cobranca set situacao = 1 where id = ?', [$id]);
+        return redirect('financeiro');
+    }
 }

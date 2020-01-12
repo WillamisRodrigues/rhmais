@@ -18,9 +18,12 @@ class AjaxController extends Controller
     public function beneficio_estagiario($id)
     {
         $id_estagiario = $id;
+        $data = date("m");
+
         $estagiario = DB::table('beneficio')
         ->join('beneficio_estagiario', 'beneficio.id', '=', 'beneficio_estagiario.beneficio_id')
         ->where('estagiario_id','=',$id_estagiario)
+        ->whereMonth('beneficio_estagiario.created_at','=',$data)
         ->get();
         return Datatables::of($estagiario)
         ->addColumn('action', function($row){

@@ -44,7 +44,9 @@
                                             <th>Data Fim
                                                 <input type="text" class="form-control" style="width:100px;">
                                             </th>
-                                            <th>Situação</th>
+                                            <th>Situação
+                                                <input type="text" class="form-control" style="width:100px;">
+                                            </th>
                                             <th>Opções</th>
                                         </tr>
                                     </thead>

@@ -36,7 +36,9 @@
                                             <th>Un. Concedente
                                                 <input type="text" class="form-control">
                                             </th>
-                                            <th>TCE Início/Fim</th>
+                                            <th>TCE Início/Fim
+                                                <input type="text" class="form-control">
+                                            </th>
                                             <th>Contrato
                                                 <input type="text" class="form-control" style="width:100px;">
                                             </th>

@@ -73,9 +73,9 @@
                                             <th>Dia Vcto
                                                 <input type="text" class="form-control" style="width:100px;">
                                             </th>
-                                            <th>T.Bolsa
+                                            {{-- <th>T.Bolsa
                                                 <input type="text" class="form-control" style="width:100px;">
-                                            </th>
+                                            </th> --}}
                                             <th>C.Unitario
                                                 <input type="text" class="form-control" style="width:100px;">
                                             </th>
@@ -91,7 +91,9 @@
                                             <th>Fechado
                                                 <input type="text" class="form-control" style="width:100px;">
                                             </th>
-                                            <th>Opções</th>
+                                            <th>Opções
+                                                <span class="form-control">
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -107,7 +109,7 @@
                                             </td>
                                             <td>{{ $contrato->referencia }}</td>
                                             <td>{{$contrato->data_boleto}}</td>
-                                            <td>
+                                            {{-- <td>
                                                 {{-- @php
                                                 $soma = 0;
                                                 foreach ($empresas as $empresa) {
@@ -116,9 +118,9 @@
                                                 }
                                                 }
                                                 echo "R$ ".number_format($soma, 2, ',', '.');;
-                                                @endphp --}}
+                                                @endphp
                                                 {{"R$ ".number_format($contrato->total_custo, 2)}}
-                                            </td>
+                                            </td> --}}
                                             <td>@php
                                                 foreach ($empresas as $empresa) {
                                                 if ($empresa->id == $contrato->empresa_id) {
@@ -129,10 +131,21 @@
                                             </td>
                                             <td></td>
                                             <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td>VALOR <BR> SOMA <BR> % <BR> CONTRATO<BR> ESTAGIARIO</td>
-                                            <td></td>
+                                            <td>{{"R$ ".number_format($contrato->total_custo, 2)}}</td>
+                                            <td>
+                                                @if ($contrato->situacao != 1)
+                                                Aberto
+                                                @else
+                                                Fechado
+                                                @endif
+                                            </td>
+                                             <td>
+                                                 <a href="{{ route('financeiro.fechar', [$contrato->id]) }}"
+                                                    class="btn btn-primary" title="Marcar contrato como fechado"> <i
+                                                        class="fa fa-star"></i> </a>
+                                            </td>
+                                            <td>VALOR <BR> SOMA <BR> % <BR> CONTRATO<BR> ESTAGIARIO
+                                            </td>
                                             <td><a href="{{ route('financeiro.infos', [$contrato->id]) }}"
                                                     class="btn btn-primary"><i class="fa fa-bars"></i></a></td>
                                         </tr>
