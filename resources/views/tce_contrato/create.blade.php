@@ -126,7 +126,7 @@
                                                         <select class="form-control has-feedback-left" name="horario">
                                                             <option>Horário de Estagio:</option>
                                                             @foreach ($horarios as $horario)
-                                                            <option value="{{ $horario->horario }}">{{ $horario->horario }}
+                                                            <option value="{{ $horario->descricao }}">{{ $horario->descricao }}
                                                             </option>
                                                             @endforeach
                                                         </select>

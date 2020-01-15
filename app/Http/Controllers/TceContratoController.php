@@ -100,6 +100,7 @@ class TceContratoController extends Controller
         $contrato->bolsa = $request->get('bolsa');
         $contrato->obrigatorio = $request->get('obrigatorio');
         $contrato->obs = $request->get('observacao');
+        $contrato->curso = $request->get('curso');
         $contrato->save();
 
 
@@ -115,6 +116,9 @@ class TceContratoController extends Controller
      */
     public function show($id)
     {
+            $orientador = Orientador::all();
+            $supervisor = Supervisor::all();
+
         $tceContrato = DB::table('tce_contrato')
             ->join('estagiario', 'estagiario.id', '=', 'tce_contrato.estagiario_id')
             ->join('empresa', 'empresa.id', '=', 'tce_contrato.empresa_id')
@@ -125,6 +129,7 @@ class TceContratoController extends Controller
                 'empresa.nome_fantasia',
                 'instituicao.nome_instituicao',
                 'tce_contrato.bolsa',
+                'tce_contrato.curso',
                 'tce_contrato.data_inicio',
                 'tce_contrato.data_fim',
                 'tce_contrato.contrato',
@@ -133,13 +138,14 @@ class TceContratoController extends Controller
                 'tce_contrato.horario',
                 'tce_contrato.apolice',
                 'tce_contrato.obrigatorio',
-                'tce_contrato.supervisor',
+                'tce_contrato.supervisor_id',
+                'tce_contrato.orientador_id',
                 'tce_contrato.id As tceId'
             )
             ->where('tce_contrato.id', '=', $id)
             ->get();
 
-        return view('tce_contrato.show', compact('tceContrato', $tceContrato));
+        return view('tce_contrato.show', compact('tceContrato', 'orientador' , 'supervisor', $tceContrato));
     }
 
     /**
@@ -172,7 +178,7 @@ class TceContratoController extends Controller
                 'tce_contrato.horario',
                 'tce_contrato.apolice',
                 'tce_contrato.obrigatorio',
-                'tce_contrato.supervisor',
+                'tce_contrato.supervisor_id',
                 'tce_contrato.id As tceId'
             )
             ->where('tce_contrato.id', '=', $id)

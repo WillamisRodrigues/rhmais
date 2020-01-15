@@ -82,7 +82,7 @@
                                 <br>
                                 <button type="submit" class="btn btn-primary">Processar</button>
                                 <a href="{{  action('PdfController@generateHolerite', '0') }}" target="_blank" class="btn btn-primary">G. Recibo</a>
-                                <a href="/folha" class="btn btn-primary" target="_blank">G. Relação</a>
+                                <a href="{{  action('PdfController@generateFolha', '0') }}" class="btn btn-primary" target="_blank">G. Relação</a>
                             </div>
                         </form>
                         <br>

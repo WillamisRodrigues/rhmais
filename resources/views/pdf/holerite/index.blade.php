@@ -8,7 +8,7 @@
     <title>Holerite - Estagiario</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> --}}
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <style>
         .page-break{
@@ -27,7 +27,7 @@
 
 <body>
     <table class="table" style="max-width: 100%">
-        @foreach ($folha as $data)
+        @foreach ($folha as $key => $data)
         <tr>
             <td colspan="2">Recibo de Pagamento Bolsa-Auxílio</td>
             <td>Referência</td>
@@ -42,10 +42,10 @@
             <td>{{$data->cnpj}}</td>
         </tr>
         <tr>
-            <td colspan="2">Estagiário(a)<br> <b>{{$data->nome}}  - {{$data->cpf}}</b> </td>
+            <td colspan="2">Estagiário(a)<br> {{$data->nome}}  - {{$data->cpf}} </td>
             <td colspan="2">
-                Data Início: <b> {{date('d/m/Y', strtotime($data->data_inicio))}} </b> <br>
-                Data Fim: <b> {{date('d/m/Y', strtotime($data->data_fim))}} </b>
+                Data Início:  {{date('d/m/Y', strtotime($data->data_inicio))}} <br>
+                Data Fim:  {{date('d/m/Y', strtotime($data->data_fim))}}
             </td>
         </tr>
         <tr>
@@ -79,12 +79,12 @@
         <tr>
             <td></td>
             <td></td>
-            <td>Total de: <br><b>R$ {{$data->valor_bolsa}} </b> </td>
-            <td>Descontos: <br><b> {!! "000,00" !!} </b> </td>
+            <td>Total de: <br>R$ {{$data->valor_bolsa}}  </td>
+            <td>Descontos: <br> {!! "000,00" !!}  </td>
         </tr>
         <tr>
-            <td colspan="3">Valor Base Bolsa-Auxílio <br> <b>R$ {{$data->valor_bolsa}}</b></td>
-            <td>Valor Líquido<br> <u><b>R$ {{$data->valor_liquido}}</b></u></td>
+            <td colspan="3">Valor Base Bolsa-Auxílio <br> R$ {{$data->valor_bolsa}}</td>
+            <td>Valor Líquido<br> <u>R$ {{$data->valor_liquido}}</u></td>
         </tr>
         <tr>
             <td colspan="2">Banco/Agência</td>
@@ -93,7 +93,7 @@
         <tr>
             <td colspan="4">Mensagem: </td>
         </tr>
-        @endforeach
+        {{-- @endforeach --}}
     </table>
 
     <div class="clearfix"></div>
@@ -115,7 +115,7 @@
     <hr style="border: dotted 1px black">
 
     <table class="table" style="max-width: 100%">
-        @foreach ($folha as $data)
+        {{-- @foreach ($folha as $data) --}}
         <tr>
             <td colspan="2">Recibo de Pagamento Bolsa-Auxílio</td>
             <td>Referência</td>
@@ -172,7 +172,7 @@
         </tr>
         <tr>
             <td colspan="3">Valor Base Bolsa-Auxílio <br>R$ {{$data->valor_bolsa}}</td>
-            <td>Valor Líquido<br> <u><b>R$ {{$data->valor_liquido}}</b></u></td>
+            <td>Valor Líquido<br> <u>R$ {{$data->valor_liquido}}</u></td>
         </tr>
         <tr>
             <td colspan="2">Banco/Agência</td>

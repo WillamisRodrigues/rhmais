@@ -88,7 +88,7 @@
                                                     </div>
                                                     <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                                                         <button type="submit" class="btn btn-success">Salvar</button>
-                                                        <button class="btn btn-primary">Cancelar</button>
+                                                        <a href="/cau_convenio" class="btn btn-primary">Cancelar </a>
                                                     </div>
                                                 </div>
                                             </div>

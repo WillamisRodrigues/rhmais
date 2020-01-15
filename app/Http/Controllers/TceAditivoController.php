@@ -6,6 +6,8 @@ use App\Beneficio;
 use App\Empresa;
 use App\Estagiario;
 use App\Instituicao;
+use App\Supervisor;
+use App\Orientador;
 use App\TceAditivo;
 use DB;
 
@@ -85,12 +87,16 @@ class TceAditivoController extends Controller
         $instituicoes = Instituicao::all();
         $empresas = Empresa::all();
         $beneficios = Beneficio::all();
+        $supervisor = Supervisor::all();
+        $orientador = Orientador::all();
         return view('tce_aditivo.edit', compact([
             'tceAditivo',
             'estagiarios',
             'instituicoes',
             'empresas',
             'beneficios',
+            'supervisor',
+            'orientador',
             $tceAditivo]));
     }
 

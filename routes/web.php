@@ -65,7 +65,8 @@ Route::get('avaliacao-pdf', 'PdfController@generateAvaliacao');
 Route::get('/tce-pdf/{id}', 'EstagiarioController@gerarRelatorio');
 Route::get('rescisao/{id}', 'PdfController@generateRescisao');
 Route::get('holerite/{id}', 'PdfController@generateHolerite');
-Route::get('/folha', 'PdfController@generateFolha');
+Route::get('grelacao/{id}', 'PdfController@generateFolha');
+
 
 
 /* rotas tce */

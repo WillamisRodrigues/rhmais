@@ -153,7 +153,7 @@
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <select class="form-control has-feedback-left" name="deficiencia">
-                                        <option>Não e Portador de Deficiência</option>
+                                        <option>Portador de Deficiência</option>
                                         <option value="1">Sim</option>
                                         <option value="2">Não</option>
                                     </select>
@@ -207,7 +207,7 @@
                                     <span class="fa fa-graduation-cap form-control-feedback left"
                                         aria-hidden="true"></span>
                                 </div>
-                              
+
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <label for="">Data de Término do Curso</label>
                                     <input type="date" class="form-control has-feedback-left"

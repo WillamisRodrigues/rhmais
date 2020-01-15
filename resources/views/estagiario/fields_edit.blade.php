@@ -175,8 +175,8 @@
                                 <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                <select class="form-control has-feedback-left" name="nacionalidade"
-                                    value="{{ $estagiario->nacionalidade }}">
+                                <select class="form-control has-feedback-left" name="nacionalidade">
+                                    <option value="{{ $estagiario->nacionalidade }}">{{ $estagiario->nacionalidade }}</option>
                                     <option>Selecione Nacionalidade</option>
                                     <option>Brasileiro(a)</option>
                                 </select>

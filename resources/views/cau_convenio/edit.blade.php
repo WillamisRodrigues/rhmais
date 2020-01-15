@@ -55,7 +55,7 @@
                                                     </div>
                                                     <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
                                                         <label for="">Data Documento</label>
-                                                        <input type="text" value=" {{ $cau->data_doc }}"
+                                                        <input type="text" value="{{date('d/m/Y', strtotime( $cau->data_doc)) }}"
                                                             class="form-control has-feedback-left"
                                                             placeholder="Data Documento" name="data_documento">
                                                         <span class="fa fa-calendar form-control-feedback left"
@@ -63,7 +63,7 @@
                                                     </div>
                                                     <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
                                                         <label for="">Data Ínicio</label>
-                                                        <input type="text" value=" {{ $cau->data_inicio }}"
+                                                        <input type="text" value=" {{date('d/m/Y', strtotime($cau->data_inicio)) }}"
                                                             class="form-control has-feedback-left"
                                                             placeholder="Data Inicio" name="data_inicio">
                                                         <span class="fa fa-calendar form-control-feedback left"
@@ -71,7 +71,7 @@
                                                     </div>
                                                     <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
                                                         <label for="">Data Fim</label>
-                                                        <input type="text" value=" {{ $cau->data_fim }}"
+                                                        <input type="text" value=" {{date('d/m/Y', strtotime($cau->data_fim)) }}"
                                                             class="form-control has-feedback-left"
                                                             placeholder="Data Fim" name="data_fim">
                                                         <span class="fa fa-calendar form-control-feedback left"

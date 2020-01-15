@@ -72,7 +72,7 @@
                                                         @endforeach
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" value="{{$tceAditivo->bolsa}}"
+                                                        <input type="text" value="{{"R$ " .number_format($tceAditivo->bolsa, 2)}}"
                                                             class="form-control has-feedback-left"
                                                             placeholder="Valor Bolsa-Auxílio:" name="email">
                                                         <span class="fa fa-money form-control-feedback left"
@@ -120,20 +120,44 @@
                                                         <span class="fa fa-bars form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
-                                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                    {{-- <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text" value="{{$tceAditivo->orientador}}"
                                                             class="form-control has-feedback-left"
                                                             placeholder="Orientador Estágio:" name="orientador">
                                                         <span class="fa fa-user form-control-feedback left"
                                                             aria-hidden="true"></span>
-                                                    </div>
-                                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                    </div> --}}
+                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                    <select class="form-control has-feedback-left" name="orientador_id" value="{{$tceAditivo->orientador_id}}">
+                                                            @foreach ($orientador as $or)
+                                                                   @if ($tceAditivo->orientador_id == $or->id)
+                                                                <option value="{{$or->nome}}">{{$or->nome}}</option>
+                                                                   @endif
+                                                                @endforeach
+                                                            @foreach ($orientador as $or)
+                                                            <option value="{{ $or->id }}">{{ $or->nome }}</option>
+                                                            @endforeach
+                                                    </select>
+                                                     </div>
+                                                    {{-- <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text" value="{{$tceAditivo->supervisor}}"
                                                             class="form-control has-feedback-left"
                                                             placeholder="Supervisor Estágio:" name="supervisor">
                                                         <span class="fa fa-user form-control-feedback left"
                                                             aria-hidden="true"></span>
-                                                    </div>
+                                                    </div> --}}
+                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                    <select class="form-control has-feedback-left" name="supervisor_id" value="{{$tceAditivo->supervisor_id}}">
+                                                                    @foreach ($supervisor as $sup)
+                                                                        @if ($tceAditivo->supervisor_id == $sup->id)
+                                                                       <option value="{{$sup->nome}}">{{$sup->nome}}</option>
+                                                                        @endif
+                                                                    @endforeach
+                                                            @foreach ($supervisor as $sup)
+                                                            <option value="{{ $sup->id }}">{{ $sup->nome }}</option>
+                                                            @endforeach
+                                                    </select>
+                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text" value="{{date('d/m/Y', strtotime($tceAditivo->data_doc))}}"
                                                             class="form-control has-feedback-left"
@@ -146,19 +170,19 @@
                                                             Tipo de Estágio:
                                                             <label>
                                                                 <input type="radio" name="obrigatorio"
-                                                                    value="Não Obrigatório" class="flat"> Não
+                                                                    value="{{$tceAditivo->obrigatorio}}" class="flat"> Não
                                                                 Obrigatório
                                                             </label>
                                                             <label>
                                                                 <input type="radio" name="obrigatorio"
-                                                                    value="Obrigatório" class="flat"> Obrigatório
+                                                                    value="{{$tceAditivo->obrigatorio}}" class="flat"> Obrigatório
                                                             </label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                                                         <label>Sua observação</label>
-                                                        <textarea class="form-control" placeholder="Observações"
-                                                            name="nomeText"></textarea>
+                                                        <textarea class="form-control" placeholder="Observação"
+                                                            name="obs"></textarea>
                                                     </div>
                                                 </div>
                                                 <button type="submit" class="btn btn-success"

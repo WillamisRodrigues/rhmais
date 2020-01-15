@@ -186,9 +186,32 @@ class PdfController extends Controller
         return $pdf->stream('index.pdf');
     }
 
-    public function generateFolha()
+    public function generateFolha($id)
     {
-        $pdf = PDF::loadView('pdf.folha.index');
+        if ($id == 0) {
+
+        $folha = DB::table('estagiario')
+        ->join('folha_pagamento', 'estagiario.id', '=', 'folha_pagamento.estagiario_id')
+        ->join('empresa', 'estagiario.empresa_id', '=', 'empresa.id')
+        ->join('tce_contrato', 'estagiario.id', '=', 'tce_contrato.estagiario_id')
+        ->whereMonth('folha_pagamento.created_at', '=', date('m'))
+        ->where('folha_pagamento.status', '=', 0)
+        ->get();
+        // dd($folha);
+        }
+        // Um Folha Específica
+        else {
+        $folha = DB::table('estagiario')
+        ->join('folha_pagamento', 'estagiario.id', '=', 'folha_pagamento.estagiario_id')
+        ->join('empresa', 'estagiario.empresa_id', '=', 'empresa.id')
+        ->join('tce_contrato', 'estagiario.id', '=', 'tce_contrato.estagiario_id')
+        ->where('folha_pagamento.id', '=', $id)
+        ->get();
+
+        // dd($folha);
+        }
+        $data = ['folha' => $folha];
+        $pdf = PDF::loadView('pdf.folha.index', $data);
         return $pdf->stream('index.pdf');
     }
 

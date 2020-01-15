@@ -117,17 +117,18 @@
                                                         <textarea class="form-control" placeholder="Atividade / Setor"
                                                             name="setor"></textarea>
                                                     </div>
-                                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        @foreach($supervisor as $super)
-                                                            @if($tce->supervisor == $super->id)
-                                                        <input type="text" value="{{$super->nome}}"
-                                                            class="form-control has-feedback-left"
-                                                            placeholder="Supervisor Estágio" name="supervisor">
-                                                            @endif
+                                                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                    <select class="form-control has-feedback-left" name="supervisor_id" value="{{$tce->supervisor_id}}">
+                                                                    @foreach ($supervisor as $sup)
+                                                                        @if ($tce->supervisor_id == $sup->id)
+                                                                       <option value="{{$sup->nome}}">{{$sup->nome}}</option>
+                                                                        @endif
+                                                                    @endforeach
+                                                            @foreach ($supervisor as $sup)
+                                                            <option value="{{ $sup->id }}">{{ $sup->nome }}</option>
                                                             @endforeach
-                                                        <span class="fa fa-user form-control-feedback left"
-                                                            aria-hidden="true"></span>
-                                                    </div>
+                                                    </select>
+                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <select class="form-control has-feedback-left" name="motivo">
                                                             <option>Selecione Motivo</option>

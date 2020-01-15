@@ -28,13 +28,14 @@
 <br>
 <div class="tab">
     <table class="table" style="max-width: 100%">
+        @foreach ($folha as $data)
         <tr>
             <td><strong> Matricula:</strong> 201901111333</td>
-            <td><strong> Estagiário: </strong> Handila Mirian </td>
-            <td><strong> CPF: </strong> 570.328.598-44</td>
+            <td><strong> Estagiário: </strong> {{$data->nome}} </td>
+            <td><strong> CPF: </strong> {{$data->cpf}}</td>
         </tr>
         <tr>
-            <td><strong> Unidade:</strong> Vasconcelos Pires de Azevedo Cobrança ltda</td>
+            <td><strong> Unidade:</strong> {{$data->nome_fantasia}}</td>
             <td><strong> Rua: </strong> Professora Ruth </td>
             <td><strong> Nº: </strong>  181</td>
             <td><strong> Complemento: </strong>  ---</td>
@@ -45,16 +46,16 @@
             <td><strong> Telefone: </strong>  --</td>
         </tr>
         <tr>
-            <td><strong> Valor Crédito:</strong> 541.67</td>
+            <td><strong> Valor Crédito:</strong> {{$data->valor_liquido}}</td>
             <td><strong> Valor Débito: </strong> 0.00 </td>
-            <td><strong> Valor Liquido: </strong> 541.67 </td>
-            <td><strong> Referência: </strong> 2019/11 </td>
+            <td><strong> Valor Liquido: </strong> {{$data->valor_liquido}} </td>
+            <td><strong> Referência: </strong>{{$data->referencia}} </td>
         </tr>
         <tr>
             <td><strong> Banco/A:</strong> </td>
             <td><strong> CC/Tipo: </strong>  </td>
-            <td><strong> Dt Início TCE: </strong> 11/11/2019 </td>
-            <td><strong> Dt Fim TCE: </strong> 25/11/2019 </td>
+            <td><strong> Dt Início TCE: </strong> {{$data->data_inicio}} </td>
+            <td><strong> Dt Fim TCE: </strong> {{$data->data_inicio}} </td>
         </tr>
         <tr>
             <td><strong> Valor Pcte: 0.00</strong> </td>
@@ -65,6 +66,7 @@
             <td><strong> Custo Unitário: 80.00</strong> </td>
             <td><strong> Valor Adicional: </strong>  </td>
         </tr>
+        @endforeach
     </table>
 </div>
 </body>
