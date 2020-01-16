@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class PlanoEstagio extends Model
 {
-    protected $fillable = ['empresa_id', 'instituicao_id','data_inicio', 'data_fim', 'contrato', 'assinado', 'plano'];
+    protected $fillable = ['empresa', 'instituicao','data_inicio', 'data_fim', 'data_doc','contrato', 'assinado', 'plano', 'curso', 'orientador', 'supervisor'];
     protected $table = 'plano_estagio';
 }

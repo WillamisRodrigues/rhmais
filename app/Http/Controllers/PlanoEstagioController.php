@@ -60,7 +60,22 @@ class PlanoEstagioController extends Controller
         //     'empresa' => 'required',
         //     'instituicao' => 'required',
         // ]);
-        PlanoEstagio::create($request->all());
+        $plano = new PlanoEstagio();
+        $plano->estagiario = $request->get('estagiario');
+        $plano->empresa = $request->get('empresa');
+        $plano->data_inicio = $request->get('data_inicio');
+        $plano->data_fim = $request->get('data_fim');
+        $plano->data_doc = $request->get('data_doc');
+        $plano->contrato = $request->get('contrato');
+        $plano->assinado = $request->get('assinado');
+        $plano->supervisor = $request->get('supervisor');
+        $plano->orientador = $request->get('orientador');
+        $plano->plano = $request->get('plano');
+        $plano->instituicao = $request->get('instituicao');
+        $plano->obs = $request->get('obs');
+        $plano->curso = $request->get('curso');
+        $plano->save();
+
         return redirect()->route('plano_estagio.index')
             ->with('success', 'Cadastrado com sucesso.');
     }

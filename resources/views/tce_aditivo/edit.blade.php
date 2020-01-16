@@ -170,12 +170,12 @@
                                                             Tipo de Estágio:
                                                             <label>
                                                                 <input type="radio" name="obrigatorio"
-                                                                    value="{{$tceAditivo->obrigatorio}}" class="flat"> Não
+                                                                    value="{{$tceAditivo->obrigatorio }}" class="flat" checked="checked"> Não
                                                                 Obrigatório
                                                             </label>
                                                             <label>
                                                                 <input type="radio" name="obrigatorio"
-                                                                    value="{{$tceAditivo->obrigatorio}}" class="flat"> Obrigatório
+                                                                    value="{{$tceAditivo->obrigatorio}}" class="flat" checked="checked"> Obrigatório
                                                             </label>
                                                         </div>
                                                     </div>

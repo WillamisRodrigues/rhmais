@@ -40,7 +40,7 @@
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text" value="{{$tce->nome}}"
                                                             class="form-control has-feedback-left"
-                                                            placeholder="Estágiario" name="nome">
+                                                            placeholder="Estágiario" name="estagiario">
                                                         <span class="fa fa-user form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
@@ -53,14 +53,14 @@
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text" value="{{$tce->nome_instituicao}}"
                                                             class="form-control has-feedback-left"
-                                                            placeholder="Insituição de Ensino" name="nome_instituicao">
+                                                            placeholder="Insituição de Ensino" name="instituicao">
                                                         <span class="fa fa-graduation-cap form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text" value="{{$tce->nome_fantasia}}"
                                                             class="form-control has-feedback-left"
-                                                            placeholder="Unidade Concedente" name="nome_fantasia">
+                                                            placeholder="Unidade Concedente" name="empresa">
                                                         <span class="fa fa-home form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
@@ -72,7 +72,7 @@
                                                             aria-hidden="true"></span>
                                                     </div> --}}
                                                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                    <select class="form-control has-feedback-left" name="supervisor_id" value="{{$tce->supervisor_id}}">
+                                                    <select class="form-control has-feedback-left" name="supervisor" value="{{$tce->supervisor_id}}">
                                                                     @foreach ($supervisor as $sup)
                                                                         @if ($tce->supervisor_id == $sup->id)
                                                                        <option value="{{$sup->nome}}">{{$sup->nome}}</option>
@@ -91,7 +91,7 @@
                                                             aria-hidden="true"></span>
                                                     </div> --}}
                                                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                    <select class="form-control has-feedback-left" name="orientador_id" value="{{$tce->orientador_id}}">
+                                                    <select class="form-control has-feedback-left" name="orientador" value="{{$tce->orientador_id}}">
                                                             @foreach ($orientador as $or)
                                                                    @if ($tce->orientador_id == $or->id)
                                                                 <option value="{{$or->nome}}">{{$or->nome}}</option>
@@ -129,7 +129,7 @@
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <label for="">Plano de Estágio </label>
                                                         <textarea class="form-control" placeholder="Plano Estágio"
-                                                            name="plano_estagio"></textarea>
+                                                            name="plano"></textarea>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <label for="">Atividade </label>

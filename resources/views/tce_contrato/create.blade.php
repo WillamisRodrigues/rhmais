@@ -188,12 +188,12 @@
                                                             <label>Tipo de Estágio: </label>
                                                             <label>
                                                                 <input type="radio" class="flat" checked="checked"
-                                                                    name="obrigatorio" value="Não Obrigatório"> Não
+                                                                    name="obrigatorio" value="1"> Não
                                                                 Obrigatório
                                                             </label>
                                                             <label>
                                                                 <input type="radio" class="flat" name="obrigatorio"
-                                                                    value="Obrigatório"> Obrigatório
+                                                                    value="2"> Obrigatório
                                                             </label>
                                                         </div>
                                                     </div>

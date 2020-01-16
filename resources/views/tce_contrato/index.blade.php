@@ -82,7 +82,13 @@
                                                 Não
                                                 @endif
                                             </td>
-                                            <td>{{ $tce->obrigatorio }}</td>
+                                            <td>
+                                                 @if ( $tce->obrigatorio == '1')
+                                                Sim
+                                                @else
+                                                Não
+                                                @endif
+                                            </td>
                                             <td><a class="btn btn-primary"
                                                     href="{{ action('EstagiarioController@gerarRelatorio', $tce->id) }}"
                                                     target="_blank"><i class="fa fa-print"></i> Imprimir TCE</a>
