@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Relatório Rescisao</title>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-   <style>
+    <link rel="stylesheet" href="{{ public_path('/css/bootstrap.min.css') }}">
+    <style>
         .tab,
         tr {
             border: 2px solid #999999;
@@ -21,8 +20,9 @@
 </head>
 
 <body>
-<img src="https://www.rhmaistalentos.com.br/imagens/logo-site.png" alt="" style="margin:0 auto; disply:block; width:20%;">
-<h4 class="text-center">Relatório de Valores - Rescisão</h4>
+<img src="{{ public_path('/images/logo-rhmais.png') }}" style="margin-left:270px; width:20%;">
+   <br>
+   <h4 class="text-center">Relatório de Valores - Rescisão</h4>
 <br>
 <div class="tab">
     <table class="table" style="max-width: 100%">

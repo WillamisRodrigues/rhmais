@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Fechamento</title>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-   <style>
+    <link rel="stylesheet" href="{{ public_path('/css/bootstrap.min.css') }}">
+    <style>
         .tab,
         tr {
             border: 2px solid #999999;
@@ -21,7 +20,7 @@
 </head>
 
 <body>
-<img src="https://www.rhmaistalentos.com.br/imagens/logo-site.png" alt="" style="width:40%; margin-left:30%;">
+<img src="{{ public_path('/images/logo-rhmais.png') }}" alt="" style="width:20%; margin-left:40%;">
 <br>
 <h4 class="text-center">Informe de Faturamentos (Resumo)</h4>
 <br>

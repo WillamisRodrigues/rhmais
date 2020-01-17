@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Holerite - Estagiario</title>
 
-    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> --}}
     <link rel="stylesheet" href="{{ public_path('/css/bootstrap.min.css') }}">
     <style>
         .page-break{
@@ -101,9 +100,8 @@
             ____/_____/_________<br>
             Data
         </div>
-        <div style="float: left; margin-left: 8rem">
-        {{-- <img src="https://www.rhmaistalentos.com.br/imagens/logo-site.png" alt="" width="135"> --}}
-         <img src="{{ public_path('images/logo-site.png') }}" alt="" width="135">
+        <div style="float: left; margin-left: 12rem">
+         <img src="{{ public_path('/images/logo-rhmais.png') }}" alt="" width="80">
         </div>
         <div style="float: right; margin-right: 3rem">
             ______________________________________<br>

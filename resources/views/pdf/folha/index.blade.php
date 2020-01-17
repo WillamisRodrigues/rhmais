@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Relatório de Valores - Bolsa Auxilio</title>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ public_path('/css/bootstrap.min.css') }}">
     <style>
         .tab,
         tr {
@@ -21,7 +20,8 @@
 </head>
 
 <body>
-<img src="https://www.rhmaistalentos.com.br/imagens/logo-site.png" alt="" style="margin:0 auto; disply:block; width:20%;">
+<img src="{{ public_path('/images/logo-rhmais.png') }}" alt="" style="width:20%; margin-left:40%;">
+<br>
 <h4 class="text-center">Relatório de Valores - Bolsa Auxilio</h4>
 <br>
 <div class="tab">

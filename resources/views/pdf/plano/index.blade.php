@@ -4,11 +4,11 @@
 <head>
     <title> PLANO DE ESTÁGIO (previsto na Lei de Estágio 11.788/08) </title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ public_path('/css/bootstrap.min.css') }}">
 </head>
 
 <body>
-    <img src="https://www.rhmaistalentos.com.br/imagens/logo-site.png" style="margin-left:250px; width:30%;"> 
+    <img src="{{ public_path('/images/logo-rhmais.png') }}" style="margin-left:270px; width:20%;"> 
     <h5 class="text-center"><strong> PLANO DE ESTÁGIO (previsto na Lei de Estágio 11.788/08) </strong></h5>
 
     <p class="text-center">

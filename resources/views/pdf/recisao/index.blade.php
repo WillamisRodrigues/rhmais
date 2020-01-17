@@ -4,11 +4,11 @@
 <head>
     <title> Termo de Conclusão / Rescisão do - TCE </title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ public_path('/css/bootstrap.min.css') }}">    
 </head>
 
 <body>
-    <img src="https://www.rhmaistalentos.com.br/imagens/logo-site.png" style="margin-left:250px; width:30%;">
+    <img src="{{ public_path('/images/logo-rhmais.png') }}" style="margin-left:270px; width:20%;">
     <h5 class="text-center"><strong> Termo de Conclusão / Rescisão do - TCE </strong></h5>
     <hr>
     <p>Instrumento jurídico de Termo de Compromisso de Estágio e Convênio de Concessão de Estágio, previstos na Lei

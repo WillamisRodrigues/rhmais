@@ -4,7 +4,7 @@
 <head>
     <title> TCE - TERMO DE COMPROMISSO DE ESTÁGIO </title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ public_path('/css/bootstrap.min.css') }}">
     <style>
         h5,
         p {
@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <img src="https://www.rhmaistalentos.com.br/imagens/logo-site.png" style="margin-left:250px; width:30%;">
+    <img src="{{ public_path('/images/logo-rhmais.png') }}" style="margin-left:270px; width:20%;">
     {{-- <h1 style="font-size:10pt;">{{ $estagiario }}</h1> --}}
     <h5 class="text-center"><strong> TCE - TERMO DE COMPROMISSO DE ESTÁGIO </strong></h5>
     <hr>
