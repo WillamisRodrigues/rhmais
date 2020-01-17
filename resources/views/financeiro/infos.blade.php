@@ -34,8 +34,12 @@
                                     <thead>
                                          @foreach ($contratos as $contrato)
                                         <tr>
+                                            
                                             <th>Contrato
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" style="width:100px;">
+                                            </th>
+                                            <th>Unidade
+                                                <input type="text" class="form-control" style="width:100px;">
                                             </th>
                                             <th>Referência
                                                 <input type="text" class="form-control" style="width:100px;">
@@ -61,9 +65,7 @@
                                             <th>Situação
                                                 <input type="text" class="form-control" style="width:100px;">
                                             </th>
-                                            <th>Unidade
-                                                <input type="text" class="form-control" style="width:100px;">
-                                            </th>
+                                            
                                             {{-- <th>Estagiário
                                                 <input type="text" class="form-control" style="width:100px;">
                                             </th> --}}
@@ -72,6 +74,8 @@
                                     <tbody>
                                         <tr>
                                         <td>#</td>
+                            
+                                        <td>{{$contrato->nome_fantasia}}</td>
                                         <td>{{$contrato->referencia}}</td>
                                             <td>{{date('d/m/Y', strtotime($contrato->data_inicio))}} {{date('d/m/Y', strtotime($contrato->data_fim))}}</td>
                                             <td>{{date('d/m/Y', strtotime($contrato->data_inicio))}} {{date('d/m/Y', strtotime($contrato->data_fim))}}</td>
@@ -80,8 +84,7 @@
                                             <td>{{"R$ " .number_format($contrato->custo_unitario, 2)}}</td>
                                             <td></td>
                                             <td></td>
-                                        <td>{{$contrato->nome_fantasia}}</td>
-                                            {{-- <td></td> --}}
+                                            <td> <a href="" class="btn btn-warning"> <i class="fa fa-print"></i> </a> </td>
                                         </tr>
                                         @endforeach
                                     </tbody>

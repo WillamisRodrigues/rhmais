@@ -168,14 +168,17 @@
                                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                                         <div class="checkbox">
                                                             Tipo de Estágio:
+                                                            <!-- 1 - obrigatorio -->
                                                             <label>
                                                                 <input type="radio" name="obrigatorio"
-                                                                    value="{{$tceAditivo->obrigatorio }}" class="flat" checked="checked"> Não
-                                                                Obrigatório
+                                                                    value="{{$tceAditivo->obrigatorio}}" class="flat" checked="@if ($tceAditivo->obrigatorio == 1) true  @endif "> Obrigatório
+                                                                    
                                                             </label>
+                                                            <!-- 2 - não obrigatorio -->
                                                             <label>
                                                                 <input type="radio" name="obrigatorio"
-                                                                    value="{{$tceAditivo->obrigatorio}}" class="flat" checked="checked"> Obrigatório
+                                                                    value="{{$tceAditivo->obrigatorio }}" class="flat" checked="@if ($tceAditivo->obrigatorio == 2) true  @endif "> Não
+                                                                Obrigatório 
                                                             </label>
                                                         </div>
                                                     </div>
