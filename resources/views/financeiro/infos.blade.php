@@ -84,7 +84,7 @@
                                             <td>{{"R$ " .number_format($contrato->custo_unitario, 2)}}</td>
                                             <td></td>
                                             <td></td>
-                                            <td> <a href="" class="btn btn-warning"> <i class="fa fa-print"></i> </a> </td>
+                                            <td> <a href="/fechamento-pdf" target="_blank" class="btn btn-warning"> <i class="fa fa-print"></i> </a> </td>
                                         </tr>
                                         @endforeach
                                     </tbody>

@@ -221,6 +221,12 @@ class PdfController extends Controller
         return $pdf->stream('index.pdf');
     }
 
+    public function generateFechamento()
+    {
+        $pdf = PDF::loadView('pdf.fechamento.index');
+        return $pdf->stream('index.pdf');
+    }
+
     public function gerarRelatorio($id)
     {
 
