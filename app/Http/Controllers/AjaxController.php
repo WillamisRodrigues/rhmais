@@ -40,7 +40,8 @@ class AjaxController extends Controller
             return $tipo;
         })->addColumn('valor_real', function($row){
             $valor = number_format($row->valor, 2, ',', '.');
-            return "R$ ".$valor;
+            // $valor = $row->valor;
+            return "R$ " .$valor;
 
         })->rawColumns(['action','tipo_folha','valor_real'])
         ->make(true);
@@ -71,7 +72,7 @@ class AjaxController extends Controller
     {
                BeneficioEstagiario::updateOrCreate(['id' => $request->product_id],
                 ['referencia' => $request->referencia,
-                'valor' => $request->valor,
+                'valor' => str_replace(',','.', $request->valor),
                 'tipo' => $request->tipo,
                 'estagiario_id' => $request->estagiario_id,
                 'beneficio_id' => $request->beneficio_id,

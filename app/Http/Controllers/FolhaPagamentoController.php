@@ -185,7 +185,7 @@ class FolhaPagamentoController extends Controller
             ['referencia' => $request->referencia],
             ['estagiario_id' => $request->estagiario_id],
             ['beneficio_id' => $request->beneficio_id],
-            ['valor' => $request->valor]
+            ['valor' => str_replace(',','.', $request->valor)]
         );
         return Response::json($beneficio_estagiario);
     }

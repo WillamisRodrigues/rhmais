@@ -67,11 +67,12 @@
                                                 Não
                                                 @endif
                                             </td>
-                                            <td>
+                                            <td style="width:10%;">
                                                 <a href="{{ route('tce_contrato.show',[$plano->tceId])}}"
                                                     class="btn btn-primary"><i class="fa fa-pencil"></i></a>
-                                                <a class="btn btn-warning" href="/estagio" target="_blank"><i
-                                                        class="fa fa-print"></i></a></td>
+                                                <a class="btn btn-warning" href="{{ action('PdfController@generateEstagio', $plano->id) }}/estagio" target="_blank"><i
+                                                        class="fa fa-print"></i></a>
+                                            </td>
                                         </tr>
                                         @endforeach
                                     </tbody>

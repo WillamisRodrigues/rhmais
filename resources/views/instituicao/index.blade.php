@@ -36,22 +36,21 @@
                                                 <input type="text" class="form-control">
                                             </th>
                                             <th>Complemento
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" style="width:100px;">
                                             </th>
                                             <th>Cidade
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" style="width:100px;">
                                             </th>
                                             <th>Endereço
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" style="width:100px;">
                                             </th>
                                             <th>CNPJ
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" style="width:100px;">
                                             </th>
                                             <th>Ação</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-
                                         @foreach($instituicoes as $instituicao)
                                         <tr>
                                             <td>{{$instituicao->nome_instituicao}}</td>
@@ -64,7 +63,7 @@
                                                     <a href="{{ route('instituicao.edit',[$instituicao->id])}}"
                                                         class="btn btn-primary"> <i class="fa fa-pencil"> </i></a>
                                                 </div>
-                                                <form class="col-md-3"
+                                                <form class="col-md-3" style="margin-left:10px;"
                                                     action="{{route('instituicao.destroy', [$instituicao->id])}}"
                                                     method="POST">
                                                     <input type="hidden" name="_method" value="DELETE">

@@ -72,7 +72,7 @@ class EmpresaController extends Controller
         $empresas->data_estagiario = $request->get('data_estagiario');
         $empresas->data_fechamento = $request->get('data_fechamento');
         $empresas->data_boleto = $request->get('data_boleto');
-        $empresas->custo_unitario = $request->get('custo_unitario');
+        $empresas->custo_unitario =  str_replace(',','.', $request->get('custo_unitario'));
         $empresas->ativo = $request->get('ativo');
         $empresas->save();
 

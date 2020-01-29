@@ -84,7 +84,7 @@
                                 <div class="row">
                                     <div class="col-md-6 col-sm-12 col-xs-12">
                                         <strong>Atividade/Setor:</strong>
-                                        {!! $atividade->nome !!}
+                                        {!! $contrato->atividade !!}
                                     </div>
                                     <div class="col-md-6 col-sm-12 col-xs-12">
                                         <strong>Supervisor Estágio:</strong>

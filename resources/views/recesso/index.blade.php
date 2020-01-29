@@ -46,18 +46,29 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($recesso as $rec)
                                         <tr>
-                                            <td>AGATHA VASCONCELOS PAULOS TOME </td>
-                                            <td>KOSTER & KOSTER CONSULTORIA EM RH LTDA</td>
-                                            <td>01/03/2019</td>
-                                            <td>06/03/2019</td>
-                                            <td>Assinado</td>
+                                        <td>{{$rec->nome}}</td>
+                                            <td>{{$rec->nome_fantasia}}</td>
+                                            <td>{{date('d/m/Y', strtotime($rec->data_inicio))}}</td>
+                                            <td>{{date('d/m/Y', strtotime($rec->data_fim))}}</td>
                                             <td>
-                                                <a href="#" class="btn btn-primary"> <i class="fa fa-pencil"> </i></a>
+                                                @if ($rec->recesso_assinado == 1 )
+                                                    Assinado
+                                                 @else
+                                                    Não Assinado
+                                                @endif
+                                                </td>
+                                            <td>
+                                                {{-- <a href="#" class="btn btn-primary"> <i class="fa fa-pencil"> </i></a> --}}
+                                                <a href="{{ route('recesso_assinado.assinar', [$rec->id]) }}"
+                                                    class="btn btn-primary" title="Marcar contrato como assinado"> <i
+                                                        class="fa fa-star"></i> </a>
                                                 <a href="#" class="btn btn-warning"> <i class="fa fa-print"> </i></a>
-                                                <a href="#" class="btn btn-danger"> <i class="fa fa-trash"> </i></a>
+                                                {{-- <a href="#" class="btn btn-danger"> <i class="fa fa-trash"> </i></a> --}}
                                             </td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

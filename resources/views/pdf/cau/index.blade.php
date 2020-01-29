@@ -20,28 +20,28 @@
 <body>
     <img src="{{ public_path('/images/logo-rhmais.png') }}" style="margin-left:270px; width:20%;">
     <h5 class="text-center"><strong> CONVÊNIO AGENTE DE INTEGRAÇÃO e UNIDADE CONCEDENTE DE ESTÁGIO </strong></h5>
-
+@foreach ($contrato as $cont)
     <p>Celebram entre si o presente Instrumento jurídico, as partes a seguir qualificadas, </p>
     <hr>
     <div class="col-md-4">
         <h5><strong>Parte Concedente :</strong></h5>
-        <p> <strong> Razão Social: </strong> <span class="text-danger"> ESCOLA TECNICA ESTADUAL BENTO QUIRINO </span>
-            <strong> CNPJ: </strong> <span class="text-danger"> ----- </span> </p>
-        <p><strong> Endereço: </strong><span class="text-danger"> AVENIDA OROSIMBO MAIA </span> <span>
-                <strong>Nº:</strong></span><span class="text-danger"> 2600 </span>
-            <span> <strong> Bairro: </strong> <span class="text-danger"> VILA ESTANISLAU </span> </span> </p>
-        <p><strong> Cidade: </strong><span class="text-danger"> CAMPINAS </span><span> <strong>Estado:</strong> <span
-                    class="text-danger">SÃO PAULO </span> </span>
-            <span> <strong> Cep:</strong> <span class="text-danger"> 13.023-915</span> </span>
-            <span> <strong> Telefone: </strong> <span class="text-danger"> (19)3252-3596</span></span>
+        <p> <strong> Razão Social: </strong> <span class="text-danger"> {{$cont->nome_fantasia}}</span>
+            <strong> CNPJ: </strong> <span class="text-danger"> {{$cont->cnpj}} </span> </p>
+        <p><strong> Endereço: </strong><span class="text-danger"> {{$cont->rua}} </span> <span>
+                <strong>Nº:</strong></span><span class="text-danger"> {{$cont->numero}} </span>
+            <span> <strong> Bairro: </strong> <span class="text-danger"> {{$cont->bairro}} </span> </span> </p>
+        <p><strong> Cidade: </strong><span class="text-danger"> {{$cont->cidade}} </span><span> <strong>Estado:</strong> <span
+                    class="text-danger">{{$cont->estado}} </span> </span>
+            <span> <strong> Cep:</strong> <span class="text-danger"> {{$cont->cep}}</span> </span>
+            <span> <strong> Telefone: </strong> <span class="text-danger"> {{$cont->telefone}}</span></span>
         </p>
-        <p><strong> Representante Legal: </strong><span class="text-danger"> TABAJARA DIAS DE ANDRADE </span> <span>
-                <strong>Email:</strong></span><span class="text-danger"> TABAJARA@CLADE.COM.BR </span> </p>
+        <p><strong> Representante Legal: </strong><span class="text-danger"> {{$cont->nome_rep}} </span> <span>
+                <strong>Email:</strong></span><span class="text-danger"> {{$cont->email_rep}} </span> </p>
     </div>
     <hr>
     <div>
         <h5><strong>Agente de Integração : </strong></h5>
-        <p> <strong> Razão Social: </strong><span class="text-danger"> LIFE ACADEMIA BRASIL EIRELI- EPP </span> </p>
+        <p> <strong> Razão Social: </strong><span class="text-danger"> KOSTER E KOSTER CONSULTORIA EM RH LTDA </span> </p>
         <p><strong> Endereço: </strong> <span class="text-danger">AVENIDA DOUTOR MORAES SALES </span> <span>
                 <strong>Nº:</strong></span>
             <span class="text-danger"> 1172 </span>
@@ -51,7 +51,7 @@
             <span> <strong> CEP: </strong><span class="text-danger"> 13.010-001 </span> </span> <span> <strong>
                     Telefone: </strong><span class="text-danger"> (00)0000-0000 </span> </span>
         </p>
-        <p> <strong> CNPJ: </strong> <span class="text-danger"> 22.282.192/0001-09 </span><span> </p>
+        <p> <strong> CNPJ: </strong> <span class="text-danger"> 21.925.427/0001-70 </span><span> </p>
         <p><strong> Representante Legal: </strong><span class="text-danger"> TABAJARA DIAS DE ANDRADE </span> <span>
                 <strong>Email:</strong></span><span class="text-danger"> TABAJARA@CLADE.COM.BR </span> </p>
     </div>
@@ -228,6 +228,7 @@
         <span>(assinatura do(a) agente) </span>
     </p>
     <br><br>
+    @endforeach
 </body>
 
 </html>

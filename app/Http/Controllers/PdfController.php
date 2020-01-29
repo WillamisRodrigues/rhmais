@@ -119,20 +119,38 @@ class PdfController extends Controller
         return $pdf->stream('index.pdf');
     }
 
-    public function generateCau()
+    public function generateCau($id)
     {
-        $pdf = PDF::loadView('pdf.cau.index');
+        $contrato = DB::table('cau')
+        ->join('empresa', 'cau.empresa_id', '=', 'empresa.id')
+        ->where('cau.id', '=', $id)
+        ->get();
+// dd($contrato);
+        $data = ['contrato' => $contrato];
+        $pdf = PDF::loadView('pdf.cau.index', $data);
         return $pdf->stream('index.pdf');
     }
-    public function generateEstagio()
+    public function generateEstagio($id)
     {
-        $pdf = PDF::loadView('pdf.plano.index');
+        $estagio = DB::table('plano_estagio')
+        ->where('plano_estagio.id', '=', $id)
+        ->get();
+dd($estagio);
+        $data = ['estagio' => $estagio];
+
+        $pdf = PDF::loadView('pdf.plano.index', $data);
         return $pdf->stream('index.pdf');
     }
 
-    public function generateCce()
+    public function generateCce($id)
     {
-        $pdf = PDF::loadView('pdf.cce.index');
+           $contrato = DB::table('cce')
+        ->join('instituicao', 'cce.instituicao_id', '=', 'instituicao.id')
+        ->where('cce.id', '=', $id)
+        ->get();
+//  dd($contrato);
+        $data = ['contrato' => $contrato];
+        $pdf = PDF::loadView('pdf.cce.index', $data);
         return $pdf->stream('index.pdf');
     }
 

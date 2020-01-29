@@ -41,7 +41,6 @@
                                                 <input type="text" class="form-control" style="width:100px;">
                                             </th>
                                             <th>Cidade
-
                                                 <input type="text" class="form-control"></th>
                                             <th>Unidade
                                                 <input type="text" class="form-control">
@@ -68,11 +67,11 @@
                                             </td>
                                             <td>{{$supervisor->agente_integracao}}</td>
                                             <td style="width:15%;">
-                                                <div class="col-md-3" style="margin-left:40px;">
+                                                <div class="col-md-3">
                                                     <a href="{{route('supervisor.edit', [$supervisor->id])}}"
                                                         class="btn btn-primary"> <i class="fa fa-pencil"> </i></a>
                                                 </div>
-                                                <form class="col-md-3"
+                                                <form class="col-md-3"  style="margin-left:10px;"
                                                     action="{{route('supervisor.destroy', [$supervisor->id])}}"
                                                     method="POST">
                                                     <input type="hidden" name="_method" value="DELETE">

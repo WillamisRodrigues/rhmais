@@ -30,6 +30,8 @@ class TceRescisaoController extends Controller
                 'tce_rescisao.data_fim'
             )
             ->get();
+
+            // dd($rescisao);
         return view('tce_rescisao.index',  compact('rescisao', $rescisao));
     }
 
@@ -72,7 +74,7 @@ class TceRescisaoController extends Controller
         $tce->horario = $request->get('descricao');
         $tce->setor = $request->get('setor');
         $tce->supervisor = $request->get('supervisor');
-        $tce->bolsa = $request->get('bolsa');
+        $tce->bolsa =  str_replace(',','.',$request->get('bolsa'));
         $tce->obs = $request->get('observacao');
         $tce->save();
 

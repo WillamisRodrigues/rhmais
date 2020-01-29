@@ -107,12 +107,12 @@
         estágio da Instituição de Ensino e por supervisor da Parte Concedente. Pode ser OBRIGATORIO ou NÃO
         OBRIGATÓRIO.</p>
     <p class="text-justify"> <strong> CLÁUSULA 2ª </strong> - Este termo de Compromisso de Estágio terá vigência de
-        <span class="text-danger"> 09/02/2018 </span> a <span class="text-danger"> 31/12/2018</span>, podendo ser
+        <span class="text-danger">{{$dados->data_inicio}}</span> a <span class="text-danger"> {{$dados->data_fim}}</span>, podendo ser
         rescindido a qualquer momento por qualquer uma das partes sem ônus, multas ou aviso prévio através do Termo de
         Rescisão ou podendo ser prorrogado através de Termo Aditivo.</p>
 
     <p class="text-justify"> <strong> CLÁUSULA 3ª </strong> - As atividades de estágio se farão de <span
-            class="text-danger"> segunda a sexta-feira das 14h00 horas às 20h00, perfazendo 30
+            class="text-danger"> {{$dados->horario}}, perfazendo 30
             horas semanais </span>. A jornada deverá ser compatível com o horário escolar do Estudante, sendo que
         durante as férias ou
         recessos escolares, outra jornada de atividades poderá ser estabelecida entre as partes.
@@ -128,12 +128,10 @@
         ÚNICO - As atividades poderão ser ampliadas, reduzidas, alteradas, substituídas de acordo com a necessidade,
         sendo as
         atividades inicialmente desenvolvidas pelo estudante: </p>
-    <p class="text-justify"><span class="text-danger"> Atendimento ao Cliente, Controle e Organização de Planilhas
-            (Excel), Suporte de Pagamento a Clientes, Pesquisa de Contatos
-            de Clientes, Organização e Atuação de Filas de Cobrança.</span>
+    <p class="text-justify"><span class="text-danger">{{$dados->atividade}}</span>
     </p>
     <p class="text-justify"> <strong> CLÁUSULA 6ª </strong> - A Unidade Concedente remunerará em <span
-            class="text-danger"> R$ 600,00 (Seiscentos reais/mensais) </span>, o Estudante, a título de bolsa-
+            class="text-danger"> {{"R$ " .number_format($dados->bolsa, 2)}} </span>, o Estudante, a título de bolsa-
         auxílio, quantia esta que será paga a partir do mês subsequente ao vencimento,<span class="text-danger"> mais
             vale transportes </span>. O valor estabelecido
         poderá variar segundo a sua frequência mensal, grau de escolaridade, atividades desempenhadas, entendimento
@@ -194,15 +192,15 @@
     <p class="text-justify"> E por assim estarem de acordo, assinam este Termo de Compromisso de Estágio em 4 (quatro)
         vias de igual teor.</p>
     <p>
-        <p class="pull-right"> Campinas, <span class="text-danger"> 25 de junho de 2019. </span> </p>
+        <p class="pull-right"> Campinas, <span class="text-danger"> {{$dados->created_at}}. </span> </p>
         <div style="height:50px;"></div>
         <div class="row">
             <p class="pull-left">__________________________________ <br>
-                Escola Estadual Carlos Gomes
+                    {{$dados->instituicao_razao}}
             </p>
             <p class="pull-left" style="margin-left:40px;">
                 _________________________________ <br>
-                Vasconcelos Pires e A. Cobranças LTDA
+                {{$dados->empresa_razao}}
             </p>
         </div>
         <br>
@@ -213,11 +211,11 @@
             </p>
             <p class="pull-left">
                 _______________________________<br>
-                Aline Rafaela Lima
+                {{$dados->nome}}
             </p>
             <p class="pull-left" style="margin-left:65px;">
                 _________________________________<br>
-                Responsável legal
+                 {{$dados->nome_rep}}
             </p>
         </div>
 </body>

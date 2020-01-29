@@ -21,7 +21,8 @@
 
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                        <form action="">
+                        <form action="/processar_financeiro" method="POST">
+                            {{ csrf_field() }}
                             <div class="col-md-2">
                                 <label for="">Agente:</label>
                                 <select name="" class="form-control">
@@ -30,7 +31,7 @@
                             </div>
                             <div class="col-md-2">
                                 <label for="">Unidade:</label>
-                                <select name="" class="form-control">
+                                <select name="unidade" class="form-control">
                                     <option> Nome da Unidade</option>
                                      @foreach ($empresas as $unidade)
                                     <option value="{{$unidade->nome_fantasia}}"> {{$unidade->nome_fantasia}}</option>
@@ -39,7 +40,7 @@
                             </div>
                             <div class="col-md-2">
                                 <label for="">Período:</label>
-                                <select name="" class="form-control">
+                                <select name="referencia" class="form-control">
                                     <option value=""> Periodo Ano</option>
                                     @foreach ($periodos as $periodo)
                                      <option value="{{$periodo->referencia}}"> {{$periodo->referencia}}
@@ -92,7 +93,6 @@
                                                 <input type="text" class="form-control" style="width:100px;">
                                             </th>
                                             <th>Opções
-                                                <span class="form-control">
                                             </th>
                                         </tr>
                                     </thead>
@@ -129,8 +129,12 @@
                                                 }
                                                 @endphp
                                             </td>
-                                            <td></td>
-                                            <td></td>
+                                            <td>
+                                                {{$qRescisao}}
+                                            </td>
+                                            <td>
+                                                {{$qAtivos}}
+                                            </td>
                                             <td>{{"R$ ".number_format($contrato->total_custo, 2)}}</td>
                                             <td>
                                                 @if ($contrato->situacao != 1)

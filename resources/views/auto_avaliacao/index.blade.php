@@ -68,7 +68,7 @@
                                             {{-- <td>Obrigação=4 Supervisor fez=0 Estudante Fez=0 Falta=4</td> --}}
                                             {{-- <td>AD</td> --}}
                                             {{-- <td>Sim </td> --}}
-                                            <td style="width:15%;">
+                                            <td>
                                                 <div class="col-md-3">
                                                     <a href="{{route('auto_avaliacao.create')}}"
                                                         class="btn btn-primary"> <i class="fa fa-pencil"> </i></a>

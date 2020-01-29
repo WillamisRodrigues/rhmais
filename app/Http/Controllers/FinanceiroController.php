@@ -35,7 +35,42 @@ class FinanceiroController extends Controller
             ->groupBy('referencia')
             ->get();
 
-        return view('financeiro.index', ['empresas' => $empresas, 'contratos'=>$contratos, 'periodos'=>$periodos]);
+             $qAtivos = DB::table('tce_contrato')->join('empresa', 'empresa.id', '=', 'tce_contrato.empresa_id')->where('status', 1)->count();
+             $qRescisao = DB::table('tce_rescisao')->where('empresa_id', $empresa->id)->where('status', 1)->count();
+// dd($qAtivos);
+        return view('financeiro.index', ['empresas' => $empresas, 'contratos'=>$contratos, 'periodos'=>$periodos, 'qAtivos' =>$qAtivos, 'qRescisao' =>$qRescisao]);
+    }
+
+    public function processarFinanceiro(Request $request)
+    {
+        if (empty($request->unidade) || empty($request->referencia)) {
+            return redirect('financeiro');
+        } else {
+            $processarFinanceiro = $request->input('unidade');
+            $referencia = $request->input('referencia');
+            $unidade = DB::table('cobranca')->join('empresa', 'empresa.id', '=', 'cobranca.empresa_id')
+                ->where([
+                    ['nome_fantasia', 'LIKE', '%' . $processarFinanceiro . '%'],
+                    ['referencia', 'LIKE', '%' . $referencia . '%']
+                ]);
+            $unidades = DB::table('cau')->join('empresa', 'empresa.id', '=', 'cau.empresa_id')->select('empresa.id', 'empresa.nome_fantasia', 'cau.data_inicio', 'cau.data_fim', 'cau.situacao', 'cau.id AS id')->where('nome_fantasia', '=', $processarFinanceiro)->get();
+
+            $contratos = DB::table("cobranca")
+                ->join('empresa', 'empresa.id', '=', 'cobranca.empresa_id')->where('nome_fantasia', '=', $processarFinanceiro)
+                ->where('referencia', '=', $request->referencia)
+                ->get();
+
+            $estagiarios = DB::table('estagiario')->get();
+
+            $periodos = DB::table("cobranca")->select(DB::raw('count(*) as periodo, referencia'))
+                ->where('referencia', '<>', 1)
+                ->groupBy('referencia')
+                ->get();
+            $empresas = DB::table('empresa')
+                ->get();
+
+            return view('financeiro.index',  ['unidade' => $unidade, 'unidades' => $unidades, 'estagiarios' => $estagiarios, 'empresas' => $empresas, 'periodos' => $periodos, 'contratos' => $contratos]);
+        }
     }
 
     public function infos($id)

@@ -19,10 +19,12 @@ Route::get('/home/grafico', 'HomeController@grafico');
 Route::get('infos/{id}', ['uses' => 'FinanceiroController@infos', 'as' => 'financeiro.infos']);
 Route::get('cau_assinado/{id}', ['uses' => 'CauController@assinado', 'as' => 'cau_convenio.assinar']);
 Route::get('cce_assinado/{id}', ['uses' => 'CceController@assinado', 'as' => 'cce_convenio.assinar']);
+Route::get('recesso_assinado/{id}', ['uses' => 'RecessoController@assinado', 'as' => 'recesso_assinado.assinar']);
 Route::get('financeiro_fechado/{id}', ['uses' => 'FinanceiroController@assinado', 'as' => 'financeiro.fechar']);
 Route::post('editar_folha_pagamento', ['uses' => 'FolhaPagamentoController@editar', 'as' => 'folha_pagamento.editar']);
 Route::get('editar_folha_rescisao', ['uses' => 'FolhaRescisaoController@editar', 'as' => 'folha_recisao.editar']);
 Route::post('processar', 'FolhaPagamentoController@processarFolha');
+Route::post('processar_financeiro', 'FinanceiroController@processarFinanceiro');
 Route::post('processarRescisao', 'FolhaRescisaoController@processarRescisao');
 Route::resource('ajax-crud', 'AjaxController');
 Route::get('beneficio_estagiario/{id}', ['uses' => 'AjaxController@beneficio_estagiario', 'as' => 'ajax-crud.beneficio_estagiario'] );
@@ -48,23 +50,20 @@ Route::resource('avaliacao_supervisor', 'AvaliacaoSuperController');
 Route::resource('folha_pagamento', 'FolhaPagamentoController');
 Route::resource('folha_rescisao', 'FolhaRescisaoController');
 
-
-// Route::post('adicionarRecesso',['as' => 'adicionarRecesso', 'uses' => 'RecessoController@store']);
-
 Route::get('/cidade-estado', array('as' => 'myform', 'uses' => 'EstagiarioController@myform'));
 Route::get('myform/ajax/{id}', array('as' => 'myform.ajax', 'uses' => 'EstagiarioController@myformAjax'));
 
 /*Gerar PDF*/
 Route::get('valores_rescisao', 'PdfController@generateValoresRescisao');
 Route::get('recisaotce', 'PdfController@generateRecisao');
-Route::get('cau', 'PdfController@generateCau');
-Route::get('cce', 'PdfController@generateCce');
-Route::get('estagio', 'PdfController@generateEstagio');
+Route::get('cau/{id}', 'PdfController@generateCau');
+Route::get('cce/{id}', 'PdfController@generateCce');
+Route::get('estagio/{id}', 'PdfController@generateEstagio');
 Route::get('tce-pdf', 'PdfController@generatePDF');
 Route::get('avaliacao-pdf', 'PdfController@generateAvaliacao');
 Route::get('fechamento-pdf', 'PdfController@generateFechamento');
 Route::get('/tce-pdf/{id}', 'EstagiarioController@gerarRelatorio');
-Route::get('rescisao/{id}', 'PdfController@generateRescisao');
+Route::get('rescisao/{id}', 'PdfController@generateRescisEao');
 Route::get('holerite/{id}', 'PdfController@generateHolerite');
 Route::get('grelacao/{id}', 'PdfController@generateFolha');
 
@@ -81,9 +80,7 @@ Route::get('plano_edit', 'TceContrato@plano_edit');
 
 /* fim rotas tce */
 /* rotas recesso / ferias */
-Route::get('/lista_recesso', function () {
-    return view('recesso/index');
-});
+Route::get('lista_recesso', 'RecessoController@recessoList');
 
 Route::get('/editar_conta', function () {
     return view('editar_conta/edit');

@@ -143,15 +143,21 @@
                                                         <span class="fa fa-cube form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
-                                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                    {{-- <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <select class="form-control has-feedback-left" name="atividade">
                                                             <option>Selecione Atividade:</option>
                                                             @foreach ($atividades as $atividade)
-                                                            <option value="{{ $atividade->id }}">{{ $atividade->nome }}
+                                                            <option value="{{ $atividade->nome }}">{{ $atividade->nome }}
                                                             </option>
                                                             @endforeach
                                                         </select>
                                                         <span class="fa fa-book form-control-feedback left"
+                                                            aria-hidden="true"></span>
+                                                    </div> --}}
+                                                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                        <input type="text" class="form-control has-feedback-left"
+                                                            placeholder="Atividade prestada" name="atividade">
+                                                        <span class="fa fa-cube form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">

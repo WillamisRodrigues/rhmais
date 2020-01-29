@@ -60,9 +60,9 @@
                                                 {{date('d/m/Y', strtotime($recesso->data_fim)) }}<br>
                                             </td>
                                             <td>
-                                                <!-- {{date('d/m/Y', strtotime($recesso->data_inicio)) }}<br>02/08/2019
+                                                {{-- <!-- {{date('d/m/Y', strtotime($recesso->data_inicio)) }}<br>02/08/2019
                                                 {{ App\Http\Controllers\RecessoController::diasFerias($recesso->data_inicio, $recesso->data_fim) }}/12 <br>X Dias
-                                                02/08/2019 <br> {{ date('d/m/Y', strtotime($recesso->data_fim)) }} <br> n/c -->
+                                                02/08/2019 <br> {{ date('d/m/Y', strtotime($recesso->data_fim)) }} <br> n/c --> --}}
                                                 {{ App\Http\Controllers\RecessoController::periodoAquisitivo($recesso->tceId) }}
                                             </td>
                                             <td>

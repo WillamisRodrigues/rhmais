@@ -106,6 +106,7 @@ class BeneficioController extends Controller
      */
     public function destroy(Request $request, Beneficio $beneficio)
     {
+        dd($beneficio);
         $beneficio->delete();
         $request->session()->flash('warning', 'Removido com sucesso!');
         return redirect('beneficio');

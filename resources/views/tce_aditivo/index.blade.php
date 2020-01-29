@@ -79,7 +79,13 @@
                                                 Não
                                                 @endif
                                             </td>
-                                            <td>{{ $tcead->obrigatorio }}</td>
+                                            <td>
+                                                  @if ( $tcead->obrigatorio  == '1')
+                                                Sim
+                                                @else
+                                                Não
+                                                @endif
+                                            </td>
                                             <td><a class="btn btn-primary"
                                                     href="{{ route('tce_aditivo.edit',[$tcead->id])}}"><i
                                                         class="fa fa-plus"></i></a></td>

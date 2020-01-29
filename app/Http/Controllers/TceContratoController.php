@@ -95,14 +95,14 @@ class TceContratoController extends Controller
         $contrato->horario = $request->get('descricao');
         $contrato->setor = $request->get('setor');
         $contrato->atividade = $request->get('atividade');
-        $contrato->orientador = $request->get('orientador');
-        $contrato->supervisor = $request->get('supervisor');
-        $contrato->bolsa = $request->get('bolsa');
+        $contrato->orientador_id = $request->get('orientador_id');
+        $contrato->supervisor_id = $request->get('supervisor_id');
+        $contrato->bolsa = str_replace(',','.', $request->get('bolsa'));
         $contrato->obrigatorio = $request->get('obrigatorio');
         $contrato->obs = $request->get('observacao');
         $contrato->curso = $request->get('curso');
         $contrato->save();
-
+// dd($contrato);
 
         return redirect()->route('tce_contrato.index')
             ->with('success', 'Cadastrado com sucesso.');

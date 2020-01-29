@@ -80,7 +80,7 @@
                                                         <i class="fa fa-trash"></i>
                                                     </button>
                                                 </form>
-                                                <a class="btn btn-warning" href="/cce" target="_blank"><i
+                                                <a class="btn btn-warning" href="{{ action('PdfController@generateCce', $cce->id) }}" target="_blank"><i
                                                         class="fa fa-print"></i> </a>
                                             </td>
                                         </tr>

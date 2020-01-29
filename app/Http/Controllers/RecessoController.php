@@ -90,12 +90,12 @@ class RecessoController extends Controller
         if ($meses <= 12) {
             $soma = $valorBolsa / 12;
             $resultado = $soma * $meses;
-            $resultado = number_format($resultado, 2, '.', ',');
+            $resultado = number_format($resultado, 2, ",",".");
         } else {
             $mesesExcedentes = $meses - 12;
             $soma = $valorBolsa / 12;
             $resultado = $soma * $mesesExcedentes;
-            $resultado = number_format($resultado + $valorBolsa, 2, '.', ',');
+            $resultado = number_format($resultado + $valorBolsa, 2, ",",".");
             // number_format($valorBolsa, 2, '.', ',')." + R$ ".
         }
 
@@ -245,10 +245,12 @@ class RecessoController extends Controller
         $contrato = DB::table('tce_contrato')->where('estagiario_id', '=', $id)->get()->first();
         $empresa = DB::table('empresa')->where('id', '=', $contrato->empresa_id)->get()->first();
         $instituicao = DB::table('instituicao')->where('id', '=', $contrato->instituicao_id)->get()->first();
-        $orientador = DB::table('orientador')->where('id', '=', $contrato->orientador)->get()->first();
-        $supervisor = DB::table('supervisor')->where('id', '=', $contrato->supervisor)->get()->first();
-        $atividade = DB::table('atividade')->where('id', '=', $contrato->atividade)->get()->first();
+        $orientador = DB::table('orientador')->where('id', '=', $contrato->orientador_id)->get()->first();
+        $supervisor = DB::table('supervisor')->where('id', '=', $contrato->supervisor_id)->get()->first();
+    // $atividade = DB::table('atividade')->where('id', '=', $contrato->atividade)->get()->first();
         $motivos = DB::table('motivo')->get();
+
+        // dd($atividade);
 
         return view('termo.update', [
             'estagiario' => $estagiario,
@@ -257,7 +259,7 @@ class RecessoController extends Controller
             'instituicao' => $instituicao,
             'orientador' => $orientador,
             'supervisor' => $supervisor,
-            'atividade' => $atividade,
+            // 'atividade' => $atividade,
             'motivos' => $motivos
         ]);
     }
@@ -301,5 +303,22 @@ class RecessoController extends Controller
         echo "De " . $inicio . " Até " . $fim . " Total: ";
 
         echo $dias . " Dias";
+    }
+    public function recessoList(){
+
+        // $recesso = Recesso::all();
+        $recesso = DB::table('recesso')
+        ->join('estagiario', 'estagiario.id','=', 'recesso.estagiario_id')
+        ->join('empresa', 'empresa.id', '=', 'recesso.empresa_id')
+        ->get();
+
+        // dd($recesso);
+        return view('recesso.index', compact('recesso', $recesso));
+    }
+
+    public function assinado($id)
+    {
+        DB::update('update recesso set recesso_assinado = 1 where id = ?', [$id]);
+        return redirect('lista_recesso');
     }
 }

@@ -149,7 +149,8 @@
                                             </td>
                                             <td>{{"R$ " .number_format($folha->valor_bolsa, 2) }}</td>
                                             <td>{{ $folha->faltas }}</td>
-                                            <td>R$ {{ $folha->valor_liquido }}
+                                            {{-- <td>{{"R$ " .number_format($folha->valor_liquido, 2) }} --}}
+                                            <td>{{"R$ " .$folha->valor_liquido }}
                                             </td>
                                              <td>
                                                 {{-- @if ($folha->status == 0) --}}

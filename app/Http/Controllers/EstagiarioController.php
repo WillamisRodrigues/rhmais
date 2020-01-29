@@ -59,6 +59,7 @@ class EstagiarioController extends Controller
             $estagiarios = DB::table('estagiario')
                 ->join('empresa', 'estagiario.empresa_id', '=', 'empresa.id')
                 ->join('instituicao', 'estagiario.instituicao_id', '=', 'instituicao.id')
+                ->join('tce_contrato', 'estagiario.id', '=', 'tce_contrato.estagiario_id')
                 ->select(
                     'estagiario.nome',
                     'estagiario.rua',
@@ -91,7 +92,14 @@ class EstagiarioController extends Controller
                     'empresa.cep AS empresa_cep',
                     'empresa.nome_rep AS empresa_nome_rep',
                     'empresa.telefone AS empresa_telefone',
-                    'empresa.rua AS empresa_rua'
+                    'empresa.rua AS empresa_rua',
+                    'empresa.nome_rep',
+                    'tce_contrato.data_inicio',
+                    'tce_contrato.data_fim',
+                    'tce_contrato.horario',
+                    'tce_contrato.atividade',
+                    'tce_contrato.bolsa',
+                    'tce_contrato.created_at'
                 )
                 ->where('estagiario.id', '=', $id)
                 ->get();

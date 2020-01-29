@@ -190,7 +190,7 @@
         </div>
         <div style="float: left; margin-left: 8rem">
         {{-- <img src="https://www.rhmaistalentos.com.br/imagens/logo-site.png" alt="" width="135"> --}}
-        <img src="{{ public_path('images/logo-site.png') }}" alt="" width="135">
+        <img src="{{ public_path('images/logo-rhmais.png') }}" alt="" width="80">
         </div>
         <div style="float: right; margin-right: 3rem">
             ______________________________________<br>
