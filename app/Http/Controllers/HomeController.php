@@ -63,8 +63,8 @@ class HomeController extends Controller
             ->datasets([
                 [
                     "label" => "TCE ATIVOS",
-                    'backgroundColor' => "rgba(188,13,51, 0.50)",
-                    'borderColor' => "rgba(188,13,51, 0.7)",
+                    'backgroundColor' => "rgba(40,88,255, 0.70)",
+                    'borderColor' => "rgb(40,88,255)",
                     "pointBorderColor" => "rgba(58, 86, 109, 1)",
                     "pointBackgroundColor" => "#fff",
                     "pointHoverBackgroundColor" => "#fff",
@@ -73,7 +73,7 @@ class HomeController extends Controller
                 ],
                 [
                     "label" => "TCE INATIVOS",
-                    'backgroundColor' => "rgba(162,13,17, 0.50)",
+                    'backgroundColor' => "rgba(235,35,85, 0.70)",
                     'borderColor' => "rgba(162,13,17, 0.7)",
                     "pointBorderColor" => "rgba(58, 86, 109, 1)",
                     "pointBackgroundColor" => "#fff",
@@ -91,8 +91,8 @@ class HomeController extends Controller
             ->labels(['Masculino', 'Feminino'])
             ->datasets([
                 [
-                    'backgroundColor' => ['#800800', '#BF0D00'],
-                    'hoverBackgroundColor' => ['#800800', '#BF0D00'],
+                    'backgroundColor' => ['#2858FF', '#EB2355'],
+                    'hoverBackgroundColor' => ['#2858FF', '#EB2355'],
                     'data' => [$dataMasc, $dataFem]
                 ]
             ])
@@ -105,8 +105,8 @@ class HomeController extends Controller
             ->labels(['MED', 'SUP', 'M. TEC', 'S. TEC', 'N. FUN', 'N. PRO'])
             ->datasets([
                 [
-                    'backgroundColor' => ['#BF0D00', '#DE264C', '#F6B1C3', '#F0788C', '#BC0D35', '#A20D1E'],
-                    'hoverBackgroundColor' => ['#BF0D00', '#DE264C', '#F6B1C3', '#F0788C', '#BC0D35', '#A20D1E'],
+                    'backgroundColor' => ['#DB3895', '#9B539F', '#4A84B5', '#42B5AE', '#68BE44', '#47B7A8'],
+                    'hoverBackgroundColor' => ['#DB3895', '#9B539F', '#4A84B5', '#42B5AE', '#68BE44', '#47B7A8'],
                     'data' => [$dataMe, $dataSup, $dataMTec, $dataSTec, $dataNFund, $dataNProf]
                 ]
             ])

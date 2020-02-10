@@ -188,7 +188,7 @@
             ____/_____/_________<br>
             Data
         </div>
-        <div style="float: left; margin-left: 8rem">
+        <div style="float: left; margin-left: 12rem">
         {{-- <img src="https://www.rhmaistalentos.com.br/imagens/logo-site.png" alt="" width="135"> --}}
         <img src="{{ public_path('images/logo-rhmais.png') }}" alt="" width="80">
         </div>
