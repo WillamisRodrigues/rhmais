@@ -141,19 +141,19 @@
                                   <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <label for="">Dia p/ Pgto Estágiario(a)</label>
-                            <input type="date" class="form-control has-feedback-left" placeholder="Dia p/ Pgto Estágiario(a)" name="data_estagiario" value="{{old('data_estagiario')}}">
+                            <input type="text" maxlength="2" class="form-control has-feedback-left" placeholder="Dia p/ Pgto Estágiario(a)" name="data_estagiario" value="{{old('data_estagiario')}}">
                             <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <label for="">Dia p/ Vcto Boleto</label>
-                            <input type="date" class="form-control has-feedback-left" placeholder="Dia p/ Vcto Boleto" name="data_boleto" value="{{old('data_boleto')}}">
+                            <input type="text" maxlength="2" class="form-control has-feedback-left" placeholder="Dia p/ Vcto Boleto" name="data_boleto" value="{{old('data_boleto')}}">
                             <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <label for="">Dia p/ Fechamento</label>
-                            <input type="date" class="form-control has-feedback-left" placeholder="Dia p/ Fechamento" name="data_fechamento" value="{{old('data_fechamento')}}">
+                            <input type="text" maxlength="2" class="form-control has-feedback-left" placeholder="Dia p/ Fechamento" name="data_fechamento" value="{{old('data_fechamento')}}">
                             <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
