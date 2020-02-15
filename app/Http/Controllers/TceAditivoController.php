@@ -109,7 +109,7 @@ class TceAditivoController extends Controller
      */
     public function update(Request $request, TceAditivo $tceAditivo)
     {
-        //
+        return view('tce_aditivo.index');
     }
 
     /**

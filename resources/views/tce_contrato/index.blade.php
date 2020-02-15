@@ -92,7 +92,7 @@
                                                 <a href="{{ action('EstagiarioController@gerarRelatorio', $tce->id) }}"
                                                    class="btn btn-primary" title="Imprimir TCE" target="_blank"><i class="fa fa-print"></i></a>
                                                 <a href="{{ route('tce_contrato.edit',[$tce->tceId])}}"
-                                                    class="btn btn-danger" title="Gerar Rescisão"><i class="fa fa-pencil"></i> </a>
+                                                    class="btn btn-danger" title="Gerar Rescisão"><i class="fa fa-book"></i> </a>
                                             </td>
                                         </tr>
                                         @endforeach

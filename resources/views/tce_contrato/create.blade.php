@@ -56,6 +56,7 @@
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                    <label for="">Unidade Concedente</label>
                                                         <select class="form-control has-feedback-left"
                                                             name="empresa_id">
                                                         </select>
@@ -63,6 +64,7 @@
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                    <label for="">Instituicao de Ensino</label>
                                                         <select class="form-control has-feedback-left"
                                                             name="instituicao_id">
                                                         </select>
@@ -200,7 +202,7 @@
                                                 </div>
                                                 <div class="btn-group mr-2 sw-btn-group-extra" role="group">
                                                     <button type="submit" class="btn btn-info">Enviar</button>
-                                                    <button class="btn btn-danger">Cancelar</button>
+                                                    <a href="/tce_contrato" class="btn btn-danger">Cancelar</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -230,10 +232,9 @@
                     dataType: "json",
                     success:function(data) {
                         $('select[name="empresa_id"]').empty();
-                        console.log(data);
                         $.each(data, function(key, value) {
-                            $('select[name="empresa_id"]').append('<option value="'+ key +'">'+ key +'</option>');
-                            $('select[name="instituicao_id"]').append('<option value="'+ key +'">'+ value +'</option>');
+                            $('select[name="empresa_id"]').append('<option value="'+ data[0].empresa_id +'">'+ data[0].nome_fantasia +'</option>');
+                            $('select[name="instituicao_id"]').append('<option value="'+ data[0].instituicao_id +'">'+ data[0].nome_instituicao +'</option>');
                         });
                     }
                 });

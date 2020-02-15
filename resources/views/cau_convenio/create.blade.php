@@ -58,24 +58,24 @@
                                                     </div>
                                                     <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
                                                         <label for="">Data inicio:</label>
-                                                        <input type="date"
-                                                            class="form-control nascimento has-feedback-left"
+                                                        <input type="text"
+                                                            class="form-control data has-feedback-left"
                                                             placeholder="Data de Inicio" name="data_inicio" value="">
                                                         <span class="fa fa-calendar form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
                                                         <label for="">Data Fim:</label>
-                                                        <input type="date"
-                                                            class="form-control nascimento has-feedback-left"
+                                                        <input type="text"
+                                                            class="form-control data has-feedback-left"
                                                             placeholder="Data de Final" name="data_fim" value="">
                                                         <span class="fa fa-calendar form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
                                                         <label for="">Data Documento:</label>
-                                                        <input type="date"
-                                                            class="form-control nascimento has-feedback-left"
+                                                        <input type="text"
+                                                            class="form-control data has-feedback-left"
                                                             placeholder="Data de Final" name="data_doc" value="">
                                                         <span class="fa fa-calendar form-control-feedback left"
                                                             aria-hidden="true"></span>

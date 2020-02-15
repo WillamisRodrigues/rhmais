@@ -27,7 +27,7 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
-                            <form action="{{ route('tce_aditivo.update',  $tceAditivo->id) }}" id="myForm" role="form"
+                            <form action="" id="myForm" role="form"
                                 data-toggle="validator" method="post" accept-charset="utf-8">
                                 <input type="hidden" name="_method" value="PUT">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -187,9 +187,13 @@
                                                         <textarea class="form-control" placeholder="Observação"
                                                             name="obs"></textarea>
                                                     </div>
+                                                    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                                                    <button type="submit" class="btn btn-success"
+                                                    style="margin-left: 30%;">Salvar Alterações</button>
+                                                   <a href="/tce_aditivo" class="btn btn-danger">Voltar</a>
                                                 </div>
-                                                <button type="submit" class="btn btn-success"
-                                                    style="margin: 20px auto; display:block;">Salvar Alterações</button>
+                                                </div>
+                                               
                                             </div>
                                         </div>
 
