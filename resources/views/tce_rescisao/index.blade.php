@@ -71,8 +71,8 @@
                                             <td>RES</td>
                                             <td>TCE Assinado Rescisão Assinada</td>
                                             <td><a href="{{ action('EstagiarioController@gerarRelatorio', $resc->id) }}"
-                                                    target="_blank" class="btn btn-primary"><i class="fa fa-print"></i>
-                                                    TCE Recisão</a></td>
+                                                    target="_blank" class="btn btn-primary" title="TCE Recisão"><i class="fa fa-print"></i>
+                                                    </a></td>
                                         </tr>
                                         @endforeach
                                     </tbody>

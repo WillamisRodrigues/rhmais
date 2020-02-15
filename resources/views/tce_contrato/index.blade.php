@@ -61,7 +61,6 @@
                                                 <input type="text" style="width:100px;" class="form-control">
                                             </th>
                                             <th>Opções
-                                                <div style="height:20px;"></div>
                                             </th>
                                         </tr>
                                     </thead>
@@ -89,12 +88,11 @@
                                                 Não
                                                 @endif
                                             </td>
-                                            <td><a class="btn btn-primary"
-                                                    href="{{ action('EstagiarioController@gerarRelatorio', $tce->id) }}"
-                                                    target="_blank"><i class="fa fa-print"></i> Imprimir TCE</a>
+                                            <td style="width:22%;">
+                                                <a href="{{ action('EstagiarioController@gerarRelatorio', $tce->id) }}"
+                                                   class="btn btn-primary" title="Imprimir TCE" target="_blank"><i class="fa fa-print"></i></a>
                                                 <a href="{{ route('tce_contrato.edit',[$tce->tceId])}}"
-                                                    class="btn btn-danger"><i class="fa fa-print"></i> Gerar
-                                                    Rescisão</a>
+                                                    class="btn btn-danger" title="Gerar Rescisão"><i class="fa fa-pencil"></i> </a>
                                             </td>
                                         </tr>
                                         @endforeach

@@ -9,7 +9,7 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('index');
@@ -27,7 +27,7 @@ Route::post('processar', 'FolhaPagamentoController@processarFolha');
 Route::post('processar_financeiro', 'FinanceiroController@processarFinanceiro');
 Route::post('processarRescisao', 'FolhaRescisaoController@processarRescisao');
 Route::resource('ajax-crud', 'AjaxController');
-Route::get('beneficio_estagiario/{id}', ['uses' => 'AjaxController@beneficio_estagiario', 'as' => 'ajax-crud.beneficio_estagiario'] );
+Route::get('beneficio_estagiario/{id}', ['uses' => 'AjaxController@beneficio_estagiario', 'as' => 'ajax-crud.beneficio_estagiario']);
 
 Route::resource('empresa', 'EmpresaController');
 Route::resource('estagiario', 'EstagiarioController');
@@ -53,6 +53,9 @@ Route::resource('folha_rescisao', 'FolhaRescisaoController');
 Route::get('/cidade-estado', array('as' => 'myform', 'uses' => 'EstagiarioController@myform'));
 Route::get('myform/ajax/{id}', array('as' => 'myform.ajax', 'uses' => 'EstagiarioController@myformAjax'));
 
+Route::get('tce-ajax', array('as' => 'tce-ajax', 'uses' => 'TceContratoController@myform'));
+Route::get('tce-ajax/ajax/{id}', array('as' => 'tce-ajax.ajax', 'uses' => 'TceContratoController@tceAjax'));
+
 /*Gerar PDF*/
 Route::get('valores_rescisao', 'PdfController@generateValoresRescisao');
 Route::get('recisaotce', 'PdfController@generateRecisao');
@@ -61,13 +64,11 @@ Route::get('cce/{id}', 'PdfController@generateCce');
 Route::get('estagio/{id}', 'PdfController@generateEstagio');
 Route::get('tce-pdf', 'PdfController@generatePDF');
 Route::get('avaliacao-pdf', 'PdfController@generateAvaliacao');
-Route::get('fechamento-pdf', 'PdfController@generateFechamento');
+Route::get('fechamento-pdf/{id}', 'PdfController@generateFechamento');
 Route::get('/tce-pdf/{id}', 'EstagiarioController@gerarRelatorio');
-Route::get('rescisao/{id}', 'PdfController@generateRescisEao');
+Route::get('rescisao/{id}', 'PdfController@generateRescisao');
 Route::get('holerite/{id}', 'PdfController@generateHolerite');
 Route::get('grelacao/{id}', 'PdfController@generateFolha');
-
-
 
 /* rotas tce */
 Route::resource('tce_contrato', 'TceContratoController');
@@ -90,14 +91,14 @@ Route::get('lista_auto_avaliacao', ['uses' => 'AvaliacaoController@lista_avaliac
 
 Route::get('deletar_avaliacao_estagiario/{id}', [
     'uses' => 'AvaliacaoController@deletar_avaliacao_estagiario',
-    'as' => 'deletar.avaliacao.estagiario'
+    'as' => 'deletar.avaliacao.estagiario',
 ]);
 
 Route::get('assinar_avaliacao_estagiario/{id}', ['uses' => 'AvaliacaoController@assinar_avaliacao_estagiario', 'as' => 'assinar.avaliacao.estagiario']);
 
 Route::get('deletar_avaliacao_supervisor/{id}', [
     'uses' => 'AvaliacaoController@deletar_avaliacao_supervisor',
-    'as' => 'deletar.avaliacao.supervisor'
+    'as' => 'deletar.avaliacao.supervisor',
 ]);
 
 Route::get('assinar_avaliacao_supervisor/{id}', ['uses' => 'AvaliacaoController@assinar_avaliacao_supervisor', 'as' => 'assinar.avaliacao.supervisor']);

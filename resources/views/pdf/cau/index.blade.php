@@ -212,9 +212,12 @@
         As partes, por estarem de acordo quanto ao cumprimento dos termos mutuamente firmados, assinam o presente em
         duas vias de igual teor e conteúdo.
     </p>
+        @php
+        setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+        date_default_timezone_set('America/Sao_Paulo');
+        @endphp
 
-
-    <p> Campinas, <span class="text-danger"> 05/12/2018. </span> </p>
+    <p> Campinas, <span class="text-danger">{{ strftime('%A, %d de %B de %Y', strtotime($cont->data_doc))}}.</span> </p>
     <div style="height:50px;"></div>
 
     <p class="pull-left">__________________________________ <br>

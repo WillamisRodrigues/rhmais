@@ -49,31 +49,6 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {{-- <tr>
-                          <td>LARISSA CRISTINA MARZOLA</td>
-                          <td>SOARES ATIVIDADES DE COBRANÇAS LTDA - SEMPRE FÁCIL | SOARES</td>
-                          <td>ALINE PRISCILA RAMIRES</td>
-                          <td>15/04/2019 a 15/10/2019</td>
-                          <td>Não Assinado</td>
-                          <td style="width:24%;">
-                            <div class="col-md-3">
-                            <a href="" class="btn btn-primary"> <i class="fa fa-star"> </i> </a>
-                            </div>
-                            <div class="col-md-3">
-                            <a href="/editar_avaliacao_supervisor" class="btn btn-primary"> <i class="fa fa-pencil"> </i> </a>
-                            </div>
-                            <form class="col-md-3 delete" action="" method="POST">
-                              <input type="hidden" name="_method" value="DELETE">
-                              <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <button type="submit" class="btn btn-danger">
-                                            <i class="fa fa-trash"></i>
-                                        </button>
-                                        </form>
-                                        <div class="col-md-3">
-                                            <a href="#" class="btn btn-warning"> <i class="fa fa-print"> </i> </a>
-                                        </div>
-                                        </td>
-                                        </tr> --}}
                                         @foreach ($avaliacoes as $avaliacao)
                                         <tr>
                                             <td>
@@ -109,26 +84,19 @@
                                                 <div class="col-md-3">
                                                     <a href="{{route('assinar.avaliacao.supervisor', [$avaliacao->id])}}"
                                                         class="btn btn-primary">
-                                                        <i class="fa fa-star"> </i> </a>
+                                                        <i class="fa fa-star" title="Marcar como assinado"> </i> </a>
                                                 </div>
                                                 <a href="/editar_avaliacao_supervisor" class="btn btn-primary">
-                                                    <i class="fa fa-pencil"> </i> </a>
+                                                    <i class="fa fa-pencil" title="Editar"> </i> </a>
                             </div>
-                            {{-- <form class="col-md-3 delete" action="{{route('deletar.avaliacao.supervisor', [$avaliacao->id])}}"
-                            method="POST"> --}}
-                            {{-- <input type="hidden" name="_method" value="DELETE"> --}}
-                            {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> --}}
-                            {{-- <button type="submit" class="btn btn-danger"> --}}
                             <a href="{{route('deletar.avaliacao.supervisor', [$avaliacao->id])}}"
-                                class="btn btn-danger">
-
-
+                                class="btn btn-danger" title="Excluir">
                                 <i class="fa fa-trash"></i>
                             </a>
                             </button>
                             </form>
                             <div class="col-md-3">
-                                <a href="#" class="btn btn-warning"> <i class="fa fa-print"> </i> </a>
+                                <a href="#" class="btn btn-warning" title="Imprimir"> <i class="fa fa-print"> </i> </a>
                             </div>
                             </td>
                             </tr>

@@ -35,9 +35,16 @@ class FinanceiroController extends Controller
             ->groupBy('referencia')
             ->get();
 
-             $qAtivos = DB::table('tce_contrato')->join('empresa', 'empresa.id', '=', 'tce_contrato.empresa_id')->where('status', 1)->count();
-             $qRescisao = DB::table('tce_rescisao')->where('empresa_id', $empresa->id)->where('status', 1)->count();
-// dd($qAtivos);
+             $qAtivos = DB::table('tce_contrato')->join('empresa', 'empresa.id', '=', 'tce_contrato.empresa_id')
+             ->select(DB::raw('count(*) AS qtd, empresa.id'))
+            ->groupBy('empresa.id')
+            ->get();
+
+             $qRescisao = DB::table('tce_rescisao')->join('empresa', 'empresa.id', '=', 'tce_rescisao.empresa_id')
+             ->select(DB::raw('count(*) AS qtd, empresa.id'))
+            ->groupBy('empresa.id')
+            ->get();
+// dd($qRescisao);
         return view('financeiro.index', ['empresas' => $empresas, 'contratos'=>$contratos, 'periodos'=>$periodos, 'qAtivos' =>$qAtivos, 'qRescisao' =>$qRescisao]);
     }
 

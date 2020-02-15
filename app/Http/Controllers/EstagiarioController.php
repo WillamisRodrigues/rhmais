@@ -99,6 +99,7 @@ class EstagiarioController extends Controller
                     'tce_contrato.horario',
                     'tce_contrato.atividade',
                     'tce_contrato.bolsa',
+                    'tce_contrato.data_doc',
                     'tce_contrato.created_at'
                 )
                 ->where('estagiario.id', '=', $id)

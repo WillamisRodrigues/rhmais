@@ -55,34 +55,73 @@
         <tr>
             <td style="padding-left: 3rem">
                 {!! "1" !!}<br>
-                {!! "2" !!}<br>
-                {!! "3" !!}<br>
+                @if (isset($data->beneficio_id))
+                      {!! "2" !!}
+                 @endif
+               <br>
+                @if (isset($data->beneficio_id))
+                      {!! "3" !!}
+                 @endif
+                <br>
             </td>
             <td>
                 {!! "Bolsa Auxílio" !!}<br>
-                {!! "Bolsa Auxílio" !!}<br>
-                {!! "Bolsa Auxílio" !!}<br>
+                 @if (isset($data->beneficio_id))
+                     {!! "Beneficio" !!}<br>
+                 @endif
+                  @if (isset($data->beneficio_id))
+                        {!! "Beneficio" !!}<br>
+                 @endif
             </td>
             <td>
-                R$ {{$data->valor_bolsa}}<br>
-                {!! "000,00" !!}<br>
-                {!! "" !!}<br>
+                 @if (isset($data->valor_bolsa))
+                    {{"R$ " .number_format($data->valor_bolsa, 2)}}
+                 @endif
+                <br>
+                {{-- Beneficios --}}
+                 @if (isset($data->beneficio_id))
+                     {{$data->valor_bolsa}}
+                 @endif
+                @if (isset($data->beneficio_id))
+                     {{$data->valor_bolsa}}
+                 @endif
+                <br>
             </td>
             <td>
-                {!! "" !!}<br>
-                {!! "" !!}<br>
-                {!! "000,00" !!}<br>
+                {{-- Descontos --}}
+                @if (isset($data->beneficio_id))
+                     {{$data->valor_bolsa}}
+                 @endif
+                @if (isset($data->beneficio_id))
+                     {{$data->valor_bolsa}}
+                 @endif
+                <br>
             </td>
         </tr>
         <tr>
             <td></td>
             <td></td>
-            <td>Total de: <br>R$ {{$data->valor_bolsa}}  </td>
-            <td>Descontos: <br> {!! "000,00" !!}  </td>
+            <td>Total de: <br>@if (isset($data->valor_bolsa))
+                    {{"R$ " .number_format($data->valor_bolsa, 2)}}
+                    @else
+                         {!! "000,00" !!}
+                 @endif
+                </td>
+            <td>Descontos: <br>@if (isset($data->valor_desconto))
+                {{$data->valor_desconto}}
+            @endif  </td>
         </tr>
         <tr>
-            <td colspan="3">Valor Base Bolsa-Auxílio <br> R$ {{$data->valor_bolsa}}</td>
-            <td>Valor Líquido<br> <u>R$ {{$data->valor_liquido}}</u></td>
+            <td colspan="3">Valor Base Bolsa-Auxílio <br>@if (isset($data->valor_bolsa))
+                    {{"R$ " .number_format($data->valor_bolsa, 2)}}
+                    @else
+                         {!! "000,00" !!}
+                 @endif
+                </td>
+            <td>Valor Líquido<br> <u>@if (isset($data->valor_liquido))
+                    {{"R$ " .number_format($data->valor_liquido, 2)}}
+            @endif
+        </u></td>
         </tr>
         <tr>
             <td colspan="2">Banco/Agência</td>
@@ -143,34 +182,62 @@
         <tr>
             <td style="padding-left: 3rem">
                 {!! "1" !!}<br>
-                {!! "2" !!}<br>
-                {!! "3" !!}<br>
+                @if (isset($data->beneficio_id))
+                      {!! "2" !!}
+                 @endif
+               <br>
+                @if (isset($data->beneficio_id))
+                      {!! "3" !!}
+                 @endif
+                <br>
             </td>
             <td>
-                {!! "Bolsa Auxílio" !!}<br>
-                {!! "Bolsa Auxílio" !!}<br>
-                {!! "Bolsa Auxílio" !!}<br>
+              {!! "Bolsa Auxílio" !!}<br>
+                 @if (isset($data->beneficio_id))
+                     {!! "Beneficio" !!}<br>
+                 @endif
+                  @if (isset($data->beneficio_id))
+                        {!! "Beneficio" !!}<br>
+                 @endif
             </td>
             <td>
-                R$ {{$data->valor_bolsa}}<br>
-                {!! "000,00" !!}<br>
-                {!! "" !!}<br>
-            </td>
-            <td>
-                {!! "" !!}<br>
-                {!! "" !!}<br>
-                {!! "000,00" !!}<br>
+               @if (isset($data->valor_bolsa))
+                    {{"R$ " .number_format($data->valor_bolsa, 2)}}
+                 @endif
+                <br>
+                 @if (isset($data->beneficio_id))
+                     {{$data->valor_bolsa}}
+                 @endif
+                @if (isset($data->beneficio_id))
+                     {{$data->valor_bolsa}}
+                 @endif
+            <br>
             </td>
         </tr>
         <tr>
             <td></td>
             <td></td>
-            <td>Total de: <br>R$ {{$data->valor_bolsa}}</td>
-            <td>Descontos: <br>{!! "000,00" !!}</td>
+            <td>Total de: <br>@if (isset($data->valor_bolsa))
+                    {{"R$ " .number_format($data->valor_bolsa, 2)}}
+                    @else
+                         {!! "000,00" !!}
+                 @endif
+                </td>
+            <td>Descontos: <br>@if (isset($data->valor_desconto))
+                {{$data->valor_desconto}}
+            @endif  </td>
         </tr>
         <tr>
-            <td colspan="3">Valor Base Bolsa-Auxílio <br>R$ {{$data->valor_bolsa}}</td>
-            <td>Valor Líquido<br> <u>R$ {{$data->valor_liquido}}</u></td>
+            <td colspan="3">Valor Base Bolsa-Auxílio <br>@if (isset($data->valor_bolsa))
+                    {{"R$ " .number_format($data->valor_bolsa, 2)}}
+                    @else
+                         {!! "000,00" !!}
+                 @endif
+                </td>
+            <td>Valor Líquido<br> <u>@if (isset($data->valor_liquido))
+                    {{"R$ " .number_format($data->valor_liquido, 2)}}
+            @endif
+            </u></td>
         </tr>
         <tr>
             <td colspan="2">Banco/Agência</td>

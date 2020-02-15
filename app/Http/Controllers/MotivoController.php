@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Empresa;
+use App\Instituicao;
 use App\Motivo;
 use DB;
-use App\Instituicao;
-use App\Empresa;
 use Illuminate\Http\Request;
 
 class MotivoController extends Controller
@@ -51,7 +51,6 @@ class MotivoController extends Controller
         $motivo = new Motivo();
         $motivo->nome = $request->get('nome');
         $motivo->descricao = $request->get('descricao');
-        $motivo->empresa = $request->get('empresa');
         $motivo->save();
 
         return redirect()->route('motivo.index')
@@ -96,10 +95,8 @@ class MotivoController extends Controller
         ]);
 
         $motivo = Motivo::find($id);
-        $motivo->nome =  $request->get('nome');
+        $motivo->nome = $request->get('nome');
         $motivo->descricao = $request->get('descricao');
-        $motivo->empresa = $request->get('empresa');
-        $motivo->status = $request->get('status');
         $motivo->save();
 
         $request->session()->flash('success', 'Atualizado com sucesso!');

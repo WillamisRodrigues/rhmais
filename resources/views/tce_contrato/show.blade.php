@@ -64,13 +64,7 @@
                                                         <span class="fa fa-home form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
-                                                    {{-- <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" value="{{$tce->supervisor}}"
-                                                            class="form-control has-feedback-left"
-                                                            placeholder="Supervisor Estágio" name="supervisor">
-                                                        <span class="fa fa-user form-control-feedback left"
-                                                            aria-hidden="true"></span>
-                                                    </div> --}}
+                                                  
                                                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                     <select class="form-control has-feedback-left" name="supervisor" value="{{$tce->supervisor_id}}">
                                                                     @foreach ($supervisor as $sup)
@@ -83,13 +77,7 @@
                                                             @endforeach
                                                     </select>
                                                      </div>
-                                                    {{-- <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" value="{{$tce->orientador}}"
-                                                            class="form-control has-feedback-left"
-                                                            placeholder="Orientador" name="orientador">
-                                                        <span class="fa fa-user form-control-feedback left"
-                                                            aria-hidden="true"></span>
-                                                    </div> --}}
+
                                                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                     <select class="form-control has-feedback-left" name="orientador" value="{{$tce->orientador_id}}">
                                                             @foreach ($orientador as $or)

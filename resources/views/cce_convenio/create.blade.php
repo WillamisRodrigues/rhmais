@@ -92,9 +92,7 @@
                                                     </div>
                                                     <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                                                         <label for="">Observação:</label>
-                                                        <textarea class="form-control" placeholder="Sua observação"
-                                                            name="obs">
-                                                </textarea>
+                                                        <textarea class="form-control" placeholder="Sua observação" name="obs"></textarea>
                                                     </div>
                                                     <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                                                         <button type="submit" class="btn btn-success">Salvar</button>

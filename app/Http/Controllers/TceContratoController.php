@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\TceContrato;
-use App\Empresa;
-use App\Instituicao;
-use App\Estagiario;
-use Illuminate\Http\Request;
-use App\Beneficio;
-use App\Seguradora;
-use App\Setor;
-use App\Horario;
 use App\Atividade;
+use App\Beneficio;
+use App\Empresa;
+use App\Estagiario;
+use App\Horario;
+use App\Instituicao;
 use App\Motivo;
 use App\Orientador;
+use App\Seguradora;
+use App\Setor;
 use App\Supervisor;
+use App\TceContrato;
 use DB;
+use Illuminate\Http\Request;
 
 class TceContratoController extends Controller
 {
@@ -45,7 +45,8 @@ class TceContratoController extends Controller
                 'tce_contrato.id As tceId'
             )
             ->get();
-        return view('tce_contrato.index',  compact('tces', $tces));
+        // dd($tces);
+        return view('tce_contrato.index', compact('tces', $tces));
     }
 
     /**
@@ -97,7 +98,7 @@ class TceContratoController extends Controller
         $contrato->atividade = $request->get('atividade');
         $contrato->orientador_id = $request->get('orientador_id');
         $contrato->supervisor_id = $request->get('supervisor_id');
-        $contrato->bolsa = str_replace(',','.', $request->get('bolsa'));
+        $contrato->bolsa = str_replace(',', '.', $request->get('bolsa'));
         $contrato->obrigatorio = $request->get('obrigatorio');
         $contrato->obs = $request->get('observacao');
         $contrato->curso = $request->get('curso');
@@ -116,8 +117,8 @@ class TceContratoController extends Controller
      */
     public function show($id)
     {
-            $orientador = Orientador::all();
-            $supervisor = Supervisor::all();
+        $orientador = Orientador::all();
+        $supervisor = Supervisor::all();
 
         $tceContrato = DB::table('tce_contrato')
             ->join('estagiario', 'estagiario.id', '=', 'tce_contrato.estagiario_id')
@@ -145,7 +146,7 @@ class TceContratoController extends Controller
             ->where('tce_contrato.id', '=', $id)
             ->get();
 
-        return view('tce_contrato.show', compact('tceContrato', 'orientador' , 'supervisor', $tceContrato));
+        return view('tce_contrato.show', compact('tceContrato', 'orientador', 'supervisor', $tceContrato));
     }
 
     /**
@@ -184,8 +185,8 @@ class TceContratoController extends Controller
             ->where('tce_contrato.id', '=', $id)
             ->get();
 
-            $motivos = Motivo::all();
-            $supervisor = Supervisor::all();
+        $motivos = Motivo::all();
+        $supervisor = Supervisor::all();
 
         return view('tce_contrato.edit', compact('tceContrato', 'motivos', 'supervisor', $tceContrato));
     }
@@ -212,4 +213,20 @@ class TceContratoController extends Controller
     {
         //
     }
+    public function tceAjax($id)
+    {
+        $contrato = DB::table('estagiario')
+            ->join('empresa', 'empresa.id', '=', 'estagiario.empresa_id')
+            ->join('instituicao', 'instituicao.id', '=', 'estagiario.instituicao_id')
+            ->where("estagiario.id", $id)
+        // ->pluck("empresa_id", "nome_fantasia", "nome_instituicao");
+            ->get();
+        return json_encode($contrato);
+    }
+
+    // public function myform()
+    // {
+    //     $estagiarios = DB::table("estagiario")->pluck("id");
+    //     return view('tce_contrato.create', compact('estagiarios'));
+    // }
 }

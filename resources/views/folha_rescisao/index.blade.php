@@ -81,7 +81,7 @@
                                 <br>
                                 <button class="btn btn-primary">Processar</button>
                                 <button class="btn btn-primary">G. Recibo</button>
-                                <button class="btn btn-primary">G. Relaçãp</button>
+                                <button class="btn btn-primary">G. Relação</button>
                             </div>
                         </form>
                         <br>
@@ -144,15 +144,21 @@
                                                 }
                                                 @endphp
                                             </td>
-                                            <td>R$ {{ $folha->valor_bolsa }}</td>
-                                            <td>{{ $folha->faltas }}</td>
-                                            <td>R$ {{ $folha->valor_liquido }}</td>
+                                            <td> @if (isset($folha->valor_bolsa))
+                                                 {{"R$ " .number_format($folha->valor_bolsa, 2) }}
+                                            @endif
+                                            </td>
+                                            {{-- <td>{{ $folha->faltas }}</td> --}}
+                                            <td>@if (isset($folha->valor_liquido))
+                                                    {{"R$ " .number_format($folha->valor_liquido, 2) }}
+                                            @endif
+                                            </td>
                                             <td>
                                                 <form action="{{ route('folha_rescisao.edit', [$folha->id]) }}">
-                                                <button type="submit" class="btn btn-primary"><i class="fa fa-pencil"></i> </a>
+                                                <button type="submit" class="btn btn-primary" title="Editar"><i class="fa fa-pencil"></i> </a>
                                                 </button>
                                                 <a href="{{ action('PdfController@generateRescisao', $folha->id) }}" target="_blank" class="btn btn-success">
-                                                    <i class="fa fa-print"></i>
+                                                    <i class="fa fa-print" title="Imprimir"></i>
                                                 </a>
                                                 </form>
                                             </td>

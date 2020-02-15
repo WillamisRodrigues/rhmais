@@ -86,7 +86,7 @@
                                                 Não
                                                 @endif
                                             </td>
-                                            <td><a class="btn btn-primary"
+                                            <td><a class="btn btn-primary" title="Adicionar"
                                                     href="{{ route('tce_aditivo.edit',[$tcead->id])}}"><i
                                                         class="fa fa-plus"></i></a></td>
                                         </tr>

@@ -209,19 +209,19 @@
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                    <label for="">Data de Término do Curso</label>
+                                    {{-- <label for="">Data de Término do Curso</label> --}}
                                     <input type="text" class="form-control data has-feedback-left"
                                         placeholder="Data de Término do Curso" name="termino_curso"
                                         value="{{old('termino_curso')}}">
                                     <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                 </div>
-                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                {{-- <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                      <label for="">Previsão Término Curso</label>
                                     <input type="text" class="form-control data has-feedback-left"
                                         placeholder="Previsão Término Curso" name="termino_curso"
                                         value="{{old('termino_curso')}}">
                                     <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
-                                </div>
+                                </div> --}}
                                   <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <input type="text" class="form-control has-feedback-left" placeholder="Matricula"
                                         name="matricula" value="{{old('matricula')}}">

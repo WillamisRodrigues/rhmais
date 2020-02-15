@@ -114,7 +114,7 @@
 
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text" class="form-control has-feedback-left"
-                                                            placeholder="Endereço" name="endereco"
+                                                            placeholder="Endereço" name="rua"
                                                             value="{{old('endereco')}}">
                                                         <span class="fa fa-map-marker form-control-feedback left"
                                                             aria-hidden="true"></span>
@@ -180,8 +180,8 @@
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text"
                                                             class="form-control telefone has-feedback-left"
-                                                            placeholder="Celular Contato" name="cel_contato"
-                                                            value="{{old('cel_contato')}}">
+                                                            placeholder="Celular Contato" name="celular_contato"
+                                                            value="{{old('celular_contato')}}">
                                                         <span class="fa fa-phone form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
@@ -189,8 +189,8 @@
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text"
                                                             class="form-control telefone has-feedback-left"
-                                                            placeholder="Celular Representante" name="cel_representante"
-                                                            value="{{old('cel_rep')}}">
+                                                            placeholder="Celular Representante" name="celular_rep"
+                                                            value="{{old('celular_rep')}}">
                                                         <span class="fa fa-phone form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>

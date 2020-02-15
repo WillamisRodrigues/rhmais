@@ -48,30 +48,19 @@
                                             <td style="width:15%;">
                                                 <div class="col-md-3">
                                                     <a href="{{route('setor.edit', [$setor->id])}}"
-                                                        class="btn btn-primary"> <i class="fa fa-pencil"> </i></a>
+                                                        class="btn btn-primary" title="Editar"> <i class="fa fa-pencil"> </i></a>
                                                 </div>
                                                 <form class="col-md-3" style="margin-left:10px;"
                                                     action="{{url('setor', [$setor->id])}}" method="POST">
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                     <button type="submit" class="btn btn-danger" data-toggle="tooltip"
-                                                        data-placement="top"
+                                                        data-placement="top" title="Excluir"
                                                         onclick="return confirm('Tem certeza que deseja deletar o motivo selecionado?')">
                                                         <i class="fa fa-trash"></i>
                                                     </button>
                                                 </form>
                             </div>
-                            {{-- <td style="width:15%;">
-                          <form class="col-md-3" action="#" method="POST">
-    		                  <input type="hidden" name="_method" value="DELETE">
-                              <button type="submit" class="btn btn-danger">
-                              <i class="fa fa-trash"></i> Deletar
-                              </button>
-                          </form>
-                            <div class="col-md-3"  style="margin-left:40px;">
-                            <a href="{{route('setor.edit', [$setor->id])}}" class="btn btn-primary"> <i
-                                class="fa fa-plus"> </i> Editar</a>
-                        </div> --}}
                         </td>
                         </tr>
                         @endforeach

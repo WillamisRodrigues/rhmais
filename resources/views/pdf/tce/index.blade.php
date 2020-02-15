@@ -192,7 +192,11 @@
     <p class="text-justify"> E por assim estarem de acordo, assinam este Termo de Compromisso de Estágio em 4 (quatro)
         vias de igual teor.</p>
     <p>
-        <p class="pull-right"> Campinas, <span class="text-danger"> {{$dados->created_at}}. </span> </p>
+        @php
+        setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+        date_default_timezone_set('America/Sao_Paulo');
+        @endphp
+        <p class="pull-right"> Campinas, <span class="text-danger"> {{ strftime('%A, %d de %B de %Y', strtotime($dados->data_doc))}}. </span> </p>
         <div style="height:50px;"></div>
         <div class="row">
             <p class="pull-left">__________________________________ <br>

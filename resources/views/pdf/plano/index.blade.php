@@ -8,11 +8,12 @@
 </head>
 
 <body>
-    <img src="{{ public_path('/images/logo-rhmais.png') }}" style="margin-left:270px; width:20%;"> 
+    <img src="{{ public_path('/images/logo-rhmais.png') }}" style="margin-left:270px; width:20%;">
     <h5 class="text-center"><strong> PLANO DE ESTÁGIO (previsto na Lei de Estágio 11.788/08) </strong></h5>
+@foreach ($estagio as $plan)
 
     <p class="text-center">
-        Estagiário(a): LAURA BEATRIZ CARDOSO DE CARVALHO
+         Estagiário(a): {{$plan->estagiaria}}LAURA BEATRIZ CARDOSO DE CARVALHO
         CPF: 135.633.236-66
         Matrículado(a) no : 04o Período
         do nível: NS - NÍVEL SUPERIOR
@@ -89,7 +90,7 @@
         CAROLINA MACAGNANI DOS SANTOS <br><br>
         <span> (assinatura e carimbo)-Supervisor </span>
     </p>
-
+@endforeach
 
 </body>
 

@@ -68,8 +68,9 @@
                                                             aria-hidden="true"></span>
                                                     </div> --}}
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="radio" name="tipo" value="1"> Crédito
+                                                        <h4><input type="radio" name="tipo" value="1"> Crédito
                                                         <input type="radio" name="tipo" value="2"> Débito
+                                                        </h4>
                                                     </div>
                                                 </div>
                                                 <div class="btn-group mr-2 sw-btn-group-extra" role="group">

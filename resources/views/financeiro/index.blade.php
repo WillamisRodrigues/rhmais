@@ -109,18 +109,7 @@
                                             </td>
                                             <td>{{ $contrato->referencia }}</td>
                                             <td>{{$contrato->data_boleto}}</td>
-                                            {{-- <td>
-                                                {{-- @php
-                                                $soma = 0;
-                                                foreach ($empresas as $empresa) {
-                                                if ($contrato->empresa_id == $empresa->id) {
-                                                $soma += $contrato->total_custo;
-                                                }
-                                                }
-                                                echo "R$ ".number_format($soma, 2, ',', '.');;
-                                                @endphp
-                                                {{"R$ ".number_format($contrato->total_custo, 2)}}
-                                            </td> --}}
+
                                             <td>@php
                                                 foreach ($empresas as $empresa) {
                                                 if ($empresa->id == $contrato->empresa_id) {
@@ -130,10 +119,18 @@
                                                 @endphp
                                             </td>
                                             <td>
-                                                {{$qRescisao}}
+                                                @foreach ($qRescisao as $inativos)
+                                                    @if($inativos->id == $contrato->empresa_id)
+                                                            {{$inativos->qtd}}
+                                                    @endif
+                                                @endforeach
                                             </td>
                                             <td>
-                                                {{$qAtivos}}
+                                                @foreach ($qAtivos as $ativos)
+                                                    @if($ativos->id == $contrato->empresa_id)
+                                                            {{$ativos->qtd}}
+                                                    @endif
+                                                @endforeach
                                             </td>
                                             <td>{{"R$ ".number_format($contrato->total_custo, 2)}}</td>
                                             <td>
@@ -151,7 +148,8 @@
                                             <td>VALOR <BR> SOMA <BR> % <BR> CONTRATO<BR> ESTAGIARIO
                                             </td>
                                             <td><a href="{{ route('financeiro.infos', [$contrato->id]) }}"
-                                                    class="btn btn-primary"><i class="fa fa-bars"></i></a></td>
+                                                    class="btn btn-primary" title="Detalhes"><i class="fa fa-bars"></i></a></td>
+                                            <td> <a href="{{ action('PdfController@generateFechamento', $contrato->empresa_id) }}" target="_blank" class="btn btn-warning" title="Imprimir"> <i class="fa fa-print"></i> </a> </td>
                                         </tr>
                                         @endforeach
 

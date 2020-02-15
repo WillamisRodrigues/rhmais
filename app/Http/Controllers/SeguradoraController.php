@@ -48,7 +48,6 @@ class SeguradoraController extends Controller
         $seguradora = new Seguradora();
         $seguradora->nome = $request->get('nome');
         $seguradora->n_apolice = $request->get('n_apolice');
-        $seguradora->empresa_id = $request->get('empresa_id');
         $seguradora->agente_integracao = $request->get('agente_integracao');
         $seguradora->cobertura = $request->get('cobertura');
 
@@ -79,12 +78,9 @@ class SeguradoraController extends Controller
     {
         // $seguradora = Seguradora::find($id);
         $seguro = DB::table('seguradora')->where('id', $id)->get()->first();
-        // $empresas = DB::table('empresa')->where('id', '=', $seguradora->empresa_id)->get()->first();
-        $empresas = Empresa::all();
 
         return view('seguro.edit', [
             'seguro' => $seguro,
-            'empresas' => $empresas
         ]);
     }
 

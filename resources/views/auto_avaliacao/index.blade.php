@@ -37,17 +37,6 @@
                                                 <input type="text" class="form-control">
                                             </th>
                                             <th>TCE Início/Fim</th>
-                                            {{-- <th>Período Avaliativo</th> --}}
-                                            {{-- <th>Avaliação Branco Período</th>
-                                            <th>Auto-Avaliação</th>
-                                            <th>Avaliação Supervisor</th> --}}
-                                            {{-- <th>Saldo das Avaliações</th> --}}
-                                            {{-- <th>Contrato --}}
-                                                {{-- <input type="text" class="form-control" style="width:100px;">
-                                            </th>
-                                            <th>Assinado
-                                                <input type="text" class="form-control" style="width:100px;">
-                                            </th> --}}
                                             <th>Opções</th>
                                         </tr>
                                     </thead>
@@ -63,20 +52,11 @@
                                                 @endforeach
                                             </td>
                                             <td>{{date('d/m/Y', strtotime($estagiario->data_inicio)) }} / {{date('d/m/Y', strtotime ($estagiario->data_fim)) }}</td>
-                                            {{-- <td>02/01/2018 02/07/2018 03/07/2018 03/01/2019 04/01/2019 04/07/2019
-                                                05/07/2019 31/12/2019 </td> --}}
-                                            {{-- <td>Obrigação=4 Supervisor fez=0 Estudante Fez=0 Falta=4</td> --}}
-                                            {{-- <td>AD</td> --}}
-                                            {{-- <td>Sim </td> --}}
                                             <td>
                                                 <div class="col-md-3">
                                                     <a href="{{route('auto_avaliacao.create')}}"
-                                                        class="btn btn-primary"> <i class="fa fa-pencil"> </i></a>
+                                                        class="btn btn-primary" title="Lançar"> <i class="fa fa-pencil"> </i></a>
                                                 </div>
-                                                {{-- <div class="col-md-3">
-                                                    <a href="/auto_avaliacao/show" class="btn btn-success"> <i
-                                                            class="fa fa-plus"></i></a>
-                                                </div> --}}
                                             </td>
                                         </tr>
                                         @endforeach

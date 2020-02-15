@@ -66,7 +66,7 @@
                                             </td>
                                               <td style="width:22%;">
                                                 <a href="{{ route('cce_convenio.edit', [$cce->id]) }}"
-                                                    class="btn btn-primary"> <i class="fa fa-pencil"> </i></a>
+                                                    class="btn btn-primary" title="Editar"> <i class="fa fa-pencil"> </i></a>
                                                 <a href="{{ route('cce_convenio.assinar', [$cce->id]) }}"
                                                     class="btn btn-primary" title="Marcar contrato como assinado"> <i
                                                         class="fa fa-star"></i> </a>
@@ -75,13 +75,13 @@
                                                     method="POST">
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                    <button type="submit" class="btn btn-danger"
+                                                    <button type="submit" class="btn btn-danger" title="Excluir"
                                                         onclick="return confirm('Tem certeza que deseja deletar o Convênio selecionado?')">
                                                         <i class="fa fa-trash"></i>
                                                     </button>
                                                 </form>
-                                                <a class="btn btn-warning" href="{{ action('PdfController@generateCce', $cce->id) }}" target="_blank"><i
-                                                        class="fa fa-print"></i> </a>
+                                                <a class="btn btn-warning" title="Contrato" href="{{ action('PdfController@generateCce', $cce->id) }}" target="_blank"><i
+                                                        class="fa fa-print" title="Imprimir"></i> </a>
                                             </td>
                                         </tr>
                                         @endforeach

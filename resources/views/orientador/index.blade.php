@@ -46,9 +46,9 @@
                                             <th>Instituição
                                                 <input type="text" class="form-control" style="width:100px;">
                                             </th>
-                                            <th>Unidade
+                                            {{-- <th>Unidade
                                                 <input type="text" class="form-control">
-                                            </th>
+                                            </th> --}}
                                             <th>Ag de Integração
                                                 <input type="text" class="form-control">
                                             </th>
@@ -63,31 +63,21 @@
                                             <td>{{$orientador->rg}}</td>
                                             <td>{{$orientador->cidade}}</td>
                                             <td>{{$orientador->instituicao}}</td>
-                                            <td>{{$orientador->empresa}}</td>
+                                            {{-- <td>{{$orientador->empresa}}</td> --}}
                                             <td>{{$orientador->agente_integracao}}</td>
                                             <td style="width:15%;">
                                                 <div class="col-md-3">
                                                     <a href="{{route('orientador.edit', [$orientador->id])}}"
-                                                        class="btn btn-primary"> <i class="fa fa-pencil"> </i> </a>
+                                                        class="btn btn-primary" title="Editar"> <i class="fa fa-pencil"> </i> </a>
                                                 </div>
                                                 <form class="col-md-3" style="margin-left:10px;"
                                                     action="{{url('orientador', [$orientador->id])}}" method="POST">
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                    <button type="submit" class="btn btn-danger">
+                                                    <button type="submit" class="btn btn-danger" title="Excluir">
                                                         <i class="fa fa-trash"></i>
                                                     </button>
                                                 </form>
-                                                    {{-- <td style="width:15%;">
-                          <form class="col-md-3" action="#" method="POST">
-    		                  <input type="hidden" name="_method" value="DELETE">
-                              <button type="submit" class="btn btn-danger">
-                              <i class="fa fa-trash"></i> Deletar
-                              </button>
-                          </form>
-                            <div class="col-md-3" style="margin-left:40px;">
-                            <a href="{{route('orientador.edit', [$orientador->id])}}" class="btn btn-primary"> <i
-                                                        class="fa fa-plus"> </i> Editar</a> --}}
                             </div>
                             </td>
                             </tr>

@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Instituicao;
-use App\Endereco;
 use App\Estado;
-use Illuminate\Support\Facades\DB;
+use App\Instituicao;
+use Illuminate\Http\Request;
 
 class InstituicaoController extends Controller
 {
@@ -66,9 +64,9 @@ class InstituicaoController extends Controller
         $instituicoes->email_contato = $request->get('email_contato');
         $instituicoes->email_rep = $request->get('email_rep');
         $instituicoes->celular_rep = $request->get('cel_rep');
-        $instituicoes->celular_contato = $request->get('cel_contato');
+        $instituicoes->celular_contato = $request->get('celular_contato');
         $instituicoes->cep = $request->get('cep');
-        $instituicoes->endereco = $request->get('rua');
+        $instituicoes->rua = $request->get('rua');
         $instituicoes->bairro = $request->get('bairro');
         $instituicoes->numero = $request->get('numero');
         $instituicoes->complemento = $request->get('complemento');

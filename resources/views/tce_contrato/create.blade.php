@@ -7,6 +7,7 @@
             <div class="left_col scroll-view">
                 @include('layout.menu.menu')
                 <!-- /menu profile quick info -->
+                 <script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script>
 
                 <br />
                 @include('layout.menu.sidebar')
@@ -47,9 +48,8 @@
                                                         <select class="form-control has-feedback-left"
                                                             name="estagiario_id">
                                                             <option>Selecione o Estagiário:</option>
-                                                            @foreach ($estagiarios as $estagiario)
-                                                            <option value="{{ $estagiario->id }}">
-                                                                {{ $estagiario->nome }}</option>
+                                                            @foreach ($estagiarios as  $key => $value )
+                                                           <option value="{{ $value->id }}">{{ $value->nome }}</option>
                                                             @endforeach
                                                         </select>
                                                         <span class="fa fa-user form-control-feedback left"
@@ -58,11 +58,6 @@
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <select class="form-control has-feedback-left"
                                                             name="empresa_id">
-                                                            <option>Selecione Unidade Concedente:</option>
-                                                            @foreach ($empresas as $empresa)
-                                                            <option value="{{ $empresa->id }}">
-                                                                {{ $empresa->nome_fantasia }}</option>
-                                                            @endforeach
                                                         </select>
                                                         <span class="fa fa-home form-control-feedback left"
                                                             aria-hidden="true"></span>
@@ -70,11 +65,6 @@
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <select class="form-control has-feedback-left"
                                                             name="instituicao_id">
-                                                            <option>Selecione Instituição de Ensino:</option>
-                                                            @foreach ($instituicoes as $instituicao)
-                                                            <option value="{{ $instituicao->id }}">
-                                                                {{ $instituicao->nome_instituicao }}</option>
-                                                            @endforeach
                                                         </select>
                                                         <span class="fa fa-graduation-cap form-control-feedback left"
                                                             aria-hidden="true"></span>
@@ -229,4 +219,29 @@
     <!-- /footer content -->
 </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('select[name="estagiario_id"]').on('change', function() {
+            var stateID = $(this).val();
+            if(stateID) {
+                $.ajax({
+                    url: '/tce-ajax/ajax/'+stateID,
+                    type: "GET",
+                    dataType: "json",
+                    success:function(data) {
+                        $('select[name="empresa_id"]').empty();
+                        console.log(data);
+                        $.each(data, function(key, value) {
+                            $('select[name="empresa_id"]').append('<option value="'+ key +'">'+ key +'</option>');
+                            $('select[name="instituicao_id"]').append('<option value="'+ key +'">'+ value +'</option>');
+                        });
+                    }
+                });
+            }else{
+                $('select[name="empresa_id"]').empty();
+            }
+        });
+    });
+</script>
+
 @endsection

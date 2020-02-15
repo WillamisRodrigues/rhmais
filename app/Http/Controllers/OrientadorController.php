@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Empresa;
+use App\Instituicao;
 use App\Orientador;
 use DB;
-use App\Instituicao;
 use Illuminate\Http\Request;
 
 class OrientadorController extends Controller
@@ -65,7 +65,6 @@ class OrientadorController extends Controller
         $orientadoress->cep = $request->get('cep');
         $orientadoress->numero = $request->get('numero');
         $orientadoress->complemento = $request->get('complemento');
-        $orientadoress->empresa_id = $request->get('empresa_id');
         $orientadoress->instituicao_id = $request->get('instituicao_id');
         $orientadoress->save();
 
@@ -95,7 +94,7 @@ class OrientadorController extends Controller
         $orientador = Orientador::find($id);
         $instituicoes = Instituicao::all();
         $empresas = Empresa::all();
-        return view('orientador.edit', compact('orientador', 'instituicoes', 'empresas',  $orientador));
+        return view('orientador.edit', compact('orientador', 'instituicoes', 'empresas', $orientador));
     }
 
     /**

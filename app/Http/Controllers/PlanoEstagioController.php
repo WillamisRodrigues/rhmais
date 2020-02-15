@@ -34,7 +34,7 @@ class PlanoEstagioController extends Controller
                 'tce_contrato.id As tceId'
             )
             ->get();
-        return view('plano_estagio.index',  compact('planos', $planos));
+        return view('plano_estagio.index', compact('planos', $planos));
     }
 
     /**
@@ -97,8 +97,11 @@ class PlanoEstagioController extends Controller
      * @param  \App\PlanoEstagio  $planoEstagio
      * @return \Illuminate\Http\Response
      */
-    public function edit(PlanoEstagio $planoEstagio)
+    public function edit(PlanoEstagio $id)
     {
+        $planoEstagio = $estagio = DB::table('plano_estagio')
+            ->where('plano_estagio.id', '=', $id)
+            ->get();
         return view('plano_estagio.edit', compact('planoEstagio', $planoEstagio));
     }
 

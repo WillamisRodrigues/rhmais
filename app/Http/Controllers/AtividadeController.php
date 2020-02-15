@@ -46,7 +46,6 @@ class AtividadeController extends Controller
         $atividades = new Atividade();
         $atividades->nome = $request->get('nome');
         $atividades->empresa = $request->get('empresa');
-        $atividades->sigla = $request->get('sigla');
         $atividades->agente_integracao = $request->get('agente_integracao');
 
         $atividades->save();

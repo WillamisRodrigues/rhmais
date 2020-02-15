@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Empresa;
-use App\Instituicao;
 use App\Supervisor;
 use DB;
-
 use Illuminate\Http\Request;
 
 class SupervisorController extends Controller
@@ -30,9 +28,8 @@ class SupervisorController extends Controller
      */
     public function create()
     {
-        $instituicoes = Instituicao::all();
         $empresas = Empresa::all();
-        return view('supervisor.create', compact('empresas', 'cursos', 'instituicoes'));
+        return view('supervisor.create', compact('empresas', 'cursos'));
     }
 
     /**
@@ -47,7 +44,6 @@ class SupervisorController extends Controller
             'nome' => 'required',
             'email' => 'required',
         ]);
-
 
         $supervisores = new Supervisor();
         $supervisores->nome = $request->get('nome');
@@ -93,7 +89,7 @@ class SupervisorController extends Controller
         $supervisor = Supervisor::find($id);
         $empresa = DB::table('empresa')->where('id', '=', $supervisor->empresa_id)->get()->first();
 
-            return view('supervisor.edit', compact('supervisor', 'empresa', $supervisor));
+        return view('supervisor.edit', compact('supervisor', 'empresa', $supervisor));
     }
 
     /**

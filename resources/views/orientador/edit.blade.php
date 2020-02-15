@@ -67,7 +67,7 @@
                                                         <span class="fa fa-user form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
-                                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                    {{-- <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <select class="form-control has-feedback-left" name="empresa">
                                                             <option value="{{ $orientador->empresa }}">
                                                                 {{ $orientador->empresa }}</option>
@@ -76,7 +76,7 @@
                                                                 {{ $empresa->nome_fantasia }}</option>
                                                             @endforeach
                                                         </select>
-                                                    </div>
+                                                    </div> --}}
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <select class="form-control has-feedback-left"
                                                             name="instituicao">

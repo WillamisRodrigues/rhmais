@@ -37,13 +37,13 @@
                                             <div id="form-step-0" role="form" data-toggle="validator">
                                                 <div class="row" style="width:960px; margin: 20px auto;">
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" class="form-control has-feedback-left"
+                                                        <input type="text" maxlength="14" class="form-control has-feedback-left"
                                                             placeholder="CPF:" name="cpf">
                                                         <span class="fa fa-user form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" class="form-control has-feedback-left"
+                                                        <input type="text" maxlength="14" class="form-control has-feedback-left"
                                                             placeholder="RG:" name="rg">
                                                         <span class="fa fa-user form-control-feedback left"
                                                             aria-hidden="true"></span>
@@ -68,7 +68,7 @@
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" class="form-control has-feedback-left"
+                                                        <input type="text" maxlength="14" class="form-control has-feedback-left"
                                                             placeholder="CEP:" name="cep">
                                                         <span class="fa fa-user form-control-feedback left"
                                                             aria-hidden="true"></span>
@@ -129,7 +129,7 @@
                                                             aria-hidden="true"></span>
                                                     </div>
 
-                                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                    {{-- <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <select class="form-control has-feedback-left" name="empresa">
                                                             <option>Selecione Unidade Concedente:</option>
                                                             @foreach ($empresas as $empresa)
@@ -139,7 +139,7 @@
                                                         </select>
                                                         <span class="fa fa-home form-control-feedback left"
                                                             aria-hidden="true"></span>
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
                                                 <div class="btn-group mr-2 sw-btn-group-extra" role="group">
                                                     <button type="submit" class="btn btn-info">Enviar</button>

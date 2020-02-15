@@ -25,6 +25,7 @@
 <h4 class="text-center">Informe de Faturamentos (Resumo)</h4>
 <br>
 <div class="tab">
+       @foreach ($fechamento as $fechar)
     <table class="table" style="max-width: 100%">
         <tr>
             <th><strong> Cliente</strong></th>
@@ -32,27 +33,27 @@
             <th><strong> Nº do Contrato </strong></th>
             <th><strong> Estagiário (a) </strong></th>
             <th><strong> Inicio / Fim TCE </strong></th>
-            <th><strong> Data Rescisao </strong></th>
+            {{-- <th><strong> Data Rescisao </strong></th> --}}
             <th><strong> Período Faturamento  </strong></th>
             <th><strong> Valor Taxas </strong></th>
             <th><strong> Valor Fechamento </strong></th>
             <th><strong> Valor Total </strong></th>
         </tr>
         <tr>
-            <td>TAGUE WEB INTELLIGENCE </td>
-            <td>2020/01</td>
-            <td>20200102111329</td>
-            <td>VINÍCIUS KOHN SILVA</td>
-            <td>06/01/20 30/06/20</td>
+            <td>{{$fechar->nome_fantasia}} </td>
+            {{-- <td>{{$fechar->referencia}}</td> --}}
+            {{-- <td>{{$fechar->id}}</td> --}}
+            <td>{{$fechar->nome}}</td>
+            {{-- <td>{{$fechar->data_inicio}} </td> --}}
+            {{-- <td>{{$fechar->rescisao}}</td> --}}
             <td></td>
-            <td>01/01/20 31/01/20</td>
-            <td> 0.00</td>
-            <td> 86.67</td>
-            <td>86.67</td>
+            {{-- <td>{{$fechar->cob_valor_fixo}}</td> --}}
+            {{-- <td>{{$fechar->total_custo}}</td> --}}
+            <td></td>
         </tr>
-        
-    </table>   
-</div> 
+    </table>
+      @endforeach
+</div>
 </body>
 
 </html>
