@@ -219,8 +219,8 @@ class TceContratoController extends Controller
             ->join('empresa', 'empresa.id', '=', 'estagiario.empresa_id')
             ->join('instituicao', 'instituicao.id', '=', 'estagiario.instituicao_id')
             ->where("estagiario.id", $id)
-        // ->pluck("empresa_id", "nome_fantasia", "nome_instituicao");
-            ->get();
+            ->pluck("empresa_id", "nome_fantasia", "nome_instituicao");
+        // ->get();
         return json_encode($contrato);
     }
 
