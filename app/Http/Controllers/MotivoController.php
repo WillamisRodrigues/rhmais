@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Empresa;
-use App\Instituicao;
 use App\Motivo;
-use DB;
 use Illuminate\Http\Request;
 
 class MotivoController extends Controller
 {
+    public function __contruct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -28,12 +29,7 @@ class MotivoController extends Controller
      */
     public function create()
     {
-        $states = DB::table("estado")->pluck("nome", "id");
-
-        $instituicoes = Instituicao::all();
-        $empresas = Empresa::all();
-
-        return view('motivo.create', compact('states', 'empresas', 'cursos', 'instituicoes'));
+        return view('motivo.create');
     }
 
     /**
@@ -77,7 +73,6 @@ class MotivoController extends Controller
     public function edit($id)
     {
         $motivo = Motivo::find($id);
-        // dd($motivo);
         return view('motivo.edit', compact('motivo', $motivo));
     }
 

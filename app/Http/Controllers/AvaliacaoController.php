@@ -7,12 +7,16 @@ use App\Empresa;
 use App\Estagiario;
 use App\Instituicao;
 use App\Supervisor;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-
 class AvaliacaoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -23,16 +27,16 @@ class AvaliacaoController extends Controller
 
         $estagiarios = DB::table('tce_contrato')
             ->join('estagiario', 'tce_contrato.estagiario_id', '=', 'estagiario.id')
-            // ->select(
-            //     'estagiario.nome'
-            // )
+        // ->select(
+        //     'estagiario.nome'
+        // )
             ->get();
 
         $instituicoes = DB::table('tce_contrato')
             ->join('empresa', 'tce_contrato.empresa_id', '=', 'empresa.id')
-            // ->select(
-            //     'empresa.nome_fantasia'
-            // )
+        // ->select(
+        //     'empresa.nome_fantasia'
+        // )
             ->get();
         $empresas = DB::table('empresa')
             ->select(
@@ -46,18 +50,11 @@ class AvaliacaoController extends Controller
                 'empresa.estado'
             )
             ->get();
-        // $tceContrato = DB::table('tce_contrato')
-        //     ->select(
-        //         'tce_contrato.data_inicio',
-        //         'tce_contrato.data_fim'
-        //     )
-        //     ->get();
 
         return view('auto_avaliacao.index', [
             'estagiarios' => $estagiarios,
             'instituicoes' => $instituicoes,
             'empresas' => $empresas,
-            // 'tceContrato' => $tceContrato
         ]);
 
     }
@@ -181,8 +178,8 @@ class AvaliacaoController extends Controller
                 'estagiario.cpf',
                 'estagiario.data_nascimento',
                 'estagiario.id',
-                'estagiario.status',
-                'estagiario.nivel',
+                'estagiario.ativo',
+                'estagiario.curso',
                 'estagiario.cidade',
                 'estagiario.estado'
             )
@@ -216,7 +213,7 @@ class AvaliacaoController extends Controller
             'estagiarios' => $estagiarios,
             'instituicoes' => $instituicoes,
             'empresas' => $empresas,
-            'supervisores' => $supervisores
+            'supervisores' => $supervisores,
         ]);
     }
 
@@ -233,13 +230,15 @@ class AvaliacaoController extends Controller
             'empresa_id' => 'required',
         ]);
 
+        $data_doc = $request->get('data_doc');
+
         $avaliacao = new Avaliacao();
         $avaliacao->estagiario_id = $request->get('estagiario_id');
         $avaliacao->empresa_id = $request->get('empresa_id');
         $avaliacao->instituicao_id = $request->get('instituicao_id');
         $avaliacao->supervisor = $request->get('supervisor');
         $avaliacao->periodo_avaliativo = $request->get('periodo_avaliativo');
-        $avaliacao->data_doc = $request->get('data_doc');
+        $avaliacao->data_doc = Carbon::createFromFormat('d/m/Y', $date_doc)->format('Y-m-d');
         $avaliacao->obs = $request->get('obs');
         $avaliacao->compromisso = $request->get('compromisso');
         $avaliacao->plano_de_estagio = $request->get('plano_de_estagio');
@@ -286,7 +285,7 @@ class AvaliacaoController extends Controller
                 'estagiario.cpf',
                 'estagiario.data_nascimento',
                 'estagiario.id',
-                'estagiario.status',
+                'estagiario.ativo',
                 'estagiario.nivel',
                 'estagiario.cidade',
                 'estagiario.estado'
@@ -321,7 +320,7 @@ class AvaliacaoController extends Controller
             'estagiarios' => $estagiarios,
             'instituicoes' => $instituicoes,
             'empresas' => $empresas,
-            'supervisores' => $supervisores
+            'supervisores' => $supervisores,
         ]);
     }
 
@@ -346,5 +345,27 @@ class AvaliacaoController extends Controller
     public function destroy(Avaliacao $avaliacao)
     {
         //
+    }
+
+    public function avaliacaoAjax($id)
+    {
+        $avaliacao = DB::table('estagiario')
+            ->join('empresa', 'empresa.id', '=', 'estagiario.empresa_id')
+            ->join('instituicao', 'instituicao.id', '=', 'estagiario.instituicao_id')
+            ->where("estagiario.id", $id)
+            ->select("nome_fantasia", "nome_instituicao", "empresa_id", "instituicao_id")
+            ->get();
+        return json_encode($avaliacao);
+    }
+
+    public function supervisorAjax($id)
+    {
+        $supervisor = DB::table('supervisor')
+            ->join('empresa', 'empresa.id', '=', 'supervisor.empresa_id')
+            ->where("empresa.id", $id)
+            ->select("nome", "supervisor.id")
+            ->get();
+        return json_encode($supervisor);
+
     }
 }

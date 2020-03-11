@@ -42,12 +42,12 @@
                                   <div id="form-step-0" role="form" data-toggle="validator">
                                   <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control cnpj has-feedback-left" placeholder="CNPJ / CPF" name="cnpj" value="{{old('cnpj')}}">
+                            <input type="text" class="form-control cnpj has-feedback-left" placeholder="CNPJ / CPF" name="cnpj" value="{{old('cnpj')}}" required>
                             <span class="fa fa-bars form-control-feedback left" aria-hidden="true"></span>
                           </div>
 
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" placeholder="Razão Social / Nome" name="razao_social" value="{{old('razao_social')}}">
+                            <input type="text" class="form-control has-feedback-left" placeholder="Razão Social / Nome" name="razao_social" value="{{old('razao_social')}}" required>
                             <span class="fa fa-bars form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           @include('layout.selects.estado-cidade')
@@ -56,12 +56,12 @@
                             <span class="fa fa-bars form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" placeholder="Numero" name="numero" value="{{old('numero')}}">
+                            <input type="text" class="form-control has-feedback-left" placeholder="Numero" name="numero" value="{{old('numero')}}" required>
                             <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
                           </div>
 
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" placeholder="Bairro" name="bairro" value="{{old('bairro')}}">
+                            <input type="text" class="form-control has-feedback-left" placeholder="Bairro" name="bairro" value="{{old('bairro')}}" required>
                             <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -91,17 +91,17 @@
                             <span class="fa fa-at form-control-feedback left" aria-hidden="true"></span>
                           </div>
 
-                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                          {{-- <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left" placeholder="KOSTER E KOSTER CONSULTORIA EM RH LTDA - RH MAIS TALENTOS" value="KOSTER E KOSTER CONSULTORIA EM RH LTDA - RH MAIS TALENTOS" name="agente_integracao">
                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
-                          </div>
+                          </div> --}}
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" placeholder="Nome Fantasia" name="nome_fantasia" value="{{old('nome_fantasia')}}">
+                            <input type="text" class="form-control has-feedback-left" placeholder="Nome Fantasia" name="nome_fantasia" value="{{old('nome_fantasia')}}" required>
                             <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                           </div>
 
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left"  placeholder="Endereço" name="endereco" value="{{old('endereco')}}">
+                            <input type="text" class="form-control has-feedback-left"  placeholder="Endereço" name="endereco" value="{{old('endereco')}}" required>
                             <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -109,7 +109,7 @@
                             <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control cep has-feedback-left"  placeholder="CEP" name="cep" value="{{old('cep')}}">
+                            <input type="text" class="form-control cep has-feedback-left"  placeholder="CEP" name="cep" value="{{old('cep')}}" required>
                             <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -158,7 +158,7 @@
                           </div>
                         <div class="row" style="width:960px; margin: 0 auto;">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" placeholder="Custo Unitário" name="custo_unitario" value="{{old('custo_unitario')}}">
+                            <input type="text" class="form-control has-feedback-left dinheiro" placeholder="Custo Unitário" name="custo_unitario" value="{{old('custo_unitario')}}">
                             <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
                           </div>
 
@@ -169,8 +169,7 @@
                                   <input type="checkbox" class="flat"> Proporcional
                                 </label>
                                 <label>
-                                  <input type="checkbox" class="flat" value="1" checked="checked"> Está Ativo
-                                  <input type="hidden" value="1" name="ativo" />
+                                  <input type="checkbox" class="flat"  value="1" name="ativo"> Está Ativo
                                 </label>
                                 <label>
                                   <input type="checkbox" class="flat"> Dias Comerciais

@@ -3,11 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\TceRescisao;
+use Carbon\Carbon;
 use DB;
 use Illuminate\Http\Request;
 
 class TceRescisaoController extends Controller
 {
+    public function __contruct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -21,18 +26,17 @@ class TceRescisaoController extends Controller
             ->join('instituicao', 'instituicao.id', '=', 'tce_rescisao.instituicao_id')
             ->select(
                 'estagiario.nome',
-                'estagiario.id',
                 'empresa.nome_fantasia',
                 'instituicao.nome_instituicao',
+                'tce_rescisao.id',
                 'tce_rescisao.bolsa',
-                'tce_rescisao.contrato',
                 'tce_rescisao.data_inicio',
                 'tce_rescisao.data_fim'
             )
             ->get();
 
-            // dd($rescisao);
-        return view('tce_rescisao.index',  compact('rescisao', $rescisao));
+        // dd($rescisao);
+        return view('tce_rescisao.index', compact('rescisao', $rescisao));
     }
 
     /**
@@ -53,29 +57,44 @@ class TceRescisaoController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'nome' => 'required',
-        //     'empresa' => 'required',
-        //     'instituicao' => 'required',
-        // ]);
+        $request->validate([
+            'estagiario_id' => 'required|unique:tce_rescisao',
+            'empresa_id' => 'required',
+            'instituicao_id' => 'required',
+        ]);
 
-        // dd($request);
-        // TceRescisao::create($request->all());
-        // return redirect()->route('tce_rescisao.index')
-        //     ->with('success', 'Cadastrado com sucesso.');
+        $date_inicio = $request->get('data_inicio');
+        $date_fim = $request->get('data_fim');
+        $date_contrato = $request->get('data_contrato');
+        $ultimo_dia = $request->get('ultimo_dia');
+        $data_documento = $request->get('data_documento');
 
         $tce = new TceRescisao();
-        $tce->agente_integracao = $request->get('agente_integracao');
         $tce->estagiario_id = $request->get('estagiario_id');
         $tce->empresa_id = $request->get('empresa_id');
         $tce->instituicao_id = $request->get('instituicao_id');
-        $tce->data_inicio = $request->get('data_inicio');
-        $tce->data_fim = $request->get('data_fim');
-        $tce->horario = $request->get('descricao');
-        $tce->setor = $request->get('setor');
-        $tce->supervisor = $request->get('supervisor');
-        $tce->bolsa =  str_replace(',','.',$request->get('bolsa'));
-        $tce->obs = $request->get('observacao');
+        $tce->data_inicio = Carbon::createFromFormat('d/m/Y', $date_inicio)->format('Y-m-d');
+        $tce->data_fim = Carbon::createFromFormat('d/m/Y', $date_fim)->format('Y-m-d');
+        $tce->data_contrato = Carbon::createFromFormat('d/m/Y', $date_contrato)->format('Y-m-d');
+        $tce->ultimo_dia = Carbon::createFromFormat('d/m/Y', $ultimo_dia)->format('Y-m-d');
+        $tce->data_documento = Carbon::createFromFormat('d/m/Y', $data_documento)->format('Y-m-d');
+        $tce->horario_id = $request->get('horario_id');
+        $tce->apolice_id = $request->get('apolice_id');
+        $tce->beneficio_id = $request->get('beneficio_id');
+        $tce->setor_id = $request->get('setor_id');
+        $tce->supervisor_id = $request->get('supervisor_id');
+        $tce->bolsa = $request->get('bolsa');
+        $tce->motivo_id = $request->get('motivo_id');
+        $tce->obs = $request->get('obs');
+        $tce->ativo = 1;
+
+        if ($tce->ativo = 1) {
+            DB::update('update tce_contrato set ativo = 2 where estagiario_id = ?', [$request->get('estagiario_id')]);
+            DB::update('update recesso set ativo = 2 where estagiario_id = ?', [$request->get('estagiario_id')]);
+            DB::update('update plano_estagio set ativo = 2 where estagiario_id = ?', [$request->get('estagiario_id')]);
+            DB::update('update estagiario set ativo = 2 where id = ?', [$request->get('estagiario_id')]);
+        }
+        // dd($tce);
         $tce->save();
 
         return redirect()->route('tce_rescisao.index')
@@ -127,4 +146,5 @@ class TceRescisaoController extends Controller
     {
         //
     }
+
 }

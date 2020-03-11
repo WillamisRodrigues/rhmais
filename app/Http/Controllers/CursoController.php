@@ -45,7 +45,12 @@ class CursoController extends Controller
             'nome' => 'required',
             'nivel' => 'required',
         ]);
-        Curso::create($request->all());
+
+        $cursos = new Curso();
+        $cursos->nome = $request->get('nome');
+        $cursos->nivel = $request->get('nivel');
+        $cursos->save();
+
         return redirect()->route('curso.index')
             ->with('success', 'Cadastrado com sucesso.');
     }
@@ -80,15 +85,23 @@ class CursoController extends Controller
      * @param  \App\Curso  $curso
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Curso $curso)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'nome' => 'required',
             'nivel' => 'required',
         ]);
 
-        $curso->update($request->all());
-        $curso->save();
+        $request->validate([
+            'nome' => 'required',
+            'nivel' => 'required',
+        ]);
+
+        $cursos = Curso::find($id);
+        $cursos->nome = $request->get('nome');
+        $cursos->nivel = $request->get('nivel');
+        $cursos->save();
+
         $request->session()->flash('success', 'Atualizado com sucesso!');
         return redirect('curso');
     }
@@ -99,8 +112,9 @@ class CursoController extends Controller
      * @param  \App\Curso  $curso
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, Curso $curso)
+    public function destroy(Request $request, $id)
     {
+        $curso = Curso::find($id);
         $curso->delete();
         $request->session()->flash('warning', 'Removido com sucesso!');
         return redirect('curso');

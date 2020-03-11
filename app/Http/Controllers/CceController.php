@@ -5,11 +5,16 @@ namespace App\Http\Controllers;
 use App\Cce;
 use App\Instituicao;
 use App\Seguradora;
+use Carbon\Carbon;
 use DB;
 use Illuminate\Http\Request;
 
 class CceController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -22,14 +27,14 @@ class CceController extends Controller
             ->select(
                 'instituicao.id',
                 'instituicao.nome_instituicao',
+                'instituicao.cidade',
                 'cce.data_inicio',
                 'cce.data_fim',
                 'cce.situacao',
-                'cce.id',
-                'cce.cidade'
+                'cce.id'
             )
             ->get();
-        return view('cce_convenio.index',  compact('cces', $cces));
+        return view('cce_convenio.index', compact('cces', $cces));
     }
 
     /**
@@ -53,20 +58,27 @@ class CceController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'instituicao_id' => 'required',
+            'instituicao_id' => 'required|unique:cce',
         ]);
+
+        $date_doc = $request->get('data_doc');
+        $date_inicio = $request->get('data_inicio');
+        $date_fim = $request->get('data_fim');
 
         $cce = new cce();
         $cce->instituicao_id = $request->get('instituicao_id');
         $cce->agente_integracao = $request->get('agente_integracao');
-        $cce->data_inicio = $request->get('data_inicio');
-        $cce->data_fim = $request->get('data_fim');
-        $cce->data_doc = $request->get('data_doc');
-        $cce->seguro_id = $request->get('seguro_id');
+        $cce->data_inicio = Carbon::createFromFormat('d/m/Y', $date_inicio)->format('Y-m-d');
+        $cce->data_fim = Carbon::createFromFormat('d/m/Y', $date_fim)->format('Y-m-d');
+        $cce->data_doc = Carbon::createFromFormat('d/m/Y', $date_doc)->format('Y-m-d');
         $cce->obs = $request->get('obs');
         $cce->save();
-        return redirect()->route('cce_convenio.index')
-            ->with('success', 'Cadastrado com sucesso.');
+
+        $request->session()->flash('success', 'Cadastrado com sucesso!');
+        return redirect('cce_convenio');
+
+        // return redirect()->route('cce_convenio.index')
+        //     ->with('success', 'Cadastrado com sucesso.');
     }
 
     /**
@@ -90,8 +102,8 @@ class CceController extends Controller
     {
         $cce = DB::table('cce')->where('id', $id)->first();
         $instituicoes = DB::table('instituicao')->where('id', '=', $cce->instituicao_id)->get()->first();
-        $apolices = DB::table('seguradora')->where('id', '=', $cce->seguradora_id)->get()->first();
-        return view('cce_convenio.edit', compact('cce', 'instituicoes', 'apolices', $cce));
+        // $apolices = DB::table('seguradora')->where('id', '=', $cce->seguradora_id)->get()->first();
+        return view('cce_convenio.edit', compact('cce', 'instituicoes'));
     }
 
     /**
@@ -101,15 +113,24 @@ class CceController extends Controller
      * @param  \App\Cce  $cce
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cce $cce)
+    public function update(Request $request, $id)
     {
         $request->validate([
-            'empresa_id' => 'required',
+            'instituicao_id' => 'required',
         ]);
 
-        $cce->update($request->all());
+        $date_doc = $request->get('data_doc');
+        $date_inicio = $request->get('data_inicio');
+        $date_fim = $request->get('data_fim');
+
+        $cce = Cce::find($id);
+        $cce->data_inicio = Carbon::createFromFormat('d/m/Y', $date_inicio)->format('Y-m-d');
+        $cce->data_fim = Carbon::createFromFormat('d/m/Y', $date_fim)->format('Y-m-d');
+        $cce->data_doc = Carbon::createFromFormat('d/m/Y', $date_doc)->format('Y-m-d');
+        $cce->obs = $request->get('obs');
         $cce->save();
-        $request->session()->flash('sucesso', 'Atualizado com sucesso!');
+
+        $request->session()->flash('success', 'Atualizado com sucesso!');
         return redirect('cce_convenio');
     }
 
@@ -121,14 +142,12 @@ class CceController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $res = Cce::destroy($id);
-        if ($res) {
-            $request->session()->flash('warning', 'Removido com sucesso!');
-            return redirect('cce_convenio');
-        } else {
-            $request->session()->flash('warning', 'Removido com sucesso!');
-            return redirect('cce_convenio');
-        }
+        $cce = Cce::find($id);
+        $cce->delete();
+
+        $request->session()->flash('warning', 'Removido com sucesso!');
+        return redirect('cce_convenio');
+
     }
     public function assinado($id)
     {

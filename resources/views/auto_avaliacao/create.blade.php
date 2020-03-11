@@ -7,7 +7,7 @@
             <div class="left_col scroll-view">
                 @include('layout.menu.menu')
                 <!-- /menu profile quick info -->
-
+                <script src="{{asset('vendors/jquery/dist/jquery.min.js')}}"></script>
                 <br />
                 @include('layout.menu.sidebar')
                 <!-- /sidebar menu -->
@@ -53,49 +53,49 @@
                                                         <select class="form-control has-feedback-left"
                                                             name="empresa_id">
                                                             <option>Selecione Unidade Concedente:</option>
-                                                            @foreach ($empresas as $empresa)
+                                                            {{--@foreach ($empresas as $empresa)
                                                             <option value="{{ $empresa->id }}">
                                                                 {{ $empresa->nome_fantasia }}</option>
-                                                            @endforeach
+                                                            @endforeach --}}
                                                         </select>
                                                         <span class="fa fa-home form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <select class="form-control has-feedback-left"
-                                                            name="instituicao_id">
-                                                            <option>Selecione Instituição de Ensino:</option>
-                                                            @foreach ($instituicoes as $instituicao)
+                                                        <select class="form-control has-feedback-left" name="instituicao_id">
+                                                              <option>Selecione Instituição de Ensino:</option>
+                                                             {{-- <option>Selecione Instituição de Ensino:</option> --}}
+                                                            {{--@foreach ($instituicoes as $instituicao)
                                                             <option value="{{ $instituicao->id }}">
                                                                 {{ $instituicao->nome_instituicao }}</option>
-                                                            @endforeach
+                                                            @endforeach --}}
                                                         </select>
                                                         <span class="fa fa-graduation-cap form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <select class="form-control has-feedback-left"
-                                                            name="supervisor">
+                                                            name="supervisor_id" id="lista-supervisor">
                                                             <option>Selecione o Supervisor de Estágio:</option>
-                                                            @foreach ($supervisores as $supervisor)
+                                                            {{--@foreach ($supervisores as $supervisor)
                                                             <option value="{{ $supervisor->id }}">
                                                                 {{ $supervisor->nome }}</option>
-                                                            @endforeach
+                                                            @endforeach --}}
                                                         </select>
                                                         <span class="fa fa-graduation-cap form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <label for="">Período Avaliativo</label>
-                                                        <input type="date" class="form-control has-feedback-left"
-                                                            placeholder="Período Avaliativo" name="periodo_avaliativo">
+                                                        <input type="text" class="form-control has-feedback-left data"
+                                                            placeholder="Período Avaliativo" name="periodo_avaliativo" required>
                                                         <span class="fa fa-calendar form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <label for="">Data do Documento</label>
-                                                        <input type="date" class="form-control has-feedback-left"
-                                                            placeholder="Data Documento" name="data_doc">
+                                                        <input type="text" class="form-control has-feedback-left data"
+                                                            placeholder="Data Documento" name="data_doc" required>
                                                         <span class="fa fa-calendar form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
@@ -116,11 +116,11 @@
                                                                 Compromisso de Estágio?</label>
                                                             <label>
                                                                 <input type="radio" class="flat" name="compromisso"
-                                                                    value="sim"> Sim
+                                                                    value="1"> Sim
                                                             </label>
                                                             <label>
                                                                 <input type="radio" class="flat" name="compromisso"
-                                                                    value="nao"> Não
+                                                                    value="2"> Não
                                                             </label>
                                                         </div>
                                                     </div>
@@ -131,11 +131,11 @@
                                                                 Estágio?</label>
                                                             <label>
                                                                 <input type="radio" class="flat" name="plano_de_estagio"
-                                                                    value="sim"> Sim
+                                                                    value="1"> Sim
                                                             </label>
                                                             <label>
                                                                 <input type="radio" class="flat" name="plano_de_estagio"
-                                                                    value="nao"> Não
+                                                                    value="2"> Não
                                                             </label>
                                                         </div>
                                                     </div>
@@ -146,11 +146,11 @@
                                                                 aprendizagem profissional?</label>
                                                             <label>
                                                                 <input type="radio" class="flat" name="aprendizagem"
-                                                                    value="sim"> Sim
+                                                                    value="1"> Sim
                                                             </label>
                                                             <label>
                                                                 <input type="radio" class="flat" name="aprendizagem"
-                                                                    value="nao"> Não
+                                                                    value="2"> Não
                                                             </label>
                                                         </div>
                                                     </div>
@@ -161,11 +161,11 @@
                                                                 identificação com o curso ?</label>
                                                             <label>
                                                                 <input type="radio" class="flat" name="identificacao"
-                                                                    value="sim"> Sim
+                                                                    value="1"> Sim
                                                             </label>
                                                             <label>
                                                                 <input type="radio" class="flat" name="identificacao"
-                                                                    value="nao"> Não
+                                                                    value="2"> Não
                                                             </label>
                                                         </div>
                                                     </div>
@@ -176,11 +176,11 @@
                                                                 favorecendo minha formação ?</label>
                                                             <label>
                                                                 <input type="radio" class="flat" name="experiencia"
-                                                                    value="sim"> Sim
+                                                                    value="1"> Sim
                                                             </label>
                                                             <label>
                                                                 <input type="radio" class="flat" name="experiencia"
-                                                                    value="nao"> Não
+                                                                    value="2"> Não
                                                             </label>
                                                         </div>
                                                         <hr style="border:0.5px solid">
@@ -211,4 +211,48 @@
 <!-- /footer content -->
 </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('select[name="estagiario_id"]').on('change', function() {
+            var stateID = $(this).val();
+            if(stateID) {
+                $.ajax({
+                    url: '/avaliacao-ajax/ajax/'+stateID,
+                    type: "GET",
+                    dataType: "json",
+                    success:function(data) {
+                        $('select[name="empresa_id"]').empty();
+                        $.each(data, function(key, value) {
+                            $('select[name="empresa_id"]').append('<option value="'+ data[0].empresa_id +'">'+ data[0].nome_fantasia +'</option>');
+                            $('select[name="instituicao_id"]').append('<option value="'+ data[0].instituicao_id +'">'+ data[0].nome_instituicao +'</option>');
+                        });
+                        consultaSupervisor(data[0].empresa_id);
+                    }
+                });
+            }else{
+                $('select[name="empresa_id"]').empty();
+            }
+        });
+    });
+
+    function consultaSupervisor(empresa_id){
+            if(empresa_id) {
+                $.ajax({
+                    url: '/supervisor-ajax/ajax/'+empresa_id,
+                    type: "GET",
+                    dataType: "json",
+                    success:function(data) {
+                        $('#lista-supervisor').empty();
+                        $.each(data, function(key, value) {
+                            for (i = 0; i < data.length; i++){
+                            $('#lista-supervisor').append('<option value="'+ data[0].id +'">'+ value.nome +'</option>');
+                            }
+                        });
+                    }
+                });
+            }else{
+                $('#lista-supervisor').empty();
+            }
+    }
+</script>
 @endsection

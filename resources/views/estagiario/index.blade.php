@@ -1,5 +1,5 @@
 @extends('layout/app')
-@section('titulo','Usuários do Sistema | RH MAIS')
+@section('titulo','Estagiários do Sistema | RH MAIS')
 @section('conteudo')
 <div class="container body">
     <div class="main_container">
@@ -72,10 +72,12 @@
                                             <td>{{$estagiario->cpf}}</td>
                                             <td>{{$estagiario->cidade}}</td>
                                             <td>{{date('d/m/Y', strtotime($estagiario->data_nascimento))}}</td>
-                                            <td>{{$estagiario->nivel}}</td>
+                                            <td>
+                                               {{$estagiario->curso}}
+                                            </td>
                                             <td>{{date('d/m/Y', strtotime($estagiario->termino_curso))}}</td>
                                             <td>
-                                                @if ($estagiario->status == '1')
+                                                @if ($estagiario->ativo == '1')
                                                 Sim
                                                 @else
                                                 Não

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use DB;
+use App\Empresa;
 use App\Estagiario;
 use App\Instituicao;
-use App\Empresa;
 use App\TceContrato;
+use DB;
 
 class HomeController extends Controller
 {
@@ -23,12 +23,12 @@ class HomeController extends Controller
 
         $dataMasc = DB::table('estagiario')->where('sexo', 'Masculino')->count();
         $dataFem = DB::table('estagiario')->where('sexo', 'Feminino')->count();
-        $dataMe = DB::table('estagiario')->where('nivel', 'Medio')->count();
-        $dataSup = DB::table('estagiario')->where('nivel', 'Superior')->count();
-        $dataMTec = DB::table('estagiario')->where('nivel', 'Medio Tecnico')->count();
-        $dataSTec = DB::table('estagiario')->where('nivel', 'Tecnico')->count();
-        $dataNFund = DB::table('estagiario')->where('nivel', 'Fundamental')->count();
-        $dataNProf = DB::table('estagiario')->where('nivel', 'Profissional')->count();
+        $dataMe = DB::table('estagiario')->where('curso', 'Medio')->count();
+        $dataSup = DB::table('estagiario')->where('curso', 'Superior')->count();
+        $dataMTec = DB::table('estagiario')->where('curso', 'Medio Tecnico')->count();
+        $dataSTec = DB::table('estagiario')->where('curso', 'Tecnico')->count();
+        $dataNFund = DB::table('estagiario')->where('curso', 'Fundamental')->count();
+        $dataNProf = DB::table('estagiario')->where('curso', 'Profissional')->count();
 
         $jan1 = TceContrato::whereMonth('created_at', '1')->where('status', '1')->count();
         $jan2 = TceContrato::whereMonth('created_at', '1')->where('status', '2')->count();
@@ -80,7 +80,7 @@ class HomeController extends Controller
                     "pointHoverBackgroundColor" => "#fff",
                     "pointHoverBorderColor" => "rgba(58, 86, 109, 1)",
                     'data' => [$jan2, $fev2, $mar2, $abr2, $mai2, $jun2, $jul2, $ago2, $set2, $out2, $nov2, $dez2],
-                ]
+                ],
             ])
             ->options([]);
 
@@ -93,8 +93,8 @@ class HomeController extends Controller
                 [
                     'backgroundColor' => ['#2858FF', '#EB2355'],
                     'hoverBackgroundColor' => ['#2858FF', '#EB2355'],
-                    'data' => [$dataMasc, $dataFem]
-                ]
+                    'data' => [$dataMasc, $dataFem],
+                ],
             ])
             ->options([]);
 
@@ -107,8 +107,8 @@ class HomeController extends Controller
                 [
                     'backgroundColor' => ['#DB3895', '#9B539F', '#4A84B5', '#42B5AE', '#68BE44', '#47B7A8'],
                     'hoverBackgroundColor' => ['#DB3895', '#9B539F', '#4A84B5', '#42B5AE', '#68BE44', '#47B7A8'],
-                    'data' => [$dataMe, $dataSup, $dataMTec, $dataSTec, $dataNFund, $dataNProf]
-                ]
+                    'data' => [$dataMe, $dataSup, $dataMTec, $dataSTec, $dataNFund, $dataNProf],
+                ],
             ])
             ->options([]);
 

@@ -47,7 +47,7 @@
                                                 <div class="row" style="width:960px; margin: 0 auto;">
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text" class="form-control cnpj has-feedback-left"
-                                                            placeholder="CNPJ" name="cnpj" value="{{old('cnpj')}}">
+                                                            placeholder="CNPJ" name="cnpj" value="{{old('cnpj')}}" required>
                                                         <span class="fa fa-bars form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
@@ -55,7 +55,7 @@
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text" class="form-control has-feedback-left"
                                                             placeholder="Razão Social" name="razao_social"
-                                                            value="{{old('razao_social')}}">
+                                                            value="{{old('razao_social')}}" required>
                                                         <span class="fa fa-bars form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
@@ -64,7 +64,7 @@
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text" class="form-control has-feedback-left"
                                                             placeholder="Instituição" name="nome_instituicao"
-                                                            value="{{old('nome_instituicao')}}">
+                                                            value="{{old('nome_instituicao')}}" required>
                                                         <span class="fa fa-home form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
@@ -107,7 +107,7 @@
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text" class="form-control has-feedback-left"
                                                             placeholder="Bairro" name="bairro"
-                                                            value="{{old('bairro')}}">
+                                                            value="{{old('bairro')}}" required>
                                                         <span class="fa fa-map-marker form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
@@ -115,7 +115,7 @@
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text" class="form-control has-feedback-left"
                                                             placeholder="Endereço" name="rua"
-                                                            value="{{old('endereco')}}">
+                                                            value="{{old('endereco')}}" required>
                                                         <span class="fa fa-map-marker form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
@@ -132,7 +132,7 @@
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text" class="form-control has-feedback-left"
                                                             placeholder="Numero" name="numero"
-                                                            value="{{old('numero')}}">
+                                                            value="{{old('numero')}}" required>
                                                         <span class="fa fa-map-marker form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
@@ -140,7 +140,7 @@
                                                 <div class="row" style="width:960px; margin: 0 auto;">
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text" class="form-control cep has-feedback-left"
-                                                            placeholder="CEP" name="cep" value="{{old('cep')}}">
+                                                            placeholder="CEP" name="cep" value="{{old('cep')}}" required>
                                                         <span class="fa fa-map-marker form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
@@ -233,17 +233,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                @if(session('success'))
-                                <div class="alert alert-success">
-                                    {{ session('success') }}
-                                </div>
-                                @endif
 
-                                @if(session('error'))
-                                <div class="alert alert-danger">
-                                    {{ session('error') }}
-                                </div>
-                                @endif
                             </form>
                         </div>
                     </div>

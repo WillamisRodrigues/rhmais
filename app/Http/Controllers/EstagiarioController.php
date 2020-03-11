@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use DB;
+use App\Curso;
+use App\Empresa;
+use App\Estado;
 use App\Estagiario;
 use App\Instituicao;
-use App\Empresa;
+use Carbon\Carbon;
+use DB;
 use Illuminate\Http\Request;
-use App\Curso;
-use App\Estado;
-use App\Horario;
 use PDF;
 
 class EstagiarioController extends Controller
@@ -36,10 +36,9 @@ class EstagiarioController extends Controller
                 'estagiario.data_nascimento',
                 'estagiario.cidade',
                 'estagiario.estado',
-                'estagiario.id',
-                'estagiario.status',
-                'estagiario.nivel',
                 'estagiario.curso',
+                'estagiario.id',
+                'estagiario.ativo',
                 'estagiario.termino_curso'
             )
             ->get();
@@ -47,7 +46,7 @@ class EstagiarioController extends Controller
         return view('estagiario.index', compact('estagiarios'));
     }
 
-    public function gerarRelatorio(Estagiario $estagiarios, $id)
+    public function contratoTce(Estagiario $estagiarios, $id)
     {
         // Todos os Estagiarios
         if ($id == 0) {
@@ -57,8 +56,6 @@ class EstagiarioController extends Controller
         else {
 
             $estagiarios = DB::table('estagiario')
-                ->join('empresa', 'estagiario.empresa_id', '=', 'empresa.id')
-                ->join('instituicao', 'estagiario.instituicao_id', '=', 'instituicao.id')
                 ->join('tce_contrato', 'estagiario.id', '=', 'tce_contrato.estagiario_id')
                 ->select(
                     'estagiario.nome',
@@ -72,43 +69,102 @@ class EstagiarioController extends Controller
                     'estagiario.cpf',
                     'estagiario.rg',
                     'estagiario.email',
-                    'instituicao.razao_social AS instituicao_razao',
-                    'instituicao.cnpj AS instituicao_cnpj',
-                    'instituicao.numero AS instituicao_numero',
-                    'instituicao.bairro AS instituicao_bairro',
-                    'instituicao.cidade AS instituicao_cidade',
-                    'instituicao.estado AS instituicao_estado',
-                    'instituicao.cep AS instituicao_cep',
-                    'instituicao.nome_rep AS instituicao_nome_rep',
-                    'instituicao.cargo_rep AS instituicao_cargo_rep',
-                    'instituicao.telefone AS instituicao_telefone',
-                    'instituicao.rua AS instituicao_rua',
-                    'empresa.razao_social AS empresa_razao',
-                    'empresa.cnpj AS empresa_cnpj',
-                    'empresa.numero AS empresa_numero',
-                    'empresa.bairro AS empresa_bairro',
-                    'empresa.cidade AS empresa_cidade',
-                    'empresa.estado AS empresa_estado',
-                    'empresa.cep AS empresa_cep',
-                    'empresa.nome_rep AS empresa_nome_rep',
-                    'empresa.telefone AS empresa_telefone',
-                    'empresa.rua AS empresa_rua',
-                    'empresa.nome_rep',
-                    'tce_contrato.data_inicio',
-                    'tce_contrato.data_fim',
-                    'tce_contrato.horario',
-                    'tce_contrato.atividade',
-                    'tce_contrato.bolsa',
-                    'tce_contrato.data_doc',
-                    'tce_contrato.created_at'
+                    'estagiario.curso',
+                    'estagiario.periodo'
                 )
                 ->where('estagiario.id', '=', $id)
                 ->get();
-        }
 
+            $empresas = DB::table('empresa')
+                ->join('tce_contrato', 'empresa.id', '=', 'tce_contrato.empresa_id')
+                ->select(
+                    'empresa.razao_social',
+                    'empresa.cnpj',
+                    'empresa.numero',
+                    'empresa.bairro',
+                    'empresa.cidade',
+                    'empresa.estado',
+                    'empresa.cep',
+                    'empresa.nome_rep',
+                    'empresa.cargo_rep',
+                    'empresa.telefone',
+                    'empresa.rua'
+                )
+                ->where('tce_contrato.estagiario_id', '=', $id)
+                ->get();
+
+            $instituicoes = DB::table('instituicao')
+                ->join('tce_contrato', 'instituicao.id', '=', 'tce_contrato.instituicao_id')
+                ->select(
+                    'instituicao.razao_social',
+                    'instituicao.cnpj',
+                    'instituicao.numero',
+                    'instituicao.bairro',
+                    'instituicao.cidade',
+                    'instituicao.estado',
+                    'instituicao.cep',
+                    'instituicao.nome_rep',
+                    'instituicao.cargo_rep',
+                    'instituicao.telefone',
+                    'instituicao.rua'
+                )
+                ->where('tce_contrato.estagiario_id', '=', $id)
+                ->get();
+
+            $horarios = DB::table('horario')
+                ->join('tce_contrato', 'horario.id', '=', 'tce_contrato.horario_id')
+                ->select('horario.descricao')
+                ->where('tce_contrato.estagiario_id', '=', $id)
+                ->get();
+
+            $atividades = DB::table('atividade')
+                ->join('tce_contrato', 'atividade.id', '=', 'tce_contrato.atividade_id')
+                ->select('atividade.nome')
+                ->where('tce_contrato.estagiario_id', '=', $id)
+                ->get();
+
+            $seguros = DB::table('seguradora')
+                ->join('tce_contrato', 'seguradora.id', '=', 'tce_contrato.apolice_id')
+                ->select('seguradora.nome')
+                ->where('tce_contrato.estagiario_id', '=', $id)
+                ->get();
+
+            $supervisores = DB::table('supervisor')
+                ->join('tce_contrato', 'supervisor.id', '=', 'tce_contrato.supervisor_id')
+                ->select('supervisor.nome', 'supervisor.cargo', 'supervisor.formacao')
+                ->where('tce_contrato.estagiario_id', '=', $id)
+                ->get();
+
+            $orientadores = DB::table('orientador')
+                ->join('tce_contrato', 'orientador.id', '=', 'tce_contrato.orientador_id')
+                ->select('orientador.nome')
+                ->where('tce_contrato.estagiario_id', '=', $id)
+                ->get();
+
+            $beneficios = DB::table('beneficio')
+                ->join('tce_contrato', 'beneficio.id', '=', 'tce_contrato.beneficio_id')
+                ->select('beneficio.nome')
+                ->where('tce_contrato.estagiario_id', '=', $id)
+                ->get();
+
+            $tceContrato = DB::table('tce_contrato')
+                ->select(
+                    'tce_contrato.data_inicio',
+                    'tce_contrato.data_fim',
+                    'tce_contrato.bolsa',
+                    'tce_contrato.data_doc',
+                    'tce_contrato.created_at')
+                ->where('tce_contrato.estagiario_id', '=', $id)
+                ->get();
+
+        }
+        // dd($instituicoes);
         DB::update('update tce_contrato set assinado = 1 where estagiario_id = ?', [$id]);
 
-        $data = ['estagiario' => $estagiarios];
+        $data = ['estagiarios' => $estagiarios, 'instituicoes' => $instituicoes,
+            'empresas' => $empresas, 'horarios' => $horarios, 'atividades' => $atividades,
+            'seguros' => $seguros, 'supervisores' => $supervisores, 'orientadores' => $orientadores,
+            'tceContrato' => $tceContrato, 'beneficios' => $beneficios];
         $pdf = PDF::loadView('pdf.tce.index', $data);
         return $pdf->stream('tce-pdf.pdf');
     }
@@ -120,7 +176,7 @@ class EstagiarioController extends Controller
     public function create()
     {
         $states = DB::table("estado")->pluck("nome", "id");
-        $cursos  = Curso::all();
+        $cursos = Curso::all();
         $instituicoes = Instituicao::all();
         $empresas = Empresa::all();
         return view('estagiario.create', compact('states', 'empresas', 'cursos', 'instituicoes'));
@@ -165,6 +221,8 @@ class EstagiarioController extends Controller
             'nome' => 'required',
             'email' => 'required|email|unique:estagiario,email',
         ]);
+        $date_nascimento = $request->get('data_nascimento');
+        $date_termino_curso = $request->get('termino_curso');
 
         $estagiarios = new Estagiario();
         $estagiarios->nome = $request->get('nome');
@@ -173,7 +231,7 @@ class EstagiarioController extends Controller
         $estagiarios->cpf = $request->get('cpf');
         $estagiarios->telefone = $request->get('telefone');
         $estagiarios->celular = $request->get('celular');
-        $estagiarios->data_nascimento = $request->get('data_nascimento');
+        $estagiarios->data_nascimento = Carbon::createFromFormat('d/m/Y', $date_nascimento)->format('Y-m-d');
         $estagiarios->ctps = $request->get('ctps');
         $estagiarios->serie_ctps = $request->get('serie_ctps');
         $estagiarios->numero_pis = $request->get('numero_pis');
@@ -183,7 +241,6 @@ class EstagiarioController extends Controller
         $estagiarios->sexo = $request->get('sexo');
         $estagiarios->cidade = $request->get('cidade');
         $estagiarios->estado = $request->get('estado');
-        $estagiarios->nivel = $request->get('nivel');
         $estagiarios->curso = $request->get('curso');
         $estagiarios->nacionalidade = $request->get('nacionalidade');
         $estagiarios->pai = $request->get('pai');
@@ -205,11 +262,11 @@ class EstagiarioController extends Controller
         $estagiarios->instituicao_id = $request->get('instituicao_id');
         $estagiarios->curso = $request->get('curso');
         $estagiarios->dt_cadastro = date("Y-m-d");
-        $estagiarios->horario = $request->get('horario');
-        $estagiarios->termino_curso = $request->termino_curso;
+        $estagiarios->termino_curso = Carbon::createFromFormat('d/m/Y', $date_termino_curso)->format('Y-m-d');
         if ($request->ativo == 'on') {
-            $estagiarios->status = 1;
+            $estagiarios->ativo = 1;
         }
+        // dd($estagiarios);
         $estagiarios->save();
 
         return redirect()->route('estagiario.index')
@@ -238,10 +295,8 @@ class EstagiarioController extends Controller
 
         $estagiario = DB::table('estagiario')->where('id', $id)->get()->first();
 
-        $horarios = Horario::all();
-
         $estados = DB::table("estado")->pluck("nome", "id");
-        $cursos  = Curso::all();
+        $cursos = Curso::all();
         $instituicoes = Instituicao::all();
         $empresas = Empresa::all();
 
@@ -250,8 +305,7 @@ class EstagiarioController extends Controller
             'empresas' => $empresas,
             'instituicoes' => $instituicoes,
             'cursos' => $cursos,
-            'horarios' => $horarios,
-            'estados' => $estados
+            'estados' => $estados,
         ]);
     }
 
@@ -262,16 +316,61 @@ class EstagiarioController extends Controller
      * @param  \App\Estagiario  $estagiario
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Estagiario $estagiario)
+    public function update(Request $request, $id)
     {
-        // dd($estagiario);
+
         $request->validate([
             'nome' => 'required',
             'email' => 'required',
         ]);
 
-        $estagiario->update($request->all());
-        $estagiario->save();
+        $date_nascimento = $request->get('data_nascimento');
+        $date_termino_curso = $request->get('termino_curso');
+
+        $estagiarios = Estagiario::find($id);
+        $estagiarios->nome = $request->get('nome');
+        $estagiarios->email = $request->get('email');
+        $estagiarios->rg = $request->get('rg');
+        $estagiarios->cpf = $request->get('cpf');
+        $estagiarios->telefone = $request->get('telefone');
+        $estagiarios->celular = $request->get('celular');
+        $estagiarios->data_nascimento = Carbon::createFromFormat('d/m/Y', $date_nascimento)->format('Y-m-d');
+        $estagiarios->ctps = $request->get('ctps');
+        $estagiarios->serie_ctps = $request->get('serie_ctps');
+        $estagiarios->numero_pis = $request->get('numero_pis');
+        $estagiarios->dt_cadastro = $request->get('dt_cadastro');
+        $estagiarios->agente_int = $request->get('agente_int');
+        $estagiarios->pessoa_responsavel = $request->get('pessoa_responsavel');
+        $estagiarios->sexo = $request->get('sexo');
+        $estagiarios->cidade = $request->get('cidade');
+        $estagiarios->estado = $request->get('estado');
+        $estagiarios->curso = $request->get('curso');
+        $estagiarios->nacionalidade = $request->get('nacionalidade');
+        $estagiarios->pai = $request->get('pai');
+        $estagiarios->mae = $request->get('mae');
+        $estagiarios->cep = $request->get('cep');
+        $estagiarios->rua = $request->get('rua');
+        $estagiarios->bairro = $request->get('bairro');
+        $estagiarios->cep = $request->get('cep');
+        $estagiarios->numero = $request->get('numero');
+        $estagiarios->complemento = $request->get('complemento');
+        $estagiarios->banco = $request->get('banco');
+        $estagiarios->conta = $request->get('conta');
+        $estagiarios->codigo_vaga = $request->get('codigo_vaga');
+        $estagiarios->senha = $request->get('senha');
+        $estagiarios->periodo = $request->get('periodo');
+        $estagiarios->obs = $request->get('obs');
+        $estagiarios->matricula = $request->get('matricula');
+        $estagiarios->empresa_id = $request->get('empresa_id');
+        $estagiarios->instituicao_id = $request->get('instituicao_id');
+        $estagiarios->curso = $request->get('curso');
+        $estagiarios->dt_cadastro = date("Y-m-d");
+        $estagiarios->termino_curso = Carbon::createFromFormat('d/m/Y', $date_termino_curso)->format('Y-m-d');
+        if ($request->ativo == 'on') {
+            $estagiarios->ativo = 1;
+        }
+        $estagiarios->save();
+
         $request->session()->flash('success', 'Atualizado com sucesso!');
         return redirect('estagiario');
     }
@@ -282,8 +381,9 @@ class EstagiarioController extends Controller
      * @param  \App\Estagiario  $estagiario
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, Estagiario $estagiario)
+    public function destroy(Request $request, $id)
     {
+        $estagiario = Estagiario::find($id);
         $estagiario->delete();
         $request->session()->flash('warning', 'Removido com sucesso!');
         return redirect('estagiario');

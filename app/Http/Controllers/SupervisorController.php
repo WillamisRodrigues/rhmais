@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Empresa;
 use App\Supervisor;
-use DB;
 use Illuminate\Http\Request;
 
 class SupervisorController extends Controller
 {
+    public function __contruct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -59,7 +62,10 @@ class SupervisorController extends Controller
         $supervisores->cep = $request->get('cep');
         $supervisores->rua = $request->get('rua');
         $supervisores->complemento = $request->get('complemento');
+        $supervisores->bairro = $request->get('bairro');
         $supervisores->numero = $request->get('numero');
+        $supervisores->cargo = $request->get('cargo');
+        $supervisores->id_profissional = $request->get('id_profissional');
         $supervisores->empresa_id = $request->get('empresa_id');
         $supervisores->save();
 
@@ -87,7 +93,7 @@ class SupervisorController extends Controller
     public function edit($id)
     {
         $supervisor = Supervisor::find($id);
-        $empresa = DB::table('empresa')->where('id', '=', $supervisor->empresa_id)->get()->first();
+        $empresa = Empresa::all();
 
         return view('supervisor.edit', compact('supervisor', 'empresa', $supervisor));
     }
@@ -99,14 +105,33 @@ class SupervisorController extends Controller
      * @param  \App\Supervisor  $supervisor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Supervisor $supervisor)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'nome' => 'required',
         ]);
 
-        $supervisor->update($request->all());
-        $supervisor->save();
+        $supervisores = Supervisor::find($id);
+        $supervisores->nome = $request->get('nome');
+        $supervisores->email = $request->get('email');
+        $supervisores->rg = $request->get('rg');
+        $supervisores->cpf = $request->get('cpf');
+        $supervisores->telefone = $request->get('telefone');
+        $supervisores->celular = $request->get('celular');
+        $supervisores->agente_integracao = $request->get('agente_integracao');
+        $supervisores->cidade = $request->get('cidade');
+        $supervisores->estado = $request->get('estado');
+        $supervisores->formacao = $request->get('formacao');
+        $supervisores->cep = $request->get('cep');
+        $supervisores->rua = $request->get('rua');
+        $supervisores->complemento = $request->get('complemento');
+        $supervisores->bairro = $request->get('bairro');
+        $supervisores->numero = $request->get('numero');
+        $supervisores->cargo = $request->get('cargo');
+        $supervisores->id_profissional = $request->get('id_profissional');
+        $supervisores->empresa_id = $request->get('empresa_id');
+        $supervisores->save();
+
         $request->session()->flash('success', 'Atualizado com sucesso!');
         return redirect('supervisor');
     }

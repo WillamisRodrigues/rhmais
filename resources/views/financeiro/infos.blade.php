@@ -71,7 +71,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                        <td>#</td>
+                                        <td># {{$contrato->id}}</td>
                                         <td>{{$contrato->nome_fantasia}}</td>
                                         <td>{{$contrato->referencia}}</td>
                                             <td>{{date('d/m/Y', strtotime($contrato->data_inicio))}} {{date('d/m/Y', strtotime($contrato->data_fim))}}</td>

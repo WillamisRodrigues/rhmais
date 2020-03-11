@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class SetorController extends Controller
 {
+    public function __contruct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -87,7 +91,7 @@ class SetorController extends Controller
         ]);
 
         $setor = Setor::find($id);
-        $setor->nome =  $request->get('nome');
+        $setor->nome = $request->get('nome');
         $setor->sigla = $request->get('sigla');
         $setor->save();
 
@@ -101,7 +105,7 @@ class SetorController extends Controller
      * @param  \App\Setor  $setor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request  $request, Setor $setor)
+    public function destroy(Request $request, Setor $setor)
     {
         $setor->delete();
         $request->session()->flash('warning', 'Removido com sucesso!');

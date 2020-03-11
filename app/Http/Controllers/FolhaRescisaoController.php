@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class FolhaRescisaoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -52,7 +56,16 @@ class FolhaRescisaoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $request->validate([
+        //     'estagiario_id' => 'required',
+        //     'empresa_id' => 'required',
+        // ]);
+
+        $rescisao = new FolhaRescisao();
+        $rescisao->estagiario_id = $request->get('estagiario_id');
+        $rescisao->empresa_id = $request->get('empresa_id');
+        $rescisao->valor_bolsa = $request->get('valor_bolsa');
+
     }
 
     /**
@@ -78,6 +91,7 @@ class FolhaRescisaoController extends Controller
         $empresa = DB::table('empresa')->where('id', $folha->empresa_id)->get()->first();
         $estagiario = DB::table('estagiario')->where('id', $folha->estagiario_id)->get()->first();
         $contrato = DB::table('tce_contrato')->where('estagiario_id', $folha->estagiario_id)->get()->first();
+        $beneficios = DB::table('beneficio')->get();
 
         $mesAtual = date("m");
         $users = DB::table('beneficio_estagiario')->where('estagiario_id', $folha->estagiario_id)->whereMonth('created_at', '=', date('m'))->get();
@@ -92,7 +106,7 @@ class FolhaRescisaoController extends Controller
         }
 
         // dd($users);
-        return view('folha_rescisao.edit', ['folha' => $folha, 'empresa' => $empresa, 'estagiario' => $estagiario, 'contrato' => $contrato, 'dias_considerados' => $dias_considerados, 'users' => $users]);
+        return view('folha_rescisao.edit', ['folha' => $folha, 'empresa' => $empresa, 'estagiario' => $estagiario, 'contrato' => $contrato, 'dias_considerados' => $dias_considerados, 'beneficios' => $beneficios, 'users' => $users]);
 
     }
 

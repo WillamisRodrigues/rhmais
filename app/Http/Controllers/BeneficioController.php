@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Beneficio;
-use App\Empresa;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class BeneficioController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,8 +19,7 @@ class BeneficioController extends Controller
     public function index()
     {
         $beneficios = Beneficio::all();
-        $empresas = Empresa::all();
-        return view('beneficio.index', compact('beneficios', 'empresas'));
+        return view('beneficio.index', compact('beneficios'));
     }
     /**
      * Show the form for creating a new resource.
@@ -27,10 +28,7 @@ class BeneficioController extends Controller
      */
     public function create()
     {
-
-        $empresas = Empresa::all();
-
-        return view('beneficio.create', compact('empresas'));
+        return view('beneficio.create');
     }
 
     /**
@@ -75,8 +73,7 @@ class BeneficioController extends Controller
     public function edit($id)
     {
         $beneficios = Beneficio::find($id);
-        $empresas = DB::table('empresa')->get();
-        return view('beneficio.edit', ['beneficios' => $beneficios, 'empresas' => $empresas]);
+        return view('beneficio.edit', ['beneficios' => $beneficios]);
     }
 
     /**
@@ -86,14 +83,18 @@ class BeneficioController extends Controller
      * @param  \App\Beneficio  $beneficio
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Beneficio $beneficio)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'nome' => 'required',
         ]);
 
-        $beneficio->update($request->all());
+        $beneficio = Beneficio::find($id);
+        $beneficio->nome = $request->get('nome');
+        $beneficio->sigla = $request->get('sigla');
+        $beneficio->tipo = $request->get('tipo');
         $beneficio->save();
+
         $request->session()->flash('success', 'Atualizado com sucesso!');
         return redirect('beneficio');
     }
@@ -106,7 +107,7 @@ class BeneficioController extends Controller
      */
     public function destroy(Request $request, Beneficio $beneficio)
     {
-        dd($beneficio);
+
         $beneficio->delete();
         $request->session()->flash('warning', 'Removido com sucesso!');
         return redirect('beneficio');

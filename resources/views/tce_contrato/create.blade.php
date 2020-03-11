@@ -7,7 +7,8 @@
             <div class="left_col scroll-view">
                 @include('layout.menu.menu')
                 <!-- /menu profile quick info -->
-                 <script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script>
+                 {{-- <script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script> --}}
+                 <script src="{{asset('vendors/jquery/dist/jquery.min.js')}}"></script>
 
                 <br />
                 @include('layout.menu.sidebar')
@@ -73,27 +74,27 @@
                                                     </div>
                                                     <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <label for="">Data do Cadastro</label>
-                                                        <input type="date" class="form-control has-feedback-left"
+                                                        <input type="text" class="form-control has-feedback-left data"
                                                             placeholder="Data Documento" name="data_doc">
                                                         <span class="fa fa-calendar form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <label for=""> Data Inicio</label>
-                                                        <input type="date" class="form-control has-feedback-left"
+                                                        <label for=""> Data Início</label>
+                                                        <input type="text" class="form-control has-feedback-left data"
                                                             placeholder="Data Início:" name="data_inicio">
                                                         <span class="fa fa-calendar form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <label for=""> Data Fim</label>
-                                                        <input type="date" class="form-control has-feedback-left"
+                                                        <input type="text" class="form-control has-feedback-left data"
                                                             placeholder="Data Fim:" name="data_fim">
                                                         <span class="fa fa-calendar form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <select class="form-control has-feedback-left" name="beneficio">
+                                                        <select class="form-control has-feedback-left" name="beneficio_id">
                                                             <option>Selecione Beneficio:</option>
                                                             @foreach ($beneficios as $beneficio)
                                                             <option value="{{ $beneficio->id }}">{{ $beneficio->nome }}
@@ -104,7 +105,7 @@
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <select class="form-control has-feedback-left" name="apolice">
+                                                        <select class="form-control has-feedback-left" name="apolice_id">
                                                             <option>Selecione Seguro:</option>
                                                             @foreach ($seguros as $seguro)
                                                             <option value="{{ $seguro->id }}">{{ $seguro->nome }}
@@ -115,18 +116,15 @@
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <select class="form-control has-feedback-left" name="horario">
+                                                        <select id="lista-horario" class="form-control has-feedback-left" name="horario_id">
                                                             <option>Horário de Estagio:</option>
-                                                            @foreach ($horarios as $horario)
-                                                            <option value="{{ $horario->descricao }}">{{ $horario->descricao }}
-                                                            </option>
-                                                            @endforeach
                                                         </select>
                                                         <span class="fa fa-clock-o form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
+
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <select class="form-control has-feedback-left" name="setor">
+                                                        <select class="form-control has-feedback-left" name="setor_id">
                                                             <option>Selecione Setor:</option>
                                                             @foreach ($setores as $setor)
                                                             <option value="{{ $setor->id }}">{{ $setor->nome }}</option>
@@ -135,26 +133,16 @@
                                                         <span class="fa fa-cube form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
-                                                    {{-- <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <select class="form-control has-feedback-left" name="atividade">
+                                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                        <select id="lista-atividade" class="form-control has-feedback-left" name="atividade_id">
                                                             <option>Selecione Atividade:</option>
-                                                            @foreach ($atividades as $atividade)
-                                                            <option value="{{ $atividade->nome }}">{{ $atividade->nome }}
-                                                            </option>
-                                                            @endforeach
                                                         </select>
                                                         <span class="fa fa-book form-control-feedback left"
-                                                            aria-hidden="true"></span>
-                                                    </div> --}}
-                                                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" class="form-control has-feedback-left"
-                                                            placeholder="Atividade prestada" name="atividade">
-                                                        <span class="fa fa-cube form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <select class="form-control has-feedback-left"
-                                                            name="orientador">
+                                                            name="orientador_id">
                                                             <option>Orientador Estágio:</option>
                                                             @foreach ($orienta as $orient)
                                                             <option value="{{ $orient->id }}">{{ $orient->nome }}
@@ -166,17 +154,17 @@
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <select class="form-control has-feedback-left"
-                                                            name="supervisor">
+                                                            name="supervisor_id">
                                                             <option>Supervisor Estagio:</option>
                                                             @foreach ($super as $sup)
-                                                            <option value="{{ $sup->nome }}">{{ $sup->nome }}</option>
+                                                            <option value="{{ $sup->id }}">{{ $sup->nome }}</option>
                                                             @endforeach
                                                         </select>
                                                         <span class="fa fa-user form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" class="form-control has-feedback-left"
+                                                        <input type="text" maxlength="10" class="form-control has-feedback-left dinheiro"
                                                             placeholder="Valor Bolsa-Auxílio:" name="bolsa">
                                                         <span class="fa fa-money form-control-feedback left"
                                                             aria-hidden="true"></span>
@@ -236,6 +224,8 @@
                             $('select[name="empresa_id"]').append('<option value="'+ data[0].empresa_id +'">'+ data[0].nome_fantasia +'</option>');
                             $('select[name="instituicao_id"]').append('<option value="'+ data[0].instituicao_id +'">'+ data[0].nome_instituicao +'</option>');
                         });
+                        consultaHorarios(data[0].empresa_id);
+                        atividadePrestada(data[0].empresa_id);
                     }
                 });
             }else{
@@ -243,6 +233,46 @@
             }
         });
     });
+
+    function consultaHorarios(empresa_id){
+            if(empresa_id) {
+                $.ajax({
+                    url: '/horario-ajax/ajax/'+empresa_id,
+                    type: "GET",
+                    dataType: "json",
+                    success:function(data) {
+                        $('#lista-horario').empty();
+                        $.each(data, function(key, value) {
+                            for (i = 0; i < data.length; i++){
+                            $('#lista-horario').append('<option value="'+ data[0].id +'">'+ value.descricao +'</option>');
+                            }
+                        });
+                    }
+                });
+            }else{
+                $('#lista-horario').empty();
+            }
+    }
+
+function atividadePrestada(empresa_id){
+            if(empresa_id) {
+                $.ajax({
+                    url: '/atividade-ajax/ajax/'+empresa_id,
+                    type: "GET",
+                    dataType: "json",
+                    success:function(data) {
+                        $('#lista-atividade').empty();
+                        $.each(data, function(key, value) {
+                            for (i = 0; i < data.length; i++){
+                            $('#lista-atividade').append('<option value="'+ data[0].id +'">'+ value.nome +'</option>');
+                            }
+                        });
+                    }
+                });
+            }else{
+                $('#lista-atividade').empty();
+            }
+    }
 </script>
 
 @endsection

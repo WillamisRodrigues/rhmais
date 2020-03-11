@@ -45,18 +45,14 @@
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" value="{{$atividades->empresa}}"
-                                                            class="form-control has-feedback-left"
-                                                            placeholder="Unidade concedente*" name="empresa">
-                                                        {{-- <select class="form-control has-feedback-left" name="empresa">
-                                                            <option value="{{$atividades->empresa}}">
-                                                                {{$atividades->empresa}}</option>
-                                                            @foreach ($empresas as $empresa)
-                                                            <option value="{{$empresa->nome_fantasia}}">
-                                                                {{$empresa->nome_fantasia}}</option>
-                                                            @endforeach
-                                                        </select> --}}
-                                                        <span class="fa fa-home form-control-feedback left"
+                                                        @foreach ($empresas as $empresa)
+                                                             @if ($atividades->empresa_id == $empresa->id)
+                                                            <input type="text" value="{{ $empresa->nome_fantasia }}"
+                                                            class="form-control has-feedback-left">
+                                                            <input type="hidden" name="empresa_id" value="{{ $empresa->id }}">
+                                                            @endif
+                                                        @endforeach
+                                                            <span class="fa fa-home form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                 </div>

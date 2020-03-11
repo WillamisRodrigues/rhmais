@@ -32,22 +32,22 @@
                       <thead>
                         <tr>
                           <th>Nome
-                          <input type="text" class="form-control" style="width:100px;">
+                          <input type="text" class="form-control">
                           </th>
                           <th>Cidade
-                          <input type="text" class="form-control" style="width:100px;">
+                          <input type="text" class="form-control">
                           </th>
                           <th>Telefone
-                          <input type="text" class="form-control" style="width:100px;">
+                          <input type="text" class="form-control">
                           </th>
                           <th>CNPJ
-                          <input type="text" class="form-control" style="width:100px;">
+                          <input type="text" class="form-control">
                           </th>
                           <th>Custo <br> Unitario
-                          <input type="text" class="form-control" style="width:100px;">
+                          <input type="text" class="form-control">
                           </th>
                           <th>Ativo
-                          <input type="text" class="form-control" style="width:100px;">
+                          <input type="text" class="form-control">
                           </th>
                           <th>Ação</th>
                         </tr>
@@ -59,7 +59,7 @@
                           <td>{{$empresa->cidade}}</td>
                           <td>{{$empresa->telefone}}</td>
                           <td>{{$empresa->cnpj}}</td>
-                          <td>{{"R$ " .number_format($empresa->custo_unitario, 2)}}</td>
+                          <td>R$ {{ $empresa->custo_unitario }}</td>
                           <td>
                              @if ($empresa->ativo == '1')
                               Sim

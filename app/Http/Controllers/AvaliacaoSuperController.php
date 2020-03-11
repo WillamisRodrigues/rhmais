@@ -3,11 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\AvaliacaoSuper;
+use App\Empresa;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class AvaliacaoSuperController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,10 +21,16 @@ class AvaliacaoSuperController extends Controller
      */
     public function index()
     {
-        // $avaliacao = AvaliacaoSuper::all();
-        // return view('avaliacao_supervisor.index', compact('avaliacao'));
+        $empresas = Empresa::all();
 
-        $empresas = DB::table('empresa')->get();
+        // $supervisores = DB::table('empresa')
+        //     ->join('estagiario', 'empresa.id', '=', 'estagiario.empresa_id')
+        //     ->join('supervisor', 'empresa.id', '=', 'supervisor.empresa_id')
+        //     ->leftjoin('tce_contrato', 'empresa.id', '=', 'tce_contrato.empresa_id')
+        //     ->select('supervisor.nome', 'empresa.nome_fantasia', 'estagiario.nome As estagiario', 'tce_contrato.data_inicio', 'tce_contrato.data_fim')
+        //     ->get();
+
+        // dd($supervisores);
         return view('avaliacao_supervisor.index', ['empresas' => $empresas]);
     }
 
@@ -72,8 +84,8 @@ class AvaliacaoSuperController extends Controller
                 'estagiario.cpf',
                 'estagiario.data_nascimento',
                 'estagiario.id',
-                'estagiario.status',
-                'estagiario.nivel',
+                'estagiario.ativo',
+                'estagiario.curso',
                 'estagiario.cidade',
                 'estagiario.estado'
             )
@@ -107,7 +119,7 @@ class AvaliacaoSuperController extends Controller
             'estagiarios' => $estagiarios,
             'instituicoes' => $instituicoes,
             'empresas' => $empresas,
-            'supervisores' => $supervisores
+            'supervisores' => $supervisores,
         ]);
     }
 
@@ -124,13 +136,15 @@ class AvaliacaoSuperController extends Controller
             'empresa_id' => 'required',
         ]);
 
+        $data_doc = $request->get('data_doc');
+
         $avaliacao = new AvaliacaoSuper();
         $avaliacao->estagiario_id = $request->get('estagiario_id');
         $avaliacao->empresa_id = $request->get('empresa_id');
         $avaliacao->instituicao_id = $request->get('instituicao_id');
         $avaliacao->supervisor = $request->get('supervisor');
         $avaliacao->periodo_avaliativo = $request->get('periodo_avaliativo');
-        $avaliacao->data_doc = $request->get('data_doc');
+        $avaliacao->data_doc = Carbon::createFromFormat('d/m/Y', $date_doc)->format('Y-m-d');
         $avaliacao->obs = $request->get('obs');
         $avaliacao->assiduidade = $request->get('assiduidade');
         $avaliacao->disciplina = $request->get('disciplina');
@@ -191,5 +205,27 @@ class AvaliacaoSuperController extends Controller
     public function destroy(AvaliacaoSuper $avaliacaoSuper)
     {
         //
+    }
+
+    public function avaliacaoAjax($id)
+    {
+        $avaliacao = DB::table('estagiario')
+            ->join('empresa', 'empresa.id', '=', 'estagiario.empresa_id')
+            ->join('instituicao', 'instituicao.id', '=', 'estagiario.instituicao_id')
+            ->where("estagiario.id", $id)
+            ->select("nome_fantasia", "nome_instituicao", "empresa_id", "instituicao_id")
+            ->get();
+        return json_encode($avaliacao);
+    }
+
+    public function supervisorAjax($id)
+    {
+        $supervisor = DB::table('supervisor')
+            ->join('empresa', 'empresa.id', '=', 'supervisor.empresa_id')
+            ->where("empresa.id", $id)
+            ->select("nome", "supervisor.id")
+            ->get();
+        return json_encode($supervisor);
+
     }
 }

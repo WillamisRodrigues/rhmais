@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\User;
 use Flash;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 // use App\Message;
 
@@ -34,7 +34,7 @@ class UserController extends Controller
             $this->validate(request(), [
                 'name' => 'required',
                 'email' => 'required|email',
-                'password' => 'required|confirmed'
+                'password' => 'required|confirmed',
             ]);
             DB::beginTransaction();
             $user = User::create([
@@ -48,10 +48,10 @@ class UserController extends Controller
             $this->validate(request(), [
                 'name' => 'required',
                 'email' => 'required|email',
-                'password' => 'required|confirmed'
+                'password' => 'required|confirmed',
             ]);
             DB::beginTransaction();
-            $user =  User::whereId(request('id'))->firstOrFail();
+            $user = User::whereId(request('id'))->firstOrFail();
             if ($user) {
                 $user->name = request('name');
                 $user->email = request('email');
@@ -95,7 +95,7 @@ class UserController extends Controller
         ]);
 
         $users = User::find($id);
-        $users->name =  $request->get('name');
+        $users->name = $request->get('name');
         $users->email = $request->get('email');
         $users->save();
 
@@ -105,15 +105,11 @@ class UserController extends Controller
 
     public function destroy(Request $request)
     {
-        // dd($request->all());
+
         $message = "";
         try {
             DB::table('users')->where('id', $request->_id)->delete();
-            // DB::beginTransaction();
 
-            // User::whereId(request("_id"))->destroy();
-
-            // DB::commit();
             $message = 'usuário excluído com sucesso';
         } catch (\Exception $e) {
             DB::rollback();

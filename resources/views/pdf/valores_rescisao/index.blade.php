@@ -25,42 +25,44 @@
    <h4 class="text-center">Relatório de Valores - Rescisão</h4>
 <br>
 <div class="tab">
+    @foreach ($folhaRescisao as $res)
     <table class="table" style="max-width: 100%">
         <tr>
-            <td><strong> Matricula:</strong> 201901111333</td>
-            <td><strong> Estagiário: </strong> Handila Mirian </td>
-            <td><strong> CPF: </strong> 570.328.598-44</td>
+            <td><strong> Matricula:</strong> {{$res->id}}</td>
+            <td><strong> Estagiário: </strong>  {{$res->nome}} </td>
+            <td><strong> CPF: </strong>  {{$res->cpf}}</td>
         </tr>
         <tr>
-            <td><strong> Unidade:</strong> Vasconcelos Pires de Azevedo Cobrança ltda</td>
-            <td><strong> Rua: </strong> Professora Ruth </td>
-            <td><strong> Nº: </strong>  181</td>
-            <td><strong> Complemento: </strong>  ---</td>
+            <td><strong> Unidade:</strong>  {{$res->nome_fantasia}}</td>
+            <td><strong> Rua: </strong> {{$res->rua}} </td>
+            <td><strong> Nº: </strong>   {{$res->numero}}1</td>
+            <td><strong> Complemento: </strong>   {{$res->complemento}}</td>
         </tr>
         <tr>
-            <td><strong> Cidade:</strong> Campinas</td>
-            <td><strong> Bairro: </strong> jardim do lago </td>
-            <td><strong> Telefone: </strong>  --</td>
+            <td><strong> Cidade:</strong>  {{$res->cidade}}</td>
+            <td><strong> Bairro: </strong>  {{$res->bairro}} </td>
+            <td><strong> Telefone: </strong>   {{$res->telefone}}</td>
         </tr>
         <tr>
-            <td><strong> Valor:</strong> 541.67</td>
+            <td><strong> Valor:</strong>  {{$res->valor_bolsa}}</td>
             <td><strong> Valor Débito: </strong> 0.00 </td>
-            <td><strong> Valor Liquido: </strong> 541.67 </td>
-            <td><strong> Referência: </strong> 2019/11 </td>
+            <td><strong> Valor Liquido: </strong>  {{$res->valor_liquido}} </td>
+            <td><strong> Referência: </strong> {{$res->referencia}} </td>
         </tr>
         <tr>
             <td><strong> Banco/A:</strong> </td>
             <td><strong> CC/Tipo: </strong>  </td>
-            <td><strong> Data Início TCE: </strong> 11/11/2019 </td>
-            <td><strong> Data Rescisão: </strong> 25/11/2019 </td>
+            <td><strong> Data Início TCE: </strong>  {{date('d/m/Y', strtotime($res->data_inicio))}} </td>
+            <td><strong> Data Rescisão: </strong>  {{date('d/m/Y', strtotime($res->data_fim))}} </td>
         </tr>
         <tr>
             <td><strong> Valor Taxa:</strong> </td>
             <td><strong> Valor %: </strong>  </td>
             <td><strong> Valor: </strong> 0.00 </td>
         </tr>
-    </table>   
-</div> 
+    </table>
+</div>
+@endforeach
 </body>
 
 </html>

@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\DB;
 
 class SeguradoraController extends Controller
 {
+    public function __contruct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -91,14 +95,21 @@ class SeguradoraController extends Controller
      * @param  \App\Seguradora  $seguradora
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Seguradora $seguro)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'nome' => 'required',
         ]);
 
-        $seguro->update($request->all());
-        $seguro->save();
+        $seguradora = Seguradora::find($id);
+        $seguradora->nome = $request->get('nome');
+        $seguradora->n_apolice = $request->get('n_apolice');
+        $seguradora->agente_integracao = $request->get('agente_integracao');
+        $seguradora->cobertura = $request->get('cobertura');
+
+        // dd($seguradora);
+        // $seguro->update($request->all());
+        $seguradora->save();
         $request->session()->flash('success', 'Atualizado com sucesso!');
         return redirect('seguro');
     }

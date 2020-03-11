@@ -75,7 +75,7 @@
                                                 </div>
                                                 <div class="btn-group mr-2 sw-btn-group-extra" role="group">
                                                     <button type="submit" class="btn btn-info">Enviar</button>
-                                                    <button class="btn btn-danger">Cancelar</button>
+                                                    <a href="/beneficio" button class="btn btn-danger">Cancelar</a>
                                                 </div>
                                             </div>
                                         </div>

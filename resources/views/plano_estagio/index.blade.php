@@ -1,5 +1,5 @@
 @extends('layout/app')
-@section('titulo','TCE e Aditivos de Contratos Ativos - Gerar Plano Estágio | RH MAIS')
+@section('titulo','Plano de Estágio | RH MAIS')
 @section('conteudo')
 <div class="container body">
     <div class="main_container">
@@ -12,14 +12,13 @@
         </div>
         @include('layout.menu.menutop')
         <!-- page content -->
-
         <!-- page content -->
         <div class="right_col" role="main">
             <div class="">
                 <!-- <a href="{{url('estagiario/exportar')}}">Print  PDF</a> -->
                 <div class="clearfix"></div>
-
                 <div class="row">
+                    @include('layout.alerta.flash-message')
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
@@ -39,13 +38,13 @@
                                             <th>TCE Início/Fim
                                                 <input type="text" class="form-control">
                                             </th>
-                                            <th>Contrato
+                                            <th>Plano de Estágio
                                                 <input type="text" class="form-control" style="width:100px;">
                                             </th>
                                             <th>tce/Ad Assinado
                                                 <input type="text" class="form-control" style="width:100px;">
                                             </th>
-                                            <th>Plano
+                                            <th>Aditivo
                                                 <input type="text" class="form-control" style="width:100px;">
                                             </th>
                                             <th>Opções</th>
@@ -58,14 +57,20 @@
                                             <td>{{$plano->nome_fantasia}}</td>
                                             <td>{{date('d/m/Y', strtotime($plano->data_inicio))}} /
                                                 {{date('d/m/Y', strtotime($plano->data_fim))}}</td>
-                                            <td>TCE</td>
-                                            <td>Sim</td>
                                             <td>
-                                                @if ($plano->plano_estagio == '1')
+                                                @if ( $plano->plano_estagio  == 1)
                                                 Sim
                                                 @else
                                                 Não
-                                                @endif
+                                            @endif
+                                            </td>
+                                            <td>Sim</td>
+                                            <td>
+                                                @if ( $plano->aditivo  == 1)
+                                                Sim
+                                                @else
+                                                Não
+                                            @endif
                                             </td>
                                             <td style="width:10%;">
                                                 <a href="{{ route('tce_contrato.show',[$plano->tceId])}}"

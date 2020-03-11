@@ -11,8 +11,8 @@
                 <form id="productForm" name="productForm" class="form-horizontal">
                    <input type="hidden" name="product_id" id="product_id">
                     <input type="hidden" name="estagiario_id" id="estagiario_id" value="{{ $estagiario->id }}">
-                     <input type="hidden" name="empresa" id="empresa" value="{{ $empresa->id }}">
-                     <input type="hidden" name="folha" id="folha" value="{{ $folha->id }}">
+                     {{-- <input type="hidden" name="empresa" id="empresa" value="{{ $empresa->id }}"> --}}
+                     <input type="hidden" name="folha_id" id="folha_id" value="{{ $folha->id }}">
 
                    <div class="col-md-12">
                         <div class="form-group">
@@ -23,9 +23,6 @@
                                     @endforeach
                             </select>
                                         <span class="fa fa-list form-control-feedback left" aria-hidden="true"></span>
-                            {{-- <div>
-                                <input type="text" class="form-control" id="referencia" name="referencia" placeholder="Exemplo: Beneficio Transporte" value="" maxlength="50" required="">
-                            </div> --}}
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -45,7 +42,7 @@
                     <div class="form-group">
                         <label class="control-label">Valor</label>
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input type="number" value="0" class="form-control has-feedback-left" name="valor">
+                            <input type="text" value="0" class="form-control has-feedback-left dinheiro" name="valor">
                             <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
                         </div>
                     </div>

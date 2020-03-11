@@ -37,20 +37,20 @@
                                             <div id="form-step-0" role="form" data-toggle="validator">
                                                 <div class="row" style="width:960px; margin: 20px auto;">
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" class="form-control has-feedback-left"
-                                                            placeholder="CPF:" name="cpf">
+                                                        <input type="text" class="form-control has-feedback-left cpf"
+                                                            placeholder="CPF: *" name="cpf">
+                                                        <span class="fa fa-user form-control-feedback left"
+                                                            aria-hidden="true"></span>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                        <input type="text" class="form-control has-feedback-left rg"
+                                                            placeholder="RG: *" name="rg">
                                                         <span class="fa fa-user form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text" class="form-control has-feedback-left"
-                                                            placeholder="RG:" name="rg">
-                                                        <span class="fa fa-user form-control-feedback left"
-                                                            aria-hidden="true"></span>
-                                                    </div>
-                                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" class="form-control has-feedback-left"
-                                                            placeholder="Nome do supervisor:" name="nome">
+                                                            placeholder="Nome do supervisor: *" name="nome">
                                                         <span class="fa fa-user form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
@@ -68,7 +68,7 @@
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" class="form-control has-feedback-left"
+                                                        <input type="text" class="form-control has-feedback-left cep"
                                                             placeholder="CEP:" name="cep">
                                                         <span class="fa fa-user form-control-feedback left"
                                                             aria-hidden="true"></span>
@@ -76,6 +76,12 @@
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text" class="form-control has-feedback-left"
                                                             placeholder="Complemento:" name="complemento">
+                                                        <span class="fa fa-user form-control-feedback left"
+                                                            aria-hidden="true"></span>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                        <input type="text" class="form-control has-feedback-left"
+                                                            placeholder="Bairro:" name="bairro">
                                                         <span class="fa fa-user form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
@@ -115,18 +121,7 @@
                                                         <span class="fa fa-user form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
-                                                    {{-- <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <select class="form-control has-feedback-left"
-                                                            name="instituicao_id">
-                                                            <option>Selecione Instituição de Ensino:</option>
-                                                            @foreach ($instituicoes as $instituicao)
-                                                            <option value="{{ $instituicao->id }}">
-                                                                {{ $instituicao->nome_instituicao }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                        <span class="fa fa-graduation-cap form-control-feedback left"
-                                                            aria-hidden="true"></span>
-                                                    </div> --}}
+
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text" class="form-control has-feedback-left"
                                                             value="KOSTER E KOSTER CONSULTORIA EM RH LTDA - RH MAIS TALENTOS" readonly placeholder="Agente de Integração"
@@ -150,7 +145,7 @@
                                                 </div>
                                                 <div class="btn-group mr-2 sw-btn-group-extra" role="group">
                                                     <button type="submit" class="btn btn-info">Enviar</button>
-                                                    <button class="btn btn-danger">Cancelar</button>
+                                                    <a href="/supervisor" class="btn btn-danger">Cancelar</a>
                                                 </div>
                                             </div>
                                         </div>

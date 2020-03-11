@@ -1,5 +1,5 @@
 @extends('layout/app')
-@section('titulo','Recibos Processados - Folha - Agente Integração | RH MAIS')
+@section('titulo','Folha de Pagamento - Agente Integração | RH MAIS')
 @section('conteudo')
 <div class="container body">
     <div class="main_container">
@@ -147,10 +147,10 @@
                                                 }
                                                 @endphp
                                             </td>
-                                            <td>{{"R$ " .number_format($folha->valor_bolsa, 2) }}</td>
+                                            <td>R$ {{ $folha->valor_bolsa }}</td>
                                             <td>{{ $folha->faltas }}</td>
                                             <td>@if ($folha->valor_liquido)
-                                                {{"R$ " .number_format($folha->valor_liquido, 2)}}
+                                                 R$ {{ $folha->valor_liquido }}
                                             @endif
                                             </td>
                                              <td>

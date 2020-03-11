@@ -92,10 +92,10 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
-                                <table class="table table-striped  list table-bordered">
+                                <table class="table table-striped list  table-bordered" style="zoom:0.9;">
                                     <thead>
                                         <tr>
-                                            <th> Status</th>
+                                            <th>Status</th>
                                             <th>Referência
                                                 <input type="text" class="form-control" style="width:100px;">
                                             </th>
@@ -117,9 +117,9 @@
                                     <tbody>
                                         <tr>
                                             @foreach ($folhas as $folha)
-                                        <tr>
+                                        {{-- <tr> --}}
                                             <td>
-                                                @if ($folha->status == 1)
+                                                @if ($folha->status == 0)
                                                 Pendente
                                                 @else
                                                 Gerado
@@ -145,19 +145,19 @@
                                                 @endphp
                                             </td>
                                             <td> @if (isset($folha->valor_bolsa))
-                                                 {{"R$ " .number_format($folha->valor_bolsa, 2) }}
+                                                 {{"R$ " .number_format($folha->valor_bolsa, 2, ',', '.') }}
                                             @endif
                                             </td>
                                             {{-- <td>{{ $folha->faltas }}</td> --}}
                                             <td>@if (isset($folha->valor_liquido))
-                                                    {{"R$ " .number_format($folha->valor_liquido, 2) }}
+                                                    {{"R$ " .number_format($folha->valor_liquido, 2, ',', '.') }}
                                             @endif
                                             </td>
                                             <td>
                                                 <form action="{{ route('folha_rescisao.edit', [$folha->id]) }}">
                                                 <button type="submit" class="btn btn-primary" title="Editar"><i class="fa fa-pencil"></i> </a>
                                                 </button>
-                                                <a href="{{ action('PdfController@generateRescisao', $folha->id) }}" target="_blank" class="btn btn-success">
+                                                <a href="{{ action('PdfController@rescisaoFolha', $folha->id) }}" target="_blank" class="btn btn-success">
                                                     <i class="fa fa-print" title="Imprimir"></i>
                                                 </a>
                                                 </form>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Laravel Dependent Dropdown Example with demo</title>
+    <title>Ajax Testes</title>
     <script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script>
     <link rel="stylesheet" href="http://demo.itsolutionstuff.com/plugin/bootstrap-3.min.css">
 </head>
@@ -9,50 +9,48 @@
 
 <div class="container">
     <div class="panel panel-default">
-      {{-- <div class="panel-heading">Select State and get bellow Related City</div> --}}
-      <div class="panel-body">
+      {{-- <div class="panel-heading">Select State and get bellow Related City</div>  --}}
+       <div class="panel-body">
             <div class="form-group">
-                <label for="title">Nome</label>
-                <select name="nome" class="form-control" style="width:350px">
-                    <option value="">Nome</option>
-                    @foreach ($estagiarios as $key => $value)
-                        <option value="{{ $key }}">{{ $value }}</option>
-                    @endforeach
+                <label for="title">Empresa</label>
+                <select name="empresa_id" class="form-control" style="width:350px">
+                     <option>Selecione o Estagiário:</option>
+                         @foreach ($empresas as  $key => $value )
+                         <option value="{{ $value->id }}">{{ $value->nome_fantasia }}</option>
+                         @endforeach
                 </select>
             </div>
             <div class="form-group">
                 <label for="title">Empresa</label>
-                <select name="empresa" class="form-control" style="width:350px">
+                <select name="empresa_id" class="form-control" style="width:350px">
                 </select>
             </div>
-      {{-- </div> --}}
+       </div>
       <div class="form-group">
-                <label for="title">Instituição</label>
-                <select name="instituicao" class="form-control" style="width:350px">
+                <label for="title">Horarios</label>
+                <select name="horario_id" class="form-control" style="width:350px">
                 </select>
             </div>
     </div>
 </div>
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('select[name="nome"]').on('change', function() {
+     $(document).ready(function() {
+        $('select[name="empresa_id"]').on('change', function() {
             var stateID = $(this).val();
             if(stateID) {
                 $.ajax({
-                    url: '/teste/ajax/'+stateID,
+                    url: '/teste-ajax/ajax/'+stateID,
                     type: "GET",
                     dataType: "json",
                     success:function(data) {
-                        $('select[name="empresa"]').empty();
-                        $('select[name="instituicao"]').empty();
+                        $('select[name="descricao"]').empty();
                         $.each(data, function(key, value) {
-                            $('select[name="empresa"]').append('<option value="'+ key +'">'+ key +'</option>');
-                            $('select[name="instituicao"]').append('<option value="'+ key +'">'+ value +'</option>');
+                            $('select[name="horario_id"]').append('<option value="'+ data[0].id +'">'+ data[0].descricao +'</option>');
                         });
                     }
                 });
             }else{
-                $('select[name="empresa"]').empty();
+                $('select[name="horario_id"]').empty();
             }
         });
     });

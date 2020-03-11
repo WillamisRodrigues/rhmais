@@ -27,7 +27,7 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
-                            <form action="" id="myForm" role="form"
+                        <form action="{{route('tce_aditivo.update', $tceAditivo->id ) }}" id="myForm" role="form"
                                 data-toggle="validator" method="post" accept-charset="utf-8">
                                 <input type="hidden" name="_method" value="PUT">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -42,8 +42,8 @@
                                                         @foreach ($estagiarios as $estagiario)
                                                             @if ($tceAditivo->estagiario_id == $estagiario->id)
                                                         <input type="text" value="{{$estagiario->nome}}"
-                                                            class="form-control has-feedback-left"
-                                                            placeholder="Estagiário" name="nome">
+                                                            class="form-control has-feedback-left" placeholder="Estagiário">
+                                                             <input type="hidden" name="estagiario_id" value="{{$estagiario->id}}">
                                                         <span class="fa fa-user form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                             @endif
@@ -52,11 +52,10 @@
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         @foreach ($instituicoes as $instituicao)
                                                             @if ($tceAditivo->instituicao_id == $instituicao->id)
-                                                            <input type="text" value="{{$instituicao->nome_instituicao}}"
-                                                            class="form-control has-feedback-left"
-                                                            placeholder="Instituição de Ensino" name="instituicao_id">
-                                                            <span class="fa fa-home form-control-feedback left"
-                                                            aria-hidden="true"></span>
+                                                            <input type="text" value="{{$instituicao->nome_instituicao}}" class="form-control has-feedback-left"
+                                                            placeholder="Instituição de Ensino">
+                                                    <input type="hidden" name="instituicao_id" value="{{$instituicao->id}}">
+                                                            <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                                             @endif
                                                         @endforeach
                                                     </div>
@@ -65,16 +64,17 @@
                                                             @if ($tceAditivo->empresa_id == $empresa->id)
                                                              <input type="text" value="{{$empresa->nome_fantasia}}"
                                                             class="form-control has-feedback-left"
-                                                            placeholder="Unidade Concedente" name="empresa_id">
+                                                            placeholder="Unidade Concedente">
+                                                             <input type="hidden" name="empresa_id" value="{{$empresa->id}}">
                                                             <span class="fa fa-home form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                             @endif
                                                         @endforeach
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" value="{{"R$ " .number_format($tceAditivo->bolsa, 2)}}"
-                                                            class="form-control has-feedback-left"
-                                                            placeholder="Valor Bolsa-Auxílio:" name="email">
+                                                        <input type="text" value="{{$tceAditivo->bolsa}}"
+                                                            class="form-control has-feedback-left dinheiro"
+                                                            placeholder="Valor Bolsa-Auxílio:" name="bolsa">
                                                         <span class="fa fa-money form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
@@ -93,70 +93,68 @@
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" value="{{$tceAditivo->beneficio_id}}"
-                                                            class="form-control has-feedback-left"
-                                                            placeholder="Benefício:" name="beneficio">
-                                                        <span class="fa fa-money form-control-feedback left"
-                                                            aria-hidden="true"></span>
+                                                          @foreach ($beneficios as $ben)
+                                                                @if ($ben->id == $tceAditivo->beneficio_id)
+                                                        <input type="text" value="{{$ben->nome }}" class="form-control has-feedback-left" placeholder="Benefício:">
+                                                    <input type="hidden" name="beneficio_id" value="{{$ben->id}}">
+                                                        <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
+                                                                @endif
+                                                            @endforeach
+                                                    </div>
+
+                                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                        @foreach ($horarios as $hora)
+                                                            @if ($tceAditivo->horario_id == $hora->id)
+                                                                <input type="text" value="{{$hora->descricao}}" class="form-control has-feedback-left" placeholder="Horário Estágio:">
+                                                                <input type="hidden" name="horario_id" value="{{$hora->id}}">
+                                                        <span class="fa fa-clock-o form-control-feedback left"aria-hidden="true"></span>
+                                                            @endif
+                                                        @endforeach
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" value="{{$tceAditivo->horario}}"
-                                                            class="form-control has-feedback-left"
-                                                            placeholder="Horário Estágio:" name="horario">
-                                                        <span class="fa fa-clock-o form-control-feedback left"
-                                                            aria-hidden="true"></span>
+                                                         @foreach ($setores as $setor)
+                                                            @if ($setor->id == $tceAditivo->setor_id)
+                                                                 <input type="text" value="{{$setor->nome}}" class="form-control has-feedback-left" placeholder="Setor:">
+                                                                <input type="hidden" name="setor_id" value="{{$setor->id}}">
+                                                                <span class="fa fa-bars form-control-feedback left" aria-hidden="true"></span>
+                                                            @endif
+                                                         @endforeach
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" value="{{$tceAditivo->setor_id}}"
-                                                            class="form-control has-feedback-left" placeholder="Setor:"
-                                                            name="setor">
-                                                        <span class="fa fa-bars form-control-feedback left"
-                                                            aria-hidden="true"></span>
+                                                        @foreach ($atividades as $ativ)
+                                                            @if ($ativ->id == $tceAditivo->atividade_id)
+                                                                <input type="text" value="{{$ativ->nome}}" class="form-control has-feedback-left" placeholder="Atividades:">
+                                                                <input type="hidden" name="atividade_id" value="{{$ativ->id}}">
+                                                                <span class="fa fa-bars form-control-feedback left" aria-hidden="true"></span>
+                                                            @endif
+                                                        @endforeach
                                                     </div>
-                                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" value="{{$tceAditivo->atividades}}"
-                                                            class="form-control has-feedback-left"
-                                                            placeholder="Atividades:" name="atividades">
-                                                        <span class="fa fa-bars form-control-feedback left"
-                                                            aria-hidden="true"></span>
-                                                    </div>
-                                                    {{-- <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" value="{{$tceAditivo->orientador}}"
-                                                            class="form-control has-feedback-left"
-                                                            placeholder="Orientador Estágio:" name="orientador">
-                                                        <span class="fa fa-user form-control-feedback left"
-                                                            aria-hidden="true"></span>
-                                                    </div> --}}
                                                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                    <select class="form-control has-feedback-left" name="orientador_id" value="{{$tceAditivo->orientador_id}}">
                                                             @foreach ($orientador as $or)
                                                                    @if ($tceAditivo->orientador_id == $or->id)
-                                                                <option value="{{$or->nome}}">{{$or->nome}}</option>
+                                                                   <input type="text" value="{{$or->nome}}" class="form-control has-feedback-left" placeholder="Atividades:">
+                                                                    <input type="hidden" name="orientador_id" value="{{$or->id}}">
+                                                                    <span class="fa fa-bars form-control-feedback left" aria-hidden="true"></span>
                                                                    @endif
                                                                 @endforeach
-                                                            @foreach ($orientador as $or)
-                                                            <option value="{{ $or->id }}">{{ $or->nome }}</option>
-                                                            @endforeach
-                                                    </select>
                                                      </div>
-                                                    {{-- <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" value="{{$tceAditivo->supervisor}}"
-                                                            class="form-control has-feedback-left"
-                                                            placeholder="Supervisor Estágio:" name="supervisor">
-                                                        <span class="fa fa-user form-control-feedback left"
-                                                            aria-hidden="true"></span>
-                                                    </div> --}}
                                                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                    <select class="form-control has-feedback-left" name="supervisor_id" value="{{$tceAditivo->supervisor_id}}">
                                                                     @foreach ($supervisor as $sup)
                                                                         @if ($tceAditivo->supervisor_id == $sup->id)
-                                                                       <option value="{{$sup->nome}}">{{$sup->nome}}</option>
+                                                                        <input type="text" value="{{$sup->nome}}" class="form-control has-feedback-left" placeholder="Atividades:">
+                                                                        <input type="hidden" name="supervisor_id" value="{{$sup->id}}">
+                                                                        <span class="fa fa-bars form-control-feedback left" aria-hidden="true"></span>
                                                                         @endif
                                                                     @endforeach
-                                                            @foreach ($supervisor as $sup)
-                                                            <option value="{{ $sup->id }}">{{ $sup->nome }}</option>
-                                                            @endforeach
-                                                    </select>
+                                                     </div>
+                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                                    @foreach ($apolices as $apolice)
+                                                                        @if ($tceAditivo->apolice_id == $apolice->id)
+                                                                        <input type="text" value="{{$apolice->nome}}" class="form-control has-feedback-left" placeholder="Atividades:">
+                                                                        <input type="hidden" name="apolice_id" value="{{$apolice->id}}">
+                                                                        <span class="fa fa-bars form-control-feedback left" aria-hidden="true"></span>
+                                                                        @endif
+                                                                    @endforeach
                                                      </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text" value="{{date('d/m/Y', strtotime($tceAditivo->data_doc))}}"
@@ -172,31 +170,28 @@
                                                             <label>
                                                                 <input type="radio" name="obrigatorio"
                                                                     value="{{$tceAditivo->obrigatorio}}" class="flat" checked="@if ($tceAditivo->obrigatorio == 1) true  @endif "> Obrigatório
-                                                                    
+
                                                             </label>
                                                             <!-- 2 - não obrigatorio -->
                                                             <label>
                                                                 <input type="radio" name="obrigatorio"
                                                                     value="{{$tceAditivo->obrigatorio }}" class="flat" checked="@if ($tceAditivo->obrigatorio == 2) true  @endif "> Não
-                                                                Obrigatório 
+                                                                Obrigatório
                                                             </label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                                                        <label>Sua observação</label>
-                                                        <textarea class="form-control" placeholder="Observação"
-                                                            name="obs"></textarea>
+                                                        <label>Aditivo</label>
+                                                    <textarea  name="obs" class="form-control" placeholder="Aditivo" value="{{$tceAditivo->obs}}">{{$tceAditivo->obs}}</textarea>
                                                     </div>
                                                     <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                                                     <button type="submit" class="btn btn-success"
                                                     style="margin-left: 30%;">Salvar Alterações</button>
                                                    <a href="/tce_aditivo" class="btn btn-danger">Voltar</a>
+                                                    </div>
                                                 </div>
-                                                </div>
-                                               
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                         </div>

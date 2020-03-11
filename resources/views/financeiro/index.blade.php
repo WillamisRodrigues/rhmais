@@ -62,7 +62,7 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
-                                <table class="table table-striped list  table-bordered" style="zoom:0.8;">
+                                <table class="table table-striped list  table-bordered" style="zoom:0.9;">
                                     <thead>
                                         <tr>
                                             <th>Unidade
@@ -92,8 +92,11 @@
                                             <th>Fechado
                                                 <input type="text" class="form-control" style="width:100px;">
                                             </th>
-                                            <th>Opções
-                                            </th>
+                                            <th>Opções</th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -108,8 +111,7 @@
                                                 @endphp
                                             </td>
                                             <td>{{ $contrato->referencia }}</td>
-                                            <td>{{$contrato->data_boleto}}</td>
-
+                                            <td>{{$contrato->dia_boleto}}</td>
                                             <td>@php
                                                 foreach ($empresas as $empresa) {
                                                 if ($empresa->id == $contrato->empresa_id) {
@@ -145,14 +147,14 @@
                                                     class="btn btn-primary" title="Marcar contrato como fechado"> <i
                                                         class="fa fa-star"></i> </a>
                                             </td>
-                                            <td>VALOR <BR> SOMA <BR> % <BR> CONTRATO<BR> ESTAGIARIO
-                                            </td>
-                                            <td><a href="{{ route('financeiro.infos', [$contrato->id]) }}"
+                                            <td>VALOR <BR> SOMA <BR> % <BR> CONTRATO<BR> ESTAGIARIO</td>
+                                                <td><a href="{{ route('financeiro.infos', [$contrato->id]) }}"
                                                     class="btn btn-primary" title="Detalhes"><i class="fa fa-bars"></i></a></td>
-                                            <td> <a href="{{ action('PdfController@generateFechamento', $contrato->empresa_id) }}" target="_blank" class="btn btn-warning" title="Imprimir"> <i class="fa fa-print"></i> </a> </td>
+                                                <td><a href="{{ action('PdfController@generateFechamento', $contrato->empresa_id) }}" target="_blank" class="btn btn-warning" title="Imprimir"> <i class="fa fa-print"></i> </a><td>
+                                            </td>
+                                        </td>
                                         </tr>
                                         @endforeach
-
                                     </tbody>
                                 </table>
                             </div>

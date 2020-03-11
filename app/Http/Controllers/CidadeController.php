@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
-use App\Estado;
 use App\Cidade;
+use App\Estado;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CidadeController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -48,10 +49,11 @@ class CidadeController extends Controller
         // Verifica se inseriu com sucesso
         // Redireciona para a listagem das categorias
         // Passa uma session flash success (sessão temporária)
-        if ($insert)
+        if ($insert) {
             return redirect()
                 ->route('cidade.index')
                 ->with('success', 'Cidade cadastrada com sucesso!');
+        }
 
         // Redireciona de volta com uma mensagem de erro
         return redirect()

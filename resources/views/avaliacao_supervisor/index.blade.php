@@ -1,5 +1,5 @@
 @extends('layout/app')
-@section('titulo','TCE e Aditivos de Contratos Ativos - Gerar Avaliações Supervisor(a)')
+@section('titulo','Gerar Avaliações Supervisor(a)')
 @section('conteudo')
 <div class="container body">
     <div class="main_container">
@@ -23,7 +23,7 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
-                                <a href="#" class="btn btn-success pull-right"> <i class="fa fa-print"> </i> Relátorio
+                                <a href="{{route('avaliacao_supervisor.create')}}" class="btn btn-success pull-right"> </i> Gerar
                                     Avaliação Supervisores</a>
                                 <h2>TCE e Aditivos de Contratos Ativos - Gerar Avaliações Supervisor(a)</h2>
                                 <div class="clearfix"></div>
@@ -42,7 +42,7 @@
                                             <th>Supervisor
                                                 <input type="text" class="form-control" style="width:100px;">
                                             </th>
-                                            <th>Opções</th>
+                                            <th>Qtd. Realizada</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -51,12 +51,13 @@
                                             <td>LIFE ACADEMIA BRASIL EIRELI- EPP - ACADEMIA LIFE GYM</td>
                                             <td>10/09/2018 31/12/2019</td>
                                             <td>LUCIELENA NISTA</td>
-                                            <td style="width:10%;">
+                                            {{-- <td style="width:10%;">
                                                 <div class="col-md-3">
-                                                    <a href="{{route('avaliacao_supervisor.create')}}"
+                                                    <a href="#"
                                                         class="btn btn-primary" title="Lançar"> <i class="fa fa-pencil"> </i></a>
                                                 </div>
-                                            </td>
+                                            </td> --}}
+                                            <td style="width:5%;">2</td>
                                         </tr>
                                     </tbody>
                                 </table>

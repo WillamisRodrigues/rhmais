@@ -10,6 +10,10 @@ use Illuminate\Http\Request;
 
 class OrientadorController extends Controller
 {
+    public function __contruct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,8 +21,9 @@ class OrientadorController extends Controller
      */
     public function index()
     {
+        $instituicoes = Instituicao::all();
         $orientadores = Orientador::all();
-        return view('orientador.index', compact('orientadores'));
+        return view('orientador.index', compact('orientadores', 'instituicoes'));
     }
 
     /**
@@ -65,6 +70,7 @@ class OrientadorController extends Controller
         $orientadoress->cep = $request->get('cep');
         $orientadoress->numero = $request->get('numero');
         $orientadoress->complemento = $request->get('complemento');
+        $orientadoress->cargo = $request->get('cargo');
         $orientadoress->instituicao_id = $request->get('instituicao_id');
         $orientadoress->save();
 
@@ -104,14 +110,33 @@ class OrientadorController extends Controller
      * @param  \App\Orientador  $orientador
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Orientador $orientador)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'nome' => 'required',
         ]);
 
-        $orientador->update($request->all());
-        $orientador->save();
+        $orientadoress = Orientador::find($id);
+        $orientadoress->nome = $request->get('nome');
+        $orientadoress->email = $request->get('email');
+        $orientadoress->rg = $request->get('rg');
+        $orientadoress->cpf = $request->get('cpf');
+        $orientadoress->telefone = $request->get('telefone');
+        $orientadoress->celular = $request->get('celular');
+        $orientadoress->agente_integracao = $request->get('agente_integracao');
+        $orientadoress->cidade = $request->get('cidade');
+        $orientadoress->estado = $request->get('estado');
+        $orientadoress->formacao = $request->get('formacao');
+        $orientadoress->cep = $request->get('cep');
+        $orientadoress->rua = $request->get('rua');
+        $orientadoress->bairro = $request->get('bairro');
+        $orientadoress->cep = $request->get('cep');
+        $orientadoress->numero = $request->get('numero');
+        $orientadoress->complemento = $request->get('complemento');
+        $orientadoress->cargo = $request->get('cargo');
+        $orientadoress->instituicao_id = $request->get('instituicao_id');
+        $orientadoress->save();
+
         $request->session()->flash('success', 'Atualizado com sucesso!');
         return redirect('orientador');
     }

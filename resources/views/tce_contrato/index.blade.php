@@ -21,6 +21,7 @@
 
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
+                            @include('layout.alerta.flash-message')
                         <div class="x_panel">
                             <div class="x_title">
                                 <a href="{{route('tce_contrato.create')}}" class="btn btn-success pull-right"> <i
@@ -57,6 +58,9 @@
                                             <th>Assinado
                                                 <input type="text" style="width:100px;" class="form-control">
                                             </th>
+                                            <th>Ativo
+                                                <input type="text" style="width:100px;" class="form-control">
+                                            </th>
                                             <th>Obrigatório
                                                 <input type="text" style="width:100px;" class="form-control">
                                             </th>
@@ -70,12 +74,19 @@
                                             <td>{{ $tce->nome }}</td>
                                             <td>{{ $tce->nome_fantasia }}</td>
                                             <td>{{ $tce->nome_instituicao }}</td>
-                                            <td>{{"R$ " .number_format($tce->bolsa, 2) }}</td>
+                                            <td>R$ {{ $tce->bolsa }}</td>
                                             <td>{{date('d/m/Y', strtotime($tce->data_inicio)) }}</td>
                                             <td>{{ date('d/m/Y', strtotime($tce->data_fim ))}}</td>
                                             <td>{{ $tce->contrato }}</td>
                                             <td>
                                                 @if ($tce->assinado == '1')
+                                                Sim
+                                                @else
+                                                Não
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($tce->ativo == '1')
                                                 Sim
                                                 @else
                                                 Não
@@ -89,7 +100,7 @@
                                                 @endif
                                             </td>
                                             <td style="width:22%;">
-                                                <a href="{{ action('EstagiarioController@gerarRelatorio', $tce->id) }}"
+                                                <a href="{{ action('EstagiarioController@contratoTce', $tce->id) }}"
                                                    class="btn btn-primary" title="Imprimir TCE" target="_blank"><i class="fa fa-print"></i></a>
                                                 <a href="{{ route('tce_contrato.edit',[$tce->tceId])}}"
                                                     class="btn btn-danger" title="Gerar Rescisão"><i class="fa fa-book"></i> </a>

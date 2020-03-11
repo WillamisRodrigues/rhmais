@@ -47,7 +47,13 @@
                                         <tr>
                                             @foreach ($atividades as $atividade)
                                             <td>{{$atividade->nome}}</td>
-                                            <td>{{$atividade->empresa}}</td>
+                                            <td>
+                                                @foreach ($empresas as $emp)
+                                                @if ($atividade->empresa_id == $emp->id)
+                                                  {{$emp->nome_fantasia}}
+                                                    @endif
+                                                  @endforeach
+                                                </td>
                                             <td>{{$atividade->agente_integracao}}</td>
                                             <td style="width:15%;">
                                                 <div class="col-md-3">

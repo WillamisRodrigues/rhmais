@@ -2,16 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Beneficio;
+use App\Horario;
 use App\Recesso;
-use App\TceContrato;
+use App\Seguradora;
+use App\Setor;
 use DateInterval;
-use DB;
 use DateTime;
-use DateTimeZone;
+use DB;
 use Illuminate\Http\Request;
 
 class RecessoController extends Controller
 {
+    public function __contruct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -49,8 +55,8 @@ class RecessoController extends Controller
         //Repare que inverto a ordem, assim terei a subtração da ultima data pela primeira.
         //Calculando a diferença entre os meses
         $meses = ((int) date('m', $date2) - (int) date('m', $date1))
-            //     //    e somando com a diferença de anos multiplacado por 12
-            + (((int) date('y', $date2) - (int) date('y', $date1)) * 12);
+        //     //    e somando com a diferença de anos multiplacado por 12
+         + (((int) date('y', $date2) - (int) date('y', $date1)) * 12);
         if ($meses <= 12) {
             $soma = $bolsa[0]->bolsa / 12;
             $resultado = $soma * $meses;
@@ -70,7 +76,7 @@ class RecessoController extends Controller
             'bolsa' => $bolsa,
             'meses' => $meses,
             'recessos' => $recessos,
-            'resultado' => $resultado
+            'resultado' => $resultado,
         ]);
     }
 
@@ -85,17 +91,17 @@ class RecessoController extends Controller
         //Calculando a diferença entre os meses
         //    e somando com a diferença de anos multiplacado por 12
         $meses = ((int) $date2->format('m') - (int) $date1->format('m'))
-            + (((int) $date2->format('y') - (int) $date1->format('y')) * 12);
+             + (((int) $date2->format('y') - (int) $date1->format('y')) * 12);
 
         if ($meses <= 12) {
             $soma = $valorBolsa / 12;
             $resultado = $soma * $meses;
-            $resultado = number_format($resultado, 2, ",",".");
+            $resultado = number_format($resultado, 2, ",", ".");
         } else {
             $mesesExcedentes = $meses - 12;
             $soma = $valorBolsa / 12;
             $resultado = $soma * $mesesExcedentes;
-            $resultado = number_format($resultado + $valorBolsa, 2, ",",".");
+            $resultado = number_format($resultado + $valorBolsa, 2, ",", ".");
             // number_format($valorBolsa, 2, '.', ',')." + R$ ".
         }
 
@@ -177,7 +183,7 @@ class RecessoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    { }
+    {}
 
     /**
      * Store a newly created resource in storage.
@@ -189,7 +195,7 @@ class RecessoController extends Controller
     {
         //para cada 2.5 dias de férias o fulano recebe o valor referente a (bolsa / 12)
         $data1text = $request->inicio_recesso;
-        $data2text = $request->fim_recesso;;
+        $data2text = $request->fim_recesso;
 
         $date1 = new DateTime($data1text);
         $date2 = new DateTime($data2text);
@@ -244,11 +250,17 @@ class RecessoController extends Controller
         $estagiario = DB::table('estagiario')->where('id', '=', $id)->get()->first();
         $contrato = DB::table('tce_contrato')->where('estagiario_id', '=', $id)->get()->first();
         $empresa = DB::table('empresa')->where('id', '=', $contrato->empresa_id)->get()->first();
+        // dd($empresa = DB::table('empresa')->where('id', $contrato->empresa_id)->pluck('id', 'nome_fantasia'));
         $instituicao = DB::table('instituicao')->where('id', '=', $contrato->instituicao_id)->get()->first();
         $orientador = DB::table('orientador')->where('id', '=', $contrato->orientador_id)->get()->first();
         $supervisor = DB::table('supervisor')->where('id', '=', $contrato->supervisor_id)->get()->first();
-    // $atividade = DB::table('atividade')->where('id', '=', $contrato->atividade)->get()->first();
+        // $atividade = DB::table('atividade')->where('id', '=', $contrato->atividade)->get()->first();
         $motivos = DB::table('motivo')->get();
+
+        $apolices = Seguradora::all();
+        $setores = Setor::all();
+        $beneficios = Beneficio::all();
+        $horarios = Horario::all();
 
         // dd($atividade);
 
@@ -260,7 +272,11 @@ class RecessoController extends Controller
             'orientador' => $orientador,
             'supervisor' => $supervisor,
             // 'atividade' => $atividade,
-            'motivos' => $motivos
+            'motivos' => $motivos,
+            'apolices' => $apolices,
+            'setores' => $setores,
+            'beneficios' => $beneficios,
+            'horarios' => $horarios,
         ]);
     }
 
@@ -304,13 +320,14 @@ class RecessoController extends Controller
 
         echo $dias . " Dias";
     }
-    public function recessoList(){
+    public function recessoList()
+    {
 
         // $recesso = Recesso::all();
         $recesso = DB::table('recesso')
-        ->join('estagiario', 'estagiario.id','=', 'recesso.estagiario_id')
-        ->join('empresa', 'empresa.id', '=', 'recesso.empresa_id')
-        ->get();
+            ->join('estagiario', 'estagiario.id', '=', 'recesso.estagiario_id')
+            ->join('empresa', 'empresa.id', '=', 'recesso.empresa_id')
+            ->get();
 
         // dd($recesso);
         return view('recesso.index', compact('recesso', $recesso));

@@ -37,20 +37,20 @@
                                             <div id="form-step-0" role="form" data-toggle="validator">
                                                 <div class="row" style="width:960px; margin: 20px auto;">
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" maxlength="14" class="form-control has-feedback-left"
-                                                            placeholder="CPF:" name="cpf">
+                                                        <input type="text" maxlength="14" class="form-control has-feedback-left cpf"
+                                                            placeholder="CPF: *" name="cpf">
                                                         <span class="fa fa-user form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" maxlength="14" class="form-control has-feedback-left"
-                                                            placeholder="RG:" name="rg">
+                                                        <input type="text" maxlength="14" class="form-control has-feedback-left rg"
+                                                            placeholder="RG: *" name="rg">
                                                         <span class="fa fa-user form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text" class="form-control has-feedback-left"
-                                                            placeholder="Nome do orientador:" name="nome">
+                                                            placeholder="Nome do orientador: *" name="nome">
                                                         <span class="fa fa-user form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
@@ -63,12 +63,12 @@
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text" class="form-control has-feedback-left"
-                                                            placeholder="Endereco:" name="endereco">
+                                                            placeholder="Endereco:" name="rua">
                                                         <span class="fa fa-user form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" maxlength="14" class="form-control has-feedback-left"
+                                                        <input type="text" maxlength="14" class="form-control has-feedback-left cep"
                                                             placeholder="CEP:" name="cep">
                                                         <span class="fa fa-user form-control-feedback left"
                                                             aria-hidden="true"></span>
@@ -76,6 +76,12 @@
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text" class="form-control has-feedback-left"
                                                             placeholder="Complemento:" name="complemento">
+                                                        <span class="fa fa-user form-control-feedback left"
+                                                            aria-hidden="true"></span>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                        <input type="text" class="form-control has-feedback-left"
+                                                            placeholder="Bairro:" name="bairro">
                                                         <span class="fa fa-user form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
@@ -92,7 +98,7 @@
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" class="form-control has-feedback-left"
+                                                        <input type="email" class="form-control has-feedback-left"
                                                             placeholder="Email:" name="email">
                                                         <span class="fa fa-user form-control-feedback left"
                                                             aria-hidden="true"></span>
@@ -111,10 +117,10 @@
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <select class="form-control has-feedback-left"
-                                                            name="instituicao">
+                                                            name="instituicao_id">
                                                             <option>Selecione Instituição de Ensino:</option>
                                                             @foreach ($instituicoes as $instituicao)
-                                                            <option value="{{ $instituicao->nome_instituicao }}">
+                                                            <option value="{{ $instituicao->id }}">
                                                                 {{ $instituicao->nome_instituicao }}</option>
                                                             @endforeach
                                                         </select>
@@ -128,22 +134,10 @@
                                                         <span class="fa fa-home form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
-
-                                                    {{-- <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <select class="form-control has-feedback-left" name="empresa">
-                                                            <option>Selecione Unidade Concedente:</option>
-                                                            @foreach ($empresas as $empresa)
-                                                            <option value="{{ $empresa->nome_fantasia }}">
-                                                                {{ $empresa->nome_fantasia }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                        <span class="fa fa-home form-control-feedback left"
-                                                            aria-hidden="true"></span>
-                                                    </div> --}}
                                                 </div>
                                                 <div class="btn-group mr-2 sw-btn-group-extra" role="group">
                                                     <button type="submit" class="btn btn-info">Enviar</button>
-                                                    <button class="btn btn-danger">Cancelar</button>
+                                                    <a href="/orientador" class="btn btn-danger">Cancelar</a>
                                                 </div>
                                             </div>
                                         </div>

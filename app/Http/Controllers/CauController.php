@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Cau;
-use DB;
 use App\Empresa;
+use Carbon\Carbon;
+use DB;
 use Illuminate\Http\Request;
 
 class CauController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -28,7 +33,7 @@ class CauController extends Controller
                 'cau.id AS id'
             )
             ->get();
-        return view('cau_convenio.index',  compact('caus', $caus));
+        return view('cau_convenio.index', compact('caus', $caus));
     }
 
     /**
@@ -51,19 +56,28 @@ class CauController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'empresa_id' => 'required',
+            'empresa_id' => 'required|unique:cau',
         ]);
+
+        $date_inicio = $request->get('data_inicio');
+        $date_fim = $request->get('data_fim');
+        $date_doc = $request->get('data_doc');
 
         $cau = new cau();
         $cau->empresa_id = $request->get('empresa_id');
         $cau->agente_integracao = $request->get('agente_integracao');
-        $cau->data_inicio = $request->get('data_inicio');
-        $cau->data_fim = $request->get('data_fim');
-        $cau->data_doc = $request->get('data_doc');
+        $cau->data_inicio = Carbon::createFromFormat('d/m/Y', $date_inicio)->format('Y-m-d');
+        $cau->data_fim = Carbon::createFromFormat('d/m/Y', $date_fim)->format('Y-m-d');
+        $cau->data_doc = Carbon::createFromFormat('d/m/Y', $date_doc)->format('Y-m-d');
         $cau->obs = $request->get('obs');
+        // dd($cau);
         $cau->save();
-        return redirect()->route('cau_convenio.index')
-            ->with('sucess', 'Cadastrado com sucesso.');
+
+        $request->session()->flash('success', 'Cadastrado com sucesso!');
+        return redirect('cau_convenio');
+
+        // return redirect()->route('cau_convenio.index')
+        //     ->with('success', 'Cadastrado com sucesso.');
     }
 
     /**
@@ -97,15 +111,24 @@ class CauController extends Controller
      * @param  \App\Cau  $cau
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cau $cau)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'empresa_id' => 'required',
         ]);
 
-        $cau->update($request->all());
+        $date_inicio = $request->get('data_inicio');
+        $date_fim = $request->get('data_fim');
+        $date_doc = $request->get('data_doc');
+
+        $cau = Cau::find($id);
+        $cau->data_inicio = Carbon::createFromFormat('d/m/Y', $date_inicio)->format('Y-m-d');
+        $cau->data_fim = Carbon::createFromFormat('d/m/Y', $date_fim)->format('Y-m-d');
+        $cau->data_doc = Carbon::createFromFormat('d/m/Y', $date_doc)->format('Y-m-d');
+        $cau->obs = $request->get('obs');
         $cau->save();
-        $request->session()->flash('sucesso', 'Atualizado com sucesso!');
+
+        $request->session()->flash('success', 'Atualizado com sucesso!');
         return redirect('cau_convenio');
     }
 
@@ -116,16 +139,12 @@ class CauController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id, Request $request)
-
     {
-        $res = Cau::destroy($id);
-        if ($res) {
-            $request->session()->flash('warning', 'Removido com sucesso!');
-            return redirect('cau_convenio');
-        } else {
-            $request->session()->flash('warning', 'Removido com sucesso!');
-            return redirect('cau_convenio');
-        }
+        $cau = Cau::find($id);
+        $cau->delete();
+        $request->session()->flash('warning', 'Removido com sucesso!');
+        return redirect('cau_convenio');
+
     }
 
     public function assinado($id)

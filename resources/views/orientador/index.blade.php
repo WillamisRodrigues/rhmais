@@ -62,8 +62,13 @@
                                             <td>{{$orientador->cpf}}</td>
                                             <td>{{$orientador->rg}}</td>
                                             <td>{{$orientador->cidade}}</td>
-                                            <td>{{$orientador->instituicao}}</td>
-                                            {{-- <td>{{$orientador->empresa}}</td> --}}
+                                            <td>
+                                                @foreach ($instituicoes as $inst)
+                                                    @if ( $orientador->instituicao_id == $inst->id)
+                                                         {{$inst->nome_instituicao}}
+                                                    @endif
+                                                @endforeach
+                                            </td>
                                             <td>{{$orientador->agente_integracao}}</td>
                                             <td style="width:15%;">
                                                 <div class="col-md-3">
@@ -74,7 +79,7 @@
                                                     action="{{url('orientador', [$orientador->id])}}" method="POST">
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                    <button type="submit" class="btn btn-danger" title="Excluir">
+                                                    <button type="submit" class="btn btn-danger" title="Excluir" onclick="return confirm('Tem certeza que deseja deletar o orientador selecionada?')">
                                                         <i class="fa fa-trash"></i>
                                                     </button>
                                                 </form>

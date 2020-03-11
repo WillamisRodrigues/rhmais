@@ -37,9 +37,6 @@
                                             <th>Descrição do Motivo
                                                 <input type="text" class="form-control">
                                             </th>
-                                            {{-- <th>Unidade
-                                                <input type="text" class="form-control">
-                                            </th> --}}
                                             <th>Opções</th>
                                         </tr>
                                     </thead>
@@ -48,7 +45,6 @@
                                             @foreach ($motivos as $motivo)
                                             <td>{{$motivo->nome}}</td>
                                             <td>{{$motivo->descricao}}</td>
-                                            {{-- <td>{{$motivo->empresa}}</td> --}}
                                             <td style="width:15%;">
                                                 <div class="col-md-3">
                                                     <a href="{{ route('motivo.edit', $motivo->id) }}"

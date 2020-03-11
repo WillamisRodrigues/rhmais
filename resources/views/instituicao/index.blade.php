@@ -33,7 +33,7 @@
                                     <thead>
                                         <tr>
                                             <th>Nome
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" style="width:100px;">
                                             </th>
                                             <th>Complemento
                                                 <input type="text" class="form-control" style="width:100px;">

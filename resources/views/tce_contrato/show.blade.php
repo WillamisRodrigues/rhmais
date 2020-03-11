@@ -7,7 +7,6 @@
             <div class="left_col scroll-view">
                 @include('layout.menu.menu')
                 <!-- /menu profile quick info -->
-
                 <br />
                 @include('layout.menu.sidebar')
                 <!-- /sidebar menu -->
@@ -39,10 +38,9 @@
                                                 <div class="row" style="width:960px; margin: 20px auto;">
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text" value="{{$tce->nome}}"
-                                                            class="form-control has-feedback-left"
-                                                            placeholder="Estágiario" name="estagiario">
-                                                        <span class="fa fa-user form-control-feedback left"
-                                                            aria-hidden="true"></span>
+                                                            class="form-control has-feedback-left" placeholder="Estágiario">
+                                                    <input type="hidden" name="estagiario_id" value="{{$tce->id}}">
+                                                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text" class="form-control has-feedback-left"
@@ -51,49 +49,45 @@
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" value="{{$tce->nome_instituicao}}"
-                                                            class="form-control has-feedback-left"
-                                                            placeholder="Insituição de Ensino" name="instituicao">
-                                                        <span class="fa fa-graduation-cap form-control-feedback left"
-                                                            aria-hidden="true"></span>
+                                                        <input type="text" value="{{$tce->nome_instituicao}}" class="form-control has-feedback-left"
+                                                            placeholder="Insituição de Ensino">
+                                                    <input type="hidden" name="instituicao_id" value="{{$tce->instituicao_id}}">
+                                                        <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" value="{{$tce->nome_fantasia}}"
-                                                            class="form-control has-feedback-left"
-                                                            placeholder="Unidade Concedente" name="empresa">
+                                                        <input type="text" value="{{$tce->nome_fantasia}}" class="form-control has-feedback-left"
+                                                            placeholder="Unidade Concedente">
+                                                             <input type="hidden" name="empresa_id" value="{{$tce->empresa_id}}">
                                                         <span class="fa fa-home form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
-                                                  
+
                                                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                    <select class="form-control has-feedback-left" name="supervisor" value="{{$tce->supervisor_id}}">
                                                                     @foreach ($supervisor as $sup)
                                                                         @if ($tce->supervisor_id == $sup->id)
-                                                                       <option value="{{$sup->nome}}">{{$sup->nome}}</option>
+                                                                              <input type="text" value="{{$sup->nome}}" class="form-control has-feedback-left"
+                                                                             placeholder="Supervisor Estágio">
+                                                                            <input type="hidden" name="supervisor_id" value="{{$sup->id}}">
+                                                                            <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                                                         @endif
                                                                     @endforeach
-                                                            @foreach ($supervisor as $sup)
-                                                            <option value="{{ $sup->id }}">{{ $sup->nome }}</option>
-                                                            @endforeach
                                                     </select>
                                                      </div>
 
                                                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                    <select class="form-control has-feedback-left" name="orientador" value="{{$tce->orientador_id}}">
                                                             @foreach ($orientador as $or)
                                                                    @if ($tce->orientador_id == $or->id)
-                                                                <option value="{{$or->nome}}">{{$or->nome}}</option>
+                                                                  <input type="text" value="{{$or->nome}}" class="form-control has-feedback-left"
+                                                                             placeholder="Orientado">
+                                                                        <input type="hidden" name="orientador_id" value="{{$or->id}}">
+                                                                            <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                                                    @endif
                                                                 @endforeach
-                                                            @foreach ($orientador as $or)
-                                                            <option value="{{ $or->id }}">{{ $or->nome }}</option>
-                                                            @endforeach
-                                                    </select>
                                                      </div>
                                                     <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
                                                         <label for="">Data Documento:</label>
                                                         <input type="text" value="{{date('d/m/Y', strtotime($tce->data_doc))}}"
-                                                            class="form-control has-feedback-left"
+                                                            class="form-control has-feedback-left data"
                                                             placeholder="Data Documento" name="data_doc">
                                                         <span class="fa fa-calendar form-control-feedback left"
                                                             aria-hidden="true"></span>
@@ -101,7 +95,7 @@
                                                     <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
                                                         <label for="">Data Inicio:</label>
                                                         <input type="text" value="{{date('d/m/Y', strtotime($tce->data_inicio))}}"
-                                                            class="form-control has-feedback-left"
+                                                            class="form-control has-feedback-left data"
                                                             placeholder="Data Inicio" name="data_inicio">
                                                         <span class="fa fa-calendar form-control-feedback left"
                                                             aria-hidden="true"></span>
@@ -109,7 +103,7 @@
                                                     <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
                                                         <label for="">Data Fim:</label>
                                                         <input type="text" value="{{date('d/m/Y', strtotime($tce->data_fim))}}"
-                                                            class="form-control has-feedback-left"
+                                                            class="form-control has-feedback-left data"
                                                             placeholder="Data Fim" name="data_fim">
                                                         <span class="fa fa-calendar form-control-feedback left"
                                                             aria-hidden="true"></span>
@@ -120,9 +114,13 @@
                                                             name="plano"></textarea>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <label for="">Atividade </label>
+                                                        @foreach ($atividades as $ativ)
+                                                            @if ($ativ->id == $tce->atividade_id)
+                                                                <label for="">Atividade </label>
                                                         <textarea class="form-control" placeholder="Atividade"
-                                                            name="atividade"></textarea>
+                                                            name="atividade">{{$ativ->nome}}</textarea>
+                                                            @endif
+                                                        @endforeach
                                                     </div>
                                                     <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                                                         <label>Observação </label>
@@ -132,13 +130,13 @@
                                                 </div>
                                                 <div class="btn-group mr-2 sw-btn-group-extra" role="group">
                                                     <button type="submit" class="btn btn-info">Enviar</button>
-                                                    <button class="btn btn-danger">Cancelar</button>
+                                                    <a  href="/plano_estagio" class="btn btn-danger">Cancelar</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                            </form>
-                            @endforeach
+                                           @endforeach
+                                </form>
                         </div>
                     </div>
                 </div>

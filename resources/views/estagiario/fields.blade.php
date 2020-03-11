@@ -23,23 +23,23 @@
                             <div class="row" style="width:960px; margin: 0 auto;">
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <input type="text" class="form-control has-feedback-left"
-                                        placeholder="Nome Completo" name="nome" value="{{old('nome')}}">
+                                        placeholder="Nome Completo" name="nome" value="{{old('nome')}}" required>
                                     <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <input type="text" class="form-control has-feedback-left" placeholder="Email"
-                                        name="email" value="{{old('email')}}">
+                                        name="email" value="{{old('email')}}" required>
                                     <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <input type="text" maxlength="12" class="form-control rg has-feedback-left"
-                                        placeholder="RG" name="rg" value="{{old('rg')}}">
+                                        placeholder="RG" name="rg" value="{{old('rg')}}"required>
                                     <span class="fa fa-newspaper-o form-control-feedback left"
                                         aria-hidden="true"></span>
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <input type="text" maxlength="14" class="form-control cpf has-feedback-left"
-                                        placeholder="CPF" name="cpf" value="{{old('cpf')}}">
+                                        placeholder="CPF" name="cpf" value="{{old('cpf')}}" required>
                                     <span class="fa fa-newspaper-o form-control-feedback left"
                                         aria-hidden="true"></span>
                                 </div>
@@ -57,7 +57,7 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <input type="text" class="form-control nascimento has-feedback-left"
                                         placeholder="Data de Nascimento" name="data_nascimento"
-                                        value="{{old('data_nascimento')}}">
+                                        value="{{old('data_nascimento')}}" required>
                                     <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -178,7 +178,7 @@
                                         aria-hidden="true"></span>
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                    <select class="form-control has-feedback-left" name="escolaridade">
+                                    <select class="form-control has-feedback-left" name="curso">
                                         <option>Selecione um Curso</option>
                                         @foreach ($cursos as $key)
                                         <option value="{{ $key->nome }}">{{ $key->nome }}</option>
@@ -200,8 +200,8 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <select class="form-control has-feedback-left" name="instituicao_id">
                                         <option>Instituição de Ensino</option>
-                                        @foreach ($instituicoes as $key => $value)
-                                        <option value="{{ $key }}">{{ $value->nome_instituicao }}</option>
+                                        @foreach ($instituicoes as $inst)
+                                        <option value="{{ $inst->id }}">{{ $inst->nome_instituicao }}</option>
                                         @endforeach
                                     </select>
                                     <span class="fa fa-graduation-cap form-control-feedback left"
@@ -215,13 +215,6 @@
                                         value="{{old('termino_curso')}}">
                                     <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                                 </div>
-                                {{-- <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                     <label for="">Previsão Término Curso</label>
-                                    <input type="text" class="form-control data has-feedback-left"
-                                        placeholder="Previsão Término Curso" name="termino_curso"
-                                        value="{{old('termino_curso')}}">
-                                    <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
-                                </div> --}}
                                   <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <input type="text" class="form-control has-feedback-left" placeholder="Matricula"
                                         name="matricula" value="{{old('matricula')}}">

@@ -1,5 +1,5 @@
 @extends('layout/app')
-@section('titulo','TCE e Aditivos de Contratos Ativos - Gerar Auto-Avaliações')
+@section('titulo','Auto-Avaliações Estagiário')
 @section('conteudo')
 <div class="container body">
     <div class="main_container">
@@ -23,6 +23,7 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
+                                 <a href="{{route('auto_avaliacao.create')}}" class="btn btn-success pull-right"> Gerar Avaliação Estagiário</a>
                                 <h2>TCE e Aditivos de Contratos Ativos - Gerar Auto-Avaliações</h2>
                                 <div class="clearfix"></div>
                             </div>
@@ -37,7 +38,8 @@
                                                 <input type="text" class="form-control">
                                             </th>
                                             <th>TCE Início/Fim</th>
-                                            <th>Opções</th>
+                                            <th>Qtd. Realizada
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -52,12 +54,13 @@
                                                 @endforeach
                                             </td>
                                             <td>{{date('d/m/Y', strtotime($estagiario->data_inicio)) }} / {{date('d/m/Y', strtotime ($estagiario->data_fim)) }}</td>
-                                            <td>
+                                            <td style="width:5%;">2</td>
+                                            {{-- <td>
                                                 <div class="col-md-3">
-                                                    <a href="{{route('auto_avaliacao.create')}}"
+                                                  <a href="{{route('auto_avaliacao.create')}}"
                                                         class="btn btn-primary" title="Lançar"> <i class="fa fa-pencil"> </i></a>
                                                 </div>
-                                            </td>
+                                            </td> --}}
                                         </tr>
                                         @endforeach
                                     </tbody>

@@ -49,7 +49,8 @@
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text" value="{{ $empresas->nome_fantasia }}"
                                                             class="form-control has-feedback-left"
-                                                            placeholder="Unidade Concedente" name="empresa_id">
+                                                            placeholder="Unidade Concedente">
+                                                            <input type="hidden" name="empresa_id" value="{{ $empresas->id }}">
                                                         <span class="fa fa-home form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
@@ -57,7 +58,7 @@
                                                         <label for="">Data Documento</label>
                                                         <input type="text" value="{{date('d/m/Y', strtotime( $cau->data_doc)) }}"
                                                             class="form-control has-feedback-left"
-                                                            placeholder="Data Documento" name="data_documento">
+                                                            placeholder="Data Documento" name="data_doc">
                                                         <span class="fa fa-calendar form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
@@ -80,12 +81,12 @@
                                                     <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                                                         <label>Sua observação</label>
                                                         <textarea class="form-control"
-                                                            name="nomeText">{{$cau->obs}}</textarea>
+                                                            name="obs">{{$cau->obs}}</textarea>
                                                     </div>
                                                 </div>
                                                 <div class="btn-group mr-2 sw-btn-group-extra" role="group">
                                                     <button type="submit" class="btn btn-info">Enviar</button>
-                                                    <button class="btn btn-danger">Cancelar</button>
+                                                    <a href="/cau_convenio" class="btn btn-danger">Cancelar</a>
                                                 </div>
                                             </div>
                                         </div>

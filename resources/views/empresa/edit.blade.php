@@ -267,7 +267,7 @@
                                                     <label for="">Custo unitário </label>
                                                     <input type="text" class="form-control has-feedback-left"
                                                         placeholder="Custo Unitário" name="custo_unitario"
-                                                        value="{{"R$ " .number_format($empresa->custo_unitario, 2) }}">
+                                                         value="{{$empresa->custo_unitario }}">
                                                     <span class="fa fa-money form-control-feedback left"
                                                         aria-hidden="true"></span>
                                                 </div>
@@ -279,7 +279,7 @@
                                                                 Proporcional
                                                             </label>
                                                             <label>
-                                                                <input type="checkbox" class="flat" value="1" checked="checked"> Está Ativo
+                                                                <input type="checkbox" class="flat" checked="checked"> Está Ativo
                                                                 <input type="hidden" value="1" name="ativo" />
                                                             </label>
                                                             <label>

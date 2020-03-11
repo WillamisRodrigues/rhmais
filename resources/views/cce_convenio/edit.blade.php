@@ -48,37 +48,38 @@
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="text" value="{{$instituicoes->nome_instituicao}}"
                                                             class="form-control has-feedback-left"
-                                                            placeholder="Instituição de Ensino" name="instituicao_id">
+                                                            placeholder="Instituição de Ensino">
+                                                            <input type="hidden" name="instituicao_id" value="{{$instituicoes->id}}">
                                                         <span class="fa fa-home form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
-                                                    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                                                    {{-- <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                                                         <input type="text" value="{{$apolices->nome}}"
                                                             class="form-control has-feedback-left"
                                                             placeholder="Apólice/Seguradora" name="seguradora_id">
                                                         <span class="fa fa-home form-control-feedback left"
                                                             aria-hidden="true"></span>
-                                                    </div>
+                                                    </div> --}}
                                                     <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
                                                         <label for="">Data Documento</label>
-                                                        <input type="text" value="{{$cce->data_doc}}"
-                                                            class="form-control has-feedback-left"
+                                                        <input type="text" value="{{date('d/m/Y', strtotime ($cce->data_doc))}}"
+                                                            class="form-control has-feedback-left data"
                                                             placeholder="Data Documento" name="data_doc">
                                                         <span class="fa fa-calendar form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
                                                         <label for="">Data Ínicio</label>
-                                                        <input type="text" value="{{$cce->data_inicio}}"
-                                                            class="form-control has-feedback-left"
+                                                        <input type="text" value="{{date('d/m/Y', strtotime ($cce->data_inicio))}}"
+                                                            class="form-control has-feedback-left data"
                                                             placeholder="Data Inicio" name="data_inicio">
                                                         <span class="fa fa-calendar form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
                                                         <label for="">Data Fim</label>
-                                                        <input type="text" value="{{$cce->data_fim}}"
-                                                            class="form-control has-feedback-left"
+                                                        <input type="text" value="{{date('d/m/Y', strtotime ($cce->data_fim))}}"
+                                                            class="form-control has-feedback-left data"
                                                             placeholder="Data Fim" name="data_fim">
                                                         <span class="fa fa-calendar form-control-feedback left"
                                                             aria-hidden="true"></span>
@@ -91,7 +92,7 @@
                                                 </div>
                                                 <div class="btn-group mr-2 sw-btn-group-extra" role="group">
                                                     <button type="submit" class="btn btn-info">Enviar</button>
-                                                    <button class="btn btn-danger">Cancelar</button>
+                                                    <a href="/cce_convenio" class="btn btn-danger">Cancelar</a>
                                                 </div>
                                             </div>
                                         </div>

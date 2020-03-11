@@ -25,7 +25,7 @@
 
 <body>
     <table class="table" style="max-width: 100%">
-        @foreach ($folha as $key => $data)
+        @foreach ($folhas as $key => $data)
         <tr>
             <td colspan="2">Recibo de Pagamento Bolsa-Auxílio</td>
             <td>Referência</td>
@@ -75,7 +75,7 @@
             </td>
             <td>
                  @if (isset($data->valor_bolsa))
-                    {{"R$ " .number_format($data->valor_bolsa, 2)}}
+                    R$ {{$data->valor_bolsa}}
                  @endif
                 <br>
                 {{-- Beneficios --}}
@@ -102,7 +102,7 @@
             <td></td>
             <td></td>
             <td>Total de: <br>@if (isset($data->valor_bolsa))
-                    {{"R$ " .number_format($data->valor_bolsa, 2)}}
+                    R$ {{ $data->valor_bolsa }}
                     @else
                          {!! "000,00" !!}
                  @endif
@@ -113,13 +113,13 @@
         </tr>
         <tr>
             <td colspan="3">Valor Base Bolsa-Auxílio <br>@if (isset($data->valor_bolsa))
-                    {{"R$ " .number_format($data->valor_bolsa, 2)}}
+                    R$ {{ $data->valor_bolsa }}
                     @else
                          {!! "000,00" !!}
                  @endif
                 </td>
             <td>Valor Líquido<br> <u>@if (isset($data->valor_liquido))
-                    {{"R$ " .number_format($data->valor_liquido, 2)}}
+                    R$ {{ $data->valor_liquido }}
             @endif
         </u></td>
         </tr>
@@ -202,7 +202,7 @@
             </td>
             <td>
                @if (isset($data->valor_bolsa))
-                    {{"R$ " .number_format($data->valor_bolsa, 2)}}
+                    {{ $data->valor_bolsa }}
                  @endif
                 <br>
                  @if (isset($data->beneficio_id))
@@ -218,7 +218,7 @@
             <td></td>
             <td></td>
             <td>Total de: <br>@if (isset($data->valor_bolsa))
-                    {{"R$ " .number_format($data->valor_bolsa, 2)}}
+                    R$ {{ $data->valor_bolsa }}
                     @else
                          {!! "000,00" !!}
                  @endif
@@ -229,13 +229,13 @@
         </tr>
         <tr>
             <td colspan="3">Valor Base Bolsa-Auxílio <br>@if (isset($data->valor_bolsa))
-                    {{"R$ " .number_format($data->valor_bolsa, 2)}}
+                    R$ {{ $data->valor_bolsa }}
                     @else
                          {!! "000,00" !!}
                  @endif
                 </td>
             <td>Valor Líquido<br> <u>@if (isset($data->valor_liquido))
-                    {{"R$ " .number_format($data->valor_liquido, 2)}}
+                    R$ {{ $data->valor_liquido }}
             @endif
             </u></td>
         </tr>

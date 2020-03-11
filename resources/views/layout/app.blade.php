@@ -125,6 +125,7 @@
           $('.nascimento').mask('00/00/0000');
           $('.data').mask('00/00/0000');
           $('.cep').mask('00.000-000');
+          $('.dinheiro').mask('#.##0,00', {reverse: true});
         });
 </script>
 <script>

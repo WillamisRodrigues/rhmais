@@ -54,7 +54,7 @@
                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                 <input type="text" class="form-control nascimento has-feedback-left"
                                     placeholder="Data de Nascimento" name="data_nascimento"
-                                    value="{{ $estagiario->data_nascimento }}">
+                                    value="{{date('d/m/Y', strtotime($estagiario->data_nascimento))}}">
                                 <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -210,11 +210,12 @@
                         <div class="row" style="width:960px; margin: 20px auto;">
 
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <select class="form-control has-feedback-left" name="nivel">
-                                <option value="{{ $estagiario->nivel }}">{{ $estagiario->nivel }}</option>
-                                @foreach ($cursos as $key)
-                                <option value="{{ $key->nome }}">{{ $key->nome }}</option>
-                                @endforeach
+                            <select class="form-control has-feedback-left" name="curso">
+                                 <option value="{{  $estagiario->curso }}">{{  $estagiario->curso }}
+                                    </option>
+                                    @foreach ($cursos as $curso)
+                                    <option value="{{ $curso->nivel }}">{{ $curso->nome }}</option>
+                                    @endforeach
                             </select>
                             <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                         </div>
@@ -250,7 +251,7 @@
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <label for="">Data Término</label>
-                            <input type="text" class="form-control has-feedback-left"
+                            <input type="text" class="form-control has-feedback-left data"
                                 placeholder="Data de Término do Curso" name="termino_curso"
                                 value="{{ date('d/m/Y', strtotime($estagiario->termino_curso))}}">
                             <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>

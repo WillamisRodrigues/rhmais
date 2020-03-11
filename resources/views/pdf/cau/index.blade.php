@@ -217,15 +217,15 @@
         date_default_timezone_set('America/Sao_Paulo');
         @endphp
 
-    <p> Campinas, <span class="text-danger">{{ strftime('%A, %d de %B de %Y', strtotime($cont->data_doc))}}.</span> </p>
-    <div style="height:50px;"></div>
+    <p class="pull-right"> Campinas, <span class="text-danger">{{ strftime('%A, %d de %B de %Y', strtotime($cont->data_doc))}}.</span> </p>
+    <div style="height:50px;"></div><br>
 
     <p class="pull-left">__________________________________ <br>
         CLADE - CENTRO LATINO AMERICANO DE <br>
         DESENVOLVIMENTO <br><br>
         <span>(assinatura e carimbo) </span>
     </p>
-    <p class="pull-left" style="margin-left:30px;">
+    <p class="pull-left"  style="margin-left:80px;">
         _________________________________ <br>
         KOSTER E KOSTER CONSULTORIA <br> EM RH LTDA <br><br>
         <span>(assinatura do(a) agente) </span>

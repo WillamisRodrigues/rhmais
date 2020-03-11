@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Instituicao extends Model
 {
-        protected $fillable = [
+    protected $fillable = [
         'razao_social',
         'nome_instituicao',
         'cnpj',
@@ -34,6 +34,6 @@ class Instituicao extends Model
 
     public function estagios()
     {
-        return  $this->hasMany('App\Estagiario');
+        return $this->hasMany('App\Estagiario');
     }
 }

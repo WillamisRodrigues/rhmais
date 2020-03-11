@@ -3,11 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\PlanoEstagio;
+use Carbon\Carbon;
 use DB;
 use Illuminate\Http\Request;
 
 class PlanoEstagioController extends Controller
 {
+    public function __contruct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -31,6 +36,7 @@ class PlanoEstagioController extends Controller
                 'tce_contrato.assinado',
                 'tce_contrato.obrigatorio',
                 'tce_contrato.plano_estagio',
+                'tce_contrato.aditivo',
                 'tce_contrato.id As tceId'
             )
             ->get();
@@ -55,26 +61,35 @@ class PlanoEstagioController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'nome' => 'required',
-        //     'empresa' => 'required',
-        //     'instituicao' => 'required',
-        // ]);
+        $request->validate([
+            'estagiario_id' => 'required|unique:plano_estagio',
+            'empresa_id' => 'required',
+            'instituicao_id' => 'required',
+        ]);
+
+        $date_doc = $request->get('data_doc');
+        $date_inicio = $request->get('data_inicio');
+        $date_fim = $request->get('data_fim');
+
         $plano = new PlanoEstagio();
-        $plano->estagiario = $request->get('estagiario');
-        $plano->empresa = $request->get('empresa');
-        $plano->data_inicio = $request->get('data_inicio');
-        $plano->data_fim = $request->get('data_fim');
-        $plano->data_doc = $request->get('data_doc');
-        $plano->contrato = $request->get('contrato');
-        $plano->assinado = $request->get('assinado');
-        $plano->supervisor = $request->get('supervisor');
-        $plano->orientador = $request->get('orientador');
-        $plano->plano = $request->get('plano');
-        $plano->instituicao = $request->get('instituicao');
-        $plano->obs = $request->get('obs');
+        $plano->estagiario_id = $request->get('estagiario_id');
+        $plano->empresa_id = $request->get('empresa_id');
+        $plano->data_inicio = Carbon::createFromFormat('d/m/Y', $date_inicio)->format('Y-m-d');
+        $plano->data_fim = Carbon::createFromFormat('d/m/Y', $date_fim)->format('Y-m-d');
+        $plano->data_doc = Carbon::createFromFormat('d/m/Y', $date_doc)->format('Y-m-d');
+        // $plano->contrato = $request->get('contrato');
+        // $plano->assinado = $request->get('assinado');
+        $plano->supervisor_id = $request->get('supervisor_id');
+        $plano->orientador_id = $request->get('orientador_id');
+        // $plano->plano = $request->get('plano');
+        $plano->instituicao_id = $request->get('instituicao_id');
         $plano->curso = $request->get('curso');
+        $plano->atividade = $request->get('atividade');
+        $plano->obs = $request->get('obs');
+        // dd($plano);
         $plano->save();
+
+        DB::update('update tce_contrato set plano_estagio = ?  where estagiario_id = ?', [1, $request->get('estagiario_id')]);
 
         return redirect()->route('plano_estagio.index')
             ->with('success', 'Cadastrado com sucesso.');

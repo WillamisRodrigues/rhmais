@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class AtividadeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +20,8 @@ class AtividadeController extends Controller
     public function index()
     {
         $atividades = Atividade::all();
-        return view('atividade.index', compact('atividades'));
+        $empresas = Empresa::all();
+        return view('atividade.index', compact('atividades', 'empresas'));
     }
 
     /**
@@ -41,11 +46,12 @@ class AtividadeController extends Controller
     {
         $request->validate([
             'nome' => 'required',
+            'empresa_id' => 'required',
         ]);
 
         $atividades = new Atividade();
         $atividades->nome = $request->get('nome');
-        $atividades->empresa = $request->get('empresa');
+        $atividades->empresa_id = $request->get('empresa_id');
         $atividades->agente_integracao = $request->get('agente_integracao');
 
         $atividades->save();
@@ -85,14 +91,18 @@ class AtividadeController extends Controller
      * @param  \App\Atividade  $atividade
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Atividade $atividade)
+    public function update(Request $request, $id)
     {
         $request->validate([
+            'empresa_id' => 'required',
             'nome' => 'required',
         ]);
 
-        $atividade->update($request->all());
-        $atividade->save();
+        $atividades = Atividade::find($id);
+        $atividades->nome = $request->get('nome');
+        $atividades->empresa_id = $request->get('empresa_id');
+        $atividades->save();
+
         $request->session()->flash('success', 'Atualizado com sucesso!');
         return redirect('atividade');
     }

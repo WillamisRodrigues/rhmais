@@ -54,7 +54,7 @@
                                             </div>
                                             <div class="btn-group mr-2 sw-btn-group-extra" role="group">
                                                 <button class="btn btn-info">Enviar</button>
-                                                <button class="btn btn-danger">Cancelar</button>
+                                                <a href="/curso" class="btn btn-danger">Cancelar</a>
                                             </div>
                                         </div>
                                     </div>

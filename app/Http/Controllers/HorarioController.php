@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class HorarioController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -86,14 +90,19 @@ class HorarioController extends Controller
      * @param  \App\Horario  $horario
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Horario $horario)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'descricao' => 'required',
         ]);
 
-        $horario->update($request->all());
+        $horario = Horario::find($id);
+        $horario->descricao = $request->get('descricao');
+        $horario->qtd_horas = $request->get('qtd_horas');
+        $horario->empresa_id = $request->get('empresa_id');
+        $horario->agente_integracao = $request->get('agente_integracao');
         $horario->save();
+
         $request->session()->flash('success', 'Atualizado com sucesso!');
         return redirect('horario');
     }

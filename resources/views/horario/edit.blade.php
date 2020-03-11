@@ -55,13 +55,10 @@
                                                     @foreach ($empresas as $empresa)
                                                         @if ($horarios->empresa_id == $empresa->id)
                                                         <input type="text" value="{{ $empresa->nome_fantasia }}"
-                                                            class="form-control has-feedback-left"
-                                                            placeholder="Unidade concedente*" name="empresa_id">
+                                                            class="form-control has-feedback-left">
+                                                            <input type="hidden" name="empresa_id" value="{{ $empresa->id }}">
                                                         @endif
                                                     @endforeach
-                                                        <span class="fa fa-home form-control-feedback left"
-                                                            aria-hidden="true"></span>
-
                                                         <span class="fa fa-home form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>

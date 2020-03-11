@@ -20,12 +20,13 @@ $(document).ready(function () {
                 }
             }
         });
-    var btnCancel = $('<button></button>').text('Cancelar')
+    var btnCancel = $('<a></a>').text('Cancelar')
         .addClass('btn btn-danger')
         .on('click', function () {
             // $('#smartwizard').smartWizard("reset");
             // $('#myForm').find("input, textarea").val("");
-            window.history.go(-1);
+            // window.history.go(-1);
+            window.history.back();
         });
 
 

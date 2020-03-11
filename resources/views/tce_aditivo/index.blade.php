@@ -21,6 +21,7 @@
 
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
+                         @include('layout.alerta.flash-message')
                         <div class="x_panel">
                             <div class="x_title">
 
@@ -28,7 +29,8 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
-                                <table class="table list table-striped table-bordered">
+                                 <table class="table list table-striped table-responsive w-auto table-bordered"
+                                    style="zoom:0.8;">
                                     <thead>
                                         <tr>
                                             <th>Estagiario
@@ -49,7 +51,7 @@
                                             <th>Data Fim
                                                 <input type="text" class="form-control" style="width:100px;">
                                             </th>
-                                            <th>Contrato
+                                            <th>Aditivo
                                                 <input type="text" class="form-control" style="width:100px;">
                                             </th>
                                             <th>Assinado
@@ -64,14 +66,20 @@
                                     <tbody>
                                         <tr>
                                             @foreach ($tcesad as $tcead)
-                                        <tr>
+                                        {{-- <tr> --}}
                                             <td>{{ $tcead->nome }}</td>
                                             <td>{{ $tcead->nome_fantasia }}</td>
                                             <td>{{ $tcead->nome_instituicao }}</td>
-                                            <td>{{"R$ " .number_format($tcead->bolsa, 2) }}</td>
+                                            <td>R$ {{ $tcead->bolsa }}</td>
                                             <td>{{ date('d/m/Y', strtotime($tcead->data_inicio)) }}</td>
                                             <td>{{date('d/m/Y', strtotime($tcead->data_fim))}}</td>
-                                            <td>{{ $tcead->contrato }}</td>
+                                            <td>
+                                                @if ( $tcead->aditivo  == 1)
+                                                Sim
+                                                @else
+                                                Não
+                                            @endif
+                                            </td>
                                             <td>
                                                 @if ( $tcead->assinado == '1')
                                                 Sim

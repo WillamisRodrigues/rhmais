@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Horario extends Model
 {
-    protected $fillable = ['descricao', 'qtd_horas','empresa_id'];
-    protected $table ='horario';
+    protected $fillable = ['descricao', 'qtd_horas', 'empresa_id'];
+    protected $table = 'horario';
+
+    public function empresas()
+    {
+        return $this->belongsTo('App\Empresa');
+    }
 }

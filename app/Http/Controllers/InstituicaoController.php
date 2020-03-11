@@ -43,10 +43,7 @@ class InstituicaoController extends Controller
             'cnpj' => 'required',
         ]);
 
-        //   Instituicao::create($request->all());
-
         $instituicoes = new Instituicao();
-
         $instituicoes->razao_social = $request->get('razao_social');
         $instituicoes->nome_instituicao = $request->get('nome_instituicao');
         $instituicoes->cnpj = $request->get('cnpj');
@@ -106,16 +103,40 @@ class InstituicaoController extends Controller
      * @param  \App\Instituicao  $instituicao
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Instituicao $instituicao)
+    public function update(Request $request, $id)
     {
-        //Validate
+
         $request->validate([
             'razao_social' => 'required',
             'cnpj' => 'required',
         ]);
 
-        $instituicao->update($request->all());
-        $instituicao->save();
+        $instituicoes = Instituicao::find($id);
+        $instituicoes->razao_social = $request->get('razao_social');
+        $instituicoes->nome_instituicao = $request->get('nome_instituicao');
+        $instituicoes->cnpj = $request->get('cnpj');
+        $instituicoes->insc_estadual = $request->get('insc_estadual');
+        $instituicoes->mantenedora = $request->get('mantenedora');
+        $instituicoes->telefone = $request->get('telefone');
+        $instituicoes->site_url = $request->get('site_url');
+        $instituicoes->cidade = $request->get('cidade');
+        $instituicoes->estado = $request->get('estado');
+        $instituicoes->nome_contato = $request->get('nome_contato');
+        $instituicoes->nome_rep = $request->get('nome_rep');
+        $instituicoes->cargo_rep = $request->get('cargo_rep');
+        $instituicoes->rg_rep = $request->get('rg_rep');
+        $instituicoes->cpf_rep = $request->get('cpf_rep');
+        $instituicoes->email_contato = $request->get('email_contato');
+        $instituicoes->email_rep = $request->get('email_rep');
+        $instituicoes->celular_rep = $request->get('cel_rep');
+        $instituicoes->celular_contato = $request->get('celular_contato');
+        $instituicoes->cep = $request->get('cep');
+        $instituicoes->rua = $request->get('rua');
+        $instituicoes->bairro = $request->get('bairro');
+        $instituicoes->numero = $request->get('numero');
+        $instituicoes->complemento = $request->get('complemento');
+        $instituicoes->save();
+
         $request->session()->flash('success', 'Atualizado com sucesso!');
         return redirect('instituicao');
     }

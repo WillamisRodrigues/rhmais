@@ -39,7 +39,7 @@
                                         <input type="text" value="{{ $estagiario->nome }}"
                                             class="form-control has-feedback-left" placeholder="Nome Estagiario"
                                             name="estagiario" readonly>
-                                        <input type="hidden" name="estagiario_id" id="estagiario_id" data="{{$estagiario->id}}">
+                                        {{-- <input type="hidden" name="estagiario_id" id="estagiario_id" data="{{$estagiario->id}}"> --}}
                                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -51,7 +51,7 @@
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                         <label for="">Valor Bolsa</label>
-                                        <input type="text" value="R$ {{ number_format($contrato->bolsa, 2, ",", "") }}"
+                                        <input type="text" value="{{ $contrato->bolsa }}"
                                             class="form-control has-feedback-left" placeholder="Bolsa"
                                             name="valor_bolsa" readonly>
                                         <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
@@ -140,7 +140,7 @@
     var table = $('.data-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "http://localhost:8000/beneficio_estagiario/"+id_cliente,
+        ajax: "http://rhmais.imugi.com.br/beneficio_estagiario/"+id_cliente,
         columns: [
             {data: 'nome', name: 'nome'},
             {data: 'tipo_folha', name: 'tipo_folha'},

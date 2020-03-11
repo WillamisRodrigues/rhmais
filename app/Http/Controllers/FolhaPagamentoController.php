@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 
 class FolhaPagamentoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -24,7 +28,7 @@ class FolhaPagamentoController extends Controller
 
         foreach ($estagiarios as $estagiario) {
             if (!DB::table('folha_pagamento')->where([['estagiario_id', '=', $estagiario->id], ['referencia', '=', date("Y/m")]])->get()->first()) {
-                $contrato_do_estagiario = DB::table('tce_contrato')->where('estagiario_id', $estagiario->id)->get()->first();
+                $contrato_do_estagiario = DB::table('tce_contrato')->where('estagiario_id', $estagiario->id)->where('ativo', 1)->get()->first();
                 if ($contrato_do_estagiario) {
                     DB::insert('insert into folha_pagamento (referencia, estagiario_id, empresa_id, valor_bolsa, faltas, valor_liquido, status, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?, ?, ?)', [date("Y/m"), $estagiario->id, $estagiario->empresa_id, $contrato_do_estagiario->bolsa, 0, $contrato_do_estagiario->bolsa, 0, date("Y-m-d H:i:s"), date("Y-m-d H:i:s")]);
                 }
@@ -85,7 +89,7 @@ class FolhaPagamentoController extends Controller
         $empresa = DB::table('empresa')->where('id', $folha->empresa_id)->get()->first();
         $estagiario = DB::table('estagiario')->where('id', $folha->estagiario_id)->get()->first();
         $contrato = DB::table('tce_contrato')->where('estagiario_id', $folha->estagiario_id)->get()->first();
-        $beneficios = DB::table('beneficio')->where('empresa_id', $folha->empresa_id)->get();
+        $beneficios = DB::table('beneficio')->get();
 
         $mesAtual = date("m");
         $users = DB::table('beneficio_estagiario')->where('estagiario_id', $folha->estagiario_id)->get();
@@ -139,7 +143,8 @@ class FolhaPagamentoController extends Controller
 
             $faltaMes = $folha_[0] / 30 * $faltas[0];
             $resultado = ($folha_[0] + $credito - $debito) - $faltaMes;
-            $resultado_real = number_format($resultado, 2, ',', '.');
+            // $resultado_real = number_format($resultado, 2, ',', '.');
+            $resultado_real = $resultado;
 
             DB::update('update folha_pagamento set valor_liquido = ?, status =1 where id = ?', [$resultado_real, $folha->id]);
         }

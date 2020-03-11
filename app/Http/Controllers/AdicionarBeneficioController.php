@@ -8,6 +8,10 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AdicionarBeneficioController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -65,7 +69,7 @@ class AdicionarBeneficioController extends Controller
     public function edit($id)
     {
         $where = array('id' => $id);
-        $user  = BeneficioEstagiario::where($where)->first();
+        $user = BeneficioEstagiario::where($where)->first();
 
         return Response::json($user);
     }

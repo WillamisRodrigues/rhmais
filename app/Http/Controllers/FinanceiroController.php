@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Empresa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Empresa;
+
 class FinanceiroController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -22,9 +27,9 @@ class FinanceiroController extends Controller
             if (!DB::table('cobranca')->where([['empresa_id', '=', $empresa->id], ['referencia', '=', date("Y/m")]])->get()->first()) {
                 $contrato_da_empresa = DB::table('cau')->where('empresa_id', $empresa->id)->get()->first();
                 if ($contrato_da_empresa) {
-                     $custo = Empresa::where('id', $empresa->id)->pluck('custo_unitario');
-                     $contagem = DB::table('tce_contrato')->where('empresa_id', $empresa->id)->count();
-                     $soma_custo = $custo[0] * $contagem;
+                    $custo = Empresa::where('id', $empresa->id)->pluck('custo_unitario');
+                    $contagem = DB::table('tce_contrato')->where('empresa_id', $empresa->id)->where('ativo', 1)->count();
+                    $soma_custo = $custo[0] * $contagem;
                     DB::insert('insert into cobranca (referencia, dia_pg_estagio, dia_fechamento, total_custo, data_boleto, empresa_id, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?, ?)', [date("Y/m"), $empresa->data_estagiario, $empresa->data_fechamento, $soma_custo, $empresa->data_boleto, $contrato_da_empresa->empresa_id, date("Y-m-d H:i:s"), date("Y-m-d H:i:s")]);
                 }
             }
@@ -35,17 +40,18 @@ class FinanceiroController extends Controller
             ->groupBy('referencia')
             ->get();
 
-             $qAtivos = DB::table('tce_contrato')->join('empresa', 'empresa.id', '=', 'tce_contrato.empresa_id')
-             ->select(DB::raw('count(*) AS qtd, empresa.id'))
+        $qAtivos = DB::table('tce_contrato')->join('empresa', 'empresa.id', '=', 'tce_contrato.empresa_id')
+            ->select(DB::raw('count(*) AS qtd, empresa.id', 'ativo'))
             ->groupBy('empresa.id')
+            ->where('tce_contrato.ativo', 1)
             ->get();
 
-             $qRescisao = DB::table('tce_rescisao')->join('empresa', 'empresa.id', '=', 'tce_rescisao.empresa_id')
-             ->select(DB::raw('count(*) AS qtd, empresa.id'))
+        $qRescisao = DB::table('tce_rescisao')->join('empresa', 'empresa.id', '=', 'tce_rescisao.empresa_id')
+            ->select(DB::raw('count(*) AS qtd, empresa.id'))
             ->groupBy('empresa.id')
             ->get();
-// dd($qRescisao);
-        return view('financeiro.index', ['empresas' => $empresas, 'contratos'=>$contratos, 'periodos'=>$periodos, 'qAtivos' =>$qAtivos, 'qRescisao' =>$qRescisao]);
+        // dd($qAtivos);
+        return view('financeiro.index', ['empresas' => $empresas, 'contratos' => $contratos, 'periodos' => $periodos, 'qAtivos' => $qAtivos, 'qRescisao' => $qRescisao]);
     }
 
     public function processarFinanceiro(Request $request)
@@ -58,7 +64,7 @@ class FinanceiroController extends Controller
             $unidade = DB::table('cobranca')->join('empresa', 'empresa.id', '=', 'cobranca.empresa_id')
                 ->where([
                     ['nome_fantasia', 'LIKE', '%' . $processarFinanceiro . '%'],
-                    ['referencia', 'LIKE', '%' . $referencia . '%']
+                    ['referencia', 'LIKE', '%' . $referencia . '%'],
                 ]);
             $unidades = DB::table('cau')->join('empresa', 'empresa.id', '=', 'cau.empresa_id')->select('empresa.id', 'empresa.nome_fantasia', 'cau.data_inicio', 'cau.data_fim', 'cau.situacao', 'cau.id AS id')->where('nome_fantasia', '=', $processarFinanceiro)->get();
 
@@ -76,7 +82,7 @@ class FinanceiroController extends Controller
             $empresas = DB::table('empresa')
                 ->get();
 
-            return view('financeiro.index',  ['unidade' => $unidade, 'unidades' => $unidades, 'estagiarios' => $estagiarios, 'empresas' => $empresas, 'periodos' => $periodos, 'contratos' => $contratos]);
+            return view('financeiro.index', ['unidade' => $unidade, 'unidades' => $unidades, 'estagiarios' => $estagiarios, 'empresas' => $empresas, 'periodos' => $periodos, 'contratos' => $contratos]);
         }
     }
 
@@ -85,11 +91,11 @@ class FinanceiroController extends Controller
 
         $data = date("Y/m");
         $contratos = DB::table('empresa')
-        ->join('cobranca', 'empresa.id', '=', 'cobranca.empresa_id')
-        ->join('cau', 'empresa.id', '=', 'cau.empresa_id')
-        ->where('cobranca.id', '=', $id)->where('referencia', '=', $data)->get();
+            ->join('cobranca', 'empresa.id', '=', 'cobranca.empresa_id')
+            ->join('cau', 'empresa.id', '=', 'cau.empresa_id')
+            ->where('cobranca.id', '=', $id)->where('referencia', '=', $data)->get();
 
-        return view('financeiro.infos', ['contratos'=>$contratos]);
+        return view('financeiro.infos', ['contratos' => $contratos]);
     }
 
     /**

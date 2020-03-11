@@ -2,19 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Atividade;
 use App\Beneficio;
 use App\Empresa;
 use App\Estagiario;
+use App\Horario;
 use App\Instituicao;
-use App\Supervisor;
 use App\Orientador;
+use App\Seguradora;
+use App\Setor;
+use App\Supervisor;
 use App\TceAditivo;
+use App\TceContrato;
+use Carbon\Carbon;
 use DB;
-
 use Illuminate\Http\Request;
 
 class TceAditivoController extends Controller
 {
+    public function __contruct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -37,10 +46,11 @@ class TceAditivoController extends Controller
                 'tce_contrato.contrato',
                 'tce_contrato.assinado',
                 'tce_contrato.obrigatorio',
-                'tce_contrato.id'
+                'tce_contrato.id',
+                'tce_contrato.aditivo'
             )
             ->get();
-        return view('tce_aditivo.index',  compact('tcesad', $tcesad));
+        return view('tce_aditivo.index', compact('tcesad', $tcesad));
     }
 
     /**
@@ -62,6 +72,7 @@ class TceAditivoController extends Controller
     public function store(Request $request)
     {
         //
+
     }
 
     /**
@@ -81,7 +92,7 @@ class TceAditivoController extends Controller
      * @param  \App\TceAditivo  $tceAditivo
      * @return \Illuminate\Http\Response
      */
-    public function edit(TceAditivo  $tceAditivo)
+    public function edit(TceAditivo $tceAditivo)
     {
         $estagiarios = Estagiario::all();
         $instituicoes = Instituicao::all();
@@ -89,6 +100,12 @@ class TceAditivoController extends Controller
         $beneficios = Beneficio::all();
         $supervisor = Supervisor::all();
         $orientador = Orientador::all();
+        $setores = Setor::all();
+        $atividades = Atividade::all();
+        $horarios = Horario::all();
+        $apolices = Seguradora::all();
+
+        // dd($beneficios);
         return view('tce_aditivo.edit', compact([
             'tceAditivo',
             'estagiarios',
@@ -97,6 +114,10 @@ class TceAditivoController extends Controller
             'beneficios',
             'supervisor',
             'orientador',
+            'setores',
+            'atividades',
+            'horarios',
+            'apolices',
             $tceAditivo]));
     }
 
@@ -107,9 +128,43 @@ class TceAditivoController extends Controller
      * @param  \App\TceAditivo  $tceAditivo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TceAditivo $tceAditivo)
+    public function update(Request $request, $id)
     {
-        return view('tce_aditivo.index');
+        $request->validate([
+            'estagiario_id' => 'required',
+            'empresa_id' => 'required',
+            'instituicao_id' => 'required',
+        ]);
+
+        $date_doc = $request->get('data_doc');
+        $date_inicio = $request->get('data_inicio');
+        $date_fim = $request->get('data_fim');
+
+        $contrato = TceContrato::find($id);
+        $contrato->estagiario_id = $request->get('estagiario_id');
+        $contrato->empresa_id = $request->get('empresa_id');
+        $contrato->instituicao_id = $request->get('instituicao_id');
+        $contrato->data_doc = Carbon::createFromFormat('d/m/Y', $date_doc)->format('Y-m-d');
+        $contrato->data_inicio = Carbon::createFromFormat('d/m/Y', $date_inicio)->format('Y-m-d');
+        $contrato->data_fim = Carbon::createFromFormat('d/m/Y', $date_fim)->format('Y-m-d');
+        $contrato->beneficio_id = $request->get('beneficio_id');
+        $contrato->apolice_id = $request->get('apolice_id');
+        $contrato->horario_id = $request->get('horario_id');
+        $contrato->setor_id = $request->get('setor_id');
+        $contrato->atividade_id = $request->get('atividade_id');
+        $contrato->orientador_id = $request->get('orientador_id');
+        $contrato->supervisor_id = $request->get('supervisor_id');
+        $contrato->bolsa = $request->get('bolsa');
+        $contrato->obrigatorio = $request->get('obrigatorio');
+        $contrato->obs = $request->get('obs');
+        $contrato->aditivo = 1;
+        // $contrato->curso = $request->get('curso');
+        // dd($contrato);
+        $contrato->save();
+
+        return redirect()->route('tce_aditivo.index')
+            ->with('success', 'Cadastro realizado com sucesso');
+
     }
 
     /**
