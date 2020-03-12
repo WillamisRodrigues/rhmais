@@ -14,11 +14,17 @@
         hr {
             padding: 0px !important;
         }
+        .fonte-10{
+            font-size: 10pt!important;
+        }
     </style>
 </head>
 
 <body>
-    <img src="{{ public_path('/images/logo-rhmais.png') }}" style="margin-left:270px; width:20%;">
+    <figure style="border: 1px solid #000;">
+        <img src="{{ public_path('/images/logo-rhmais.png') }}" style="margin-left:270px;  margin-top:12px; width:20%;">
+    </figure>
+
     <h5 class="text-center"><strong> TERMO de CONVÊNIO de CONCESSÃO DE ESTÁGIO </strong></h5>
 @foreach ($contrato as $cont)
     <p class="text-center">ACORDO DE COOPERAÇÃO PARA REALIZAÇÃO DE ESTÁGIO OBRIGATÓRIO e NÃO OBRIGATÓRIO
@@ -29,35 +35,140 @@
     <hr>
     <div>
         <h5><strong>Instituição de Ensino: {{$cont->nome_instituicao}}</strong></h5>
-        <p> <strong> Razão Social: </strong> <span class="text-danger"> {{$cont->nome_instituicao}} </span>
-            <strong> CNPJ: </strong> <span class="text-danger"> {{$cont->cnpj}} </span> </p>
-        <p><strong> Endereço: </strong><span class="text-danger"> {{$cont->rua}} </span> <span>
-                <strong>Nº:</strong></span><span class="text-danger">{{$cont->numero}} </span>
-            <span> <strong> Bairro: </strong> <span class="text-danger"> {{$cont->bairro}} </span> </span> </p>
-        <p><strong> Cidade: </strong><span class="text-danger"> {{$cont->cidade}} </span><span> <strong>Estado:</strong> <span
-                    class="text-danger">{{$cont->estado}} </span> </span>
-            <span> <strong> Cep:</strong> <span class="text-danger"> {{$cont->cep}}</span> </span>
-            <span> <strong> Telefone: </strong> <span class="text-danger"> {{$cont->telefone}}</span></span>
+        
+        <p> 
+            Razão Social: 
+            <span class="fonte-10"> 
+                <strong> {{$cont->nome_instituicao}} </atrong> 
+            </span>
+            CNPJ: 
+            <span class="fonte-10"> 
+                <strong> {{$cont->cnpj}} </atrong> 
+            </span> 
         </p>
-        <p><strong> Representante: </strong><span class="text-danger"> {{$cont->nome_rep}} </span> <span>
-                <strong>Email:</strong></span><span class="text-danger"> {{$cont->email_rep}} </span> </p>
+        <p>
+            Endereço: 
+            <span class="fonte-10"> 
+                <strong> {{$cont->rua}} </strong> 
+            </span> 
+            <span>
+            Nº:
+            </span>
+            <span class="fonte-10">
+                <strong> {{$cont->numero}} </strong> 
+            </span>
+            <span> 
+            Bairro: 
+            </span>
+            <span class="fonte-10"> 
+                <strong> {{$cont->bairro}} </strong> 
+            </span> 
+        </p>
+        <p> 
+            Cidade: 
+            <span class="fonte-10"> 
+                <strong> {{$cont->cidade}} </strong> 
+            </span>
+            <span> 
+            Estado:
+            </span>
+            <span class="fonte-10">
+                <strong> {{$cont->estado}} </strong> 
+            </span> 
+            <span> 
+            Cep:
+            </span>
+            <span class="fonte-10"> 
+                <strong> {{$cont->cep}} </strong>
+            </span> 
+            <span>
+            Telefone: 
+            <span class="fonte-10"> 
+                <strong> {{$cont->telefone}} </strong>
+            </span>
+        </p>
+        <p>
+        Representante: 
+        <span class="fonte-10"> 
+            <strong>{{$cont->nome_rep}} </strong> 
+        </span> 
+        <span>
+        Email:
+        </span>
+        <span class="fonte-10"> 
+            <strong> {{$cont->email_rep}} </strong> 
+        </span>
+    </p>
     </div>
     <hr>
     <div>
         <h5><strong>Agente de Integração : </strong></h5>
-        <p> <strong> Razão Social: </strong><span class="text-danger"> KOSTER E KOSTER CONSULTORIA EM RH LTDA  </span> </p>
-        <p><strong> Endereço: </strong> <span class="text-danger">AVENIDA DOUTOR MORAES SALES </span> <span>
-                <strong>Nº:</strong></span>
-            <span class="text-danger"> 1172 </span>
-            <span> <strong> Bairro:</strong> <span class="text-danger">CENTRO </span> </span> </p>
-        <p><strong> Cidade: </strong><span class="text-danger"> Campinas </span><span> <strong>Estado: </strong>
-                <span class="text-danger">SÃO PAULO </span> </span>
-            <span> <strong> CEP: </strong><span class="text-danger"> 13.010-001 </span> </span> <span> <strong>
-                    Telefone: </strong><span class="text-danger"> (00)0000-0000 </span> </span>
+        <p>
+            Razão Social:
+            <span class="fonte-10"> 
+                <strong> KOSTER E KOSTER CONSULTORIA EM RH LTDA  </strong>
+            </span> 
         </p>
-        <p> <strong> CNPJ: </strong> <span class="text-danger"> 22.282.192/0001-09 </span><span> </p>
-        <p><strong> Representante: </strong><span class="text-danger"> MARGARIDA@RHMAISTALENTOS.COM.BR </span> <span>
-                <strong>Email:</strong></span><span class="text-danger"> TABAJARA@CLADE.COM.BR </span> </p>
+        <p>
+            Endereço: 
+            <span class="fonte-10">
+                <strong> AVENIDA DOUTOR MORAES SALES </strong> 
+            </span> 
+            <span>
+            Nº:
+            </span>
+            <span class="fonte-10"> 
+                <strong> 1172 </strong> 
+            </span>
+            <span> 
+             Bairro:
+            </span>
+             <span class="fonte-10">
+                CENTRO 
+            </span> 
+        </p>
+        <p>
+        Cidade:
+        <span class="fonte-10"> 
+           <strong>  Campinas </strong> 
+        </span>
+        <span> 
+            Estado:
+        </span>
+            <span class="fonte-10">
+                <strong> SÃO PAULO </strong> 
+            </span> 
+            <span> 
+            CEP: 
+            </span>
+            <span class="fonte-10"> 
+                <strong> 13.010-001 </strong> 
+            </span> 
+            <span>
+            Telefone:
+            </span>
+            <span class="fonte-10"> 
+                <strong> (00)0000-0000 </strong> 
+            </span> 
+        </p>
+        <p> 
+        CNPJ: 
+            <span class="font-10"> 
+                <strong> 22.282.192/0001-09 </strong>
+            </span>
+        </p>
+        <p>
+           Representante: 
+           <span class="fonte-10"> 
+                 <strong> MARGARIDA@RHMAISTALENTOS.COM.BR </strong> 
+           </span> 
+           <span>
+            Email:
+            </span>
+            <span class="fontr-10"> 
+                <strong> TABAJARA@CLADE.COM.BR </strong> 
+            </span> 
+        </p>
     </div>
     <hr>
     <p>
@@ -214,7 +325,7 @@
         setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
         date_default_timezone_set('America/Sao_Paulo');
         @endphp
-    <p> Campinas, <span class="text-danger"> {{ strftime('%A, %d de %B de %Y', strtotime($cont->data_doc))}}. </span> </p>
+    <p> Campinas, {{ strftime('%A, %d de %B de %Y', strtotime($cont->data_doc))}}. </p>
     <div style="height:70px;"></div>
     <div class="row">
         <p class="pull-left">__________________________________ <br>

@@ -5,39 +5,100 @@
     <title> PLANO DE ESTÁGIO (previsto na Lei de Estágio 11.788/08) </title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="{{ public_path('/css/bootstrap.min.css') }}">
+    <style>
+     .fonte-10{
+            font-size: 10pt!important;
+        }
+    </style>
 </head>
 
 <body>
-    <img src="{{ public_path('/images/logo-rhmais.png') }}" style="margin-left:270px; width:20%;">
-    <h5 class="text-center"><strong> PLANO DE ESTÁGIO (previsto na Lei de Estágio 11.788/08) </strong></h5>
-@foreach ($estagio as $plan)
+    <figure style="border: 1px solid #000;">
+        <img src="{{ public_path('/images/logo-rhmais.png') }}" style="margin-left:270px; margin-top:12px;  width:20%;">
+    </figure>
+    <h5 class="text-center mt-2"><strong> PLANO DE ESTÁGIO (previsto na Lei de Estágio 11.788/08) </strong></h5>
 
-    <p class="text-center">
-         Estagiário(a): {{$plan->estagiaria}}LAURA BEATRIZ CARDOSO DE CARVALHO
-        CPF: 135.633.236-66
-        Matrículado(a) no : 04o Período
-        do nível: NS - NÍVEL SUPERIOR
-        do curso de : CIENCIAS CONTABEIS - Matrícula no : D2961A-5
-        Setor : ADMINISTRATIVO - Atividade : ORGANIZAÇÃO DE CONTRATOS, ENVIO DE DOCUMENTOS AOS CLIENTES, BAIXA NOS
-        CONTRATOS
-        PELO SISTEMA.
-        Supervisor(a) do estágio: ELAINE AP MENEGUSSI CATANIO - SUPERIOR EM ADMINISTRAÇÃO - SUPERVISORA DE ESTÁGIO -
-        VENDAS@RPPROMOTORA.COM.BR - (16)3441-9495 -
+<hr>
+    <p>
+         
+        CPF: 
+        <span class="fonte-10">
+            <strong> 135.633.236-66 </strong>
+        </span>
+        Matrículado(a) no : 
+        <span class="fonte-10">
+            <strong> 04o Período </strong>
+        </span>
+    </p>
+    <p>
+        do nível: 
+        <span class="fonte-10">
+           <strong> NS - NÍVEL SUPERIOR </strong>
+        </span>
+        do curso de : 
+        <span class="fonte-10">
+           <strong> CIENCIAS CONTABEIS </strong>  
+        </span>
+        Matrícula no :
+        <span class="fonte-10">
+            <strong> D2961A-5 </strong>
+        </span>
+    </p>
+    <p>
+        Setor : 
+        <span class="fonte-10">
+            <strong> ADMINISTRATIVO </strong> 
+        </span>
+        Atividade : 
+        <span class="fonte-10">
+            <strong> ORGANIZAÇÃO DE CONTRATOS, ENVIO DE DOCUMENTOS AOS CLIENTES, BAIXA NOS
+        CONTRATOS PELO SISTEMA. </strong>
+        </span>
+    </p>
+    <p>
+        Supervisor(a) do estágio: 
+        <span class="fonte-10">
+        <strong> ELAINE AP MENEGUSSI CATANIO - SUPERIOR EM ADMINISTRAÇÃO - SUPERVISORA DE ESTÁGIO -
+            VENDAS@RPPROMOTORA.COM.BR - (16)3441-9495 
+        </strong>
     </p>
     <hr>
     <div>
-        <p> <strong> parte Concedente : </strong> <span class="text-danger"> BORGES & VENANCIO LTDA - ME </span>
-            <strong> CNPJ: </strong> <span class="text-danger"> 22.514.472/0001-03 / RP PROMOTORA </span> </p>
+        <p>
+        parte Concedente :
+        <span class="fonte-10"> 
+            <strong> BORGES & VENANCIO LTDA - ME </strong> 
+        </span>
+        CNPJ: 
+        <span class="fonte-10"> 
+            <strong> 22.514.472/0001-03 / RP PROMOTORA </strong> 
+        </p>
     </div>
     <hr>
     <div>
-        <p> <strong> Instituição de Ensino: </strong> <span class="text-danger"> ASSUPERO - ENSINO SUPERIOR LTDA </span>
-            <strong> CNPJ: </strong> <span class="text-danger"> 06.099.229/0052-51 / UNIP RIBEIRÃO PRETO </span> </p>
+        <p>
+        Instituição de Ensino: 
+        <span class="fonte-10"> 
+            <strong> ASSUPERO - ENSINO SUPERIOR LTDA </strong> 
+        </span>
+        CNPJ: 
+        <span class="fonte-10"> 
+            <strong> 06.099.229/0052-51 / UNIP RIBEIRÃO PRETO </strong> 
+        </span> 
+    </p>
     </div>
     <hr>
     <div>
-        <p> <strong> Termo de Compromisso Estágio no: </strong> <span class="text-danger"> 20181124012256 </span>
-            <strong> Vigência do Estágio: </strong> <span class="text-danger"> 10/09/2018 a 10/09/2020 </span> </p>
+        <p>
+            Termo de Compromisso Estágio no: 
+            <span class="fonte-10"> 
+                <strong>20181124012256 </strong> 
+            </span>
+            Vigência do Estágio: 
+            <span class="fonte-10"> 
+                <strong> 10/09/2018 a 10/09/2020 </strong> 
+            </span> 
+        </p>
     </div>
     <hr>
     <div>
@@ -90,7 +151,7 @@
         CAROLINA MACAGNANI DOS SANTOS <br><br>
         <span> (assinatura e carimbo)-Supervisor </span>
     </p>
-@endforeach
+
 
 </body>
 

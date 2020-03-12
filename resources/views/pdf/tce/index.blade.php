@@ -17,13 +17,19 @@
         hr {
             padding: 0px !important;
         }
+        .fonte-10{
+            font-size: 10pt!important;
+        }
     </style>
 </head>
 
 <body>
-    <img src="{{ public_path('/images/logo-rhmais.png') }}" style="margin-left:270px; width:20%;">
+    <figure style="border: 1px solid #000;">
+    <img src="{{ public_path('/images/logo-rhmais.png') }}" style="margin-left:270px; margin-top:12px; width:20%;">
+    </figure>
+    
     {{-- <h1 style="font-size:10pt;">{{ $estagiario }}</h1> --}}
-    <h5 class="text-center"><strong> TCE - TERMO DE COMPROMISSO DE ESTÁGIO </strong></h5>
+    <h4 class="text-center"><strong> TCE - TERMO DE COMPROMISSO DE ESTÁGIO </strong></h4>
     <hr>
     <p>Pelo presente instrumento particular denominado TERMO DE COMPROMISSO DE ESTÁGIO com base na Lei
         Federal 11.788 de 25/09/2008, as partes abaixo nomeadas no item 1 (um) acordam o que segue </p>
@@ -32,49 +38,157 @@
         @foreach ($instituicoes as $inst)
         {{-- Instituição de ensino --}}
         <h5><strong>INSTITUÍÇÃO DE ENSINO</strong></h5>
-        <p> <strong> Razão Social: </strong> <span class="text-danger"> {{$inst->razao_social}} </span> <strong>
-                CNPJ: <span class="text-danger"> {{$inst->cnpj}} </span> </strong> </p>
-        <p><strong> Endereço: </strong><span class="text-danger"> {{$inst->rua}} </span> <span>
-                <strong>Nº:</strong></span><span class="text-danger"> {{$inst->numero}} </span>
-            <span> <strong> Bairro: <span class="text-danger"> {{$inst->bairro}} </strong></span> </span>
-        </p>
-        <p><strong> Cidade: </strong><span class="text-danger"> {{$inst->cidade}} </span><span> <strong>UF:
-                    <span class="text-danger"> {{$inst->estado}} </span></strong> </span>
-            <span> <strong> CEP: <span class="text-danger"> {{$inst->cep}}</span></strong></span>
-        </p>
-        <p> <strong> Representante: <span class="text-danger"> {{$inst->nome_rep}} </span> </strong> <span>
-                <strong> Cargo: <span class="text-danger"> {{$inst->cargo_rep}} </span></strong></span>
-        </p>
-        <p> <strong> Orientador de estágio: </strong> <span class="text-danger">
+        <p> 
+           Razão Social: 
+            <span class="fonte-10">
+               <strong> {{$inst->razao_social}} </strong>
             </span>
-            <span> <strong> Telefone: </strong><span class="text-danger"> {{$inst->telefone}} </span>
+            CNPJ: 
+            <span class="fonte-10"> 
+               <strong> {{$inst->cnpj}} </strong> 
+            </span> 
+        </p>
+        <p>
+           Endereço: 
+           <span class="fonte-10"> 
+                <strong> {{$inst->rua}} </strong> 
+            </span> 
+            <span>
+            Nº:
+            </span>
+            <span class="fonte-10"> 
+                <strong> {{$inst->numero}} </strong> 
+            </span>
+            <span> 
+            Bairro: 
+            </span>
+            <span class="fonte-10"> 
+                <strong> {{$inst->bairro}} </strong>
+            </span>
+        </p>
+        <p>
+           Cidade: 
+           <span class="fonte-10"> 
+                <strong> {{$inst->cidade}} </strong> 
+            </span>
+            <span> 
+            UF:
+            <span class="fonte-10"> 
+                <strong> {{$inst->estado}} </strong> 
+            </span> 
+            <span> 
+                CEP: 
+            </span>
+            <span class="fonte-10"> 
+                <strong> {{$inst->cep}} </strong>
+            </span>
+        </p>
+        <p> 
+            Representante: 
+            <span class="fonte-10"> 
+                <strong> {{$inst->nome_rep}} </strong> 
+            </span> 
+            <span>
+            Cargo:
+            </span> 
+            <span class="fonte-10"> 
+                <strong> {{$inst->cargo_rep}} </strong> 
+            </span>
+        </p>
+        <p> 
+            Orientador de Estágio: 
+            <span class="fonte-10"></span>
+            <span> 
+            Telefone: 
+            <span class="fonte-10"> 
+                <strong> {{$inst->telefone}} </strong> 
             </span>
         </p>
     </div>
     @endforeach
+    <hr>
      <div>
          @foreach ($empresas as $emp)
         <h5><strong>UNIDADE CONCEDENTE</strong></h5>
-        <p> <strong> Razão Social: </strong><span class="text-danger"> {{$emp->razao_social}} </span><strong> CNPJ:
-                <span class="text-danger"> {{$emp->cnpj}}</span> </strong> </p>
-        <p><strong> Endereço: </strong> <span class="text-danger">{{$emp->rua}} </span> <span>
-                <strong>Nº:</strong></span>
-            <span class="text-danger"> </span>
-            <span> <strong> Bairro: <span class="text-danger"> {{$emp->bairro}}</span></strong> </span> </p>
-        <p><strong> Cidade: </strong><span class="text-danger">{{$emp->cidade}} </span><span> <strong>UF:
-                    <span class="text-danger">{{$emp->estado}} </span></strong> </span>
-            <span> <strong> CEP:<span class="text-danger"> {{$emp->cep}} </span> </strong></span> <span>
-                <strong> Telefone: </strong><span class="text-danger"> {{$emp->telefone}} </span> </span>
+        <p> 
+            Razão Social: 
+            <span class="fonte-10"> 
+                <strong> {{$emp->razao_social}} </strong> 
+            </span>
+            CNPJ:
+            <span class="fonte-10"> 
+                <strong> {{$emp->cnpj}} </strong>
+            </span> 
         </p>
-        <p> <strong> Representante: </strong> <span class="text-danger"> {{$emp->nome_rep}}
-            </span><span><strong> Cargo: </strong> <span class="text-danger">{{$emp->cargo_rep}}  </span>
-            </span> </span> </p>
+        <p>
+            Endereço: 
+            <span class="fonte-10">
+                <stromg> {{$emp->rua}} </strong> 
+            </span> 
+            <span>
+            Nº:
+            </span>
+            <span class="fonte-10"> </span>
+            <span> 
+            Bairro:
+            </span> 
+            <span class="fonte-10"> 
+              <strong> {{$emp->bairro}} </strong>
+            </span>  
+        </p>
+        <p>
+            Cidade: 
+            <span class="fonte-10">
+                <strong> {{$emp->cidade}} </strong> 
+            </span>
+            <span>
+            UF:
+            </span>
+            <span class="fonte-10">
+                <strong> {{$emp->estado}} </strong> 
+            </span> 
+            <span> 
+            CEP:
+            <span class="fonte-10"> 
+                <strong> {{$emp->cep}} </strong> 
+            </span> 
+            <span>
+                Telefone:
+            </span>
+            <span class="fonte-10"> 
+                <strong> {{$emp->telefone}} </strong> 
+            </span> 
+        </p>
+        <p> 
+            Representante:
+            <span class="fonte-10"> 
+                <strong> {{$emp->nome_rep}} </strong>
+            </span>
+            <span>
+            Cargo: 
+            </span>
+           <span class="fonte-10">
+                <strong> {{$emp->cargo_rep}} </strong>  
+            </span> 
+        </p>
             @endforeach
             @foreach ($supervisores as $sup)
-        <p> <strong> Supervisor de estágio: </strong>  <span class="text-danger">{{$sup->nome}} </span><span>
-                <strong> Cargo:</strong> <span class="text-danger">{{$sup->cargo}} </span></span>
+        <p> 
+            Supervisor de estágio: 
+            <span class="fonte-10">
+                <strong> {{$sup->nome}} </strong> 
+            </span>
+            <span>
+                Cargo:
+            <span class="fonte-10">
+                <strong> {{$sup->cargo}} </strong> 
+            </span>
         </p>
-        <p> <strong> Formação Acadêmica: </strong> <span class="text-danger">{{$sup->formacao}} </span>
+        <p> 
+            Formação Acadêmica: 
+            <span class="fonte-10">
+                <strong> {{$sup->formacao}} </strong> 
+            </span>
         </p>
     </div>
     @endforeach
@@ -82,24 +196,85 @@
     <div>
         @foreach ($estagiarios as $est)
         <h5><strong>A UNIDADE CONCEDENTE, juntamente com a INSTITUIÇÃO DE ENSINO, e o ESTUDANTE.</strong></h5>
-        <p> <strong> Estudante: </strong> <span class="text-danger"> {{$est->nome}} </span> <strong></p>
-        <p><strong> Endereço: </strong><span class="text-danger"> {{$est->rua}} </span> <span>
-                <strong>Nº:</strong></span>
-            <span class="text-danger"> {{$est->numero}} </span>
-            <span> <strong> Bairro: <span class="text-danger"> {{$est->bairro}} </span> </strong> </span> </p>
-        <p><strong> Cidade: </strong><span class="text-danger">{{$est->cidade}} </span> <span> <strong>UF: <span
-                        class="text-danger"> {{$est->estado}} </span></strong> </span>
-            <span> <strong> CEP: <span class="text-danger"> {{$est->cep}} </span> </strong></span>
+        <p> 
+          Estudante: 
+           <span class="fonte-10"> 
+            <strong> {{$est->nome}} </strong> 
+           </span> 
         </p>
-        <p><strong> Telefone: </strong><span class="text-danger"> {{$est->celular}} </span> <span> <strong>Email:
-                    <span class="text-danger"> {{$est->email}} </span></strong> </span>
+        <p>
+            Endereço: 
+            <span class="fonte-10"> 
+                <strong> {{$est->rua}} </strong>  
+            </span> 
+            <span>
+            Nº:
+            </span>
+            <span class="fonte-10"> 
+                <strong> {{$est->numero}} </strong> 
+            </span>
+            <span> 
+              Bairro: 
+            </span>
+            <span class="fonte-10"> 
+                <strong> {{$est->bairro}} </strong> 
+            </span> 
         </p>
-        <p><strong> CPF: </strong><span class="text-danger"> {{$est->cpf}} </span> <span> <strong>RG: <span
-                        class="text-danger"> {{$est->rg}} </span></strong> </span>
-            <span> <strong> RA: <span class="text-danger"> </span> </strong></span>
+        <p>
+            Cidade: 
+            <span class="fonte-10">
+                <strong> {{$est->cidade}} </strong> 
+            </span> 
+            <span> 
+            UF: 
+            </span>
+            <span class="fonte-10"> 
+              <strong> {{$est->estado}} </strong> 
+            </span>
+            <span> 
+            CEP: 
+            </span>
+            <span class="fonte-10"> 
+                <strong> {{$est->cep}} </strong> 
+            </span> 
         </p>
-        <p><strong> Curso: </strong><span class="text-danger">{{$est->curso}} </span> <span> <strong>Período/Ano: <span
-                        class="text-danger">{{$est->periodo}} </span></strong> </span>
+        <p>
+            Telefone: 
+            <span class="fonte-10"> 
+                <strong> {{$est->celular}} </strong> 
+            </span> 
+            <span> 
+            Email:
+            <span class="fonte-10"> 
+                <strong> {{$est->email}} </strong> 
+            </span>
+        </p>
+        <p>
+            CPF: 
+            <span class="fonte-10"> 
+                <strong> {{$est->cpf}} </strong> 
+            </span> 
+            <span> 
+            RG: 
+            </span>
+            <span class="fonte-10"> 
+                <strong> {{$est->rg}} </strong> 
+            </span>
+            <span> 
+            RA: 
+            <span class="fonte-10"> </span>
+        </p>
+        <p>
+           Curso: 
+           <span class="fonte-10">
+               <strong> {{$est->curso}} </strong> 
+            </span> 
+            <span> 
+            Período/Ano: 
+            </span>
+            <span class="fonte-10">
+                <strong> {{$est->periodo}} </srong> 
+            </span>
         </p>
     </div>
     @endforeach
@@ -118,14 +293,13 @@
         OBRIGATÓRIO.</p>
     <p class="text-justify"> <strong> CLÁUSULA 2ª </strong> - Este termo de Compromisso de Estágio terá vigência de
         @foreach ($tceContrato as $tce)
-        <span class="text-danger">{{date('d/m/Y', strtotime($tce->data_inicio))}}</span> a <span class="text-danger"> {{date('d/m/Y', strtotime($tce->data_fim))}}</span>, podendo ser
+        <strong>{{date('d/m/Y', strtotime($tce->data_inicio))}}</strong> a <span class="text-danger"> {{date('d/m/Y', strtotime($tce->data_fim))}}</span>, podendo ser
         rescindido a qualquer momento por qualquer uma das partes sem ônus, multas ou aviso prévio através do Termo de
         Rescisão ou podendo ser prorrogado através de Termo Aditivo.</p>
     @endforeach
         @foreach ($horarios as $hor)
-    <p class="text-justify"> <strong> CLÁUSULA 3ª </strong> - As atividades de estágio se farão de <span
-            class="text-danger"> {{$hor->descricao}}, perfazendo 30
-            horas semanais </span>. A jornada deverá ser compatível com o horário escolar do Estudante, sendo que
+    <p class="text-justify"> <strong> CLÁUSULA 3ª </strong> - As atividades de estágio se farão de <strong> {{$hor->descricao}}, perfazendo 30
+            horas semanais </strrong>. A jornada deverá ser compatível com o horário escolar do Estudante, sendo que
         durante as férias ou
         recessos escolares, outra jornada de atividades poderá ser estabelecida entre as partes.
     </p>
@@ -141,17 +315,17 @@
         sendo as
         atividades inicialmente desenvolvidas pelo estudante: </p>
         @foreach ($atividades as $ativ)
-    <p class="text-justify"><span class="text-danger">{{$ativ->nome}}</span>
+    <p class="text-justify"><strong>{{$ativ->nome}}</strong>
     </p>
     @endforeach
        @foreach ($tceContrato as $tce)
-    <p class="text-justify"> <strong> CLÁUSULA 6ª </strong> - A Unidade Concedente remunerará em <span
-            class="text-danger">R$ {{ $tce->bolsa }} </span>, o Estudante, a título de bolsa-
+    <p class="text-justify"> <strong> CLÁUSULA 6ª </strong> - A Unidade Concedente remunerará em <strong
+           >R$ {{ $tce->bolsa }} </strong>, o Estudante, a título de bolsa-
         auxílio, quantia esta que será paga a partir do mês subsequente ao vencimento,
         @endforeach
         @foreach ($beneficios as $ben)
-        <span class="text-danger"> mais
-            {{$ben->nome}} </span>. O valor estabelecido
+        <strong> mais
+            {{$ben->nome}} </strong>. O valor estabelecido
             @endforeach
         poderá variar segundo a sua frequência mensal, grau de escolaridade, atividades desempenhadas, entendimento
         entre as partes
@@ -182,10 +356,10 @@
 
     <p class="text-justify"><strong> CLÁUSULA 12ª</strong> – Na vigência do presente Termo. O Estagiário estará incluído
         na cobertura do Seguro Contra Acidentes
-        Pessoais proporcionado através da Seguradora <span class="text-danger"> SULAMÉRICA SEG. E PREVIDÊNCIA (R$16.131 MIL REAIS) </span>, numero
-        de proposta/apólice <span class="text-danger"> 651805 </span>
-        com capital de <span class="text-danger"> R$ 11.613,00 </span> (<span class="text-danger"> Dezesseis mil seiscentos
-            e treze reais </span>), sob a responsabilidade da Koster & Koster
+        Pessoais proporcionado através da Seguradora <strong> SULAMÉRICA SEG. E PREVIDÊNCIA (R$16.131 MIL REAIS) </strong>, numero
+        de proposta/apólice <strong> 651805 </strong>
+        com capital de <strong> R$ 11.613,00 </strong> (<strong> Dezesseis mil seiscentos
+            e treze reais </strong>), sob a responsabilidade da Koster & Koster
         Consultoria em Recursos Humanos LTDA ME. </p>
     <p class="text-justify">
         Parágrafo único - O texto completo da Lei Federal 11.788 de 25 de setembro de 2008, em anexo, faz parte
@@ -216,7 +390,7 @@
         date_default_timezone_set('America/Sao_Paulo');
         @endphp
         @foreach ($tceContrato as $tce)
-        <p class="pull-right"> Campinas, <span class="text-danger"> {{ strftime('%A, %d de %B de %Y', strtotime($tce->data_doc))}}. </span> </p>
+        <p class="pull-right"> Campinas, <strong> {{ strftime('%A, %d de %B de %Y', strtotime($tce->data_doc))}}. </strong> </p>
         @endforeach
         <div style="height:50px;"></div>
         <div class="row">
