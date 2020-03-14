@@ -10,6 +10,19 @@
         p {
             font-size: 8pt;
         }
+        .borda{
+            border-top:1px solid #000;
+        }
+        .titulo{
+            text-decoration: underline;
+        }
+        table{
+            padding:0px!important;
+        }
+        table td{
+            border:none !important;
+            padding:0px!important;
+        }
         h4,
             p {
                 font-size: 8pt;
@@ -19,6 +32,10 @@
         }
         .fonte-10{
             font-size: 10pt!important;
+        }
+
+        .fonte-8{
+            font-size: 8pt!important;
         }
     </style>
 </head>
@@ -30,255 +47,347 @@
     
     {{-- <h1 style="font-size:10pt;">{{ $estagiario }}</h1> --}}
     <h4 class="text-center"><strong> TCE - TERMO DE COMPROMISSO DE ESTÁGIO </strong></h4>
-    <hr>
+    
     <p>Pelo presente instrumento particular denominado TERMO DE COMPROMISSO DE ESTÁGIO com base na Lei
         Federal 11.788 de 25/09/2008, as partes abaixo nomeadas no item 1 (um) acordam o que segue </p>
-    <hr>
+    <div class="borda"></div>
     <div>
         @foreach ($instituicoes as $inst)
         {{-- Instituição de ensino --}}
-        <h5><strong>INSTITUÍÇÃO DE ENSINO</strong></h5>
-        <p> 
-           Razão Social: 
-            <span class="fonte-10">
-               <strong> {{$inst->razao_social}} </strong>
-            </span>
-            CNPJ: 
-            <span class="fonte-10"> 
-               <strong> {{$inst->cnpj}} </strong> 
-            </span> 
-        </p>
-        <p>
-           Endereço: 
-           <span class="fonte-10"> 
-                <strong> {{$inst->rua}} </strong> 
-            </span> 
-            <span>
-            Nº:
-            </span>
-            <span class="fonte-10"> 
-                <strong> {{$inst->numero}} </strong> 
-            </span>
-            <span> 
-            Bairro: 
-            </span>
-            <span class="fonte-10"> 
-                <strong> {{$inst->bairro}} </strong>
-            </span>
-        </p>
-        <p>
-           Cidade: 
-           <span class="fonte-10"> 
-                <strong> {{$inst->cidade}} </strong> 
-            </span>
-            <span> 
-            UF:
-            <span class="fonte-10"> 
-                <strong> {{$inst->estado}} </strong> 
-            </span> 
-            <span> 
-                CEP: 
-            </span>
-            <span class="fonte-10"> 
-                <strong> {{$inst->cep}} </strong>
-            </span>
-        </p>
-        <p> 
-            Representante: 
-            <span class="fonte-10"> 
-                <strong> {{$inst->nome_rep}} </strong> 
-            </span> 
-            <span>
-            Cargo:
-            </span> 
-            <span class="fonte-10"> 
-                <strong> {{$inst->cargo_rep}} </strong> 
-            </span>
-        </p>
-        <p> 
-            Orientador de Estágio: 
-            <span class="fonte-10"></span>
-            <span> 
-            Telefone: 
-            <span class="fonte-10"> 
-                <strong> {{$inst->telefone}} </strong> 
-            </span>
-        </p>
-    </div>
+        <h5 class="titulo fonte-8"><strong>INSTITUÍÇÃO DE ENSINO</strong></h5>
+        <table class="table">
+            <tbody>
+                <tr>
+                <td>
+                        <span class="fonte-8"> Razão Social: </span> 
+                        <span class="fonte-10">
+                        <strong> {{$inst->razao_social}} </strong>
+                        </span>
+                </td>
+                <td>
+                    <span class="fonte-8"> CNPJ: </span> 
+                        <span class="fonte-10"> 
+                        <strong> {{$inst->cnpj}} </strong> 
+                        </span> 
+                </td>
+                </tr>
+                <tr>
+                <td>
+                    <span class="fonte-8"> Endereço: </span> 
+                    <span class="fonte-10"> 
+                            <strong> {{$inst->rua}} </strong> 
+                        </span> 
+                </td>
+                <td>
+                        <span class="fonte-8">
+                        Nº:
+                        </span>
+                        <span class="fonte-10"> 
+                            <strong> {{$inst->numero}} </strong> 
+                        </span>
+                </td>
+                <td>
+                    <span class="fonte-8"> 
+                        Bairro: 
+                        </span>
+                        <span class="fonte-10"> 
+                            <strong> {{$inst->bairro}} </strong>
+                        </span>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                        <span class="fonte-8"> Cidade: </span>
+                    <span class="fonte-10"> 
+                            <strong> {{$inst->cidade}} </strong> 
+                        </span>
+                </td>
+                <td>
+                <span> 
+                        <span class="fonte-8"> UF: </span>
+                        <span class="fonte-10"> 
+                            <strong> {{$inst->estado}} </strong> 
+                        </span> 
+                </td>
+                <td>
+                <span> 
+                        <span class="fonte-8"> CEP: </span> 
+                        </span>
+                        <span class="fonte-10"> 
+                            <strong> {{$inst->cep}} </strong>
+                        </span>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                        <span class="fonte-8"> Representante: </span> 
+                        <span class="fonte-10"> 
+                            <strong> {{$inst->nome_rep}} </strong> 
+                        </span> 
+                </td>
+                <td>
+                        <span class="fonte-8">
+                        Cargo:
+                        </span> 
+                        <span class="fonte-10"> 
+                            <strong> {{$inst->cargo_rep}} </strong> 
+                        </span>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                        <span class="fonte-8"> Orientador de Estágio: </span> 
+                        <span class="fonte-10"></span>
+                        <span> 
+                </td>
+                <td>
+                        <span class="fonte-8"> Telefone: </span> 
+                        <span class="fonte-10"> 
+                            <strong> {{$inst->telefone}} </strong> 
+                        </span>
+                </td>
+                </tr>
+            </tbody>
+        </table>
     @endforeach
-    <hr>
+    <div class="borda"></div>
      <div>
          @foreach ($empresas as $emp)
-        <h5><strong>UNIDADE CONCEDENTE</strong></h5>
-        <p> 
-            Razão Social: 
-            <span class="fonte-10"> 
-                <strong> {{$emp->razao_social}} </strong> 
-            </span>
-            CNPJ:
-            <span class="fonte-10"> 
-                <strong> {{$emp->cnpj}} </strong>
-            </span> 
-        </p>
-        <p>
-            Endereço: 
-            <span class="fonte-10">
-                <stromg> {{$emp->rua}} </strong> 
-            </span> 
-            <span>
-            Nº:
-            </span>
-            <span class="fonte-10"> </span>
-            <span> 
-            Bairro:
-            </span> 
-            <span class="fonte-10"> 
-              <strong> {{$emp->bairro}} </strong>
-            </span>  
-        </p>
-        <p>
-            Cidade: 
-            <span class="fonte-10">
-                <strong> {{$emp->cidade}} </strong> 
-            </span>
-            <span>
-            UF:
-            </span>
-            <span class="fonte-10">
-                <strong> {{$emp->estado}} </strong> 
-            </span> 
-            <span> 
-            CEP:
-            <span class="fonte-10"> 
-                <strong> {{$emp->cep}} </strong> 
-            </span> 
-            <span>
-                Telefone:
-            </span>
-            <span class="fonte-10"> 
-                <strong> {{$emp->telefone}} </strong> 
-            </span> 
-        </p>
-        <p> 
-            Representante:
-            <span class="fonte-10"> 
-                <strong> {{$emp->nome_rep}} </strong>
-            </span>
-            <span>
-            Cargo: 
-            </span>
-           <span class="fonte-10">
-                <strong> {{$emp->cargo_rep}} </strong>  
-            </span> 
-        </p>
-            @endforeach
+        <h5 class="titulo fonte-8"><strong>UNIDADE CONCEDENTE</strong></h5>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>
+                        <span class="fonte-8"> Razão Social: </span> 
+                        <span class="fonte-10">
+                            <strong> {{$emp->razao_social}} </strong> 
+                        </span>
+                    </td>
+                    <td width="70%">
+                    <span class="fonte-8"> CNPJ: </span> 
+                        <span class="fonte-10"> 
+                        <strong> {{$emp->cnpj}} </strong> 
+                        </span> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="fonte-8"> Endereço: </span> 
+                        <span class="fonte-10">
+                            <strong> {{$emp->rua}} </strong> 
+                        </span> 
+                    </td>
+                    <td>
+                    <span class="fonte-8">
+                         Nº:
+                        </span>
+                        <span class="fonte-10"> </span>
+                    </td>
+                    <td width="70%">
+                        <span class="fonte-8"> Bairro: 
+                        </span> 
+                        <span class="fonte-10"> 
+                        <strong> {{$emp->bairro}} </strong>
+                        </span>  
+                    </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="fonte-8"> Cidade: </span> 
+                    <span class="fonte-10">
+                        <strong> {{$emp->cidade}} </strong> 
+                    </span>
+                  </td>
+                  <td>
+                  <span class="fonte-8">
+                    UF:
+                    </span>
+                    <span class="fonte-10">
+                        <strong> {{$emp->estado}} </strong> 
+                    </span> 
+                  </td>
+                  <td>
+                  <span class="fonte-8"> 
+                    CEP:
+                    <span class="fonte-10"> 
+                        <strong> {{$emp->cep}} </strong> 
+                    </span> 
+                  </td>
+                  <td width="70%">
+                  <span class="fonte-8">
+                        Telefone:
+                    </span>
+                    <span class="fonte-10"> 
+                        <strong> {{$emp->telefone}} </strong> 
+                    </span> 
+                  </td>
+                </tr>
+                <tr>
+                  <td width="80%">
+                       <span class="fonte-8"> Representante: </span>
+                        <span class="fonte-10"> 
+                            <strong> {{$emp->nome_rep}} </strong>
+                        </span>
+                  </td>
+                  <td>
+                    <span class="fonte-8">
+                        Cargo: 
+                        </span>
+                    <span class="fonte-10">
+                            <strong> {{$emp->cargo_rep}} </strong>  
+                        </span> 
+                  </td>
+                </tr>
+                @endforeach
             @foreach ($supervisores as $sup)
-        <p> 
-            Supervisor de estágio: 
-            <span class="fonte-10">
-                <strong> {{$sup->nome}} </strong> 
-            </span>
-            <span>
-                Cargo:
-            <span class="fonte-10">
-                <strong> {{$sup->cargo}} </strong> 
-            </span>
-        </p>
-        <p> 
-            Formação Acadêmica: 
-            <span class="fonte-10">
-                <strong> {{$sup->formacao}} </strong> 
-            </span>
-        </p>
+                <tr>
+                  <td >
+                    <span class="fonte-8">Supervisor de estágio: </span> 
+                   <span class="fonte-10">
+                        <strong> {{$sup->nome}} </strong> 
+                    </span>
+                  </td>
+                  <td>
+                     <span>
+                     <span class="fonte-8"> Cargo: </span>
+                    <span class="fonte-10">
+                        <strong> {{$sup->cargo}} </strong> 
+                    </span>
+                  </td>
+                   <td>
+                   <span class="fonte-8"> Formação Acadêmica: <span> 
+                    <span class="fonte-10">
+                        <strong> {{$sup->formacao}} </strong> 
+                    </span>
+                  </td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
     </div>
-    @endforeach
-    <hr>
+   
+    <div class="borda"></div>
     <div>
         @foreach ($estagiarios as $est)
-        <h5><strong>A UNIDADE CONCEDENTE, juntamente com a INSTITUIÇÃO DE ENSINO, e o ESTUDANTE.</strong></h5>
-        <p> 
-          Estudante: 
-           <span class="fonte-10"> 
-            <strong> {{$est->nome}} </strong> 
-           </span> 
-        </p>
-        <p>
-            Endereço: 
-            <span class="fonte-10"> 
-                <strong> {{$est->rua}} </strong>  
-            </span> 
-            <span>
-            Nº:
-            </span>
-            <span class="fonte-10"> 
-                <strong> {{$est->numero}} </strong> 
-            </span>
-            <span> 
-              Bairro: 
-            </span>
-            <span class="fonte-10"> 
-                <strong> {{$est->bairro}} </strong> 
-            </span> 
-        </p>
-        <p>
-            Cidade: 
-            <span class="fonte-10">
-                <strong> {{$est->cidade}} </strong> 
-            </span> 
-            <span> 
-            UF: 
-            </span>
-            <span class="fonte-10"> 
-              <strong> {{$est->estado}} </strong> 
-            </span>
-            <span> 
-            CEP: 
-            </span>
-            <span class="fonte-10"> 
-                <strong> {{$est->cep}} </strong> 
-            </span> 
-        </p>
-        <p>
-            Telefone: 
-            <span class="fonte-10"> 
-                <strong> {{$est->celular}} </strong> 
-            </span> 
-            <span> 
-            Email:
-            <span class="fonte-10"> 
-                <strong> {{$est->email}} </strong> 
-            </span>
-        </p>
-        <p>
-            CPF: 
-            <span class="fonte-10"> 
-                <strong> {{$est->cpf}} </strong> 
-            </span> 
-            <span> 
-            RG: 
-            </span>
-            <span class="fonte-10"> 
-                <strong> {{$est->rg}} </strong> 
-            </span>
-            <span> 
-            RA: 
-            <span class="fonte-10"> </span>
-        </p>
-        <p>
-           Curso: 
-           <span class="fonte-10">
-               <strong> {{$est->curso}} </strong> 
-            </span> 
-            <span> 
-            Período/Ano: 
-            </span>
-            <span class="fonte-10">
-                <strong> {{$est->periodo}} </srong> 
-            </span>
-        </p>
+        <h5 class="titulo fonte-8"><strong>A UNIDADE CONCEDENTE, juntamente com a INSTITUIÇÃO DE ENSINO, e o ESTUDANTE.</strong></h5>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>
+                        <span class="fonte-8"> Estudante: </span> 
+                        <span class="fonte-10"> 
+                            <strong> {{$est->nome}} </strong> 
+                        </span> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="fonte-8"> Endereço: </span> 
+                        <span class="fonte-10"> 
+                            <strong> {{$est->rua}} </strong>  
+                        </span> 
+                    </td>
+                    <td>
+                        <span class="fonte-8">
+                        Nº:
+                        </span>
+                        <span class="fonte-10"> 
+                            <strong> {{$est->numero}} </strong> 
+                        </span>
+                    </td>
+                    <td>
+                        <span class="fonte-8"> 
+                        Bairro: 
+                        </span>
+                        <span class="fonte-10"> 
+                            <strong> {{$est->bairro}} </strong> 
+                        </span> 
+                    </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="fonte-8"> Cidade: </span> 
+                    <span class="fonte-10">
+                        <strong> {{$est->cidade}} </strong> 
+                    </span> 
+                  </td>
+                  <td>
+                    <span class="fonte-8"> 
+                        UF: 
+                    </span>
+                    <span class="fonte-10"> 
+                        <strong> {{$est->estado}} </strong> 
+                    </span>
+                  </td>
+                  <td>
+                        <span class="fonte-8"> 
+                        CEP: 
+                        </span>
+                        <span class="fonte-10"> 
+                            <strong> {{$est->cep}} </strong> 
+                        </span> 
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="fonte-8">  Telefone: </span>
+                    <span class="fonte-10"> 
+                        <strong> {{$est->celular}} </strong> 
+                    </span> 
+                  </td>
+                  <td>
+                       <span class="fonte-8"> 
+                        Email:
+                        </span>
+                        <span class="fonte-10"> 
+                            <strong> {{$est->email}} </strong> 
+                        </span>
+                  </td>
+                </tr>
+                <tr>
+                 <td>
+                    <span class="fonte-8"> CPF: </span>
+                    <span class="fonte-10"> 
+                        <strong> {{$est->cpf}} </strong> 
+                    </span> 
+                 </td>
+                 <td>
+                 <span> 
+                    <span class="fonte-8"> RG: 
+                    </span>
+                    <span class="fonte-10"> 
+                        <strong> {{$est->rg}} </strong> 
+                    </span>
+                 </td>
+                 <td> 
+                    <span class="fonte-8"> 
+                      RA: 
+                    <span class="fonte-10"> </span>
+                 </td>
+                </tr>
+                <tr>
+                 <td>
+                    <span class="fonte-8"> Curso: 
+                    </span>
+                    <span class="fonte-10">
+                        <strong> {{$est->curso}} </strong> 
+                    </span> 
+                 </td>
+                 <td>
+                     <span class="fonte-8"> 
+                           Período/Ano: 
+                    </span>
+                    </span>
+                    <span class="fonte-10">
+                        <strong> {{$est->periodo}} </srong> 
+                    </span>
+                 </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     @endforeach
-    <hr>
+    <div class="borda">
     <p class="text-justify">Celebram entre si, através do <strong> Agente de Integração </strong> Koster & Koster
         Consultoria em Recursos Humanos LTDA ME,
         CNPJ: 21.925.427/0001-70, o TERMO DE COMPROMISSO DE ESTÁGIO, de acordo com a Lei n° 11.788/2008, sob
@@ -392,34 +501,40 @@
         @foreach ($tceContrato as $tce)
         <p class="pull-right"> Campinas, <strong> {{ strftime('%A, %d de %B de %Y', strtotime($tce->data_doc))}}. </strong> </p>
         @endforeach
-        <div style="height:50px;"></div>
+        <div style="height:100px;"></div>
         <div class="row">
             @foreach ($instituicoes as $inst)
-            <p class="pull-left">__________________________________ <br>
+            <p class="pull-left">________________________________________________________
+            <br>
                     {{$inst->razao_social}}
                     @endforeach
             </p>
             <p class="pull-left" style="margin-left:40px;">
                 @foreach ($empresas as $emp)
-                _________________________________ <br>
+                __________________________________________________________ <br>
                 {{$emp->razao_social}}
                 @endforeach
             </p>
         </div>
-        <br>
+        <div style="height:100px;"></div>
         <div class="row">
             <p class="pull-right" style="margin-left:10px;">
-                _______________________________________ <br>
+                ____________________________________________________________
+                
+                 <br>
                 Koster & Koster Consultoria em RH LTDA ME
             </p>
             <p class="pull-left">
-                _______________________________<br>
+                _________________________________________________________<br>
                 @foreach ($estagiarios as $est)
                 {{$est->nome}}
                 @endforeach
             </p>
-            <p class="pull-left" style="margin-left:65px;">
-                _________________________________<br>
+        </div>
+        <div style="height:80px;"></div>
+        <div class="row">
+            <p class="pull-left">
+                __________________________________________________________<br>
                 @foreach ($empresas as $emp)
                  {{$emp->nome_rep}}
                  @endforeach
