@@ -64,6 +64,8 @@
                         <strong> {{$inst->razao_social}} </strong>
                         </span>
                 </td>
+                </tr>
+                <tr>
                 <td>
                     <span class="fonte-8"> CNPJ: </span> 
                         <span class="fonte-10"> 
@@ -163,7 +165,9 @@
                             <strong> {{$emp->razao_social}} </strong> 
                         </span>
                     </td>
-                    <td width="70%">
+                </tr>
+                <tr>
+                <td>
                     <span class="fonte-8"> CNPJ: </span> 
                         <span class="fonte-10"> 
                         <strong> {{$emp->cnpj}} </strong> 
@@ -198,7 +202,7 @@
                         <strong> {{$emp->cidade}} </strong> 
                     </span>
                   </td>
-                  <td>
+                  <td width="40%">
                   <span class="fonte-8">
                     UF:
                     </span>
