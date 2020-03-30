@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <title> TCE - TERMO DE COMPROMISSO DE ESTÁGIO </title>
     <meta charset="utf-8">
@@ -33,7 +32,6 @@
         .fonte-10{
             font-size: 10pt!important;
         }
-
         .fonte-8{
             font-size: 8pt!important;
         }
@@ -46,7 +44,7 @@
     </figure>
 
     {{-- <h1 style="font-size:10pt;">{{ $estagiario }}</h1> --}}
-    <h4 class="text-center"><strong> TCE - TERMO DE COMPROMISSO DE ESTÁGIO </strong></h4>
+    <h4 class="text-center"><strong> TCE - TERMO DE COMPROMISSO DE ESTÁGIO -  @foreach ($tceContrato as $tce)  {{$tce->obrigatorio == 1 ? "OBRIGATÓRIO" : "NÃO OBRIGATÓRIO"}} @endforeach </strong></h4>
 
     <p>Pelo presente instrumento particular denominado TERMO DE COMPROMISSO DE ESTÁGIO com base na Lei
         Federal 11.788 de 25/09/2008, as partes abaixo nomeadas no item 1 (um) acordam o que segue </p>
@@ -58,13 +56,8 @@
         <table class="table">
             <tbody>
                 <tr>
-<<<<<<< HEAD
-                <td>
-                        <span class="fonte-8"> Razão Social: </span>
-=======
                 <td colspan="2">
-                        <span class="fonte-8"> Razão Social: </span> 
->>>>>>> b42693e3aced967bab24aaa9dc7032978223f4af
+                        <span class="fonte-8"> Razão Social: </span>
                         <span class="fonte-10">
                         <strong> {{$inst->razao_social}} </strong>
                         </span>
@@ -164,13 +157,8 @@
         <table class="table">
             <tbody>
                 <tr>
-<<<<<<< HEAD
-                    <td>
-                        <span class="fonte-8"> Razão Social: </span>
-=======
                     <td colspan="4">
-                        <span class="fonte-8"> Razão Social: </span> 
->>>>>>> b42693e3aced967bab24aaa9dc7032978223f4af
+                        <span class="fonte-8"> Razão Social: </span>
                         <span class="fonte-10">
                             <strong> {{$emp->razao_social}} </strong>
                         </span>
@@ -393,7 +381,7 @@
                     </span>
                     </span>
                     <span class="fonte-10">
-                        <strong> {{$est->periodo}} </srong>
+                        <strong> {{$est->periodo}} </strong>
                     </span>
                  </td>
                 </tr>
@@ -416,13 +404,13 @@
         OBRIGATÓRIO.</p>
     <p class="text-justify"> <strong> CLÁUSULA 2ª </strong> - Este termo de Compromisso de Estágio terá vigência de
         @foreach ($tceContrato as $tce)
-        <strong>{{date('d/m/Y', strtotime($tce->data_inicio))}}</strong> a <span class="text-danger"> {{date('d/m/Y', strtotime($tce->data_fim))}}</span>, podendo ser
+        <strong>{{date('d/m/Y', strtotime($tce->data_inicio))}}</strong> a <strong> {{date('d/m/Y', strtotime($tce->data_fim))}}</strong>, podendo ser
         rescindido a qualquer momento por qualquer uma das partes sem ônus, multas ou aviso prévio através do Termo de
         Rescisão ou podendo ser prorrogado através de Termo Aditivo.</p>
     @endforeach
         @foreach ($horarios as $hor)
     <p class="text-justify"> <strong> CLÁUSULA 3ª </strong> - As atividades de estágio se farão de <strong> {{$hor->descricao}}, perfazendo 30
-            horas semanais </strrong>. A jornada deverá ser compatível com o horário escolar do Estudante, sendo que
+            horas semanais </strong>. A jornada deverá ser compatível com o horário escolar do Estudante, sendo que
         durante as férias ou
         recessos escolares, outra jornada de atividades poderá ser estabelecida entre as partes.
     </p>
@@ -508,12 +496,13 @@
     <p class="text-justify"> E por assim estarem de acordo, assinam este Termo de Compromisso de Estágio em 4 (quatro)
         vias de igual teor.</p>
     <p>
-        @php
+        {{-- @php
         setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
         date_default_timezone_set('America/Sao_Paulo');
-        @endphp
+        @endphp --}}
         @foreach ($tceContrato as $tce)
-        <p class="pull-right"> Campinas, <strong> {{ strftime('%A, %d de %B de %Y', strtotime($tce->data_doc))}}. </strong> </p>
+        {{-- <p class="pull-right"> Campinas, <strong> {{ strftime('%A, %d de %B de %Y', strtotime($tce->data_doc))}}. </strong> </p> --}}
+        <p class="pull-right"> Campinas, <strong> {{ date('d/m/Y', strtotime($tce->data_doc)) }}. </strong> </p>
         @endforeach
         <div style="height:70px;"></div>
         <div class="row">
