@@ -59,13 +59,12 @@
                                                 <input type="text" style="width:100px;" class="form-control">
                                             </th>
                                             <th>Ativo
-                                                <input type="text" style="width:100px;" class="form-control">
+                                                <input type="text" style="width:50px;" class="form-control">
                                             </th>
                                             <th>Obrigatório
                                                 <input type="text" style="width:100px;" class="form-control">
                                             </th>
-                                            <th>Opções
-                                            </th>
+                                            <th>Opções</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -104,6 +103,8 @@
                                                    class="btn btn-primary" title="Imprimir TCE" target="_blank"><i class="fa fa-print"></i></a>
                                                 <a href="{{ route('tce_contrato.edit',[$tce->tceId])}}"
                                                     class="btn btn-danger" title="Gerar Rescisão"><i class="fa fa-book"></i> </a>
+                                                <a href="{{ route('editar_contrato.editar', [$tce->tceId]) }}"
+                                                    class="btn btn-success" title="Editar"> <i class="fa fa-pencil"> </i></a>
                                             </td>
                                         </tr>
                                         @endforeach

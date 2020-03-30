@@ -111,7 +111,7 @@
                                                 @endphp
                                             </td>
                                             <td>{{ $contrato->referencia }}</td>
-                                            <td>{{$contrato->dia_boleto}}</td>
+                                            <td>{{$contrato->data_boleto}}</td>
                                             <td>@php
                                                 foreach ($empresas as $empresa) {
                                                 if ($empresa->id == $contrato->empresa_id) {

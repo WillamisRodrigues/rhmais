@@ -1,59 +1,40 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Ajax Testes</title>
-    <script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script>
-    <link rel="stylesheet" href="http://demo.itsolutionstuff.com/plugin/bootstrap-3.min.css">
-</head>
-<body>
 
-<div class="container">
-    <div class="panel panel-default">
-      {{-- <div class="panel-heading">Select State and get bellow Related City</div>  --}}
-       <div class="panel-body">
-            <div class="form-group">
-                <label for="title">Empresa</label>
-                <select name="empresa_id" class="form-control" style="width:350px">
-                     <option>Selecione o Estagiário:</option>
-                         @foreach ($empresas as  $key => $value )
-                         <option value="{{ $value->id }}">{{ $value->nome_fantasia }}</option>
-                         @endforeach
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="title">Empresa</label>
-                <select name="empresa_id" class="form-control" style="width:350px">
-                </select>
-            </div>
-       </div>
-      <div class="form-group">
-                <label for="title">Horarios</label>
-                <select name="horario_id" class="form-control" style="width:350px">
-                </select>
-            </div>
-    </div>
-</div>
-<script type="text/javascript">
-     $(document).ready(function() {
-        $('select[name="empresa_id"]').on('change', function() {
-            var stateID = $(this).val();
-            if(stateID) {
-                $.ajax({
-                    url: '/teste-ajax/ajax/'+stateID,
-                    type: "GET",
-                    dataType: "json",
-                    success:function(data) {
-                        $('select[name="descricao"]').empty();
-                        $.each(data, function(key, value) {
-                            $('select[name="horario_id"]').append('<option value="'+ data[0].id +'">'+ data[0].descricao +'</option>');
-                        });
-                    }
-                });
-            }else{
-                $('select[name="horario_id"]').empty();
-            }
-        });
-    });
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+Subtrção da segunda pela primeira data:
+<hr>
+<label value="Primeira data: "><input id="datainicio" type="text">
+<label value="Segunda data: "><input id="datafim" type="text">
+<input id="calc" type="button" value="Calcule">
+<hr>
+<label value="Resultado em dias:"><span id="result"></span>
+
+<script>
+
+  var dataExclusao = $('#datainicio');
+  var dataExclusaoFim = $('#datafim');
+
+  var arrDataExclusao = dataExclusao.split('/');
+  var arrDataExclusaoFim = dataExclusaoFim.split('/');
+
+  var stringFormatada = arrDataExclusao[1] + '-' + arrDataExclusao[0] + '-' +
+  arrDataExclusao[2];
+
+  var stringFormatada2 = arrDataExclusaoFim[1] + '-' + arrDataExclusaoFim[0] + '-' +
+  arrDataExclusaoFim[2];
+
+$('#calc').click(function(){
+  var dt1 = stringFormatada;
+  var dt2 =stringFormatada2;
+
+  $('#result').text(calcula(dt1,dt2))
+
+});
+
+function calcula(data1, data2){
+  data1 = new Date(data1);
+  data2 = new Date(data2);
+  return (data2 - data1)/(1000*3600*24);
+}
 </script>
-</body>
-</html>
+

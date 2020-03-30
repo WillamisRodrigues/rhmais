@@ -44,10 +44,10 @@
     <figure style="border: 1px solid #000;">
     <img src="{{ public_path('/images/logo-rhmais.png') }}" style="margin-left:270px; margin-top:12px; width:20%;">
     </figure>
-    
+
     {{-- <h1 style="font-size:10pt;">{{ $estagiario }}</h1> --}}
     <h4 class="text-center"><strong> TCE - TERMO DE COMPROMISSO DE ESTÁGIO </strong></h4>
-    
+
     <p>Pelo presente instrumento particular denominado TERMO DE COMPROMISSO DE ESTÁGIO com base na Lei
         Federal 11.788 de 25/09/2008, as partes abaixo nomeadas no item 1 (um) acordam o que segue </p>
     <div class="borda"></div>
@@ -59,7 +59,7 @@
             <tbody>
                 <tr>
                 <td>
-                        <span class="fonte-8"> Razão Social: </span> 
+                        <span class="fonte-8"> Razão Social: </span>
                         <span class="fonte-10">
                         <strong> {{$inst->razao_social}} </strong>
                         </span>
@@ -67,32 +67,32 @@
                 </tr>
                 <tr>
                 <td>
-                    <span class="fonte-8"> CNPJ: </span> 
-                        <span class="fonte-10"> 
-                        <strong> {{$inst->cnpj}} </strong> 
-                        </span> 
+                    <span class="fonte-8"> CNPJ: </span>
+                        <span class="fonte-10">
+                        <strong> {{$inst->cnpj}} </strong>
+                        </span>
                 </td>
                 </tr>
                 <tr>
                 <td>
-                    <span class="fonte-8"> Endereço: </span> 
-                    <span class="fonte-10"> 
-                            <strong> {{$inst->rua}} </strong> 
-                        </span> 
+                    <span class="fonte-8"> Endereço: </span>
+                    <span class="fonte-10">
+                            <strong> {{$inst->rua}} </strong>
+                        </span>
                 </td>
                 <td>
                         <span class="fonte-8">
                         Nº:
                         </span>
-                        <span class="fonte-10"> 
-                            <strong> {{$inst->numero}} </strong> 
+                        <span class="fonte-10">
+                            <strong> {{$inst->numero}} </strong>
                         </span>
                 </td>
                 <td>
-                    <span class="fonte-8"> 
-                        Bairro: 
+                    <span class="fonte-8">
+                        Bairro:
                         </span>
-                        <span class="fonte-10"> 
+                        <span class="fonte-10">
                             <strong> {{$inst->bairro}} </strong>
                         </span>
                 </td>
@@ -100,52 +100,52 @@
                 <tr>
                 <td>
                         <span class="fonte-8"> Cidade: </span>
-                    <span class="fonte-10"> 
-                            <strong> {{$inst->cidade}} </strong> 
+                    <span class="fonte-10">
+                            <strong> {{$inst->cidade}} </strong>
                         </span>
                 </td>
                 <td>
-                <span> 
+                <span>
                         <span class="fonte-8"> UF: </span>
-                        <span class="fonte-10"> 
-                            <strong> {{$inst->estado}} </strong> 
-                        </span> 
+                        <span class="fonte-10">
+                            <strong> {{$inst->estado}} </strong>
+                        </span>
                 </td>
                 <td>
-                <span> 
-                        <span class="fonte-8"> CEP: </span> 
+                <span>
+                        <span class="fonte-8"> CEP: </span>
                         </span>
-                        <span class="fonte-10"> 
+                        <span class="fonte-10">
                             <strong> {{$inst->cep}} </strong>
                         </span>
                 </td>
                 </tr>
                 <tr>
                 <td>
-                        <span class="fonte-8"> Representante: </span> 
-                        <span class="fonte-10"> 
-                            <strong> {{$inst->nome_rep}} </strong> 
-                        </span> 
+                        <span class="fonte-8"> Representante: </span>
+                        <span class="fonte-10">
+                            <strong> {{$inst->nome_rep}} </strong>
+                        </span>
                 </td>
                 <td>
                         <span class="fonte-8">
                         Cargo:
-                        </span> 
-                        <span class="fonte-10"> 
-                            <strong> {{$inst->cargo_rep}} </strong> 
+                        </span>
+                        <span class="fonte-10">
+                            <strong> {{$inst->cargo_rep}} </strong>
                         </span>
                 </td>
                 </tr>
                 <tr>
                 <td>
-                        <span class="fonte-8"> Orientador de Estágio: </span> 
+                        <span class="fonte-8"> Orientador de Estágio: </span>
                         <span class="fonte-10"></span>
-                        <span> 
+                        <span>
                 </td>
                 <td>
-                        <span class="fonte-8"> Telefone: </span> 
-                        <span class="fonte-10"> 
-                            <strong> {{$inst->telefone}} </strong> 
+                        <span class="fonte-8"> Telefone: </span>
+                        <span class="fonte-10">
+                            <strong> {{$inst->telefone}} </strong>
                         </span>
                 </td>
                 </tr>
@@ -160,26 +160,26 @@
             <tbody>
                 <tr>
                     <td>
-                        <span class="fonte-8"> Razão Social: </span> 
+                        <span class="fonte-8"> Razão Social: </span>
                         <span class="fonte-10">
-                            <strong> {{$emp->razao_social}} </strong> 
+                            <strong> {{$emp->razao_social}} </strong>
                         </span>
                     </td>
                 </tr>
                 <tr>
                 <td>
-                    <span class="fonte-8"> CNPJ: </span> 
-                        <span class="fonte-10"> 
-                        <strong> {{$emp->cnpj}} </strong> 
-                        </span> 
+                    <span class="fonte-8"> CNPJ: </span>
+                        <span class="fonte-10">
+                        <strong> {{$emp->cnpj}} </strong>
+                        </span>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <span class="fonte-8"> Endereço: </span> 
+                        <span class="fonte-8"> Endereço: </span>
                         <span class="fonte-10">
-                            <strong> {{$emp->rua}} </strong> 
-                        </span> 
+                            <strong> {{$emp->rua}} </strong>
+                        </span>
                     </td>
                     <td>
                     <span class="fonte-8">
@@ -188,18 +188,18 @@
                         <span class="fonte-10"> </span>
                     </td>
                     <td width="70%">
-                        <span class="fonte-8"> Bairro: 
-                        </span> 
-                        <span class="fonte-10"> 
+                        <span class="fonte-8"> Bairro:
+                        </span>
+                        <span class="fonte-10">
                         <strong> {{$emp->bairro}} </strong>
-                        </span>  
+                        </span>
                     </td>
                 </tr>
                 <tr>
                   <td>
-                    <span class="fonte-8"> Cidade: </span> 
+                    <span class="fonte-8"> Cidade: </span>
                     <span class="fonte-10">
-                        <strong> {{$emp->cidade}} </strong> 
+                        <strong> {{$emp->cidade}} </strong>
                     </span>
                   </td>
                   <td width="40%">
@@ -207,61 +207,61 @@
                     UF:
                     </span>
                     <span class="fonte-10">
-                        <strong> {{$emp->estado}} </strong> 
-                    </span> 
+                        <strong> {{$emp->estado}} </strong>
+                    </span>
                   </td>
                   <td>
-                  <span class="fonte-8"> 
+                  <span class="fonte-8">
                     CEP:
-                    <span class="fonte-10"> 
-                        <strong> {{$emp->cep}} </strong> 
-                    </span> 
+                    <span class="fonte-10">
+                        <strong> {{$emp->cep}} </strong>
+                    </span>
                   </td>
                   <td width="70%">
                   <span class="fonte-8">
                         Telefone:
                     </span>
-                    <span class="fonte-10"> 
-                        <strong> {{$emp->telefone}} </strong> 
-                    </span> 
+                    <span class="fonte-10">
+                        <strong> {{$emp->telefone}} </strong>
+                    </span>
                   </td>
                 </tr>
                 <tr>
                   <td width="80%">
                        <span class="fonte-8"> Representante: </span>
-                        <span class="fonte-10"> 
+                        <span class="fonte-10">
                             <strong> {{$emp->nome_rep}} </strong>
                         </span>
                   </td>
                   <td>
                     <span class="fonte-8">
-                        Cargo: 
+                        Cargo:
                         </span>
                     <span class="fonte-10">
-                            <strong> {{$emp->cargo_rep}} </strong>  
-                        </span> 
+                            <strong> {{$emp->cargo_rep}} </strong>
+                        </span>
                   </td>
                 </tr>
                 @endforeach
             @foreach ($supervisores as $sup)
                 <tr>
                   <td >
-                    <span class="fonte-8">Supervisor de estágio: </span> 
+                    <span class="fonte-8">Supervisor de estágio: </span>
                    <span class="fonte-10">
-                        <strong> {{$sup->nome}} </strong> 
+                        <strong> {{$sup->nome}} </strong>
                     </span>
                   </td>
                   <td>
                      <span>
                      <span class="fonte-8"> Cargo: </span>
                     <span class="fonte-10">
-                        <strong> {{$sup->cargo}} </strong> 
+                        <strong> {{$sup->cargo}} </strong>
                     </span>
                   </td>
                    <td>
-                   <span class="fonte-8"> Formação Acadêmica: <span> 
+                   <span class="fonte-8"> Formação Acadêmica: <span>
                     <span class="fonte-10">
-                        <strong> {{$sup->formacao}} </strong> 
+                        <strong> {{$sup->formacao}} </strong>
                     </span>
                   </td>
                 </tr>
@@ -269,7 +269,7 @@
             </tbody>
         </table>
     </div>
-   
+
     <div class="borda"></div>
     <div>
         @foreach ($estagiarios as $est)
@@ -278,112 +278,112 @@
             <tbody>
                 <tr>
                     <td>
-                        <span class="fonte-8"> Estudante: </span> 
-                        <span class="fonte-10"> 
-                            <strong> {{$est->nome}} </strong> 
-                        </span> 
+                        <span class="fonte-8"> Estudante: </span>
+                        <span class="fonte-10">
+                            <strong> {{$est->nome}} </strong>
+                        </span>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <span class="fonte-8"> Endereço: </span> 
-                        <span class="fonte-10"> 
-                            <strong> {{$est->rua}} </strong>  
-                        </span> 
+                        <span class="fonte-8"> Endereço: </span>
+                        <span class="fonte-10">
+                            <strong> {{$est->rua}} </strong>
+                        </span>
                     </td>
                     <td>
                         <span class="fonte-8">
                         Nº:
                         </span>
-                        <span class="fonte-10"> 
-                            <strong> {{$est->numero}} </strong> 
+                        <span class="fonte-10">
+                            <strong> {{$est->numero}} </strong>
                         </span>
                     </td>
                     <td>
-                        <span class="fonte-8"> 
-                        Bairro: 
+                        <span class="fonte-8">
+                        Bairro:
                         </span>
-                        <span class="fonte-10"> 
-                            <strong> {{$est->bairro}} </strong> 
-                        </span> 
+                        <span class="fonte-10">
+                            <strong> {{$est->bairro}} </strong>
+                        </span>
                     </td>
                 </tr>
                 <tr>
                   <td>
-                    <span class="fonte-8"> Cidade: </span> 
+                    <span class="fonte-8"> Cidade: </span>
                     <span class="fonte-10">
-                        <strong> {{$est->cidade}} </strong> 
-                    </span> 
-                  </td>
-                  <td>
-                    <span class="fonte-8"> 
-                        UF: 
-                    </span>
-                    <span class="fonte-10"> 
-                        <strong> {{$est->estado}} </strong> 
+                        <strong> {{$est->cidade}} </strong>
                     </span>
                   </td>
                   <td>
-                        <span class="fonte-8"> 
-                        CEP: 
+                    <span class="fonte-8">
+                        UF:
+                    </span>
+                    <span class="fonte-10">
+                        <strong> {{$est->estado}} </strong>
+                    </span>
+                  </td>
+                  <td>
+                        <span class="fonte-8">
+                        CEP:
                         </span>
-                        <span class="fonte-10"> 
-                            <strong> {{$est->cep}} </strong> 
-                        </span> 
+                        <span class="fonte-10">
+                            <strong> {{$est->cep}} </strong>
+                        </span>
                   </td>
                 </tr>
                 <tr>
                   <td>
                     <span class="fonte-8">  Telefone: </span>
-                    <span class="fonte-10"> 
-                        <strong> {{$est->celular}} </strong> 
-                    </span> 
+                    <span class="fonte-10">
+                        <strong> {{$est->celular}} </strong>
+                    </span>
                   </td>
                   <td>
-                       <span class="fonte-8"> 
+                       <span class="fonte-8">
                         Email:
                         </span>
-                        <span class="fonte-10"> 
-                            <strong> {{$est->email}} </strong> 
+                        <span class="fonte-10">
+                            <strong> {{$est->email}} </strong>
                         </span>
                   </td>
                 </tr>
                 <tr>
                  <td>
                     <span class="fonte-8"> CPF: </span>
-                    <span class="fonte-10"> 
-                        <strong> {{$est->cpf}} </strong> 
-                    </span> 
+                    <span class="fonte-10">
+                        <strong> {{$est->cpf}} </strong>
+                    </span>
                  </td>
                  <td>
-                 <span> 
-                    <span class="fonte-8"> RG: 
+                 <span>
+                    <span class="fonte-8"> RG:
                     </span>
-                    <span class="fonte-10"> 
-                        <strong> {{$est->rg}} </strong> 
+                    <span class="fonte-10">
+                        <strong> {{$est->rg}} </strong>
                     </span>
                  </td>
-                 <td> 
-                    <span class="fonte-8"> 
-                      RA: 
+                 <td>
+                    <span class="fonte-8">
+                      RA:
                     <span class="fonte-10"> </span>
                  </td>
                 </tr>
                 <tr>
                  <td>
-                    <span class="fonte-8"> Curso: 
+                    <span class="fonte-8"> Curso:
                     </span>
                     <span class="fonte-10">
-                        <strong> {{$est->curso}} </strong> 
-                    </span> 
+                        <strong> {{$est->curso}} </strong>
+                    </span>
                  </td>
                  <td>
-                     <span class="fonte-8"> 
-                           Período/Ano: 
+                     <span class="fonte-8">
+                           Período/Ano:
                     </span>
                     </span>
                     <span class="fonte-10">
-                        <strong> {{$est->periodo}} </srong> 
+                        <strong> {{$est->periodo}} </srong>
                     </span>
                  </td>
                 </tr>
@@ -524,7 +524,7 @@
         <div class="row">
             <p class="pull-right" style="margin-left:10px;">
                 ____________________________________________________________
-                
+
                  <br>
                 Koster & Koster Consultoria em RH LTDA ME
             </p>

@@ -30,7 +30,7 @@ class FinanceiroController extends Controller
                     $custo = Empresa::where('id', $empresa->id)->pluck('custo_unitario');
                     $contagem = DB::table('tce_contrato')->where('empresa_id', $empresa->id)->where('ativo', 1)->count();
                     $soma_custo = $custo[0] * $contagem;
-                    DB::insert('insert into cobranca (referencia, dia_pg_estagio, dia_fechamento, total_custo, data_boleto, empresa_id, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?, ?)', [date("Y/m"), $empresa->data_estagiario, $empresa->data_fechamento, $soma_custo, $empresa->data_boleto, $contrato_da_empresa->empresa_id, date("Y-m-d H:i:s"), date("Y-m-d H:i:s")]);
+                    DB::insert('insert into cobranca (referencia, dia_pg_estagio, dia_fechamento, total_custo, dia_boleto, empresa_id, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?, ?)', [date("Y/m"), $empresa->data_estagiario, $empresa->data_fechamento, $soma_custo, $empresa->dia_boleto, $contrato_da_empresa->empresa_id, date("Y-m-d H:i:s"), date("Y-m-d H:i:s")]);
                 }
             }
         }

@@ -144,14 +144,10 @@
                                                 }
                                                 @endphp
                                             </td>
-                                            <td> @if (isset($folha->valor_bolsa))
-                                                 {{"R$ " .number_format($folha->valor_bolsa, 2, ',', '.') }}
-                                            @endif
+                                            <td> R$ {{ $folha->valor_bolsa }}
                                             </td>
                                             {{-- <td>{{ $folha->faltas }}</td> --}}
-                                            <td>@if (isset($folha->valor_liquido))
-                                                    {{"R$ " .number_format($folha->valor_liquido, 2, ',', '.') }}
-                                            @endif
+                                            <td>R$ {{ $folha->valor_liquido }}
                                             </td>
                                             <td>
                                                 <form action="{{ route('folha_rescisao.edit', [$folha->id]) }}">

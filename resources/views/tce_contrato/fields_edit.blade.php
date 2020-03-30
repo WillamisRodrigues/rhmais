@@ -1,5 +1,5 @@
 @extends('layout/app')
-@section('titulo','AGENTE DE INTEGRAÇÃO - Lista de Contratos Ativos - TCE | RH MAIS')
+@section('titulo','AGENTE DE INTEGRAÇÃO - Editar Contrato Ativo - TCE | RH MAIS')
 @section('conteudo')
 <div class="container body">
     <div class="main_container">
@@ -7,7 +7,6 @@
             <div class="left_col scroll-view">
                 @include('layout.menu.menu')
                 <!-- /menu profile quick info -->
-                 {{-- <script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script> --}}
                  <script src="{{asset('vendors/jquery/dist/jquery.min.js')}}"></script>
 
                 <br />
@@ -25,12 +24,14 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
                         <div class="x_title">
-                            <h2>AGENTE DE INTEGRAÇÃO - Lista de Contratos Ativos - TCE</h2>
+                            <h2>AGENTE DE INTEGRAÇÃO - Editar Contrato Ativo - TCE</h2>
                             <div class="clearfix"></div>
                         </div>
+                            @foreach ($tceContrato as  $tce )
                         <div class="x_content">
-                            <form action="{{ route('tce_contrato.store') }}" method="post">
-                                {{csrf_field()}}
+                            <form action="{{ route('tce_contrato.update', $tce->id) }}" method="post">
+                                  <input type="hidden" name="_method" value="PUT">
+                                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                                 <!-- SmartWizard html -->
                                 <div>
@@ -39,134 +40,114 @@
                                             <div id="form-step-0" role="form" data-toggle="validator">
                                                 <div class="row" style="width:960px; margin: 20px auto;">
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" class="form-control has-feedback-left"
-                                                            value="KOSTER E KOSTER CONSULTORIA EM RH LTDA - RH MAIS TALENTOS" readonly placeholder="Agente de Integração"
-                                                            name="agente_integracao">
-                                                        <span class="fa fa-home form-control-feedback left"
-                                                            aria-hidden="true"></span>
-                                                    </div>
-                                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <select class="form-control has-feedback-left"
-                                                            name="estagiario_id">
-                                                            <option>Selecione o Estagiário:</option>
-                                                            @foreach ($estagiarios as  $key => $value )
-                                                           <option value="{{ $value->id }}">{{ $value->nome }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                        <span class="fa fa-user form-control-feedback left"
-                                                            aria-hidden="true"></span>
-                                                    </div>
+                                                    <label for="">Estagiário</label>
+                                                    <input type="hidden" id="estagiario_id" name="estagiario_id" value="{{ $tce->estagiario_id}}">
+                                                    <input type="text" value="{{ $tce->nome }}"
+                                                        class="form-control has-feedback-left" placeholder="Nome Estagiario"
+                                                        name="estagiario" readonly>
+                                                    <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                                </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                     <label for="">Unidade Concedente</label>
-                                                        <select class="form-control has-feedback-left"
-                                                            name="empresa_id">
-                                                        </select>
+                                                        <input type="hidden" id="empresa_id" name="empresa_id" value="{{ $tce->empresa_id}}">
+                                                         <input type="text" value="{{ $tce->nome_fantasia }}"
+                                                        class="form-control has-feedback-left" placeholder="Nome Empresa"
+                                                        name="estagiario" readonly>
                                                         <span class="fa fa-home form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                     <label for="">Instituicao de Ensino</label>
-                                                        <select class="form-control has-feedback-left"
-                                                            name="instituicao_id">
-                                                        </select>
+                                                        <input type="hidden" id="instituicao_id" name="instituicao_id" value="{{ $tce->instituicao_id}}">
+                                                         <input type="text" value="{{ $tce->nome_instituicao }}"
+                                                        class="form-control has-feedback-left" placeholder="Nome Instituição"
+                                                        name="estagiario" readonly>
                                                         <span class="fa fa-graduation-cap form-control-feedback left"
+                                                            aria-hidden="true"></span>
+                                                    </div>
+                                                       <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                           <label for="">Valor Bolsa</label>
+                                                        <input type="text" class="form-control has-feedback-left dinheiro"
+                                                       placeholder="Valor Bolsa-Auxílio:" name="bolsa" value="{{$tce->bolsa}}">
+                                                        <span class="fa fa-money form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <label for="">Data do Cadastro</label>
                                                         <input type="text" class="form-control has-feedback-left data"
-                                                            placeholder="Data Documento" name="data_doc">
+                                                    placeholder="Data Documento" name="data_doc" value="{{ date('d/m/Y', strtotime($tce->data_doc))}}">
                                                         <span class="fa fa-calendar form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <label for=""> Data Início</label>
                                                         <input type="text" class="form-control has-feedback-left data"
-                                                            placeholder="Data Início:" id="datainicio" name="data_inicio">
+                                                            placeholder="Data Início:" name="data_inicio" value="{{ date('d/m/Y', strtotime($tce->data_inicio))}}">
                                                         <span class="fa fa-calendar form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <label for=""> Data Fim</label>
                                                         <input type="text" class="form-control has-feedback-left data"
-                                                            placeholder="Data Fim:" id="datafim" name="data_fim">
+                                                            placeholder="Data Fim:" name="data_fim" value="{{ date('d/m/Y', strtotime($tce->data_inicio))}}">
                                                         <span class="fa fa-calendar form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <select class="form-control has-feedback-left" name="beneficio_id">
-                                                            <option>Selecione Beneficio:</option>
-                                                            @foreach ($beneficios as $beneficio)
-                                                            <option value="{{ $beneficio->id }}">{{ $beneficio->nome }}
-                                                            </option>
-                                                            @endforeach
-                                                        </select>
-                                                        <span class="fa fa-bars form-control-feedback left"
+                                                          <label for="">Seguro</label>
+                                                     <input type="hidden"  name="apolice_id" value="{{ $seguros->id}}">
+                                                    <input type="text" value="{{ $seguros->nome }}"
+                                                        class="form-control has-feedback-left" placeholder="Seguro" readonly>
+                                                        <span class="fa fa-user form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <select class="form-control has-feedback-left" name="apolice_id">
-                                                            <option>Selecione Seguro:</option>
-                                                            @foreach ($seguros as $seguro)
-                                                            <option value="{{ $seguro->id }}">{{ $seguro->nome }}
-                                                            </option>
-                                                            @endforeach
-                                                        </select>
-                                                        <span class="fa fa-bars form-control-feedback left"
+                                                       <label for="">Benefício</label>
+                                                     <input type="hidden"  name="beneficio_id" value="{{ $beneficios->id}}">
+                                                    <input type="text" value="{{ $beneficios->nome }}"
+                                                        class="form-control has-feedback-left" placeholder="Seguro" readonly>
+                                                    <span class="fa fa-user form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <select id="lista-horario" class="form-control has-feedback-left" name="horario_id">
-                                                            <option>Horário de Estagio:</option>
-                                                        </select>
-                                                        <span class="fa fa-clock-o form-control-feedback left"
+                                                          <label for="">Horario</label>
+                                                       <input type="hidden"  name="horario_id" value="{{ $horarios->id}}">
+                                                    <input type="text" value="{{ $horarios->descricao }}"
+                                                        class="form-control has-feedback-left" placeholder="Horario" readonly>
+                                                    <span class="fa fa-user form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
 
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <select class="form-control has-feedback-left" name="setor_id">
-                                                            <option>Selecione Setor:</option>
-                                                            @foreach ($setores as $setor)
-                                                            <option value="{{ $setor->id }}">{{ $setor->nome }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                        <span class="fa fa-cube form-control-feedback left"
+                                                          <label for="">Setor</label>
+                                                          <input type="hidden"  name="setor_id" value="{{ $setores->id}}">
+                                                    <input type="text" value="{{ $setores->nome }}"
+                                                        class="form-control has-feedback-left" placeholder="Setor" readonly>
+                                                    <span class="fa fa-user form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <select id="lista-atividade" class="form-control has-feedback-left" name="atividade_id">
-                                                            <option>Selecione Atividade:</option>
-                                                        </select>
-                                                        <span class="fa fa-book form-control-feedback left"
+                                                          <label for="">Atividade</label>
+                                                        <input type="hidden"  name="atividade_id" value="{{ $atividades->id}}">
+                                                    <input type="text" value="{{ $atividades->nome }}"
+                                                        class="form-control has-feedback-left" placeholder="Atividade" readonly>
+                                                    <span class="fa fa-user form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <select class="form-control has-feedback-left"
-                                                            name="orientador_id">
-                                                            <option>Orientador Estágio:</option>
-                                                            @foreach ($orienta as $orient)
-                                                            <option value="{{ $orient->id }}">{{ $orient->nome }}
-                                                            </option>
-                                                            @endforeach
-                                                        </select>
+                                                          <label for="">Orientador</label>
+                                                       <input type="hidden"  name="orientador_id" value="{{ $orientadores->id}}">
+                                                    <input type="text" value="{{ $orientadores->nome }}"
+                                                        class="form-control has-feedback-left" placeholder="Orientador" readonly>
+                                                    <span class="fa fa-user form-control-feedback left"
+                                                            aria-hidden="true"></span>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                     <label for="">Supervisor</label>
+                                                     <input type="hidden"  name="supervisor_id" value="{{ $supervisor->id}}">
+                                                    <input type="text" value="{{ $supervisor->nome }}"
+                                                        class="form-control has-feedback-left" placeholder="Supervisor" readonly>
                                                         <span class="fa fa-user form-control-feedback left"
-                                                            aria-hidden="true"></span>
-                                                    </div>
-                                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <select class="form-control has-feedback-left"
-                                                            name="supervisor_id">
-                                                            <option>Supervisor Estagio:</option>
-                                                            @foreach ($super as $sup)
-                                                            <option value="{{ $sup->id }}">{{ $sup->nome }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                        <span class="fa fa-user form-control-feedback left"
-                                                            aria-hidden="true"></span>
-                                                    </div>
-                                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" maxlength="10" class="form-control has-feedback-left dinheiro"
-                                                            placeholder="Valor Bolsa-Auxílio:" name="bolsa">
-                                                        <span class="fa fa-money form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
@@ -185,7 +166,7 @@
                                                     </div>
                                                     <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                                                         <textarea class="form-control" placeholder="Observações"
-                                                            name="observacao"></textarea>
+                                                            name="obs"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="btn-group mr-2 sw-btn-group-extra" role="group">
@@ -196,6 +177,7 @@
                                         </div>
                                     </div>
                             </form>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -272,7 +254,7 @@ function atividadePrestada(empresa_id){
             }else{
                 $('#lista-atividade').empty();
             }
-}
+    }
 </script>
 
 @endsection

@@ -45,9 +45,9 @@
                                             <th>Data Fim
                                                 <input type="text" class="form-control" style="width:100px;">
                                             </th>
-                                            <th>Situação
+                                            {{-- <th>Situação
                                                 <input type="text" class="form-control" style="width:100px;">
-                                            </th>
+                                            </th> --}}
                                             <th>Opções</th>
                                         </tr>
                                     </thead>
@@ -58,19 +58,19 @@
                                             <td>{{$cce->cidade}}</td>
                                             <td>{{date('d/m/Y', strtotime($cce->data_inicio))}}</td>
                                             <td>{{date('d/m/Y', strtotime($cce->data_fim))}}</td>
-                                            <td>
+                                            {{-- <td>
                                                 @if ($cce->situacao != 1)
                                                 Não Assinado
                                                 @else
                                                 Assinado
                                                 @endif
-                                            </td>
+                                            </td> --}}
                                               <td style="width:22%;">
                                                 <a href="{{ route('cce_convenio.edit', [$cce->id]) }}"
                                                     class="btn btn-primary" title="Editar"> <i class="fa fa-pencil"> </i></a>
-                                                <a href="{{ route('cce_convenio.assinar', [$cce->id]) }}"
+                                                {{-- <a href="{{ route('cce_convenio.assinar', [$cce->id]) }}"
                                                     class="btn btn-primary" title="Marcar contrato como assinado"> <i
-                                                        class="fa fa-star"></i> </a>
+                                                        class="fa fa-star"></i> </a> --}}
                                                 <form class="col-md-3"
                                                     action="{{route('cce_convenio.destroy', [$cce->id])}}"
                                                     method="POST">

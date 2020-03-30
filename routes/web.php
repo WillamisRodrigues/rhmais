@@ -28,6 +28,7 @@ Route::post('processar_financeiro', 'FinanceiroController@processarFinanceiro');
 Route::post('processarRescisao', 'FolhaRescisaoController@processarRescisao');
 Route::resource('ajax-crud', 'AjaxController');
 Route::get('beneficio_estagiario/{id}', ['uses' => 'AjaxController@beneficio_estagiario', 'as' => 'ajax-crud.beneficio_estagiario']);
+Route::get('editar_contrato/{id}', ['uses' => 'TceContratoController@editar', 'as' => 'editar_contrato.editar']);
 
 Route::resource('empresa', 'EmpresaController');
 Route::resource('estagiario', 'EstagiarioController');
@@ -111,3 +112,7 @@ Route::get('deletar_avaliacao_supervisor/{id}', [
 Route::get('assinar_avaliacao_supervisor/{id}', ['uses' => 'AvaliacaoController@assinar_avaliacao_supervisor', 'as' => 'assinar.avaliacao.supervisor']);
 
 Route::get('lista_avaliacao_supervisor', ['uses' => 'AvaliacaoController@lista_avaliacao', 'as' => 'lista_avaliacao_supervisor']);
+
+Route::get('teste', function () {
+    return view('home.teste');
+});

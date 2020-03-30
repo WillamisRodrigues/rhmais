@@ -169,7 +169,6 @@ class TceContratoController extends Controller
      */
     public function edit($id)
     {
-        // $tceContrato = Estagiario::with('empresas')->with('instituicoes')->where('id', '=', $id)->get();
 
         $tceContrato = DB::table('tce_contrato')
             ->join('estagiario', 'estagiario.id', '=', 'tce_contrato.estagiario_id')
@@ -217,9 +216,32 @@ class TceContratoController extends Controller
      * @param  \App\TceContrato  $tceContrato
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TceContrato $tceContrato)
+    public function update(Request $request, $id)
     {
-        //
+
+        // $request->validate([
+        //     'estagiario_id' => 'required|unique:tce_contrato',
+        //     'empresa_id' => 'required',
+        //     'instituicao_id' => 'required',
+        // ]);
+
+        $date_doc = $request->get('data_doc');
+        $date_inicio = $request->get('data_inicio');
+        $date_fim = $request->get('data_fim');
+
+        $contrato = TceContrato::find($id);
+        $contrato->data_doc = Carbon::createFromFormat('d/m/Y', $date_doc)->format('Y-m-d');
+        $contrato->data_inicio = Carbon::createFromFormat('d/m/Y', $date_inicio)->format('Y-m-d');
+        $contrato->data_fim = Carbon::createFromFormat('d/m/Y', $date_fim)->format('Y-m-d');
+        $contrato->bolsa = $request->get('bolsa');
+        $contrato->obrigatorio = $request->get('obrigatorio');
+        $contrato->obs = $request->get('obs');
+        // dd($contrato);
+        $contrato->save();
+
+        return redirect()->route('tce_contrato.index')
+            ->with('success', 'Cadastrado com sucesso.');
+
     }
 
     /**
@@ -269,5 +291,42 @@ class TceContratoController extends Controller
             ->get();
         return json_encode($atividades);
 
+    }
+
+    public function editar($id)
+    {
+
+        $tceContrato = DB::table('tce_contrato')
+            ->join('estagiario', 'estagiario.id', '=', 'tce_contrato.estagiario_id')
+            ->join('empresa', 'empresa.id', '=', 'tce_contrato.empresa_id')
+            ->join('instituicao', 'instituicao.id', '=', 'tce_contrato.instituicao_id')
+            ->select('estagiario.nome',
+                'estagiario.nome',
+                'tce_contrato.id',
+                'tce_contrato.estagiario_id',
+                'tce_contrato.empresa_id',
+                'tce_contrato.instituicao_id',
+                'tce_contrato.bolsa',
+                'tce_contrato.data_doc',
+                'tce_contrato.data_inicio',
+                'tce_contrato.data_fim',
+                'empresa.nome_fantasia',
+                'instituicao.nome_instituicao'
+            )
+            ->where('tce_contrato.id', '=', $id)
+            ->get();
+
+        // dd($tceContrato);
+
+        $tce = DB::table('tce_contrato')->where('id', $id)->get()->first();
+        $supervisor = DB::table('supervisor')->where('id', $tce->supervisor_id)->get()->first();
+        $horarios = DB::table('horario')->where('id', $tce->horario_id)->get()->first();
+        $seguros = DB::table('seguradora')->where('id', $tce->apolice_id)->get()->first();
+        $setores = DB::table('setor')->where('id', $tce->setor_id)->get()->first();
+        $beneficios = DB::table('beneficio')->where('id', $tce->beneficio_id)->get()->first();
+        $orientadores = DB::table('orientador')->where('id', $tce->orientador_id)->get()->first();
+        $atividades = DB::table('atividade')->where('id', $tce->atividade_id)->get()->first();
+
+        return view('tce_contrato.fields_edit', compact('atividades', 'orientadores', 'tceContrato', 'motivos', 'supervisor', 'horarios', 'seguros', 'beneficios', 'setores'));
     }
 }
