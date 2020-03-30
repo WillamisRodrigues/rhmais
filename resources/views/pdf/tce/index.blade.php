@@ -20,8 +20,8 @@
             padding:0px!important;
         }
         table td{
-            border:none !important;
             padding:0px!important;
+            border:none!important;
         }
         h4,
             p {
@@ -58,8 +58,13 @@
         <table class="table">
             <tbody>
                 <tr>
+<<<<<<< HEAD
                 <td>
                         <span class="fonte-8"> Razão Social: </span>
+=======
+                <td colspan="2">
+                        <span class="fonte-8"> Razão Social: </span> 
+>>>>>>> b42693e3aced967bab24aaa9dc7032978223f4af
                         <span class="fonte-10">
                         <strong> {{$inst->razao_social}} </strong>
                         </span>
@@ -159,8 +164,13 @@
         <table class="table">
             <tbody>
                 <tr>
+<<<<<<< HEAD
                     <td>
                         <span class="fonte-8"> Razão Social: </span>
+=======
+                    <td colspan="4">
+                        <span class="fonte-8"> Razão Social: </span> 
+>>>>>>> b42693e3aced967bab24aaa9dc7032978223f4af
                         <span class="fonte-10">
                             <strong> {{$emp->razao_social}} </strong>
                         </span>
@@ -505,7 +515,7 @@
         @foreach ($tceContrato as $tce)
         <p class="pull-right"> Campinas, <strong> {{ strftime('%A, %d de %B de %Y', strtotime($tce->data_doc))}}. </strong> </p>
         @endforeach
-        <div style="height:100px;"></div>
+        <div style="height:70px;"></div>
         <div class="row">
             @foreach ($instituicoes as $inst)
             <p class="pull-left">________________________________________________________
@@ -513,10 +523,10 @@
                     {{$inst->razao_social}}
                     @endforeach
             </p>
-            <p class="pull-left" style="margin-left:40px;">
+            <p class="pull-left" style="margin-left:40px; width:320px!important;">
                 @foreach ($empresas as $emp)
                 __________________________________________________________ <br>
-                {{$emp->razao_social}}
+               <span style="word-wrap: break-word!important; ">{{$emp->razao_social}} </span>
                 @endforeach
             </p>
         </div>
