@@ -73,6 +73,7 @@ Route::get('estagio/{id}', 'PdfController@generateEstagio');
 Route::get('avaliacao-pdf', 'PdfController@generateAvaliacao');
 Route::get('fechamento-pdf/{id}', 'PdfController@generateFechamento');
 Route::get('/tce-pdf/{id}', 'EstagiarioController@contratoTce');
+Route::get('/aditivo-pdf/{id}', 'EstagiarioController@contratoAditivoTce');
 Route::get('rescisao/{id}', 'PdfController@rescisaoTce');
 Route::get('rescisao-folha/{id}', 'PdfController@rescisaoFolha');
 Route::get('holerite/{id}', 'PdfController@generateHolerite');

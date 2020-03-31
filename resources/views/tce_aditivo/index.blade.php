@@ -94,10 +94,13 @@
                                                 Não
                                                 @endif
                                             </td>
-                                            <td><a class="btn btn-primary" title="Adicionar"
+                                            <td style="width:10%;">
+                                                <a class="btn btn-primary" title="Adicionar"
                                                     href="{{ route('tce_aditivo.edit',[$tcead->id])}}"><i
-                                                        class="fa fa-plus"></i></a></td>
-                                        </tr>
+                                                        class="fa fa-plus"></i></a>
+                                            <a href="{{action('EstagiarioController@contratoAditivoTce', $tcead->id)}}"
+                                                    class="btn btn-success" title="Imprimir Aditivo" target="_blank"> <i class="fa fa-print"> </i></a></td>
+                                            </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
