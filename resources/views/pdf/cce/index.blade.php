@@ -10,12 +10,31 @@
         p {
             font-size: 8pt;
         }
-
+        .borda{
+            border-top:1px solid #000;
+        }
+        .titulo{
+            text-decoration: underline;
+        }
+        table{
+            padding:0px!important;
+        }
+        table td{
+            padding:0px!important;
+            border:none!important;
+        }
+        h4,
+            p {
+                font-size: 8pt;
+            }
         hr {
             padding: 0px !important;
         }
         .fonte-10{
             font-size: 10pt!important;
+        }
+        .fonte-8{
+            font-size: 8pt!important;
         }
     </style>
 </head>
@@ -32,145 +51,175 @@
     <p>Celebram entre si o presente Instrumento jurídico de:
         CONVÊNIO DE CONCESSÃO DE ESTÁGIO, previsto no Artigo 8o da Legislação do Estágio, Lei 11.788 de 25/09/2008.
         As partes a seguir qualificadas,</p>
-    <hr>
+        <div class="borda"></div>
     <div>
-        <h5><strong>Instituição de Ensino: {{$cont->nome_instituicao}}</strong></h5>
-        
-        <p> 
-            Razão Social: 
-            <span class="fonte-10"> 
-                <strong> {{$cont->nome_instituicao}} </atrong> 
-            </span>
-            CNPJ: 
-            <span class="fonte-10"> 
-                <strong> {{$cont->cnpj}} </atrong> 
-            </span> 
-        </p>
-        <p>
-            Endereço: 
-            <span class="fonte-10"> 
-                <strong> {{$cont->rua}} </strong> 
-            </span> 
-            <span>
-            Nº:
-            </span>
-            <span class="fonte-10">
-                <strong> {{$cont->numero}} </strong> 
-            </span>
-            <span> 
-            Bairro: 
-            </span>
-            <span class="fonte-10"> 
-                <strong> {{$cont->bairro}} </strong> 
-            </span> 
-        </p>
-        <p> 
-            Cidade: 
-            <span class="fonte-10"> 
-                <strong> {{$cont->cidade}} </strong> 
-            </span>
-            <span> 
-            Estado:
-            </span>
-            <span class="fonte-10">
-                <strong> {{$cont->estado}} </strong> 
-            </span> 
-            <span> 
-            Cep:
-            </span>
-            <span class="fonte-10"> 
-                <strong> {{$cont->cep}} </strong>
-            </span> 
-            <span>
-            Telefone: 
-            <span class="fonte-10"> 
-                <strong> {{$cont->telefone}} </strong>
-            </span>
-        </p>
-        <p>
-        Representante: 
-        <span class="fonte-10"> 
-            <strong>{{$cont->nome_rep}} </strong> 
-        </span> 
-        <span>
-        Email:
-        </span>
-        <span class="fonte-10"> 
-            <strong> {{$cont->email_rep}} </strong> 
-        </span>
-    </p>
+        <h5 class="titulo fonte-8"><strong>Instituição de Ensino: {{$cont->nome_instituicao}}</strong></h5>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>
+                        <span class="fonte-8"> Razão Social: </span>
+                        <span class="fonte-10">
+                        <strong> {{$cont->nome_instituicao}} </strong>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="fonte-8"> CNPJ: </span>
+                        <span class="fonte-10">
+                        <strong> {{$cont->cnpj}} </atrong>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="fonte-8"> Endereço: </span>
+                        <span class="fonte-10">
+                        <strong> {{$cont->rua}} </strong> 
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="fonte-8"> Cidade: </span>
+                        <span class="fonte-10">
+                        <strong> {{$cont->cidade}} </strong>  
+                        </span>
+                    </td>
+                    <td>
+                        <span class="fonte-8"> Nº: </span>
+                        <span class="fonte-10">
+                        <strong> {{$cont->numero}} </strong> 
+                        </span>
+                    </td>
+                    <td>
+                        <span class="fonte-8"> Bairro: </span>
+                        <span class="fonte-10">
+                        <strong> {{$cont->bairro}} </strong> 
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="fonte-8"> Estado: </span>
+                        <span class="fonte-10">
+                        <strong> {{$cont->estado}} </strong> 
+                        </span>
+                    </td>
+                    <td>
+                        <span class="fonte-8"> CEP: </span>
+                        <span class="fonte-10">
+                        <strong> {{$cont->cep}} </strong>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="fonte-8"> Telefone: </span>
+                        <span class="fonte-10">
+                        <strong> {{$cont->telefone}} </strong>
+                        </span>
+                    </td>
+                </tr>
+                 <tr>
+                    <td>
+                        <span class="fonte-8"> Representante: </span>
+                        <span class="fonte-10">
+                        <strong>{{$cont->nome_rep}} </strong> 
+                        </span>
+                    </td>
+                    <td>
+                        <span class="fonte-8"> Email: </span>
+                        <span class="fonte-10">
+                        <strong> {{$cont->email_rep}} </strong>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    <hr>
+    <div class="borda"></div>
     <div>
-        <h5><strong>Agente de Integração : </strong></h5>
-        <p>
-            Razão Social:
-            <span class="fonte-10"> 
-                <strong> KOSTER E KOSTER CONSULTORIA EM RH LTDA  </strong>
-            </span> 
-        </p>
-        <p>
-            Endereço: 
-            <span class="fonte-10">
-                <strong> AVENIDA DOUTOR MORAES SALES </strong> 
-            </span> 
-            <span>
-            Nº:
-            </span>
-            <span class="fonte-10"> 
-                <strong> 1172 </strong> 
-            </span>
-            <span> 
-             Bairro:
-            </span>
-             <span class="fonte-10">
-                CENTRO 
-            </span> 
-        </p>
-        <p>
-        Cidade:
-        <span class="fonte-10"> 
-           <strong>  Campinas </strong> 
-        </span>
-        <span> 
-            Estado:
-        </span>
-            <span class="fonte-10">
-                <strong> SÃO PAULO </strong> 
-            </span> 
-            <span> 
-            CEP: 
-            </span>
-            <span class="fonte-10"> 
-                <strong> 13.010-001 </strong> 
-            </span> 
-            <span>
-            Telefone:
-            </span>
-            <span class="fonte-10"> 
-                <strong> (00)0000-0000 </strong> 
-            </span> 
-        </p>
-        <p> 
-        CNPJ: 
-            <span class="font-10"> 
-                <strong> 22.282.192/0001-09 </strong>
-            </span>
-        </p>
-        <p>
-           Representante: 
-           <span class="fonte-10"> 
-                 <strong> MARGARIDA@RHMAISTALENTOS.COM.BR </strong> 
-           </span> 
-           <span>
-            Email:
-            </span>
-            <span class="fontr-10"> 
-                <strong> TABAJARA@CLADE.COM.BR </strong> 
-            </span> 
-        </p>
+        <h5 class="titulo fonte-8"><strong>Agente de Integração : </strong></h5>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td colspan="2">
+                        <span class="fonte-8"> Razão Social: </span>
+                        <span class="fonte-10">
+                        <strong> KOSTER E KOSTER CONSULTORIA EM RH LTDA  </strong>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="fonte-8"> CNPJ: </span>
+                        <span class="fonte-10">
+                        <strong>  <strong> 22.282.192/0001-09 </strong>  </strong>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="fonte-8"> Telefone: </span>
+                        <span class="fonte-10">
+                        <strong> (00)0000-0000 </strong>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="fonte-8"> Endereço: </span>
+                        <span class="fonte-10">
+                        <strong> AVENIDA DOUTOR MORAES SALES </strong>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="fonte-8"> Nº: </span>
+                        <span class="fonte-10">
+                        <strong> 1172 </strong>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="fonte-8"> Bairro: </span>
+                        <span class="fonte-10">
+                        <strong> Centro </strong>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="fonte-8"> Cidade: </span>
+                        <span class="fonte-10">
+                        <strong> Campinas </strong>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="fonte-8"> Estado: </span>
+                        <span class="fonte-10">
+                        <strong> SP </strong>
+                        </span>
+                    </td>
+                    <td width="30%">
+                        <span class="fonte-8"> CEP: </span>
+                        <span class="fonte-10">
+                        <strong> 13.010-001 </strong>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="fonte-8"> Representante: </span>
+                        <span class="fonte-10">
+                        <strong>Koster </strong> 
+                        </span>
+                    </td>
+                    <td>
+                        <span class="fonte-8"> Email: </span>
+                        <span class="fonte-10">
+                        <strong> TABAJARA@CLADE.COM.BR </strong> 
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+       </table>
     </div>
-    <hr>
+    <div class="borda"></div>
     <p>
         CLÁUSULA 1a - O presente convênio estabelece a cooperação recíproca entre as partes, acima qualificadas, visando
         o desenvolvimento de atividades
@@ -328,28 +377,33 @@
     <p> Campinas, {{ strftime('%A, %d de %B de %Y', strtotime($cont->data_doc))}}. </p>
     <div style="height:70px;"></div>
     <div class="row">
-        <p class="pull-left">__________________________________ <br>
-            {{$cont->nome_instituicao}} <br><br>
+            <p class="pull-right" style="margin-left:10px;">
+                ____________________________________________________________
+
+                 <br>
+                Koster & Koster Consultoria em RH LTDA ME
+                <br><br>
             <span>(assinatura e carimbo) </span>
-        </p>
-        <p class="pull-left" style="margin-left:30px;">
-            _________________________________ <br>
-            KOSTER E KOSTER CONSULTORIA <br> EM RH LTDA <br><br>
-            <span>(assinatura e carimbo) </span>
-        </p>
-    </div>
-    <div class="row">
-        <p tyle="margin-top:130px;"> Testemunhas: </p>
-        <br>
-        <p class="pull-left" style="margin-left:30px;">
-            _________________________________ <br>
-            (Nome e CPF) <br><br>
-        </p>
-        <p class="pull-left" style="margin-left:30px;">
-            _________________________________ <br>
-            (Nome e CPF) <br><br>
-        </p>
-    </div>
+            </p>
+            <p class="pull-left">
+                _________________________________________________________<br>
+                {{$cont->nome_instituicao}} <br><br>
+               (assinatura e carimbo)
+            </p>
+        </div>
+        <div style="height:80px;"></div>
+        <div class="row">
+            <p class="pull-right" style="margin-left:10px;">
+                ____________________________________________________________
+
+                 <br>
+                 (Nome e CPF)
+            </p>
+            <p class="pull-left">
+                _________________________________________________________<br>
+                (Nome e CPF)
+            </p>
+        </div>
     @endforeach
 </body>
 

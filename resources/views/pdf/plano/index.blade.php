@@ -6,8 +6,35 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="{{ public_path('/css/bootstrap.min.css') }}">
     <style>
-     .fonte-10{
+        h5,
+        p {
+            font-size: 8pt;
+        }
+        .borda{
+            border-top:1px solid #000;
+        }
+        .titulo{
+            text-decoration: underline;
+        }
+        table{
+            padding:0px!important;
+        }
+        table td{
+            padding:0px!important;
+            border:none!important;
+        }
+        h4,
+            p {
+                font-size: 8pt;
+            }
+        hr {
+            padding: 0px !important;
+        }
+        .fonte-10{
             font-size: 10pt!important;
+        }
+        .fonte-8{
+            font-size: 8pt!important;
         }
     </style>
 </head>
@@ -18,8 +45,8 @@
     </figure>
     <h5 class="text-center mt-2"><strong> PLANO DE ESTÁGIO (previsto na Lei de Estágio 11.788/08) </strong></h5>
 
-<hr>
-    <p>
+<div class="borda"></div>
+    <p class="mt-2">
          
         CPF: 
         <span class="fonte-10">
@@ -62,7 +89,7 @@
             VENDAS@RPPROMOTORA.COM.BR - (16)3441-9495 
         </strong>
     </p>
-    <hr>
+    <div class="borda"></div>
     <div>
         <p>
         parte Concedente :
@@ -74,7 +101,7 @@
             <strong> 22.514.472/0001-03 / RP PROMOTORA </strong> 
         </p>
     </div>
-    <hr>
+    <div class="borda"></div>
     <div>
         <p>
         Instituição de Ensino: 
@@ -87,7 +114,7 @@
         </span> 
     </p>
     </div>
-    <hr>
+    <div class="borda"></div>
     <div>
         <p>
             Termo de Compromisso Estágio no: 
@@ -100,59 +127,53 @@
             </span> 
         </p>
     </div>
-    <hr>
+    <div class="borda"></div>
     <div>
         <p> <strong> Plano de Atividades : </strong> </p>
     </div>
-    <hr>
+    <div class="borda"></div>
     <div>
         <p> <strong> Observação : </strong> </p>
     </div>
-    <hr>
+    <div class="borda"></div>
     <div>
         <p> <strong> RIBEIRÃO PRETO , 05/08/2019 </strong> </p>
     </div>
-    <hr>
-
-    <p> </p>
+    <div class="borda"></div>
     <div style="height:50px;"></div>
+    <div class="row">
+            <p class="pull-right" style="margin-left:10px;">
+                ____________________________________________________________
 
-    <p class="pull-left">__________________________________ <br>
-        KOSTER E KOSTER CONSULTORIA EM RH LTDA <br><br>
-        <span>(assinatura e carimbo) </span>
-    </p>
-    <p class="pull-left" style="margin-left:30px;">
-        _________________________________ <br>
-        LAURA BEATRIZ CARDOSO DE CARVALHO <br><br>
+                 <br>
+                 LAURA BEATRIZ CARDOSO DE CARVALHO <br><br>
         <span>(assinatura do(a) estagiário) </span>
-    </p>
-    <br><br><br><br><br>
-    <div style="margin-top:20px;"></div>
-    <br>
-    <p class="pull-left">
-        <br><br><br>
-        _________________________________ <br>
-        BORGES & VENANCIO LTDA - ME <br><br>
-        <span>(assinatura e carimbo) </span>
-    </p>
-    <p class="pull-left" style="margin-left:80px;">
-        _________________________________ <br>
+            </p>
+            <p class="pull-left">
+                _________________________________________________________<br>
+                Koster & Koster Consultoria em RH LTDA ME
+            </p>
+        </div>
+        <div style="height:80px;"></div>
+        <div class="row">
+        <p class="pull-right" style="margin-left:10px;">
+        _________________________________________________________<br>
         ELAINE AP MENEGUSSI CATANIO <br><br>
         <span> (assinatura e carimbo)-Supervisor </span>
-    </p>
-
-    <p style="margin-top:140px;">
-        _________________________________ <br>
+            </p>
+            <p class="pull-left">
+            _________________________________________________________<br>
+        BORGES & VENANCIO LTDA - ME <br><br>
+        <span>(assinatura e carimbo) </span>
+            </p>
+        </div>
+        <div style="height:80px;"></div>
+        <div class="row">
+        <p style="margin-left:10px;">
+        _________________________________________________________<br>
         ASSUPERO - ENSINO SUPERIOR LTDA<br><br>
         <span> (assinatura e carimbo) </span>
-    </p>
-    <p class="pull-right" style="margin-right:100px; margin-top:-90px;">
-        _________________________________ <br>
-        CAROLINA MACAGNANI DOS SANTOS <br><br>
-        <span> (assinatura e carimbo)-Supervisor </span>
-    </p>
-
-
+        </div>
 </body>
 
 </html>
