@@ -71,19 +71,19 @@
                     <td>
                         <span class="fonte-8"> Endereço </span>
                         <span class="fonte-10">
-                        <strong> {{$cont->rua}} </strong> 
+                        <strong> {{$cont->rua}} </strong>
                         </span>
                     </td>
                     <td>
                         <span class="fonte-8"> Nº: </span>
                         <span class="fonte-10">
-                        <strong> {{$cont->numero}} </strong> 
+                        <strong> {{$cont->numero}} </strong>
                         </span>
                     </td>
                     <td>
                         <span class="fonte-8"> Bairro: </span>
                         <span class="fonte-10">
-                        <strong> {{$cont->bairro}} </strong> 
+                        <strong> {{$cont->bairro}} </strong>
                         </span>
                     </td>
                 </tr>
@@ -91,13 +91,13 @@
                     <td>
                         <span class="fonte-8"> Cidade: </span>
                         <span class="fonte-10">
-                        <strong> {{$cont->cidade}} </strong> 
+                        <strong> {{$cont->cidade}} </strong>
                         </span>
                     </td>
                     <td>
                         <span class="fonte-8"> Estado: </span>
                         <span class="fonte-10">
-                        <strong> {{$cont->estado}} </strong> 
+                        <strong> {{$cont->estado}} </strong>
                         </span>
                     </td>
                 </tr>
@@ -105,13 +105,13 @@
                 <td>
                         <span class="fonte-8"> CEP: </span>
                         <span class="fonte-10">
-                        <strong> {{$cont->cep}} </strong> 
+                        <strong> {{$cont->cep}} </strong>
                         </span>
                     </td>
                     <td colspan="2">
                         <span class="fonte-8"> Telefone: </span>
                         <span class="fonte-10">
-                        <strong> {{$cont->telefone}} </strong> 
+                        <strong> {{$cont->telefone}} </strong>
                         </span>
                     </td>
                 </tr>
@@ -119,13 +119,13 @@
                     <td colspan="2">
                         <span class="fonte-8"> Representante Legal: </span>
                         <span class="fonte-10">
-                        <strong> {{$cont->nome_rep}} </strong> 
+                        <strong> {{$cont->nome_rep}} </strong>
                         </span>
                     </td>
                     <td>
                         <span class="fonte-8"> Email: </span>
                         <span class="fonte-10">
-                        <strong> {{$cont->email_rep}} </strong> 
+                        <strong> {{$cont->email_rep}} </strong>
                         </span>
                     </td>
                 </tr>
@@ -140,7 +140,7 @@
                     <td colspan="2">
                         <span class="fonte-8"> Razão Social: </span>
                         <span class="fonte-10">
-                        <strong> KOSTER E KOSTER CONSULTORIA EM RH LTDA </strong> 
+                        <strong> KOSTER E KOSTER CONSULTORIA EM RH LTDA </strong>
                         </span>
                     </td>
                 </tr>
@@ -148,19 +148,19 @@
                     <td>
                         <span class="fonte-8"> Endereço: </span>
                         <span class="fonte-10">
-                        <strong> AVENIDA DOUTOR MORAES SALES </strong>  
+                        <strong> AVENIDA DOUTOR MORAES SALES </strong>
                         </span>
                     </td>
                     <td>
                         <span class="fonte-8"> Nº: </span>
                         <span class="fonte-10">
-                        <strong> 172 </strong>  
+                        <strong> 172 </strong>
                         </span>
                     </td>
                     <td>
                         <span class="fonte-8"> Bairro: </span>
                         <span class="fonte-10">
-                        <strong> Centro </strong>  
+                        <strong> Centro </strong>
                         </span>
                     </td>
                 </tr>
@@ -168,19 +168,19 @@
                     <td>
                         <span class="fonte-8"> Cidade: </span>
                         <span class="fonte-10">
-                        <strong> Campinas </strong>  
+                        <strong> Campinas </strong>
                         </span>
                     </td>
                     <td>
                         <span class="fonte-8"> Estado: </span>
                         <span class="fonte-10">
-                        <strong> SP </strong>  
+                        <strong> SP </strong>
                         </span>
                     </td>
                     <td width="20%">
                         <span class="fonte-8"> CEP: </span>
                         <span class="fonte-10">
-                        <strong> 13.010-001 </strong> 
+                        <strong> 13.010-001 </strong>
                         </span>
                     </td>
                 </tr>
@@ -188,13 +188,13 @@
                     <td>
                         <span class="fonte-8"> Telefone: </span>
                         <span class="fonte-10">
-                        <strong> (00)0000-0000 </strong>   
+                        <strong> (00)0000-0000 </strong>
                         </span>
                     </td>
                     <td>
                         <span class="fonte-8"> CNPJ: </span>
                         <span class="fonte-10">
-                        <strong> 21.925.427/0001-70 </strong>  
+                        <strong> 21.925.427/0001-70 </strong>
                         </span>
                     </td>
                 </tr>
@@ -202,7 +202,7 @@
                     <td>
                         <span class="fonte-8"> Representante Legal: </span>
                         <span class="fonte-10">
-                        <strong> TABAJARA DIAS DE ANDRADE </strong>   
+                        <strong> TABAJARA DIAS DE ANDRADE </strong>
                         </span>
                     </td>
                     <td>
@@ -212,7 +212,7 @@
                         </span>
                     </td>
                 </tr>
-                
+
             </tbody>
         </table>
     </div>
@@ -373,12 +373,13 @@
         As partes, por estarem de acordo quanto ao cumprimento dos termos mutuamente firmados, assinam o presente em
         duas vias de igual teor e conteúdo.
     </p>
-        @php
+        {{-- @php
         setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
         date_default_timezone_set('America/Sao_Paulo');
-        @endphp
+        @endphp --}}
 
-    <p class="pull-right"> Campinas, {{ strftime('%A, %d de %B de %Y', strtotime($cont->data_doc))}}. </p>
+    {{-- <p class="pull-right"> Campinas, {{ strftime('%A, %d de %B de %Y', strtotime($cont->data_doc))}}. </p> --}}
+    <p class="pull-right"> Campinas, {{ date('d/m/Y', strtotime($cont->data_doc))}}. </p>
     <div style="height:100px;"></div><br>
 
     <p class="pull-left">________________________________________ <br>

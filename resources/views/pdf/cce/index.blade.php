@@ -68,13 +68,13 @@
                     <td>
                         <span class="fonte-8"> CNPJ: </span>
                         <span class="fonte-10">
-                        <strong> {{$cont->cnpj}} </atrong>
+                        <strong> {{$cont->cnpj}} </strong>
                         </span>
                     </td>
                     <td>
                         <span class="fonte-8"> Endereço: </span>
                         <span class="fonte-10">
-                        <strong> {{$cont->rua}} </strong> 
+                        <strong> {{$cont->rua}} </strong>
                         </span>
                     </td>
                 </tr>
@@ -82,19 +82,19 @@
                     <td>
                         <span class="fonte-8"> Cidade: </span>
                         <span class="fonte-10">
-                        <strong> {{$cont->cidade}} </strong>  
+                        <strong> {{$cont->cidade}} </strong>
                         </span>
                     </td>
                     <td>
                         <span class="fonte-8"> Nº: </span>
                         <span class="fonte-10">
-                        <strong> {{$cont->numero}} </strong> 
+                        <strong> {{$cont->numero}} </strong>
                         </span>
                     </td>
                     <td>
                         <span class="fonte-8"> Bairro: </span>
                         <span class="fonte-10">
-                        <strong> {{$cont->bairro}} </strong> 
+                        <strong> {{$cont->bairro}} </strong>
                         </span>
                     </td>
                 </tr>
@@ -102,7 +102,7 @@
                     <td>
                         <span class="fonte-8"> Estado: </span>
                         <span class="fonte-10">
-                        <strong> {{$cont->estado}} </strong> 
+                        <strong> {{$cont->estado}} </strong>
                         </span>
                     </td>
                     <td>
@@ -122,7 +122,7 @@
                     <td>
                         <span class="fonte-8"> Representante: </span>
                         <span class="fonte-10">
-                        <strong>{{$cont->nome_rep}} </strong> 
+                        <strong>{{$cont->nome_rep}} </strong>
                         </span>
                     </td>
                     <td>
@@ -206,13 +206,13 @@
                     <td>
                         <span class="fonte-8"> Representante: </span>
                         <span class="fonte-10">
-                        <strong>Koster </strong> 
+                        <strong>Koster </strong>
                         </span>
                     </td>
                     <td>
                         <span class="fonte-8"> Email: </span>
                         <span class="fonte-10">
-                        <strong> TABAJARA@CLADE.COM.BR </strong> 
+                        <strong> TABAJARA@CLADE.COM.BR </strong>
                         </span>
                     </td>
                 </tr>
@@ -370,11 +370,12 @@
         As partes, por estarem de acordo quanto ao cumprimento dos termos mutuamente firmados, assinam o presnete em
         duas vias de igual teor e conteúdo.
     </p>
-        @php
+        {{-- @php
         setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
         date_default_timezone_set('America/Sao_Paulo');
-        @endphp
-    <p> Campinas, {{ strftime('%A, %d de %B de %Y', strtotime($cont->data_doc))}}. </p>
+        @endphp --}}
+    {{-- <p> Campinas, {{ strftime('%A, %d de %B de %Y', strtotime($cont->data_doc))}}. </p> --}}
+    <p> Campinas, {{ date('d/m/Y', strtotime($cont->data_doc))}}. </p>
     <div style="height:70px;"></div>
     <div class="row">
             <p class="pull-right" style="margin-left:10px;">
