@@ -21,19 +21,9 @@ class CauController extends Controller
      */
     public function index()
     {
-        $caus = DB::table('cau')
-            ->join('empresa', 'empresa.id', '=', 'cau.empresa_id')
-            ->select(
-                'empresa.id',
-                'empresa.nome_fantasia',
-                'empresa.cidade',
-                'cau.data_inicio',
-                'cau.data_fim',
-                'cau.situacao',
-                'cau.id AS id'
-            )
-            ->get();
-        return view('cau_convenio.index', compact('caus', $caus));
+
+        $caus = Cau::all();
+        return view('cau_convenio.index', compact('caus'));
     }
 
     /**

@@ -36,4 +36,18 @@ class Instituicao extends Model
     {
         return $this->hasMany('App\Estagiario');
     }
+
+    public function cce()
+    {
+        return $this->hasOne('App\Cce', 'instituicao_id', 'id');
+
+    }
+    public function tceContrato()
+    {
+        return $this->hasMany('App\TceContrato', 'instituicao_id', 'id');
+    }
+    public function orientador()
+    {
+        return $this->hasMany('App\Orientador', 'instituicao_id', 'id');
+    }
 }

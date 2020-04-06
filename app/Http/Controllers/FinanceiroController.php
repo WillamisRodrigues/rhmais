@@ -19,70 +19,93 @@ class FinanceiroController extends Controller
      */
     public function index()
     {
-        $empresas = DB::table('empresa')->get();
-        $data = date("Y/m");
-        $contratos = DB::table("cobranca")->where('referencia', '=', $data)->get();
+        $referencia = request("referencia");
+        $unidades = request('unidade_id');
 
-        foreach ($empresas as $empresa) {
-            if (!DB::table('cobranca')->where([['empresa_id', '=', $empresa->id], ['referencia', '=', date("Y/m")]])->get()->first()) {
-                $contrato_da_empresa = DB::table('cau')->where('empresa_id', $empresa->id)->get()->first();
-                if ($contrato_da_empresa) {
-                    $custo = Empresa::where('id', $empresa->id)->pluck('custo_unitario');
-                    $contagem = DB::table('tce_contrato')->where('empresa_id', $empresa->id)->where('ativo', 1)->count();
-                    $soma_custo = $custo[0] * $contagem;
-                    DB::insert('insert into cobranca (referencia, dia_pg_estagio, dia_fechamento, total_custo, dia_boleto, empresa_id, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?, ?)', [date("Y/m"), $empresa->data_estagiario, $empresa->data_fechamento, $soma_custo, $empresa->dia_boleto, $contrato_da_empresa->empresa_id, date("Y-m-d H:i:s"), date("Y-m-d H:i:s")]);
-                }
-            }
-        }
+        if (request('unidade_id') !== null && request('referencia') !== null) {
 
-        $periodos = DB::table("cobranca")->select(DB::raw('count(*) as periodo, referencia'))
-            ->where('referencia', '<>', 1)
-            ->groupBy('referencia')
-            ->get();
-
-        $qAtivos = DB::table('tce_contrato')->join('empresa', 'empresa.id', '=', 'tce_contrato.empresa_id')
-            ->select(DB::raw('count(*) AS qtd, empresa.id', 'ativo'))
-            ->groupBy('empresa.id')
-            ->where('tce_contrato.ativo', 1)
-            ->get();
-
-        $qRescisao = DB::table('tce_rescisao')->join('empresa', 'empresa.id', '=', 'tce_rescisao.empresa_id')
-            ->select(DB::raw('count(*) AS qtd, empresa.id'))
-            ->groupBy('empresa.id')
-            ->get();
-        // dd($qAtivos);
-        return view('financeiro.index', ['empresas' => $empresas, 'contratos' => $contratos, 'periodos' => $periodos, 'qAtivos' => $qAtivos, 'qRescisao' => $qRescisao]);
-    }
-
-    public function processarFinanceiro(Request $request)
-    {
-        if (empty($request->unidade) || empty($request->referencia)) {
-            return redirect('financeiro');
-        } else {
-            $processarFinanceiro = $request->input('unidade');
-            $referencia = $request->input('referencia');
-            $unidade = DB::table('cobranca')->join('empresa', 'empresa.id', '=', 'cobranca.empresa_id')
-                ->where([
-                    ['nome_fantasia', 'LIKE', '%' . $processarFinanceiro . '%'],
-                    ['referencia', 'LIKE', '%' . $referencia . '%'],
-                ]);
-            $unidades = DB::table('cau')->join('empresa', 'empresa.id', '=', 'cau.empresa_id')->select('empresa.id', 'empresa.nome_fantasia', 'cau.data_inicio', 'cau.data_fim', 'cau.situacao', 'cau.id AS id')->where('nome_fantasia', '=', $processarFinanceiro)->get();
-
-            $contratos = DB::table("cobranca")
-                ->join('empresa', 'empresa.id', '=', 'cobranca.empresa_id')->where('nome_fantasia', '=', $processarFinanceiro)
-                ->where('referencia', '=', $request->referencia)
+            $folhaRescisao = DB::table('cobranca')->join('empresa', 'empresa.id', '=', 'cobranca.empresa_id')
+                ->where("empresa_id", $unidades)
+                ->where("referencia", $referencia)
                 ->get();
 
             $estagiarios = DB::table('estagiario')->get();
+
+            $empresas = DB::table('empresa')
+                ->get();
 
             $periodos = DB::table("cobranca")->select(DB::raw('count(*) as periodo, referencia'))
                 ->where('referencia', '<>', 1)
                 ->groupBy('referencia')
                 ->get();
-            $empresas = DB::table('empresa')
+
+            $contratos = DB::table("cobranca")
+                ->join('empresa', 'empresa.id', '=', 'cobranca.empresa_id')->where('empresa.id', '=', $unidades)
+                ->where('referencia', '=', $referencia)
+                ->get();
+            $qRescisao = DB::table('tce_rescisao')->join('empresa', 'empresa.id', '=', 'tce_rescisao.empresa_id')
+                ->select(DB::raw('count(*) AS qtd, empresa.id'))
+                ->groupBy('empresa.id')
                 ->get();
 
-            return view('financeiro.index', ['unidade' => $unidade, 'unidades' => $unidades, 'estagiarios' => $estagiarios, 'empresas' => $empresas, 'periodos' => $periodos, 'contratos' => $contratos]);
+            $qAtivos = DB::table('tce_contrato')->join('empresa', 'empresa.id', '=', 'tce_contrato.empresa_id')
+                ->select(DB::raw('count(*) AS qtd, empresa.id', 'ativo'))
+                ->groupBy('empresa.id')
+                ->where('tce_contrato.ativo', 1)
+                ->get();
+
+            // dd($unidades);
+            return view('financeiro.index', [
+                // 'unidade' => $unidade,
+                'unidades' => $unidades,
+                'estagiarios' => $estagiarios,
+                'empresas' => $empresas,
+                'periodos' => $periodos,
+                'contratos' => $contratos,
+                'qRescisao' => $qRescisao,
+                'qAtivos' => $qAtivos,
+            ]);
+
+        } else {
+            $empresas = DB::table('empresa')->get();
+            $data = date("Y/m");
+            $contratos = DB::table("cobranca")->where('referencia', '=', $data)->get();
+
+            foreach ($empresas as $empresa) {
+                if (!DB::table('cobranca')->where([['empresa_id', '=', $empresa->id], ['referencia', '=', date("Y/m")]])->get()->first()) {
+                    $contrato_da_empresa = DB::table('cau')->where('empresa_id', $empresa->id)->get()->first();
+                    if ($contrato_da_empresa) {
+                        $custo = Empresa::where('id', $empresa->id)->pluck('custo_unitario');
+                        $contagem = DB::table('tce_contrato')->where('empresa_id', $empresa->id)->where('ativo', 1)->count();
+                        $soma_custo = $custo[0] * $contagem;
+                        DB::insert('insert into cobranca (referencia, dia_pg_estagio, dia_fechamento, total_custo, data_boleto, empresa_id, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?, ?)', [date("Y/m"), $empresa->data_estagiario, $empresa->data_fechamento, $soma_custo, $empresa->data_boleto, $contrato_da_empresa->empresa_id, date("Y-m-d H:i:s"), date("Y-m-d H:i:s")]);
+                    }
+                }
+            }
+
+            $periodos = DB::table("cobranca")->select(DB::raw('count(*) as periodo, referencia'))
+                ->where('referencia', '<>', 1)
+                ->groupBy('referencia')
+                ->get();
+
+            $qAtivos = DB::table('tce_contrato')->join('empresa', 'empresa.id', '=', 'tce_contrato.empresa_id')
+                ->select(DB::raw('count(*) AS qtd, empresa.id', 'ativo'))
+                ->groupBy('empresa.id')
+                ->where('tce_contrato.ativo', 1)
+                ->get();
+
+            $qRescisao = DB::table('tce_rescisao')->join('empresa', 'empresa.id', '=', 'tce_rescisao.empresa_id')
+                ->select(DB::raw('count(*) AS qtd, empresa.id'))
+                ->groupBy('empresa.id')
+                ->get();
+            // dd($qAtivos);
+            return view('financeiro.index', [
+                'empresas' => $empresas,
+                'contratos' => $contratos,
+                'periodos' => $periodos,
+                'qAtivos' => $qAtivos,
+                'qRescisao' => $qRescisao,
+            ]);
         }
     }
 

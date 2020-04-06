@@ -54,7 +54,7 @@
                                         <tr>
                                             <td>{{$recesso->nome}}</td>
                                             <td>{{$recesso->nome_fantasia}}</td>
-                                            <td>{{"R$ " .number_format($recesso->bolsa, 2 )}}</td>
+                                            <td>R$ {{$recesso->bolsa }}</td>
                                             <td>
                                                 {{date('d/m/Y', strtotime($recesso->data_inicio)) }}<br>
                                                 {{date('d/m/Y', strtotime($recesso->data_fim)) }}<br>

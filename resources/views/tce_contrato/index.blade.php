@@ -70,9 +70,9 @@
                                     <tbody>
                                         @foreach ($tces as $tce)
                                         <tr>
-                                            <td>{{ $tce->nome }}</td>
-                                            <td>{{ $tce->nome_fantasia }}</td>
-                                            <td>{{ $tce->nome_instituicao }}</td>
+                                            <td>{{ $tce->estagiario->nome }}</td>
+                                            <td>{{ $tce->empresa->nome_fantasia }}</td>
+                                            <td>{{ $tce->instituicao->nome_instituicao }}</td>
                                             <td>R$ {{ $tce->bolsa }}</td>
                                             <td>{{date('d/m/Y', strtotime($tce->data_inicio)) }}</td>
                                             <td>{{ date('d/m/Y', strtotime($tce->data_fim ))}}</td>
@@ -99,11 +99,11 @@
                                                 @endif
                                             </td>
                                             <td style="width:22%;">
-                                                <a href="{{ action('EstagiarioController@contratoTce', $tce->id) }}"
+                                                <a href="{{ action('EstagiarioController@contratoTce', $tce->estagiario->id) }}"
                                                    class="btn btn-primary" title="Imprimir TCE" target="_blank"><i class="fa fa-print"></i></a>
-                                                <a href="{{ route('tce_contrato.edit',[$tce->tceId])}}"
+                                                <a href="{{ route('tce_contrato.edit',[$tce->id])}}"
                                                     class="btn btn-danger" title="Gerar Rescisão"><i class="fa fa-book"></i> </a>
-                                                <a href="{{ route('editar_contrato.editar', [$tce->tceId]) }}"
+                                                <a href="{{ route('editar_contrato.editar', [$tce->id]) }}"
                                                     class="btn btn-success" title="Editar"> <i class="fa fa-pencil"> </i></a>
                                             </td>
                                         </tr>

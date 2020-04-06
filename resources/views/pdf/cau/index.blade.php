@@ -68,7 +68,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan="2">
                         <span class="fonte-8"> Endereço </span>
                         <span class="fonte-10">
                         <strong> {{$cont->rua}} </strong>
@@ -94,7 +94,7 @@
                         <strong> {{$cont->cidade}} </strong>
                         </span>
                     </td>
-                    <td>
+                    <td colspan="2">
                         <span class="fonte-8"> Estado: </span>
                         <span class="fonte-10">
                         <strong> {{$cont->estado}} </strong>
@@ -137,7 +137,7 @@
         <table class="table">
             <tbody>
                 <tr>
-                    <td colspan="2">
+                    <td colspan="3">
                         <span class="fonte-8"> Razão Social: </span>
                         <span class="fonte-10">
                         <strong> KOSTER E KOSTER CONSULTORIA EM RH LTDA </strong>
@@ -145,7 +145,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan="2">
                         <span class="fonte-8"> Endereço: </span>
                         <span class="fonte-10">
                         <strong> AVENIDA DOUTOR MORAES SALES </strong>
@@ -199,13 +199,13 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan="2">
                         <span class="fonte-8"> Representante Legal: </span>
                         <span class="fonte-10">
                         <strong> TABAJARA DIAS DE ANDRADE </strong>
                         </span>
                     </td>
-                    <td>
+                    <td colspan="2">
                         <span class="fonte-8"> Email: </span>
                         <span class="fonte-10">
                         <strong> TABAJARA@CLADE.COM.BR </strong>
@@ -339,11 +339,18 @@
         CLÁUSULA 4a - DOS VALORES
     </p>
     <p>
+        @foreach ($contrato as $cont)
         A UNIDADE CONCEDENTE repassara diretamente a(o) KOSTER E KOSTER CONSULTORIA EM RH LTDA, a taxa administrativa
-        fixada em ( R$ 0.00)
+        fixada em ( R$ {{$cont->custo_unitario}})
         / ( 0.00 % ) , referente aos custos operacionais efetuados pelo AGENTE, o qual encaminhará à Unidade Concedente
         as informações relativas ao Valor e
         Forma de pagamento do mesmo com vencimento para o dia (10) do mês subseqüente.
+        @endforeach
+    </p>
+    <p>
+      REAJUSTE: O valor da taxa adminsitrativa será reajustada no mês de ABRIL de cada ano, tendo como base, os índices previstos e acumulados no
+      período anual do IGP-M (FGV) ou IGP ou IPC, etc. verificada nos 12 meses imediatamente anteriores, em caso de falta deste índice, o reajustamento da
+      taxa administrativa terá por base a média da variação dos índices inflacionários do ano corrente.
     </p>
     <p>
         CLÁUSULA 5a - DA VIGÊNCIA
@@ -381,12 +388,12 @@
     {{-- <p class="pull-right"> Campinas, {{ strftime('%A, %d de %B de %Y', strtotime($cont->data_doc))}}. </p> --}}
     <p class="pull-right"> Campinas, {{ date('d/m/Y', strtotime($cont->data_doc))}}. </p>
     <div style="height:100px;"></div><br>
-
+@foreach ($contrato as $cont)
     <p class="pull-left">________________________________________ <br>
-        CLADE - CENTRO LATINO AMERICANO DE <br>
-        DESENVOLVIMENTO <br><br>
+         {{$cont->nome_fantasia}} <br>
         <span>(assinatura e carimbo) </span>
     </p>
+    @endforeach
     <p class="pull-left"  style="margin-left:130px;">
         ______________________________________________ <br>
         KOSTER E KOSTER CONSULTORIA <br> EM RH LTDA <br><br>

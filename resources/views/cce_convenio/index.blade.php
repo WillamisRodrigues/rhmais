@@ -54,8 +54,8 @@
                                     <tbody>
                                         @foreach ($cces as $cce)
                                         <tr>
-                                            <td>{{$cce->nome_instituicao}}</td>
-                                            <td>{{$cce->cidade}}</td>
+                                            <td>{{$cce->instituicao->nome_instituicao}}</td>
+                                            <td>{{$cce->instituicao->cidade}}</td>
                                             <td>{{date('d/m/Y', strtotime($cce->data_inicio))}}</td>
                                             <td>{{date('d/m/Y', strtotime($cce->data_fim))}}</td>
                                             {{-- <td>

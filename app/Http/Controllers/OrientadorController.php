@@ -21,9 +21,9 @@ class OrientadorController extends Controller
      */
     public function index()
     {
-        $instituicoes = Instituicao::all();
+        // $instituicoes = Instituicao::all();
         $orientadores = Orientador::all();
-        return view('orientador.index', compact('orientadores', 'instituicoes'));
+        return view('orientador.index', compact('orientadores'));
     }
 
     /**

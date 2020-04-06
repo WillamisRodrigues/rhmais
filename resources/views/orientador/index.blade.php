@@ -63,11 +63,7 @@
                                             <td>{{$orientador->rg}}</td>
                                             <td>{{$orientador->cidade}}</td>
                                             <td>
-                                                @foreach ($instituicoes as $inst)
-                                                    @if ( $orientador->instituicao_id == $inst->id)
-                                                         {{$inst->nome_instituicao}}
-                                                    @endif
-                                                @endforeach
+                                                {{$orientador->instituicao->nome_instituicao}}
                                             </td>
                                             <td>{{$orientador->agente_integracao}}</td>
                                             <td style="width:15%;">

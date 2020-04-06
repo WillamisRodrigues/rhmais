@@ -22,19 +22,8 @@ class CceController extends Controller
      */
     public function index()
     {
-        $cces = DB::table('cce')
-            ->join('instituicao', 'instituicao.id', '=', 'cce.instituicao_id')
-            ->select(
-                'instituicao.id',
-                'instituicao.nome_instituicao',
-                'instituicao.cidade',
-                'cce.data_inicio',
-                'cce.data_fim',
-                'cce.situacao',
-                'cce.id'
-            )
-            ->get();
-        return view('cce_convenio.index', compact('cces', $cces));
+        $cces = Cce::all();
+        return view('cce_convenio.index', compact('cces'));
     }
 
     /**

@@ -47,108 +47,122 @@
 
 <div class="borda"></div>
     <p class="mt-2">
-         
-        CPF: 
+    @foreach ($estagiarios as $est)
+        CPF:
         <span class="fonte-10">
-            <strong> 135.633.236-66 </strong>
+            <strong> {{$est->cpf}} </strong>
         </span>
-        Matrículado(a) no : 
+        Matrículado(a) no : <strong>{{$est->matricula}}</strong>
         <span class="fonte-10">
-            <strong> 04o Período </strong>
+            <strong> {{$est->periodo}} </strong>
         </span>
     </p>
     <p>
-        do nível: 
+        do nível:
         <span class="fonte-10">
-           <strong> NS - NÍVEL SUPERIOR </strong>
+           <strong> {{$est->periodo}} </strong>
         </span>
-        do curso de : 
+        do curso de :
         <span class="fonte-10">
-           <strong> CIENCIAS CONTABEIS </strong>  
+           <strong> {{$est->curso}} </strong>
         </span>
         Matrícula no :
         <span class="fonte-10">
-            <strong> D2961A-5 </strong>
+            <strong>{{$est->matricula}}</strong>
         </span>
     </p>
+    @endforeach
     <p>
-        Setor : 
+        Setor :
         <span class="fonte-10">
-            <strong> ADMINISTRATIVO </strong> 
+            <strong> ADMINISTRATIVO </strong>
         </span>
-        Atividade : 
+        Atividade :
         <span class="fonte-10">
             <strong> ORGANIZAÇÃO DE CONTRATOS, ENVIO DE DOCUMENTOS AOS CLIENTES, BAIXA NOS
         CONTRATOS PELO SISTEMA. </strong>
         </span>
     </p>
+    @foreach ($supervisores as $sup)
+
     <p>
-        Supervisor(a) do estágio: 
+        Supervisor(a) do estágio:
         <span class="fonte-10">
-        <strong> ELAINE AP MENEGUSSI CATANIO - SUPERIOR EM ADMINISTRAÇÃO - SUPERVISORA DE ESTÁGIO -
-            VENDAS@RPPROMOTORA.COM.BR - (16)3441-9495 
+        <strong> {{$sup->nome}} - {{$sup->cargo}} - {{$sup->email}} - {{$sup->telefone}}
         </strong>
     </p>
+    @endforeach
     <div class="borda"></div>
     <div>
+        @foreach ($empresas as $emp)
         <p>
         parte Concedente :
-        <span class="fonte-10"> 
-            <strong> BORGES & VENANCIO LTDA - ME </strong> 
+        <span class="fonte-10">
+            <strong>{{$emp->nome_fantasia}} </strong>
         </span>
-        CNPJ: 
-        <span class="fonte-10"> 
-            <strong> 22.514.472/0001-03 / RP PROMOTORA </strong> 
+        CNPJ:
+        <span class="fonte-10">
+            <strong> {{$emp->cnpj}} </strong>
         </p>
+        @endforeach
     </div>
     <div class="borda"></div>
     <div>
+        @foreach ($instituicoes as $inst)
         <p>
-        Instituição de Ensino: 
-        <span class="fonte-10"> 
-            <strong> ASSUPERO - ENSINO SUPERIOR LTDA </strong> 
+        Instituição de Ensino:
+        <span class="fonte-10">
+            <strong> {{$inst->nome_instituicao }} </strong>
         </span>
-        CNPJ: 
-        <span class="fonte-10"> 
-            <strong> 06.099.229/0052-51 / UNIP RIBEIRÃO PRETO </strong> 
-        </span> 
+        CNPJ:
+        <span class="fonte-10">
+            <strong> {{$inst->cnpj }} </strong>
+        </span>
     </p>
+    @endforeach
     </div>
     <div class="borda"></div>
     <div>
+        @foreach ($tceContrato as $tce)
+
         <p>
-            Termo de Compromisso Estágio no: 
-            <span class="fonte-10"> 
-                <strong>20181124012256 </strong> 
+            Termo de Compromisso Estágio no:
+            <span class="fonte-10">
+                <strong>20181124012256 </strong>
             </span>
-            Vigência do Estágio: 
-            <span class="fonte-10"> 
-                <strong> 10/09/2018 a 10/09/2020 </strong> 
-            </span> 
+            Vigência do Estágio:
+            <span class="fonte-10">
+                <strong> {{date('d/m/Y', strtotime($tce->data_inicio))}} a {{date('d/m/Y', strtotime($tce->data_fim))}} </strong>
+            </span>
         </p>
+            @endforeach
     </div>
     <div class="borda"></div>
     <div>
-        <p> <strong> Plano de Atividades : </strong> </p>
+        @foreach ($plano as $plan)
+    <p> <strong> Plano de Atividades : {{$plan->plano}}</strong> </p>
     </div>
     <div class="borda"></div>
     <div>
-        <p> <strong> Observação : </strong> </p>
+        <p> <strong> Observação :  {{$plan->obs}}</strong> </p>
     </div>
-    <div class="borda"></div>
+    @endforeach
+    {{-- <div class="borda"></div>
     <div>
         <p> <strong> RIBEIRÃO PRETO , 05/08/2019 </strong> </p>
-    </div>
+    </div> --}}
     <div class="borda"></div>
     <div style="height:50px;"></div>
     <div class="row">
+            @foreach ($estagiarios as $est)
             <p class="pull-right" style="margin-left:10px;">
                 ____________________________________________________________
 
                  <br>
-                 LAURA BEATRIZ CARDOSO DE CARVALHO <br><br>
+               {{$est->nome}} <br><br>
         <span>(assinatura do(a) estagiário) </span>
             </p>
+            @endforeach
             <p class="pull-left">
                 _________________________________________________________<br>
                 Koster & Koster Consultoria em RH LTDA ME
@@ -156,24 +170,31 @@
         </div>
         <div style="height:80px;"></div>
         <div class="row">
+            @foreach ($supervisores as $sup)
+
         <p class="pull-right" style="margin-left:10px;">
         _________________________________________________________<br>
-        ELAINE AP MENEGUSSI CATANIO <br><br>
+        {{$sup->nome}} <br><br>
         <span> (assinatura e carimbo)-Supervisor </span>
             </p>
+            @endforeach
+            @foreach ($empresas as $emp)
             <p class="pull-left">
             _________________________________________________________<br>
-        BORGES & VENANCIO LTDA - ME <br><br>
+       {{$emp->nome_fantasia}} <br><br>
         <span>(assinatura e carimbo) </span>
             </p>
+            @endforeach
         </div>
         <div style="height:80px;"></div>
         <div class="row">
+            @foreach ($instituicoes as $inst)
         <p style="margin-left:10px;">
         _________________________________________________________<br>
-        ASSUPERO - ENSINO SUPERIOR LTDA<br><br>
+        {{$inst->nome_instituicao}}<br><br>
         <span> (assinatura e carimbo) </span>
         </div>
+@endforeach
 </body>
 
 </html>

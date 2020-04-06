@@ -21,20 +21,21 @@
 
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                        <form action="/processar_financeiro" method="POST">
+                        <form action="{{route('processarFinanceiro')}}" method="POST">
                             {{ csrf_field() }}
                             <div class="col-md-2">
                                 <label for="">Agente:</label>
-                                <select name="" class="form-control">
+                                 <input type="text" class="form-control" name="" value="KOSTER E KOSTER CONSULTORIA EM RH LTDA - RH MAIS TALENTOS" readonly><br><br>
+                                {{-- <select name="" class="form-control">
                                     <option> KOSTER E KOSTER CONSULTORIA EM RH LTDA - RH MAIS TALENTOS</option>
-                                </select>
+                                </select> --}}
                             </div>
                             <div class="col-md-2">
                                 <label for="">Unidade:</label>
-                                <select name="unidade" class="form-control">
+                                <select name="unidade_id" class="form-control">
                                     <option> Nome da Unidade</option>
                                      @foreach ($empresas as $unidade)
-                                    <option value="{{$unidade->nome_fantasia}}"> {{$unidade->nome_fantasia}}</option>
+                                    <option value="{{$unidade->id}}"> {{$unidade->nome_fantasia}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -50,8 +51,8 @@
                             <div class="col-md-4">
                                 <br>
                                 <button class="btn btn-primary">Processar</button>
-                                <button class="btn btn-primary">Rel. Agente</button>
-                                <button class="btn btn-primary">L. Relação</button>
+                                <a href="" class="btn btn-primary">Rel. Agente</a>
+                                <a href="" class="btn btn-primary">L. Relação</a>
                             </div>
                         </form>
                         <br>

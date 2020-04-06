@@ -31,27 +31,9 @@ class TceContratoController extends Controller
      */
     public function index()
     {
-        $tces = DB::table('tce_contrato')
-            ->join('estagiario', 'estagiario.id', '=', 'tce_contrato.estagiario_id')
-            ->join('empresa', 'empresa.id', '=', 'tce_contrato.empresa_id')
-            ->join('instituicao', 'instituicao.id', '=', 'tce_contrato.instituicao_id')
-            ->select(
-                'estagiario.nome',
-                'estagiario.id',
-                'estagiario.ativo',
-                'empresa.nome_fantasia',
-                'instituicao.nome_instituicao',
-                'tce_contrato.bolsa',
-                'tce_contrato.data_inicio',
-                'tce_contrato.data_fim',
-                'tce_contrato.contrato',
-                'tce_contrato.assinado',
-                'tce_contrato.obrigatorio',
-                'tce_contrato.id As tceId'
-            )
-            ->get();
-        // dd($tces);
-        return view('tce_contrato.index', compact('tces', $tces));
+
+        $tces = TceContrato::all();
+        return view('tce_contrato.index', compact('tces'));
     }
 
     /**
@@ -174,28 +156,6 @@ class TceContratoController extends Controller
             ->join('estagiario', 'estagiario.id', '=', 'tce_contrato.estagiario_id')
             ->join('empresa', 'empresa.id', '=', 'tce_contrato.empresa_id')
             ->join('instituicao', 'instituicao.id', '=', 'tce_contrato.instituicao_id')
-        // ->select(
-        //     'estagiario.nome',
-        //     'estagiario.id',
-        //     'empresa.nome_fantasia',
-        //     'instituicao.nome_instituicao',
-        //     'tce_contrato.bolsa',
-        //     'tce_contrato.estagiario_id',
-        //     'tce_contrato.instituicao_id',
-        //     'tce_contrato.empresa_id',
-        //     'tce_contrato.data_inicio',
-        //     'tce_contrato.data_fim',
-        //     'tce_contrato.contrato',
-        //     'tce_contrato.assinado',
-        //     'tce_contrato.horario_id',
-        //     'tce_contrato.apolice_id',
-        //     'tce_contrato.beneficio_id',
-        //     'tce_contrato.data_doc',
-        //     'tce_contrato.setor_id',
-        //     'tce_contrato.obrigatorio',
-        //     'tce_contrato.supervisor_id',
-        //     'tce_contrato.id As tceId'
-        // )
             ->where('tce_contrato.id', '=', $id)
             ->get();
 
@@ -315,8 +275,6 @@ class TceContratoController extends Controller
             )
             ->where('tce_contrato.id', '=', $id)
             ->get();
-
-        // dd($tceContrato);
 
         $tce = DB::table('tce_contrato')->where('id', $id)->get()->first();
         $supervisor = DB::table('supervisor')->where('id', $tce->supervisor_id)->get()->first();

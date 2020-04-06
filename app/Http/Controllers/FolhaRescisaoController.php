@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Empresa;
+use App\Estagiario;
 use App\FolhaRescisao;
 use DB;
 use Illuminate\Http\Request;
@@ -19,23 +21,53 @@ class FolhaRescisaoController extends Controller
      */
     public function index()
     {
-        $unidades = DB::table('cau')->join('empresa', 'empresa.id', '=', 'cau.empresa_id')->select('empresa.id', 'empresa.nome_fantasia', 'cau.data_inicio', 'cau.data_fim', 'cau.situacao', 'cau.id AS id')->get();
+        $referencia = request("referencia");
+        $unidades = request('unidade_id');
 
-        $estagiarios = DB::table('estagiario')->get();
-        $contratos = DB::table("tce_contrato")->get();
+        if (request('unidade_id') !== null && request('referencia') !== null) {
 
-        $data = date("Y/m");
-        $folhas = DB::table("folha_pagamento")->where('referencia', '=', $data)->get();
-        $periodos = DB::table("folha_pagamento")->select(DB::raw('count(*) as periodo, referencia'))
-            ->where('referencia', '<>', 1)
-            ->groupBy('referencia')
-            ->get();
-        $empresas = DB::table('empresa')->get();
+            $folhaRescisao = DB::table('folha_pagamento')
+                ->join('empresa', 'empresa.id', '=', 'folha_pagamento.empresa_id')
+                ->where("empresa_id", $unidades)
+                ->where("referencia", $referencia)
+                ->get();
+            $periodos = DB::table("folha_pagamento")->select(DB::raw('count(*) as periodo, referencia'))
+                ->where('referencia', '<>', 1)
+                ->groupBy('referencia')
+                ->get();
 
-        // dd($folhas);
+            return view('folha_rescisao.index', [
+                'unidades' => $empresas = Empresa::where('id', request('unidades_id'))->get(),
+                'folhas' => $folhaRescisao,
+                'estagiarios' => $estagiarios = Estagiario::all(),
+                'empresas' => $empresas,
+                'periodos' => $periodos,
+                'referencia' => $referencia,
+            ]);
 
-        return view('folha_rescisao.index', ['unidades' => $unidades, 'folhas' => $folhas, 'estagiarios' => $estagiarios, 'empresas' => $empresas, 'periodos' => $periodos]);
+        } else {
+            $unidades = DB::table('cau')
+                ->join('empresa', 'empresa.id', '=', 'cau.empresa_id')
+                ->select('empresa.id as empresa_id', 'empresa.nome_fantasia', 'cau.data_inicio', 'cau.data_fim', 'cau.situacao', 'cau.id AS id')
+                ->get();
 
+            $estagiarios = DB::table('estagiario')->get();
+            $contratos = DB::table("tce_contrato")->get();
+
+            $data = date("Y/m");
+            $folhas = DB::table("folha_pagamento")->where('referencia', '=', $data)->get();
+            $periodos = DB::table("folha_pagamento")->select(DB::raw('count(*) as periodo, referencia'))
+                ->where('referencia', '<>', 1)
+                ->groupBy('referencia')
+                ->get();
+            $empresas = DB::table('empresa')->get();
+        }
+        return view('folha_rescisao.index', [
+            'unidades' => $unidades,
+            'folhas' => $folhas,
+            'estagiarios' => $estagiarios,
+            'empresas' => $empresas,
+            'periodos' => $periodos]);
     }
 
     /**
@@ -131,37 +163,5 @@ class FolhaRescisaoController extends Controller
     public function destroy(FolhaRescisao $folhaRescisao)
     {
         //
-    }
-
-    public function processarRescisao(Request $request)
-    {
-        if (empty($request->unidade) || empty($request->referencia)) {
-            return redirect('folha_rescisao');
-        } else {
-            $processarRescisao = $request->input('unidade');
-            $referencia = $request->input('referencia');
-            $unidade = DB::table('folha_pagamento')->join('empresa', 'empresa.id', '=', 'folha_pagamento.empresa_id')
-                ->where([
-                    ['nome_fantasia', 'LIKE', '%' . $processarRescisao . '%'],
-                    ['referencia', 'LIKE', '%' . $referencia . '%'],
-                ]);
-            $unidades = DB::table('cau')->join('empresa', 'empresa.id', '=', 'cau.empresa_id')->select('empresa.id', 'empresa.nome_fantasia', 'cau.data_inicio', 'cau.data_fim', 'cau.situacao', 'cau.id AS id')->where('nome_fantasia', '=', $processarFolha)->get();
-
-            $folhas = DB::table("folha_pagamento")
-                ->join('empresa', 'empresa.id', '=', 'folha_pagamento.empresa_id')->where('nome_fantasia', '=', $processarRescisao)
-                ->where('referencia', '=', $request->referencia)
-                ->get();
-
-            $estagiarios = DB::table('estagiario')->get();
-
-            $periodos = DB::table("folha_pagamento")->select(DB::raw('count(*) as periodo, referencia'))
-                ->where('referencia', '<>', 1)
-                ->groupBy('referencia')
-                ->get();
-            $empresas = DB::table('empresa')
-                ->get();
-
-            return view('folha_rescisao.index', ['unidade' => $unidade, 'unidades' => $unidades, 'folhas' => $folhas, 'estagiarios' => $estagiarios, 'empresas' => $empresas, 'periodos' => $periodos]);
-        }
     }
 }

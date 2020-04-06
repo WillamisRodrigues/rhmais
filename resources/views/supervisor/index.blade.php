@@ -59,11 +59,7 @@
                                             <td>{{$supervisor->rg}}</td>
                                             <td>{{$supervisor->cidade}}</td>
                                             <td>
-                                                @foreach($empresa as $emp)
-                                                @if($supervisor->empresa_id == $emp->id)
-                                                    {{$emp->nome_fantasia}}
-                                                @endif
-                                                @endforeach
+                                                {{$supervisor->empresa->nome_fantasia}}
                                             </td>
                                             <td>{{$supervisor->agente_integracao}}</td>
                                             <td style="width:15%;">

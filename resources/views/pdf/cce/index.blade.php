@@ -57,7 +57,7 @@
         <table class="table">
             <tbody>
                 <tr>
-                    <td>
+                    <td colspan="2">
                         <span class="fonte-8"> Razão Social: </span>
                         <span class="fonte-10">
                         <strong> {{$cont->nome_instituicao}} </strong>
@@ -71,7 +71,7 @@
                         <strong> {{$cont->cnpj}} </strong>
                         </span>
                     </td>
-                    <td>
+                    <td colspan="2">
                         <span class="fonte-8"> Endereço: </span>
                         <span class="fonte-10">
                         <strong> {{$cont->rua}} </strong>
@@ -141,7 +141,7 @@
         <table class="table">
             <tbody>
                 <tr>
-                    <td colspan="2">
+                    <td colspan="3">
                         <span class="fonte-8"> Razão Social: </span>
                         <span class="fonte-10">
                         <strong> KOSTER E KOSTER CONSULTORIA EM RH LTDA  </strong>
@@ -163,7 +163,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan="2">
                         <span class="fonte-8"> Endereço: </span>
                         <span class="fonte-10">
                         <strong> AVENIDA DOUTOR MORAES SALES </strong>

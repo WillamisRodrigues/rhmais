@@ -27,17 +27,12 @@ class AvaliacaoController extends Controller
 
         $estagiarios = DB::table('tce_contrato')
             ->join('estagiario', 'tce_contrato.estagiario_id', '=', 'estagiario.id')
-        // ->select(
-        //     'estagiario.nome'
-        // )
             ->get();
 
         $instituicoes = DB::table('tce_contrato')
             ->join('empresa', 'tce_contrato.empresa_id', '=', 'empresa.id')
-        // ->select(
-        //     'empresa.nome_fantasia'
-        // )
             ->get();
+
         $empresas = DB::table('empresa')
             ->select(
                 'empresa.razao_social',
@@ -89,6 +84,7 @@ class AvaliacaoController extends Controller
         $instituicoes = DB::table('instituicao')->get();
         $estagiarios = DB::table('estagiario')->get();
         $orientadores = DB::table('orientador')->get();
+
         return view('lista_auto_avaliacao.index', [
             'avaliacoes' => $avaliacoes,
             'empresas' => $empresas,
@@ -102,7 +98,11 @@ class AvaliacaoController extends Controller
     {
         $supervisores = DB::table('supervisor')->get();
         $empresas = DB::table('empresa')->get();
-        return view('lista_auto_avaliacao.busca-estagiario', ['supervisores' => $supervisores, 'empresas' => $empresas]);
+
+        return view('lista_auto_avaliacao.busca-estagiario', [
+            'supervisores' => $supervisores,
+            'empresas' => $empresas,
+        ]);
     }
 
     public function buscarEstagiarios(Request $request)

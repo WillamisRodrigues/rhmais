@@ -45,8 +45,15 @@
                                                     </div>
 
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" class="form-control has-feedback-left"
-                                                            placeholder="Nivel" name="nivel">
+                                                        <select class="form-control has-feedback-left" name="nivel">
+                                                            <option value="SELECION NÍVEL">SELECION NÍVEL</option>
+                                                            <option value="FUNDAMENTAL - NF">FUNDAMENTAL - NF</option>
+                                                            <option value="NÍVEL MÉDIO - NM">NÍVEL MÉDIO - NM</option>
+                                                            <option value="NÍVEL MÉDIO TÉCNICO - MT">NÍVEL MÉDIO TÉCNICO - MT</option>
+                                                            <option value="NÍVEL SUPERIOR- NS">NÍVEL SUPERIOR- NS</option>
+                                                        </select>
+                                                        {{-- <input type="text" class="form-control has-feedback-left"
+                                                            placeholder="Nivel" name="nivel"> --}}
                                                         <span class="fa fa-graduation-cap form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>

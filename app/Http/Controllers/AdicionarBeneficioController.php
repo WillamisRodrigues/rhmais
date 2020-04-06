@@ -44,8 +44,9 @@ class AdicionarBeneficioController extends Controller
     {
         $user = BeneficioEstagiario::updateOrCreate(
             ['id' => $request->beneficio_id],
-            ['estagiario_id' => $request->estagiario_id, 'referencia' => $request->referencia]
-        );
+            ['estagiario_id' => $request->estagiario_id,
+                'referencia' => $request->referencia,
+            ]);
         return Response::json($user);
     }
 

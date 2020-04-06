@@ -49,6 +49,9 @@ class RecessoController extends Controller
         $bolsa = DB::table('tce_contrato')->where('bolsa', '=', $recessos[0]->bolsa)->get();
         $date = date('Y');
 
+        $sub_valor = substr($bolsa[0]->bolsa, 0, 4);
+        $valor = str_replace(',', '.', str_replace('.', '', $sub_valor));
+
         $date1 = DateTime::createFromFormat('Y-m-d H:i', $data1text[0]->data_inicio);
         $date2 = DateTime::createFromFormat('Y-m-d H:i', $data2text[0]->data_fim);
 
@@ -58,11 +61,13 @@ class RecessoController extends Controller
         //     //    e somando com a diferença de anos multiplacado por 12
          + (((int) date('y', $date2) - (int) date('y', $date1)) * 12);
         if ($meses <= 12) {
-            $soma = $bolsa[0]->bolsa / 12;
+            // $soma = is_float($bolsa[0]->bolsa) / 12;
+            $soma = $valor / 12;
             $resultado = $soma * $meses;
             // echo $resultado;
         } else {
-            $soma = $bolsa[0]->bolsa / 24;
+            // $soma = $bolsa[0]->bolsa / 24;
+            $soma = $valor / 24;
             $resultado = $soma * $meses;
         }
 
@@ -93,15 +98,21 @@ class RecessoController extends Controller
         $meses = ((int) $date2->format('m') - (int) $date1->format('m'))
              + (((int) $date2->format('y') - (int) $date1->format('y')) * 12);
 
+        $sub_valorB = substr($valorBolsa, 0, 4);
+        $valorB = str_replace(',', '.', str_replace('.', '', $sub_valorB));
+
         if ($meses <= 12) {
-            $soma = $valorBolsa / 12;
+            // $soma = $valorBolsa / 12;
+            $soma = $valorB / 12;
             $resultado = $soma * $meses;
             $resultado = number_format($resultado, 2, ",", ".");
         } else {
             $mesesExcedentes = $meses - 12;
-            $soma = $valorBolsa / 12;
+            // $soma = $valorBolsa / 12;
+            $soma = $valorB / 12;
             $resultado = $soma * $mesesExcedentes;
-            $resultado = number_format($resultado + $valorBolsa, 2, ",", ".");
+            // $resultado = number_format($resultado + $valorBolsa, 2, ",", ".");
+            $resultado = number_format($resultado + $valorB, 2, ",", ".");
             // number_format($valorBolsa, 2, '.', ',')." + R$ ".
         }
 

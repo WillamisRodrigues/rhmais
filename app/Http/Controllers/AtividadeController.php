@@ -20,8 +20,7 @@ class AtividadeController extends Controller
     public function index()
     {
         $atividades = Atividade::all();
-        $empresas = Empresa::all();
-        return view('atividade.index', compact('atividades', 'empresas'));
+        return view('atividade.index', compact('atividades'));
     }
 
     /**
@@ -80,8 +79,7 @@ class AtividadeController extends Controller
     public function edit($id)
     {
         $atividades = Atividade::find($id);
-        $empresas = Empresa::all();
-        return view('atividade.edit', compact('atividades', 'empresas', $atividades));
+        return view('atividade.edit', compact('atividades'));
     }
 
     /**

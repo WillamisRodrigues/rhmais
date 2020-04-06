@@ -10,4 +10,11 @@ class Cce extends Model
         'data_doc', 'obs'];
 
     protected $table = 'cce';
+
+    public function instituicao()
+    {
+        return $this->belongsTo('App\Instituicao');
+
+    }
+
 }

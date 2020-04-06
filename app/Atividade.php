@@ -8,4 +8,10 @@ class Atividade extends Model
 {
     protected $fillable = ['nome', 'empresa_id', 'agente_integracao'];
     protected $table = 'atividade';
+
+    public function empresa()
+    {
+        return $this->belongsTo('App\Empresa');
+    }
+
 }

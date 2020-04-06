@@ -52,11 +52,7 @@
                                             <td>{{$horario->descricao}}</td>
                                             <td>{{$horario->qtd_horas}}</td>
                                             <td>
-                                                @foreach ($empresas as $empresa)
-                                                @if ($horario->empresa_id == $empresa->id)
-                                                {{$empresa->nome_fantasia}}
-                                                @endif
-                                                @endforeach
+                                                {{$horario->empresa->nome_fantasia}}
                                             </td>
                                             <td>{{$horario->agente_integracao}}</td>
                                             <td style="width:15%;">

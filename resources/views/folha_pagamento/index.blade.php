@@ -12,7 +12,7 @@
         </div>
         @include('layout.menu.menutop')
         <!-- page content -->
-
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <!-- page content -->
         <div class="right_col" role="main">
             <div class="">
@@ -22,20 +22,20 @@
                 <div class="row">
                      @include('layout.alerta.flash-message')
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                        <form action="/processar" method="POST">
+                        <form action="{{route('processar')}}" method="POST">
                             {{ csrf_field() }}
                             <div class="col-md-2">
                                 <label for="">Unidade:</label>
-                                <select name="unidade" class="form-control">
+                                <select name="unidade_id" id="unidade-id" class="form-control">
                                     <option value=""> Todas as Unidades</option>
                                     @foreach ($unidades as $unidade)
-                                    <option value="{{$unidade->nome_fantasia}}"> {{$unidade->nome_fantasia}}</option>
+                                    <option value="{{$unidade->empresa_id}}"> {{$unidade->nome_fantasia}}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="col-md-2">
                                 <label for="">Período:</label>
-                                <select name="referencia" class="form-control">
+                                <select name="referencia" id="referencia" class="form-control">
                                     <option value=""> Periodo Ano</option>
                                     @foreach ($periodos as $periodo)
                                      <option value="{{$periodo->referencia}}"> {{$periodo->referencia}}
@@ -184,4 +184,9 @@
     <!-- /footer content -->
 </div>
 </div>
+{{-- <script>
+$( "#other").click(function() {
+  $( "#unidade" ).select();
+});
+</script> --}}
 @endsection

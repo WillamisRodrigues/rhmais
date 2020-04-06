@@ -53,24 +53,13 @@
                                     <tbody>
                                         @foreach ($caus as $cau)
                                         <tr>
-                                            <td>{{$cau->nome_fantasia}}</td>
-                                            <td>{{$cau->cidade}}</td>
+                                            <td>{{$cau->empresa->nome_fantasia}}</td>
+                                            <td>{{$cau->empresa->cidade}}</td>
                                             <td>{{date('d/m/Y', strtotime($cau->data_inicio))}}</td>
                                             <td>{{date('d/m/Y', strtotime($cau->data_fim))}}</td>
-                                            {{-- <td>
-                                                @if ($cau->situacao != 1)
-                                                Não Assinado
-                                                @else
-                                                Assinado
-                                                @endif
-                                            </td> --}}
-
                                             <td style="width:22%;">
                                                 <a href="{{ route('cau_convenio.edit', [$cau->id]) }}"
                                                     class="btn btn-primary" title="Editar"> <i class="fa fa-pencil"> </i></a>
-                                                {{-- <a href="{{ route('cau_convenio.assinar', [$cau->id]) }}"
-                                                    class="btn btn-primary" title="Marcar contrato como assinado"> <i
-                                                        class="fa fa-star"></i> </a> --}}
                                                 <form class="col-md-3"
                                                     action="{{route('cau_convenio.destroy', [$cau->id])}}"
                                                     method="POST">

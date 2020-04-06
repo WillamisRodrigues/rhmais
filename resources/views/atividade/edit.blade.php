@@ -45,13 +45,9 @@
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        @foreach ($empresas as $empresa)
-                                                             @if ($atividades->empresa_id == $empresa->id)
-                                                            <input type="text" value="{{ $empresa->nome_fantasia }}"
+                                                            <input type="text" value="{{ $atividades->empresa->nome_fantasia }}"
                                                             class="form-control has-feedback-left">
-                                                            <input type="hidden" name="empresa_id" value="{{ $empresa->id }}">
-                                                            @endif
-                                                        @endforeach
+                                                            <input type="hidden" name="empresa_id" value="{{ $atividades->empresa->id }}">
                                                             <span class="fa fa-home form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>

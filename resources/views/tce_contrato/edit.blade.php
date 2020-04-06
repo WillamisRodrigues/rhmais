@@ -127,6 +127,7 @@
                                                         @endforeach
                                                     </div>
                                                       <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                          <label for="">Supervisor</label>
                                                            @foreach ($supervisor as $sup)
                                                                 @if ($tce->supervisor_id == $sup->id)
                                                            <input type="text" value="{{$sup->nome}}" class="form-control has-feedback-left"
@@ -137,10 +138,10 @@
                                                             @endforeach
                                                      </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <select class="form-control has-feedback-left" name="motivo">
-                                                            <option>Selecione Motivo</option>
+                                                        <label for=""> Motivo </label>
+                                                        <select class="form-control has-feedback-left" name="motivo_id">
                                                               @foreach ($motivos as $motivo)
-                                                            <option value="{{ $motivo->nome }}">{{ $motivo->nome }}</option>
+                                                            <option value="{{ $motivo->id }}">{{ $motivo->nome }}</option>
                                                                 @endforeach
                                                         </select>
                                                         <span class="fa fa-bars form-control-feedback left"
@@ -155,7 +156,7 @@
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <label for=""> Data Documento </label>
                                                         <input type="text" class="form-control has-feedback-left data"
-                                                            placeholder="Data Documento" name="data_documento" required>
+                                                            placeholder="Data Documento" name="data_doc" required>
                                                         <span class="fa fa-calendar form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>

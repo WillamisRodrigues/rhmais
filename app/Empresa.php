@@ -45,13 +45,25 @@ class Empresa extends Model
     {
         return $this->hasMany('App\Estagiario', 'empresa_id');
     }
-    public function horarios()
+    public function horario()
     {
-        return $this->hasMany('App\Horario', 'empresa_id');
+        return $this->hasMany('App\Horario', 'empresa_id', 'id');
     }
-    public function supervisores()
+    public function supervisor()
     {
-        return $this->hasMany('App\Supervisor', 'empresa_id');
+        return $this->hasMany('App\Supervisor', 'empresa_id', 'id');
     }
+    public function cau()
+    {
+        return $this->hasOne('App\Cau', 'empresa_id', 'id');
 
+    }
+    public function atividade()
+    {
+        return $this->hasMany('App\Atividade', 'empresa_id', 'id');
+    }
+    public function tceContrato()
+    {
+        return $this->hasMany('App\TceContrato', 'empresa_id', 'id');
+    }
 }

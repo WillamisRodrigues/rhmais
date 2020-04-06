@@ -67,7 +67,7 @@ class TceRescisaoController extends Controller
         $date_fim = $request->get('data_fim');
         $date_contrato = $request->get('data_contrato');
         $ultimo_dia = $request->get('ultimo_dia');
-        $data_documento = $request->get('data_documento');
+        $data_doc = $request->get('data_doc');
 
         $tce = new TceRescisao();
         $tce->estagiario_id = $request->get('estagiario_id');
@@ -77,7 +77,7 @@ class TceRescisaoController extends Controller
         $tce->data_fim = Carbon::createFromFormat('d/m/Y', $date_fim)->format('Y-m-d');
         $tce->data_contrato = Carbon::createFromFormat('d/m/Y', $date_contrato)->format('Y-m-d');
         $tce->ultimo_dia = Carbon::createFromFormat('d/m/Y', $ultimo_dia)->format('Y-m-d');
-        $tce->data_documento = Carbon::createFromFormat('d/m/Y', $data_documento)->format('Y-m-d');
+        $tce->data_doc = Carbon::createFromFormat('d/m/Y', $data_doc)->format('Y-m-d');
         $tce->horario_id = $request->get('horario_id');
         $tce->apolice_id = $request->get('apolice_id');
         $tce->beneficio_id = $request->get('beneficio_id');

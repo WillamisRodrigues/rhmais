@@ -75,7 +75,7 @@
                                             <td style="width:10%;">
                                                 <a href="{{ route('tce_contrato.show',[$plano->tceId])}}"
                                                     class="btn btn-primary" title="Editar"><i class="fa fa-pencil"></i></a>
-                                                <a class="btn btn-warning" href="{{ action('PdfController@generateEstagio', $plano->id) }}" target="_blank"><i
+                                                <a class="btn btn-warning" href="{{ action('PdfController@planoEstagio', $plano->id) }}" target="_blank"><i
                                                         class="fa fa-print" title="Imprimir"></i></a>
                                             </td>
                                         </tr>

@@ -20,8 +20,8 @@ class HorarioController extends Controller
     public function index()
     {
         $horarios = Horario::all();
-        $empresas = Empresa::all();
-        return view('horario.index', compact('horarios', 'empresas'));
+        // $empresas = Empresa::all();
+        return view('horario.index', compact('horarios'));
     }
 
     /**

@@ -77,16 +77,12 @@ class PlanoEstagioController extends Controller
         $plano->data_inicio = Carbon::createFromFormat('d/m/Y', $date_inicio)->format('Y-m-d');
         $plano->data_fim = Carbon::createFromFormat('d/m/Y', $date_fim)->format('Y-m-d');
         $plano->data_doc = Carbon::createFromFormat('d/m/Y', $date_doc)->format('Y-m-d');
-        // $plano->contrato = $request->get('contrato');
-        // $plano->assinado = $request->get('assinado');
         $plano->supervisor_id = $request->get('supervisor_id');
         $plano->orientador_id = $request->get('orientador_id');
-        // $plano->plano = $request->get('plano');
         $plano->instituicao_id = $request->get('instituicao_id');
         $plano->curso = $request->get('curso');
         $plano->atividade = $request->get('atividade');
         $plano->obs = $request->get('obs');
-        // dd($plano);
         $plano->save();
 
         DB::update('update tce_contrato set plano_estagio = ?  where estagiario_id = ?', [1, $request->get('estagiario_id')]);
@@ -114,7 +110,7 @@ class PlanoEstagioController extends Controller
      */
     public function edit(PlanoEstagio $id)
     {
-        $planoEstagio = $estagio = DB::table('plano_estagio')
+        $planoEstagio = DB::table('plano_estagio')
             ->where('plano_estagio.id', '=', $id)
             ->get();
         return view('plano_estagio.edit', compact('planoEstagio', $planoEstagio));

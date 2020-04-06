@@ -35,12 +35,10 @@ class Estagiario extends Model
     public function instituicoes()
     {
         return $this->belongsTo('App\Instituicao');
-        // return  $this->hasMany('App\Instituicao');
     }
 
-    public function tce_contrato()
+    public function tceContrato()
     {
-        // return $this->belongsTo('App\TceContrato');
-        return $this->hasMany('App\TceContrato');
+        return $this->hasOne('App\TceContrato', 'estagiario_id', 'id');
     }
 }

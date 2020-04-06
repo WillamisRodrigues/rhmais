@@ -21,14 +21,14 @@
 
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                        <form action="/processarRescisao" method="POST">
+                        <form action="{{route('processarRescisao')}}" method="POST">
                             {{ csrf_field() }}
                             <div class="col-md-2">
-                                <label for="unidade">Unidade:</label>
-                                <select name="" class="form-control">
+                                <label for="">Unidade:</label>
+                                <select name="unidade_id" class="form-control">
                                     <option> Todas as Unidades</option>
                                      @foreach ($unidades as $unidade)
-                                    <option> {{$unidade->nome_fantasia}}</option>
+                                    <option  value="{{$unidade->empresa_id}}"> {{$unidade->nome_fantasia}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -37,7 +37,7 @@
                                 <select name="referencia" class="form-control">
                                     <option> Periodo Ano</option>
                                     @foreach ($periodos as $periodo)
-                                     <option> {{$periodo->referencia}}
+                                     <option value="{{$periodo->referencia}}"> {{$periodo->referencia}}
                                     @endforeach
                                 </select>
                             </div>
@@ -80,8 +80,8 @@
                             <div class="col-md-4">
                                 <br>
                                 <button class="btn btn-primary">Processar</button>
-                                <button class="btn btn-primary">G. Recibo</button>
-                                <button class="btn btn-primary">G. Relação</button>
+                                <a href="#" class="btn btn-primary" target="_blank">G. Recibo</a>
+                                <a href="#" class="btn btn-primary" target="_blank">G. Relação</a>
                             </div>
                         </form>
                         <br>

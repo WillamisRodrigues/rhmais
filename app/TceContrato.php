@@ -11,19 +11,18 @@ class TceContrato extends Model
 
     protected $table = 'tce_contrato';
 
-    public function empresas()
+    public function empresa()
     {
-        return $this->hasMany('App\Empresa');
+        return $this->belongsTo('App\Empresa');
+    }
+    public function instituicao()
+    {
+        return $this->belongsTo('App\Instituicao');
     }
 
-    public function estagiarios()
+    public function estagiario()
     {
-        return $this->hasMany('App\Estagiario');
-    }
-
-    public function instituicoes()
-    {
-        return $this->hasMany('App\Instituicao');
+        return $this->belongsTo('App\Estagiario');
     }
 
 }
