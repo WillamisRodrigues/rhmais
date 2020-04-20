@@ -12,6 +12,8 @@
         </div>
         @include('layout.menu.menutop')
         <!-- page content -->
+         <!-- JQuery -->
+        <script src="{{URL::asset('js/jquery.min.js')}}"></script>
 
         <!-- page content -->
         <div class="right_col" role="main">
@@ -21,19 +23,16 @@
 
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                        <form action="{{route('processarFinanceiro')}}" method="POST">
+                        <form action="{{route('processarFinanceiro')}}" id="frm-relatorio" method="POST">
                             {{ csrf_field() }}
                             <div class="col-md-2">
                                 <label for="">Agente:</label>
                                  <input type="text" class="form-control" name="" value="KOSTER E KOSTER CONSULTORIA EM RH LTDA - RH MAIS TALENTOS" readonly><br><br>
-                                {{-- <select name="" class="form-control">
-                                    <option> KOSTER E KOSTER CONSULTORIA EM RH LTDA - RH MAIS TALENTOS</option>
-                                </select> --}}
                             </div>
                             <div class="col-md-2">
                                 <label for="">Unidade:</label>
-                                <select name="unidade_id" class="form-control">
-                                    <option> Nome da Unidade</option>
+                                <select name="unidade_id" id="unidade-id" class="form-control">
+                                    <option value="" > Nome da Unidade</option>
                                      @foreach ($empresas as $unidade)
                                     <option value="{{$unidade->id}}"> {{$unidade->nome_fantasia}}</option>
                                     @endforeach
@@ -41,7 +40,7 @@
                             </div>
                             <div class="col-md-2">
                                 <label for="">Período:</label>
-                                <select name="referencia" class="form-control">
+                                <select name="referencia" id="referencia" class="form-control">
                                     <option value=""> Periodo Ano</option>
                                     @foreach ($periodos as $periodo)
                                      <option value="{{$periodo->referencia}}"> {{$periodo->referencia}}
@@ -50,9 +49,9 @@
                             </div>
                             <div class="col-md-4">
                                 <br>
-                                <button class="btn btn-primary">Processar</button>
-                                <a href="" class="btn btn-primary">Rel. Agente</a>
-                                <a href="" class="btn btn-primary">L. Relação</a>
+                                <button type="submit" name="processar"  id="processar" class="btn btn-primary">Processar</button>
+                                <button type="submit" name="ragente"  id="ragente" class="btn btn-primary">Rel. Agente</button>
+                                <button type="submit" name="lrelacao"  id="lrelacao" class="btn btn-primary">L. Relação</button>
                             </div>
                         </form>
                         <br>
@@ -173,4 +172,39 @@
     <!-- /footer content -->
 </div>
 </div>
+<script>
+var und = [];
+var ref = [];
+
+$('#unidade-id').bind('change', function(){
+   und = $(this).val();
+});
+
+$('#referencia').bind('change', function(){
+   ref = $(this).val();
+ });
+
+    $('#ragente').click(function(e){
+        if(und > 0 && ref != null){
+            $('#frm-relatorio').attr("action", '{{route('processar')}}').attr( 'target','_blank' );
+        }else {
+            e.preventDefault();
+            alert("Escolha ao lado");
+        }
+      });
+
+      $('#processar').click(function(){
+         $('#frm-relatorio').removeAttr('target');
+        $('#frm-relatorio').attr("action", '{{route('processarFinanceiro')}}');
+    });
+
+     $('#lrelacao').click(function(e){
+          if(und > 0 && ref != null){
+        $('#frm-relatorio').attr("action", '{{route('processar')}}').attr( 'target','_blank' );
+        }else {
+            e.preventDefault();
+            alert("Escolha ao lado");
+        }
+    });
+</script>
 @endsection

@@ -190,9 +190,16 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <select class="form-control has-feedback-left" name="periodo">
                                         <option>Período</option>
-                                        <option>Manhã</option>
-                                        <option>Tarde</option>
-                                        <option>Noite</option>
+                                        <option>1º Período</option>
+                                        <option>2º Período</option>
+                                        <option>3º Período</option>
+                                        <option>4º Período</option>
+                                        <option>5º Período</option>
+                                        <option>6º Período</option>
+                                        <option>7º Período</option>
+                                        <option>8º Período</option>
+                                        <option>9º Período</option>
+                                        <option>10º Período</option>
                                     </select>
                                     <span class="fa fa-graduation-cap form-control-feedback left"
                                         aria-hidden="true"></span>

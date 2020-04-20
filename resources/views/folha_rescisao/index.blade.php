@@ -13,6 +13,9 @@
         @include('layout.menu.menutop')
         <!-- page content -->
 
+        <!-- JQuery -->
+        <script src="{{URL::asset('js/jquery.min.js')}}"></script>
+
         <!-- page content -->
         <div class="right_col" role="main">
             <div class="">
@@ -21,12 +24,12 @@
 
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                        <form action="{{route('processarRescisao')}}" method="POST">
+                        <form action="{{route('processarRescisao')}}" id="frm-rescisao" method="POST">
                             {{ csrf_field() }}
                             <div class="col-md-2">
                                 <label for="">Unidade:</label>
-                                <select name="unidade_id" class="form-control">
-                                    <option> Todas as Unidades</option>
+                                <select name="unidade_id" id="unidade-id" class="form-control">
+                                    <option value=""> Todas as Unidades</option>
                                      @foreach ($unidades as $unidade)
                                     <option  value="{{$unidade->empresa_id}}"> {{$unidade->nome_fantasia}}</option>
                                     @endforeach
@@ -34,8 +37,8 @@
                             </div>
                             <div class="col-md-2">
                                 <label for="">Período:</label>
-                                <select name="referencia" class="form-control">
-                                    <option> Periodo Ano</option>
+                                <select name="referencia" id="referencia" class="form-control">
+                                    <option value=""> Periodo Ano</option>
                                     @foreach ($periodos as $periodo)
                                      <option value="{{$periodo->referencia}}"> {{$periodo->referencia}}
                                     @endforeach
@@ -79,9 +82,9 @@
                             </div>
                             <div class="col-md-4">
                                 <br>
-                                <button class="btn btn-primary">Processar</button>
-                                <a href="#" class="btn btn-primary" target="_blank">G. Recibo</a>
-                                <a href="#" class="btn btn-primary" target="_blank">G. Relação</a>
+                                <button type="submit" class="btn btn-primary" name="processar" id="processar">Processar</button>
+                                <button type="submit" class="btn btn-primary" name="grecibo" id="grecibo">G. Recibo</button>
+                                <button type="submit" class="btn btn-primary" name="grelacao" id="grelacao">G. Relação</button>
                             </div>
                         </form>
                         <br>
@@ -153,7 +156,7 @@
                                                 <form action="{{ route('folha_rescisao.edit', [$folha->id]) }}">
                                                 <button type="submit" class="btn btn-primary" title="Editar"><i class="fa fa-pencil"></i> </a>
                                                 </button>
-                                                <a href="{{ action('PdfController@rescisaoFolha', $folha->id) }}" target="_blank" class="btn btn-success">
+                                                <a href="{{ route('rescisao-folha', $folha->id) }}" target="_blank" class="btn btn-success">
                                                     <i class="fa fa-print" title="Imprimir"></i>
                                                 </a>
                                                 </form>
@@ -177,4 +180,39 @@
     <!-- /footer content -->
 </div>
 </div>
+<script>
+var und = [];
+var ref = [];
+
+$('#unidade-id').bind('change', function(){
+   und = $(this).val();
+});
+
+$('#referencia').bind('change', function(){
+   ref = $(this).val();
+ });
+
+    $('#grecibo').click(function(e){
+        if(und > 0 && ref != null){
+            $('#frm-rescisao').attr("action", '{{route('grecibo-rescisao')}}').attr( 'target','_blank' );
+        }else {
+            e.preventDefault();
+            alert("Escolha ao lado");
+        }
+      });
+
+      $('#processar').click(function(){
+         $('#frm-rescisao').removeAttr('target');
+        $('#frm-rescisao').attr("action", '{{route('processarRescisao')}}');
+    });
+
+     $('#grelacao').click(function(e){
+          if(und > 0 && ref != null){
+        $('#frm-rescisao').attr("action", '{{route('grelacao-rescisao')}}').attr( 'target','_blank' );
+        }else {
+            e.preventDefault();
+            alert("Escolha ao lado");
+        }
+    });
+</script>
 @endsection

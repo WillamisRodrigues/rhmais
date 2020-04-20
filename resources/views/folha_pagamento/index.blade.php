@@ -12,7 +12,9 @@
         </div>
         @include('layout.menu.menutop')
         <!-- page content -->
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+        <!-- JQuery -->
+        <script src="{{URL::asset('js/jquery.min.js')}}"></script>
         <!-- page content -->
         <div class="right_col" role="main">
             <div class="">
@@ -22,7 +24,7 @@
                 <div class="row">
                      @include('layout.alerta.flash-message')
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                        <form action="{{route('processar')}}" method="POST">
+                        <form action="{{route('processar')}}" id="frm-relatorio" method="POST">
                             {{ csrf_field() }}
                             <div class="col-md-2">
                                 <label for="">Unidade:</label>
@@ -79,13 +81,13 @@
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <br>
-                                <button type="submit" class="btn btn-primary">Processar</button>
-                                <a href="{{  action('PdfController@generateHolerite', '0') }}" target="_blank" class="btn btn-primary">G. Recibo</a>
-                                <a href="{{  action('PdfController@generateFolha', '0') }}" class="btn btn-primary" target="_blank">G. Relação</a>
-                            </div>
+                                    <br>
+                                 <button type="submit" name="processar" id="processar" class="btn btn-primary">Processar</button>
+                                 <button type="submit" name="grecibo"  id="grecibo"  class="btn btn-primary">G. Recibo</button>
+                                 <button type="submit" name="grelacao" id="grelacao" class="btn btn-primary">G. Relação</button>
                         </form>
-                        <br>
+                            </div>
+                                    <br>
                         <div class="x_panel">
                             <div class="x_title">
 
@@ -159,7 +161,7 @@
                                                 <button type="submit" class="btn btn-primary" title="Editar"><i class="fa fa-pencil"></i> </a>
                                                 </button>
                                                 {{-- @endif --}}
-                                                <a href="{{ action('PdfController@generateHolerite', $folha->id) }}" target="_blank" class="btn btn-success">
+                                                <a href="{{ route('holerite', [$folha->id]) }}" target="_blank" class="btn btn-success">
                                                     <i class="fa fa-print" title="Imprimir"></i>
                                                 </a>
                                                 </form>
@@ -184,9 +186,39 @@
     <!-- /footer content -->
 </div>
 </div>
-{{-- <script>
-$( "#other").click(function() {
-  $( "#unidade" ).select();
+<script>
+var und = [];
+var ref = [];
+
+$('#unidade-id').bind('change', function(){
+   und = $(this).val();
 });
-</script> --}}
+
+$('#referencia').bind('change', function(){
+   ref = $(this).val();
+ });
+
+    $('#grecibo').click(function(e){
+        if(und > 0 && ref != null){
+            $('#frm-relatorio').attr("action", '{{route('grecibo')}}').attr( 'target','_blank' );
+        }else {
+            e.preventDefault();
+            alert("Escolha ao lado");
+        }
+      });
+
+      $('#processar').click(function(){
+         $('#frm-relatorio').removeAttr('target');
+        $('#frm-relatorio').attr("action", '{{route('processar')}}');
+    });
+
+     $('#grelacao').click(function(e){
+          if(und > 0 && ref != null){
+        $('#frm-relatorio').attr("action", '{{route('grelacao')}}').attr( 'target','_blank' );
+        }else {
+            e.preventDefault();
+            alert("Escolha ao lado");
+        }
+    });
+</script>
 @endsection

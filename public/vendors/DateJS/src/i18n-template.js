@@ -1,4 +1,4 @@
-/* 
+/*
  * DateJS Culture String File
  * Country Code: en-US
  * Name: English (United States)

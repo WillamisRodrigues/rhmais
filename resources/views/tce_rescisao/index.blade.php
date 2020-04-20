@@ -65,9 +65,6 @@
                                             <td>{{"R$ " .number_format($resc->bolsa, 2) }}</td>
                                             <td>{{date('d/m/Y', strtotime($resc->data_inicio)) }}</td>
                                             <td>{{ date('d/m/Y', strtotime($resc->data_fim)) }}</td>
-                                            {{-- <td>{{ $resc->contrato }}</td> --}}
-                                            {{-- <td>{{ $resc->assinado }}</td> --}}
-                                            {{-- <td>{{ $resc->obrigatorio }}</td> --}}
                                             <td>RES</td>
                                             <td>TCE Assinado Rescisão Assinada</td>
                                             <td><a href="{{ action('PdfController@rescisaoTce', $resc->id) }}"

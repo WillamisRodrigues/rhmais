@@ -48,118 +48,110 @@ class EstagiarioController extends Controller
 
     public function contratoTce(Estagiario $estagiarios, $id)
     {
-        // Todos os Estagiarios
-        if ($id == 0) {
-            $estagiarios = Estagiario::all();
-        }
-        // Um Estagiario Específico
-        else {
 
-            $estagiarios = DB::table('estagiario')
-                ->join('tce_contrato', 'estagiario.id', '=', 'tce_contrato.estagiario_id')
-                ->select(
-                    'estagiario.nome',
-                    'estagiario.rua',
-                    'estagiario.numero',
-                    'estagiario.bairro',
-                    'estagiario.cidade',
-                    'estagiario.estado',
-                    'estagiario.cep',
-                    'estagiario.celular',
-                    'estagiario.cpf',
-                    'estagiario.rg',
-                    'estagiario.email',
-                    'estagiario.curso',
-                    'estagiario.periodo'
-                )
-                ->where('estagiario.id', '=', $id)
-                ->get();
+        $estagiarios = DB::table('estagiario')
+            ->join('tce_contrato', 'estagiario.id', '=', 'tce_contrato.estagiario_id')
+            ->select(
+                'estagiario.nome',
+                'estagiario.rua',
+                'estagiario.numero',
+                'estagiario.bairro',
+                'estagiario.cidade',
+                'estagiario.estado',
+                'estagiario.cep',
+                'estagiario.celular',
+                'estagiario.cpf',
+                'estagiario.rg',
+                'estagiario.email',
+                'estagiario.curso',
+                'estagiario.periodo'
+            )
+            ->where('estagiario.id', '=', $id)
+            ->get();
 
-            $empresas = DB::table('empresa')
-                ->join('tce_contrato', 'empresa.id', '=', 'tce_contrato.empresa_id')
-                ->select(
-                    'empresa.razao_social',
-                    'empresa.cnpj',
-                    'empresa.numero',
-                    'empresa.bairro',
-                    'empresa.cidade',
-                    'empresa.estado',
-                    'empresa.cep',
-                    'empresa.nome_rep',
-                    'empresa.cargo_rep',
-                    'empresa.telefone',
-                    'empresa.rua'
-                )
-                ->where('tce_contrato.estagiario_id', '=', $id)
-                ->get();
+        $empresas = DB::table('empresa')
+            ->join('tce_contrato', 'empresa.id', '=', 'tce_contrato.empresa_id')
+            ->select(
+                'empresa.razao_social',
+                'empresa.cnpj',
+                'empresa.numero',
+                'empresa.bairro',
+                'empresa.cidade',
+                'empresa.estado',
+                'empresa.cep',
+                'empresa.nome_rep',
+                'empresa.cargo_rep',
+                'empresa.telefone',
+                'empresa.rua'
+            )
+            ->where('tce_contrato.estagiario_id', '=', $id)
+            ->get();
 
-            $instituicoes = DB::table('instituicao')
-                ->join('tce_contrato', 'instituicao.id', '=', 'tce_contrato.instituicao_id')
-                ->select(
-                    'instituicao.razao_social',
-                    'instituicao.cnpj',
-                    'instituicao.numero',
-                    'instituicao.bairro',
-                    'instituicao.cidade',
-                    'instituicao.estado',
-                    'instituicao.cep',
-                    'instituicao.nome_rep',
-                    'instituicao.cargo_rep',
-                    'instituicao.telefone',
-                    'instituicao.rua'
-                )
-                ->where('tce_contrato.estagiario_id', '=', $id)
-                ->get();
+        $instituicoes = DB::table('instituicao')
+            ->join('tce_contrato', 'instituicao.id', '=', 'tce_contrato.instituicao_id')
+            ->select(
+                'instituicao.razao_social',
+                'instituicao.cnpj',
+                'instituicao.numero',
+                'instituicao.bairro',
+                'instituicao.cidade',
+                'instituicao.estado',
+                'instituicao.cep',
+                'instituicao.nome_rep',
+                'instituicao.cargo_rep',
+                'instituicao.telefone',
+                'instituicao.rua'
+            )
+            ->where('tce_contrato.estagiario_id', '=', $id)
+            ->get();
 
-            $horarios = DB::table('horario')
-                ->join('tce_contrato', 'horario.id', '=', 'tce_contrato.horario_id')
-                ->select('horario.descricao')
-                ->where('tce_contrato.estagiario_id', '=', $id)
-                ->get();
+        $horarios = DB::table('horario')
+            ->join('tce_contrato', 'horario.id', '=', 'tce_contrato.horario_id')
+            ->select('horario.descricao')
+            ->where('tce_contrato.estagiario_id', '=', $id)
+            ->get();
 
-            $atividades = DB::table('atividade')
-                ->join('tce_contrato', 'atividade.id', '=', 'tce_contrato.atividade_id')
-                ->select('atividade.nome')
-                ->where('tce_contrato.estagiario_id', '=', $id)
-                ->get();
+        $atividades = DB::table('atividade')
+            ->join('tce_contrato', 'atividade.id', '=', 'tce_contrato.atividade_id')
+            ->select('atividade.nome')
+            ->where('tce_contrato.estagiario_id', '=', $id)
+            ->get();
 
-            $seguros = DB::table('seguradora')
-                ->join('tce_contrato', 'seguradora.id', '=', 'tce_contrato.apolice_id')
-                ->select('seguradora.nome')
-                ->where('tce_contrato.estagiario_id', '=', $id)
-                ->get();
+        $seguros = DB::table('seguradora')
+            ->join('tce_contrato', 'seguradora.id', '=', 'tce_contrato.apolice_id')
+            ->select('seguradora.nome')
+            ->where('tce_contrato.estagiario_id', '=', $id)
+            ->get();
 
-            $supervisores = DB::table('supervisor')
-                ->join('tce_contrato', 'supervisor.id', '=', 'tce_contrato.supervisor_id')
-                ->select('supervisor.nome', 'supervisor.cargo', 'supervisor.formacao')
-                ->where('tce_contrato.estagiario_id', '=', $id)
-                ->get();
+        $supervisores = DB::table('supervisor')
+            ->join('tce_contrato', 'supervisor.id', '=', 'tce_contrato.supervisor_id')
+            ->select('supervisor.nome', 'supervisor.cargo', 'supervisor.formacao')
+            ->where('tce_contrato.estagiario_id', '=', $id)
+            ->get();
 
-            $orientadores = DB::table('orientador')
-                ->join('tce_contrato', 'orientador.id', '=', 'tce_contrato.orientador_id')
-                ->select('orientador.nome')
-                ->where('tce_contrato.estagiario_id', '=', $id)
-                ->get();
+        $orientadores = DB::table('orientador')
+            ->join('tce_contrato', 'orientador.id', '=', 'tce_contrato.orientador_id')
+            ->select('orientador.nome')
+            ->where('tce_contrato.estagiario_id', '=', $id)
+            ->get();
 
-            $beneficios = DB::table('beneficio')
-                ->join('tce_contrato', 'beneficio.id', '=', 'tce_contrato.beneficio_id')
-                ->select('beneficio.nome')
-                ->where('tce_contrato.estagiario_id', '=', $id)
-                ->get();
+        $beneficios = DB::table('beneficio')
+            ->join('tce_contrato', 'beneficio.id', '=', 'tce_contrato.beneficio_id')
+            ->select('beneficio.nome')
+            ->where('tce_contrato.estagiario_id', '=', $id)
+            ->get();
 
-            $tceContrato = DB::table('tce_contrato')
-                ->select(
-                    'tce_contrato.data_inicio',
-                    'tce_contrato.data_fim',
-                    'tce_contrato.bolsa',
-                    'tce_contrato.obrigatorio',
-                    'tce_contrato.data_doc',
-                    'tce_contrato.created_at')
-                ->where('tce_contrato.estagiario_id', '=', $id)
-                ->get();
+        $tceContrato = DB::table('tce_contrato')
+            ->select(
+                'tce_contrato.data_inicio',
+                'tce_contrato.data_fim',
+                'tce_contrato.bolsa',
+                'tce_contrato.obrigatorio',
+                'tce_contrato.data_doc',
+                'tce_contrato.created_at')
+            ->where('tce_contrato.estagiario_id', '=', $id)
+            ->get();
 
-        }
-        // dd($instituicoes);
         DB::update('update tce_contrato set assinado = 1 where estagiario_id = ?', [$id]);
 
         $data = ['estagiarios' => $estagiarios, 'instituicoes' => $instituicoes,

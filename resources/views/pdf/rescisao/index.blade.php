@@ -272,25 +272,25 @@
     @endforeach
     <p class="text-justify"> Comunicado de Conclusão / Rescisão do - TCE, termos e condições a seguir: </p>
     <p class="text-justify"> 1) Período Estagiado: de:
-        @foreach ($horarios as $hor)
+        {{-- @foreach ($horarios as $hor)
             {{$hor->descricao}}
-        @endforeach
+        @endforeach --}}
     </p>
     <p class="text-justify">
         2) Motivo da Rescisão :
-        @foreach ($motivos as $mot)
+        {{-- @foreach ($motivos as $mot)
             {{$mot->nome}}
-        @endforeach
+        @endforeach --}}
     </p>
     <p class="text-justify">
         3) Atividade do Estagiário(a):
-        @foreach ($atividades as $ativ)
+        {{-- @foreach ($atividades as $ativ)
             {{$ativ->nome}}
-        @endforeach
+        @endforeach --}}
         Supervisor(a) do estágio:
-        @foreach ($supervisores as $sup)
+        {{-- @foreach ($supervisores as $sup)
             {{$sup->nome}} Email:  {{$sup->email}}
-        @endforeach
+        @endforeach --}}
     </p>
     <p class="pull-right"> Campinas, 05/12/2018.</p>
     <div style="height:50px;"></div>
@@ -300,20 +300,20 @@
             <br>
             LIFE ACADEMIA BRASIL EIRELI- EPP <br><br>
         <span>(assinatura e carimbo) </span>
-                   
+
             </p>
             <p class="pull-left" style="margin-left:40px; width:320px!important;">
                 __________________________________________________________ <br>
                 ESCOLA TECNICA ESTADUAL BENTO QUIRINO <br><br>
         <span>(assinatura e carimbo) </span>
-              
+
             </p>
         </div>
         <div style="height:100px;"></div>
         <div class="row">
             <p style="margin-left:10px;">
                 ____________________________________________________________ <br>
-                (assinatura do(a) estagiário) 
+                (assinatura do(a) estagiário)
             </p>
         </div>
 </body>

@@ -7,7 +7,6 @@
             <div class="left_col scroll-view">
                 @include('layout.menu.menu')
                 <!-- /menu profile quick info -->
-                 {{-- <script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script> --}}
                  <script src="{{asset('vendors/jquery/dist/jquery.min.js')}}"></script>
 
                 <br />
@@ -82,14 +81,14 @@
                                                     <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <label for=""> Data Início</label>
                                                         <input type="text" class="form-control has-feedback-left data"
-                                                            placeholder="Data Início:" id="datainicio" name="data_inicio">
+                                                            placeholder="Data Início:" id="data-inicio" name="data_inicio">
                                                         <span class="fa fa-calendar form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
                                                     <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <label for=""> Data Fim</label>
                                                         <input type="text" class="form-control has-feedback-left data"
-                                                            placeholder="Data Fim:" id="datafim" name="data_fim">
+                                                            placeholder="Data Fim:" id="data-fim" name="data_fim">
                                                         <span class="fa fa-calendar form-control-feedback left"
                                                             aria-hidden="true"></span>
                                                     </div>
@@ -274,5 +273,36 @@ function atividadePrestada(empresa_id){
             }
 }
 </script>
+<script>
+    $("#data-fim").focusout(function(){
+    var dtI = $("#data-inicio").val().split('/');
+    var dtF = $("#data-fim").val().split('/');
 
+    dia_I = dtI[0];
+    dia_F = dtF[0];
+    mes_I = dtI[1];
+    mes_F = dtF[1];
+    ano_I = dtI[2];
+    ano_F = dtF[2];
+    var calculoDia = dia_F - dia_I;
+    var calculoMes = mes_F - mes_I;
+    var calculoAno = ano_F - ano_I;
+
+    console.log( calculoDia  + " " + calculoMes + " "  +   calculoAno);
+
+    if(calculoDia < "0" || calculoMes < "0" || calculoAno < "0"){
+        alert("A data de término não pode ser anterior a data de início.", "Aviso", function(){
+            $("#data-fim").val("");
+            $("#data-fim").focus();
+            BackOffice.closeModal('.modal', true);
+        });
+    } else if (calculoDia < "0" || calculoMes < "0" || calculoAno < "1") {
+       alert("1");
+        // $(".outros-ausencia").focus();
+    } else if (calculoDia < "0" || calculoMes < "0" || calculoAno > "2") {
+        alert("2");
+        // $(".outros-ausencia").focus();<br>
+    }
+})
+</script>
 @endsection

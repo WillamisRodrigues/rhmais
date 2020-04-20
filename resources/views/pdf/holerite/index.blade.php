@@ -54,73 +54,56 @@
         </tr>
         <tr>
             <td style="padding-left: 3rem">
-                {!! "1" !!}<br>
-                @if (isset($data->beneficio_id))
+                {!! "1" !!}
+                <br>
                       {!! "2" !!}
-                 @endif
                <br>
-                @if (isset($data->beneficio_id))
                       {!! "3" !!}
-                 @endif
                 <br>
             </td>
             <td>
                 {!! "Bolsa Auxílio" !!}<br>
-                 @if (isset($data->beneficio_id))
+
                      {!! "Beneficio" !!}<br>
-                 @endif
-                  @if (isset($data->beneficio_id))
+
+
                         {!! "Beneficio" !!}<br>
-                 @endif
+
             </td>
             <td>
-                 @if (isset($data->valor_bolsa))
+
                     R$ {{$data->valor_bolsa}}
-                 @endif
+
                 <br>
                 {{-- Beneficios --}}
-                 @if (isset($data->beneficio_id))
                      {{$data->valor_bolsa}}
-                 @endif
-                @if (isset($data->beneficio_id))
-                     {{$data->valor_bolsa}}
-                 @endif
                 <br>
             </td>
             <td>
                 {{-- Descontos --}}
-                @if (isset($data->beneficio_id))
                      {{$data->valor_bolsa}}
-                 @endif
-                @if (isset($data->beneficio_id))
-                     {{$data->valor_bolsa}}
-                 @endif
                 <br>
             </td>
         </tr>
         <tr>
             <td></td>
             <td></td>
-            <td>Total de: <br>@if (isset($data->valor_bolsa))
+            <td>Total de: <br>
                     R$ {{ $data->valor_bolsa }}
-                    @else
-                         {!! "000,00" !!}
-                 @endif
+
                 </td>
-            <td>Descontos: <br>@if (isset($data->valor_desconto))
-                {{$data->valor_desconto}}
-            @endif  </td>
+            <td>Descontos: <br>
+
+             </td>
         </tr>
         <tr>
-            <td colspan="3">Valor Base Bolsa-Auxílio <br>@if (isset($data->valor_bolsa))
+            <td colspan="3">Valor Base Bolsa-Auxílio <br>
                     R$ {{ $data->valor_bolsa }}
-                    @else
-                         {!! "000,00" !!}
-                 @endif
+
                 </td>
-            <td>Valor Líquido<br> <u>@if (isset($data->valor_liquido))
+            <td>Valor Líquido<br> <u>
                     R$ {{ $data->valor_liquido }}
-            @endif
+
         </u></td>
         </tr>
         <tr>
@@ -130,7 +113,7 @@
         <tr>
             <td colspan="4">Mensagem: </td>
         </tr>
-        {{-- @endforeach --}}
+
     </table>
 
     <div class="clearfix"></div>
@@ -152,7 +135,7 @@
     <hr style="border: dotted 1px black">
 
     <table class="table" style="max-width: 100%">
-        {{-- @foreach ($folha as $data) --}}
+
         <tr>
             <td colspan="2">Recibo de Pagamento Bolsa-Auxílio</td>
             <td>Referência</td>
@@ -182,61 +165,54 @@
         <tr>
             <td style="padding-left: 3rem">
                 {!! "1" !!}<br>
-                @if (isset($data->beneficio_id))
+
                       {!! "2" !!}
-                 @endif
+
                <br>
-                @if (isset($data->beneficio_id))
+
                       {!! "3" !!}
-                 @endif
+
                 <br>
             </td>
             <td>
               {!! "Bolsa Auxílio" !!}<br>
-                 @if (isset($data->beneficio_id))
+
                      {!! "Beneficio" !!}<br>
-                 @endif
-                  @if (isset($data->beneficio_id))
+
+
                         {!! "Beneficio" !!}<br>
-                 @endif
+
             </td>
             <td>
-               @if (isset($data->valor_bolsa))
+
                     {{ $data->valor_bolsa }}
-                 @endif
+
                 <br>
-                 @if (isset($data->beneficio_id))
+
                      {{$data->valor_bolsa}}
-                 @endif
-                @if (isset($data->beneficio_id))
-                     {{$data->valor_bolsa}}
-                 @endif
+
             <br>
             </td>
         </tr>
         <tr>
             <td></td>
             <td></td>
-            <td>Total de: <br>@if (isset($data->valor_bolsa))
+            <td>Total de: <br>
                     R$ {{ $data->valor_bolsa }}
-                    @else
-                         {!! "000,00" !!}
-                 @endif
+
                 </td>
-            <td>Descontos: <br>@if (isset($data->valor_desconto))
-                {{$data->valor_desconto}}
-            @endif  </td>
+            <td>Descontos: <br>
+
+</td>
         </tr>
         <tr>
-            <td colspan="3">Valor Base Bolsa-Auxílio <br>@if (isset($data->valor_bolsa))
+            <td colspan="3">Valor Base Bolsa-Auxílio <br>
                     R$ {{ $data->valor_bolsa }}
-                    @else
-                         {!! "000,00" !!}
-                 @endif
+
                 </td>
-            <td>Valor Líquido<br> <u>@if (isset($data->valor_liquido))
+            <td>Valor Líquido<br> <u>
                     R$ {{ $data->valor_liquido }}
-            @endif
+
             </u></td>
         </tr>
         <tr>
@@ -256,7 +232,7 @@
             Data
         </div>
         <div style="float: left; margin-left: 12rem">
-        {{-- <img src="https://www.rhmaistalentos.com.br/imagens/logo-site.png" alt="" width="135"> --}}
+
         <img src="{{ public_path('images/logo-rhmais.png') }}" alt="" width="80">
         </div>
         <div style="float: right; margin-right: 3rem">

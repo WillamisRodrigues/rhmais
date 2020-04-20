@@ -51,10 +51,6 @@ Route::resource('avaliacao_supervisor', 'AvaliacaoSuperController');
 Route::resource('folha_pagamento', 'FolhaPagamentoController');
 Route::resource('folha_rescisao', 'FolhaRescisaoController');
 
-// Route::get('/cidade-estado', array('as' => 'myform', 'uses' => 'EstagiarioController@myform'));
-// Route::get('myform/ajax/{id}', array('as' => 'myform.ajax', 'uses' => 'EstagiarioController@myformAjax'));
-
-// Route::get('teste', array('as' => 'teste-ajax', 'uses' => 'TceContratoController@horarios'));
 Route::get('horario-ajax/ajax/{id}', array('as' => 'horario-ajax.ajax', 'uses' => 'TceContratoController@horarioAjax'));
 Route::get('tce-ajax/ajax/{id}', array('as' => 'tce-ajax.ajax', 'uses' => 'TceContratoController@tceAjax'));
 Route::get('atividade-ajax/ajax/{id}', array('as' => 'atividade-ajax.ajax', 'uses' => 'TceContratoController@atividadeAjax'));
@@ -64,20 +60,20 @@ Route::get('avaliacao-super-ajax/ajax/{id}', array('as' => 'avaliacao-super-ajax
 Route::get('super-ajax/ajax/{id}', array('as' => 'supervisor-ajax.ajax', 'uses' => 'AvaliacaoSuperController@supervisorAjax'));
 
 /*Gerar PDF*/
-Route::get('valores_rescisao', 'PdfController@generateValoresRescisao');
-Route::get('recisaotce', 'PdfController@generateRecisao');
 Route::get('cau/{id}', 'PdfController@generateCau');
 Route::get('cce/{id}', 'PdfController@generateCce');
 Route::get('estagio/{id}', 'PdfController@planoEstagio');
-// Route::get('tce-pdf', 'PdfController@generatePDF');
 Route::get('avaliacao-pdf', 'PdfController@generateAvaliacao');
 Route::get('fechamento-pdf/{id}', 'PdfController@generateFechamento');
 Route::get('/tce-pdf/{id}', 'EstagiarioController@contratoTce');
 Route::get('/aditivo-pdf/{id}', 'EstagiarioController@contratoAditivoTce');
 Route::get('rescisao/{id}', 'PdfController@rescisaoTce');
-Route::get('rescisao-folha/{id}', 'PdfController@rescisaoFolha');
-Route::get('holerite/{id}', 'PdfController@generateHolerite');
-Route::get('grelacao/{id}', 'PdfController@generateFolha');
+Route::get('rescisao-folha/{id}', 'PdfController@rescisaoFolha')->name('rescisao-folha');
+Route::get('holerite/{id}', 'PdfController@gerarHolerite')->name('holerite');
+Route::post('grecibo', 'PdfController@generateHolerite')->name('grecibo');
+Route::post('grelacao', 'PdfController@generateFolha')->name('grelacao');
+Route::post('grecibo-rescisao', 'PdfController@rescisaoHoleriteGeral')->name('grecibo-rescisao');
+Route::post('grelacao-rescisao', 'PdfController@rescisaoFolhaGeral')->name('grelacao-rescisao');
 
 /* rotas tce */
 Route::resource('tce_contrato', 'TceContratoController');
@@ -91,11 +87,6 @@ Route::get('plano_edit', 'TceContrato@plano_edit');
 /* fim rotas tce */
 /* rotas recesso / ferias */
 Route::get('lista_recesso', 'RecessoController@recessoList');
-
-Route::get('/editar_conta', function () {
-    return view('editar_conta/edit');
-});
-
 Route::get('lista_auto_avaliacao', ['uses' => 'AvaliacaoController@lista_avaliacao', 'as' => 'lista_auto_avaliacao']);
 
 Route::get('deletar_avaliacao_estagiario/{id}', [
@@ -113,7 +104,3 @@ Route::get('deletar_avaliacao_supervisor/{id}', [
 Route::get('assinar_avaliacao_supervisor/{id}', ['uses' => 'AvaliacaoController@assinar_avaliacao_supervisor', 'as' => 'assinar.avaliacao.supervisor']);
 
 Route::get('lista_avaliacao_supervisor', ['uses' => 'AvaliacaoController@lista_avaliacao', 'as' => 'lista_avaliacao_supervisor']);
-
-Route::get('teste', function () {
-    return view('home.teste');
-});

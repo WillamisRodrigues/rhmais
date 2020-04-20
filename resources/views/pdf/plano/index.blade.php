@@ -48,6 +48,10 @@
 <div class="borda"></div>
     <p class="mt-2">
     @foreach ($estagiarios as $est)
+        Nome:
+        <span class="fonte-10">
+            <strong> {{$est->nome}} </strong>
+        </span>
         CPF:
         <span class="fonte-10">
             <strong> {{$est->cpf}} </strong>
@@ -76,11 +80,6 @@
         Setor :
         <span class="fonte-10">
             <strong> ADMINISTRATIVO </strong>
-        </span>
-        Atividade :
-        <span class="fonte-10">
-            <strong> ORGANIZAÇÃO DE CONTRATOS, ENVIO DE DOCUMENTOS AOS CLIENTES, BAIXA NOS
-        CONTRATOS PELO SISTEMA. </strong>
         </span>
     </p>
     @foreach ($supervisores as $sup)
@@ -140,7 +139,7 @@
     <div class="borda"></div>
     <div>
         @foreach ($plano as $plan)
-    <p> <strong> Plano de Atividades : {{$plan->plano}}</strong> </p>
+    <p> <strong> Plano de Atividades : {{$plan->atividade}}</strong> </p>
     </div>
     <div class="borda"></div>
     <div>

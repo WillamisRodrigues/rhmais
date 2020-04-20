@@ -25,7 +25,7 @@ class FolhaPagamentoController extends Controller
         $referencia = request("referencia");
         $unidades = request('unidade_id');
 
-        if (request('unidade_id') !== null && request('referencia') !== null) {
+        if (request('unidade_id') !== null || request('referencia') !== null) {
 
             $folhaPeriodo = DB::table('folha_pagamento')
                 ->join('empresa', 'empresa.id', '=', 'folha_pagamento.empresa_id')

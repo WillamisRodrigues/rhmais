@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Empresa;
 use App\Estagiario;
+use App\Instituicao;
 use DB;
 use Illuminate\Http\Request;
 use PDF;
@@ -23,107 +25,9 @@ class PdfController extends Controller
         //
     }
 
-    public function generatePDF()
-    {
-        $estagiarios = DB::table('estagiario')
-            ->join('endereco', 'estagiario.id', '=', 'endereco.estagiario_id')
-            ->select(
-                'estagiario.cidade AS nome_cidade',
-                'estagiario.nome',
-                'estagiario.empresa_id',
-                'estagiario.celular',
-                'estagiario.cpf',
-                'estagiario.data_nascimento',
-                'estagiario.id'
-            )
-            ->get();
-
-        $data = ['estagiario' => $estagiarios];
-        $pdf = PDF::loadView('pdf.tce.index', $data);
-        return $pdf->stream('tce-pdf.pdf');
-    }
-    public function tce_recisao()
-    {
-        $estagiarios = DB::table('estagiario')
-            ->join('tce_contrato', 'estagiario.id', '=', 'tce_contrato.estagiario_id')
-            ->join('empresa', 'empresa.id', '=', 'tce_contrato.empresa_id')
-            ->join('instituicao', 'instituicao.id', '=', 'tce_contrato.instituicao_id')
-            ->select(
-                'estagiario.nome',
-                'estagiario.id',
-                'empresa.nome_fantasia',
-                'instituicao.nome_instituicao',
-                'tce_contrato.bolsa',
-                'tce_contrato.data_inicio',
-                'tce_contrato.data_fim',
-                'tce_contrato.contrato',
-                'tce_contrato.assinado',
-                'tce_contrato.obrigatorio'
-            )
-            ->get();
-        return view('tce_recisao.index', compact('estagiarios', $estagiarios));
-    }
-
-    public function generateRecisao(Estagiario $estagiarios, $id)
-    {
-        // Todos os Alunos
-        if ($id == 0) {
-            $estagiarios = Estagiario::all();
-        }
-        // Um Aluno Específico
-        else {
-
-            $estagiarios = DB::table('estagiario')
-                ->join('empresa', 'estagiario.empresa_id', '=', 'empresa.id')
-                ->join('instituicao', 'estagiario.instituicao_id', '=', 'instituicao.id')
-                ->select(
-                    'estagiario.nome',
-                    'estagiario.rua',
-                    'estagiario.numero',
-                    'estagiario.bairro',
-                    'estagiario.cidade',
-                    'estagiario.estado',
-                    'estagiario.cep',
-                    'estagiario.celular',
-                    'estagiario.cpf',
-                    'estagiario.rg',
-                    'estagiario.email',
-                    'instituicao.razao_social AS instituicao_razao',
-                    'instituicao.cnpj AS instituicao_cnpj',
-                    'instituicao.numero AS instituicao_numero',
-                    'instituicao.bairro AS instituicao_bairro',
-                    'instituicao.cidade AS instituicao_cidade',
-                    'instituicao.estado AS instituicao_estado',
-                    'instituicao.cep AS instituicao_cep',
-                    'instituicao.nome_rep AS instituicao_nome_rep',
-                    'instituicao.cargo_rep AS instituicao_cargo_rep',
-                    'instituicao.telefone AS instituicao_telefone',
-                    'instituicao.rua AS instituicao_rua',
-                    'empresa.razao_social AS empresa_razao',
-                    'empresa.cnpj AS empresa_cnpj',
-                    'empresa.numero AS empresa_numero',
-                    'empresa.bairro AS empresa_bairro',
-                    'empresa.cidade AS empresa_cidade',
-                    'empresa.estado AS empresa_estado',
-                    'empresa.cep AS empresa_cep',
-                    'empresa.nome_rep AS empresa_nome_rep',
-                    'empresa.cargo_rep AS empresa_cargo_rep',
-                    'empresa.supervisor AS empresa_cargo_sup',
-                    'empresa.orientador AS empresa_orientador',
-                    'empresa.supervisor AS empresa_sup',
-                    'empresa.telefone AS empresa_telefone',
-                    'empresa.rua AS empresa_rua'
-                )
-                ->where('estagiario.id', '=', $id)
-                ->get();
-        }
-
-        $pdf = PDF::loadView('pdf.recisao.index');
-        return $pdf->stream('index.pdf');
-    }
-
     public function generateCau($id)
     {
+
         $contrato = DB::table('cau')
             ->join('empresa', 'cau.empresa_id', '=', 'empresa.id')
             ->where('cau.id', '=', $id)
@@ -215,23 +119,29 @@ class PdfController extends Controller
         return $pdf->stream('index.pdf');
     }
 
-    public function generateHolerite($id)
+    public function generateHolerite(Request $request)
     {
-        if ($id == 0) {
+        $ref = request("referencia");
+        $und = request('unidade_id');
+
+        if (request('unidade_id') !== null || request('referencia') == !null) {
 
             $folhas = DB::table('estagiario')
                 ->join('folha_pagamento', 'estagiario.id', '=', 'folha_pagamento.estagiario_id')
                 ->join('empresa', 'estagiario.empresa_id', '=', 'empresa.id')
                 ->join('tce_contrato', 'estagiario.id', '=', 'tce_contrato.estagiario_id')
-                ->whereMonth('folha_pagamento.created_at', '=', date('m'))
-                ->where('folha_pagamento.status', '=', 0)
+                ->where('folha_pagamento.status', '=', 1)
+                ->where('folha_pagamento.empresa_id', '=', $und)
+                ->where('folha_pagamento.referencia', '=', $ref)
                 ->get();
         } else {
             $folhas = DB::table('estagiario')
                 ->join('folha_pagamento', 'estagiario.id', '=', 'folha_pagamento.estagiario_id')
                 ->join('empresa', 'estagiario.empresa_id', '=', 'empresa.id')
                 ->join('tce_contrato', 'estagiario.id', '=', 'tce_contrato.estagiario_id')
-                ->where('folha_pagamento.id', '=', $id)
+                ->where('folha_pagamento.status', '=', 1)
+                ->where('folha_pagamento.empresa_id', '=', $und)
+                ->where('folha_pagamento.referencia', '=', $ref)
                 ->get();
         };
         $data = ['folhas' => $folhas];
@@ -239,39 +149,184 @@ class PdfController extends Controller
         return $pdf->stream('index.pdf');
     }
 
+    public function gerarHolerite($id)
+    {
+
+        $folhas = DB::table('estagiario')
+            ->join('folha_pagamento', 'estagiario.id', '=', 'folha_pagamento.estagiario_id')
+            ->join('empresa', 'estagiario.empresa_id', '=', 'empresa.id')
+            ->join('tce_contrato', 'estagiario.id', '=', 'tce_contrato.estagiario_id')
+            ->where('folha_pagamento.status', '=', 1)
+            ->whereMonth('folha_pagamento.created_at', '=', date('m'))
+            ->where('folha_pagamento.id', '=', $id)
+            ->get();
+
+        $data = ['folhas' => $folhas];
+        $pdf = PDF::loadView('pdf.holerite.index', $data);
+        return $pdf->stream('index.pdf');
+    }
+
+    public function rescisaoHoleriteGeral(Request $request)
+    {
+        $ref = request("referencia");
+        $und = request('unidade_id');
+
+        if (request('unidade_id') !== null || request('referencia') == !null) {
+
+            $folhas = DB::table('estagiario')
+                ->join('folha_rescisao', 'estagiario.id', '=', 'folha_rescisao.estagiario_id')
+                ->join('empresa', 'estagiario.empresa_id', '=', 'empresa.id')
+                ->join('tce_contrato', 'estagiario.id', '=', 'tce_contrato.estagiario_id')
+                ->where('folha_rescisao.status', '=', 1)
+                ->where('folha_rescisao.empresa_id', '=', $und)
+                ->where('folha_rescisao.referencia', '=', $ref)
+                ->get();
+
+            $estagiarios = DB::table('estagiario')
+                ->join('folha_rescisao', 'estagiario.id', '=', 'folha_rescisao.estagiario_id')
+                ->where('folha_rescisao.empresa_id', '=', $und)
+                ->where('folha_rescisao.referencia', '=', $ref)
+                ->get();
+
+            $instituicoes = Instituicao::all();
+            $empresas = Empresa::all();
+
+        } else {
+            $folhas = DB::table('estagiario')
+                ->join('folha_rescisao', 'estagiario.id', '=', 'folha_rescisao.estagiario_id')
+                ->join('empresa', 'estagiario.empresa_id', '=', 'empresa.id')
+                ->join('tce_contrato', 'estagiario.id', '=', 'tce_contrato.estagiario_id')
+                ->where('folha_rescisao.status', '=', 1)
+                ->where('folha_rescisao.empresa_id', '=', $und)
+                ->where('folha_rescisao.referencia', '=', $ref)
+                ->get();
+        };
+        $data = ['folhas' => $folhas,
+            'instituicoes' => $instituicoes,
+            'empresas' => $empresas,
+            'estagiarios' => $estagiarios,
+        ];
+        $pdf = PDF::loadView('pdf.rescisao.index', $data);
+        return $pdf->stream('index.pdf');
+    }
     public function rescisaoFolha($id)
     {
-        if ($id == 0) {
-            $folhaRescisao = FolhaRescisao::all();
-        }
-        // Um Folha Específica
-        else {
+        $estagiarios = DB::table('estagiario')
+            ->join('plano_estagio', 'estagiario.id', '=', 'plano_estagio.estagiario_id')
+            ->select(
+                'estagiario.nome',
+                'estagiario.cpf',
+                'estagiario.curso',
+                'estagiario.matricula',
+                'estagiario.periodo'
+            )
+            ->where('estagiario.id', '=', $id)
+            ->get();
+
+        // $horarios = DB::table('horario')
+        //     ->join('folha_rescisao', 'horario.id', '=', 'folha_rescisao.horario_id')
+        //     ->select('horario.descricao')
+        //     ->where('folha_rescisao.estagiario_id', '=', $id)
+        //     ->get();
+
+        $folhaRescisao = DB::table('estagiario')
+            ->join('folha_rescisao', 'estagiario.id', '=', 'folha_rescisao.estagiario_id')
+            ->join('empresa', 'estagiario.empresa_id', '=', 'empresa.id')
+            ->join('tce_rescisao', 'estagiario.id', '=', 'tce_rescisao.estagiario_id')
+            ->where('folha_rescisao.folha_id', '=', $id)
+            ->get();
+
+        $instituicoes = DB::table('instituicao')
+            ->join('estagiario', 'instituicao.id', '=', 'estagiario.instituicao_id')
+            ->select(
+                'instituicao.razao_social',
+                'instituicao.nome_instituicao',
+                'instituicao.cnpj',
+                'instituicao.nome_rep',
+                'instituicao.cargo_rep',
+                'instituicao.telefone',
+                'instituicao.rua'
+            )
+            ->where('estagiario.id', '=', $id)
+            ->get();
+
+        $empresas = DB::table('empresa')
+            ->join('estagiario', 'empresa.id', '=', 'estagiario.empresa_id')
+            ->select(
+                'empresa.razao_social',
+                'empresa.cnpj',
+                'empresa.nome_fantasia',
+                'empresa.nome_rep',
+                'empresa.cargo_rep',
+                'empresa.telefone'
+            )
+            ->where('estagiario.id', '=', $id)
+            ->get();
+
+        // $motivos = DB::table('motivo')
+        //     ->join('tce_rescisao', 'motivo.id', '=', 'tce_rescisao.motivo_id')
+        //     ->select('motivo.nome')
+        //     ->where('estagiario.id', '=', $id)
+        //     ->get();
+
+        $data = ['folhaRescisao' => $folhaRescisao,
+            'instituicoes' => $instituicoes,
+            'empresas' => $empresas,
+            'estagiarios' => $estagiarios,
+            // 'horarios' => $horarios,
+            // 'motivos' => $motivos,
+        ];
+        $pdf = PDF::loadView('pdf.rescisao.index', $data);
+        return $pdf->stream('index.pdf');
+    }
+
+    public function rescisaoFolhaGeral(Request $request)
+    {
+        $ref = request("referencia");
+        $und = request('unidade_id');
+
+        if (request('unidade_id') !== null || request('referencia') == !null) {
+
             $folhaRescisao = DB::table('estagiario')
                 ->join('folha_rescisao', 'estagiario.id', '=', 'folha_rescisao.estagiario_id')
                 ->join('empresa', 'estagiario.empresa_id', '=', 'empresa.id')
                 ->join('tce_rescisao', 'estagiario.id', '=', 'tce_rescisao.estagiario_id')
-                ->where('folha_rescisao.folha_id', '=', $id)
+                ->where('folha_rescisao.empresa_id', '=', $und)
+                ->where('folha_rescisao.referencia', '=', $ref)
                 ->get();
 
-            // dd($folhaRescisao);
+        } else {
+            $folhaRescisao = DB::table('estagiario')
+                ->join('folha_rescisao', 'estagiario.id', '=', 'folha_rescisao.estagiario_id')
+                ->join('empresa', 'estagiario.empresa_id', '=', 'empresa.id')
+                ->join('tce_rescisao', 'estagiario.id', '=', 'tce_rescisao.estagiario_id')
+                ->where('folha_rescisao.empresa_id', '=', $und)
+                ->where('folha_rescisao.referencia', '=', $ref)
+                ->whereMonth('folha_rescisao.created_at', '=', date('m'))
+                ->get();
         }
         $data = ['folhaRescisao' => $folhaRescisao];
         $pdf = PDF::loadView('pdf.valores_rescisao.index', $data);
         return $pdf->stream('index.pdf');
     }
 
-    public function generateFolha($id)
+    public function generateFolha(Request $request)
     {
-        if ($id == 0) {
+
+        $ref = request("referencia");
+        $und = request('unidade_id');
+
+        if (request('unidade_id') !== null || request('referencia') == !null) {
 
             $folha = DB::table('estagiario')
                 ->join('folha_pagamento', 'estagiario.id', '=', 'folha_pagamento.estagiario_id')
                 ->join('empresa', 'estagiario.empresa_id', '=', 'empresa.id')
                 ->join('tce_contrato', 'estagiario.id', '=', 'tce_contrato.estagiario_id')
-                ->whereMonth('folha_pagamento.created_at', '=', date('m'))
-                ->where('folha_pagamento.status', '=', 0)
+                ->where('folha_pagamento.status', '=', 1)
+                ->where('folha_pagamento.empresa_id', '=', $und)
+                ->where('folha_pagamento.referencia', '=', $ref)
                 ->get();
-            // dd($folha);
+
         }
         // Um Folha Específica
         else {
@@ -279,10 +334,10 @@ class PdfController extends Controller
                 ->join('folha_pagamento', 'estagiario.id', '=', 'folha_pagamento.estagiario_id')
                 ->join('empresa', 'estagiario.empresa_id', '=', 'empresa.id')
                 ->join('tce_contrato', 'estagiario.id', '=', 'tce_contrato.estagiario_id')
-                ->where('folha_pagamento.id', '=', $id)
+                ->whereMonth('folha_pagamento.created_at', '=', date('m'))
+                ->where('folha_pagamento.status', '=', 1)
+                ->where('folha_pagamento.empresa_id', '=', $und)
                 ->get();
-
-            // dd($folha);
         }
         $data = ['folha' => $folha];
         $pdf = PDF::loadView('pdf.folha.index', $data);
@@ -306,7 +361,7 @@ class PdfController extends Controller
             ->where('empresa.id', '=', $empresa_id)
             ->whereMonth('cobranca.created_at', '=', date('m'))
             ->get();
-        // dd($fechamento);
+
         $data = ['fechamento' => $fechamento];
         $pdf = PDF::loadView('pdf.fechamento.index', $data);
         return $pdf->stream('index.pdf');
@@ -508,8 +563,6 @@ class PdfController extends Controller
             ->select('motivo.nome')
             ->where('tce_rescisao.id', '=', $id)
             ->get();
-
-        // dd($motivos);
 
         $data = ['estagiarios' => $estagiarios, 'instituicoes' => $instituicoes,
             'empresas' => $empresas, 'horarios' => $horarios, 'atividades' => $atividades,

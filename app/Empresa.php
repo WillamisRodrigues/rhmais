@@ -66,4 +66,13 @@ class Empresa extends Model
     {
         return $this->hasMany('App\TceContrato', 'empresa_id', 'id');
     }
+    public function rescisaoFolha()
+    {
+        return $this->hasMany('App\FolhaRescisao', 'empresa_id', 'id');
+    }
+    public function pagamentoFolha()
+    {
+        return $this->hasMany('App\FolhaPagamento', 'empresa_id', 'id');
+    }
+
 }

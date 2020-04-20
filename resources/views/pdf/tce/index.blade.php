@@ -468,9 +468,7 @@
     <p class="text-justify"><strong> CLÁUSULA 12ª</strong> – Na vigência do presente Termo. O Estagiário estará incluído
         na cobertura do Seguro Contra Acidentes
         Pessoais proporcionado através da Seguradora <strong> SULAMÉRICA SEG. E PREVIDÊNCIA (R$16.131 MIL REAIS) </strong>, numero
-        de proposta/apólice <strong> 651805 </strong>
-        com capital de <strong> R$ 11.613,00 </strong> (<strong> Dezesseis mil seiscentos
-            e treze reais </strong>), sob a responsabilidade da Koster & Koster
+        de proposta/apólice <strong> 651805 </strong>, sob a responsabilidade da Koster & Koster
         Consultoria em Recursos Humanos LTDA ME. </p>
     <p class="text-justify">
         Parágrafo único - O texto completo da Lei Federal 11.788 de 25 de setembro de 2008, em anexo, faz parte

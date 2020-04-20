@@ -17,7 +17,6 @@
                     <li><a href="/tce_contrato">TCE / Contrato(s)</a></li>
                     <li><a href="/tce_aditivo">TCE / Aditivo(s)</a></li>
                     <li><a href="/tce_rescisao">TCE / Rescisão(ões)</a></li>
-                    <!--  <li><a href="/tce_rescindindo">TCE / Rescindidido(s)</a></li> -->
                     <li><a href="/cau_convenio">CAU / Contrato A.I. e <br> Unid. Concedente</a></li>
                     <li><a href="/cce_convenio">CCE / Convênio A.I. e <br> Inst. Ensino</a></li>
                     <li><a href="/plano_estagio">Plano de Estágio</a></li>
@@ -32,7 +31,6 @@
             <li><a><i class="fa fa-money"></i> Financeiro <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
                     <li><a href="{!! route('financeiro.index') !!}">Relatórios Fechamento</a></li>
-                    {{-- <li><a href="#">Relatórios Segurados</a></li> --}}
                 </ul>
             </li>
 
@@ -40,8 +38,6 @@
                 <ul class="nav child_menu">
                     <li><a href="/folha_pagamento">Gerar Folha Pagamento</a></li>
                     <li><a href="/folha_rescisao">Gerar Folha de Rescisão</a></li>
-                    {{-- <li><a href="/rendimentos">Informe de Rendimentos</a></li> --}}
-                    {{-- <li><a href="/previsao_rescisao">Gerar Prévia de Rescisão</a></li> --}}
                 </ul>
             </li>
             <li><a><i class="fa fa-graduation-cap"></i> Avaliações <span class="fa fa-chevron-down"></span></a>
@@ -55,7 +51,6 @@
             <li><a><i class="fa fa-cogs"></i> Configurações <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
                     <li><a href="/user_sistema">Usuários do Sistema</a></li>
-                    {{-- <li><a href="/cidade">Cidades</a></li> --}}
                     <li><a href="/curso">Cursos</a></li>
                     <li><a href="/motivo">Motivos <br> Resição / Recesso</a></li>
                     <li><a href="/setor">Setores</a></li>
@@ -86,10 +81,3 @@
     </a>
 </div>
 <!-- /menu footer buttons -->
-<!--  <script type="text/javascript">
-  window.onload = function(){
-    $(".child_menu").hide();
-    $("li").removeClass('active active-sm');
-}
-
-  </script> -->
