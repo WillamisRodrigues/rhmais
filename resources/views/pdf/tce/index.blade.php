@@ -165,7 +165,7 @@
                     </td>
                 </tr>
                 <tr>
-                <td>
+                <td width="100%" colspan="2">
                     <span class="fonte-8"> CNPJ: </span>
                         <span class="fonte-10">
                         <strong> {{$emp->cnpj}} </strong>
@@ -225,7 +225,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td width="80%">
+                  <td width="100%" colspan="2">
                        <span class="fonte-8"> Representante: </span>
                         <span class="fonte-10">
                             <strong> {{$emp->nome_rep}} </strong>
@@ -243,7 +243,7 @@
                 @endforeach
             @foreach ($supervisores as $sup)
                 <tr>
-                  <td >
+                  <td  width="100%" colspan="3">
                     <span class="fonte-8">Supervisor de estágio: </span>
                    <span class="fonte-10">
                         <strong> {{$sup->nome}} </strong>
@@ -255,8 +255,10 @@
                     <span class="fonte-10">
                         <strong> {{$sup->cargo}} </strong>
                     </span>
-                  </td>
-                   <td>
+                    </td>
+                </tr>
+                <tr>
+                   <td width="100%" colspan="2">
                    <span class="fonte-8"> Formação Acadêmica: <span>
                     <span class="fonte-10">
                         <strong> {{$sup->formacao}} </strong>
@@ -275,7 +277,7 @@
         <table class="table">
             <tbody>
                 <tr>
-                    <td>
+                    <td width="100%" colspan="2">
                         <span class="fonte-8"> Estudante: </span>
                         <span class="fonte-10">
                             <strong> {{$est->nome}} </strong>
@@ -337,7 +339,7 @@
                         <strong> {{$est->celular}} </strong>
                     </span>
                   </td>
-                  <td>
+                  <td width="60%" colspan="2">
                        <span class="fonte-8">
                         Email:
                         </span>
@@ -517,7 +519,7 @@
                 @endforeach
             </p>
         </div>
-        <div style="height:100px;"></div>
+        <div style="height:80px;"></div>
         <div class="row">
             <p class="pull-right" style="margin-left:10px;">
                 ____________________________________________________________
@@ -532,7 +534,7 @@
                 @endforeach
             </p>
         </div>
-        <div style="height:80px;"></div>
+        <div style="height:60px;"></div>
         <div class="row">
             <p class="pull-left">
                 __________________________________________________________<br>

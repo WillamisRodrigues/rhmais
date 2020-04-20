@@ -167,7 +167,7 @@
                     </td>
                 </tr>
                 <tr>
-                <td>
+                <td colspan="2" width="100%">
                     <span class="fonte-8"> CNPJ: </span>
                         <span class="fonte-10">
                         <strong> {{$emp->cnpj}} </strong>
@@ -227,7 +227,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td width="80%">
+                  <td width="100%" colspan="2">
                        <span class="fonte-8"> Representante: </span>
                         <span class="fonte-10">
                             <strong> {{$emp->nome_rep}} </strong>
@@ -245,7 +245,7 @@
                 @endforeach
             @foreach ($supervisores as $sup)
                 <tr>
-                  <td >
+                  <td colspan="3" width="100%">
                     <span class="fonte-8">Supervisor de estágio: </span>
                    <span class="fonte-10">
                         <strong> {{$sup->nome}} </strong>
@@ -258,7 +258,9 @@
                         <strong> {{$sup->cargo}} </strong>
                     </span>
                   </td>
-                   <td>
+                </tr>
+                <tr>
+                  <td>
                    <span class="fonte-8"> Formação Acadêmica: <span>
                     <span class="fonte-10">
                         <strong> {{$sup->formacao}} </strong>
@@ -427,9 +429,11 @@ oitocentos reais ) + VALE TRANSPORTE , pagos até o dia 10 do mês subsequente a
         <div style="height:70px;"></div>
         <div class="row">
             @foreach ($instituicoes as $inst)
-            <p class="pull-left">________________________________________________________
+            <p class="pull-left" style="width:320px!important;">________________________________________________________
             <br>
-                    {{$inst->razao_social}}
+            <span style="word-wrap: break-word!important; ">  
+             {{$inst->razao_social}}
+             </span>
                     @endforeach
             </p>
             <p class="pull-left" style="margin-left:40px; width:320px!important;">
