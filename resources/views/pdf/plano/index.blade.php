@@ -150,7 +150,7 @@
 
                  <br>
                {{$est->nome}} <br>
-        <span>(assinatura do(a) estagiário) </span>
+        <span  style="word-wrap: break-word!important;">(assinatura do(a) estagiário) </span>
             </p>
             @endforeach
             <p class="pull-left">
@@ -162,14 +162,14 @@
         <div class="row">
             @foreach ($supervisores as $sup)
 
-        <p class="pull-right" style="margin-left:10px;">
+        <p class="pull-right" style="margin-left:10px; word-wrap: break-word!important;">
         _________________________________________________________<br>
         {{$sup->nome}} <br>
-        <span> (assinatura e carimbo)-Supervisor </span>
+        <span style="word-wrap: break-word!important;"> (assinatura e carimbo)-Supervisor </span>
             </p>
             @endforeach
             @foreach ($empresas as $emp)
-            <p class="pull-left">
+            <p class="pull-left" style="word-wrap: break-word!important;">
             _________________________________________________________<br>
        {{$emp->razao_social}} <br>
         <span>(assinatura e carimbo) </span>
@@ -179,10 +179,10 @@
         <div style="height:80px;"></div>
         <div class="row">
             @foreach ($instituicoes as $inst)
-        <p style="margin-left:10px;">
+        <p style="margin-left:10px; word-wrap: break-word!important;">
         _________________________________________________________<br>
         {{$inst->nome_instituicao}}<br><br>
-        <span> (assinatura e carimbo) </span>
+        <span style="word-wrap: break-word!important;"> (assinatura e carimbo) </span>
         </div>
 @endforeach
 </body>
