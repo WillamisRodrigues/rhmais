@@ -214,7 +214,17 @@
                                  <option value="{{  $estagiario->curso }}">{{  $estagiario->curso }}
                                     </option>
                                     @foreach ($cursos as $curso)
-                                    <option value="{{ $curso->nivel }}">{{ $curso->nome }}</option>
+                                    <option value="{{ $curso->nome }}">{{ $curso->nome }}</option>
+                                    @endforeach
+                            </select>
+                            <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                            <select class="form-control has-feedback-left" name="nivel">
+                                 <option value="{{  $estagiario->nivel }}">{{  $estagiario->nivel }}
+                                    </option>
+                                    @foreach ($cursos as $curso)
+                                    <option value="{{ $curso->nivel }}">{{ $curso->nivel }}</option>
                                     @endforeach
                             </select>
                             <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
@@ -222,9 +232,17 @@
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <select class="form-control has-feedback-left" name="periodo">
                                 <option value="{{ $estagiario->periodo }}">{{ $estagiario->periodo }}</option>
-                                <option>Manhã</option>
-                                <option>Tarde</option>
-                                <option>Noite</option>
+                                   <option>Período</option>
+                                        <option value="1º Período">1º Período</option>
+                                        <option value="2º Período">2º Período</option>
+                                        <option value="3º Período">3º Período</option>
+                                        <option value="4º Período">4º Período</option>
+                                        <option value="5º Período">5º Período</option>
+                                        <option value="6º Período">6º Período</option>
+                                        <option value="7º Período">7º Período</option>
+                                        <option value="8º Período">8º Período</option>
+                                        <option value="9º Período">9º Período</option>
+                                        <option value="10º Período">10º Período</option>
                             </select>
                             <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                         </div>
@@ -245,6 +263,7 @@
                         </div>
 
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                            <label for="">Matrícula</label>
                             <input type="text" class="form-control has-feedback-left" placeholder="Matricula"
                                 name="matricula" value="{{ $estagiario->matricula }}">
                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>

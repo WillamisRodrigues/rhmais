@@ -56,7 +56,7 @@
         <span class="fonte-10">
             <strong> {{$est->cpf}} </strong>
         </span>
-        Matrículado(a) no : <strong>{{$est->matricula}}</strong>
+        Matrículado(a) no :
         <span class="fonte-10">
             <strong> {{$est->periodo}} </strong>
         </span>
@@ -64,7 +64,7 @@
     <p>
         do nível:
         <span class="fonte-10">
-           <strong> {{$est->periodo}} </strong>
+           <strong> {{$est->nivel}} </strong>
         </span>
         do curso de :
         <span class="fonte-10">
@@ -97,7 +97,7 @@
         <p>
         parte Concedente :
         <span class="fonte-10">
-            <strong>{{$emp->nome_fantasia}} </strong>
+            <strong>{{$emp->razao_social}} </strong>
         </span>
         CNPJ:
         <span class="fonte-10">
@@ -123,12 +123,7 @@
     <div class="borda"></div>
     <div>
         @foreach ($tceContrato as $tce)
-
         <p>
-            Termo de Compromisso Estágio no:
-            <span class="fonte-10">
-                <strong>20181124012256 </strong>
-            </span>
             Vigência do Estágio:
             <span class="fonte-10">
                 <strong> {{date('d/m/Y', strtotime($tce->data_inicio))}} a {{date('d/m/Y', strtotime($tce->data_fim))}} </strong>
@@ -146,10 +141,6 @@
         <p> <strong> Observação :  {{$plan->obs}}</strong> </p>
     </div>
     @endforeach
-    {{-- <div class="borda"></div>
-    <div>
-        <p> <strong> RIBEIRÃO PRETO , 05/08/2019 </strong> </p>
-    </div> --}}
     <div class="borda"></div>
     <div style="height:50px;"></div>
     <div class="row">
@@ -158,7 +149,7 @@
                 ____________________________________________________________
 
                  <br>
-               {{$est->nome}} <br><br>
+               {{$est->nome}} <br>
         <span>(assinatura do(a) estagiário) </span>
             </p>
             @endforeach
@@ -173,14 +164,14 @@
 
         <p class="pull-right" style="margin-left:10px;">
         _________________________________________________________<br>
-        {{$sup->nome}} <br><br>
+        {{$sup->nome}} <br>
         <span> (assinatura e carimbo)-Supervisor </span>
             </p>
             @endforeach
             @foreach ($empresas as $emp)
             <p class="pull-left">
             _________________________________________________________<br>
-       {{$emp->nome_fantasia}} <br><br>
+       {{$emp->razao_social}} <br>
         <span>(assinatura e carimbo) </span>
             </p>
             @endforeach

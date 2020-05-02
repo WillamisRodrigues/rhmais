@@ -48,7 +48,6 @@ class EstagiarioController extends Controller
 
     public function contratoTce(Estagiario $estagiarios, $id)
     {
-
         $estagiarios = DB::table('estagiario')
             ->join('tce_contrato', 'estagiario.id', '=', 'tce_contrato.estagiario_id')
             ->select(
@@ -64,6 +63,7 @@ class EstagiarioController extends Controller
                 'estagiario.rg',
                 'estagiario.email',
                 'estagiario.curso',
+                'estagiario.matricula',
                 'estagiario.periodo'
             )
             ->where('estagiario.id', '=', $id)
@@ -179,6 +179,7 @@ class EstagiarioController extends Controller
                 'estagiario.rg',
                 'estagiario.email',
                 'estagiario.curso',
+                'estagiario.matricula',
                 'estagiario.periodo'
             )
             ->where('tce_contrato.id', '=', $id)
@@ -240,7 +241,7 @@ class EstagiarioController extends Controller
 
         $supervisores = DB::table('supervisor')
             ->join('tce_contrato', 'supervisor.id', '=', 'tce_contrato.supervisor_id')
-            ->select('supervisor.nome', 'supervisor.cargo', 'supervisor.formacao')
+            ->select('supervisor.nome', 'supervisor.cargo', 'supervisor.formacao', 'supervisor.telefone', 'supervisor.email')
             ->where('tce_contrato.id', '=', $id)
             ->get();
 
@@ -347,7 +348,6 @@ class EstagiarioController extends Controller
         $estagiarios->sexo = $request->get('sexo');
         $estagiarios->cidade = $request->get('cidade');
         $estagiarios->estado = $request->get('estado');
-        $estagiarios->curso = $request->get('curso');
         $estagiarios->nacionalidade = $request->get('nacionalidade');
         $estagiarios->pai = $request->get('pai');
         $estagiarios->mae = $request->get('mae');
@@ -361,12 +361,13 @@ class EstagiarioController extends Controller
         $estagiarios->conta = $request->get('conta');
         $estagiarios->codigo_vaga = $request->get('codigo_vaga');
         $estagiarios->senha = $request->get('senha');
+        $estagiarios->curso = $request->get('curso');
+        $estagiarios->nivel = $request->get('nivel');
         $estagiarios->periodo = $request->get('periodo');
-        $estagiarios->obs = $request->get('obs');
         $estagiarios->matricula = $request->get('matricula');
+        $estagiarios->obs = $request->get('obs');
         $estagiarios->empresa_id = $request->get('empresa_id');
         $estagiarios->instituicao_id = $request->get('instituicao_id');
-        $estagiarios->curso = $request->get('curso');
         $estagiarios->dt_cadastro = date("Y-m-d");
         $estagiarios->termino_curso = Carbon::createFromFormat('d/m/Y', $date_termino_curso)->format('Y-m-d');
         if ($request->ativo == 'on') {
@@ -450,7 +451,6 @@ class EstagiarioController extends Controller
         $estagiarios->sexo = $request->get('sexo');
         $estagiarios->cidade = $request->get('cidade');
         $estagiarios->estado = $request->get('estado');
-        $estagiarios->curso = $request->get('curso');
         $estagiarios->nacionalidade = $request->get('nacionalidade');
         $estagiarios->pai = $request->get('pai');
         $estagiarios->mae = $request->get('mae');
@@ -464,12 +464,13 @@ class EstagiarioController extends Controller
         $estagiarios->conta = $request->get('conta');
         $estagiarios->codigo_vaga = $request->get('codigo_vaga');
         $estagiarios->senha = $request->get('senha');
+        $estagiarios->curso = $request->get('curso');
+        $estagiarios->nivel = $request->get('nivel');
         $estagiarios->periodo = $request->get('periodo');
         $estagiarios->obs = $request->get('obs');
         $estagiarios->matricula = $request->get('matricula');
         $estagiarios->empresa_id = $request->get('empresa_id');
         $estagiarios->instituicao_id = $request->get('instituicao_id');
-        $estagiarios->curso = $request->get('curso');
         $estagiarios->dt_cadastro = date("Y-m-d");
         $estagiarios->termino_curso = Carbon::createFromFormat('d/m/Y', $date_termino_curso)->format('Y-m-d');
         if ($request->ativo == 'on') {

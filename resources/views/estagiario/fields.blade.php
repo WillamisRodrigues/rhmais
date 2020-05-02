@@ -171,7 +171,7 @@
                                     <select class="form-control has-feedback-left" name="nivel">
                                         <option>Selecione um nível</option>
                                         @foreach ($cursos as $key)
-                                        <option>{{ $key->nome }}</option>
+                                        <option value="{{ $key->nivel }}">{{ $key->nivel }}</option>
                                         @endforeach
                                     </select>
                                     <span class="fa fa-graduation-cap form-control-feedback left"
@@ -190,16 +190,16 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <select class="form-control has-feedback-left" name="periodo">
                                         <option>Período</option>
-                                        <option>1º Período</option>
-                                        <option>2º Período</option>
-                                        <option>3º Período</option>
-                                        <option>4º Período</option>
-                                        <option>5º Período</option>
-                                        <option>6º Período</option>
-                                        <option>7º Período</option>
-                                        <option>8º Período</option>
-                                        <option>9º Período</option>
-                                        <option>10º Período</option>
+                                        <option value="1º Período">1º Período</option>
+                                        <option value="2º Período">2º Período</option>
+                                        <option value="3º Período">3º Período</option>
+                                        <option value="4º Período">4º Período</option>
+                                        <option value="5º Período">5º Período</option>
+                                        <option value="6º Período">6º Período</option>
+                                        <option value="7º Período">7º Período</option>
+                                        <option value="8º Período">8º Período</option>
+                                        <option value="9º Período">9º Período</option>
+                                        <option value="10º Período">10º Período</option>
                                     </select>
                                     <span class="fa fa-graduation-cap form-control-feedback left"
                                         aria-hidden="true"></span>

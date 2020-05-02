@@ -258,7 +258,7 @@
                     </td>
                 </tr>
                 <tr>
-                   <td width="100%" colspan="2">
+                   <td width="100%" colspan="3">
                    <span class="fonte-8"> Formação Acadêmica: <span>
                     <span class="fonte-10">
                         <strong> {{$sup->formacao}} </strong>
@@ -364,9 +364,13 @@
                     </span>
                  </td>
                  <td>
+                     <span>
                     <span class="fonte-8">
                       RA:
-                    <span class="fonte-10"> </span>
+                      </span>
+                    <span class="fonte-10">
+                     <strong> {{$est->matricula}} </strong>
+                     </span>
                  </td>
                 </tr>
                 <tr>
@@ -496,12 +500,8 @@
     <p class="text-justify"> E por assim estarem de acordo, assinam este Termo de Compromisso de Estágio em 4 (quatro)
         vias de igual teor.</p>
     <p>
-        {{-- @php
-        setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
-        date_default_timezone_set('America/Sao_Paulo');
-        @endphp --}}
+
         @foreach ($tceContrato as $tce)
-        {{-- <p class="pull-right"> Campinas, <strong> {{ strftime('%A, %d de %B de %Y', strtotime($tce->data_doc))}}. </strong> </p> --}}
         <p class="pull-right"> Campinas, <strong> {{ date('d/m/Y', strtotime($tce->data_doc)) }}. </strong> </p>
         @endforeach
         <div style="height:70px;"></div>

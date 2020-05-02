@@ -52,15 +52,15 @@
         <table class="table">
             <tbody>
                 <tr>
-                    <td colspan="2">
+                    <td colspan="4">
                         <span class="fonte-8"> Razão Social: </span>
                         <span class="fonte-10">
-                        <strong> {{$cont->nome_fantasia}} </strong>
+                        <strong> {{$cont->razao_social}} </strong>
                         </span>
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan="2">
                         <span class="fonte-8"> CNPJ: </span>
                         <span class="fonte-10">
                         <strong> {{$cont->cnpj}} </strong>
@@ -116,7 +116,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2">
+                    <td colspan="3">
                         <span class="fonte-8"> Representante Legal: </span>
                         <span class="fonte-10">
                         <strong> {{$cont->nome_rep}} </strong>
@@ -356,8 +356,7 @@
         CLÁUSULA 5a - DA VIGÊNCIA
     </p>
     <p>
-        O presente Convênio terá a vigência de 03/07/2019 a 31/12/2020, podendo a qualquer tempo, ser rescindido por
-        qualquer uma das partes, mediante
+        O presente Convênio terá a vigência por prazo indeterminado, podendo a qualquer tempo, ser rescindido por qualquer uma das partes, mediante
         comunicado por escrito, com antecedência mínima de 30 (trinta) dias.
     </p>
     <p>
@@ -390,7 +389,7 @@
     <div style="height:100px;"></div><br>
 @foreach ($contrato as $cont)
     <p class="pull-left">________________________________________ <br>
-         {{$cont->nome_fantasia}} <br>
+         {{$cont->razao_social}} <br>
         <span>(assinatura e carimbo) </span>
     </p>
     @endforeach

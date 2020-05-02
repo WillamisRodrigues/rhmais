@@ -251,7 +251,7 @@
                         <strong> {{$sup->nome}} </strong>
                     </span>
                   </td>
-                  <td>
+                  <td colspan="2">
                      <span>
                      <span class="fonte-8"> Cargo: </span>
                     <span class="fonte-10">
@@ -260,7 +260,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>
+                  <td colspan="3">
                    <span class="fonte-8"> Formação Acadêmica: <span>
                     <span class="fonte-10">
                         <strong> {{$sup->formacao}} </strong>
@@ -366,9 +366,13 @@
                     </span>
                  </td>
                  <td>
+                     <span>
                     <span class="fonte-8">
                       RA:
-                    <span class="fonte-10"> </span>
+                      </span>
+                    <span class="fonte-10">
+                     <strong> {{$est->matricula}} </strong>
+                     </span>
                  </td>
                 </tr>
                 <tr>
@@ -408,11 +412,15 @@
     <p class="text-justify">{{$ativ->nome}}
     </p>
     @endforeach
-    <p class="text-justify"> <strong> Supervisor(a) do estágio: </strong>GREICY KELLY DIAS DE OLIVEIRA - SUPERIOR EM ADMINISTRAÇÃO - ADMINISTRATIVO /
-FINANCEIRO - ADM.CAMPINAS@DOCCTORMED.COM.BR - (19)3045-9140
-
-    <p class="text-justify"><strong> 4) Valor da Bolsa-estágio + Auxílio : </strong> No período do estágio o Estagiário receberá, diretamente da Parte Concedente, uma Bolsa-estágio mensal no valor de R$ 800.00 (
-oitocentos reais ) + VALE TRANSPORTE , pagos até o dia 10 do mês subsequente ao vencido.</p>
+     @foreach ($supervisores as $sup)
+    <p class="text-justify"> <strong> Supervisor(a) do estágio: </strong>{{$sup->nome}}  - {{$sup->formacao}} - {{$sup->cargo}} - {{$sup->email}} - {{$sup->telefone}}
+@endforeach
+   @foreach ($tceContrato as $tce)
+    <p class="text-justify"><strong> 4) Valor da Bolsa-estágio + Auxílio : </strong> No período do estágio o Estagiário receberá, diretamente da Parte Concedente, uma Bolsa-estágio mensal no valor de R$ {{ $tce->bolsa }}
+        @endforeach
+        @foreach ($beneficios as $ben)
+        +  {{$ben->nome}}  , pagos até o dia 10 do mês subsequente ao vencido.</p>
+        @endforeach
     <p class="text-justify">
         <strong> 5 - Apólice Coletiva de Acidentes Pessoais nº 651805, garantido pela SULAMÉRICA SEG. E PREVIDÊNCIA (R$16.131 MIL REAIS).
 
@@ -431,7 +439,7 @@ oitocentos reais ) + VALE TRANSPORTE , pagos até o dia 10 do mês subsequente a
             @foreach ($instituicoes as $inst)
             <p class="pull-left" style="width:320px!important;">________________________________________________________
             <br>
-            <span style="word-wrap: break-word!important; ">  
+            <span style="word-wrap: break-word!important; ">
              {{$inst->razao_social}}
              </span>
                     @endforeach

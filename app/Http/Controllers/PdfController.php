@@ -46,7 +46,8 @@ class PdfController extends Controller
                 'estagiario.cpf',
                 'estagiario.curso',
                 'estagiario.matricula',
-                'estagiario.periodo'
+                'estagiario.periodo',
+                'estagiario.nivel'
             )
             ->where('estagiario.id', '=', $id)
             ->get();

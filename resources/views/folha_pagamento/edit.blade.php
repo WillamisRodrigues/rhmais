@@ -12,10 +12,12 @@
         </div>
         @include('layout.menu.menutop')
         <!-- page content -->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+        <!-- Script -->
+            <script src="{{URL::asset('assets/js/jquery-3.3.1.min.js')}}"></script>
+            <script src="{{URL::asset('assets/js/jquery.validate.js')}}"></script>
+            <script src="{{URL::asset('assets/js/popper.min.js')}}"></script>
+            <script src="{{URL::asset('assets/js/bootstrap.min.js')}}"></script>
 
         <!-- page content -->
         <div class="right_col" role="main">
@@ -135,8 +137,10 @@
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
           }
     });
+
     var id_cliente = $("#estagiario_id").val();
     var table = $('.data-table').DataTable({
+        oLanguage: {sUrl : '/br/br.txt'},
         processing: true,
         serverSide: true,
         ajax: "http://rhmais.imugi.com.br/beneficio_estagiario/"+id_cliente,

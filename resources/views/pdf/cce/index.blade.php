@@ -53,14 +53,14 @@
         As partes a seguir qualificadas,</p>
         <div class="borda"></div>
     <div>
-        <h5 class="titulo fonte-8"><strong>Instituição de Ensino: {{$cont->nome_instituicao}}</strong></h5>
+        <h5 class="titulo fonte-8"><strong>Instituição de Ensino: {{$cont->razao_social}}</strong></h5>
         <table class="table">
             <tbody>
                 <tr>
                     <td colspan="2">
                         <span class="fonte-8"> Razão Social: </span>
                         <span class="fonte-10">
-                        <strong> {{$cont->nome_instituicao}} </strong>
+                        <strong> {{$cont->razao_social}} </strong>
                         </span>
                     </td>
                 </tr>
@@ -388,7 +388,7 @@
             </p>
             <p class="pull-left">
                 _________________________________________________________<br>
-                {{$cont->nome_instituicao}} <br><br>
+                {{$cont->razao_social}} <br><br>
                (assinatura e carimbo)
             </p>
         </div>

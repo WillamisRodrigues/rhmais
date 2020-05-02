@@ -12,10 +12,12 @@
         </div>
         @include('layout.menu.menutop')
         <!-- page content -->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+           <!-- Script -->
+            <script src="{{URL::asset('assets/js/jquery-3.3.1.min.js')}}"></script>
+            <script src="{{URL::asset('assets/js/jquery.validate.js')}}"></script>
+            <script src="{{URL::asset('assets/js/umd/popper.min.js')}}"></script>
+            <script src="{{URL::asset('assets/js/js/bootstrap.min.js')}}"></script>
 
         <!-- page content -->
         <div class="right_col" role="main">
@@ -51,7 +53,7 @@
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                         <label for="">Valor Bolsa</label>
-                                        <input type="text" value="R$ {{ number_format($contrato->bolsa, 2, ",", "") }}"
+                                        <input type="text" value="{{$contrato->bolsa }}"
                                             class="form-control has-feedback-left" placeholder="Bolsa"
                                             name="valor_bolsa" readonly>
                                         <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
@@ -90,14 +92,6 @@
                                         <span class="fa fa-calendar form-control-feedback left"
                                             aria-hidden="true"></span>
                                     </div>
-                                   {{-- <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                   <label for="">Outros Eventos</label>
-                                    <select name="beneficio"  class="form-control has-feedback-left">
-                                    <option value=""></option>
-                                    </select>
-                                    <span class="fa fa-list form-control-feedback left"
-                                            aria-hidden="true"></span>
-                                   </div> --}}
                                    <div style="margin-left:300px;">
                                     <button type="submit" class="btn btn-success" style="margin-top:20px!important; margin-left:130px!important;">Salvar Alterações</button>
                                          <a href="/folha_rescisao" class="btn btn-danger" style="margin-top:20px!important;">Voltar</a>
@@ -152,6 +146,7 @@
     });
     var id_cliente = $("#estagiario_id").val();
     var table = $('.data-table').DataTable({
+       oLanguage: {sUrl : '/br/br.txt'},
         processing: true,
         serverSide: true,
         ajax: "http://rhmais.imugi.com.br/beneficio_estagiario/"+id_cliente,
